@@ -140,6 +140,22 @@ class NewsPage extends StatelessWidget {
               separatorBuilder: (BuildContext context, int index) =>
                   const Divider(),
             ),
+      bottomNavigationBar: new BottomNavigationBar(
+        items:<BottomNavigationBarItem>[
+          new BottomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              title: new Text("Home")
+          ),
+          new BottomNavigationBarItem(
+              icon: const Icon(Icons.work),
+              title: new Text("Self Help")
+          ),
+          new BottomNavigationBarItem(
+              icon: const Icon(Icons.face),
+              title: new Text("Profile")
+          )
+        ],
+      ),
     );
   }
 }
