@@ -31,7 +31,7 @@ class News with ChangeNotifier {
 
   void addNews() async {
     _loading = true;
-    _news = "LOADING...";
+    _news = "...";
     notifyListeners();
     try {
       Dio dio = new Dio();
