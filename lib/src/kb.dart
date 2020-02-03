@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart' as dom;
@@ -19,13 +20,17 @@ class KbApi {
 
   Future<List<YearRecord>> getYearBoxOffice() async {
     try {
-      var response =
-          await dio.get('http://kinobusiness.com/kassovye_sbory/films_year/');
+      //return <YearRecord>[YearRecord(1, 'TEST', 1)];
+      var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
+      document.querySelectorAll('table#krestable > tbody  > tr');
+      developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toRec).toList();
-    } catch (exception) {}
+    } catch (exception) {
+      developer.log(exception.toString());
+      return <YearRecord>[];
+    }
   }
 
   YearRecord toRec(dom.Element e) {
@@ -33,6 +38,7 @@ class KbApi {
     return YearRecord(
         int.parse(children[0].text.trim()),
         children[1].text.trim(),
-        int.parse(children[1].text.trim().replaceAll(RegExp(' '), '')));
+        //1);
+        int.tryParse(children[1].text.trim().replaceAll((' '), '')) ?? 0);
   }
 }

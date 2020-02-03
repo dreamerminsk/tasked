@@ -285,6 +285,7 @@ class BoxOfficePage extends StatelessWidget {
       ]),
       body: provider.currentWidget,
       bottomNavigationBar: new BottomNavigationBar(
+        selectedItemColor: Colors.deepOrange,
         currentIndex: provider.currentIndex,
         onTap: (index) {
           provider.currentIndex = index;
