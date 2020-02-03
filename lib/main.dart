@@ -111,14 +111,18 @@ class News with ChangeNotifier {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'kb-app',
-        theme: ThemeData(
-          primarySwatch: Colors.indigo,
-        ),
-        home: ChangeNotifierProvider<BottomNavigationBarProvider>(
-          create: (_) => BottomNavigationBarProvider(),
-          child: BoxOfficePage(),
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider<BottomNavigationBarProvider>(
+              create: (context) => BottomNavigationBarProvider()),
+          ChangeNotifierProvider<News>(create: (context) => News()),
+        ],
+        child: MaterialApp(
+          title: 'kb-app',
+          theme: ThemeData(
+            primarySwatch: Colors.indigo,
+          ),
+          home: BoxOfficePage(),
         ));
   }
 }
@@ -225,7 +229,7 @@ class BoxOfficePage extends StatelessWidget {
           },
         ),
       ]),
-      body: Text('${provider.currentTitle}'),
+      body: provider.currentWidget,
       bottomNavigationBar: new BottomNavigationBar(
         currentIndex: provider.currentIndex,
         onTap: (index) {
