@@ -42,7 +42,7 @@ class News with ChangeNotifier {
     try {
       Dio dio = new Dio();
       var response =
-      await dio.get('http://kinobusiness.com/kassovye_sbory/films_year/');
+          await dio.get('http://kinobusiness.com/kassovye_sbory/films_year/');
       var document = parse(response.data.toString());
       List<dom.Element> links = document.querySelectorAll('title');
       _loading = false;
@@ -53,7 +53,7 @@ class News with ChangeNotifier {
       _titles.clear();
       _titles.addAll(ms.map((e) => e.text).toList());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       rows.map(toRec);
       _titles.clear();
       _titles.addAll(rows.map(toRec).toList());
@@ -70,8 +70,7 @@ class News with ChangeNotifier {
     notifyListeners();
     try {
       Dio dio = new Dio();
-      var response =
-      await dio.get(
+      var response = await dio.get(
           'http://kinobusiness.com/kassovye_sbory/weekend/2020/26.01.2020/');
       var document = parse(response.data.toString());
       List<dom.Element> links = document.querySelectorAll('title');
@@ -83,14 +82,14 @@ class News with ChangeNotifier {
       _titles.clear();
       _titles.addAll(ms.map((e) => e.text).toList());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       rows.map(toRec);
       _titles.clear();
       _titles.addAll(rows.map(toRec2).toList());
     } catch (exception) {
-    _loading = false;
-    _news = "ERROR - " + exception.runtimeType.toString();
-    notifyListeners();
+      _loading = false;
+      _news = "ERROR - " + exception.runtimeType.toString();
+      notifyListeners();
     }
   }
 
@@ -113,95 +112,133 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'NEWS',
+        title: 'kb-app',
         theme: ThemeData(
           primarySwatch: Colors.indigo,
         ),
-        home: ChangeNotifierProvider<News>(
-          create: (_) => News(),
-          child: NewsPage(),
+        home: ChangeNotifierProvider<BottomNavigationBarProvider>(
+          create: (_) => BottomNavigationBarProvider(),
+          child: BoxOfficePage(),
         ));
   }
 }
 
-class NewsPage extends StatelessWidget {
-  final rng = new Random();
+class ThursdayBoxOffice extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('THURSDAY BOXOFFICE'),
+    );
+  }
+}
+
+class WeekendBoxOffice extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('WEEKEND BOXOFFICE'),
+    );
+  }
+}
+
+class YearBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final news = Provider.of<News>(context);
+    return ListView.separated(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(8),
+      itemCount: news.titles.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          //color: Colors.indigo,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(
+                width: 8,
+              ),
+              Text('${index + 1}',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+              SizedBox(
+                width: 12,
+              ),
+              Flexible(
+                child: Text('${news.titles[index]}',
+                    style: TextStyle(
+                        //color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 19)),
+              ),
+            ],
+          ),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
+  }
+}
+
+class BottomNavigationBarProvider with ChangeNotifier {
+  int _currentIndex = 0;
+
+  List<String> _titles = <String>['THURSDAY', 'WEEKEND', 'YEAR'];
+
+  List<Widget> _widgets = <Widget>[
+    ThursdayBoxOffice(),
+    WeekendBoxOffice(),
+    YearBoxOffice()
+  ];
+
+  get currentIndex => _currentIndex;
+
+  get currentTitle => _titles[_currentIndex];
+
+  get currentWidget => _widgets[_currentIndex];
+
+  get loading => false;
+
+  set currentIndex(int index) {
+    _currentIndex = index;
+    notifyListeners();
+  }
+}
+
+class BoxOfficePage extends StatelessWidget {
+  final rng = new Random();
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = Provider.of<BottomNavigationBarProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text('${news.getNews()}'), actions: <Widget>[
+      appBar: AppBar(title: Text('${provider.currentTitle}'), actions: <Widget>[
         // action button
         IconButton(
           icon: Icon(Icons.autorenew),
           onPressed: () async {
             if (rng.nextInt(100) > 50) {
-              news.addWeekBoxOffice();
+              //news.addWeekBoxOffice();
             } else {
-              news.addYearBoxOffice();
+              //news.addYearBoxOffice();
             }
           },
         ),
       ]),
-      body: news.getLoading()
-          ? Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            LoadingIndicator(
-              indicatorType: Indicator.ballClipRotateMultiple,
-            ),
-          ],
-        ),
-      )
-          : ListView.separated(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(8),
-        itemCount: news.titles.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            //color: Colors.indigo,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SizedBox(
-                  width: 8,
-                ),
-                Text('${index + 1}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 30)),
-                SizedBox(
-                  width: 12,
-                ),
-                Flexible(
-                  child: Text('${news.titles[index]}',
-                      style: TextStyle(
-                        //color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 19)),
-                ),
-              ],
-            ),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) =>
-        const Divider(),
-      ),
+      body: Text('${provider.currentTitle}'),
       bottomNavigationBar: new BottomNavigationBar(
+        currentIndex: provider.currentIndex,
+        onTap: (index) {
+          provider.currentIndex = index;
+        },
         items: <BottomNavigationBarItem>[
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
-              title: new Text("Home")
-          ),
+              icon: const Icon(Icons.today), title: new Text("THURSDAY")),
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.work),
-              title: new Text("Self Help")
-          ),
+              icon: const Icon(Icons.calendar_today),
+              title: new Text("WEEKEND")),
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.face),
-              title: new Text("Profile")
-          )
+              icon: const Icon(Icons.date_range), title: new Text("YEAR"))
         ],
       ),
     );
