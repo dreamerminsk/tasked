@@ -241,64 +241,6 @@ class YearBoxOffice extends StatelessWidget {
   }
 }
 
-class YearBoxOffice extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final news = Provider.of<YearModel>(context);
-    final oCcy = new NumberFormat("#,##0", "en_US");
-    return ListView.builder(
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(8),
-      itemCount: news.titles.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(
-          //color: Colors.indigo,
-          child: LayoutGrid(
-              columnGap: 12,
-              rowGap: 12,
-            templateColumnSizes: [
-              IntrinsicContentTrackSize(),
-              IntrinsicContentTrackSize (),
-            ],
-            templateRowSizes: [
-              IntrinsicContentTrackSize (),
-              IntrinsicContentTrackSize (),
-            ],
-              children: <Widget>[
-                GridPlacement(
-                  columnStart: 2,
-                  rowStart: 0, rowSpan: 2,
-                  child: Text('${news.titles[index].pos}',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26)),
-                ),
-                GridPlacement(
-                  columnStart: 1,
-                  rowStart: 0,
-                  child:  Text('${news.titles[index].title}',
-                          style: TextStyle(
-                            //color: Colors.white,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 16)),
-                ),
-                GridPlacement(
-                  columnStart: 1,
-                  rowStart: 1,
-                  child: Text('${oCcy.format(news.titles[index].boxOffice)}',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        //color: Colors.white,
-                          fontWeight: FontWeight.w100,
-                          fontSize: 18)),
-                ),
-              ],
-          ),
-        );
-      },
-      //separatorBuilder: (BuildContext context, int index) => const Divider(),
-    );
-  }
-}
-
 class BottomNavigationBarProvider with ChangeNotifier {
   int _currentIndex = 0;
 
