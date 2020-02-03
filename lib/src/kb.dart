@@ -38,7 +38,6 @@ class KbApi {
     return YearRecord(
         int.parse(children[0].text.trim()),
         children[1].text.trim(),
-        //1);
         int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0);
   }
 }

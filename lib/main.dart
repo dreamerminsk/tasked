@@ -1,26 +1,25 @@
 import 'dart:collection';
 import 'dart:math';
-import 'package:flutter/material.dart';
+
 import 'package:dio/dio.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
-import 'package:loading_indicator/loading_indicator.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+
 import 'src/kb.dart';
 
 void main() => runApp(MyApp());
-
-
 
 class ThursdayModel with ChangeNotifier {
   bool _loading = false;
   String _news;
   final List<String> _titles = [];
 
-  ThursdayModel() {
-
-  }
+  ThursdayModel() {}
 
   getLoading() => _loading;
 
@@ -68,17 +67,13 @@ class ThursdayModel with ChangeNotifier {
     return children[3].text + '\r\n' + children[6].text;
   }
 }
-
-
 
 class WeekendModel with ChangeNotifier {
   bool _loading = false;
   String _news;
   final List<String> _titles = [];
 
-  WeekendModel() {
-
-  }
+  WeekendModel() {}
 
   getLoading() => _loading;
 
@@ -126,8 +121,6 @@ class WeekendModel with ChangeNotifier {
     return children[3].text + '\r\n' + children[6].text;
   }
 }
-
-
 
 class YearModel with ChangeNotifier {
   KbApi kbApi = KbApi();
@@ -135,7 +128,7 @@ class YearModel with ChangeNotifier {
   final List<YearRecord> _titles = [];
 
   YearModel() {
-      addYearBoxOffice();
+    addYearBoxOffice();
   }
 
   getLoading() => _loading;
@@ -198,7 +191,8 @@ class YearBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final news = Provider.of<YearModel>(context);
-    return ListView.separated(
+    final oCcy = new NumberFormat("#,##0", "en_US");
+    return ListView.builder(
       shrinkWrap: true,
       padding: const EdgeInsets.all(8),
       itemCount: news.titles.length,
@@ -212,28 +206,34 @@ class YearBoxOffice extends StatelessWidget {
               SizedBox(
                 width: 8,
               ),
-              Text('${index + 1}',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+              Text('${news.titles[index].pos}',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26)),
               SizedBox(
                 width: 12,
               ),
-              Flexible(
-                child: Text('${news.titles[index].title}',
-                    style: TextStyle(
-                        //color: Colors.white,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 21)),
-              ),
-              Text('${news.titles[index].boxOffice}',
-                  style: TextStyle(
-                    //color: Colors.white,
-                      fontWeight: FontWeight.w100,
-                      fontSize: 21)),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Flexible(
+                        child: Text('${news.titles[index].title}',
+                            style: TextStyle(
+                              //color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16))),
+                    Text('${oCcy.format(news.titles[index].boxOffice)}',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          //color: Colors.white,
+                            fontWeight: FontWeight.w100,
+                            fontSize: 18)),
+                  ]),
             ],
           ),
         );
       },
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }
@@ -286,6 +286,7 @@ class BoxOfficePage extends StatelessWidget {
       body: provider.currentWidget,
       bottomNavigationBar: new BottomNavigationBar(
         selectedItemColor: Colors.deepOrange,
+        //backgroundColor: Colors.indigoAccent,
         currentIndex: provider.currentIndex,
         onTap: (index) {
           provider.currentIndex = index;
