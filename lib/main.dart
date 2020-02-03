@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
@@ -49,7 +50,7 @@ class ThursdayModel with ChangeNotifier {
       _titles.clear();
       _titles.addAll(ms.map((e) => e.text).toList());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       rows.map(toRec2);
       _titles.clear();
       _titles.addAll(rows.map(toRec2).toList());
@@ -103,7 +104,7 @@ class WeekendModel with ChangeNotifier {
       _titles.clear();
       _titles.addAll(ms.map((e) => e.text).toList());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       rows.map(toRec2);
       _titles.clear();
       _titles.addAll(rows.map(toRec2).toList());
@@ -143,6 +144,7 @@ class YearModel with ChangeNotifier {
     try {
       _titles.clear();
       _titles.addAll(await kbApi.getYearBoxOffice());
+      notifyListeners();
     } catch (exception) {
       _loading = false;
       notifyListeners();
@@ -187,7 +189,7 @@ class WeekendBoxOffice extends StatelessWidget {
   }
 }
 
-class YearBoxOffice extends StatelessWidget {
+class YearBoxOffice2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final news = Provider.of<YearModel>(context);
@@ -212,24 +214,83 @@ class YearBoxOffice extends StatelessWidget {
                 width: 12,
               ),
               Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Flexible(
-                        child: Text('${news.titles[index].title}',
-                            style: TextStyle(
+                //mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Flexible(
+                      child: Text('${news.titles[index].title}',
+                          style: TextStyle(
                               //color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16))),
-                    Text('${oCcy.format(news.titles[index].boxOffice)}',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: 16))),
+                  Text('${oCcy.format(news.titles[index].boxOffice)}',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
                           //color: Colors.white,
-                            fontWeight: FontWeight.w100,
-                            fontSize: 18)),
-                  ]),
+                          fontWeight: FontWeight.w100,
+                          fontSize: 18)),
+                ],
+              ),
             ],
+          ),
+        );
+      },
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
+  }
+}
+
+class YearBoxOffice extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final news = Provider.of<YearModel>(context);
+    final oCcy = new NumberFormat("#,##0", "en_US");
+    return ListView.builder(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(8),
+      itemCount: news.titles.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          //color: Colors.indigo,
+          child: LayoutGrid(
+              columnGap: 12,
+              rowGap: 12,
+            templateColumnSizes: [
+              IntrinsicContentTrackSize(),
+              IntrinsicContentTrackSize (),
+            ],
+            templateRowSizes: [
+              IntrinsicContentTrackSize (),
+              IntrinsicContentTrackSize (),
+            ],
+              children: <Widget>[
+                GridPlacement(
+                  columnStart: 2,
+                  rowStart: 0, rowSpan: 2,
+                  child: Text('${news.titles[index].pos}',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26)),
+                ),
+                GridPlacement(
+                  columnStart: 1,
+                  rowStart: 0,
+                  child:  Text('${news.titles[index].title}',
+                          style: TextStyle(
+                            //color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 16)),
+                ),
+                GridPlacement(
+                  columnStart: 1,
+                  rowStart: 1,
+                  child: Text('${oCcy.format(news.titles[index].boxOffice)}',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        //color: Colors.white,
+                          fontWeight: FontWeight.w100,
+                          fontSize: 18)),
+                ),
+              ],
           ),
         );
       },
