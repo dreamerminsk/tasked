@@ -189,7 +189,7 @@ class WeekendBoxOffice extends StatelessWidget {
   }
 }
 
-class YearBoxOffice2 extends StatelessWidget {
+class YearBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final news = Provider.of<YearModel>(context);
