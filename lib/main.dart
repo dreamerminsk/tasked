@@ -11,18 +11,15 @@ import 'src/kb.dart';
 
 void main() => runApp(MyApp());
 
-class News with ChangeNotifier {
+
+
+class ThursdayModel with ChangeNotifier {
   bool _loading = false;
   String _news;
   final List<String> _titles = [];
 
-  News() {
-    var rng = new Random();
-    if (rng.nextInt(100) > 50) {
-      addWeekBoxOffice();
-    } else {
-      addYearBoxOffice();
-    }
+  ThursdayModel() {
+
   }
 
   getLoading() => _loading;
@@ -34,35 +31,6 @@ class News with ChangeNotifier {
   getTitles() => _titles;
 
   UnmodifiableListView<String> get titles => UnmodifiableListView(_titles);
-
-  void addYearBoxOffice() async {
-    _loading = true;
-    _news = "...";
-    notifyListeners();
-    try {
-      Dio dio = new Dio();
-      var response =
-          await dio.get('http://kinobusiness.com/kassovye_sbory/films_year/');
-      var document = parse(response.data.toString());
-      List<dom.Element> links = document.querySelectorAll('title');
-      _loading = false;
-      _news = links[0].text;
-      notifyListeners();
-      List<dom.Element> ms = document
-          .querySelectorAll('table#krestable > tbody  > tr > td > b > a');
-      _titles.clear();
-      _titles.addAll(ms.map((e) => e.text).toList());
-      List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
-      rows.map(toRec);
-      _titles.clear();
-      _titles.addAll(rows.map(toRec).toList());
-    } catch (exception) {
-      _loading = false;
-      _news = "ERROR - " + exception.runtimeType.toString();
-      notifyListeners();
-    }
-  }
 
   void addWeekBoxOffice() async {
     _loading = true;
@@ -82,8 +50,8 @@ class News with ChangeNotifier {
       _titles.clear();
       _titles.addAll(ms.map((e) => e.text).toList());
       List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
-      rows.map(toRec);
+      document.querySelectorAll('table#krestable > tbody  > tr');
+      rows.map(toRec2);
       _titles.clear();
       _titles.addAll(rows.map(toRec2).toList());
     } catch (exception) {
@@ -91,13 +59,6 @@ class News with ChangeNotifier {
       _news = "ERROR - " + exception.runtimeType.toString();
       notifyListeners();
     }
-  }
-
-  String toRec(dom.Element e) {
-    var children = e.getElementsByTagName('td');
-    //var t = '';
-    //children.forEach((c) => {t = t + c.text});
-    return children[1].text + '\r\n' + children[5].text;
   }
 
   String toRec2(dom.Element e) {
@@ -108,6 +69,94 @@ class News with ChangeNotifier {
   }
 }
 
+
+
+class WeekendModel with ChangeNotifier {
+  bool _loading = false;
+  String _news;
+  final List<String> _titles = [];
+
+  WeekendModel() {
+
+  }
+
+  getLoading() => _loading;
+
+  getNews() => _news;
+
+  setNews(String news) => _news = news;
+
+  getTitles() => _titles;
+
+  UnmodifiableListView<String> get titles => UnmodifiableListView(_titles);
+
+  void addWeekBoxOffice() async {
+    _loading = true;
+    _news = "...";
+    notifyListeners();
+    try {
+      Dio dio = new Dio();
+      var response = await dio.get(
+          'http://kinobusiness.com/kassovye_sbory/weekend/2020/26.01.2020/');
+      var document = parse(response.data.toString());
+      List<dom.Element> links = document.querySelectorAll('title');
+      _loading = false;
+      _news = links[0].text;
+      notifyListeners();
+      List<dom.Element> ms = document
+          .querySelectorAll('table#krestable > tbody  > tr > td > b > a');
+      _titles.clear();
+      _titles.addAll(ms.map((e) => e.text).toList());
+      List<dom.Element> rows =
+      document.querySelectorAll('table#krestable > tbody  > tr');
+      rows.map(toRec2);
+      _titles.clear();
+      _titles.addAll(rows.map(toRec2).toList());
+    } catch (exception) {
+      _loading = false;
+      _news = "ERROR - " + exception.runtimeType.toString();
+      notifyListeners();
+    }
+  }
+
+  String toRec2(dom.Element e) {
+    var children = e.getElementsByTagName('td');
+    //var t = '';
+    //children.forEach((c) => {t = t + c.text});
+    return children[3].text + '\r\n' + children[6].text;
+  }
+}
+
+
+
+class YearModel with ChangeNotifier {
+  KbApi kbApi = KbApi();
+  bool _loading = false;
+  final List<YearRecord> _titles = [];
+
+  YearModel() {
+      addYearBoxOffice();
+  }
+
+  getLoading() => _loading;
+
+  getTitles() => _titles;
+
+  UnmodifiableListView<YearRecord> get titles => UnmodifiableListView(_titles);
+
+  void addYearBoxOffice() async {
+    _loading = true;
+    notifyListeners();
+    try {
+      _titles.clear();
+      _titles.addAll(await kbApi.getYearBoxOffice());
+    } catch (exception) {
+      _loading = false;
+      notifyListeners();
+    }
+  }
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -115,7 +164,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider<BottomNavigationBarProvider>(
               create: (context) => BottomNavigationBarProvider()),
-          ChangeNotifierProvider<News>(create: (context) => News()),
+          ChangeNotifierProvider<YearModel>(create: (context) => YearModel()),
         ],
         child: MaterialApp(
           title: 'kb-app',
@@ -148,7 +197,7 @@ class WeekendBoxOffice extends StatelessWidget {
 class YearBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final news = Provider.of<News>(context);
+    final news = Provider.of<YearModel>(context);
     return ListView.separated(
       shrinkWrap: true,
       padding: const EdgeInsets.all(8),
@@ -169,12 +218,17 @@ class YearBoxOffice extends StatelessWidget {
                 width: 12,
               ),
               Flexible(
-                child: Text('${news.titles[index]}',
+                child: Text('${news.titles[index].title}',
                     style: TextStyle(
                         //color: Colors.white,
                         fontWeight: FontWeight.normal,
-                        fontSize: 19)),
+                        fontSize: 21)),
               ),
+              Text('${news.titles[index].boxOffice}',
+                  style: TextStyle(
+                    //color: Colors.white,
+                      fontWeight: FontWeight.w100,
+                      fontSize: 21)),
             ],
           ),
         );
