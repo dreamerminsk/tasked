@@ -48,20 +48,19 @@ class KbApi {
 
   Future<List<YearRecord>> getYearBoxOffice() async {
     try {
-      //return <YearRecord>[YearRecord(1, 'TEST', 1)];
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
           document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(toRec).toList();
+      return rows.map(toYearRec).toList();
     } catch (exception) {
       developer.log(exception.toString());
       return <YearRecord>[];
     }
   }
 
-  YearRecord toRec(dom.Element e) {
+  YearRecord toYearRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return YearRecord(
         int.parse(children[0].text.trim()),
@@ -71,20 +70,19 @@ class KbApi {
 
   Future<List<WeekendRecord>> getWeekendBoxOffice() async {
     try {
-      //return <YearRecord>[YearRecord(1, 'TEST', 1)];
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
           document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(toRec2).toList();
+      return rows.map(toWeekendRec).toList();
     } catch (exception) {
       developer.log(exception.toString());
       return <WeekendRecord>[];
     }
   }
 
-  WeekendRecord toRec2(dom.Element e) {
+  WeekendRecord toWeekendRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return WeekendRecord(
         int.parse(children[0].text.trim()),
@@ -94,20 +92,19 @@ class KbApi {
 
   Future<List<ThursdayRecord>> getThursdayBoxOffice() async {
     try {
-      //return <YearRecord>[YearRecord(1, 'TEST', 1)];
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
           document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(toRec3).toList();
+      return rows.map(toThursdayRec).toList();
     } catch (exception) {
       developer.log(exception.toString());
       return <ThursdayRecord>[];
     }
   }
 
-  ThursdayRecord toRec3(dom.Element e) {
+  ThursdayRecord toThursdayRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return ThursdayRecord(
         int.parse(children[0].text.trim()),

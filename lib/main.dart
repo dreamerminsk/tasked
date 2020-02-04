@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
@@ -213,24 +212,26 @@ class YearBoxOffice extends StatelessWidget {
               SizedBox(
                 width: 12,
               ),
-              Column(
-                //mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Flexible(
-                      child: Text('${news.titles[index].title}',
-                          style: TextStyle(
+              Flexible(
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Flexible(
+                        child: Text('${news.titles[index].title}',
+                            style: TextStyle(
                               //color: Colors.white,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 16))),
-//                  Text('${oCcy.format(news.titles[index].boxOffice)}',
-//                      textAlign: TextAlign.left,
-//                      style: TextStyle(
-//                          //color: Colors.white,
-//                          fontWeight: FontWeight.w100,
-//                          fontSize: 18)),
-                ],
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16))),
+                    Text('${oCcy.format(news.titles[index].boxOffice)}',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          //color: Colors.white,
+                            fontWeight: FontWeight.w100,
+                            fontSize: 18)),
+                  ],
+                ),
               ),
             ],
           ),
