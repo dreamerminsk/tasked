@@ -1,12 +1,9 @@
 import 'dart:collection';
 import 'dart:math';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:html/dom.dart' as dom;
-import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +17,7 @@ class ThursdayModel with ChangeNotifier {
   final List<ThursdayRecord> _titles = [];
 
   ThursdayModel() {
-    load();
+    loadThursdays();
   }
 
   getLoading() => _loading;
@@ -30,7 +27,7 @@ class ThursdayModel with ChangeNotifier {
   UnmodifiableListView<ThursdayRecord> get titles =>
       UnmodifiableListView(_titles);
 
-  void load() async {
+  void loadThursdays() async {
     _loading = true;
     notifyListeners();
     try {
@@ -126,11 +123,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
+mixin Updatable {}
+
 class ThursdayBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final thursday = Provider.of<ThursdayModel>(context);
-    final oCcy = new NumberFormat("#,##0", "en_US");
+    var oCcy = new NumberFormat("#,##0", "en_US");
     return ListView.builder(
       shrinkWrap: true,
       padding: const EdgeInsets.all(8),
@@ -189,7 +188,7 @@ class WeekendBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final weekend = Provider.of<WeekendModel>(context);
-    final oCcy = new NumberFormat("#,##0", "en_US");
+    var oCcy = new NumberFormat("#,##0", "en_US");
     return ListView.builder(
       shrinkWrap: true,
       padding: const EdgeInsets.all(8),
@@ -248,7 +247,7 @@ class YearBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final year = Provider.of<YearModel>(context);
-    final oCcy = new NumberFormat("#,##0", "en_US");
+    var oCcy = new NumberFormat("#,##0", "en_US");
     return ListView.builder(
       shrinkWrap: true,
       padding: const EdgeInsets.all(8),
@@ -326,6 +325,12 @@ class BottomNavigationBarProvider with ChangeNotifier {
     _currentIndex = index;
     notifyListeners();
   }
+
+  update() {
+    if (currentWidget is YearBoxOffice) {
+      //(currentWidget as YearBoxOffice).update();
+    }
+  }
 }
 
 class BoxOfficePage extends StatelessWidget {
@@ -340,10 +345,14 @@ class BoxOfficePage extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.autorenew),
           onPressed: () async {
-            if (rng.nextInt(100) > 50) {
-              //news.addWeekBoxOffice();
-            } else {
-              //news.addYearBoxOffice();
+            var idx = provider.currentIndex;
+            if (idx == 0) {
+              Provider.of<ThursdayModel>(context, listen: false)
+                  .loadThursdays();
+            } else if (idx == 1) {
+              Provider.of<WeekendModel>(context, listen: false).load();
+            } else if (idx == 2) {
+              Provider.of<YearModel>(context, listen: false).addYearBoxOffice();
             }
           },
         ),
