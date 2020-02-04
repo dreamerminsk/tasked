@@ -4,6 +4,7 @@ import 'dart:developer' as developer;
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
+import 'package:intl/intl.dart';
 
 class YearRecord {
   int pos;
@@ -39,6 +40,10 @@ class KbApi {
   static final thursdayBoxOffice =
       'http://kinobusiness.com/kassovye_sbory/thursday/';
 
+  static final fullDateFormatter = new DateFormat('dd.MM.yyyy');
+
+  static final yearFormatter = new DateFormat('yyyy');
+
   static final Dio dio = Dio();
 
   Future<List<YearRecord>> getYearBoxOffice() async {
@@ -47,7 +52,7 @@ class KbApi {
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toRec).toList();
     } catch (exception) {
@@ -70,7 +75,7 @@ class KbApi {
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toRec2).toList();
     } catch (exception) {
@@ -93,7 +98,7 @@ class KbApi {
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+          document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toRec3).toList();
     } catch (exception) {
