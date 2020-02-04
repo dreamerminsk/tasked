@@ -89,7 +89,7 @@ class WeekendModel with ChangeNotifier {
     notifyListeners();
     try {
       _titles.clear();
-      _titles.addAll(await kbApi.getWeekendBoxOffice(DateTime(2020, 1, 1)));
+      _titles.addAll(await kbApi.getWeekendBoxOffice(DateTime(2020, 1, 26)));
       notifyListeners();
     } catch (exception) {
       _loading = false;

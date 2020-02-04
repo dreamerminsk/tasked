@@ -71,7 +71,8 @@ class KbApi {
   Future<List<WeekendRecord>> getWeekendBoxOffice(DateTime day) async {
     try {
       String url = '$weekendBoxOffice${yearFormatter.format(
-          day)}/${fullDateFormatter.format(day)}';
+          day)}/${fullDateFormatter.format(day)}/';
+      developer.log(url);
       var response = await dio.get(url);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
@@ -87,7 +88,7 @@ class KbApi {
   WeekendRecord toWeekendRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return WeekendRecord(
-        int.parse(children[0].text.trim()),
+        int.parse(children[1].text.trim()),
         children[3].text.trim(),
         int.tryParse(children[6].text.trim().replaceAll((' '), '')) ?? 0);
   }
