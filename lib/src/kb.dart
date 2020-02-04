@@ -93,12 +93,15 @@ class KbApi {
         int.tryParse(children[6].text.trim().replaceAll((' '), '')) ?? 0);
   }
 
-  Future<List<ThursdayRecord>> getThursdayBoxOffice() async {
+  Future<List<ThursdayRecord>> getThursdayBoxOffice(DateTime day) async {
     try {
-      var response = await dio.get(yearBoxOffice);
+      String url = '$thursdayBoxOffice${yearFormatter.format(
+          day)}/${fullDateFormatter.format(day)}/';
+      developer.log(url);
+      var response = await dio.get(url);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
+      document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toThursdayRec).toList();
     } catch (exception) {
@@ -111,7 +114,7 @@ class KbApi {
     var children = e.getElementsByTagName('td');
     return ThursdayRecord(
         int.parse(children[0].text.trim()),
-        children[3].text.trim(),
-        int.tryParse(children[6].text.trim().replaceAll((' '), '')) ?? 0);
+        children[1].text.trim(),
+        int.tryParse(children[3].text.trim().replaceAll((' '), '')) ?? 0);
   }
 }

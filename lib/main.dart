@@ -15,56 +15,32 @@ import 'src/kb.dart';
 void main() => runApp(MyApp());
 
 class ThursdayModel with ChangeNotifier {
+  KbApi kbApi = KbApi();
   bool _loading = false;
-  String _news;
-  final List<String> _titles = [];
+  final List<ThursdayRecord> _titles = [];
 
-  ThursdayModel() {}
+  ThursdayModel() {
+    load();
+  }
 
   getLoading() => _loading;
 
-  getNews() => _news;
-
-  setNews(String news) => _news = news;
-
   getTitles() => _titles;
 
-  UnmodifiableListView<String> get titles => UnmodifiableListView(_titles);
+  UnmodifiableListView<ThursdayRecord> get titles =>
+      UnmodifiableListView(_titles);
 
-  void addWeekBoxOffice() async {
+  void load() async {
     _loading = true;
-    _news = "...";
     notifyListeners();
     try {
-      Dio dio = new Dio();
-      var response = await dio.get(
-          'http://kinobusiness.com/kassovye_sbory/weekend/2020/26.01.2020/');
-      var document = parse(response.data.toString());
-      List<dom.Element> links = document.querySelectorAll('title');
-      _loading = false;
-      _news = links[0].text;
+      _titles.clear();
+      _titles.addAll(await kbApi.getThursdayBoxOffice(DateTime(2020, 1, 30)));
       notifyListeners();
-      List<dom.Element> ms = document
-          .querySelectorAll('table#krestable > tbody  > tr > td > b > a');
-      _titles.clear();
-      _titles.addAll(ms.map((e) => e.text).toList());
-      List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
-      rows.map(toRec2);
-      _titles.clear();
-      _titles.addAll(rows.map(toRec2).toList());
     } catch (exception) {
       _loading = false;
-      _news = "ERROR - " + exception.runtimeType.toString();
       notifyListeners();
     }
-  }
-
-  String toRec2(dom.Element e) {
-    var children = e.getElementsByTagName('td');
-    //var t = '';
-    //children.forEach((c) => {t = t + c.text});
-    return children[3].text + '\r\n' + children[6].text;
   }
 }
 
@@ -137,6 +113,8 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<YearModel>(create: (context) => YearModel()),
           ChangeNotifierProvider<WeekendModel>(
               create: (context) => WeekendModel()),
+          ChangeNotifierProvider<ThursdayModel>(
+              create: (context) => ThursdayModel()),
         ],
         child: MaterialApp(
           title: 'kb-app',
@@ -151,8 +129,58 @@ class MyApp extends StatelessWidget {
 class ThursdayBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('THURSDAY BOXOFFICE'),
+    final thursday = Provider.of<ThursdayModel>(context);
+    final oCcy = new NumberFormat("#,##0", "en_US");
+    return ListView.builder(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(8),
+      itemCount: thursday.titles.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          //color: Colors.indigo,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(
+                width: 6,
+              ),
+              Container(
+                width: 40,
+                child: Text('${thursday.titles[index].pos}',
+                    textAlign: TextAlign.center,
+                    style:
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+              ),
+              SizedBox(
+                width: 6,
+              ),
+              Flexible(
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Flexible(
+                        child: Text('${thursday.titles[index].title}',
+                            style: TextStyle(
+                              //color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16))),
+                    Text('${oCcy.format(thursday.titles[index].boxOffice)}',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          //color: Colors.white,
+                            fontWeight: FontWeight.w100,
+                            fontSize: 18)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }
