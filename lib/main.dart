@@ -205,18 +205,17 @@ class YearBoxOffice extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               SizedBox(
-                width: 8,
+                width: 6,
               ),
               Container(
                 width: 40,
-                foregroundDecoration: BoxDecoration(color: Colors.white70),
                 child: Text('${news.titles[index].pos}',
                     textAlign: TextAlign.center,
                     style:
                     TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
               ),
               SizedBox(
-                width: 5,
+                width: 6,
               ),
               Flexible(
                 child: Column(

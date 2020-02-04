@@ -68,9 +68,11 @@ class KbApi {
         int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0);
   }
 
-  Future<List<WeekendRecord>> getWeekendBoxOffice() async {
+  Future<List<WeekendRecord>> getWeekendBoxOffice(DateTime day) async {
     try {
-      var response = await dio.get(yearBoxOffice);
+      String url = '$weekendBoxOffice${yearFormatter.format(
+          day)}/${fullDateFormatter.format(day)}';
+      var response = await dio.get(url);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
           document.querySelectorAll('table#krestable > tbody  > tr');
