@@ -17,7 +17,7 @@ class ThursdayModel with ChangeNotifier {
   final List<ThursdayRecord> _titles = [];
 
   ThursdayModel() {
-    loadThursdays();
+    load();
   }
 
   getLoading() => _loading;
@@ -27,7 +27,7 @@ class ThursdayModel with ChangeNotifier {
   UnmodifiableListView<ThursdayRecord> get titles =>
       UnmodifiableListView(_titles);
 
-  void loadThursdays() async {
+  void load() async {
     _loading = true;
     notifyListeners();
     try {
@@ -77,7 +77,7 @@ class YearModel with ChangeNotifier {
   final List<YearRecord> _titles = [];
 
   YearModel() {
-    addYearBoxOffice();
+    load();
   }
 
   getLoading() => _loading;
@@ -86,7 +86,7 @@ class YearModel with ChangeNotifier {
 
   UnmodifiableListView<YearRecord> get titles => UnmodifiableListView(_titles);
 
-  void addYearBoxOffice() async {
+  void load() async {
     _loading = true;
     notifyListeners();
     try {
@@ -348,11 +348,11 @@ class BoxOfficePage extends StatelessWidget {
             var idx = provider.currentIndex;
             if (idx == 0) {
               Provider.of<ThursdayModel>(context, listen: false)
-                  .loadThursdays();
+                  .load();
             } else if (idx == 1) {
               Provider.of<WeekendModel>(context, listen: false).load();
             } else if (idx == 2) {
-              Provider.of<YearModel>(context, listen: false).addYearBoxOffice();
+              Provider.of<YearModel>(context, listen: false).load();
             }
           },
         ),
