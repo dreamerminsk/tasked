@@ -224,12 +224,12 @@ class YearBoxOffice extends StatelessWidget {
                               //color: Colors.white,
                               fontWeight: FontWeight.normal,
                               fontSize: 16))),
-                  Text('${oCcy.format(news.titles[index].boxOffice)}',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          //color: Colors.white,
-                          fontWeight: FontWeight.w100,
-                          fontSize: 18)),
+//                  Text('${oCcy.format(news.titles[index].boxOffice)}',
+//                      textAlign: TextAlign.left,
+//                      style: TextStyle(
+//                          //color: Colors.white,
+//                          fontWeight: FontWeight.w100,
+//                          fontSize: 18)),
                 ],
               ),
             ],

@@ -32,7 +32,14 @@ class ThursdayRecord {
 class KbApi {
   static final yearBoxOffice =
       'http://kinobusiness.com/kassovye_sbory/films_year/';
-  static Dio dio = Dio();
+
+  static final weekendBoxOffice =
+      'http://kinobusiness.com/kassovye_sbory/weekend/';
+
+  static final thursdayBoxOffice =
+      'http://kinobusiness.com/kassovye_sbory/thursday/';
+
+  static final Dio dio = Dio();
 
   Future<List<YearRecord>> getYearBoxOffice() async {
     try {
@@ -57,7 +64,7 @@ class KbApi {
         int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0);
   }
 
-Future<List<WeekendRecord>> getWeekendBoxOffice() async {
+  Future<List<WeekendRecord>> getWeekendBoxOffice() async {
     try {
       //return <YearRecord>[YearRecord(1, 'TEST', 1)];
       var response = await dio.get(yearBoxOffice);
@@ -80,7 +87,7 @@ Future<List<WeekendRecord>> getWeekendBoxOffice() async {
         int.tryParse(children[6].text.trim().replaceAll((' '), '')) ?? 0);
   }
 
-Future<List<ThursdayRecord>> getThursdayBoxOffice() async {
+  Future<List<ThursdayRecord>> getThursdayBoxOffice() async {
     try {
       //return <YearRecord>[YearRecord(1, 'TEST', 1)];
       var response = await dio.get(yearBoxOffice);
