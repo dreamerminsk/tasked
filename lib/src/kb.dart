@@ -68,6 +68,25 @@ class KbApi {
         int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0);
   }
 
+  Future<List<DateTime>> getWeekends() async {
+    try {
+      String url = '$weekendBoxOffice';
+      var response = await dio.get(url);
+      var document = parse(response.data.toString());
+      List<dom.Element> rows = document.querySelectorAll(
+          'table.calendar_year > tbody > tr > td > center > a[href]');
+      developer.log('ELEMENTS: ${rows.length}');
+      var ds = rows.map((item) {
+        var parts = item.text.trim().split("/");
+        return fullDateFormatter.parse(parts[parts.length - 1]);
+      }).toList();
+      return ds;
+    } catch (exception) {
+      developer.log(exception.toString());
+      return <DateTime>[];
+    }
+  }
+
   Future<List<WeekendRecord>> getWeekendBoxOffice(DateTime day) async {
     try {
       String url =
@@ -103,7 +122,8 @@ class KbApi {
           'table.calendar_year > tbody > tr > td > center > a[href]');
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
-        return fullDateFormatter.parse(item.text);
+        var parts = item.text.trim().split("/");
+        return fullDateFormatter.parse(parts[parts.length - 1]);
       }).toList();
       return ds;
     } catch (exception) {

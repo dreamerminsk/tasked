@@ -55,6 +55,7 @@ class WeekendModel with ChangeNotifier {
   KbApi kbApi = KbApi();
   bool _loading = false;
   final List<WeekendRecord> _titles = [];
+  final List<DateTime> _weekends = [];
 
   WeekendModel() {
     load();
@@ -67,12 +68,20 @@ class WeekendModel with ChangeNotifier {
   UnmodifiableListView<WeekendRecord> get titles =>
       UnmodifiableListView(_titles);
 
+  UnmodifiableListView<DateTime> get weekends =>
+      UnmodifiableListView(_weekends);
+
   void load() async {
     _loading = true;
     notifyListeners();
     try {
+      _weekends.clear();
+      _weekends.addAll(await kbApi.getWeekends());
+      notifyListeners();
+    } catch (exception) {}
+    try {
       _titles.clear();
-      _titles.addAll(await kbApi.getWeekendBoxOffice(DateTime(2020, 1, 26)));
+      _titles.addAll(await kbApi.getWeekendBoxOffice(weekends[0]));
       notifyListeners();
     } catch (exception) {
       _loading = false;
@@ -223,56 +232,66 @@ class WeekendBoxOffice extends StatelessWidget {
   Widget build(BuildContext context) {
     final weekend = Provider.of<WeekendModel>(context);
     var oCcy = new NumberFormat("#,##0", "en_US");
-    return ListView.builder(
-      shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      itemCount: weekend.titles.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(
-          //color: Colors.indigo,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                width: 6,
-              ),
-              Container(
-                width: 40,
-                child: Text('${weekend.titles[index].pos}',
-                    textAlign: TextAlign.center,
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
-              ),
-              SizedBox(
-                width: 6,
-              ),
-              Flexible(
-                child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Flexible(
-                        child: Text('${weekend.titles[index].title}',
+    return weekend.getLoading()
+        ? Center(child: CircularProgressIndicator())
+        : Column(
+      children: <Widget>[
+        Center(
+          child: Text('${weekend.weekends[0]}'),
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          itemCount: weekend.titles.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              //color: Colors.indigo,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Container(
+                    width: 40,
+                    child: Text('${weekend.titles[index].pos}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 21)),
+                  ),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Flexible(
+                    child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Flexible(
+                            child: Text('${weekend.titles[index].title}',
+                                style: TextStyle(
+                                  //color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 16))),
+                        Text(
+                            '${oCcy.format(weekend.titles[index].boxOffice)}',
+                            textAlign: TextAlign.left,
                             style: TextStyle(
                               //color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16))),
-                    Text('${oCcy.format(weekend.titles[index].boxOffice)}',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          //color: Colors.white,
-                            fontWeight: FontWeight.w100,
-                            fontSize: 18)),
-                  ],
-                ),
+                                fontWeight: FontWeight.w100,
+                                fontSize: 18)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
-      },
-      //separatorBuilder: (BuildContext context, int index) => const Divider(),
+            );
+          },
+          //separatorBuilder: (BuildContext context, int index) => const Divider(),
+        )
+      ],
     );
   }
 }
