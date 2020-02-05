@@ -122,7 +122,9 @@ class KbApi {
           'table.calendar_year > tbody > tr > td > center > a[href]');
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
-        var parts = item.text.trim().split("/");
+        developer.log('ITEM: ${item}');
+        var parts = item.text.trim().split("//");
+        developer.log('PARTS: ${parts.length}');
         return fullDateFormatter.parse(parts[parts.length - 1]);
       }).toList();
       return ds;
