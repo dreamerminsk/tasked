@@ -130,9 +130,11 @@ class ThursdayBoxOffice extends StatelessWidget {
   Widget build(BuildContext context) {
     final thursday = Provider.of<ThursdayModel>(context);
     var oCcy = new NumberFormat("#,##0", "en_US");
-    return ListView.builder(
+    return thursday.getLoading()
+        ? Center(child: CircularProgressIndicator())
+        : ListView.builder(
       shrinkWrap: true,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       itemCount: thursday.titles.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
@@ -148,8 +150,8 @@ class ThursdayBoxOffice extends StatelessWidget {
                 width: 40,
                 child: Text('${thursday.titles[index].pos}',
                     textAlign: TextAlign.center,
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 21)),
               ),
               SizedBox(
                 width: 6,
@@ -166,7 +168,8 @@ class ThursdayBoxOffice extends StatelessWidget {
                               //color: Colors.white,
                                 fontWeight: FontWeight.normal,
                                 fontSize: 16))),
-                    Text('${oCcy.format(thursday.titles[index].boxOffice)}',
+                    Text(
+                        '${oCcy.format(thursday.titles[index].boxOffice)}',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           //color: Colors.white,
@@ -191,7 +194,7 @@ class WeekendBoxOffice extends StatelessWidget {
     var oCcy = new NumberFormat("#,##0", "en_US");
     return ListView.builder(
       shrinkWrap: true,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       itemCount: weekend.titles.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
@@ -250,7 +253,7 @@ class YearBoxOffice extends StatelessWidget {
     var oCcy = new NumberFormat("#,##0", "en_US");
     return ListView.builder(
       shrinkWrap: true,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       itemCount: year.titles.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
@@ -347,8 +350,7 @@ class BoxOfficePage extends StatelessWidget {
           onPressed: () async {
             var idx = provider.currentIndex;
             if (idx == 0) {
-              Provider.of<ThursdayModel>(context, listen: false)
-                  .load();
+              Provider.of<ThursdayModel>(context, listen: false).load();
             } else if (idx == 1) {
               Provider.of<WeekendModel>(context, listen: false).load();
             } else if (idx == 2) {
