@@ -82,6 +82,7 @@ class WeekendModel with ChangeNotifier {
     try {
       _titles.clear();
       _titles.addAll(await kbApi.getWeekendBoxOffice(weekends[0]));
+      _loading = false;
       notifyListeners();
     } catch (exception) {
       _loading = false;
@@ -149,6 +150,7 @@ class ThursdayBoxOffice extends StatelessWidget {
   Widget build(BuildContext context) {
     final thursday = Provider.of<ThursdayModel>(context);
     var oCcy = new NumberFormat("#,##0", "en_US");
+    final fullDateFormatter = new DateFormat('dd.MM.yyyy');
     return thursday.getLoading()
         ? Center(child: CircularProgressIndicator())
         : Column(children: <Widget>[
@@ -158,11 +160,13 @@ class ThursdayBoxOffice extends StatelessWidget {
           children: <Widget>[
             ButtonBar(children: <Widget>[
               RaisedButton(
-                child: Text('${thursday.thursdays[1]}'),
+                child: Text(
+                    '${fullDateFormatter.format(thursday.thursdays[1])}'),
                 onPressed: () => {},
               ),
               RaisedButton(
-                child: Text('${thursday.thursdays[0]}'),
+                child: Text(
+                    '${fullDateFormatter.format(thursday.thursdays[0])}'),
                 onPressed: () => {},
               ),
               RaisedButton(
@@ -232,66 +236,66 @@ class WeekendBoxOffice extends StatelessWidget {
   Widget build(BuildContext context) {
     final weekend = Provider.of<WeekendModel>(context);
     var oCcy = new NumberFormat("#,##0", "en_US");
+    final fullDateFormatter = new DateFormat('dd.MM.yyyy');
     return weekend.getLoading()
         ? Center(child: CircularProgressIndicator())
-        : Column(
-      children: <Widget>[
-        Center(
-          child: Text('${weekend.weekends[0]}'),
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          itemCount: weekend.titles.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              //color: Colors.indigo,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  SizedBox(
-                    width: 6,
+        : ListView.builder(
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      itemCount: weekend.titles.length + 1,
+      itemBuilder: (BuildContext context, int index) {
+        if (index == 0) {
+          return Center(
+              child: Text(
+                  '${fullDateFormatter.format(weekend.weekends[0])}'));
+        } else
+          return Card(
+            //color: Colors.indigo,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  width: 6,
+                ),
+                Container(
+                  width: 40,
+                  child: Text('${weekend.titles[index - 1].pos}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 21)),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Flexible(
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Flexible(
+                          child:
+                          Text('${weekend.titles[index - 1].title}',
+                              style: TextStyle(
+                                //color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16))),
+                      Text(
+                          '${oCcy.format(weekend.titles[index - 1].boxOffice)}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            //color: Colors.white,
+                              fontWeight: FontWeight.w100,
+                              fontSize: 18)),
+                    ],
                   ),
-                  Container(
-                    width: 40,
-                    child: Text('${weekend.titles[index].pos}',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 21)),
-                  ),
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Flexible(
-                    child: Column(
-                      //mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Flexible(
-                            child: Text('${weekend.titles[index].title}',
-                                style: TextStyle(
-                                  //color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 16))),
-                        Text(
-                            '${oCcy.format(weekend.titles[index].boxOffice)}',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              //color: Colors.white,
-                                fontWeight: FontWeight.w100,
-                                fontSize: 18)),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-          //separatorBuilder: (BuildContext context, int index) => const Divider(),
-        )
-      ],
+                ),
+              ],
+            ),
+          );
+      },
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }
