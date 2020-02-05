@@ -33,6 +33,7 @@ class ThursdayModel with ChangeNotifier {
     try {
       _titles.clear();
       _titles.addAll(await kbApi.getThursdayBoxOffice(DateTime(2020, 1, 30)));
+      _loading = false;
       notifyListeners();
     } catch (exception) {
       _loading = false;

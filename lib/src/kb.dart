@@ -70,8 +70,9 @@ class KbApi {
 
   Future<List<WeekendRecord>> getWeekendBoxOffice(DateTime day) async {
     try {
-      String url = '$weekendBoxOffice${yearFormatter.format(
-          day)}/${fullDateFormatter.format(day)}/';
+      String url =
+          '$weekendBoxOffice${yearFormatter.format(day)}/${fullDateFormatter
+          .format(day)}/';
       developer.log(url);
       var response = await dio.get(url);
       var document = parse(response.data.toString());
@@ -94,16 +95,19 @@ class KbApi {
   }
 
   Future<List<ThursdayRecord>> getThursdayBoxOffice(DateTime day) async {
+    developer.log('getThursdayBoxOffice');
     try {
-      String url = '$thursdayBoxOffice${yearFormatter.format(
-          day)}/${fullDateFormatter.format(day)}/';
+      String url =
+          '$thursdayBoxOffice${yearFormatter.format(day)}/${fullDateFormatter
+          .format(day)}/';
       developer.log(url);
       var response = await dio.get(url);
       var document = parse(response.data.toString());
-      List<dom.Element> rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+      List<dom.Element> rows = document.querySelectorAll(
+          'section.events__table > div > table > tbody > tr[id]');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(toThursdayRec).toList();
+      var ds = rows.map(toThursdayRec).toList();
+      return ds;
     } catch (exception) {
       developer.log(exception.toString());
       return <ThursdayRecord>[];
