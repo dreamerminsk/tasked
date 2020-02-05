@@ -94,6 +94,24 @@ class KbApi {
         int.tryParse(children[6].text.trim().replaceAll((' '), '')) ?? 0);
   }
 
+  Future<List<DateTime>> getThursdays() async {
+    try {
+      String url = '$thursdayBoxOffice';
+      var response = await dio.get(url);
+      var document = parse(response.data.toString());
+      List<dom.Element> rows = document.querySelectorAll(
+          'table.calendar_year > tbody > tr > td > center > a[href]');
+      developer.log('ELEMENTS: ${rows.length}');
+      var ds = rows.map((item) {
+        return fullDateFormatter.parse(item.text);
+      }).toList();
+      return ds;
+    } catch (exception) {
+      developer.log(exception.toString());
+      return <DateTime>[];
+    }
+  }
+
   Future<List<ThursdayRecord>> getThursdayBoxOffice(DateTime day) async {
     developer.log('getThursdayBoxOffice');
     try {

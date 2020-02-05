@@ -15,6 +15,7 @@ class ThursdayModel with ChangeNotifier {
   KbApi kbApi = KbApi();
   bool _loading = false;
   final List<ThursdayRecord> _titles = [];
+  final List<DateTime> _thursdays = [];
 
   ThursdayModel() {
     load();
@@ -27,12 +28,20 @@ class ThursdayModel with ChangeNotifier {
   UnmodifiableListView<ThursdayRecord> get titles =>
       UnmodifiableListView(_titles);
 
+  UnmodifiableListView<DateTime> get thursdays =>
+      UnmodifiableListView(_thursdays);
+
   void load() async {
     _loading = true;
     notifyListeners();
     try {
+      _thursdays.clear();
+      _thursdays.addAll(await kbApi.getThursdays());
+      notifyListeners();
+    } catch (exception) {}
+    try {
       _titles.clear();
-      _titles.addAll(await kbApi.getThursdayBoxOffice(DateTime(2020, 1, 30)));
+      _titles.addAll(await kbApi.getThursdayBoxOffice(_thursdays[0]));
       _loading = false;
       notifyListeners();
     } catch (exception) {
@@ -133,58 +142,79 @@ class ThursdayBoxOffice extends StatelessWidget {
     var oCcy = new NumberFormat("#,##0", "en_US");
     return thursday.getLoading()
         ? Center(child: CircularProgressIndicator())
-        : ListView.builder(
-      shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      itemCount: thursday.titles.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(
-          //color: Colors.indigo,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                width: 6,
+        : Column(children: <Widget>[
+      Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ButtonBar(children: <Widget>[
+              RaisedButton(
+                child: Text('${thursday.thursdays[1]}'),
+                onPressed: () => {},
               ),
-              Container(
-                width: 40,
-                child: Text('${thursday.titles[index].pos}',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 21)),
+              RaisedButton(
+                child: Text('${thursday.thursdays[0]}'),
+                onPressed: () => {},
               ),
-              SizedBox(
-                width: 6,
+              RaisedButton(
+                child: Text('${thursday.thursdays.length}'),
+                onPressed: () => {},
               ),
-              Flexible(
-                child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Flexible(
-                        child: Text('${thursday.titles[index].title}',
-                            style: TextStyle(
-                              //color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16))),
-                    Text(
-                        '${oCcy.format(thursday.titles[index].boxOffice)}',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          //color: Colors.white,
-                            fontWeight: FontWeight.w100,
-                            fontSize: 18)),
-                  ],
+            ]),
+          ]),
+      ListView.builder(
+        shrinkWrap: true,
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        itemCount: thursday.titles.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            //color: Colors.indigo,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  width: 6,
                 ),
-              ),
-            ],
-          ),
-        );
-      },
-      //separatorBuilder: (BuildContext context, int index) => const Divider(),
-    );
+                Container(
+                  width: 40,
+                  child: Text('${thursday.titles[index].pos}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 21)),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Flexible(
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Flexible(
+                          child: Text('${thursday.titles[index].title}',
+                              style: TextStyle(
+                                //color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16))),
+                      Text(
+                          '${oCcy.format(thursday.titles[index].boxOffice)}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            //color: Colors.white,
+                              fontWeight: FontWeight.w100,
+                              fontSize: 18)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+        //separatorBuilder: (BuildContext context, int index) => const Divider(),
+      ),
+    ]);
   }
 }
 
