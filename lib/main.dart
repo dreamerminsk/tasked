@@ -14,6 +14,7 @@ void main() => runApp(MyApp());
 class ThursdayModel with ChangeNotifier {
   KbApi kbApi = KbApi();
   bool _loading = false;
+  int _current = 0;
   final List<ThursdayRecord> _titles = [];
   final List<DateTime> _thursdays = [];
 
@@ -30,6 +31,30 @@ class ThursdayModel with ChangeNotifier {
 
   UnmodifiableListView<DateTime> get thursdays =>
       UnmodifiableListView(_thursdays);
+  
+  DateTime get current {
+    if (_thursdays.length > 0) {
+      return _thursdays[0];
+    } else {
+      return null;
+    }
+  }
+  
+  DateTime get prev {
+    if (_thursdays.length > (_current+1)) {
+      return _thursdays[_current+1];
+    } else {
+      return null;
+    }
+  }
+  
+  DateTime get next {
+    if ((_thursdays.length > (_current-1)) && (_current > 0)) {
+      return _thursdays[_current-1];
+    } else {
+      return null;
+    }
+  }
 
   void load() async {
     _loading = true;
