@@ -31,28 +31,42 @@ class ThursdayModel with ChangeNotifier {
 
   UnmodifiableListView<DateTime> get thursdays =>
       UnmodifiableListView(_thursdays);
-  
+
   DateTime get current {
-    if (_thursdays.length > 0) {
-      return _thursdays[0];
+    if (_thursdays.length > _current) {
+      return _thursdays[_current];
     } else {
       return null;
     }
   }
-  
+
   DateTime get prev {
-    if (_thursdays.length > (_current+1)) {
-      return _thursdays[_current+1];
+    if (_thursdays.length > (_current + 1)) {
+      return _thursdays[_current + 1];
     } else {
       return null;
     }
   }
-  
+
   DateTime get next {
-    if ((_thursdays.length > (_current-1)) && (_current > 0)) {
-      return _thursdays[_current-1];
+    if ((_thursdays.length > (_current - 1)) && (_current > 0)) {
+      return _thursdays[_current - 1];
     } else {
       return null;
+    }
+  }
+
+  nextThursday() {
+    if (_current > 0) {
+      _current -= 1;
+      notifyListeners();
+    }
+  }
+
+  prevThursday() {
+    if ((_current + 1) < _thursdays.length) {
+      _current += 1;
+      notifyListeners();
     }
   }
 
@@ -188,9 +202,13 @@ class ThursdayBoxOffice extends StatelessWidget {
               //buttonHeight: 21,
               children: <Widget>[
                 RaisedButton(
-                  child: Text(
-                      '${fullDateFormatter.format(thursday.thursdays[1])}'),
-                  onPressed: () => {},
+                  child:
+                  Text('${fullDateFormatter.format(thursday.prev)}'),
+                  onPressed: thursday.prev == null
+                      ? null
+                      : () {
+                    thursday.prevThursday();
+                  },
                 ),
                 RaisedButton(
                   color: Theme
@@ -199,12 +217,18 @@ class ThursdayBoxOffice extends StatelessWidget {
                   //color:Colors.white,
                   //color: Colors.deepOrange,
                   child: Text(
-                      '${fullDateFormatter.format(thursday.thursdays[0])}'),
-                  onPressed: () => {},
+                      '${fullDateFormatter.format(thursday.current)}'),
+                  onPressed: thursday.current == null ? null : () {},
                 ),
                 RaisedButton(
-                  child: Text('${thursday.thursdays.length}'),
-                  onPressed: () => {},
+                  child: Text(thursday.next == null
+                      ? ''
+                      : '${fullDateFormatter.format(thursday.next)}'),
+                  onPressed: thursday.next == null
+                      ? null
+                      : () {
+                    thursday.nextThursday();
+                  },
                 ),
               ]);
         } else
