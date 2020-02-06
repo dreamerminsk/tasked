@@ -202,8 +202,9 @@ class ThursdayBoxOffice extends StatelessWidget {
               //buttonHeight: 21,
               children: <Widget>[
                 RaisedButton(
-                  child:
-                  Text('${fullDateFormatter.format(thursday.prev)}'),
+                  child: Text(thursday.prev == null
+                      ? ''
+                      : '${fullDateFormatter.format(thursday.prev)}'),
                   onPressed: thursday.prev == null
                       ? null
                       : () {
