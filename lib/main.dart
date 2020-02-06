@@ -4,9 +4,9 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:kbapp/src/formatters.dart';
 import 'package:provider/provider.dart';
 
+import 'src/formatters.dart';
 import 'src/kb.dart';
 
 void main() => runApp(MyApp());
@@ -151,26 +151,37 @@ class ThursdayBoxOffice extends StatelessWidget {
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
       shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
       itemCount: thursday.titles.length + 1,
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
-          return ButtonBar(children: <Widget>[
-            RaisedButton(
-              child: Text(
-                  '${fullDateFormatter.format(thursday.thursdays[1])}'),
-              onPressed: () => {},
-            ),
-            RaisedButton(
-              child: Text(
-                  '${fullDateFormatter.format(thursday.thursdays[0])}'),
-              onPressed: () => {},
-            ),
-            RaisedButton(
-              child: Text('${thursday.thursdays.length}'),
-              onPressed: () => {},
-            ),
-          ]);
+          return ButtonBar(
+              alignment: MainAxisAlignment.center,
+              layoutBehavior: ButtonBarLayoutBehavior.constrained,
+              buttonPadding:
+              EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+              //buttonHeight: 21,
+              children: <Widget>[
+                RaisedButton(
+                  child: Text(
+                      '${fullDateFormatter.format(thursday.thursdays[1])}'),
+                  onPressed: () => {},
+                ),
+                RaisedButton(
+                  color: Theme
+                      .of(context)
+                      .bottomAppBarColor,
+                  //color:Colors.white,
+                  //color: Colors.deepOrange,
+                  child: Text(
+                      '${fullDateFormatter.format(thursday.thursdays[0])}'),
+                  onPressed: () => {},
+                ),
+                RaisedButton(
+                  child: Text('${thursday.thursdays.length}'),
+                  onPressed: () => {},
+                ),
+              ]);
         } else
           return Card(
             //color: Colors.indigo,
@@ -232,7 +243,7 @@ class WeekendBoxOffice extends StatelessWidget {
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
       shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
       itemCount: weekend.titles.length + 1,
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
@@ -297,7 +308,7 @@ class YearBoxOffice extends StatelessWidget {
     final year = Provider.of<YearModel>(context);
     return ListView.builder(
       shrinkWrap: true,
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
       itemCount: year.titles.length,
       itemBuilder: (BuildContext context, int index) {
         return Card(
@@ -331,8 +342,9 @@ class YearBoxOffice extends StatelessWidget {
                               //color: Colors.white,
                                 fontWeight: FontWeight.normal,
                                 fontSize: 16))),
-                    Text('${decimalFormatter.format(
-                        year.titles[index].boxOffice)}',
+                    Text(
+                        '${decimalFormatter.format(
+                            year.titles[index].boxOffice)}',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           //color: Colors.white,
