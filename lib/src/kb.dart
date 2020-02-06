@@ -6,6 +6,8 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 
+import 'formatters.dart';
+
 class YearRecord {
   int pos;
   String title;
@@ -39,10 +41,6 @@ class KbApi {
 
   static final thursdayBoxOffice =
       'http://kinobusiness.com/kassovye_sbory/thursday/';
-
-  static final fullDateFormatter = new DateFormat('dd.MM.yyyy');
-
-  static final yearFormatter = new DateFormat('yyyy');
 
   static final Dio dio = Dio();
 

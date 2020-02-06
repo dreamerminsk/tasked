@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:kbapp/src/formatters.dart';
 import 'package:provider/provider.dart';
 
 import 'src/kb.dart';
@@ -148,7 +149,6 @@ class ThursdayBoxOffice extends StatelessWidget {
   Widget build(BuildContext context) {
     final thursday = Provider.of<ThursdayModel>(context);
     var oCcy = new NumberFormat("#,##0", "en_US");
-    final fullDateFormatter = new DateFormat('dd.MM.yyyy');
     return thursday.getLoading()
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
@@ -231,7 +231,6 @@ class WeekendBoxOffice extends StatelessWidget {
   Widget build(BuildContext context) {
     final weekend = Provider.of<WeekendModel>(context);
     var oCcy = new NumberFormat("#,##0", "en_US");
-    final fullDateFormatter = new DateFormat('dd.MM.yyyy');
     return weekend.getLoading()
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
