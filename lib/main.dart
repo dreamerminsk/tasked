@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:kbapp/src/formatters.dart';
 import 'package:provider/provider.dart';
 
@@ -148,7 +147,6 @@ class ThursdayBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final thursday = Provider.of<ThursdayModel>(context);
-    var oCcy = new NumberFormat("#,##0", "en_US");
     return thursday.getLoading()
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
@@ -207,7 +205,7 @@ class ThursdayBoxOffice extends StatelessWidget {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16))),
                       Text(
-                          '${oCcy.format(
+                          '${decimalFormatter.format(
                               thursday.titles[index - 1].boxOffice)}',
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -230,7 +228,6 @@ class WeekendBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final weekend = Provider.of<WeekendModel>(context);
-    var oCcy = new NumberFormat("#,##0", "en_US");
     return weekend.getLoading()
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
@@ -275,7 +272,8 @@ class WeekendBoxOffice extends StatelessWidget {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16))),
                       Text(
-                          '${oCcy.format(weekend.titles[index - 1].boxOffice)}',
+                          '${decimalFormatter.format(
+                              weekend.titles[index - 1].boxOffice)}',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             //color: Colors.white,
@@ -297,7 +295,6 @@ class YearBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final year = Provider.of<YearModel>(context);
-    var oCcy = new NumberFormat("#,##0", "en_US");
     return ListView.builder(
       shrinkWrap: true,
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -334,7 +331,8 @@ class YearBoxOffice extends StatelessWidget {
                               //color: Colors.white,
                                 fontWeight: FontWeight.normal,
                                 fontSize: 16))),
-                    Text('${oCcy.format(year.titles[index].boxOffice)}',
+                    Text('${decimalFormatter.format(
+                        year.titles[index].boxOffice)}',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           //color: Colors.white,
