@@ -143,8 +143,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-mixin Updatable {}
-
 class ThursdayBoxOffice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -153,33 +151,29 @@ class ThursdayBoxOffice extends StatelessWidget {
     final fullDateFormatter = new DateFormat('dd.MM.yyyy');
     return thursday.getLoading()
         ? Center(child: CircularProgressIndicator())
-        : Column(children: <Widget>[
-      Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ButtonBar(children: <Widget>[
-              RaisedButton(
-                child: Text(
-                    '${fullDateFormatter.format(thursday.thursdays[1])}'),
-                onPressed: () => {},
-              ),
-              RaisedButton(
-                child: Text(
-                    '${fullDateFormatter.format(thursday.thursdays[0])}'),
-                onPressed: () => {},
-              ),
-              RaisedButton(
-                child: Text('${thursday.thursdays.length}'),
-                onPressed: () => {},
-              ),
-            ]),
-          ]),
-      ListView.builder(
-        shrinkWrap: true,
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        itemCount: thursday.titles.length,
-        itemBuilder: (BuildContext context, int index) {
+        : ListView.builder(
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      itemCount: thursday.titles.length + 1,
+      itemBuilder: (BuildContext context, int index) {
+        if (index == 0) {
+          return ButtonBar(children: <Widget>[
+            RaisedButton(
+              child: Text(
+                  '${fullDateFormatter.format(thursday.thursdays[1])}'),
+              onPressed: () => {},
+            ),
+            RaisedButton(
+              child: Text(
+                  '${fullDateFormatter.format(thursday.thursdays[0])}'),
+              onPressed: () => {},
+            ),
+            RaisedButton(
+              child: Text('${thursday.thursdays.length}'),
+              onPressed: () => {},
+            ),
+          ]);
+        } else
           return Card(
             //color: Colors.indigo,
             child: Row(
@@ -191,7 +185,7 @@ class ThursdayBoxOffice extends StatelessWidget {
                 ),
                 Container(
                   width: 40,
-                  child: Text('${thursday.titles[index].pos}',
+                  child: Text('${thursday.titles[index - 1].pos}',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 21)),
@@ -206,13 +200,15 @@ class ThursdayBoxOffice extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Flexible(
-                          child: Text('${thursday.titles[index].title}',
+                          child:
+                          Text('${thursday.titles[index - 1].title}',
                               style: TextStyle(
                                 //color: Colors.white,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16))),
                       Text(
-                          '${oCcy.format(thursday.titles[index].boxOffice)}',
+                          '${oCcy.format(
+                              thursday.titles[index - 1].boxOffice)}',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             //color: Colors.white,
@@ -224,10 +220,9 @@ class ThursdayBoxOffice extends StatelessWidget {
               ],
             ),
           );
-        },
-        //separatorBuilder: (BuildContext context, int index) => const Divider(),
-      ),
-    ]);
+      },
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
   }
 }
 
@@ -250,7 +245,6 @@ class WeekendBoxOffice extends StatelessWidget {
                   '${fullDateFormatter.format(weekend.weekends[0])}'));
         } else
           return Card(
-            //color: Colors.indigo,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
