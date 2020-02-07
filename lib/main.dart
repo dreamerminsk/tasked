@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import 'src/formatters.dart';
 import 'src/kb.dart';
+import 'src/widgets/movie_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -374,51 +375,56 @@ class YearBoxOffice extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       itemCount: year.titles.length,
       itemBuilder: (BuildContext context, int index) {
-        return Card(
-          //color: Colors.indigo,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                width: 6,
-              ),
-              Container(
-                width: 40,
-                child: Text('${year.titles[index].pos}',
-                    textAlign: TextAlign.center,
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
-              ),
-              SizedBox(
-                width: 6,
-              ),
-              Flexible(
-                child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Flexible(
-                        child: Text('${year.titles[index].title}',
+        return GestureDetector(
+            onTap: () {
+              Route route =
+              MaterialPageRoute(builder: (context) => MoviePage());
+              Navigator.push(context, route);
+            },
+            child: Card(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Container(
+                    width: 40,
+                    child: Text('${year.titles[index].pos}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 21)),
+                  ),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Flexible(
+                    child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Flexible(
+                            child: Text('${year.titles[index].title}',
+                                style: TextStyle(
+                                  //color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 16))),
+                        Text(
+                            '${decimalFormatter.format(year.titles[index]
+                                .boxOffice)}',
+                            textAlign: TextAlign.left,
                             style: TextStyle(
                               //color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16))),
-                    Text(
-                        '${decimalFormatter.format(
-                            year.titles[index].boxOffice)}',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          //color: Colors.white,
-                            fontWeight: FontWeight.w100,
-                            fontSize: 18)),
-                  ],
-                ),
+                                fontWeight: FontWeight.w100,
+                                fontSize: 18)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
+            ));
       },
       //separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
