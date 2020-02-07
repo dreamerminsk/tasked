@@ -2,8 +2,9 @@ class YearRecord {
   int pos;
   String title;
   int boxOffice;
+  String original;
 
-  YearRecord(this.pos, this.title, this.boxOffice);
+  YearRecord(this.pos, this.title, this.boxOffice, this.original);
 }
 
 class WeekendRecord {

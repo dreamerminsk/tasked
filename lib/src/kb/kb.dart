@@ -37,9 +37,11 @@ class KbApi {
   YearRecord toYearRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return YearRecord(
-        int.parse(children[0].text.trim()),
-        children[1].text.trim(),
-        int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0);
+      int.parse(children[0].text.trim()),
+      children[1].text.trim(),
+      int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0,
+      children[2].text.trim(),
+    );
   }
 
   Future<List<DateTime>> getWeekends() async {

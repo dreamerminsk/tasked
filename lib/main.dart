@@ -376,10 +376,11 @@ class YearBoxOffice extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       itemCount: year.titles.length,
       itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
+        return InkWell(
             onTap: () {
               Route route =
-              MaterialPageRoute(builder: (context) => MoviePage());
+              MaterialPageRoute(
+                  builder: (context) => MoviePage(year.titles[index]));
               Navigator.push(context, route);
             },
             child: Card(
