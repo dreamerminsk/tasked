@@ -19,7 +19,10 @@ class ThursdayModel with ChangeNotifier {
   final List<DateTime> _thursdays = [];
 
   ThursdayModel() {
-    load();
+    loadDates();
+    if (_thursdays.length > 0) {
+      load();
+    }
   }
 
   getLoading() => _loading;
@@ -59,6 +62,7 @@ class ThursdayModel with ChangeNotifier {
   nextThursday() {
     if (_current > 0) {
       _current -= 1;
+      load();
       notifyListeners();
     }
   }
@@ -66,6 +70,20 @@ class ThursdayModel with ChangeNotifier {
   prevThursday() {
     if ((_current + 1) < _thursdays.length) {
       _current += 1;
+      load();
+      notifyListeners();
+    }
+  }
+
+  void loadDates() async {
+    _loading = true;
+    notifyListeners();
+    try {
+      _thursdays.clear();
+      _thursdays.addAll(await kbApi.getThursdays());
+      notifyListeners();
+    } catch (exception) {
+      _loading = false;
       notifyListeners();
     }
   }
@@ -74,13 +92,8 @@ class ThursdayModel with ChangeNotifier {
     _loading = true;
     notifyListeners();
     try {
-      _thursdays.clear();
-      _thursdays.addAll(await kbApi.getThursdays());
-      notifyListeners();
-    } catch (exception) {}
-    try {
       _titles.clear();
-      _titles.addAll(await kbApi.getThursdayBoxOffice(_thursdays[0]));
+      _titles.addAll(await kbApi.getThursdayBoxOffice(_thursdays[_current]));
       _loading = false;
       notifyListeners();
     } catch (exception) {
