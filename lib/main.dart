@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'src/formatters.dart';
-import 'src/kb.dart';
+import 'src/kb/kb.dart';
+import 'src/kb/model.dart';
 import 'src/widgets/movie_page.dart';
 
 void main() => runApp(MyApp());

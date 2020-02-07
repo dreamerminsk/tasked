@@ -5,6 +5,6 @@ class MovieModel with ChangeNotifier {}
 class MoviePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('MoviePage'));
+    return Scaffold(body: Center(child: Text('MoviePage')));
   }
 }
