@@ -4,20 +4,22 @@ import 'package:kbapp/src/kb/model.dart';
 class MovieModel with ChangeNotifier {}
 
 class MoviePage extends StatelessWidget {
-  final YearRecord _movie;
+  final YearRecord movie;
 
-  MoviePage(this._movie);
+  MoviePage(this.movie);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('${this._movie}'),
+          title: Text('${this.movie.title}'),
         ),
         body: Center(
           child: Column(children: <Widget>[
-            Text('${this._movie.title}'),
-            Text('${this._movie.original}'),
+            Text('${this.movie.title}'),
+            Text('${this.movie.original}'),
+            Text('${this.movie.distributor}'),
+            Text('${this.movie.boxOffice} / ${this.movie.spectaculars}'),
           ]),
         ));
   }
