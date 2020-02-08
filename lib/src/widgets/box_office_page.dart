@@ -381,13 +381,20 @@ class YearBoxOffice extends StatelessWidget {
                                   //color: Colors.white,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16))),
-                      Text(
-                          '${decimalFormatter.format(year.titles[index].boxOffice)}',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
+                      Row(children: <Widget>[
+                        Text(
+                            '${decimalFormatter.format(
+                                year.titles[index].boxOffice)}',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
                               //color: Colors.white,
-                              fontWeight: FontWeight.w100,
-                              fontSize: 18)),
+                                fontWeight: FontWeight.w100,
+                                fontSize: 18)),
+                        Text(
+                            '${decimalFormatter.format(
+                                year.titles[index].boxOffice)}',
+                            textAlign: TextAlign.right),
+                      ]),
                     ],
                   ),
                 ),
