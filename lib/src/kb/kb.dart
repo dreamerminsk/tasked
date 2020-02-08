@@ -37,10 +37,11 @@ class KbApi {
   YearRecord toYearRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return YearRecord(
-      int.parse(children[0].text.trim()),
-      children[1].text.trim(),
+      pos: int.parse(children[0].text.trim()),
+      title: children[1].text.trim(),
+      boxOffice:
       int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0,
-      children[2].text.trim(),
+      original: children[2].text.trim(),
     );
   }
 
