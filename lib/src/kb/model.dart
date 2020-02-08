@@ -9,17 +9,21 @@ class Movie {
 }
 
 class YearRecord {
-  int pos;
-  String title;
-  int boxOffice;
-  String original;
-  String distributor;
+  final int pos;
+  final String title;
+  final int boxOffice;
+  final String original;
+  final String distributor;
+  final int screens;
+  final int spectaculars;
 
   YearRecord({@required this.pos,
     @required this.title,
     @required this.boxOffice,
     this.original,
-    this.distributor});
+    this.distributor,
+    this.screens,
+    this.spectaculars});
 }
 
 class WeekendRecord {
