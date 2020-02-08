@@ -42,6 +42,9 @@ class KbApi {
       boxOffice:
       int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0,
       original: children[2].text.trim(),
+      distributor: children[3].text.trim(),
+      spectaculars:
+      int.tryParse(children[7].text.trim().replaceAll((' '), '')) ?? 0,
     );
   }
 
