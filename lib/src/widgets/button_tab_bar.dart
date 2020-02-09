@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../formatters.dart';
+import '../utils/formatters.dart';
 
 class ButtonTabBarModel with ChangeNotifier {
   int _currentTab = 0;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kbapp/src/kb/model.dart';
 
-import '../formatters.dart';
+import '../utils/formatters.dart';
 
 class MovieModel with ChangeNotifier {}
 

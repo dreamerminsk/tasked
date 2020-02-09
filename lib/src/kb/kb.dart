@@ -4,8 +4,9 @@ import 'dart:developer' as developer;
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
+import 'package:kbapp/src/utils/strings.dart';
 
-import '../formatters.dart';
+import '../utils/formatters.dart';
 import 'model.dart';
 
 class KbApi {
@@ -40,11 +41,11 @@ class KbApi {
       pos: int.parse(children[0].text.trim()),
       title: children[1].text.trim(),
       boxOffice:
-      int.tryParse(children[5].text.trim().replaceAll((' '), '')) ?? 0,
+      int.tryParse(trim(children[5].text)) ?? 0,
       original: children[2].text.trim(),
       distributor: children[3].text.trim(),
       spectaculars:
-      int.tryParse(children[7].text.trim().replaceAll((' '), '')) ?? 0,
+      int.tryParse(trim(children[7].text)) ?? 0,
     );
   }
 
@@ -90,7 +91,7 @@ class KbApi {
     return WeekendRecord(
         int.parse(children[1].text.trim()),
         children[3].text.trim(),
-        int.tryParse(children[6].text.trim().replaceAll((' '), '')) ?? 0);
+        int.tryParse(trim(children[6].text)) ?? 0);
   }
 
   Future<List<DateTime>> getThursdays() async {
@@ -138,6 +139,6 @@ class KbApi {
     return ThursdayRecord(
         int.parse(children[0].text.trim()),
         children[1].text.trim(),
-        int.tryParse(children[3].text.trim().replaceAll((' '), '')) ?? 0);
+        int.tryParse(trim(children[3].text)) ?? 0);
   }
 }

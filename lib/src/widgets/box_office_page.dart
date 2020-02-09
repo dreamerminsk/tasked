@@ -6,7 +6,7 @@ import 'package:kbapp/src/kb/kb.dart';
 import 'package:kbapp/src/kb/model.dart';
 import 'package:provider/provider.dart';
 
-import '../formatters.dart';
+import '../utils/formatters.dart';
 import 'movie_page.dart';
 
 class ThursdayModel with ChangeNotifier {
@@ -390,9 +390,10 @@ class YearBoxOffice extends StatelessWidget {
                               //color: Colors.white,
                                 fontWeight: FontWeight.w100,
                                 fontSize: 18)),
+                        SizedBox(width: 16),
                         Text(
                             '${decimalFormatter.format(
-                                year.titles[index].boxOffice)}',
+                                year.titles[index].spectaculars)}',
                             textAlign: TextAlign.right),
                       ]),
                     ],
