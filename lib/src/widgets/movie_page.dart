@@ -39,7 +39,7 @@ class MoviePage extends StatelessWidget {
         body: Center(
           child: Column(children: <Widget>[
             Text(
-              '${this.movie.distributor}',
+              '${this.movie.distributor} ${this.movie.kbRef}',
               style: Theme
                   .of(context)
                   .textTheme

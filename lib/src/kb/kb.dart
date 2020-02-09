@@ -10,14 +10,17 @@ import '../utils/formatters.dart';
 import 'model.dart';
 
 class KbApi {
+
+  static final kbHost = 'http://kinobusiness.com';
+
   static final yearBoxOffice =
-      'http://kinobusiness.com/kassovye_sbory/films_year/';
+      '$kbHost/kassovye_sbory/films_year/';
 
   static final weekendBoxOffice =
-      'http://kinobusiness.com/kassovye_sbory/weekend/';
+      '$kbHost/kassovye_sbory/weekend/';
 
   static final thursdayBoxOffice =
-      'http://kinobusiness.com/kassovye_sbory/thursday/';
+      '$kbHost/kassovye_sbory/thursday/';
 
   static final Dio dio = Dio();
 
@@ -26,7 +29,7 @@ class KbApi {
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
+      document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toYearRec).toList();
     } catch (exception) {
@@ -38,6 +41,7 @@ class KbApi {
   YearRecord toYearRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     developer.log(trim(children[6].text));
+    final movieRef = children[1].querySelector('b > a');
     return YearRecord(
       pos: int.parse(children[0].text.trim()),
       title: children[1].text.trim(),
@@ -47,8 +51,11 @@ class KbApi {
       int.tryParse(trim(children[6].text)) ?? 0,
       original: children[2].text.trim(),
       distributor: children[3].text.trim(),
+      screens:
+      int.tryParse(trim(children[4].text)) ?? 0,
       spectaculars:
       int.tryParse(trim(children[7].text)) ?? 0,
+      kbRef: movieRef.attributes['href'],
     );
   }
 
@@ -80,7 +87,7 @@ class KbApi {
       var response = await dio.get(url);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
-          document.querySelectorAll('table#krestable > tbody  > tr');
+      document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       return rows.map(toWeekendRec).toList();
     } catch (exception) {

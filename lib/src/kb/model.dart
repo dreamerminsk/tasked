@@ -17,6 +17,7 @@ class YearRecord {
   final String distributor;
   final int screens;
   final int spectaculars;
+  final String kbRef;
 
   YearRecord({@required this.pos,
     @required this.title,
@@ -25,7 +26,8 @@ class YearRecord {
     this.original,
     this.distributor,
     this.screens,
-    this.spectaculars});
+    this.spectaculars,
+    this.kbRef});
 }
 
 class WeekendRecord {
@@ -42,11 +44,4 @@ class ThursdayRecord {
   int boxOffice;
 
   ThursdayRecord(this.pos, this.title, this.boxOffice);
-}
-
-Widget build() {
-  return Table(children: [
-    TableRow(children: [TableCell(),]),
-    TableRow(children: [TableCell(),])
-  ]);
 }

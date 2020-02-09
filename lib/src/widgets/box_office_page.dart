@@ -356,85 +356,98 @@ class YearBoxOffice extends StatelessWidget {
                   builder: (context) => MoviePage(year.titles[index]));
               Navigator.push(context, route);
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SizedBox(
-                  width: 6,
-                ),
-                Container(
-                  width: 40,
-                  child: Text('${year.titles[index].pos}',
-                      textAlign: TextAlign.center,
-                      style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
-                ),
-                SizedBox(
-                  width: 6,
-                ),
-                Flexible(
-                  child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Flexible(
-                          child: Text('${year.titles[index].title}',
-                              style: TextStyle(
-                                //color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 16))),
-                      Table(children: [
-                        TableRow(children: [
-                          TableCell(
-                            child: Text(
-                                '₽ ${decimalFormatter.format(
-                                    year.titles[index].boxOffice)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ),
-                          TableCell(
-                            child: Text(
-                                '${decimalFormatter.format(
-                                    year.titles[index].spectaculars)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ),
-                        ]),
-                        TableRow(children: [
-                          TableCell(
-                            child: Text(
-                                '\$ ${decimalFormatter.format(
-                                    year.titles[index].boxOfficeUsd ?? 0)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ),
-                          TableCell(
-                            child: Text(
-                                '${decimalFormatter.format(
-                                    year.titles[index].spectaculars)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ),
-                        ])
-                      ]),
-                    ],
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 5.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SizedBox(
+                    width: 6,
                   ),
-                ),
-              ],
+                  Container(
+                    width: 50,
+                    child: Text('${year.titles[index].pos}',
+                        textAlign: TextAlign.center,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headline),
+                  ),
+                  SizedBox(
+                    width: 6,
+                  ),
+                  Flexible(
+                    child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Flexible(
+                            child: Text('${year.titles[index].title}',
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .title)),
+                        Flexible(
+                            child: Text('${year.titles[index].distributor}',
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .subtitle)),
+                        Table(children: [
+                          TableRow(children: [
+                            TableCell(
+                              child: Text(
+                                  '₽ ${decimalFormatter.format(
+                                      year.titles[index].boxOffice)}',
+                                  textAlign: TextAlign.left,
+                                  style: Theme
+                                      .of(context)
+                                      .textTheme
+                                      .subhead),
+                            ),
+                            TableCell(
+                              child: Text(
+                                  '${decimalFormatter.format(
+                                      year.titles[index].spectaculars)}',
+                                  textAlign: TextAlign.left,
+                                  style: Theme
+                                      .of(context)
+                                      .textTheme
+                                      .subhead),
+                            ),
+                          ]),
+                          TableRow(children: [
+                            TableCell(
+                              child: Text(
+                                  '\$ ${decimalFormatter.format(
+                                      year.titles[index].boxOfficeUsd ?? 0)}',
+                                  textAlign: TextAlign.left,
+                                  style: Theme
+                                      .of(context)
+                                      .textTheme
+                                      .subhead),
+                            ),
+                            TableCell(
+                              child: Text(
+                                  '${decimalFormatter.format(
+                                      year.titles[index].screens)}',
+                                  textAlign: TextAlign.left,
+                                  style: Theme
+                                      .of(context)
+                                      .textTheme
+                                      .subhead),
+                            ),
+                          ])
+                        ]),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );
