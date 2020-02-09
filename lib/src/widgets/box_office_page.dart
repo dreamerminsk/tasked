@@ -383,7 +383,7 @@ class YearBoxOffice extends StatelessWidget {
                                   fontSize: 16))),
                       Row(children: <Widget>[
                         Text(
-                            '${decimalFormatter.format(
+                            '₽ ${decimalFormatter.format(
                                 year.titles[index].boxOffice)}',
                             textAlign: TextAlign.left,
                             style: TextStyle(
@@ -394,7 +394,30 @@ class YearBoxOffice extends StatelessWidget {
                         Text(
                             '${decimalFormatter.format(
                                 year.titles[index].spectaculars)}',
-                            textAlign: TextAlign.right),
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              //color: Colors.white,
+                                fontWeight: FontWeight.w100,
+                                fontSize: 18)),
+                      ]),
+                      Row(children: <Widget>[
+                        Text(
+                            '\$${decimalFormatter.format(
+                                year.titles[index].boxOfficeUsd ?? 0)}',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              //color: Colors.white,
+                                fontWeight: FontWeight.w100,
+                                fontSize: 18)),
+                        SizedBox(width: 16),
+                        Text(
+                            '${decimalFormatter.format(
+                                year.titles[index].spectaculars)}',
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              //color: Colors.white,
+                                fontWeight: FontWeight.w100,
+                                fontSize: 18)),
                       ]),
                     ],
                   ),

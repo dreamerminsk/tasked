@@ -12,6 +12,7 @@ class YearRecord {
   final int pos;
   final String title;
   final int boxOffice;
+  final int boxOfficeUsd;
   final String original;
   final String distributor;
   final int screens;
@@ -20,6 +21,7 @@ class YearRecord {
   YearRecord({@required this.pos,
     @required this.title,
     @required this.boxOffice,
+    this.boxOfficeUsd,
     this.original,
     this.distributor,
     this.screens,
