@@ -108,96 +108,99 @@ class ThursdayBoxOffice extends StatelessWidget {
     return thursday.getLoading()
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 6.0),
-            itemCount: thursday.titles.length + 1,
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                return ButtonBar(
-                    alignment: MainAxisAlignment.center,
-                    layoutBehavior: ButtonBarLayoutBehavior.constrained,
-                    buttonPadding:
-                        EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                    //buttonHeight: 21,
-                    children: <Widget>[
-                      RaisedButton(
-                        child: Text(thursday.prev == null
-                            ? ''
-                            : '${fullDateFormatter.format(thursday.prev)}'),
-                        onPressed: thursday.prev == null
-                            ? null
-                            : () {
-                                thursday.prevThursday();
-                              },
-                      ),
-                      RaisedButton(
-                        color: Theme.of(context).bottomAppBarColor,
-                        //color:Colors.white,
-                        //color: Colors.deepOrange,
-                        child: Text(
-                            '${fullDateFormatter.format(thursday.current)}'),
-                        onPressed: thursday.current == null ? null : () {},
-                      ),
-                      RaisedButton(
-                        child: Text(thursday.next == null
-                            ? ''
-                            : '${fullDateFormatter.format(thursday.next)}'),
-                        onPressed: thursday.next == null
-                            ? null
-                            : () {
-                                thursday.nextThursday();
-                              },
-                      ),
-                    ]);
-              } else
-                return Card(
-                  //color: Colors.indigo,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
+      itemCount: thursday.titles.length + 1,
+      itemBuilder: (BuildContext context, int index) {
+        if (index == 0) {
+          return ButtonBar(
+              alignment: MainAxisAlignment.center,
+              layoutBehavior: ButtonBarLayoutBehavior.constrained,
+              buttonPadding:
+              EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+              //buttonHeight: 21,
+              children: <Widget>[
+                RaisedButton(
+                  child: Text(thursday.prev == null
+                      ? ''
+                      : '${fullDateFormatter.format(thursday.prev)}'),
+                  onPressed: thursday.prev == null
+                      ? null
+                      : () {
+                    thursday.prevThursday();
+                  },
+                ),
+                RaisedButton(
+                  color: Theme
+                      .of(context)
+                      .bottomAppBarColor,
+                  //color:Colors.white,
+                  //color: Colors.deepOrange,
+                  child: Text(
+                      '${fullDateFormatter.format(thursday.current)}'),
+                  onPressed: thursday.current == null ? null : () {},
+                ),
+                RaisedButton(
+                  child: Text(thursday.next == null
+                      ? ''
+                      : '${fullDateFormatter.format(thursday.next)}'),
+                  onPressed: thursday.next == null
+                      ? null
+                      : () {
+                    thursday.nextThursday();
+                  },
+                ),
+              ]);
+        } else
+          return Card(
+            //color: Colors.indigo,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  width: 6,
+                ),
+                Container(
+                  width: 40,
+                  child: Text('${thursday.titles[index - 1].pos}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 21)),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Flexible(
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Container(
-                        width: 40,
-                        child: Text('${thursday.titles[index - 1].pos}',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 21)),
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
                       Flexible(
-                        child: Column(
-                          //mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Flexible(
-                                child:
-                                    Text('${thursday.titles[index - 1].title}',
-                                        style: TextStyle(
-                                            //color: Colors.white,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 16))),
-                            Text(
-                                '${decimalFormatter.format(thursday.titles[index - 1].boxOffice)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ],
-                        ),
-                      ),
+                          child:
+                          Text('${thursday.titles[index - 1].title}',
+                              style: TextStyle(
+                                //color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16))),
+                      Text(
+                          '${decimalFormatter.format(
+                              thursday.titles[index - 1].boxOffice)}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            //color: Colors.white,
+                              fontWeight: FontWeight.w100,
+                              fontSize: 18)),
                     ],
                   ),
-                );
-            },
-            //separatorBuilder: (BuildContext context, int index) => const Divider(),
+                ),
+              ],
+            ),
           );
+      },
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
   }
 }
 
@@ -248,62 +251,63 @@ class WeekendBoxOffice extends StatelessWidget {
     return weekend.getLoading()
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 6.0),
-            itemCount: weekend.titles.length + 1,
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                return Center(
-                    child: Text(
-                        '${fullDateFormatter.format(weekend.weekends[0])}'));
-              } else
-                return Card(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
+      itemCount: weekend.titles.length + 1,
+      itemBuilder: (BuildContext context, int index) {
+        if (index == 0) {
+          return Center(
+              child: Text(
+                  '${fullDateFormatter.format(weekend.weekends[0])}'));
+        } else
+          return Card(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  width: 6,
+                ),
+                Container(
+                  width: 40,
+                  child: Text('${weekend.titles[index - 1].pos}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 21)),
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Flexible(
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Container(
-                        width: 40,
-                        child: Text('${weekend.titles[index - 1].pos}',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 21)),
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
                       Flexible(
-                        child: Column(
-                          //mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Flexible(
-                                child:
-                                    Text('${weekend.titles[index - 1].title}',
-                                        style: TextStyle(
-                                            //color: Colors.white,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 16))),
-                            Text(
-                                '${decimalFormatter.format(weekend.titles[index - 1].boxOffice)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ],
-                        ),
-                      ),
+                          child:
+                          Text('${weekend.titles[index - 1].title}',
+                              style: TextStyle(
+                                //color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16))),
+                      Text(
+                          '${decimalFormatter.format(
+                              weekend.titles[index - 1].boxOffice)}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            //color: Colors.white,
+                              fontWeight: FontWeight.w100,
+                              fontSize: 18)),
                     ],
                   ),
-                );
-            },
-            //separatorBuilder: (BuildContext context, int index) => const Divider(),
+                ),
+              ],
+            ),
           );
+      },
+      //separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
   }
 }
 
@@ -364,7 +368,7 @@ class YearBoxOffice extends StatelessWidget {
                   child: Text('${year.titles[index].pos}',
                       textAlign: TextAlign.center,
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
                 ),
                 SizedBox(
                   width: 6,
@@ -378,46 +382,54 @@ class YearBoxOffice extends StatelessWidget {
                       Flexible(
                           child: Text('${year.titles[index].title}',
                               style: TextStyle(
-                                  //color: Colors.white,
+                                //color: Colors.white,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16))),
-                      Row(children: <Widget>[
-                        Text(
-                            '₽ ${decimalFormatter.format(
-                                year.titles[index].boxOffice)}',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              //color: Colors.white,
-                                fontWeight: FontWeight.w100,
-                                fontSize: 18)),
-                        SizedBox(width: 16),
-                        Text(
-                            '${decimalFormatter.format(
-                                year.titles[index].spectaculars)}',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              //color: Colors.white,
-                                fontWeight: FontWeight.w100,
-                                fontSize: 18)),
-                      ]),
-                      Row(children: <Widget>[
-                        Text(
-                            '\$${decimalFormatter.format(
-                                year.titles[index].boxOfficeUsd ?? 0)}',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              //color: Colors.white,
-                                fontWeight: FontWeight.w100,
-                                fontSize: 18)),
-                        SizedBox(width: 16),
-                        Text(
-                            '${decimalFormatter.format(
-                                year.titles[index].spectaculars)}',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              //color: Colors.white,
-                                fontWeight: FontWeight.w100,
-                                fontSize: 18)),
+                      Table(children: [
+                        TableRow(children: [
+                          TableCell(
+                            child: Text(
+                                '₽ ${decimalFormatter.format(
+                                    year.titles[index].boxOffice)}',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  //color: Colors.white,
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 18)),
+                          ),
+                          TableCell(
+                            child: Text(
+                                '${decimalFormatter.format(
+                                    year.titles[index].spectaculars)}',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  //color: Colors.white,
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 18)),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          TableCell(
+                            child: Text(
+                                '\$ ${decimalFormatter.format(
+                                    year.titles[index].boxOfficeUsd ?? 0)}',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  //color: Colors.white,
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 18)),
+                          ),
+                          TableCell(
+                            child: Text(
+                                '${decimalFormatter.format(
+                                    year.titles[index].spectaculars)}',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  //color: Colors.white,
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 18)),
+                          ),
+                        ])
                       ]),
                     ],
                   ),

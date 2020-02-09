@@ -43,3 +43,10 @@ class ThursdayRecord {
 
   ThursdayRecord(this.pos, this.title, this.boxOffice);
 }
+
+Widget build() {
+  return Table(children: [
+    TableRow(children: [TableCell(),]),
+    TableRow(children: [TableCell(),])
+  ]);
+}
