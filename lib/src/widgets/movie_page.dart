@@ -44,9 +44,24 @@ class MoviePage extends StatelessWidget {
 
             if (snapshot.hasData) {
               children = <Widget>[
-                Image.network(snapshot.data.poster, width: 128),
                 Row(
-                  children: snapshot.data.genres.map((g) => Text(g)).toList(),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Image.network(snapshot.data.poster, width: 128),
+                    Row(
+                      children: snapshot.data.genres
+                          .map((g) =>
+                          Container(
+                              child: Text(g,
+                                  style: Theme
+                                      .of(context)
+                                      .textTheme
+                                      .subhead),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.indigo))))
+                          .toList(),
+                    ),
+                  ],
                 ),
               ];
             } else if (snapshot.hasError) {
