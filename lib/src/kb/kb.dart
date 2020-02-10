@@ -31,14 +31,14 @@ class KbApi {
       List<dom.Element> rows =
       document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(toYearRec).toList();
+      return rows.map(parseYearRec).toList();
     } catch (exception) {
       developer.log(exception.toString());
       return <YearRecord>[];
     }
   }
 
-  YearRecord toYearRec(dom.Element e) {
+  YearRecord parseYearRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     developer.log(trim(children[6].text));
     final movieRef = children[1].querySelector('b > a');
@@ -89,14 +89,14 @@ class KbApi {
       List<dom.Element> rows =
       document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(toWeekendRec).toList();
+      return rows.map(parseWeekendRec).toList();
     } catch (exception) {
       developer.log(exception.toString());
       return <WeekendRecord>[];
     }
   }
 
-  WeekendRecord toWeekendRec(dom.Element e) {
+  WeekendRecord parseWeekendRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return WeekendRecord(
         int.parse(children[1].text.trim()),
@@ -136,7 +136,7 @@ class KbApi {
       List<dom.Element> rows = document.querySelectorAll(
           'section.events__table > div > table > tbody > tr[id]');
       developer.log('ELEMENTS: ${rows.length}');
-      var ds = rows.map(toThursdayRec).toList();
+      var ds = rows.map(parseThursdayRec).toList();
       return ds;
     } catch (exception) {
       developer.log(exception.toString());
@@ -144,7 +144,7 @@ class KbApi {
     }
   }
 
-  ThursdayRecord toThursdayRec(dom.Element e) {
+  ThursdayRecord parseThursdayRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     return ThursdayRecord(
         int.parse(children[0].text.trim()),
