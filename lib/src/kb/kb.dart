@@ -10,17 +10,13 @@ import '../utils/formatters.dart';
 import 'model.dart';
 
 class KbApi {
-
   static final kbHost = 'http://kinobusiness.com';
 
-  static final yearBoxOffice =
-      '$kbHost/kassovye_sbory/films_year/';
+  static final yearBoxOffice = '$kbHost/kassovye_sbory/films_year/';
 
-  static final weekendBoxOffice =
-      '$kbHost/kassovye_sbory/weekend/';
+  static final weekendBoxOffice = '$kbHost/kassovye_sbory/weekend/';
 
-  static final thursdayBoxOffice =
-      '$kbHost/kassovye_sbory/thursday/';
+  static final thursdayBoxOffice = '$kbHost/kassovye_sbory/thursday/';
 
   static final Dio dio = Dio();
 
@@ -45,16 +41,12 @@ class KbApi {
     return YearRecord(
       pos: int.parse(children[0].text.trim()),
       title: children[1].text.trim(),
-      boxOffice:
-      int.tryParse(trim(children[5].text)) ?? 0,
-      boxOfficeUsd:
-      int.tryParse(trim(children[6].text)) ?? 0,
+      boxOffice: int.tryParse(trim(children[5].text)) ?? 0,
+      boxOfficeUsd: int.tryParse(trim(children[6].text)) ?? 0,
       original: children[2].text.trim(),
       distributor: children[3].text.trim(),
-      screens:
-      int.tryParse(trim(children[4].text)) ?? 0,
-      spectaculars:
-      int.tryParse(trim(children[7].text)) ?? 0,
+      screens: int.tryParse(trim(children[4].text)) ?? 0,
+      spectaculars: int.tryParse(trim(children[7].text)) ?? 0,
       kbRef: movieRef.attributes['href'],
     );
   }
@@ -98,10 +90,8 @@ class KbApi {
 
   WeekendRecord parseWeekendRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
-    return WeekendRecord(
-        int.parse(children[1].text.trim()),
-        children[3].text.trim(),
-        int.tryParse(trim(children[6].text)) ?? 0);
+    return WeekendRecord(int.parse(children[1].text.trim()),
+        children[3].text.trim(), int.tryParse(trim(children[6].text)) ?? 0);
   }
 
   Future<List<DateTime>> getThursdays() async {
@@ -146,9 +136,23 @@ class KbApi {
 
   ThursdayRecord parseThursdayRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
-    return ThursdayRecord(
-        int.parse(children[0].text.trim()),
-        children[1].text.trim(),
-        int.tryParse(trim(children[3].text)) ?? 0);
+    return ThursdayRecord(int.parse(children[0].text.trim()),
+        children[1].text.trim(), int.tryParse(trim(children[3].text)) ?? 0);
+  }
+
+  Future<Movie> getMovie(String ref) async {
+    try {
+      String url = '$kbHost$ref';
+      var response = await dio.get(url);
+      var document = parse(response.data.toString());
+      var posterImg = document.querySelector(
+          'div.film__picture > figure > img');
+      return Movie(kbRef: ref,
+          title: null,
+          poster: '$kbHost${posterImg.attributes['src']}');
+    } catch (exception) {
+      developer.log(exception.toString());
+      return Movie(kbRef: ref, title: null);
+    }
   }
 }

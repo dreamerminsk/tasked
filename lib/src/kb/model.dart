@@ -4,8 +4,9 @@ class Movie {
   String title;
   String original;
   String kbRef;
+  String poster;
 
-  Movie({@required this.title, this.original, this.kbRef});
+  Movie({@required this.title, this.original, this.kbRef, this.poster});
 }
 
 class YearRecord {
