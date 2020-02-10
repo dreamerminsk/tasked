@@ -5,8 +5,10 @@ class Movie {
   String original;
   String kbRef;
   String poster;
+  List<String> genres;
 
-  Movie({@required this.title, this.original, this.kbRef, this.poster});
+  Movie(
+      {@required this.title, this.original, this.kbRef, this.poster, this.genres});
 }
 
 class YearRecord {

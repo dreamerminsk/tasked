@@ -145,14 +145,25 @@ class KbApi {
       String url = '$kbHost$ref';
       var response = await dio.get(url);
       var document = parse(response.data.toString());
-      var posterImg = document.querySelector(
-          'div.film__picture > figure > img');
-      return Movie(kbRef: ref,
-          title: null,
-          poster: '$kbHost${posterImg.attributes['src']}');
+      var posterImg =
+      document.querySelector('div.film__picture > figure > img');
+      var genres = document
+          .querySelectorAll('span[itemprop=''genre'']')
+          .map(f)
+          .toList();
+      return Movie(
+        kbRef: ref,
+        title: null,
+        poster: '$kbHost${posterImg.attributes['src']}',
+        genres: genres,
+      );
     } catch (exception) {
       developer.log(exception.toString());
       return Movie(kbRef: ref, title: null);
     }
+  }
+
+  String f(dom.Element element) {
+    return element.text;
   }
 }
