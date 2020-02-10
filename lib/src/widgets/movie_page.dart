@@ -52,12 +52,15 @@ class MoviePage extends StatelessWidget {
                       children: snapshot.data.genres
                           .map((g) =>
                           Container(
+                              padding: EdgeInsets.all(4.0),
                               child: Text(g,
                                   style: Theme
                                       .of(context)
                                       .textTheme
-                                      .subhead),
+                                      .body1),
                               decoration: BoxDecoration(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(4.0)),
                                   border: Border.all(color: Colors.indigo))))
                           .toList(),
                     ),
