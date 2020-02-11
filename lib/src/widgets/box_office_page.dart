@@ -460,12 +460,34 @@ class YearBoxOffice extends StatelessWidget {
 class BoxOfficeAll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Text('Not Implemented Yet',
-            style: Theme
-                .of(context)
-                .textTheme
-                .headline));
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              Text(
+                'Header $index',
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .body2,
+              ),
+              ListView.builder(
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: Text('Nested list item $index'),
+                  );
+                },
+                itemCount: 6, // this is a hardcoded value
+              ),
+            ],
+          ),
+        );
+      },
+      itemCount: 4, // this is a hardcoded value
+    );
   }
 }
 

@@ -69,12 +69,9 @@ class MoviePage extends StatelessWidget {
               ];
             } else if (snapshot.hasError) {
               children = <Widget>[
-                Icon(
-                  Icons.error_outline,
-                  color: Colors.red,
-                  size: 60,
-                ),
-                Padding(
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.red, width: 3)),
                   padding: const EdgeInsets.only(top: 16),
                   child: Text('Error: ${snapshot.error}'),
                 )
@@ -85,10 +82,6 @@ class MoviePage extends StatelessWidget {
                   child: CircularProgressIndicator(),
                   width: 60,
                   height: 60,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 16),
-                  child: Text('Awaiting result...'),
                 ),
               ];
             }
