@@ -458,6 +458,9 @@ class YearBoxOffice extends StatelessWidget {
 }
 
 class BoxOfficeAll extends StatelessWidget {
+
+  final items = <String>['ЧЕТВЕРГ', 'УИКЕНД', 'ГОД', 'ДИСТРИБЬЮТОРЫ'];
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -467,26 +470,28 @@ class BoxOfficeAll extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                'Header $index',
+                '${items[index]}',
                 style: Theme
                     .of(context)
                     .textTheme
                     .body2,
               ),
               ListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(top: 8.0),
                     child: Text('Nested list item $index'),
                   );
                 },
-                itemCount: 6, // this is a hardcoded value
+                itemCount: 10, // this is a hardcoded value
               ),
             ],
           ),
         );
       },
-      itemCount: 4, // this is a hardcoded value
+      itemCount: items.length, // this is a hardcoded value
     );
   }
 }

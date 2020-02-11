@@ -48,22 +48,25 @@ class MoviePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Image.network(snapshot.data.poster, width: 128),
-                    Flexible(
-                      child: Row(
-                        children: snapshot.data.genres
-                            .map(
-                              (g) =>
-                              Flexible(
-                                child: Text(g,
-                                    style: Theme
-                                        .of(context)
-                                        .textTheme
-                                        .body1),
-                              ),
-                        )
-                            .toList(),
+                    Column(children: <Widget>[
+                      Flexible(
+                        child: Row(
+                          children: snapshot.data.genres
+                              .map(
+                                (g) =>
+                                Flexible(
+                                  child: Text(g,
+                                      style: Theme
+                                          .of(context)
+                                          .textTheme
+                                          .body1),
+                                ),
+                          )
+                              .toList(),
+                        ),
                       ),
-                    )
+                      Text('${snapshot.data.description}'),
+                    ]),
                   ],
                 ),
               ];

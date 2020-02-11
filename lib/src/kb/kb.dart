@@ -149,21 +149,23 @@ class KbApi {
       document.querySelector('div.film__picture > figure > img');
       var genres = document
           .querySelectorAll('span[itemprop=''genre'']')
-          .map(f)
+          .map((item) => item.text.trim())
           .toList();
+
+      var desc = document
+          .querySelector('span[itemprop="description"]')
+          .text;
+
       return Movie(
         kbRef: ref,
         title: null,
         poster: '$kbHost${posterImg.attributes['src']}',
         genres: genres,
+        description: desc,
       );
     } catch (exception) {
       developer.log(exception.toString());
       return Movie(kbRef: ref, title: null);
     }
-  }
-
-  String f(dom.Element element) {
-    return element.text;
   }
 }
