@@ -20,17 +20,11 @@ class MoviePage extends StatelessWidget {
           children: [
             Text(
               '${this.movie.title}',
-              style: Theme
-                  .of(context)
-                  .primaryTextTheme
-                  .title,
+              style: Theme.of(context).primaryTextTheme.title,
             ),
             Text(
               '${this.movie.original}',
-              style: Theme
-                  .of(context)
-                  .primaryTextTheme
-                  .subtitle,
+              style: Theme.of(context).primaryTextTheme.subtitle,
             )
           ],
         ),
@@ -46,28 +40,29 @@ class MoviePage extends StatelessWidget {
               children = <Widget>[
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Image.network(snapshot.data.poster, width: 128),
-                    Column(children: <Widget>[
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                       Flexible(
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: snapshot.data.genres
                               .map(
-                                (g) =>
-                                Flexible(
+                                (g) => Flexible(
                                   child: Text(g,
-                                      style: Theme
-                                          .of(context)
-                                          .textTheme
-                                          .body1),
+                                      style: Theme.of(context).textTheme.body1),
                                 ),
-                          )
+                              )
                               .toList(),
                         ),
                       ),
-                      Text('${snapshot.data.description}'),
                     ]),
                   ],
+                ),
+                Spacer(),
+                Flexible(
+                  child: Text('${snapshot.data.description}'),
                 ),
               ];
             } else if (snapshot.hasError) {
@@ -88,14 +83,13 @@ class MoviePage extends StatelessWidget {
                 ),
               ];
             }
-            return Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: children,
-              ),
-            );
+            return SingleChildScrollView(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: children,
+            ));
           },
         ),
       ]),
