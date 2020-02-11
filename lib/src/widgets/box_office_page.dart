@@ -457,12 +457,25 @@ class YearBoxOffice extends StatelessWidget {
   }
 }
 
+class BoxOfficeAll extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Text('Not Implemented Yet',
+            style: Theme
+                .of(context)
+                .textTheme
+                .headline));
+  }
+}
+
 class BottomNavigationBarProvider with ChangeNotifier {
   int _currentIndex = 0;
 
-  List<String> _titles = <String>['THURSDAY', 'WEEKEND', 'YEAR'];
+  List<String> _titles = <String>['БОКСОФИС', 'ЧЕТВЕРГ', 'УИКЕНД', 'ГОД'];
 
   List<Widget> _widgets = <Widget>[
+    BoxOfficeAll(),
     ThursdayBoxOffice(),
     WeekendBoxOffice(),
     YearBoxOffice()
@@ -521,12 +534,15 @@ class BoxOfficePage extends StatelessWidget {
         },
         items: <BottomNavigationBarItem>[
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.today), title: new Text("THURSDAY")),
+              icon: const Icon(Icons.monetization_on),
+              title: new Text("БОКСОФИС")),
+          new BottomNavigationBarItem(
+              icon: const Icon(Icons.today), title: new Text("ЧЕТВЕРГ")),
           new BottomNavigationBarItem(
               icon: const Icon(Icons.calendar_today),
-              title: new Text("WEEKEND")),
+              title: new Text("УИКЕНД")),
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.date_range), title: new Text("YEAR"))
+              icon: const Icon(Icons.date_range), title: new Text("ГОД"))
         ],
       ),
     );

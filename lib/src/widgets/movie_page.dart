@@ -53,11 +53,13 @@ class MoviePage extends StatelessWidget {
                           .map((g) =>
                           Container(
                               padding: EdgeInsets.all(4.0),
-                              child: Text(g,
-                                  style: Theme
-                                      .of(context)
-                                      .textTheme
-                                      .body1),
+                              child: Flexible(
+                                child: Text(g,
+                                    style: Theme
+                                        .of(context)
+                                        .textTheme
+                                        .body1),
+                              ),
                               decoration: BoxDecoration(
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(4.0)),
