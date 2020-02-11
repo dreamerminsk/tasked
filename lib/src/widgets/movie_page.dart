@@ -48,24 +48,22 @@ class MoviePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Image.network(snapshot.data.poster, width: 128),
-                    Row(
-                      children: snapshot.data.genres
-                          .map((g) =>
-                          Container(
-                              padding: EdgeInsets.all(4.0),
-                              child: Flexible(
+                    Flexible(
+                      child: Row(
+                        children: snapshot.data.genres
+                            .map(
+                              (g) =>
+                              Flexible(
                                 child: Text(g,
                                     style: Theme
                                         .of(context)
                                         .textTheme
                                         .body1),
                               ),
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                  BorderRadius.all(Radius.circular(4.0)),
-                                  border: Border.all(color: Colors.indigo))))
-                          .toList(),
-                    ),
+                        )
+                            .toList(),
+                      ),
+                    )
                   ],
                 ),
               ];
