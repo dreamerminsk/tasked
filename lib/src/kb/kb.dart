@@ -55,7 +55,7 @@ class KbApi {
       distributor: children[3].text.trim(),
       screens: int.tryParse(trim(children[4].text)) ?? 0,
       spectaculars: int.tryParse(trim(children[7].text)) ?? 0,
-      kbRef: movieRef.attributes['href'],
+      kbRef: movieRef == null ? '' : movieRef.attributes['href'],
     );
   }
 
