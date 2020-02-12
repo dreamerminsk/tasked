@@ -59,11 +59,7 @@ class MoviePage extends StatelessWidget {
                       ),
                     ]),
                   ],
-                ),
-                Spacer(),
-                Flexible(
-                  child: Text('${snapshot.data.description}'),
-                ),
+                ), Text(snapshot.data.description),
               ];
             } else if (snapshot.hasError) {
               children = <Widget>[
