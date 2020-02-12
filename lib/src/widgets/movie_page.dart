@@ -50,8 +50,17 @@ class MoviePage extends StatelessWidget {
                           children: snapshot.data.genres
                               .map(
                                 (g) => Flexible(
-                                  child: Text(g,
-                                      style: Theme.of(context).textTheme.body1),
+                              child: Container(
+                                padding:
+                                EdgeInsets.symmetric(horizontal: 5),
+                                child: Text(g,
+                                    softWrap: true,
+                                    style:
+                                    Theme
+                                        .of(context)
+                                        .textTheme
+                                        .title),
+                              ),
                                 ),
                               )
                               .toList(),
@@ -60,7 +69,11 @@ class MoviePage extends StatelessWidget {
                     ]),
                   ],
                 ),
-                Text(snapshot.data.description),
+                Text(snapshot.data.description,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .title),
               ];
             } else if (snapshot.hasError) {
               children = <Widget>[
