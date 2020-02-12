@@ -261,6 +261,7 @@ class WeekendBoxOffice extends StatelessWidget {
                   '${fullDateFormatter.format(weekend.weekends[0])}'));
         } else
           return Card(
+
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,

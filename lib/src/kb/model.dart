@@ -38,8 +38,9 @@ class WeekendRecord {
   int pos;
   String title;
   int boxOffice;
+  String kbRef;
 
-  WeekendRecord(this.pos, this.title, this.boxOffice);
+  WeekendRecord({this.pos, this.title, this.boxOffice, this.kbRef});
 }
 
 class ThursdayRecord {
