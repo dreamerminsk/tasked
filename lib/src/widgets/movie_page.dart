@@ -50,16 +50,15 @@ class MoviePage extends StatelessWidget {
                           children: snapshot.data.genres
                               .map(
                                 (g) => Flexible(
-                              child: Container(
-                                padding:
-                                EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(g,
-                                    softWrap: true,
+                              child: Card(
+                                child: Text(g, overflow: TextOverflow.fade,
+                                    maxLines: 1,
+                                    softWrap: false,
                                     style:
                                     Theme
                                         .of(context)
                                         .textTheme
-                                        .title),
+                                        .subtitle),
                               ),
                                 ),
                               )
@@ -70,15 +69,17 @@ class MoviePage extends StatelessWidget {
                   ],
                 ),
                 Card(
-                  child: Column(mainAxisSize: MainAxisSize.min,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(title: Text('ОПИСАНИЕ')),
                       Text(snapshot.data.description,
                           style: Theme
                               .of(context)
                               .textTheme
-                              .title)
-                    ],),
+                              .subtitle)
+                    ],
+                  ),
                 ),
               ];
             } else if (snapshot.hasError) {
