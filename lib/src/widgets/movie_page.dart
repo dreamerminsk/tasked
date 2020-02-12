@@ -69,11 +69,17 @@ class MoviePage extends StatelessWidget {
                     ]),
                   ],
                 ),
-                Text(snapshot.data.description,
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .title),
+                Card(
+                  child: Column(mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(title: Text('ОПИСАНИЕ')),
+                      Text(snapshot.data.description,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .title)
+                    ],),
+                ),
               ];
             } else if (snapshot.hasError) {
               children = <Widget>[
