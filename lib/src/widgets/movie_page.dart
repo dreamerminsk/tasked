@@ -51,7 +51,7 @@ class MoviePage extends StatelessWidget {
                               .map(
                                 (g) => Flexible(
                               child: Card(
-                                child: Text(g, overflow: TextOverflow.fade,
+                                child: Text(g, overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     softWrap: false,
                                     style:

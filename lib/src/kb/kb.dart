@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer' as developer;
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart' as dom;
@@ -18,7 +19,14 @@ class KbApi {
 
   static final thursdayBoxOffice = '$kbHost/kassovye_sbory/thursday/';
 
-  static final Dio dio = Dio();
+  static final Dio dio = Dio(BaseOptions(
+    connectTimeout: 15000,
+    receiveTimeout: 100000,
+    headers: {
+      HttpHeaders.userAgentHeader:
+      "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0",
+    },
+  ));
 
   Future<List<YearRecord>> getYearBoxOffice() async {
     try {
@@ -148,7 +156,7 @@ class KbApi {
       var posterImg =
       document.querySelector('div.film__picture > figure > img');
       var genres = document
-          .querySelectorAll('span[itemprop=''genre'']')
+          .querySelectorAll('span[itemprop=' 'genre' ']')
           .map((item) => item.text.trim())
           .toList();
 
