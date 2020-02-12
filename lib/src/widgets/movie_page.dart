@@ -59,7 +59,8 @@ class MoviePage extends StatelessWidget {
                       ),
                     ]),
                   ],
-                ), Text(snapshot.data.description),
+                ),
+                Text(snapshot.data.description),
               ];
             } else if (snapshot.hasError) {
               children = <Widget>[
@@ -80,12 +81,14 @@ class MoviePage extends StatelessWidget {
               ];
             }
             return SingleChildScrollView(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: children,
-            ));
+                child: Padding(
+                    padding: EdgeInsets.all(4),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: children,
+                    )));
           },
         ),
       ]),
