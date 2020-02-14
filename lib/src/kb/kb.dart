@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
+import 'package:kbapp/src/services/firestore_service.dart';
 import 'package:kbapp/src/utils/strings.dart';
 
 import '../utils/formatters.dart';
@@ -38,7 +39,12 @@ class KbApi {
       List<dom.Element> rows =
       document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
-      return rows.map(parseYearRec).toList();
+      var years = rows.map(parseYearRec).toList();
+      years.forEach((y) {
+        var fs = FirestoreService();
+        //fs.createYear(y);
+      });
+      return years;
     } catch (exception) {
       developer.log(exception.toString());
       return <YearRecord>[];

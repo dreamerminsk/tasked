@@ -53,7 +53,46 @@ class Note {
   }
 }
 
+class Worker {
+  String _id;
+  String _title;
+  DateTime _lastWorked;
+
+  Worker(this._id, this._title, this._lastWorked);
+
+  Worker.map(dynamic obj) {
+    this._id = obj['id'];
+    this._title = obj['title'];
+    this._lastWorked = obj['lastWorked'];
+  }
+
+  String get id => _id;
+
+  String get title => _title;
+
+  DateTime get description => _lastWorked;
+
+  Map<String, dynamic> toMap() {
+    var map = new Map<String, dynamic>();
+    if (_id != null) {
+      map['id'] = _id;
+    }
+    map['title'] = _title;
+    map['lastWorked'] = _lastWorked;
+
+    return map;
+  }
+
+  Worker.fromMap(Map<String, dynamic> map) {
+    this._id = map['id'];
+    this._title = map['title'];
+    this._lastWorked = map['lastWorked'];
+  }
+}
+
+
 class YearRecord {
+  var _id;
   int pos;
   String title;
   int boxOffice;
@@ -64,7 +103,6 @@ class YearRecord {
   int spectaculars;
   String kbRef;
 
-  var _id;
 
   YearRecord({@required this.pos,
     @required this.title,
