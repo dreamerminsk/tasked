@@ -34,6 +34,8 @@ class KbApi {
 
   Future<List<YearRecord>> getYearBoxOffice() async {
     try {
+      var fs = FirestoreService();
+      fs.createWorker('YEAR');
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
@@ -41,7 +43,6 @@ class KbApi {
       developer.log('ELEMENTS: ${rows.length}');
       var years = rows.map(parseYearRec).toList();
       years.forEach((y) {
-        var fs = FirestoreService();
         //fs.createYear(y);
       });
       return years;
