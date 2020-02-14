@@ -106,7 +106,8 @@ class FirestoreService {
 
   Future<Worker> createWorker(String title) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(workerCollection.document());
+      final DocumentSnapshot ds = await tx.get(
+          workerCollection.document(title));
 
       final Worker note = new Worker(title, DateTime.now());
       final Map<String, dynamic> data = note.toMap();
