@@ -12,6 +12,25 @@ class FirebaseFirestoreService {
 
   FirebaseFirestoreService.internal();
 
+  Future<YearRecord> createYear(YearRecord year) async {
+    final TransactionHandler createTransaction = (Transaction tx) async {
+      final DocumentSnapshot ds = await tx.get(yearCollection.document());
+
+      final Map<String, dynamic> data = year.toMap();
+
+      await tx.set(ds.reference, data);
+
+      return data;
+    };
+
+    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
+      return YearRecord.fromMap(mapData);
+    }).catchError((error) {
+      print('error: $error');
+      return null;
+    });
+  }
+
   Future<Note> createNote(String title, String description) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(yearCollection.document());
