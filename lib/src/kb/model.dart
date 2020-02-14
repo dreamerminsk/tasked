@@ -88,6 +88,8 @@ class YearRecord {
     this.kbRef = obj['kbRef'];
   }
 
+  String get id => _id;
+
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
     if (_id != null) {
