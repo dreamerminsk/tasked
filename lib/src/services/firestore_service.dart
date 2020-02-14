@@ -4,13 +4,13 @@ import 'package:kbapp/src/kb/model.dart';
 final CollectionReference yearCollection =
 Firestore.instance.collection('boxoffice_years');
 
-class FirebaseFirestoreService {
-  static final FirebaseFirestoreService _instance =
-      new FirebaseFirestoreService.internal();
+class FirestoreService {
+  static final FirestoreService _instance =
+  new FirestoreService.internal();
 
-  factory FirebaseFirestoreService() => _instance;
+  factory FirestoreService() => _instance;
 
-  FirebaseFirestoreService.internal();
+  FirestoreService.internal();
 
   Future<YearRecord> createYear(YearRecord year) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
