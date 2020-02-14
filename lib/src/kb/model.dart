@@ -8,20 +8,63 @@ class Movie {
   List<String> genres;
   String description;
 
-  Movie(
-      {@required this.title, this.original, this.kbRef, this.poster, this.genres, this.description});
+  Movie({@required this.title,
+    this.original,
+    this.kbRef,
+    this.poster,
+    this.genres,
+    this.description});
+}
+
+class Note {
+  String _id;
+  String _title;
+  String _description;
+
+  Note(this._id, this._title, this._description);
+
+  Note.map(dynamic obj) {
+    this._id = obj['id'];
+    this._title = obj['title'];
+    this._description = obj['description'];
+  }
+
+  String get id => _id;
+
+  String get title => _title;
+
+  String get description => _description;
+
+  Map<String, dynamic> toMap() {
+    var map = new Map<String, dynamic>();
+    if (_id != null) {
+      map['id'] = _id;
+    }
+    map['title'] = _title;
+    map['description'] = _description;
+
+    return map;
+  }
+
+  Note.fromMap(Map<String, dynamic> map) {
+    this._id = map['id'];
+    this._title = map['title'];
+    this._description = map['description'];
+  }
 }
 
 class YearRecord {
-  final int pos;
-  final String title;
-  final int boxOffice;
-  final int boxOfficeUsd;
-  final String original;
-  final String distributor;
-  final int screens;
-  final int spectaculars;
-  final String kbRef;
+  int pos;
+  String title;
+  int boxOffice;
+  int boxOfficeUsd;
+  String original;
+  String distributor;
+  int screens;
+  int spectaculars;
+  String kbRef;
+
+  var _id;
 
   YearRecord({@required this.pos,
     @required this.title,
@@ -32,6 +75,49 @@ class YearRecord {
     this.screens,
     this.spectaculars,
     this.kbRef});
+
+  YearRecord.map(dynamic obj) {
+    this.pos = obj['pos'];
+    this.title = obj['title'];
+    this.boxOffice = obj['boxOffice'];
+    this.boxOfficeUsd = obj['boxOfficeUsd'];
+    this.original = obj['original'];
+    this.distributor = obj['distributor'];
+    this.screens = obj['screens'];
+    this.spectaculars = obj['spectaculars'];
+    this.kbRef = obj['kbRef'];
+  }
+
+  Map<String, dynamic> toMap() {
+    var map = new Map<String, dynamic>();
+    if (_id != null) {
+      map['id'] = _id;
+    }
+    map['pos'] = this.pos;
+    map['title'] = this.title;
+    map['boxOffice'] = this.boxOffice;
+    map['boxOfficeUsd'] = this.boxOfficeUsd;
+    map['original'] = this.original;
+    map['distributor'] = this.distributor;
+    map['screens'] = this.screens;
+    map['spectaculars'] = this.spectaculars;
+    map['kbRef'] = this.kbRef;
+
+    return map;
+  }
+
+  YearRecord.fromMap(Map<String, dynamic> map) {
+    this._id = map['id'];
+    this.pos = map['pos'];
+    this.title = map['title'];
+    this.boxOffice = map['boxOffice'];
+    this.boxOfficeUsd = map['boxOfficeUsd'];
+    this.original = map['original'];
+    this.distributor = map['distributor'];
+    this.screens = map['screens'];
+    this.spectaculars = map['spectaculars'];
+    this.kbRef = map['kbRef'];
+  }
 }
 
 class WeekendRecord {
