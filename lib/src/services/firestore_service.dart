@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kbapp/src/kb/model.dart';
 
-final CollectionReference noteCollection =
-    Firestore.instance.collection('notes');
+final CollectionReference yearCollection =
+Firestore.instance.collection('boxoffice_years');
 
 class FirebaseFirestoreService {
   static final FirebaseFirestoreService _instance =
@@ -14,7 +14,7 @@ class FirebaseFirestoreService {
 
   Future<Note> createNote(String title, String description) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(noteCollection.document());
+      final DocumentSnapshot ds = await tx.get(yearCollection.document());
 
       final Note note = new Note(ds.documentID, title, description);
       final Map<String, dynamic> data = note.toMap();
@@ -33,7 +33,7 @@ class FirebaseFirestoreService {
   }
 
   Stream<QuerySnapshot> getNoteList({int offset, int limit}) {
-    Stream<QuerySnapshot> snapshots = noteCollection.snapshots();
+    Stream<QuerySnapshot> snapshots = yearCollection.snapshots();
 
     if (offset != null) {
       snapshots = snapshots.skip(offset);
@@ -49,7 +49,7 @@ class FirebaseFirestoreService {
   Future<dynamic> updateNote(YearRecord note) async {
     final TransactionHandler updateTransaction = (Transaction tx) async {
       final DocumentSnapshot ds =
-          await tx.get(noteCollection.document(note.id));
+      await tx.get(yearCollection.document(note.id));
 
       await tx.update(ds.reference, note.toMap());
       return {'updated': true};
@@ -66,7 +66,7 @@ class FirebaseFirestoreService {
 
   Future<dynamic> deleteNote(String id) async {
     final TransactionHandler deleteTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(noteCollection.document(id));
+      final DocumentSnapshot ds = await tx.get(yearCollection.document(id));
 
       await tx.delete(ds.reference);
       return {'deleted': true};
