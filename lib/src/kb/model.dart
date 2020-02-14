@@ -55,20 +55,16 @@ class Note {
 
 class Worker {
   String _id;
-  String _title;
   DateTime _lastWorked;
 
-  Worker(this._id, this._title, this._lastWorked);
+  Worker(this._id, this._lastWorked);
 
   Worker.map(dynamic obj) {
     this._id = obj['id'];
-    this._title = obj['title'];
     this._lastWorked = obj['lastWorked'];
   }
 
   String get id => _id;
-
-  String get title => _title;
 
   DateTime get description => _lastWorked;
 
@@ -77,7 +73,6 @@ class Worker {
     if (_id != null) {
       map['id'] = _id;
     }
-    map['title'] = _title;
     map['lastWorked'] = _lastWorked;
 
     return map;
@@ -85,7 +80,6 @@ class Worker {
 
   Worker.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
-    this._title = map['title'];
     this._lastWorked = map['lastWorked'];
   }
 }

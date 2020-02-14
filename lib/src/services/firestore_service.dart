@@ -4,6 +4,9 @@ import 'package:kbapp/src/kb/model.dart';
 final CollectionReference yearCollection =
 Firestore.instance.collection('boxoffice_years');
 
+final CollectionReference workerCollection =
+Firestore.instance.collection('workers');
+
 class FirestoreService {
   static final FirestoreService _instance =
   new FirestoreService.internal();
@@ -99,4 +102,76 @@ class FirestoreService {
       return false;
     });
   }
+
+
+  Future<Worker> createWorker(String title) async {
+    final TransactionHandler createTransaction = (Transaction tx) async {
+      final DocumentSnapshot ds = await tx.get(workerCollection.document());
+
+      final Worker note = new Worker(title, DateTime.now());
+      final Map<String, dynamic> data = note.toMap();
+
+      await tx.set(ds.reference, data);
+
+      return data;
+    };
+
+    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
+      return Worker.fromMap(mapData);
+    }).catchError((error) {
+      print('error: $error');
+      return null;
+    });
+  }
+
+  Stream<QuerySnapshot> getWorkerList({int offset, int limit}) {
+    Stream<QuerySnapshot> snapshots = workerCollection.snapshots();
+
+    if (offset != null) {
+      snapshots = snapshots.skip(offset);
+    }
+
+    if (limit != null) {
+      snapshots = snapshots.take(limit);
+    }
+
+    return snapshots;
+  }
+
+  Future<dynamic> updateWorker(Worker worker) async {
+    final TransactionHandler updateTransaction = (Transaction tx) async {
+      final DocumentSnapshot ds =
+      await tx.get(workerCollection.document(worker.id));
+
+      await tx.update(ds.reference, worker.toMap());
+      return {'updated': true};
+    };
+
+    return Firestore.instance
+        .runTransaction(updateTransaction)
+        .then((result) => result['updated'])
+        .catchError((error) {
+      print('error: $error');
+      return false;
+    });
+  }
+
+  Future<dynamic> deleteWorker(String id) async {
+    final TransactionHandler deleteTransaction = (Transaction tx) async {
+      final DocumentSnapshot ds = await tx.get(workerCollection.document(id));
+
+      await tx.delete(ds.reference);
+      return {'deleted': true};
+    };
+
+    return Firestore.instance
+        .runTransaction(deleteTransaction)
+        .then((result) => result['deleted'])
+        .catchError((error) {
+      print('error: $error');
+      return false;
+    });
+  }
+
+
 }
