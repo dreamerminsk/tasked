@@ -72,7 +72,6 @@ class MoviePage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      ListTile(title: Text('ОПИСАНИЕ')),
                       Text(snapshot.data.description,
                           style: Theme
                               .of(context)
