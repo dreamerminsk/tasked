@@ -84,7 +84,6 @@ class Worker {
   }
 }
 
-
 class YearRecord {
   var _id;
   int pos;
@@ -96,7 +95,6 @@ class YearRecord {
   int screens;
   int spectaculars;
   String kbRef;
-
 
   YearRecord({@required this.pos,
     @required this.title,

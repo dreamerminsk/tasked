@@ -8,8 +8,7 @@ final CollectionReference workerCollection =
 Firestore.instance.collection('workers');
 
 class FirestoreService {
-  static final FirestoreService _instance =
-  new FirestoreService.internal();
+  static final FirestoreService _instance = new FirestoreService.internal();
 
   factory FirestoreService() => _instance;
 
@@ -103,11 +102,10 @@ class FirestoreService {
     });
   }
 
-
   Future<Worker> createWorker(String title) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(
-          workerCollection.document(title));
+      final DocumentSnapshot ds =
+      await tx.get(workerCollection.document(title));
 
       final Worker note = new Worker(title, DateTime.now());
       final Map<String, dynamic> data = note.toMap();
@@ -173,6 +171,4 @@ class FirestoreService {
       return false;
     });
   }
-
-
 }

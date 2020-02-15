@@ -109,10 +109,12 @@ class KbApi {
   WeekendRecord parseWeekendRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
     final movieRef = children[3].querySelector('b > a');
-    return WeekendRecord(pos: int.parse(children[1].text.trim()),
+    return WeekendRecord(
+      pos: int.parse(children[1].text.trim()),
       title: children[3].text.trim(),
       boxOffice: int.tryParse(trim(children[6].text)) ?? 0,
-      kbRef: movieRef == null ? null : movieRef.attributes['href'],);
+      kbRef: movieRef == null ? null : movieRef.attributes['href'],
+    );
   }
 
   Future<List<DateTime>> getThursdays() async {
