@@ -500,7 +500,7 @@ class BoxOfficeAll extends StatelessWidget {
 class BottomNavigationBarProvider with ChangeNotifier {
   int _currentIndex = 0;
 
-  List<String> _titles = <String>['БОКСОФИС', 'ЧЕТВЕРГ', 'УИКЕНД', 'ГОД'];
+  List<String> _titles = <String>['БОКСОФИС', 'АФИША', 'УИКЕНД', 'ГОД'];
 
   List<Widget> _widgets = <Widget>[
     BoxOfficeAll(),
@@ -542,11 +542,9 @@ class BoxOfficePage extends StatelessWidget {
           icon: Icon(Icons.autorenew),
           onPressed: () async {
             var idx = provider.currentIndex;
-            if (idx == 0) {
-              Provider.of<ThursdayModel>(context, listen: false).load();
-            } else if (idx == 1) {
+            if (idx == 2) {
               Provider.of<WeekendModel>(context, listen: false).load();
-            } else if (idx == 2) {
+            } else if (idx == 3) {
               Provider.of<YearModel>(context, listen: false).load();
             }
           },
@@ -565,7 +563,7 @@ class BoxOfficePage extends StatelessWidget {
               icon: const Icon(Icons.monetization_on),
               title: new Text("БОКСОФИС")),
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.today), title: new Text("ЧЕТВЕРГ")),
+              icon: const Icon(Icons.movie), title: new Text("АФИША")),
           new BottomNavigationBarItem(
               icon: const Icon(Icons.calendar_today),
               title: new Text("УИКЕНД")),
