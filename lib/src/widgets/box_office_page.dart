@@ -1,9 +1,13 @@
+import 'dart:async';
 import 'dart:collection';
+import 'dart:html';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kbapp/src/kb/kb.dart';
 import 'package:kbapp/src/kb/model.dart';
+import 'package:kbapp/src/services/firestore_service.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/formatters.dart';
@@ -261,7 +265,6 @@ class WeekendBoxOffice extends StatelessWidget {
                   '${fullDateFormatter.format(weekend.weekends[0])}'));
         } else
           return Card(
-
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -458,42 +461,81 @@ class YearBoxOffice extends StatelessWidget {
   }
 }
 
-class BoxOfficeAll extends StatelessWidget {
+class BoxOfficeHomeModel with ChangeNotifier {
+  List<YearRecord> items;
+  FirestoreService db = new FirestoreService();
 
+  StreamSubscription<QuerySnapshot> yearSub;
+
+  BoxOfficeHomeModel() {
+    initState();
+  }
+
+  void initState() {
+    items = new List();
+
+    yearSub?.cancel();
+    yearSub = db.getYearList().listen((QuerySnapshot snapshot) {
+      final List<YearRecord> years = snapshot.documents
+          .map((documentSnapshot) => YearRecord.fromMap(documentSnapshot.data))
+          .toList();
+
+      this.items = years;
+      notifyListeners();
+    });
+  }
+
+  @override
+  void dispose() {
+    yearSub?.cancel();
+    super.dispose();
+  }
+}
+
+class BoxOfficeHome extends StatelessWidget {
   final items = <String>['ЧЕТВЕРГ', 'УИКЕНД', 'ГОД', 'ДИСТРИБЬЮТОРЫ'];
+  final headers = <Widget>[];
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              Text(
-                '${items[index]}',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .body2,
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text('Nested list item $index'),
-                  );
-                },
-                itemCount: 10, // this is a hardcoded value
-              ),
-            ],
-          ),
-        );
-      },
-      itemCount: items.length, // this is a hardcoded value
-    );
+    return ChangeNotifierProvider(
+        create: (context) => BoxOfficeHomeModel(),
+        child: Consumer<BoxOfficeHomeModel>(
+            builder: (context, model, child) =>
+                ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            '${items[index]}',
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .body2,
+                          ),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: ClampingScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: index == 2
+                                    ? Text(
+                                    '${model.items[index].title} / ${model
+                                        .items[index].boxOffice}')
+                                    : Text('Nested list item $index'),
+                              );
+                            },
+                            itemCount: 10, // this is a hardcoded value
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: items.length, // this is a hardcoded value
+                )));
   }
 }
 
@@ -503,7 +545,7 @@ class BottomNavigationBarProvider with ChangeNotifier {
   List<String> _titles = <String>['БОКСОФИС', 'АФИША', 'УИКЕНД', 'ГОД'];
 
   List<Widget> _widgets = <Widget>[
-    BoxOfficeAll(),
+    BoxOfficeHome(),
     ComingSoonPage(),
     WeekendBoxOffice(),
     YearBoxOffice()

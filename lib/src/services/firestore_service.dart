@@ -34,6 +34,20 @@ class FirestoreService {
     });
   }
 
+  Stream<QuerySnapshot> getYearList({int offset, int limit}) {
+    Stream<QuerySnapshot> snapshots = yearCollection.snapshots();
+
+    if (offset != null) {
+      snapshots = snapshots.skip(offset);
+    }
+
+    if (limit != null) {
+      snapshots = snapshots.take(limit);
+    }
+
+    return snapshots;
+  }
+
   Future<Note> createNote(String title, String description) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(yearCollection.document());
@@ -52,20 +66,6 @@ class FirestoreService {
       print('error: $error');
       return null;
     });
-  }
-
-  Stream<QuerySnapshot> getNoteList({int offset, int limit}) {
-    Stream<QuerySnapshot> snapshots = yearCollection.snapshots();
-
-    if (offset != null) {
-      snapshots = snapshots.skip(offset);
-    }
-
-    if (limit != null) {
-      snapshots = snapshots.take(limit);
-    }
-
-    return snapshots;
   }
 
   Future<dynamic> updateNote(YearRecord note) async {
