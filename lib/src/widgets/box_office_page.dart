@@ -504,7 +504,7 @@ class BottomNavigationBarProvider with ChangeNotifier {
 
   List<Widget> _widgets = <Widget>[
     BoxOfficeAll(),
-    ThursdayBoxOffice(),
+    ComingSoonPage(),
     WeekendBoxOffice(),
     YearBoxOffice()
   ];
@@ -526,6 +526,13 @@ class BottomNavigationBarProvider with ChangeNotifier {
     if (currentWidget is YearBoxOffice) {
       //(currentWidget as YearBoxOffice).update();
     }
+  }
+}
+
+class ComingSoonPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text('NOT IMPLEMENTED YET'));
   }
 }
 
