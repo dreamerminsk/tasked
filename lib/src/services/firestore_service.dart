@@ -34,7 +34,7 @@ class FirestoreService {
   }
 
   Stream<QuerySnapshot> getYearList({int offset, int limit}) {
-    Stream<QuerySnapshot> snapshots = yearCollection.snapshots();
+    Stream<QuerySnapshot> snapshots = yearCollection.orderBy('pos').snapshots();
 
     if (offset != null) {
       snapshots = snapshots.skip(offset);
