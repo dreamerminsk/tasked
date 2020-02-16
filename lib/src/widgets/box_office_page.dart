@@ -10,7 +10,7 @@ import 'package:kbapp/src/services/firestore_service.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/formatters.dart';
-import 'movie_page.dart';
+import 'movie_page_2.dart';
 
 class ThursdayModel with ChangeNotifier {
   KbApi kbApi = KbApi();
