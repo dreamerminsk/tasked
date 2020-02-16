@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "372992294098",
+    "firebase_url": "https://karoboxoffice.firebaseio.com",
+    "project_id": "karoboxoffice",
+    "storage_bucket": "karoboxoffice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372992294098:android:d10d46e703783867",
+        "android_client_info": {
+          "package_name": "ch.karo.boxoffice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372992294098-pstjnbgv9ebs2mu2m6d1q2bl5ivs4bl6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ch.karo.boxoffice",
+            "certificate_hash": "dae1faa30c003712c583b33dc84e982429481c7f"
+          }
+        },
+        {
+          "client_id": "372992294098-g5tlpdajdfnr86u9sl2mbhog74gm1liq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLUYWX5QfbPLfKTSD7sVdJaH588HLzoW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372992294098-g5tlpdajdfnr86u9sl2mbhog74gm1liq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
