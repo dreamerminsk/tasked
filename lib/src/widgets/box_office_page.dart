@@ -502,13 +502,13 @@ class BoxOfficeHome extends StatelessWidget {
         child: Consumer<BoxOfficeHomeModel>(
             builder: (context, model, child) =>
                 ListView.builder(
-                  itemBuilder: (context, index) {
+                  itemBuilder: (context, idx) {
                     return Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Column(
                         children: <Widget>[
                           Text(
-                            '${items[index]}',
+                            '${items[idx]}',
                             style: Theme
                                 .of(context)
                                 .textTheme
@@ -520,7 +520,7 @@ class BoxOfficeHome extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return Padding(
                                 padding: EdgeInsets.only(top: 8.0),
-                                child: index == 2
+                                child: idx == 2
                                     ? Text(
                                     '${model.items[index].title} / ${model
                                         .items[index].boxOffice}')
