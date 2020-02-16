@@ -44,47 +44,55 @@ class MoviePage extends StatelessWidget {
 
             if (snapshot.hasData) {
               children = <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
+                ListView(
+                  shrinkWrap: true,
                   children: <Widget>[
-                    Image.network(snapshot.data.poster, width: 128),
-                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                      Flexible(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: snapshot.data.genres
-                              .map(
-                                (g) => Flexible(
-                              child: Card(
-                                child: Text(g,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 1,
-                                    softWrap: false,
-                                    style: Theme
-                                        .of(context)
-                                        .textTheme
-                                        .subtitle),
-                              ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Image.network(snapshot.data.poster, width: 128),
+                        Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Flexible(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: snapshot.data.genres
+                                      .map(
+                                        (g) =>
+                                        Flexible(
+                                          child: Card(
+                                            child: Text(g,
+                                                overflow: TextOverflow.ellipsis,
+                                                maxLines: 1,
+                                                softWrap: false,
+                                                style: Theme
+                                                    .of(context)
+                                                    .textTheme
+                                                    .subtitle2),
+                                          ),
+                                        ),
+                                  )
+                                      .toList(),
                                 ),
-                              )
-                              .toList(),
-                        ),
+                              ),
+                            ]),
+                      ],
+                    ),
+                    Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(snapshot.data.description,
+                              style: Theme
+                                  .of(context)
+                                  .textTheme
+                                  .subtitle2)
+                        ],
                       ),
-                    ]),
+                    ),
                   ],
-                ),
-                Card(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(snapshot.data.description,
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .subtitle)
-                    ],
-                  ),
                 ),
               ];
             } else if (snapshot.hasError) {

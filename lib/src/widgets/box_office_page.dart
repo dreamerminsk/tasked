@@ -10,7 +10,7 @@ import 'package:kbapp/src/services/firestore_service.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/formatters.dart';
-import 'movie_page_2.dart';
+import 'movie_page.dart';
 
 class ThursdayModel with ChangeNotifier {
   KbApi kbApi = KbApi();
@@ -377,7 +377,7 @@ class YearBoxOffice extends StatelessWidget {
                         style: Theme
                             .of(context)
                             .textTheme
-                            .headline),
+                            .headline5),
                   ),
                   SizedBox(
                     width: 6,
@@ -393,13 +393,13 @@ class YearBoxOffice extends StatelessWidget {
                                 style: Theme
                                     .of(context)
                                     .textTheme
-                                    .title)),
+                                    .headline6)),
                         Flexible(
                             child: Text('${year.titles[index].distributor}',
                                 style: Theme
                                     .of(context)
                                     .textTheme
-                                    .subtitle)),
+                                    .subtitle2)),
                         Table(children: [
                           TableRow(children: [
                             TableCell(
@@ -410,7 +410,7 @@ class YearBoxOffice extends StatelessWidget {
                                   style: Theme
                                       .of(context)
                                       .textTheme
-                                      .subhead),
+                                      .subtitle1),
                             ),
                             TableCell(
                               child: Text(
@@ -420,7 +420,7 @@ class YearBoxOffice extends StatelessWidget {
                                   style: Theme
                                       .of(context)
                                       .textTheme
-                                      .subhead),
+                                      .subtitle1),
                             ),
                           ]),
                           TableRow(children: [
@@ -432,7 +432,7 @@ class YearBoxOffice extends StatelessWidget {
                                   style: Theme
                                       .of(context)
                                       .textTheme
-                                      .subhead),
+                                      .subtitle1),
                             ),
                             TableCell(
                               child: Text(
@@ -442,7 +442,7 @@ class YearBoxOffice extends StatelessWidget {
                                   style: Theme
                                       .of(context)
                                       .textTheme
-                                      .subhead),
+                                      .subtitle1),
                             ),
                           ])
                         ]),
@@ -512,7 +512,7 @@ class BoxOfficeHome extends StatelessWidget {
                             style: Theme
                                 .of(context)
                                 .textTheme
-                                .body2,
+                                .bodyText1,
                           ),
                           ListView.builder(
                             shrinkWrap: true,
