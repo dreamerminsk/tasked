@@ -521,9 +521,18 @@ class BoxOfficeHome extends StatelessWidget {
                               return Padding(
                                 padding: EdgeInsets.only(top: 8.0),
                                 child: idx == 2
-                                    ? Text(
-                                    '${model.items[index].title} / ${model
-                                        .items[index].boxOffice}')
+                                    ? Table(children: <TableRow>[
+                                  TableRow(children: <Widget>[
+                                    TableCell(
+                                        child: Text(
+                                            '${model.items[index].title}')),
+                                    TableCell(
+                                        child: Text(
+                                            '${decimalFormatter.format(
+                                                model.items[index].boxOffice)}',
+                                            textAlign: TextAlign.end))
+                                  ])
+                                ])
                                     : Text('Nested list item $index'),
                               );
                             },
