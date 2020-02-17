@@ -84,6 +84,12 @@ class MoviePage extends StatelessWidget {
                                 .subtitle2)
                       ],
                     ),
+                    Column(children: <Widget>[
+                      Text('Кассовые сборы в России и СНГ:'),
+                    ]),
+                    Column(children: <Widget>[
+                      Text('Касса мирового проката:'),
+                    ]),
                   ],
                 ),
               ];
