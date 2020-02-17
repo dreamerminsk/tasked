@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kbapp/src/kb/kb.dart';
 import 'package:kbapp/src/kb/model.dart';
@@ -54,31 +55,24 @@ class MoviePage extends StatelessWidget {
                         Image.network(snapshot.data.poster, width: 128),
                         Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Flexible(
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: snapshot.data.genres
-                                      .map(
-                                        (g) =>
-                                        Flexible(
-                                          child: Card(
-                                            child: Text(g,
-                                                overflow: TextOverflow.ellipsis,
-                                                maxLines: 1,
-                                                softWrap: false,
-                                                style: Theme
-                                                    .of(context)
-                                                    .textTheme
-                                                    .subtitle2),
-                                          ),
-                                        ),
-                                  )
-                                      .toList(),
-                                ),
-                              ),
-                            ]),
+                            children: <Widget>[]),
                       ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: snapshot.data.genres
+                          .map(
+                            (g) =>
+                            Chip(
+                              label: AutoSizeText(
+                                g,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                softWrap: false,
+                              ),
+                            ),
+                      )
+                          .toList(),
                     ),
                     Card(
                       child: Column(
