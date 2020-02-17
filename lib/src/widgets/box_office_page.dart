@@ -521,11 +521,25 @@ class BoxOfficeHome extends StatelessWidget {
                               return Padding(
                                 padding: EdgeInsets.only(top: 8.0),
                                 child: idx == 2
-                                    ? Table(children: <TableRow>[
+                                    ? Table(
+                                    columnWidths: {
+                                      0: FlexColumnWidth(2),
+                                      1: FlexColumnWidth(14),
+                                      2: FlexColumnWidth(6),
+                                    },
+                                    children: <TableRow>[
                                   TableRow(children: <Widget>[
                                     TableCell(
+                                        child: Padding(
+                                            padding: EdgeInsets.only(
+                                                right: 8.0),
+                                            child: Text(
+                                                '${index + 1}',
+                                                textAlign: TextAlign.end))),
+                                    TableCell(
                                         child: Text(
-                                            '${model.items[index].title}')),
+                                          '${model.items[index].title}',
+                                          textAlign: TextAlign.start,)),
                                     TableCell(
                                         child: Text(
                                             '${decimalFormatter.format(
@@ -533,7 +547,7 @@ class BoxOfficeHome extends StatelessWidget {
                                             textAlign: TextAlign.end))
                                   ])
                                 ])
-                                    : Text('Nested list item $index'),
+                                    : Text('$index. Нет информации'),
                               );
                             },
                             itemCount: 10, // this is a hardcoded value
