@@ -70,8 +70,9 @@ class WeekendBoxOffice extends StatelessWidget {
                       Route route = MaterialPageRoute(
                           builder: (context) =>
                               MoviePage(Movie(
-                                title: weekend.titles[index].title,
-                                kbRef: weekend.titles[index].kbRef,
+                                title: weekend.titles[index - 1].title,
+                                //original: weekend.titles[index-1].original,
+                                kbRef: weekend.titles[index - 1].kbRef,
                               )));
                       Navigator.push(context, route);
                     },

@@ -53,6 +53,7 @@ class YearBoxOffice extends StatelessWidget {
                   builder: (context) =>
                       MoviePage(Movie(
                         title: year.titles[index].title,
+                        original: year.titles[index].original,
                         kbRef: year.titles[index].kbRef,
                       )));
               Navigator.push(context, route);
