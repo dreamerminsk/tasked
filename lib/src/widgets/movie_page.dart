@@ -37,89 +37,78 @@ class MoviePage extends StatelessWidget {
         ),
         actions: <Widget>[new Icon(Icons.more_vert)],
       ),
-      body: Column(children: <Widget>[
-        FutureBuilder<Movie>(
+      body: Center(
+        child: FutureBuilder<Movie>(
           future: kb.getMovie(this.movie.kbRef),
           builder: (BuildContext context, AsyncSnapshot<Movie> snapshot) {
-            List<Widget> children;
-
+            Widget children;
             if (snapshot.hasData) {
-              children = <Widget>[
-                ListView(
-                  shrinkWrap: true,
-                  children: <Widget>[
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Image.network(snapshot.data.poster, width: 128),
-                        Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[]),
-                      ],
-                    ),
-                    Wrap(
-                      spacing: 4.0,
-                      children: snapshot.data.genres
-                          .map(
-                            (g) =>
-                            Chip(
-                              label: AutoSizeText(
-                                g,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                                softWrap: false,
-                              ),
+              children = ListView(
+                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                shrinkWrap: true,
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Image.network(snapshot.data.poster, width: 128),
+                      Column(
+                          mainAxisSize: MainAxisSize.min, children: <Widget>[]),
+                    ],
+                  ),
+                  Wrap(
+                    spacing: 4.0,
+                    children: snapshot.data.genres
+                        .map(
+                          (g) =>
+                          Chip(
+                            label: AutoSizeText(
+                              g,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              softWrap: false,
                             ),
-                      )
-                          .toList(),
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text(snapshot.data.description,
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .subtitle2)
-                      ],
-                    ),
-                    Column(children: <Widget>[
-                      Text('Кассовые сборы в России и СНГ:'),
-                    ]),
-                    Column(children: <Widget>[
-                      Text('Касса мирового проката:'),
-                    ]),
-                  ],
-                ),
-              ];
+                          ),
+                    )
+                        .toList(),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(snapshot.data.description,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .subtitle2)
+                    ],
+                  ),
+                  Column(children: <Widget>[
+                    Text('Кассовые сборы в России и СНГ:',
+                        style: TextStyle(fontSize: 75)),
+                  ]),
+                  Column(children: <Widget>[
+                    Text('Касса мирового проката:'),
+                  ]),
+                ],
+              );
             } else if (snapshot.hasError) {
-              children = <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.red, width: 3)),
-                  padding: const EdgeInsets.only(top: 16),
-                  child: Text('Error: ${snapshot.error}'),
-                )
-              ];
+              children = Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.red, width: 3)),
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot.error}'),
+              );
             } else {
-              children = <Widget>[
-                SizedBox(
-                  child: CircularProgressIndicator(),
-                  width: 60,
-                  height: 60,
-                ),
-              ];
+              children = SizedBox(
+                child: CircularProgressIndicator(),
+                width: 60,
+                height: 60,
+              );
             }
-            return SingleChildScrollView(
-                child: Padding(
-                    padding: EdgeInsets.all(4),
-                    child: Column(
-                      children: children,
-                    )));
+            return children;
           },
         ),
-      ]),
+      ),
     );
   }
 }

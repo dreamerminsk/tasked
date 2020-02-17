@@ -8,6 +8,7 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import 'package:kbapp/src/services/firestore_service.dart';
 import 'package:kbapp/src/utils/strings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/formatters.dart';
 import 'model.dart';
@@ -36,6 +37,12 @@ class KbApi {
     try {
       var fs = FirestoreService();
       fs.createWorker('YEAR');
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      var last = DateTime.fromMicrosecondsSinceEpoch(
+          prefs.getInt('last_year_update') ?? 0);
+      if (last
+          .difference(DateTime.now())
+          .inDays > 1) {}
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
