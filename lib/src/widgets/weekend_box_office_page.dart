@@ -6,6 +6,8 @@ import 'package:kbapp/src/kb/model.dart';
 import 'package:kbapp/src/utils/formatters.dart';
 import 'package:provider/provider.dart';
 
+import 'movie_page.dart';
+
 class WeekendModel with ChangeNotifier {
   KbApi kbApi = KbApi();
   bool _loading = false;
@@ -63,47 +65,59 @@ class WeekendBoxOffice extends StatelessWidget {
                         '${fullDateFormatter.format(weekend.weekends[0])}'));
               } else
                 return Card(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Container(
-                        width: 40,
-                        child: Text('${weekend.titles[index - 1].pos}',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 21)),
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Flexible(
-                        child: Column(
-                          //mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Flexible(
-                                child:
-                                    Text('${weekend.titles[index - 1].title}',
-                                        style: TextStyle(
-                                            //color: Colors.white,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize: 16))),
-                            Text(
-                                '${decimalFormatter.format(weekend.titles[index - 1].boxOffice)}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    //color: Colors.white,
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 18)),
-                          ],
+                  child: InkWell(
+                    onTap: () {
+                      Route route = MaterialPageRoute(
+                          builder: (context) =>
+                              MoviePage(Movie(
+                                title: weekend.titles[index].title,
+                                kbRef: weekend.titles[index].kbRef,
+                              )));
+                      Navigator.push(context, route);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        SizedBox(
+                          width: 6,
                         ),
-                      ),
-                    ],
+                        Container(
+                          width: 40,
+                          child: Text('${weekend.titles[index - 1].pos}',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 21)),
+                        ),
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Flexible(
+                          child: Column(
+                            //mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Flexible(
+                                  child:
+                                  Text('${weekend.titles[index - 1].title}',
+                                      style: TextStyle(
+                                        //color: Colors.white,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 16))),
+                              Text(
+                                  '${decimalFormatter.format(weekend
+                                      .titles[index - 1].boxOffice)}',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    //color: Colors.white,
+                                      fontWeight: FontWeight.w100,
+                                      fontSize: 18)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
             },

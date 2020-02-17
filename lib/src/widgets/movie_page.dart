@@ -6,7 +6,7 @@ import 'package:kbapp/src/kb/model.dart';
 class MovieModel with ChangeNotifier {}
 
 class MoviePage extends StatelessWidget {
-  final YearRecord movie;
+  final Movie movie;
 
   MoviePage(this.movie);
 

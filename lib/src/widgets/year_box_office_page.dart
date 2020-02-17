@@ -50,7 +50,11 @@ class YearBoxOffice extends StatelessWidget {
           child: InkWell(
             onTap: () {
               Route route = MaterialPageRoute(
-                  builder: (context) => MoviePage(year.titles[index]));
+                  builder: (context) =>
+                      MoviePage(Movie(
+                        title: year.titles[index].title,
+                        kbRef: year.titles[index].kbRef,
+                      )));
               Navigator.push(context, route);
             },
             child: Padding(
