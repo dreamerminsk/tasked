@@ -58,8 +58,8 @@ class MoviePage extends StatelessWidget {
                             children: <Widget>[]),
                       ],
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
+                    Wrap(
+                      spacing: 4.0,
                       children: snapshot.data.genres
                           .map(
                             (g) =>

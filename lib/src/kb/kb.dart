@@ -178,7 +178,6 @@ class KbApi {
       var desc = document
           .querySelector('span[itemprop="description"]')
           .text;
-
       return Movie(
         kbRef: ref,
         title: null,
