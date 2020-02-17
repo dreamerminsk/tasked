@@ -74,17 +74,15 @@ class MoviePage extends StatelessWidget {
                       )
                           .toList(),
                     ),
-                    Card(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(snapshot.data.description,
-                              style: Theme
-                                  .of(context)
-                                  .textTheme
-                                  .subtitle2)
-                        ],
-                      ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(snapshot.data.description,
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .subtitle2)
+                      ],
                     ),
                   ],
                 ),
@@ -111,9 +109,6 @@ class MoviePage extends StatelessWidget {
                 child: Padding(
                     padding: EdgeInsets.all(4),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
                       children: children,
                     )));
           },
