@@ -11,7 +11,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+<<<<<<< HEAD
 	<string>kb_dart</string>
+=======
+	<string>flutter_app</string>
+>>>>>>> 239b8091e0c8d6beed24b3f0c233026f1f626eec
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
