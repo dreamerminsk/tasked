@@ -51,6 +51,7 @@ dependencies:
   device_info_plus: ^3.2.1
   cached_network_image: ^3.2.0
   uuid: ^3.0.5
+  ulid: ^2.0.0
   rxdart: ^0.27.3
   auto_size_text: ^2.1.0
   carousel_slider: ^1.4.1
