@@ -36,6 +36,7 @@ dependencies:
   
   get: ^4.6.1
   sqflite: ^2.0.2
+  file_picker: ^4.3.3
 
   #firebase
   duration: ^3.0.8
