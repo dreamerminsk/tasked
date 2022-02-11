@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.0.13
-  html: ^0.14.0+3
+  html: ^0.15.0
   dio: ^3.0.8
   provider: ^4.0.2
   random_string: ^2.0.1
