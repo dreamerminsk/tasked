@@ -49,7 +49,7 @@ dependencies:
   
   flutter_slidable: ^1.2.0
   device_info_plus: ^3.2.1
-  cached_network_image: ^2.0.0
+  cached_network_image: ^3.2.0
   uuid: ^2.0.4
   rxdart: ^0.27.3
   auto_size_text: ^2.1.0
