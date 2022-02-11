@@ -53,7 +53,7 @@ dependencies:
   uuid: ^3.0.5
   ulid: ^2.0.0
   rxdart: ^0.27.3
-  auto_size_text: ^2.1.0
+  auto_size_text: ^3.0.0
   carousel_slider: ^1.4.1
   font_awesome_flutter: ^8.5.0
 
