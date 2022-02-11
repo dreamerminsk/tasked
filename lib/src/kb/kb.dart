@@ -36,23 +36,12 @@ class KbApi {
 
   Future<List<YearRecord>> getYearBoxOffice() async {
     try {
-      var fs = FirestoreService();
-      fs.createWorker('YEAR');
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      var last = DateTime.fromMicrosecondsSinceEpoch(
-          prefs.getInt('last_year_update') ?? 0);
-      if (last
-          .difference(DateTime.now())
-          .inDays > 1) {}
       var response = await dio.get(yearBoxOffice);
       var document = parse(response.data.toString());
       List<dom.Element> rows =
       document.querySelectorAll('table#krestable > tbody  > tr');
       developer.log('ELEMENTS: ${rows.length}');
       var years = rows.map(parseYearRec).toList();
-      years.forEach((y) {
-        //fs.createYear(y);
-      });
       return years;
     } catch (exception) {
       developer.log(exception.toString());
