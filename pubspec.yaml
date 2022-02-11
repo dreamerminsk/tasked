@@ -54,7 +54,7 @@ dependencies:
   ulid: ^2.0.0
   rxdart: ^0.27.3
   auto_size_text: ^3.0.0
-  carousel_slider: ^1.4.1
+  carousel_slider: ^4.0.0
   font_awesome_flutter: ^8.5.0
 
 dev_dependencies:
