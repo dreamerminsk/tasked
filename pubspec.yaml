@@ -35,6 +35,7 @@ dependencies:
   side_header_list_view: ^1.0.0-nullsafety.0
   
   get: ^4.6.1
+  sqflite: ^2.0.2
 
   #firebase
   duration: ^3.0.8
