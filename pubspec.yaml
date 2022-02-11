@@ -55,7 +55,7 @@ dependencies:
   rxdart: ^0.27.3
   auto_size_text: ^3.0.0
   carousel_slider: ^4.0.0
-  font_awesome_flutter: ^8.5.0
+  font_awesome_flutter: ^9.2.0
 
 dev_dependencies:
   flutter_test:
