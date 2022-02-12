@@ -1,7 +1,7 @@
-import 'dart:async';
+
 import 'dart:math';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:kb_dart/src/kb/model.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +21,7 @@ class BoxOfficeHomeModel with ChangeNotifier {
   }
 
   void initState() {
-    items = new List();
+    items = [];
 
     
     

@@ -9,7 +9,7 @@ class ButtonTabBarModel with ChangeNotifier {
   int _currentTab = 0;
   final List<DateTime> _tabs = [];
 
-  ButtonTabBarModel() {}
+  ButtonTabBarModel();
 
   UnmodifiableListView<DateTime> get thursdays => UnmodifiableListView(_tabs);
 
@@ -64,7 +64,7 @@ class ButtonTabBar extends StatelessWidget {
             buttonPadding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
             //buttonHeight: 21,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text(model.previousTab == null
                     ? ''
                     : '${fullDateFormatter.format(model.previousTab)}'),
@@ -74,14 +74,14 @@ class ButtonTabBar extends StatelessWidget {
                         model.previous();
                       },
               ),
-              RaisedButton(
+              ElevatedButton(
                 color: Theme.of(context).bottomAppBarColor,
                 //color:Colors.white,
                 //color: Colors.deepOrange,
                 child: Text('${fullDateFormatter.format(model.currentTab)}'),
                 onPressed: model.currentTab == null ? null : () {},
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text(model.nextTab == null
                     ? ''
                     : '${fullDateFormatter.format(model.nextTab)}'),

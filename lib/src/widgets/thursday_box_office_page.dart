@@ -117,7 +117,7 @@ class ThursdayBoxOffice extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                     //buttonHeight: 21,
                     children: <Widget>[
-                      RaisedButton(
+                      ElevatedButton(
                         child: Text(thursday.prev == null
                             ? ''
                             : '${fullDateFormatter.format(thursday.prev)}'),
@@ -127,7 +127,7 @@ class ThursdayBoxOffice extends StatelessWidget {
                                 thursday.prevThursday();
                               },
                       ),
-                      RaisedButton(
+                      ElevatedButton(
                         color: Theme.of(context).bottomAppBarColor,
                         //color:Colors.white,
                         //color: Colors.deepOrange,
@@ -135,7 +135,7 @@ class ThursdayBoxOffice extends StatelessWidget {
                             '${fullDateFormatter.format(thursday.current)}'),
                         onPressed: thursday.current == null ? null : () {},
                       ),
-                      RaisedButton(
+                      ElevatedButton(
                         child: Text(thursday.next == null
                             ? ''
                             : '${fullDateFormatter.format(thursday.next)}'),
