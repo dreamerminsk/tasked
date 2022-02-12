@@ -36,7 +36,7 @@ class BoxOfficeHomeModel with ChangeNotifier {
 
   @override
   void dispose() {
-    yearSub?.cancel();
+    
     super.dispose();
   }
 }
