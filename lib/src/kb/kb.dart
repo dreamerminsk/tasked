@@ -2,14 +2,11 @@ import 'dart:async';
 import 'dart:developer' as developer;
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 
-import 'package:kb_dart/src/services/firestore_service.dart';
 import 'package:kb_dart/src/utils/strings.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/formatters.dart';
 import 'model.dart';
@@ -22,8 +19,6 @@ class KbApi {
   static final weekendBoxOffice = '$kbHost/kassovye_sbory/weekend/';
 
   static final thursdayBoxOffice = '$kbHost/kassovye_sbory/thursday/';
-
-  final Firestore db = Firestore.instance;
 
   static final Dio dio = Dio(BaseOptions(
     connectTimeout: 15000,
