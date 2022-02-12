@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kb_dart/src/kb/model.dart';
-import 'package:kb_dart/src/services/firestore_service.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/formatters.dart';
@@ -13,9 +12,9 @@ import 'year_box_office_page.dart';
 
 class BoxOfficeHomeModel with ChangeNotifier {
   List<YearRecord> items;
-  FirestoreService db = new FirestoreService();
+  
 
-  StreamSubscription<QuerySnapshot> yearSub;
+  
 
   BoxOfficeHomeModel() {
     initState();
@@ -24,15 +23,15 @@ class BoxOfficeHomeModel with ChangeNotifier {
   void initState() {
     items = new List();
 
-    yearSub?.cancel();
-    yearSub = db.getYearList().listen((QuerySnapshot snapshot) {
-      final List<YearRecord> years = snapshot.documents
-          .map((documentSnapshot) => YearRecord.fromMap(documentSnapshot.data))
-          .toList();
+    
+    
+      
+          
+          
 
-      this.items = years;
-      notifyListeners();
-    });
+      
+     
+    
   }
 
   @override
