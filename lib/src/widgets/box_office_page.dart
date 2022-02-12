@@ -182,14 +182,14 @@ class BoxOfficePage extends StatelessWidget {
         items: <BottomNavigationBarItem>[
           new BottomNavigationBarItem(
               icon: const Icon(Icons.monetization_on),
-              title: new Text("БОКСОФИС")),
+              label: "БОКСОФИС"),
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.movie), title: new Text("АФИША")),
+              icon: const Icon(Icons.movie), label: "АФИША"),
           new BottomNavigationBarItem(
               icon: const Icon(Icons.calendar_today),
-              title: new Text("УИКЕНД")),
+              label: "УИКЕНД"),
           new BottomNavigationBarItem(
-              icon: const Icon(Icons.date_range), title: new Text("ГОД"))
+              icon: const Icon(Icons.date_range), label: "ГОД")
         ],
       ),
     );
