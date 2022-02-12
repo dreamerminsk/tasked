@@ -22,9 +22,9 @@ void main() {
 
 class MyWidget extends StatelessWidget {
   const MyWidget({
-    Key? key,
-    required String this.title,
-    required String this.message,
+    Key key,
+    String this.title,
+    String this.message,
   }) : super(key: key);
 
   final String title;
