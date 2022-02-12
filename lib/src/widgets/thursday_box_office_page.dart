@@ -128,7 +128,7 @@ class ThursdayBoxOffice extends StatelessWidget {
                               },
                       ),
                       ElevatedButton(
-                        color: Theme.of(context).bottomAppBarColor,
+                        //color: Theme.of(context).bottomAppBarColor,
                         //color:Colors.white,
                         //color: Colors.deepOrange,
                         child: Text(
