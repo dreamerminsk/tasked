@@ -1,6 +1,4 @@
-
 import 'dart:math';
-
 
 import 'package:flutter/material.dart';
 import 'package:kb_dart/src/kb/model.dart';
@@ -12,9 +10,6 @@ import 'year_box_office_page.dart';
 
 class BoxOfficeHomeModel with ChangeNotifier {
   List<YearRecord> items;
-  
-
-  
 
   BoxOfficeHomeModel() {
     initState();
@@ -22,21 +17,10 @@ class BoxOfficeHomeModel with ChangeNotifier {
 
   void initState() {
     items = [];
-
-    
-    
-      
-          
-          
-
-      
-     
-    
   }
 
   @override
   void dispose() {
-    
     super.dispose();
   }
 }
