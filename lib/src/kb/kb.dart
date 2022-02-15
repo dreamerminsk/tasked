@@ -70,7 +70,7 @@ class KbApi {
           'table.calendar_year > tbody > tr > td > center > a[href]');
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
-        var parts = item.attributes['href'].trim().split("/");
+        var parts = item.attributes['href']?.trim().split("/");
         return fullDateFormatter.parse(parts[parts.length - 2]);
       }).toList();
       return ds;
@@ -118,7 +118,7 @@ class KbApi {
           'table.calendar_year > tbody > tr > td > center > a[href]');
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
-        var parts = item.attributes['href'].trim().split("/");
+        var parts = item.attributes['href']?.trim().split("/");
         developer.log('PARTS: ${parts.length}');
         return fullDateFormatter.parse(parts[parts.length - 2]);
       }).toList();
@@ -169,7 +169,7 @@ class KbApi {
 
       var desc = document
           .querySelector('span[itemprop="description"]')
-          .text;
+          ?.text;
       return Movie(
         kbRef: ref,
         title: null,
