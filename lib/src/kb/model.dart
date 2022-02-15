@@ -90,11 +90,11 @@ class YearRecord {
   String title;
   int boxOffice;
   int boxOfficeUsd;
-  String original;
-  String distributor;
+  String? original;
+  String? distributor;
   int screens;
   int spectaculars;
-  String kbRef;
+  String? kbRef;
 
   YearRecord({@required this.pos,
     @required this.title,
