@@ -156,7 +156,7 @@ class WeekendRecord {
   int pos;
   String title;
   int boxOffice;
-  String kbRef;
+  String? kbRef;
 
   WeekendRecord({this.pos, this.title, this.boxOffice, this.kbRef});
 }
