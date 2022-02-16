@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Movie {
-  String title;
+  String? title;
   String? original;
   String? kbRef;
   String? poster;
