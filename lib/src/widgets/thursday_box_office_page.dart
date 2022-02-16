@@ -30,7 +30,7 @@ class ThursdayModel with ChangeNotifier {
   UnmodifiableListView<DateTime> get thursdays =>
       UnmodifiableListView(_thursdays);
 
-  DateTime get current {
+  DateTime? get current {
     if (_thursdays.length > _current) {
       return _thursdays[_current];
     } else {
@@ -38,7 +38,7 @@ class ThursdayModel with ChangeNotifier {
     }
   }
 
-  DateTime get prev {
+  DateTime? get prev {
     if (_thursdays.length > (_current + 1)) {
       return _thursdays[_current + 1];
     } else {
@@ -46,7 +46,7 @@ class ThursdayModel with ChangeNotifier {
     }
   }
 
-  DateTime get next {
+  DateTime? get next {
     if ((_thursdays.length > (_current - 1)) && (_current > 0)) {
       return _thursdays[_current - 1];
     } else {
