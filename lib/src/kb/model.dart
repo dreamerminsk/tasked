@@ -12,7 +12,7 @@ class Movie {
     this.original,
     this.kbRef,
     this.poster,
-    this.genres,
+    this.genres = [],
     this.description});
 }
 
@@ -21,7 +21,7 @@ class Note {
   String _title;
   String _description;
 
-  Note(this._id, this._title, this._description);
+  Note(this._id = "", this._title = "", this._description = "");
 
   Note.map(dynamic obj) {
     this._id = obj['id'];
@@ -37,9 +37,7 @@ class Note {
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
-    if (_id != null) {
-      map['id'] = _id;
-    }
+    map['id'] = _id;
     map['title'] = _title;
     map['description'] = _description;
 
