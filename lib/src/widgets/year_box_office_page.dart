@@ -108,7 +108,7 @@ class YearBoxOffice extends StatelessWidget {
                           TableRow(children: [
                             TableCell(
                               child: Text(
-                                  '\$ ${decimalFormatter.format(year.titles[index].boxOfficeUsd ?? 0)}',
+                                  '\$ ${decimalFormatter.format(year.titles[index].boxOfficeUsd)}',
                                   textAlign: TextAlign.left,
                                   style: Theme.of(context).textTheme.subtitle1),
                             ),
