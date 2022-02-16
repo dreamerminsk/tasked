@@ -12,7 +12,7 @@ class Movie {
     this.original,
     this.kbRef,
     this.poster,
-    this.genres = List<String>.empty(),
+    this.genres = List.empty(growable: false), //List<String>.filled(1, ""),
     this.description});
 }
 
