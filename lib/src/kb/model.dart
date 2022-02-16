@@ -21,7 +21,7 @@ class Note {
   String? title;
   String? description;
 
-  Note(this.id = "", this.title = "", this.description = "");
+  Note({this.id = "", this.title = "", this.description = ""});
 
   Note.map(dynamic obj) {
     this.id = obj['id'];
@@ -49,7 +49,7 @@ class Worker {
   String id;
   DateTime lastWorked;
 
-  Worker(this.id, this.lastWorked);
+  Worker({required this.id, required this.lastWorked});
 
   Worker.map(dynamic obj) {
     this.id = obj['id'];
