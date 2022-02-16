@@ -12,78 +12,68 @@ class Movie {
     this.original,
     this.kbRef,
     this.poster,
-    this.genres = [],
+    this.genres = List<String>.empty(),
     this.description});
 }
 
 class Note {
-  String _id;
-  String _title;
-  String _description;
+  String? id;
+  String? title;
+  String? description;
 
-  Note(this._id = "", this._title = "", this._description = "");
+  Note(this.id = "", this.title = "", this.description = "");
 
   Note.map(dynamic obj) {
-    this._id = obj['id'];
-    this._title = obj['title'];
-    this._description = obj['description'];
+    this.id = obj['id'];
+    this.title = obj['title'];
+    this.description = obj['description'];
   }
-
-  String get id => _id;
-
-  String get title => _title;
-
-  String get description => _description;
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
-    map['id'] = _id;
-    map['title'] = _title;
-    map['description'] = _description;
+    map['id'] = id;
+    map['title'] = title;
+    map['description'] = description;
 
     return map;
   }
 
   Note.fromMap(Map<String, dynamic> map) {
-    this._id = map['id'];
-    this._title = map['title'];
-    this._description = map['description'];
+    this.id = map['id'];
+    this.title = map['title'];
+    this.description = map['description'];
   }
 }
 
 class Worker {
-  String _id;
-  DateTime _lastWorked;
+  String id;
+  DateTime lastWorked;
 
-  Worker(this._id, this._lastWorked);
+  Worker(this.id, this.lastWorked);
 
   Worker.map(dynamic obj) {
-    this._id = obj['id'];
-    this._lastWorked = obj['lastWorked'];
+    this.id = obj['id'];
+    this.lastWorked = obj['lastWorked'];
   }
-
-  String get id => _id;
-
-  DateTime get description => _lastWorked;
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
-    if (_id != null) {
-      map['id'] = _id;
+    if (id != null) {
+      map['id'] = id;
     }
-    map['lastWorked'] = _lastWorked;
+    map['lastWorked'] = lastWorked;
 
     return map;
   }
 
   Worker.fromMap(Map<String, dynamic> map) {
-    this._id = map['id'];
-    this._lastWorked = map['lastWorked'];
+    this.id = map['id'];
+    this.lastWorked = map['lastWorked'];
   }
 }
 
 class YearRecord {
-  var _id;
+  var id;
   int pos;
   String title;
   int boxOffice;
@@ -116,12 +106,10 @@ class YearRecord {
     this.kbRef = obj['kbRef'];
   }
 
-  String get id => _id;
-
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
-    if (_id != null) {
-      map['id'] = _id;
+    if (id != null) {
+      map['id'] = id;
     }
     map['pos'] = this.pos;
     map['title'] = this.title;
