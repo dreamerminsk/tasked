@@ -71,7 +71,7 @@ class KbApi {
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
         var parts = item.attributes['href']?.trim().split("/");
-        return fullDateFormatter.parse(parts[parts.length - 2]);
+        return fullDateFormatter.parse(parts?[parts?.length - 2] ?? "01.01.0001");
       }).toList();
       return ds;
     } catch (exception) {
