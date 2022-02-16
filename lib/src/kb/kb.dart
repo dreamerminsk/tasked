@@ -71,7 +71,7 @@ class KbApi {
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
         var parts = item.attributes['href']?.trim().split("/");
-        return fullDateFormatter.parse(parts[parts.length - 2]);
+        return fullDateFormatter.parse(parts?[parts?.length - 2] ?? "01.01.0001");
       }).toList();
       return ds;
     } catch (exception) {
@@ -119,8 +119,8 @@ class KbApi {
       developer.log('ELEMENTS: ${rows.length}');
       var ds = rows.map((item) {
         var parts = item.attributes['href']?.trim().split("/");
-        developer.log('PARTS: ${parts.length}');
-        return fullDateFormatter.parse(parts[parts.length - 2]);
+        //developer.log('PARTS: ${parts?.length}');
+        return fullDateFormatter.parse(parts?[parts?.length - 2] ?? "01.01.0001");
       }).toList();
       return ds;
     } catch (exception) {
@@ -172,14 +172,14 @@ class KbApi {
           ?.text;
       return Movie(
         kbRef: ref,
-        title: null,
-        poster: '$kbHost${posterImg.attributes['src']}',
+        title: "",
+        poster: '$kbHost${posterImg?.attributes['src']}',
         genres: genres,
         description: desc,
       );
     } catch (exception) {
       developer.log(exception.toString());
-      return Movie(kbRef: ref, title: null);
+      return Movie(kbRef: ref, title: "");
     }
   }
 }

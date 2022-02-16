@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Movie {
-  String title;
-  String original;
-  String kbRef;
-  String poster;
+  String? title;
+  String? original;
+  String? kbRef;
+  String? poster;
   List<String> genres;
-  String description;
+  String? description;
 
   Movie({@required this.title,
     this.original,
@@ -156,7 +156,7 @@ class WeekendRecord {
   int pos;
   String title;
   int boxOffice;
-  String kbRef;
+  String? kbRef;
 
   WeekendRecord({this.pos, this.title, this.boxOffice, this.kbRef});
 }
