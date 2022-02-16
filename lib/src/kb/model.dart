@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class Movie {
   String title;
-  String original;
-  String kbRef;
-  String poster;
+  String? original;
+  String? kbRef;
+  String? poster;
   List<String> genres;
-  String description;
+  String? description;
 
   Movie({@required this.title,
     this.original,
