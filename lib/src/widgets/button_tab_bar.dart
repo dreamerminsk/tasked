@@ -67,7 +67,7 @@ class ButtonTabBar extends StatelessWidget {
               ElevatedButton(
                 child: Text(model.previousTab == null
                     ? '...'
-                    : '${fullDateFormatter.format(model!.previousTab as DateTime)}'),
+                    : '${fullDateFormatter.format(model.previousTab as DateTime)}'),
                 onPressed: model.previousTab == null
                     ? null
                     : () {
@@ -78,13 +78,13 @@ class ButtonTabBar extends StatelessWidget {
                 //color: Theme.of(context).bottomAppBarColor,
                 //color:Colors.white,
                 //color: Colors.deepOrange,
-                child: Text('${fullDateFormatter.format(model!.currentTab as DateTime)}'),
+                child: Text('${fullDateFormatter.format(model.currentTab as DateTime)}'),
                 onPressed: model.currentTab == null ? null : () {},
               ),
               ElevatedButton(
                 child: Text(model.nextTab == null
                     ? '...'
-                    : '${fullDateFormatter.format(model!.nextTab as DateTime)}'),
+                    : '${fullDateFormatter.format(model.nextTab as DateTime)}'),
                 onPressed: model.nextTab == null
                     ? null
                     : () {
