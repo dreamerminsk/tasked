@@ -72,14 +72,14 @@ class Worker {
 
 class YearRecord {
   var id;
-  int pos;
-  String title;
-  int boxOffice;
-  int boxOfficeUsd;
+  int? pos;
+  String? title;
+  int? boxOffice;
+  int? boxOfficeUsd;
   String? original;
   String? distributor;
-  int screens;
-  int spectaculars;
+  int? screens;
+  int? spectaculars;
   String? kbRef;
 
   YearRecord({@required this.pos,
