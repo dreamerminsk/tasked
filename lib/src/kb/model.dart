@@ -12,7 +12,7 @@ class Movie {
     this.original,
     this.kbRef,
     this.poster,
-    this.genres = List<String>.empty(),
+    this.genres = List.empty(growable: false), //List<String>.filled(1, ""),
     this.description});
 }
 
@@ -21,7 +21,7 @@ class Note {
   String? title;
   String? description;
 
-  Note(this.id = "", this.title = "", this.description = "");
+  Note({this.id = "", this.title = "", this.description = ""});
 
   Note.map(dynamic obj) {
     this.id = obj['id'];
@@ -49,7 +49,7 @@ class Worker {
   String id;
   DateTime lastWorked;
 
-  Worker(this.id, this.lastWorked);
+  Worker({required this.id, required this.lastWorked});
 
   Worker.map(dynamic obj) {
     this.id = obj['id'];
@@ -58,9 +58,7 @@ class Worker {
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
-    if (id != null) {
-      map['id'] = id;
-    }
+    map['id'] = id;
     map['lastWorked'] = lastWorked;
 
     return map;
