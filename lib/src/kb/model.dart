@@ -12,7 +12,7 @@ class Movie {
     this.original,
     this.kbRef,
     this.poster,
-    this.genres = List<String>.filled(1, ""),
+    this.genres = const [],
     this.description});
 }
 
