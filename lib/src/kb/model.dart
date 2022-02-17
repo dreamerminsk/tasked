@@ -132,18 +132,18 @@ class YearRecord {
 }
 
 class WeekendRecord {
-  int pos;
-  String title;
-  int boxOffice;
+  int? pos;
+  String? title;
+  int? boxOffice;
   String? kbRef;
 
   WeekendRecord({this.pos, this.title, this.boxOffice, this.kbRef});
 }
 
 class ThursdayRecord {
-  int pos;
-  String title;
-  int boxOffice;
+  int? pos;
+  String? title;
+  int? boxOffice;
 
-  ThursdayRecord(this.pos, this.title, this.boxOffice);
+  ThursdayRecord({this.pos, this.title, this.boxOffice});
 }
