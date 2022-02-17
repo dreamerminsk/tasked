@@ -69,7 +69,7 @@ class MoviePage extends StatelessWidget {
                           ),
                         ),
                   )
-                      .toList(),
+                      .toList() as List<Widget>,
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
