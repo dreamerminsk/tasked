@@ -151,8 +151,8 @@ class KbApi {
 
   ThursdayRecord parseThursdayRec(dom.Element e) {
     var children = e.getElementsByTagName('td');
-    return ThursdayRecord(int.parse(children[0].text.trim()),
-        children[1].text.trim(), int.tryParse(trim(children[3].text)) ?? 0);
+    return ThursdayRecord(int.parse(pos: children[0].text.trim()),
+        title: children[1].text.trim(), boxOffice: int.tryParse(trim(children[3].text)) ?? 0);
   }
 
   Future<Movie> getMovie(String ref) async {
