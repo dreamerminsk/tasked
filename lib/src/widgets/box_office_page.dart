@@ -106,11 +106,11 @@ class BottomNavigationBarProvider with ChangeNotifier {
     YearBoxOffice()
   ];
 
-  get currentIndex => _currentIndex;
+  int get currentIndex => _currentIndex;
 
-  get currentTitle => _titles[_currentIndex];
+  String get currentTitle => _titles[_currentIndex];
 
-  get currentWidget => _widgets[_currentIndex];
+  Widget get currentWidget => _widgets[_currentIndex];
 
   get loading => false;
 
