@@ -155,7 +155,7 @@ class KbApi {
         title: children[1].text.trim(), boxOffice: int.tryParse(trim(children[3].text)) ?? 0);
   }
 
-  Future<Movie> getMovie(String ref) async {
+  Future<Movie> getMovie(String? ref) async {
     try {
       String url = '$kbHost$ref';
       var response = await dio.get(url);
