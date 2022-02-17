@@ -119,8 +119,8 @@ class ThursdayBoxOffice extends StatelessWidget {
                     children: <Widget>[
                       ElevatedButton(
                         child: Text(thursday.prev == null
-                            ? ''
-                            : '${fullDateFormatter.format(thursday.prev)}'),
+                            ? '...'
+                            : '${fullDateFormatter.format(thursday.prev as DateTime)}'),
                         onPressed: thursday.prev == null
                             ? null
                             : () {
@@ -132,13 +132,13 @@ class ThursdayBoxOffice extends StatelessWidget {
                         //color:Colors.white,
                         //color: Colors.deepOrange,
                         child: Text(
-                            '${fullDateFormatter.format(thursday.current)}'),
+                            '${fullDateFormatter.format(thursday.current as DateTime)}'),
                         onPressed: thursday.current == null ? null : () {},
                       ),
                       ElevatedButton(
                         child: Text(thursday.next == null
-                            ? ''
-                            : '${fullDateFormatter.format(thursday.next)}'),
+                            ? '...'
+                            : '${fullDateFormatter.format(thursday.next as DateTime)}'),
                         onPressed: thursday.next == null
                             ? null
                             : () {
