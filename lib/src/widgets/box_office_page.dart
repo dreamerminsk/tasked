@@ -9,7 +9,7 @@ import 'weekend_box_office_page.dart';
 import 'year_box_office_page.dart';
 
 class BoxOfficeHomeModel with ChangeNotifier {
-  List<YearRecord> items;
+  List<YearRecord> items = List.empty();
 
   BoxOfficeHomeModel() {
     initState();
@@ -106,7 +106,7 @@ class BottomNavigationBarProvider with ChangeNotifier {
     YearBoxOffice()
   ];
 
-  get currentIndex => _currentIndex;
+  get int currentIndex => _currentIndex;
 
   get currentTitle => _titles[_currentIndex];
 
