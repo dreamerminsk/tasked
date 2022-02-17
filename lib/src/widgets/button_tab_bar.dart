@@ -66,8 +66,8 @@ class ButtonTabBar extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 child: Text(model.previousTab == null
-                    ? ''
-                    : '${fullDateFormatter.format(model.previousTab)}'),
+                    ? '...'
+                    : '${fullDateFormatter.format(model!.previousTab)}'),
                 onPressed: model.previousTab == null
                     ? null
                     : () {
@@ -83,8 +83,8 @@ class ButtonTabBar extends StatelessWidget {
               ),
               ElevatedButton(
                 child: Text(model.nextTab == null
-                    ? ''
-                    : '${fullDateFormatter.format(model.nextTab)}'),
+                    ? '...'
+                    : '${fullDateFormatter.format(model!.nextTab)}'),
                 onPressed: model.nextTab == null
                     ? null
                     : () {
