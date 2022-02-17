@@ -71,7 +71,6 @@ class Worker {
 }
 
 class YearRecord {
-  var id;
   int? pos;
   String? title;
   int? boxOffice;
@@ -106,9 +105,6 @@ class YearRecord {
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
-    if (id != null) {
-      map['id'] = id;
-    }
     map['pos'] = this.pos;
     map['title'] = this.title;
     map['boxOffice'] = this.boxOffice;
@@ -123,7 +119,6 @@ class YearRecord {
   }
 
   YearRecord.fromMap(Map<String, dynamic> map) {
-    this._id = map['id'];
     this.pos = map['pos'];
     this.title = map['title'];
     this.boxOffice = map['boxOffice'];
