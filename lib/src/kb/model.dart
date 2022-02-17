@@ -46,8 +46,8 @@ class Note {
 }
 
 class Worker {
-  String id;
-  DateTime lastWorked;
+  String? id;
+  DateTime? lastWorked;
 
   Worker({required this.id, required this.lastWorked});
 
