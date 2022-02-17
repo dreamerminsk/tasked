@@ -50,14 +50,14 @@ class MoviePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Image.network(snapshot.data.poster, width: 128),
+                    Image.network(snapshot.data?.poster ?? "", width: 128),
                     Column(
                         mainAxisSize: MainAxisSize.min, children: <Widget>[]),
                   ],
                 ),
                 Wrap(
                   spacing: 4.0,
-                  children: snapshot.data.genres
+                  children: snapshot.data?.genres
                       .map(
                         (g) =>
                         Chip(
@@ -74,7 +74,7 @@ class MoviePage extends StatelessWidget {
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Text(snapshot.data?.description,
+                    Text(snapshot.data?.description ?? "...",
                         style: Theme
                             .of(context)
                             .textTheme
