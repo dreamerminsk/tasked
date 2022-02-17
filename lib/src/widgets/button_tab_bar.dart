@@ -13,7 +13,7 @@ class ButtonTabBarModel with ChangeNotifier {
 
   UnmodifiableListView<DateTime> get thursdays => UnmodifiableListView(_tabs);
 
-  DateTime get currentTab {
+  DateTime? get currentTab {
     if (_tabs.length > _currentTab) {
       return _tabs[_currentTab];
     } else {
@@ -21,7 +21,7 @@ class ButtonTabBarModel with ChangeNotifier {
     }
   }
 
-  DateTime get previousTab {
+  DateTime? get previousTab {
     if (_tabs.length > (_currentTab + 1)) {
       return _tabs[_currentTab + 1];
     } else {
@@ -29,7 +29,7 @@ class ButtonTabBarModel with ChangeNotifier {
     }
   }
 
-  DateTime get nextTab {
+  DateTime? get nextTab {
     if ((_tabs.length > (_currentTab - 1)) && (_currentTab > 0)) {
       return _tabs[_currentTab - 1];
     } else {
