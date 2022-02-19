@@ -64,6 +64,7 @@ dependencies:
   google_fonts: ^2.3.1
 
 dev_dependencies:
+  test: ^1.20.1
   flutter_test:
     sdk: flutter
 
