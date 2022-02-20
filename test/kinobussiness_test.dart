@@ -1,6 +1,6 @@
 import 'dart:io';
 
-//import 'package:html/dom.dart' as dom;
+import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 
 import 'package:test/test.dart';
@@ -13,5 +13,8 @@ void main() {
     
     var document = parse(htmlString);
     expect(document.toString(), '#document');
+    
+    var rows = document.querySelectorAll('div.schedule__brick');
+    expect(rows.length, 4);
   });
 }
