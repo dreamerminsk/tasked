@@ -9,7 +9,7 @@ void main() {
   test('index.html is exists', ()  {
     final file = new File('data/index.html');
     final htmlString = file.readAsStringSync();
-    expect(htmlString.length > 0, true);
+    expect(htmlString.length, greaterThan(0));
     
     var document = parse(htmlString);
     expect(document.toString(), '#document');
