@@ -6,11 +6,19 @@ import 'package:html/parser.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('index.html is exists', ()  {
-    final file = new File('data/index.html');
-    final htmlString = file.readAsStringSync();
+  final file = new File('data/index.html');
+  
+  test('index.html is exists', ()  { 
+    expect(file.existsSync(), true);
+  }
+  
+  final htmlString = file.readAsStringSync();
+  
+  test('index.html is readable', ()  { 
     expect(htmlString.length, greaterThan(0));
-    
+  }
+  
+  test('index.html is parceable', ()  {    
     var document = parse(htmlString);
     expect(document.toString(), '#document');
     
