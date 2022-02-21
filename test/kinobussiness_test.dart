@@ -10,13 +10,13 @@ void main() {
   
   test('index.html is exists', ()  { 
     expect(file.existsSync(), true);
-  };
+  });
   
   final htmlString = file.readAsStringSync();
   
   test('index.html is readable', ()  { 
     expect(htmlString.length, greaterThan(0));
-  };
+  });
   
   test('index.html is parceable', ()  {    
     var document = parse(htmlString);
