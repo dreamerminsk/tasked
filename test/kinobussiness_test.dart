@@ -33,7 +33,7 @@ void main() {
   test('index.html contains titleStream', ()  {    
     final rows = document.querySelectorAll('div.schedule__brick span.schedule__day');
     final titles = rows.map((el) {
-	  return e.text;
+	  return el.text;
 	}).toList();	
 	var titleStream = Stream.fromIterable(titles);
 
