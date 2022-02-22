@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 //import 'package:html/dom.dart' as dom;
@@ -18,11 +19,32 @@ void main() {
     expect(htmlString.length, greaterThan(0));
   });
   
+  final document = parse(htmlString);
+  
   test('index.html is parceable', ()  {    
-    var document = parse(htmlString);
     expect(document.toString(), '#document');
-    
-    var rows = document.querySelectorAll('div.schedule__brick');
+  });
+  
+  test('index.html is parceable', ()  {    
+    final rows = document.querySelectorAll('div.schedule__brick');
     expect(rows.length, 4);
+  });
+  
+  test('index.html contains titleStream', ()  {    
+    final rows = document.querySelectorAll('div.schedule__brick span.schedule__day');
+    final titles = rows.map((el) {
+	  return e.text;
+	}).toList();	
+	var titleStream = Stream.fromIterable(titles);
+
+    expect(titleStream, emitsInOrder([
+      'Четверг',
+	  'Уик-энд',
+	  'Год',
+	  'Доля дистрибьюторов',
+      //startsWith('Loading took'),
+      //emitsAnyOf(['Succeeded!', 'Failed!']),
+      //emitsDone
+    ]));
   });
 }
