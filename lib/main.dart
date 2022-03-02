@@ -9,6 +9,8 @@ import 'src/widgets/box_office_page.dart';
 import 'src/widgets/thursday_box_office_page.dart';
 import 'src/widgets/weekend_box_office_page.dart';
 
+import 'src/views/HomeView.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.indigo,
           ),
-          home: BoxOfficePage(),
+          home: HomeView(),
         );
   }
 }
