@@ -9,7 +9,7 @@ import 'src/widgets/box_office_page.dart';
 import 'src/widgets/thursday_box_office_page.dart';
 import 'src/widgets/weekend_box_office_page.dart';
 
-import 'src/views/HomeView.dart';
+import 'src/views/home_view.dart';
 
 void main() => runApp(MyApp());
 
