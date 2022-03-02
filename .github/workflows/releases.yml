@@ -26,7 +26,7 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-      - run: flutter build apk --debug
+      - run: flutter build apk --debug --info
       - uses: ncipollo/release-action@v1
         with:
          artifacts: "build/app/outputs/apk/debug/*.apk"
