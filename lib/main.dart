@@ -14,22 +14,12 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider<BottomNavigationBarProvider>(
-              create: (context) => BottomNavigationBarProvider()),
-          ChangeNotifierProvider<YearModel>(create: (context) => YearModel()),
-          ChangeNotifierProvider<WeekendModel>(
-              create: (context) => WeekendModel()),
-          ChangeNotifierProvider<ThursdayModel>(
-              create: (context) => ThursdayModel()),
-        ],
-        child: MaterialApp(
+    return GetMaterialApp(
           title: 'kb-app',
           theme: ThemeData(
             primarySwatch: Colors.indigo,
           ),
           home: BoxOfficePage(),
-        ));
+        );
   }
 }
