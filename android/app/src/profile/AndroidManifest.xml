@@ -1,9 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     package="ch.karo.kb_dart">
-=======
-    package="karo.ch.flutter_app">
->>>>>>> 239b8091e0c8d6beed24b3f0c233026f1f626eec
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
