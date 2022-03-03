@@ -30,8 +30,10 @@ class HomeController extends GetxController {
       final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0]?.wikiTitle}&action=info';
       final text = await fetchString(piLink);
       final document = parse(text);
-      final rows =
-      document.querySelectorAll('table#krestable > tbody  > tr');
+      final rows = document.querySelectorAll('div.mw-pvi-month');
+      if (rows.length > 0) {
+
+      }
     } else {
       timer.cancel();
     }
