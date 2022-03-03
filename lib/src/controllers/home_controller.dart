@@ -19,7 +19,7 @@ class HomeController extends GetxController {
   }
 
   void refresh() {
-    Timer.periodic(const Duration(seconds: 60), refreshWikiStats);
+    Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
   }
 
   void refreshWikiStats(Timer timer) {
@@ -33,7 +33,7 @@ class HomeController extends GetxController {
   }
 
   void fetchAnime() async {
-    final text = await getAnime();
+    final text = await fetchString(animeRef);
     const splitter = LineSplitter();
     final List<String> lines = splitter.convert(text);
     animeList.assignAll(fromLines(lines));
@@ -50,13 +50,14 @@ class HomeController extends GetxController {
     return anime;
   }
 
-  Future<String> getAnime() async {
+  Future<String> fetchString(String link) async {
     try {
-      var response = await Dio().get(animeRef);
+      var response = await Dio().get(link);
       return response.data.toString();
     } catch (e) {
       print(e);
     }
     return '';
   }
+
 }
