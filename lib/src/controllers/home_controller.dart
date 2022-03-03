@@ -23,7 +23,12 @@ class HomeController extends GetxController {
   }
 
   void refreshWikiStats(Timer timer) {
-    animeList.where((i) => i.mviMonth == 0).toList();
+    final zeroes = animeList.where((i) => i.mviMonth == 0).
+      where((i) => i.wikiTitle?.length > 16).toList();
+    if (zeroes.length > 0) {
+    } else {
+      timer.cancel();
+    }
   }
 
   void fetchAnime() async {
