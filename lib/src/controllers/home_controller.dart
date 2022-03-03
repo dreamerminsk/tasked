@@ -25,7 +25,7 @@ class HomeController extends GetxController {
     animeList.assignAll(fromLines(lines));
   }
 
-  List<Anime> fromLines(String lines) {
+  List<Anime> fromLines(List<String> lines) {
     final anime = <Anime>[];
     for(var i = 0; i < lines.length; i++) {
       if (i.isOdd) {
