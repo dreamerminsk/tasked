@@ -3,6 +3,7 @@ import 'dart:core';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:html/parser.dart';
 
 import '../models/anime.dart';
 
@@ -18,8 +19,30 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  void refresh() {
+    Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
+  }
+
+  void refreshWikiStats(Timer timer) {
+    final zeroes = animeList.where((i) => i.mviMonth == 0).
+      where((i) => i.wikiTitle?.length > 16).toList();
+    if (zeroes.length > 0) {
+      final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0]?.wikiTitle}&action=info';
+      final text = await fetchString(piLink);
+      final document = parse(text);
+      final rows = document.querySelectorAll('div.mw-pvi-month');
+      if (rows.length > 0) {
+        int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
+        zeroes[0].mviMonth = val;
+        animeList.refresh();
+      }
+    } else {
+      timer.cancel();
+    }
+  }
+
   void fetchAnime() async {
-    final text = await getAnime();
+    final text = await fetchString(animeRef);
     const splitter = LineSplitter();
     final List<String> lines = splitter.convert(text);
     animeList.assignAll(fromLines(lines));
@@ -36,13 +59,14 @@ class HomeController extends GetxController {
     return anime;
   }
 
-  Future<String> getAnime() async {
+  Future<String> fetchString(String link) async {
     try {
-      var response = await Dio().get(animeRef);
+      var response = await Dio().get(link);
       return response.data.toString();
     } catch (e) {
       print(e);
     }
     return '';
   }
+
 }

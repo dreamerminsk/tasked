@@ -22,13 +22,13 @@ class HomeView extends StatelessWidget {
               child: ListTile(
                 leading: FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
-                subtitle: Text('${c.animeList[index].wikiTitle}'),
+                subtitle: Text('${c.animeList[index]?.mviMonth} - ${c.animeList[index].wikiTitle}'),
             ),);
           },
         )
       : const Center(child: Text('No items'))),
       floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment));
+          FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
   }
 }
 
