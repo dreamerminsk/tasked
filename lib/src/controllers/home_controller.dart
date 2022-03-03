@@ -4,9 +4,12 @@ import 'dart:core';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
+import '../models/anime.dart';
+
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.txt';
   final animeList = [].obs;
+  final animeList2 = <Anime>[].obs;
   var count = 0.obs;
   increment() => count++;
 
@@ -27,6 +30,15 @@ class HomeController extends GetxController {
       }
     }
     animeList.assignAll(anime);
+  }
+
+  List<Anime> fromLines(String lines) {
+    final anime = <Anime>[];
+    for(var i = 0; i < lines.length; i++) {
+      if (i.isOdd) {
+        anime.add(lines[i]);
+      }
+    }
   }
 
   Future<String> getAnime() async {
