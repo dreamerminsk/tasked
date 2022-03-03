@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
               child: ListTile(
                 leading: FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
-                subtitle: Text('${c.animeList[index].wikiTitle}'),
+                subtitle: Text('${c.animeList[index]?.mviMonth} - ${c.animeList[index].wikiTitle}'),
             ),);
           },
         )
