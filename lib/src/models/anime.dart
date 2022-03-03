@@ -1,6 +1,6 @@
 class Anime {
-  String title;
-  String wikiTitle;
+  String? title;
+  String? wikiTitle;
 
   Anime({this.title, this.wikiTitle});
 
