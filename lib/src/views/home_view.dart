@@ -13,7 +13,8 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}"))),
 
-      body: c.animeList.length > 0
+      body: Obx( () =>
+      c.animeList.length > 0
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
@@ -22,7 +23,7 @@ class HomeView extends StatelessWidget {
             );
           },
         )
-      : const Center(child: Text('No items')),
+      : const Center(child: Text('No items'))),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment));
   }
