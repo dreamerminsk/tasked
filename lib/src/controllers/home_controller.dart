@@ -32,7 +32,8 @@ class HomeController extends GetxController {
       final document = parse(text);
       final rows = document.querySelectorAll('div.mw-pvi-month');
       if (rows.length > 0) {
-        int val = int.tryParse(rows[0].text) ?? 0;
+        int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
+        zeroes[0].mviMonth = val;
       }
     } else {
       timer.cancel();
