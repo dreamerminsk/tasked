@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
@@ -26,7 +27,7 @@ class HomeController extends GetxController {
     }
   }
 
-  String getAnime() async {
+  Future<String> getAnime() async {
     try {
       var response = await Dio().get(anime_ref);
       return response.data.ToString();
