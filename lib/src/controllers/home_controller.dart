@@ -14,9 +14,19 @@ class HomeController extends GetxController {
   }
 
   void fetchAnime() async {
-    //var products = await HttpServices.fetchProducts();
+    var anime = await getAnime();
     if (anime != null) {
       animeList.assignAll(anime);
     }
+  }
+
+  String getAnime() async {
+    try {
+      var response = await Dio().get(anime_ref);
+      return response.data.ToString();
+    } catch (e) {
+      print(e);
+    }
+    return '';
   }
 }
