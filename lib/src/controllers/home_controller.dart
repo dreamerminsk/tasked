@@ -19,9 +19,11 @@ class HomeController extends GetxController {
   }
 
   void refresh() async {
-    Timer.periodic(const Duration(seconds: 60), (timer) {
+    Timer.periodic(const Duration(seconds: 60), refreshWikiStats);
   }
-});
+
+  void refreshWikiStats(Timer timer) {
+    
   }
 
   void fetchAnime() async {
