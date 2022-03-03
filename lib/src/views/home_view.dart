@@ -18,9 +18,12 @@ class HomeView extends StatelessWidget {
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text('${c.animeList[index]}'),
-            );
+            return Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 56.0),
+                title: Text('${c.animeList[index].title}'),
+                subtitle: Text('${c.animeList[index].wikiTitle}'),
+            ),);
           },
         )
       : const Center(child: Text('No items'))),
