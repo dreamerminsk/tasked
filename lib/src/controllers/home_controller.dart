@@ -18,6 +18,9 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  void refresh() async {
+  }
+
   void fetchAnime() async {
     final text = await getAnime();
     const splitter = LineSplitter();
