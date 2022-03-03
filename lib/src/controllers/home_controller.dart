@@ -20,6 +20,7 @@ class HomeController extends GetxController {
     var text = await getAnime();
     LineSplitter ls = new LineSplitter();
     List<String> lines = ls.convert(text);
+    List<String> anime = lines[0::2];
     if (anime != null) {
       animeList.assignAll(anime);
     }
