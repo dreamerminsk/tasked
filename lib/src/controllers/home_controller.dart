@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
@@ -27,7 +28,7 @@ class HomeController extends GetxController {
     final zeroes = animeList.where((i) => i.mviMonth == 0).
       where((i) => i?.wikiTitle.length > 16).toList();
     if (zeroes.length > 0) {
-      final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0]?.wikiTitle}&action=info';
+      final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wikiTitle}&action=info';
       final text = await fetchString(piLink);
       final document = parse(text);
       final rows = document.querySelectorAll('div.mw-pvi-month');
