@@ -27,6 +27,7 @@ class HomeController extends GetxController {
       where((i) => i.wikiTitle?.length > 16).toList();
     if (zeroes.length > 0) {
       final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0]?.wikiTitle}&action=info';
+      final text = await fetchString(piLink);
     } else {
       timer.cancel();
     }
