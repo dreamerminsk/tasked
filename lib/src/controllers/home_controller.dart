@@ -5,4 +5,17 @@ class HomeController extends GetxController {
   final animeList = [].obs;
   var count = 0.obs;
   increment() => count++;
+
+  @override
+  void onInit() {
+    fetchAnime();
+    super.onInit();
+  }
+
+  void fetchAnime() async {
+    //var products = await HttpServices.fetchProducts();
+    if (anime != null) {
+      animeList.assignAll(anime);
+    }
+  }
 }
