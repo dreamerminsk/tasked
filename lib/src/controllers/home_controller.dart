@@ -34,6 +34,7 @@ class HomeController extends GetxController {
       if (rows.length > 0) {
         int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
         zeroes[0].mviMonth = val;
+        animeList.refresh();
       }
     } else {
       timer.cancel();
