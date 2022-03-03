@@ -23,7 +23,7 @@ class HomeController extends GetxController {
     final anime = <String>[];
     for(var i = 0; i < lines.length; i++) {
       if (i.isEven) {
-        anime.Add(lines[i]);
+        anime.add(lines[i]);
       }
     }
     animeList.assignAll(anime);
