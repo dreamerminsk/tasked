@@ -18,7 +18,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  void refresh() async {
+  void refresh() {
     Timer.periodic(const Duration(seconds: 60), refreshWikiStats);
   }
 
@@ -26,6 +26,7 @@ class HomeController extends GetxController {
     final zeroes = animeList.where((i) => i.mviMonth == 0).
       where((i) => i.wikiTitle?.length > 16).toList();
     if (zeroes.length > 0) {
+      final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0]?.wikiTitle}&action=info';
     } else {
       timer.cancel();
     }
