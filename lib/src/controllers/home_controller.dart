@@ -8,8 +8,7 @@ import '../models/anime.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.txt';
-  final animeList = [].obs;
-  final animeList2 = <Anime>[].obs;
+  final animeList = <Anime>[].obs;
   var count = 0.obs;
   increment() => count++;
 
@@ -23,20 +22,15 @@ class HomeController extends GetxController {
     final text = await getAnime();
     const splitter = LineSplitter();
     final List<String> lines = splitter.convert(text);
-    final anime = <String>[];
-    for(var i = 0; i < lines.length; i++) {
-      if (i.isEven) {
-        anime.add(lines[i]);
-      }
-    }
-    animeList.assignAll(anime);
+    animeList.assignAll(fromLines(lines));
   }
 
   List<Anime> fromLines(String lines) {
     final anime = <Anime>[];
     for(var i = 0; i < lines.length; i++) {
       if (i.isOdd) {
-        anime.add(lines[i]);
+        anime.add(Anime(title: lines[i - 1], 
+                  wikiTitle: lines[i]));
       }
     }
   }
