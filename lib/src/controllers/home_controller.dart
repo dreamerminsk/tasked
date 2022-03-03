@@ -33,6 +33,7 @@ class HomeController extends GetxController {
                   wikiTitle: lines[i]));
       }
     }
+    return anime;
   }
 
   Future<String> getAnime() async {
