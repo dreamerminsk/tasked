@@ -1,9 +1,9 @@
 class Anime {
   String? title;
   String? wikiTitle;
-  int? mviMonth;
+  int mviMonth;
 
-  Anime({this.title, this.wikiTitle, this.mviMonth});
+  Anime({this.title, this.wikiTitle, this.mviMonth = 0});
 
   Anime.fromJson(Map<String, dynamic> json) {
     title = json['title'];
