@@ -26,7 +26,7 @@ class HomeController extends GetxController {
 
   void refreshWikiStats(Timer timer) async {
     final zeroes = animeList.where((i) => i.mviMonth == 0).
-      where((i) => i.wikiTitle?.length > 16).toList();
+      where((i) => (i.wikiTitle?.length ?? 0) > 16).toList();
     if (zeroes.length > 0) {
       final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wikiTitle}&action=info';
       final text = await fetchString(piLink);
