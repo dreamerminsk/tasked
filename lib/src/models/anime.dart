@@ -1,23 +1,18 @@
 class Anime {
+  String title;
+  String wikiTitle;
 
-}
+  Anime({this.title, this.wikiTitle});
 
-Class
-class DemoModel {
-  int num1;
-  int num2;
-
-  DemoModel({this.num1, this.num2});
-
-  DemoModel.fromJson(Map<String, dynamic> json) {
-    num1 = json['num1'];
-    num2 = json['num2'];
+  Anime.fromJson(Map<String, dynamic> json) {
+    title = json['title'];
+    wikiTitle = json['wikiTitle'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['num1'] = this.num1;
-    data['num2'] = this.num2;
+    data['title'] = this.title;
+    data['wikiTitle'] = this.wikiTitle;
     return data;
   }
 }
