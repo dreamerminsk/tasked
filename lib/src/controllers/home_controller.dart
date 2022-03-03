@@ -32,7 +32,7 @@ class HomeController extends GetxController {
   Future<String> getAnime() async {
     try {
       var response = await Dio().get(animeRef);
-      return response.data.ToString();
+      return response.data.toString();
     } catch (e) {
       print(e);
     }
