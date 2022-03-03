@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
@@ -22,14 +21,12 @@ class HomeController extends GetxController {
     LineSplitter ls = new LineSplitter();
     final lines = ls.convert(text);
     final anime = lines[0::2];
-    if (anime != null) {
-      animeList.assignAll(anime);
-    }
+    animeList.assignAll(anime);
   }
 
   Future<String> getAnime() async {
     try {
-      var response = await Dio().get(anime_ref);
+      var response = await Dio().get(animeRef);
       return response.data.ToString();
     } catch (e) {
       print(e);
