@@ -24,7 +24,7 @@ class HomeController extends GetxController {
     Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
   }
 
-  void refreshWikiStats(Timer timer) {
+  void refreshWikiStats(Timer timer) async {
     final zeroes = animeList.where((i) => i.mviMonth == 0).
       where((i) => i?.wikiTitle.length > 16).toList();
     if (zeroes.length > 0) {
