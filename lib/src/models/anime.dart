@@ -8,7 +8,7 @@ class Anime {
   Anime.fromJson(Map<String, dynamic> json) {
     title = json['title'];
     wikiTitle = json['wikiTitle'];
-    mviMonth = json['mviMonth'];
+    mviMonth = json['mviMonth'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
