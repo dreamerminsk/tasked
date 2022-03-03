@@ -20,6 +20,7 @@ class HomeView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               title: Text('${c.animeList[index].title}'),
+              subtitle: Text('${c.animeList[index].wikiTitle}'),
             );
           },
         )
