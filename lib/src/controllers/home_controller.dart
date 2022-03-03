@@ -17,7 +17,9 @@ class HomeController extends GetxController {
   }
 
   void fetchAnime() async {
-    var anime = await getAnime();
+    var text = await getAnime();
+    LineSplitter ls = new LineSplitter();
+    List<String> lines = ls.convert(text);
     if (anime != null) {
       animeList.assignAll(anime);
     }
