@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
     final HomeController c = Get.put(HomeController());
 
     return Scaffold(
-      appBar: AppBar(title: Obx(() => Text("Clicks: ${c.count}"))),
+      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}"))),
 
       body: Center(child: ElevatedButton(
               child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
