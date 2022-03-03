@@ -1,7 +1,7 @@
 class Anime {
   String? title;
   String? wikiTitle;
-  int mviMonth;
+  int mviMonth = 0;
 
   Anime({this.title, this.wikiTitle, this.mviMonth = 0});
 
