@@ -13,7 +13,7 @@ class DebugView extends StatelessWidget {
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
               actions: <Widget>[IconButton(icon: Icon(Icons.copy), onPressed: (){},)]),
 
-      body: Obx( () => {
+      body: Obx( () {
         final encoder = JsonEncoder.withIndent('   ');
         return const Center(child: Text('${encoder.convert(c.animeList)}'));
       }),
