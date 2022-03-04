@@ -35,7 +35,7 @@ class HomeController extends GetxController {
       if (rows.length > 0) {
         int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
         zeroes[0].mviMonth = val;
-        animeList.toList().sort((a, b) => b.mviMonth.compareTo(a.mviMonth));
+        animeList.sort((a, b) => b.mviMonth.compareTo(a.mviMonth));
         animeList.refresh();
       }
       final imgs = document.querySelectorAll('tr#mw-pageimages-info-label img');
