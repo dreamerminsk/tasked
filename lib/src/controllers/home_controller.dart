@@ -20,6 +20,11 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  void copyToClipboard() {
+    final encoder = JsonEncoder.withIndent('   ');
+    Clipboard.setData(ClipboardData(text: encoder.convert(c.animeList)));
+  }
+
   void refresh() {
     Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
   }
