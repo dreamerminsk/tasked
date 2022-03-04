@@ -17,9 +17,20 @@ class DebugView extends StatelessWidget {
 
       body: Obx( () {
         final encoder = JsonEncoder.withIndent('   ');
-        return Center(child: Text('${encoder.convert(c.animeList)}'));
+        return _scrollable(encoder.convert(c.animeList));
       }),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
+    );
+  }
+
+  Widget _scrollable(String text) {
+    return Expanded(
+            flex: 1,
+            child: new SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: new Text(
+                text,
+              ),
+            ),
+          );
   }
 }
