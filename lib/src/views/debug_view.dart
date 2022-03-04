@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +17,7 @@ class DebugView extends StatelessWidget {
 
       body: Obx( () {
         final encoder = JsonEncoder.withIndent('   ');
-        return const Center(child: Text('${encoder.convert(c.animeList)}'));
+        return Center(child: Text('${encoder.convert(c.animeList)}'));
       }),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
