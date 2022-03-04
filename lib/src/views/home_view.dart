@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
+import 'debug_view.dart';
 
 class HomeView extends StatelessWidget {
 
@@ -13,8 +14,8 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.settings), onPressed: (){},),
-                IconButton(icon: Icon(Icons.copy), onPressed: (){},),
+                IconButton(icon: Icon(Icons.settings), onPressed: () { Get.to(DebugView()); },),
+                IconButton(icon: Icon(Icons.copy), onPressed: () {},),
               ]),
 
       body: Obx( () =>
