@@ -23,7 +23,7 @@ class HomeController extends GetxController {
 
   void copyToClipboard() {
     final encoder = JsonEncoder.withIndent('   ');
-    Clipboard.setData(ClipboardData(text: encoder.convert(c.animeList)));
+    Clipboard.setData(ClipboardData(text: encoder.convert(animeList)));
   }
 
   void refresh() {
