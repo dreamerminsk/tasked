@@ -23,14 +23,13 @@ class DebugView extends StatelessWidget {
   }
 
   Widget _scrollable(String text) {
-    return Expanded(
-            flex: 1,
-            child: new SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: new Text(
-                text,
-              ),
-            ),
-          );
+    return Row(children: <Widget>[
+             Expanded(
+               child: new SingleChildScrollView(
+                 scrollDirection: Axis.vertical,
+                   child: new Text(text,),
+               ),
+             ),]
+           );
   }
 }
