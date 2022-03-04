@@ -7,7 +7,7 @@ class DebugView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final HomeController c = Get.get(HomeController());
+    final HomeController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
