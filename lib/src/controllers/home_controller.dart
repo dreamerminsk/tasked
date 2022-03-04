@@ -39,8 +39,8 @@ class HomeController extends GetxController {
       }
       final imgs = document.querySelectorAll('tr.mw-pageimages-info-label img');
       if (imgs.length > 0) {
-        int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
-        zeroes[0].mviMonth = val;
+        String? imgLink = 'https:' + (imgs[0].attributes['src'] ?? '');
+        zeroes[0].wikiImage = imgLink;
         animeList.refresh();
       }
     } else {
