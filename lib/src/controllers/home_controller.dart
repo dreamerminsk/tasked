@@ -37,6 +37,12 @@ class HomeController extends GetxController {
         zeroes[0].mviMonth = val;
         animeList.refresh();
       }
+      final imgs = document.querySelectorAll('tr.mw-pageimages-info-label img');
+      if (imgs.length > 0) {
+        int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
+        zeroes[0].mviMonth = val;
+        animeList.refresh();
+      }
     } else {
       timer.cancel();
     }
