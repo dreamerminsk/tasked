@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
-              actions: <Widget>[IconButton(icon: Icon(Icons.copy))]),
+              actions: <Widget>[IconButton(icon: Icon(Icons.copy), onPressed: (){},)]),
 
       body: Obx( () =>
       c.animeList.length > 0
@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
             return Card(
               child: ListTile(
                 leading: c.animeList[index].wikiImage != null
-                  ? Image.network(c.animeList[index]!.wikiImage, width: 56)
+                  ? Image.network(c.animeList[index].wikiImage ?? '', width: 56)
                   : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
                 subtitle: Text('${c.animeList[index].mviMonth} - ${c.animeList[index].wikiTitle}'),
