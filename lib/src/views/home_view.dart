@@ -20,7 +20,9 @@ class HomeView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Card(
               child: ListTile(
-                leading: FlutterLogo(size: 56.0),
+                leading: c.animeList[index].wikiImage != null
+                  ? Image.network(c.animeList[index].wikiImage)
+                  : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
                 subtitle: Text('${c.animeList[index].mviMonth} - ${c.animeList[index].wikiTitle}'),
             ),);
