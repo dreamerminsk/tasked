@@ -15,7 +15,7 @@ class DebugView extends StatelessWidget {
 
       body: Obx( () => {
         final encoder = JsonEncoder.withIndent('   ');
-        return Center(child: Text('${encoder.convert(c.animeList)}'));
+        return const Center(child: Text('${encoder.convert(c.animeList)}'));
       }),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
