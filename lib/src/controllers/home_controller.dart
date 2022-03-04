@@ -36,7 +36,7 @@ class HomeController extends GetxController {
         int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
         zeroes[0].mviMonth = val;
       }
-      final imgs = document.querySelectorAll('tr#mw-pageimages-info-label img');
+      final imgs = document.querySelectorAll('tr#mw-pageimages-info-label > td > a > img');
       if (imgs.length > 0) {
         String? imgLink = 'https:' + (imgs[0].attributes['src'] ?? '');
         zeroes[0].wikiImage = imgLink;
