@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:core';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
@@ -18,6 +19,11 @@ class HomeController extends GetxController {
   void onInit() {
     fetchAnime();
     super.onInit();
+  }
+
+  void copyToClipboard() {
+    final encoder = JsonEncoder.withIndent('   ');
+    Clipboard.setData(ClipboardData(text: encoder.convert(c.animeList)));
   }
 
   void refresh() {

@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => CircleAvatar(
                       backgroundImage: image,
-                      radius: 56,
+                      radius: 100,
                     ),
                   )
                   : FlutterLogo(size: 56.0),
