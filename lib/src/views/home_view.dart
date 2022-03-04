@@ -11,7 +11,8 @@ class HomeView extends StatelessWidget {
     final HomeController c = Get.put(HomeController());
 
     return Scaffold(
-      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}"))),
+      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
+              actions: <Widget>[IconButton(icon: Icon(Icons.copy))]),
 
       body: Obx( () =>
       c.animeList.length > 0
