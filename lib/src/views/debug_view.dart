@@ -15,12 +15,11 @@ class DebugView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
               actions: <Widget>[
-                Obx(() =>
                 IconButton(icon: Icon(Icons.copy),
                   onPressed: () { 
-                    final encoder = JsonEncoder.withIndent('   ');
-                    Clipboard.setData(ClipboardData(text: encoder.convert(c.animeList)));
-                  },))
+                    c.copyToClipboard();
+                  },
+                )
               ]),
 
       body: Obx( () {
