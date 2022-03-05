@@ -36,7 +36,7 @@ class HomeView extends StatelessWidget {
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         ),
                       ))
                   )
