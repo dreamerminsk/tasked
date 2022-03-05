@@ -38,6 +38,10 @@ class HomeView extends StatelessWidget {
                           image: image,
                           fit: BoxFit.contain,
                         ),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                        ),
                       ))
                   )
                   : FlutterLogo(size: 56.0),
