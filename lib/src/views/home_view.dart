@@ -36,13 +36,13 @@ class HomeView extends StatelessWidget {
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         ),
                       ))
                   )
                   : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
-                subtitle: Text('${c.animeList[index].mviMonth} - ${c.animeList[index].wikiImage}'),
+                subtitle: Text('${c.animeList[index].mviMonth}'),
             ),);
           },
         )
