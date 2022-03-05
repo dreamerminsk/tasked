@@ -8,10 +8,9 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
 import '../models/anime.dart';
-import '../models/wiki.dart';
 
 class HomeController extends GetxController {
-  static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.txt';
+  static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.json';
   final animeList = <Anime>[].obs;
   var count = 0.obs;
   increment() => count++;
@@ -57,20 +56,8 @@ class HomeController extends GetxController {
 
   void fetchAnime() async {
     final text = await fetchString(animeRef);
-    const splitter = LineSplitter();
-    final List<String> lines = splitter.convert(text);
-    animeList.assignAll(fromLines(lines));
-  }
-
-  List<Anime> fromLines(List<String> lines) {
-    final anime = <Anime>[];
-    for(var i = 0; i < lines.length; i++) {
-      if (i.isOdd) {
-        anime.add(Anime(title: lines[i - 1], 
-                  wiki: Wiki(title: lines[i])));
-      }
-    }
-    return anime;
+    final json = jsonDecode(text);
+    animeList.assignAll(json.map((i) => Anime.fromJson(i)));
   }
 
   Future<String> fetchString(String link) async {

@@ -33,7 +33,7 @@ class HomeView extends StatelessWidget {
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
-                      width: 150.00,
+                      width: 64.00,
                       height: 100.00,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
@@ -42,7 +42,7 @@ class HomeView extends StatelessWidget {
                         ),
                         border: Border.all(
                           color: Colors.black,
-                          width: 2,
+                          width: 1,
                         ),
                       ))
                   )
