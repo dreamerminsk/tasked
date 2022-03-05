@@ -31,10 +31,14 @@ class HomeView extends StatelessWidget {
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
-                                  child: image,
-                                  width: 110,
-                                  fit: BoxFit.cover,
-                                ))
+                      width: 100.00,
+                      height: 100.00,
+                      decoration: new BoxDecoration(
+                        image: new DecorationImage(
+                          image: image,
+                          fit: BoxFit.cover,
+                        ),
+                      ))
                   )
                   : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
