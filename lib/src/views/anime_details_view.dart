@@ -17,7 +17,7 @@ class AnimeDetailsView extends StatelessWidget {
               ]),
 
       body:
-        Center(child: Text('No items')),
+        Center(child: Text('${Get.arguments}')),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
   }

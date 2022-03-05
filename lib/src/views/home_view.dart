@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 import 'debug_view.dart';
+import 'anime_details_view.dart';
 
 class HomeView extends StatelessWidget {
 
@@ -23,7 +24,8 @@ class HomeView extends StatelessWidget {
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
-            return Card(
+            return InkWell(onTap: () {Get.to(AnimeDetailsView(), arguments:  (c.animeList[index].title ?? ''));},
+             child: Card(
               child: ListTile(
                 leading: c.animeList[index].wiki?.image != null
                   ? CachedNetworkImage(
@@ -31,8 +33,8 @@ class HomeView extends StatelessWidget {
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
-                      width: 100.00,
-                      height: 150.00,
+                      width: 150.00,
+                      height: 100.00,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
@@ -47,7 +49,7 @@ class HomeView extends StatelessWidget {
                   : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
                 subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0}'),
-            ),);
+            ),));
           },
         )
       : const Center(child: Text('No items'))),
