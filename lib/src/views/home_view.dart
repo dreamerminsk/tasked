@@ -25,9 +25,9 @@ class HomeView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Card(
               child: ListTile(
-                leading: c.animeList[index].wikiImage != null
+                leading: c.animeList[index]?.wiki?.image != null
                   ? CachedNetworkImage(
-                    imageUrl: c.animeList[index].wikiImage ?? '',
+                    imageUrl: c.animeList[index]?.wiki?.image ?? '',
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
@@ -46,7 +46,7 @@ class HomeView extends StatelessWidget {
                   )
                   : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
-                subtitle: Text('${c.animeList[index].mviMonth}'),
+                subtitle: Text('${c.animeList[index]?.wiki.mviMonth}'),
             ),);
           },
         )
