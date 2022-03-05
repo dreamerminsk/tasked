@@ -1,3 +1,5 @@
+import 'wiki.dart';
+
 class Anime {
   String? title;
   String? wikiTitle;
@@ -19,6 +21,25 @@ class Anime {
     data['wikiTitle'] = this.wikiTitle;
     data['wikiImage'] = this.wikiImage;
     data['mviMonth'] = this.mviMonth;
+    return data;
+  }
+}
+
+
+
+class AnimeModel {
+  String? title;
+  Wiki? wiki;
+
+  AnimeModel({this.title, this.wiki});
+
+  AnimeModel.fromJson(Map<String, dynamic> json) {
+    title = json['title'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['title'] = this.title;
     return data;
   }
 }
