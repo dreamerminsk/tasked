@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'wiki.dart';
 
 class Anime {
