@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +23,7 @@ class AnimeDetailsView extends StatelessWidget {
           children: <Widget>[
             Card(
               child: CachedNetworkImage(
-                    imageUrl: fs?[0].wiki?.image ?? '',
+                    imageUrl: fs[0].wiki?.image ?? '',
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
