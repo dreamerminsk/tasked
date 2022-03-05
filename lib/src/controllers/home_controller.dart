@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
 import '../models/anime.dart';
-import '../models/wiki.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.json';
