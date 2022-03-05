@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
                       width: 100.00,
-                      height: 100.00,
+                      height: 150.00,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
