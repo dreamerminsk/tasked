@@ -3,9 +3,9 @@ class Wiki {
   String? image;
   int mviMonth = 0;
 
-  Anime({this.title, this.image, this.mviMonth = 0});
+  Wiki({this.title, this.image, this.mviMonth = 0});
 
-  Anime.fromJson(Map<String, dynamic> json) {
+  Wiki.fromJson(Map<String, dynamic> json) {
     title = json['title'];
     image = json['image'];
     mviMonth = json['mviMonth'] ?? 0;
