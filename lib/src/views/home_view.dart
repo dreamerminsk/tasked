@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
-            return InkWell(onTap: () {Get.to(AnimeDetailsView());},
+            return InkWell(onTap: () {Get.to(AnimeDetailsView(), arguments:  (c.animeList[index].title ?? ''));},
              child: Card(
               child: ListTile(
                 leading: c.animeList[index].wiki?.image != null
