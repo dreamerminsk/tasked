@@ -46,7 +46,7 @@ class HomeController extends GetxController {
       final imgs = document.querySelectorAll('tr#mw-pageimages-info-label > td > a > img');
       if (imgs.length > 0) {
         String? imgLink = 'https:' + (imgs[0].attributes['src'] ?? '');
-        zeroes[0].wiki.image = imgLink;
+        zeroes[0].wiki!.image = imgLink;
       }
       animeList.sort((a, b) => (b.wiki?.mviMonth ?? 0).compareTo(a.wiki?.mviMonth ?? 0));
       animeList.refresh();
