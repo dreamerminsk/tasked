@@ -14,7 +14,7 @@ class Anime {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
-    data['wiki'] = this.wiki != null ? this.wiki.toJson() : null;
+    data['wiki'] = this.wiki != null ? this.wiki!.toJson() : null;
     return data;
   }
 }
