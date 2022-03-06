@@ -61,10 +61,14 @@ class HomeController extends GetxController {
     final al = jsonList.map((i) => Anime.fromJson(i)).toList();
     Get.snackbar('animeList', '${al.length}', snackPosition: SnackPosition.BOTTOM);
     Get.snackbar('anime', '${al[0]}', snackPosition: SnackPosition.BOTTOM);
-    animeList.assignAll(al);
-    Get.snackbar('animeList.obs', '${animeList.length}', snackPosition: SnackPosition.BOTTOM);
-    animeList.sort((a, b) => (b.wiki?.mviMonth ?? 0).compareTo(a.wiki?.mviMonth ?? 0));
-    animeList.refresh();
+    try {
+      animeList.addAll(al);
+      Get.snackbar('animeList.obs', '${animeList.length}', snackPosition: SnackPosition.BOTTOM);
+      animeList.sort((a, b) => (b.wiki?.mviMonth ?? 0).compareTo(a.wiki?.mviMonth ?? 0));
+      animeList.refresh();
+    } catch(e) {
+      Get.snackbar('catch', '${e}', snackPosition: SnackPosition.BOTTOM);
+    }
   }
 
   Future<String> fetchString(String link) async {
