@@ -30,6 +30,7 @@ void main() {
   test('animeList is parceable', ()  {  
     final animeList = jsonList.map((i) => Anime.fromJson(i)).toList();  
     expect(animeList.length, 89);
+    expect(animeList[0].title?.length ?? 0, greaterThan(0));
   });
   
 }
