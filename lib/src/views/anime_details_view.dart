@@ -41,9 +41,8 @@ class AnimeDetailsView extends StatelessWidget {
                       ))
                   )
             ),
-          ]
-        )
-      ),
+          ],
+        ), //Row
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
   }
