@@ -7,44 +7,22 @@ import 'package:html/parser.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final file = new File('data/anime.wiki.json');
+  final file = new File('data/wiki.anime.json');
   
-  test('anime.wiki.json is exists', ()  { 
+  test('wiki.anime.json is exists', ()  { 
     expect(file.existsSync(), true);
   });
   
   final jsonString = file.readAsStringSync();
   
-  test('index.html is readable', ()  { 
-    expect(htmlString.length, greaterThan(0));
+  test('wiki.anime.json is readable', ()  { 
+    expect(jsonString.length, greaterThan(0));
   });
   
-  final document = parse(htmlString);
+  final jsonList = jsonDecode(jsonString);
   
-  test('index.html is parceable', ()  {    
-    expect(document.toString(), '#document');
+  test('wiki.anime.json is parceable', ()  {    
+    expect(jsonList.length, 89);
   });
   
-  test('index.html is parceable', ()  {    
-    final rows = document.querySelectorAll('div.schedule__brick');
-    expect(rows.length, 4);
-  });
-  
-  test('index.html contains titleStream', ()  {    
-    final rows = document.querySelectorAll('div.schedule__brick span.schedule__day');
-    final titles = rows.map((el) {
-	  return el.text;
-	}).toList();	
-	var titleStream = Stream.fromIterable(titles);
-
-    expect(titleStream, emitsInOrder([
-      'Четверг',
-	  'Уик-энд',
-	  'Год',
-	  'Доля дистрибьюторов',
-      //startsWith('Loading took'),
-      //emitsAnyOf(['Succeeded!', 'Failed!']),
-      //emitsDone
-    ]));
-  });
 }
