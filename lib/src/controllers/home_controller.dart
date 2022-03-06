@@ -67,7 +67,7 @@ class HomeController extends GetxController {
       animeList.sort((a, b) => (b.wiki?.mviMonth ?? 0).compareTo(a.wiki?.mviMonth ?? 0));
       animeList.refresh();
     } catch(e) {
-      Get.snackbar('catch', e, snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('catch', '$e', snackPosition: SnackPosition.BOTTOM);
     }
   }
 
