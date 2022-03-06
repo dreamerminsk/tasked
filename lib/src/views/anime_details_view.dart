@@ -9,6 +9,7 @@ class AnimeDetailsView extends StatelessWidget {
   @override
   Widget build(context) {
     final HomeController c = Get.find();
+    final fs = c.animeList.where((i) => (i.title ?? '') == (Get.arguments as String)).toList();
 
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
@@ -17,9 +18,8 @@ class AnimeDetailsView extends StatelessWidget {
                 IconButton(icon: Icon(Icons.copy), onPressed: () { },),
               ]),
 
-      body: Obx(() {
-        final fs = c.animeList.where((i) => (i.title ?? '') == (Get.arguments as String)).toList();
-        return Row(
+      body: 
+        Row(
           children: <Widget>[
             Card(
               child: CachedNetworkImage(
@@ -42,8 +42,8 @@ class AnimeDetailsView extends StatelessWidget {
                   )
             ),
           ]
-        );
-      }),
+        )
+      ),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
   }
