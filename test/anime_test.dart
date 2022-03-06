@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:kb_dart/src/models/anime.dart';
+
 //import 'package:html/dom.dart' as dom;
 //import 'package:html/parser.dart';
 
@@ -23,6 +25,11 @@ void main() {
   
   test('wiki.anime.json is parceable', ()  {    
     expect(jsonList.length, 89);
+  });
+
+  test('animeList is parceable', ()  {  
+    final animeList = jsonList.map((i) => Anime.fromJson(i)).toList();  
+    expect(animeList.length, 89);
   });
   
 }
