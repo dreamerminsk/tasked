@@ -58,7 +58,7 @@ class HomeController extends GetxController {
     final text = await fetchString(animeRef);
     final jsonList = jsonDecode(text);
     Get.snackbar('jsonList', '${jsonList.length}', snackPosition: SnackPosition.BOTTOM);
-    final al = jsonList.map((i) => Anime.fromJson(i)).toList();
+    final al = List<Anime>.from(jsonList.map((i) => Anime.fromJson(i)));
     Get.snackbar('animeList', '${al.length}', snackPosition: SnackPosition.BOTTOM);
     Get.snackbar('anime', '${al[0]}', snackPosition: SnackPosition.BOTTOM);
     try {
