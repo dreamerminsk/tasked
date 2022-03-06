@@ -40,10 +40,6 @@ class HomeView extends StatelessWidget {
                           image: image,
                           fit: BoxFit.contain,
                         ),
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
-                        ),
                       ))
                   )
                   : FlutterLogo(size: 56.0),
@@ -55,14 +51,5 @@ class HomeView extends StatelessWidget {
       : const Center(child: Text('No items'))),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
-  }
-}
-
-class Other extends StatelessWidget {
-  final HomeController c = Get.find();
-
-  @override
-  Widget build(context){
-     return Scaffold(body: Center(child: Text("${c.count}")));
   }
 }
