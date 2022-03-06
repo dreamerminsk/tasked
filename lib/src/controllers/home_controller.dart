@@ -56,8 +56,12 @@ class HomeController extends GetxController {
 
   void fetchAnime() async {
     final text = await fetchString(animeRef);
-    final json = jsonDecode(text);
-    animeList.assignAll(json.map((i) => Anime.fromJson(i)).toList());
+    final jsonList = jsonDecode(text);
+    Get.snackbar('jsonList', '${jsonList.length}');
+    final al = jsonList.map((i) => Anime.fromJson(i)).toList();
+    Get.snackbar('animeList', '${al.length}');
+    Get.snackbar('anime', '${al[0]}');
+    animeList.assignAll(al);
   }
 
   Future<String> fetchString(String link) async {
