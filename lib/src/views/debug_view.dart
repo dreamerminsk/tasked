@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_json_viewer/flutter_json_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,7 +34,7 @@ class DebugView extends StatelessWidget {
              Expanded(
                child: new SingleChildScrollView(
                  scrollDirection: Axis.vertical,
-                   child: new Text(text,),
+                   child: JsonViewer(jsonDecode(text)),
                ),
              ),]
            );
