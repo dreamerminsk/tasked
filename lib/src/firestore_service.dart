@@ -1,11 +1,11 @@
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'models/anime.dart';
 //import 'package:kbapp/src/kb/model.dart';
 //import 'package:kbapp/src/utils/formatters.dart';
 
 final CollectionReference animeCollection =
-FirebaseFirestore.instance.collection('anime');
+  FirebaseFirestore.instance.collection('anime');
 
 class FirestoreService {
   static final FirestoreService _instance = new FirestoreService.internal();
@@ -16,7 +16,7 @@ class FirestoreService {
 
   Future<Anime?> createAnime(Anime anime) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(animeCollection.document());
+      final DocumentSnapshot ds = await tx.get(animeCollection.doc());
 
       anime.id = ds.documentID;
       final Map<String, dynamic> data = anime.toJson();
@@ -52,7 +52,7 @@ class FirestoreService {
   Future<dynamic> updateAnime(Anime anime) async {
     final TransactionHandler updateTransaction = (Transaction tx) async {
       final DocumentSnapshot ds =
-      await tx.get(animeCollection.document(anime.id));
+      await tx.get(animeCollection.doc(anime.id));
 
       await tx.update(ds.reference, anime.toJson());
       return {'updated': true};
@@ -69,7 +69,7 @@ class FirestoreService {
 
   Future<dynamic> deleteAnime(String id) async {
     final TransactionHandler deleteTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(animeCollection.document(id));
+      final DocumentSnapshot ds = await tx.get(animeCollection.doc(id));
 
       await tx.delete(ds.reference);
       return {'deleted': true};
