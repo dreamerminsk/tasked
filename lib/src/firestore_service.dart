@@ -33,26 +33,6 @@ class FirestoreService {
     });
   }
 
-  Future<Person> createPerson(String fullName, String avatar) async {
-    final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(personCollection.document());
-
-      final Map<String, dynamic> data =
-      Person(fullName: fullName, avatar: avatar).toMap();
-
-      await tx.set(ds.reference, data);
-
-      return data;
-    };
-
-    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
-      return Person.fromMap(mapData);
-    }).catchError((error) {
-      print('error: $error');
-      return null;
-    });
-  }
-
   Future<Person> getPersonByName(String fullName) async {
     return personCollection
         .where('fullName', isEqualTo: fullName)
@@ -62,26 +42,6 @@ class FirestoreService {
         return Person.fromMap(mapData.documents[0].data);
       }
       return null;
-    }).catchError((error) {
-      print('error: $error');
-      return null;
-    });
-  }
-
-  Future<Note> createNote(String title, String description) async {
-    final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(yearCollection.document());
-
-      final Note note = new Note(ds.documentID, title, description);
-      final Map<String, dynamic> data = note.toMap();
-
-      await tx.set(ds.reference, data);
-
-      return data;
-    };
-
-    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
-      return Note.fromMap(mapData);
     }).catchError((error) {
       print('error: $error');
       return null;
@@ -120,27 +80,6 @@ class FirestoreService {
         .catchError((error) {
       print('error: $error');
       return false;
-    });
-  }
-
-  Future<Worker> createWorker(String title) async {
-    final TransactionHandler createTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds =
-      await tx.get(workerCollection.document(title));
-
-      final Worker note = new Worker(title, DateTime.now());
-      final Map<String, dynamic> data = note.toMap();
-
-      await tx.set(ds.reference, data);
-
-      return data;
-    };
-
-    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
-      return Worker.fromMap(mapData);
-    }).catchError((error) {
-      print('error: $error');
-      return null;
     });
   }
 
