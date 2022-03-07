@@ -18,10 +18,10 @@ class FirestoreService {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(animeCollection.doc());
 
-      anime.id = ds.documentID;
+      anime.id = ds.generatedID;
       final Map<String, dynamic> data = anime.toJson();
 
-      await tx.set(ds.reference, data);
+      tx.set(ds.reference, data);
 
       return data;
     };
@@ -54,7 +54,7 @@ class FirestoreService {
       final DocumentSnapshot ds =
       await tx.get(animeCollection.doc(anime.id));
 
-      await tx.update(ds.reference, anime.toJson());
+      tx.update(ds.reference, anime.toJson());
       return {'updated': true};
     };
 
@@ -71,7 +71,7 @@ class FirestoreService {
     final TransactionHandler deleteTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(animeCollection.doc(id));
 
-      await tx.delete(ds.reference);
+      tx.delete(ds.reference);
       return {'deleted': true};
     };
 
