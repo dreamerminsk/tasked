@@ -14,11 +14,11 @@ class FirestoreService {
 
   FirestoreService.internal();
 
-  Future<Anime?> createAnime(Anime anime) async {
+  Future<Anime> createAnime(Anime anime) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(animeCollection.doc());
 
-      anime.id = ds.generatedID;
+      anime.id = ds.id;
       final Map<String, dynamic> data = anime.toJson();
 
       tx.set(ds.reference, data);
@@ -34,7 +34,7 @@ class FirestoreService {
     });
   }
 
-  Future<Anime?> getAnimeByTitle(String title) async {
+  Future<Anime> getAnimeByTitle(String title) async {
     return animeCollection
         .where('title', isEqualTo: title)
         .getDocuments()
@@ -84,7 +84,7 @@ class FirestoreService {
     });
   }
 
-  Stream<QuerySnapshot> getAnimeList({int offset, int limit}) {
+  Stream<QuerySnapshot> getAnimeList({int? offset, int? limit}) {
     Stream<QuerySnapshot> snapshots = animeCollection.snapshots();
 
     if (offset != null) {
