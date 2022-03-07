@@ -17,7 +17,7 @@ class FirestoreService {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(animeCollection.document());
 
-      anime.documentId = ds.documentID;
+      anime.id = ds.documentID;
       final Map<String, dynamic> data = anime.toJson();
 
       await tx.set(ds.reference, data);
@@ -33,13 +33,13 @@ class FirestoreService {
     });
   }
 
-  Future<Person> getPersonByName(String fullName) async {
-    return personCollection
-        .where('fullName', isEqualTo: fullName)
+  Future<Anime?> getAnimeByTitle(String title) async {
+    return animeCollection
+        .where('title', isEqualTo: title)
         .getDocuments()
         .then((mapData) {
       if (mapData.documents.length > 0) {
-        return Person.fromMap(mapData.documents[0].data);
+        return Anime.fromJson(mapData.documents[0].data);
       }
       return null;
     }).catchError((error) {
@@ -48,12 +48,12 @@ class FirestoreService {
     });
   }
 
-  Future<dynamic> updateNote(YearRecord note) async {
+  Future<dynamic> updateAnime(Anime anime) async {
     final TransactionHandler updateTransaction = (Transaction tx) async {
       final DocumentSnapshot ds =
-      await tx.get(yearCollection.document(note.id));
+      await tx.get(animeCollection.document(anime.id));
 
-      await tx.update(ds.reference, note.toMap());
+      await tx.update(ds.reference, anime.toJson());
       return {'updated': true};
     };
 
@@ -66,9 +66,9 @@ class FirestoreService {
     });
   }
 
-  Future<dynamic> deleteNote(String id) async {
+  Future<dynamic> deleteAnime(String id) async {
     final TransactionHandler deleteTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(yearCollection.document(id));
+      final DocumentSnapshot ds = await tx.get(animeCollection.document(id));
 
       await tx.delete(ds.reference);
       return {'deleted': true};
@@ -83,8 +83,8 @@ class FirestoreService {
     });
   }
 
-  Stream<QuerySnapshot> getWorkerList({int offset, int limit}) {
-    Stream<QuerySnapshot> snapshots = workerCollection.snapshots();
+  Stream<QuerySnapshot> getAnimeList({int offset, int limit}) {
+    Stream<QuerySnapshot> snapshots = animeCollection.snapshots();
 
     if (offset != null) {
       snapshots = snapshots.skip(offset);
@@ -97,38 +97,4 @@ class FirestoreService {
     return snapshots;
   }
 
-  Future<dynamic> updateWorker(Worker worker) async {
-    final TransactionHandler updateTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds =
-      await tx.get(workerCollection.document(worker.id));
-
-      await tx.update(ds.reference, worker.toMap());
-      return {'updated': true};
-    };
-
-    return Firestore.instance
-        .runTransaction(updateTransaction)
-        .then((result) => result['updated'])
-        .catchError((error) {
-      print('error: $error');
-      return false;
-    });
-  }
-
-  Future<dynamic> deleteWorker(String id) async {
-    final TransactionHandler deleteTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(workerCollection.document(id));
-
-      await tx.delete(ds.reference);
-      return {'deleted': true};
-    };
-
-    return Firestore.instance
-        .runTransaction(deleteTransaction)
-        .then((result) => result['deleted'])
-        .catchError((error) {
-      print('error: $error');
-      return false;
-    });
-  }
 }
