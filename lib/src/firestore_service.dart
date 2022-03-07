@@ -5,7 +5,7 @@ import 'models/anime.dart';
 //import 'package:kbapp/src/utils/formatters.dart';
 
 final CollectionReference animeCollection =
-Firestore.instance.collection('anime');
+FirebaseFirestore.instance.collection('anime');
 
 class FirestoreService {
   static final FirestoreService _instance = new FirestoreService.internal();
@@ -26,7 +26,7 @@ class FirestoreService {
       return data;
     };
 
-    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
+    return FirebaseFirestore.instance.runTransaction(createTransaction).then((mapData) {
       return Anime.fromJson(mapData);
     }).catchError((error) {
       print('error: $error');
@@ -58,7 +58,7 @@ class FirestoreService {
       return {'updated': true};
     };
 
-    return Firestore.instance
+    return FirebaseFirestore.instance
         .runTransaction(updateTransaction)
         .then((result) => result['updated'])
         .catchError((error) {
@@ -75,7 +75,7 @@ class FirestoreService {
       return {'deleted': true};
     };
 
-    return Firestore.instance
+    return FirebaseFirestore.instance
         .runTransaction(deleteTransaction)
         .then((result) => result['deleted'])
         .catchError((error) {
