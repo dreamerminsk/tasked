@@ -30,14 +30,14 @@ class FirestoreService {
       return Anime.fromJson(mapData);
     }).catchError((error) {
       print('error: $error');
-      return null;
+      return anime;
     });
   }
 
   Future<Anime> getAnimeByTitle(String title) async {
     return animeCollection
         .where('title', isEqualTo: title)
-        .getDocuments()
+        .docs()
         .then((mapData) {
       if (mapData.documents.length > 0) {
         return Anime.fromJson(mapData.documents[0].data);
