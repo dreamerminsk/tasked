@@ -1,4 +1,4 @@
-import 'package:firestore_core/firestore_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'models/anime.dart';
 //import 'package:kbapp/src/kb/model.dart';
