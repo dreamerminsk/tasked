@@ -34,12 +34,12 @@ class FirestoreService {
     });
   }
 
-  Future<Anime> getAnimeByTitle(String title) async {
+  Future<Anime?> getAnimeByTitle(String title) async {
     return animeCollection
         .where('title', isEqualTo: title)
         .get()
     .then((QuerySnapshot querySnapshot) {
-      return Anime.fromJson(querySnapshot.docs[0].data() as Map<String, dynamic>);
+      return Future<Anime?>.value(Anime.fromJson(querySnapshot.docs[0].data() as Map<String, dynamic>));
     }).catchError((error) {
       print('error: $error');
       return null;
