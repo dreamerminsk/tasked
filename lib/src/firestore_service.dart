@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../models/anime.dart';
 //import 'package:kbapp/src/kb/model.dart';
 //import 'package:kbapp/src/utils/formatters.dart';
 
@@ -11,6 +12,26 @@ class FirestoreService {
   factory FirestoreService() => _instance;
 
   FirestoreService.internal();
+
+  Future<Anime?> createAnime(Anime anime) async {
+    final TransactionHandler createTransaction = (Transaction tx) async {
+      final DocumentSnapshot ds = await tx.get(animeCollection.document());
+
+      anime.documentId = ds.documentID;
+      final Map<String, dynamic> data = anime.toJson();
+
+      await tx.set(ds.reference, data);
+
+      return data;
+    };
+
+    return Firestore.instance.runTransaction(createTransaction).then((mapData) {
+      return Anime.fromJson(mapData);
+    }).catchError((error) {
+      print('error: $error');
+      return null;
+    });
+  }
 
   Future<Person> createPerson(String fullName, String avatar) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
