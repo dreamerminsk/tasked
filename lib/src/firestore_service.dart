@@ -39,7 +39,7 @@ class FirestoreService {
         .where('title', isEqualTo: title)
         .get()
     .then((QuerySnapshot querySnapshot) {
-      return Anime.fromJson(querySnapshot.docs[0].data());
+      return Anime.fromJson(querySnapshot.docs[0].data() as Map<String, dynamic>);
     }).catchError((error) {
       print('error: $error');
       return null;
