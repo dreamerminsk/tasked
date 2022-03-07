@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/anime.dart';
+import 'models/anime.dart';
 //import 'package:kbapp/src/kb/model.dart';
 //import 'package:kbapp/src/utils/formatters.dart';
 
