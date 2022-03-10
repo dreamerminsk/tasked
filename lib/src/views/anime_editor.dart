@@ -42,6 +42,10 @@ class AnimeEditor extends StatelessWidget {
                 labelText: 'Email Address',
               ),
             ),//TextFormField
+            ElevatedButton(
+              onPressed: _submitForm,
+              child: Text('Save'),
+            ),//ElevatedButton
           ],//<Widget>[]
         ),//Column
       ),//Form
