@@ -25,6 +25,14 @@ class AnimeEditor extends StatelessWidget {
       body: Form(
         child: Column(
           children: <Widget>[
+            TextFormField(
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                hintText: 'Enter your email address',
+                labelText: 'Email Address',
+              ),
+            ),//TextFormField
           ],//<Widget>[]
         ),//Column
       ),//Form
