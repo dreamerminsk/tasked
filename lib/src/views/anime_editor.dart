@@ -8,6 +8,8 @@ import '../controllers/home_controller.dart';
 
 class AnimeEditor extends StatelessWidget {
 
+  final TextEditingController _titleController = TextEditingController();
+
   @override
   Widget build(context) {
     final HomeController c = Get.find();
