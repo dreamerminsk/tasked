@@ -22,10 +22,12 @@ class AnimeEditor extends StatelessWidget {
                 )
               ]),
 
-      body: Obx( () {
-        final encoder = JsonEncoder.withIndent('   ');
-        return _scrollable(encoder.convert(c.animeList));
-      }),
+      body: Form(
+        child: Column(
+          children: <Widget>[
+          ],//<Widget>[]
+        ),//Column
+      ),//Form
     );
   }
 
