@@ -10,6 +10,12 @@ class AnimeEditor extends StatelessWidget {
 
   final TextEditingController _titleController = TextEditingController();
 
+  _submitForm() {
+    final anime = {
+      'name': _titleController.text,
+    };
+}
+
   @override
   Widget build(context) {
     final HomeController c = Get.find();
@@ -30,6 +36,7 @@ class AnimeEditor extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
+              controller: _titleController,
               decoration: InputDecoration(
                 hintText: 'Enter your email address',
                 labelText: 'Email Address',
