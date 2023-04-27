@@ -17,6 +17,7 @@ class HomeView extends StatelessWidget {
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.settings), onPressed: () { Get.to(DebugView()); },),
                 IconButton(icon: Icon(Icons.copy), onPressed: () {},),
+IconButton(icon: Icon(Icons.favorite), onPressed: () {},),
               ]),
 
       body: Obx( () =>
