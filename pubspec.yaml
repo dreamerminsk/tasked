@@ -14,14 +14,14 @@ description: Movie stats application.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.0.13
-  html: ^0.15.0
-  dio: ^4.0.4
+  html: ^0.15.2
+  dio: ^5.1.1
   random_string: ^2.3.1
   #pull_to_refresh: ^2.0.0
   timeago: ^3.2.2
@@ -34,7 +34,7 @@ dependencies:
   #side_header_list_view: ^1.0.0-nullsafety.0
   flutter_json_viewer: ^1.0.1
   
-  get: ^4.6.1
+  get: ^4.6.5
   #sqflite: ^2.0.2
   #file_picker: ^4.3.3
   #file: ^6.1.2
