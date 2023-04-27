@@ -19,7 +19,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.0.13
   html: ^0.15.2
   dio: ^5.1.1
   random_string: ^2.3.1
