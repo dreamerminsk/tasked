@@ -12,13 +12,17 @@ import '../models/anime.dart';
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.json';
   final animeList = <Anime>[].obs;
-  var count = 0.obs;
-  increment() => count++;
+  var selected = Anime().obs;
+  
 
   @override
   void onInit() {
     fetchAnime();
     super.onInit();
+  }
+
+  void select(String title) {
+    selected.update((value) {value.title = title;});
   }
 
   void copyToClipboard() {
