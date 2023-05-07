@@ -21,6 +21,10 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  void select(int idx) {
+    selected.update((value) {value.title = animeList[idx].title;});
+  }
+
   void select(String title) {
     selected.update((value) {value.title = title;});
   }
