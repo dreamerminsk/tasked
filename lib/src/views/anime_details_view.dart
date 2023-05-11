@@ -10,7 +10,6 @@ class AnimeDetailsView extends StatelessWidget {
   @override
   Widget build(context) {
     final HomeController c = Get.find();
-    final List<Anime> fs = c.animeList.where((i) => (i.title ?? '') == (Get.arguments as String)).toList();
 
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
@@ -24,7 +23,7 @@ class AnimeDetailsView extends StatelessWidget {
           children: <Widget>[
             Card(
               child: CachedNetworkImage(
-                    imageUrl: fs[0].wiki?.image ?? '',
+                    imageUrl: c.selected.wiki?.image ?? '',
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
