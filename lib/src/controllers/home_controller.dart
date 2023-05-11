@@ -13,7 +13,6 @@ class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.json';
   final animeList = <Anime>[].obs;
   var selected = Anime().obs;
-  
 
   @override
   void onInit() {
@@ -23,8 +22,8 @@ class HomeController extends GetxController {
 
   void select(int idx) {
     selected.update((value) {
-      value.title = animeList[idx].title;
-      value.wiki = animeList[idx].wiki;
+      value?.title = animeList[idx].title;
+      value?.wiki = animeList[idx].wiki;
     });
   }
 
