@@ -24,14 +24,9 @@ class HomeController extends GetxController {
   void select(int idx) {
     selected.update((value) {
       value.title = animeList[idx].title;
-      value.wiki.title = animeList[idx].wiki?.title;
-      value.wiki.image = animeList[idx].wiki?.image;
-      value.wiki.mviMonth = animeList[idx].wiki?.mviMonth;
+      value.wiki = animeList[idx].wiki;
     });
   }
-
-
-
 
   void copyToClipboard() {
     final encoder = JsonEncoder.withIndent('   ');
