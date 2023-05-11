@@ -42,7 +42,7 @@ class AnimeDetailsView extends StatelessWidget {
                   )
             ), //Card
             Expanded(
-              child: Text(c.selected.value?.title),
+              child: Text(c.selected.value.title ?? '<~~~~~>'),
             ), //Expanded
           ],
         )), //Row
