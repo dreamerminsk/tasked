@@ -30,15 +30,6 @@ jobs:
           flutter-version: "3.7.12"
           channel: 'stable'
           cache: true
-      - run: flutter pub outdated
-      - run: flutter pub upgrade --major-versions
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-      - name: GIT commit and push docs
-        run: |
-          git config --global user.name "Micah Teeuws"
-          git config --global user.email "username@users.noreply.github.com"
-          git add pubspec.yaml pubspec.lock
-          git commit -m "update pubspec"
-          git push
