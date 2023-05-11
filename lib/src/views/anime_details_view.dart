@@ -18,9 +18,9 @@ class AnimeDetailsView extends StatelessWidget {
               ]),
 
       body: 
-        Row(
+      Obx(()=>
+        Column(
           children: <Widget>[
-            Obx(()=>
             Card(
               child: CachedNetworkImage(
                     imageUrl: c.selected.value.wiki?.image ?? '',
@@ -40,10 +40,12 @@ class AnimeDetailsView extends StatelessWidget {
                         ),
                       ))
                   )
-            )
-                ),
+            ), //Card
+            Expanded(
+              child: Text(c.selected.value?.title),
+            ), //Expanded
           ],
-        ), //Row
+        )), //Row
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
   }
