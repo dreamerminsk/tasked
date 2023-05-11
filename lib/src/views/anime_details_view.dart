@@ -20,6 +20,7 @@ class AnimeDetailsView extends StatelessWidget {
       body: 
         Row(
           children: <Widget>[
+            Obx(()=>
             Card(
               child: CachedNetworkImage(
                     imageUrl: c.selected.value.wiki?.image ?? '',
@@ -39,7 +40,8 @@ class AnimeDetailsView extends StatelessWidget {
                         ),
                       ))
                   )
-            ),
+            )
+                ),
           ],
         ), //Row
       floatingActionButton:
