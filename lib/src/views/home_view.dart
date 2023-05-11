@@ -45,7 +45,7 @@ IconButton(icon: Icon(Icons.favorite), onPressed: () {},),
                   )
                   : FlutterLogo(size: 56.0),
                 title: Text('${c.animeList[index].title}'),
-                subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0} - ${c.animeList[index].wiki?.lastUpdatelastUpdate.toString() ?? "..."}'),
+                subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0} - ${c.animeList[index].wiki?.lastUpdate.toString() ?? "..."}'),
             ),));
           },
         )
