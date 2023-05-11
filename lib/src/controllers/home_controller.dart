@@ -10,7 +10,7 @@ import 'package:html/parser.dart';
 import '../models/anime.dart';
 
 class HomeController extends GetxController {
-  static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.json';
+  static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
   final animeList = <Anime>[].obs;
   var selected = Anime().obs;
 
