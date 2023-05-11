@@ -12,13 +12,19 @@ import '../models/anime.dart';
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/wiki.anime.json';
   final animeList = <Anime>[].obs;
-  var count = 0.obs;
-  increment() => count++;
+  var selected = Anime().obs;
 
   @override
   void onInit() {
     fetchAnime();
     super.onInit();
+  }
+
+  void select(int idx) {
+    selected.update((value) {
+      value?.title = animeList[idx].title;
+      value?.wiki = animeList[idx].wiki;
+    });
   }
 
   void copyToClipboard() {
@@ -31,7 +37,7 @@ class HomeController extends GetxController {
   }
 
   void refreshWikiStats(Timer timer) async {
-    final zeroes = animeList.where((a) => (a.wiki?.mviMonth ?? 0) == 0).
+    final zeroes = animeList.where((a) => (a.wiki?.mviMonth ?? 0) >= 0).
       where((a) => (a.wiki?.title?.length ?? 0) > 0).toList();
     if (zeroes.length > 0) {
       final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wiki?.title}&action=info';
