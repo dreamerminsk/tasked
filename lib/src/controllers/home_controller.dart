@@ -37,7 +37,7 @@ class HomeController extends GetxController {
   }
 
   void refreshWikiStats(Timer timer) async {
-    final zeroes = animeList.where((a) => (a.wiki?.mviMonth ?? 0) >= 0).
+    final zeroes = animeList.where((a) => a.wiki?.lastUpdate == null).
       where((a) => (a.wiki?.title?.length ?? 0) > 0).toList();
     if (zeroes.length > 0) {
       final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wiki?.title}&action=info';
@@ -47,6 +47,7 @@ class HomeController extends GetxController {
       if (rows.length > 0) {
         int val = int.tryParse(rows[0].text.replaceAll(RegExp(r','), '')) ?? 0;
         zeroes[0].wiki!.mviMonth = val;
+        zeroes[0].wiki!.lastUpdate = DateTime.now();
       }
       final imgs = document.querySelectorAll('tr#mw-pageimages-info-label > td > a > img');
       if (imgs.length > 0) {
