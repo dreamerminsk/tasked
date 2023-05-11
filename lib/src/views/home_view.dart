@@ -25,7 +25,7 @@ IconButton(icon: Icon(Icons.favorite), onPressed: () {},),
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
-            return InkWell(onTap: () {Get.to(AnimeDetailsView(), arguments:  (c.animeList[index].title ?? ''));},
+            return InkWell(onTap: () { c.select(index); Get.to(AnimeDetailsView());},
              child: Card(
               child: ListTile(
                 leading: c.animeList[index].wiki?.image != null
