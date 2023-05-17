@@ -30,7 +30,7 @@ IconButton(icon: Icon(Icons.favorite), onPressed: () {},),
               child: ListTile(
                 leading: c.animeList[index].wiki?.image != null
                   ? CachedNetworkImage(
-                    imageUrl: c.animeList[index].wiki?.image ?? '',
+                    imageUrl: (c.animeList[index].wiki?.image ?? '').replaceFirst('220px', '64px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
