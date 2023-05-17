@@ -23,7 +23,7 @@ class AnimeDetailsView extends StatelessWidget {
           children: <Widget>[
             Card(
               child: CachedNetworkImage(
-                    imageUrl: c.selected.value.wiki?.image ?? '',
+                    imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
