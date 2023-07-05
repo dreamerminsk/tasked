@@ -1,5 +1,26 @@
 [
    {
+      "title": "Joe Biden",
+      "wiki": {
+         "title": "Joe Biden",
+         "mviMonth": 0
+      }
+   },
+   {
+      "title": "Xi Jinping",
+      "wiki": {
+         "title": "Xi Jinping",
+         "mviMonth": 0
+      }
+   },
+   {
+      "title": "Olaf Scholz",
+      "wiki": {
+         "title": "Olaf Scholz",
+         "mviMonth": 0
+      }
+   },
+   {
       "title": "Bungo Stray Dogs (season 4)",
       "wiki": {
          "title": "Bungo Stray Dogs",
@@ -843,7 +864,7 @@
       "title": "Rurouni Kenshin",
       "wiki": {
          "title": "Rurouni Kenshin (2023 TV series)",
-         "mviMonth": 1
+         "mviMonth": 0
       }
    },
    {
