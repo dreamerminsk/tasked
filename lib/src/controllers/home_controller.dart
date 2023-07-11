@@ -8,10 +8,12 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
 import '../models/anime.dart';
+import '../models/category.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
   final animeList = <Anime>[].obs;
+  final categories = <Category>[].obs;
   var selected = Anime().obs;
 
   @override
