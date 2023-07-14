@@ -25,14 +25,14 @@ class AnimeDetailsView extends StatelessWidget {
               child: CachedNetworkImage(
                     imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(iconSize: 72, Icons.error),
+                    errorWidget: (context, url, error) => Icon(size: 128.0, Icons.error),
                     imageBuilder: (context, image) => Container(
                       width: 512,
                       height: 512,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                         ),
                         border: Border.all(
                           color: Colors.black,
