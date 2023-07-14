@@ -29,7 +29,7 @@ class CatsView extends StatelessWidget {
             return InkWell(onTap: () { Get.to(AnimeDetailsView());},
              child: Card(
               child: ListTile(
-                leading: FlutterLogo(size: 64.0),
+                leading: Icon(Icons.tips_and_updates, size: 64.0),
                 title: Text('${c.categories[index].title}'),
                 subtitle: Text('...'),
             ),));
