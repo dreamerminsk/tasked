@@ -2,17 +2,17 @@ class Category {
   String? lang
   String? title;
 
-  Wiki({this.lang, this.title});
+  Category({this.lang, this.title});
 
-  Wiki.fromJson(Map<String, dynamic> json) {
+  Category.fromJson(Map<String, dynamic> json) {
     lang = json['lang'] ?? 'en';
     title = json['title'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['lang'] = this.lang;
-    data['title'] = this.title;
+    data['lang'] = this.lang ?? 'en';
+    data['title'] = this.title ?? 'Main Page';
     return data;
   }
 }
