@@ -33,7 +33,7 @@ class HomeView extends StatelessWidget {
                   ? CachedNetworkImage(
                     imageUrl: (c.animeList[index].wiki?.image ?? '').replaceFirst('220px', '96px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red, size: 96.0),
                     imageBuilder: (context, image) => Container(
                       width: 96.00,
                       height: 150.00,
