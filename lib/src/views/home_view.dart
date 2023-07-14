@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 import 'debug_view.dart';
+import 'cats_view.dart';
 import 'anime_details_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -13,8 +14,9 @@ class HomeView extends StatelessWidget {
     final HomeController c = Get.put(HomeController());
 
     return Scaffold(
-      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
+      appBar: AppBar(title: () => Text("Bookmarks"),
               actions: <Widget>[
+                IconButton(icon: Icon(Icons.app_shortcut), onPressed: () { Get.to(CatsView()); },),
                 IconButton(icon: Icon(Icons.account_balance), onPressed: () { Get.to(DebugView()); },),
                 IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
               ]),
@@ -29,11 +31,11 @@ class HomeView extends StatelessWidget {
               child: ListTile(
                 leading: c.animeList[index].wiki?.image != null
                   ? CachedNetworkImage(
-                    imageUrl: (c.animeList[index].wiki?.image ?? '').replaceFirst('220px', '64px'),
+                    imageUrl: (c.animeList[index].wiki?.image ?? '').replaceFirst('220px', '96px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     imageBuilder: (context, image) => Container(
-                      width: 64.00,
+                      width: 96.00,
                       height: 100.00,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
@@ -42,7 +44,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ))
                   )
-                  : FlutterLogo(size: 56.0),
+                  : FlutterLogo(size: 92.0),
                 title: Text('${c.animeList[index].title}'),
                 subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0} - ${c.animeList[index].wiki?.lastUpdate.toString() ?? "..."}'),
             ),));
