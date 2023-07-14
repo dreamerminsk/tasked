@@ -11,7 +11,7 @@ class AnimeDetailsView extends StatelessWidget {
     final HomeController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
+      appBar: AppBar(title: () => Text("AnimeDetails"),
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.settings), onPressed: () { },),
                 IconButton(icon: Icon(Icons.copy), onPressed: () { },),
