@@ -44,7 +44,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ))
                   )
-                  : FlutterLogo(size: 92.0),
+                  : Icon(Icons.image_not_supported, color: Colors.red, size: 96.0),
                 title: Text('${c.animeList[index].title}'),
                 subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0} - ${c.animeList[index].wiki?.lastUpdate.toString() ?? "..."}'),
             ),));
