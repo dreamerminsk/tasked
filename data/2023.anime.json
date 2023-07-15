@@ -1,18 +1,25 @@
 [
    {
-        "title": "Donald Trump",
-        "wiki": {
-            "title": "Donald Trump",
-            "mviMonth": 50
+      "title": "George W. Bush",
+      "wiki": {
+           "title": "George W. Bush",
+           "mviMonth": 50
         }
-    },
+   },
    {
-        "title": "Barack Obama",
-        "wiki": {
-            "title": "Barack Obama",
-            "mviMonth": 50
-        }
-    },
+      "title": "Donald Trump",
+      "wiki": {
+         "title": "Donald Trump",
+         "mviMonth": 50
+      }
+   },
+   {
+      "title": "Barack Obama",
+      "wiki": {
+         "title": "Barack Obama",
+         "mviMonth": 50
+      }
+   },
    {
         "title": "Caroline Garcia",
         "wiki": {
