@@ -37,7 +37,7 @@ class HomeController extends GetxController {
 
   void refresh() {
     Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
-    timer += 1;
+    timers += 1;
   }
 
   void refreshWikiStats(Timer timer) async {
