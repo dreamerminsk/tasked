@@ -1,7 +1,6 @@
 import 'dart:core';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../models/category.dart';
