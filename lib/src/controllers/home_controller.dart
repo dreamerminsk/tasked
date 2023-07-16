@@ -13,10 +13,13 @@ class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
   final animeList = <Anime>[].obs;
   var selected = Anime().obs;
+  var timers = 0.obs;
+  var requests = 0.obs;
 
   @override
   void onInit() {
     fetchAnime();
+    refresh();
     super.onInit();
   }
 
@@ -34,6 +37,7 @@ class HomeController extends GetxController {
 
   void refresh() {
     Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
+    timer += 1;
   }
 
   void refreshWikiStats(Timer timer) async {
@@ -58,6 +62,7 @@ class HomeController extends GetxController {
       animeList.refresh();
     } else {
       timer.cancel();
+      timers -= 1;
     }
   }
 
@@ -74,10 +79,11 @@ class HomeController extends GetxController {
 
   Future<String> fetchString(String link) async {
     try {
+      requests += 1;
       var response = await Dio().get(link);
       return response.data.toString();
     } catch (e) {
-      print(e);
+      Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
     }
     return '';
   }
