@@ -25,7 +25,7 @@ class AnimeDetailsView extends StatelessWidget {
               child: CachedNetworkImage(
                     imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(size: 128.0, Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.error, size: 128.0),
                     imageBuilder: (context, image) => Container(
                       width: 512,
                       height: 512,
@@ -44,7 +44,7 @@ class AnimeDetailsView extends StatelessWidget {
             Expanded(
               child: Text(
                 c.selected.value.title ?? '<~~~~~>',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
             ), //Expanded
           ],
