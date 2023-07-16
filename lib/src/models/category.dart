@@ -1,5 +1,5 @@
 class Category {
-  String? lang
+  String? lang;
   String? title;
 
   Category({this.lang, this.title});
