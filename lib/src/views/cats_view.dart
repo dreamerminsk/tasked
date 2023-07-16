@@ -22,21 +22,43 @@ class CatsView extends StatelessWidget {
               ]),
 
       body: Obx( () =>
-      c.categories.length > 0
-      ? ListView.builder(
-          itemCount: c.categories.length,
-          itemBuilder: (BuildContext context, int index) {
-            return InkWell(onTap: () { Get.to(AnimeDetailsView());},
-             child: Card(
-              child: ListTile(
-                leading: Icon(Icons.tips_and_updates, size: 64.0),
-                title: Text('${c.categories[index].title}'),
-                subtitle: Text('...'),
-            ),));
-          },
-        )
-      : const Center(child: Text('No items'))),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
+                c.categories.length > 0
+                ? ListView.builder(
+                  itemCount: c.categories.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return InkWell(
+                      onTap: () { Get.to(AnimeDetailsView());},
+                      child: Card(
+                        child: ListTile(
+                          leading: Icon(Icons.tips_and_updates, size: 64.0),
+                          title: Text('${c.categories[index].title}'),
+                          subtitle: Text('...')
+                        ),
+                      )
+                    );
+                  },
+                )
+                : const Center(child: Text('No items'))
+               ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            FloatingActionButton(
+              heroTag: null,
+              onPressed: () {},
+              child: Icon(Icons.navigate_before),
+            ),
+            FloatingActionButton(
+              heroTag: null,
+              onPressed: () {},
+              child: Icon(Icons.navigate_next),
+            )
+          ],
+        ),
+      )
+    );
   }
 }
