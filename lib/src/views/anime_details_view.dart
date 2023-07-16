@@ -11,7 +11,7 @@ class AnimeDetailsView extends StatelessWidget {
     final HomeController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
+      appBar: AppBar(title: Obx(() => Text("AnimeDetails - ${c.selected.value.wiki?.mviMonth ?? 0}")),
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.settings), onPressed: () { },),
                 IconButton(icon: Icon(Icons.copy), onPressed: () { },),
@@ -25,14 +25,14 @@ class AnimeDetailsView extends StatelessWidget {
               child: CachedNetworkImage(
                     imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => Icon(Icons.error, size: 128.0),
                     imageBuilder: (context, image) => Container(
                       width: 512,
                       height: 512,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                         ),
                         border: Border.all(
                           color: Colors.black,
@@ -42,7 +42,10 @@ class AnimeDetailsView extends StatelessWidget {
                   )
             ), //Card
             Expanded(
-              child: Text(c.selected.value.title ?? '<~~~~~>'),
+              child: Text(
+                c.selected.value.title ?? '<~~~~~>',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
             ), //Expanded
           ],
         )), //Row
