@@ -1,10 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/cats_controller.dart';
 import 'debug_view.dart';
-import 'anime_details_view.dart';
 import 'home_view.dart';
 
 class CatsView extends StatelessWidget {
@@ -27,11 +25,11 @@ class CatsView extends StatelessWidget {
                   itemCount: c.categories.length,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: () { Get.to(AnimeDetailsView());},
+                      onTap: () { },
                       child: Card(
                         child: ListTile(
                           leading: Icon(Icons.tips_and_updates, size: 64.0),
-                          title: Text('${c.categories[index].title}'),
+                          title: Text('${c.categories[index].title ?? "<~~~>"}'),
                           subtitle: Text('...')
                         ),
                       )
