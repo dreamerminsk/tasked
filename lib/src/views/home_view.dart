@@ -45,7 +45,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ))
                   )
-                  : Icon(Icons.image_not_supported, color: Colors.gray, size: 64.0),
+                  : Icon(Icons.image_not_supported, color: Colors.blueGrey, size: 64.0),
                 title: Text('${c.animeList[index].title}'),
                 subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0} - ${DateFormat("HH:mm:ss.SSS").format(c.animeList[index].wiki?.lastUpdate ?? DateTime(2000))}'),
             ),));
