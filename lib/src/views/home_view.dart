@@ -103,4 +103,28 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildImage(BuildContext context, Anime item) {
+    return anime.wiki?.image != null
+      ? CachedNetworkImage(
+      imageUrl: (item.wiki?.image ?? '').replaceFirst('220px', '96px'),
+      placeholder: (context, url) => CircularProgressIndicator(),
+      errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red, size: 96.0),
+      imageBuilder: (context, image) => Container(
+        width: 96.00,
+        height: 150.00,
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: image,
+            fit: BoxFit.contain,
+          ),
+        ),
+      ),
+    )
+      : Icon(
+        Icons.image_not_supported,
+        color: Colors.blueGrey,
+        size: 96.0);
+  }
+  
 }
