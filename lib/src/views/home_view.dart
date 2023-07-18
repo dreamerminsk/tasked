@@ -80,24 +80,18 @@ class HomeView extends StatelessWidget {
                       Container(height: 5),
                       Text(
                         item.title,
-                        style: MyTextSample.title(context)!.copyWith(
-                          color: MyColorsSample.grey_80,
-                        ),
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Container(height: 5),
                       Text(
                         '${item.wiki?.mviMonth ?? 0} - ${DateFormat("HH:mm:ss.SSS").format(item.wiki?.lastUpdate ?? DateTime(2000))}',
-                        style: MyTextSample.body1(context)!.copyWith(
-                          color: Colors.grey[500],
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       Container(height: 10),
                       Text(
                         "<~description~>",
                         maxLines: 2,
-                        style: MyTextSample.subhead(context)!.copyWith(
-                          color: Colors.grey[700],
-                        ),
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),
