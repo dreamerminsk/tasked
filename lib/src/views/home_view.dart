@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../controllers/home_controller.dart';
+import '../models/anime.dart';
 import 'debug_view.dart';
 import 'cats_view.dart';
 import 'anime_details_view.dart';
@@ -54,5 +55,58 @@ class HomeView extends StatelessWidget {
       : const Center(child: Text('No items'))),
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
+  }
+
+  Widget _buildCard(BuildContext context, Anime item) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _buildImage(context, item),
+                Container(width: 20),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(height: 5),
+                      Text(
+                        item.title,
+                        style: MyTextSample.title(context)!.copyWith(
+                          color: MyColorsSample.grey_80,
+                        ),
+                      ),
+                      Container(height: 5),
+                      Text(
+                        '${item.wiki?.mviMonth ?? 0} - ${DateFormat("HH:mm:ss.SSS").format(item.wiki?.lastUpdate ?? DateTime(2000))}',
+                        style: MyTextSample.body1(context)!.copyWith(
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                      Container(height: 10),
+                      Text(
+                        "<~description~>",
+                        maxLines: 2,
+                        style: MyTextSample.subhead(context)!.copyWith(
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
