@@ -35,9 +35,28 @@ class CatsController extends GetxController {
   }
 
   void after() {
+    const newCats = categories.map(
+      (item) => 
+      Category(
+        lang: item.lang, 
+        title: item.title.replaceFirst(year.toString(), (year + 1).toStting()),
+      )
+    ).toList();
+    categories.clear();
+    categories.addAll(newCats);
     year++;
   }
+  
   void before() {
+    const newCats = categories.map(
+      (item) => 
+      Category(
+        lang: item.lang, 
+        title: item.title.replaceFirst(year.toString(), (year - 1).toStting()),
+      )
+    ).toList();
+    categories.clear();
+    categories.addAll(newCats);
     year--;
   }
 
