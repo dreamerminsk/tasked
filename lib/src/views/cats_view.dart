@@ -46,12 +46,12 @@ class CatsView extends StatelessWidget {
           children: <Widget>[
             FloatingActionButton(
               heroTag: null,
-              onPressed: () {},
+              onPressed: () { c.before(); },
               child: Icon(Icons.navigate_before),
             ),
             FloatingActionButton(
               heroTag: null,
-              onPressed: () {},
+              onPressed: () { c.after(); },
               child: Icon(Icons.navigate_next),
             )
           ],
