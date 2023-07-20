@@ -34,6 +34,13 @@ class CatsController extends GetxController {
     super.onInit();
   }
 
+  void after() {
+    year++;
+  }
+  void before() {
+    year--;
+  }
+
   Future<String> fetchString(String link) async {
     try {
       var response = await Dio().get(link);
