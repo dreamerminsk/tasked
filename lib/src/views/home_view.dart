@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../controllers/home_controller.dart';
-import '../models/wiki.dart';
+import '../models/anime.dart';
 import 'debug_view.dart';
 import 'cats_view.dart';
 import 'anime_details_view.dart';
@@ -104,8 +104,8 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _buildImage(BuildContext context, Wiki item) {
-    return anime.wiki?.image != null
+  Widget _buildImage(BuildContext context, Anime item) {
+    return item.wiki?.image != null
       ? CachedNetworkImage(
       imageUrl: (item.wiki?.image ?? '').replaceFirst('220px', '96px'),
       placeholder: (context, url) => CircularProgressIndicator(),
