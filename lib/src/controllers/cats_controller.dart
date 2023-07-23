@@ -34,6 +34,32 @@ class CatsController extends GetxController {
     super.onInit();
   }
 
+  void after() {
+    var newCats = categories.map(
+      (item) => 
+      Category(
+        lang: item.lang, 
+        title: item.title?.replaceFirst(year.value.toString(), (year.value + 1).toString()),
+      )
+    ).toList();
+    categories.clear();
+    categories.addAll(newCats);
+    year++;
+  }
+  
+  void before() {
+    var newCats = categories.map(
+      (item) => 
+      Category(
+        lang: item.lang, 
+        title: item.title?.replaceFirst(year.value.toString(), (year.value - 1).toString()),
+      )
+    ).toList();
+    categories.clear();
+    categories.addAll(newCats);
+    year--;
+  }
+
   Future<String> fetchString(String link) async {
     try {
       var response = await Dio().get(link);
