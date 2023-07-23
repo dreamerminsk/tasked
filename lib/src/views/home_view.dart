@@ -29,27 +29,7 @@ class HomeView extends StatelessWidget {
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
             return InkWell(onTap: () { c.select(index); Get.to(AnimeDetailsView());},
-             child: Card(
-              child: ListTile(
-                leading: c.animeList[index].wiki?.image != null
-                  ? CachedNetworkImage(
-                    imageUrl: (c.animeList[index].wiki?.image ?? '').replaceFirst('220px', '96px'),
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red, size: 96.0),
-                    imageBuilder: (context, image) => Container(
-                      width: 96.00,
-                      height: 150.00,
-                      decoration: new BoxDecoration(
-                        image: new DecorationImage(
-                          image: image,
-                          fit: BoxFit.contain,
-                        ),
-                      ))
-                  )
-                  : Icon(Icons.image_not_supported, color: Colors.blueGrey, size: 64.0),
-                title: Text('${c.animeList[index].title}'),
-                subtitle: Text('${c.animeList[index].wiki?.mviMonth ?? 0} - ${DateFormat("HH:mm:ss.SSS").format(c.animeList[index].wiki?.lastUpdate ?? DateTime(2000))}'),
-            ),));
+             child: _buildCard(context, c.animeList[index]));
           },
         )
       : const Center(child: Text('No items'))),
