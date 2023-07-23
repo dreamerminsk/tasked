@@ -19,7 +19,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     fetchAnime();
-    refresh();
     super.onInit();
   }
 
