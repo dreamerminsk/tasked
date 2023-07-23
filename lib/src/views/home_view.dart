@@ -79,7 +79,7 @@ class HomeView extends StatelessWidget {
                     children: <Widget>[
                       Container(height: 5),
                       Text(
-                        item.title,
+                        item.title ?? '...',
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Container(height: 5),
