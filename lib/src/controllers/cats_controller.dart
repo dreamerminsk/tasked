@@ -19,7 +19,6 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: '2023 anime television series debuts'),
     Category(lang: 'en', title: '2023 books'),
     Category(lang: 'en', title: '2023 novels'),
-    Category(lang: 'en', title: '2023 British novels'),
     Category(lang: 'en', title: 'Musical groups established in 2023'),
     Category(lang: 'en', title: 'Musical groups disestablished in 2023'),
     Category(lang: 'en', title: '2023 albums'),
