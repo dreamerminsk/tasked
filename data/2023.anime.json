@@ -1,5 +1,12 @@
 [
    {
+      "title": "Emily Rudd",
+      "wiki": {
+           "title": "Emily Rudd",
+           "mviMonth": 958335
+        }
+   },
+   {
       "title": "Doja Cat",
       "wiki": {
            "title": "Doja Cat",
@@ -77,37 +84,9 @@
         }
    },
    {
-      "title": "2023–24 NBA season",
-      "wiki": {
-           "title": "2023–24 NBA season",
-           "mviMonth": 40000
-        }
-   },
-   {
-      "title": "2023–24 NHL season",
-      "wiki": {
-           "title": "2023–24 NHL season",
-           "mviMonth": 40000
-        }
-   },
-   {
-      "title": "2023–24 KHL season",
-      "wiki": {
-           "title": "2023–24 KHL season",
-           "mviMonth": 40000
-        }
-   },
-   {
       "title": "One Piece",
       "wiki": {
            "title": "One Piece (2023 TV series)",
-           "mviMonth": 30000
-        }
-   },
-   {
-      "title": "The Winter King",
-      "wiki": {
-           "title": "The Winter King (TV series)",
            "mviMonth": 30000
         }
    },
@@ -140,20 +119,6 @@
         }
    },
    {
-      "title": "2023 UCI World Tour",
-      "wiki": {
-           "title": "2023 UCI World Tour",
-           "mviMonth": 30000
-        }
-   },
-   {
-      "title": "2023 Vuelta a España",
-      "wiki": {
-           "title": "2023 Vuelta a España",
-           "mviMonth": 30000
-        }
-   },
-   {
       "title": "2023 Shanghai Masters",
       "wiki": {
            "title": "2023 Shanghai Masters",
@@ -165,27 +130,6 @@
       "wiki": {
            "title": "2023 European Masters",
            "mviMonth": 30000
-        }
-   },
-   {
-      "title": "2023 US Open – Women's singles",
-      "wiki": {
-           "title": "2023 US Open – Women's singles",
-           "mviMonth": 3000
-        }
-   },
-   {
-      "title": "2023 US Open – Men's singles",
-      "wiki": {
-           "title": "2023 US Open – Men's singles",
-           "mviMonth": 3000
-        }
-   },
-   {
-      "title": "2023 US Open",
-      "wiki": {
-           "title": "2023 US Open (tennis)",
-           "mviMonth": 3000
         }
    },
    {
