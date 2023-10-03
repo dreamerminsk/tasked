@@ -14,7 +14,6 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: '2023 television series debuts'),
     Category(lang: 'en', title: '2023 American television series debuts'),
     Category(lang: 'en', title: '2023 television series endings'),
-    Category(lang: 'en', title: '2023 in snooker'),
     Category(lang: 'en', title: '2023 anime'),
     Category(lang: 'en', title: '2023 anime television series debuts'),
     Category(lang: 'en', title: '2023 books'),
@@ -26,7 +25,8 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: '2023 songs'),
     Category(lang: 'en', title: '2023 video games'),
     Category(lang: 'en', title: '2023–24 NBA season'),
-    Category(lang: 'en', title: '2023–24 NHL season')
+    Category(lang: 'en', title: '2023–24 NHL season'),
+    Category(lang: 'en', title: '2023 in snooker')
   ].obs;
   var year = 2023.obs;
 
