@@ -63,10 +63,11 @@ class CatsController extends GetxController {
 
   Future<String> fetchString(String link) async {
     try {
+      requests += 1;
       var response = await Dio().get(link);
       return response.data.toString();
     } catch (e) {
-      print(e);
+      Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
     }
     return '';
   }
