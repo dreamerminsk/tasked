@@ -1,5 +1,12 @@
 [
    {
+      "title": "Assassin's Creed Mirage",
+      "wiki": {
+           "title": "Assassin's Creed Mirage",
+           "mviMonth": 607499
+        }
+   },
+   {
       "title": "Taylor Swift: The Eras Tour",
       "wiki": {
            "title": "Taylor Swift: The Eras Tour",
@@ -189,37 +196,9 @@
         }
    },
    {
-      "title": "Avatar: The Way of Water",
-      "wiki": {
-           "title": "Avatar: The Way of Water",
-           "mviMonth": 1000
-        }
-   },
-   {
       "title": "Knock at the Cabin",
       "wiki": {
            "title": "Knock at the Cabin",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Magic Mike's Last Dance",
-      "wiki": {
-           "title": "Magic Mike's Last Dance",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Ant-Man and the Wasp: Quantumania",
-      "wiki": {
-           "title": "Ant-Man and the Wasp: Quantumania",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Creed III",
-      "wiki": {
-           "title": "Creed III",
            "mviMonth": 1000
         }
    },
@@ -287,27 +266,6 @@
         }
    },
    {
-      "title": "Transformers: Rise of the Beasts",
-      "wiki": {
-           "title": "Transformers: Rise of the Beasts",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "The Flash",
-      "wiki": {
-           "title": "The Flash (film)",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Indiana Jones and the Dial of Destiny",
-      "wiki": {
-           "title": "Indiana Jones and the Dial of Destiny",
-           "mviMonth": 1000
-        }
-   },
-   {
       "title": "Insidious: The Red Door",
       "wiki": {
            "title": "Insidious: The Red Door",
@@ -357,58 +315,9 @@
         }
    },
    {
-      "title": "The Crowded Room",
-      "wiki": {
-           "title": "The Crowded Room",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Foundation",
-      "wiki": {
-           "title": "Foundation (TV series)",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "The Witcher",
-      "wiki": {
-           "title": "The Witcher (TV series)",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "The Idol",
-      "wiki": {
-           "title": "The Idol (TV series)",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Silo",
-      "wiki": {
-           "title": "Silo (TV series)",
-           "mviMonth": 1000
-        }
-   },
-   {
       "title": "The Summer I Turned Pretty",
       "wiki": {
            "title": "The Summer I Turned Pretty (TV series)",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Black Mirror",
-      "wiki": {
-           "title": "Black Mirror",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "List of Black Mirror episodes",
-      "wiki": {
-           "title": "List of Black Mirror episodes",
            "mviMonth": 1000
         }
    },
@@ -417,20 +326,6 @@
       "wiki": {
            "title": "Twisted Metal (TV series)",
            "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Futurama (season 8)",
-      "wiki": {
-           "title": "Futurama (season 8)",
-           "mviMonth": 5000
-        }
-   },
-   {
-      "title": "Futurama",
-      "wiki": {
-           "title": "Futurama",
-           "mviMonth": 5000
         }
    },
    {
@@ -446,34 +341,6 @@
            "title": "Miracle Workers (2019 TV series)",
            "mviMonth": 5000
         }
-   },
-   {
-      "title": "Bill Clinton",
-      "wiki": {
-           "title": "Bill Clinton",
-           "mviMonth": 50
-        }
-   },
-   {
-      "title": "George W. Bush",
-      "wiki": {
-           "title": "George W. Bush",
-           "mviMonth": 50
-        }
-   },
-   {
-      "title": "Donald Trump",
-      "wiki": {
-         "title": "Donald Trump",
-         "mviMonth": 50
-      }
-   },
-   {
-      "title": "Barack Obama",
-      "wiki": {
-         "title": "Barack Obama",
-         "mviMonth": 50
-      }
    },
    {
         "title": "Caroline Garcia",
