@@ -61,6 +61,16 @@ class CatsController extends GetxController {
     year--;
   }
 
+  void fetchCategoryInfo() async {
+    try {
+      final text = await fetchString(animeRef);
+      final jsonList = jsonDecode(text);
+      
+    } catch(e) {
+      Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+    }
+  }
+
   Future<String> fetchString(String link) async {
     try {
       requests += 1;
