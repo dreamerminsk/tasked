@@ -1,8 +1,11 @@
 class Category {
   String? lang;
   String? title;
+  int pages;
+  int files;
+  int subcats;
 
-  Category({this.lang, this.title});
+  Category({this.lang, this.title, this.pages = 0, this.files = 0, this.subcats = 0});
 
   Category.fromJson(Map<String, dynamic> json) {
     lang = json['lang'] ?? 'en';
