@@ -17,7 +17,10 @@ class Category {
   Category.fromJson(Map<String, dynamic> json) {
     pageid = json['pageid'] ?? 0;
     lang = json['lang'] ?? 'en';
-    title = json['title'];
+    title = json['title'] ?? '';
+    pages = json['categoryinfo']?['pages'] ?? 0;
+    files = json['categoryinfo']?['files'] ?? 0;
+    subcats = json['categoryinfo']?['subcats'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {
