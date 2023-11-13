@@ -12,7 +12,6 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: '21st-century actresses'),
     Category(lang: 'en', title: '21st-century actors'),
     Category(lang: 'en', title: '2023 television series debuts'),
-    Category(lang: 'en', title: '2023 American television series debuts'),
     Category(lang: 'en', title: '2023 television series endings'),
     Category(lang: 'en', title: '2023 anime'),
     Category(lang: 'en', title: '2023 anime television series debuts'),
@@ -65,7 +64,8 @@ class CatsController extends GetxController {
     try {
       final text = await fetchString(animeRef);
       final jsonList = jsonDecode(text);
-      
+      final query = jsonList['query'];
+      final pages = query['pages'];
     } catch(e) {
       Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
     }
