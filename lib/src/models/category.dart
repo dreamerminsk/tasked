@@ -6,10 +6,16 @@ class Category {
   int files;
   int subcats;
 
-  Category({this.pageid = 0, this.lang = 'en', this.title = '', this.pages = 0, this.files = 0, this.subcats = 0});
+  Category({
+    this.pageid = 0,
+    this.lang = 'en',
+    this.title = '',
+    this.pages = 0,
+    this.files = 0,
+    this.subcats = 0});
 
   Category.fromJson(Map<String, dynamic> json) {
-    pageid = json['pageid'] ?? -1;
+    pageid = json['pageid'] ?? 0;
     lang = json['lang'] ?? 'en';
     title = json['title'];
   }
