@@ -8,24 +8,25 @@ import '../models/category.dart';
 class CatsController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
   final categories = <Category>[
-    Category(lang: 'en', title: '2023 films'),
-    Category(lang: 'en', title: '21st-century actresses'),
-    Category(lang: 'en', title: '21st-century actors'),
-    Category(lang: 'en', title: '2023 television series debuts'),
-    Category(lang: 'en', title: '2023 television series endings'),
-    Category(lang: 'en', title: '2023 anime'),
-    Category(lang: 'en', title: '2023 anime television series debuts'),
-    Category(lang: 'en', title: '2023 books'),
-    Category(lang: 'en', title: '2023 novels'),
-    Category(lang: 'en', title: 'Musical groups established in 2023'),
-    Category(lang: 'en', title: 'Musical groups disestablished in 2023'),
-    Category(lang: 'en', title: '2023 albums'),
-    Category(lang: 'en', title: '2023 singles'),
-    Category(lang: 'en', title: '2023 songs'),
-    Category(lang: 'en', title: '2023 video games'),
-    Category(lang: 'en', title: '2023–24 NBA season'),
-    Category(lang: 'en', title: '2023–24 NHL season'),
-    Category(lang: 'en', title: '2023 in snooker')
+    Category(lang: 'en', title: 'Category:2023 films'),
+    Category(lang: 'en', title: 'Category:21st-century actresses'),
+    Category(lang: 'en', title: 'Category:21st-century actors'),
+    Category(lang: 'en', title: 'Category:2023 television series debuts'),
+    Category(lang: 'en', title: 'Category:2023 television series endings'),
+    Category(lang: 'en', title: 'Category:2023 anime'),
+    Category(lang: 'en', title: 'Category:2023 anime television series debuts'),
+    Category(lang: 'en', title: 'Category:2023 books'),
+    Category(lang: 'en', title: 'Category:2023 novels'),
+    Category(lang: 'en', title: 'Category:Musical groups established in 2023'),
+    Category(lang: 'en', title: 'Category:Musical groups disestablished in 2023'),
+    Category(lang: 'en', title: 'Category:2023 albums'),
+    Category(lang: 'en', title: 'Category:2023 singles'),
+    Category(lang: 'en', title: 'Category:2023 songs'),
+    Category(lang: 'en', title: 'Category:2023 video games'),
+    Category(lang: 'en', title: 'Category:2023–24 NBA season'),
+    Category(lang: 'en', title: 'Category:2023–24 NHL season'),
+    Category(lang: 'en', title: 'Category:2023 in snooker'),
+    Category(lang: 'en', title: 'Category:Alpine skiers'),
   ].obs;
   var year = 2023.obs;
 
