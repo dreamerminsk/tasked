@@ -47,27 +47,27 @@ class HomeView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(4),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 _buildImage(context, item),
-                SizedBox(width: 16),
+                SizedBox(width: 8),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: 5),
+                      SizedBox(height: 4),
                       Text(
                         item.title ?? '...',
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 4),
                       Text(
                         '${item.wiki?.mviMonth ?? 0} - ${DateFormat("HH:mm:ss.SSS").format(item.wiki?.lastUpdate ?? DateTime(2000))}',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 8),
                       Text(
                         "<~description~>",
                         maxLines: 2,
