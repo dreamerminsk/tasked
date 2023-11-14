@@ -29,6 +29,11 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: 'Category:2023 in biathlon'),
     Category(lang: 'en', title: 'Category:2023 in alpine skiing'),
     Category(lang: 'en', title: 'Category:2023 in figure skating'),
+
+    Category(lang: 'en', title: 'Category:2023 in ice hockey'),
+    Category(lang: 'en', title: 'Category:2023 in tennis'),
+    Category(lang: 'en', title: 'Category:2023 in Europe'),
+    
     Category(lang: 'en', title: 'Category:Alpine skiers'),
     Category(lang: 'en', title: 'Category:Tennis players'),
     Category(lang: 'en', title: 'Category:Snooker players'),
