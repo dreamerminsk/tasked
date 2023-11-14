@@ -73,6 +73,21 @@ class CatsController extends GetxController {
     year--;
   }
 
+  void refresh() {
+    Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
+  }
+
+  void refreshWikiStats(Timer timer) async {
+    final zeroes = categories.where((a) => a.pageid == 0).toList();
+    if (zeroes.length > 0) {
+      final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wiki?.title}&action=info';
+      final text = await fetchString(piLink);
+      categories.refresh();
+    } else {
+      timer.cancel();
+    }
+  }
+
   void fetchCategoryInfo() async {
     try {
       final text = await fetchString(animeRef);
@@ -86,7 +101,6 @@ class CatsController extends GetxController {
 
   Future<String> fetchString(String link) async {
     try {
-      requests += 1;
       var response = await Dio().get(link);
       return response.data.toString();
     } catch (e) {
