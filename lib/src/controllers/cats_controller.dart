@@ -36,6 +36,7 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: 'Category:Alpine skiers'),
     Category(lang: 'en', title: 'Category:Tennis players'),
     Category(lang: 'en', title: 'Category:Snooker players'),
+    Category(lang: 'en', title: 'Category:Figure skaters'),
   ].obs;
   var year = 2023.obs;
 
