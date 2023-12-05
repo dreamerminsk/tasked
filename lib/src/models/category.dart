@@ -9,7 +9,7 @@ class Category {
   Category({
     this.pageid = 0,
     this.lang = 'en',
-    this.title = '',
+    this.title = 'Main Page',
     this.pages = 0,
     this.files = 0,
     this.subcats = 0});
