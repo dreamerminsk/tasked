@@ -85,16 +85,16 @@ class CatsController extends GetxController {
   void refreshWikiStats(Timer timer) async {
     final zeroes = categories.where((a) => a.pageid == 0).toList();
     if (zeroes.length > 0) {
-      final ciLink = 'https://${zeroes[0].lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${zeroes[0].title}';
-      final ci = await fetchCategoryInfo(ciLink);
+      final ci = await fetchCategoryInfo(zeroes[0].lang, zeroes[0].title);
       categories.refresh();
     } else {
       timer.cancel();
     }
   }
 
-  void fetchCategoryInfo(String link) async {
+  void fetchCategoryInfo(String lang, String title) async {
     try {
+      final link = 'https://${lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${title}';
       final text = await fetchString(link);
       final jsonList = jsonDecode(text);
       final query = jsonList['query'];
