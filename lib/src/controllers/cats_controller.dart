@@ -99,6 +99,8 @@ class CatsController extends GetxController {
       final jsonList = jsonDecode(text);
       final query = jsonList['query'];
       final pages = query['pages'];
+      final cats = pages.entries.map((item) => Category.fromJson(item.value)).toList();
+      return cats[0];
     } catch(e) {
       Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
     }
