@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import '../models/category.dart';
 
 class CatsController extends GetxController {
-  static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
-  static final wiki = 'https://en.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=';
   final categories = <Category>[
     Category(lang: 'en', title: 'Category:2023 films'),
     Category(lang: 'en', title: 'Category:21st-century actresses'),
