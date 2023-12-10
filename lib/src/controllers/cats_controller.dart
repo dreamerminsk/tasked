@@ -8,7 +8,6 @@ import '../models/category.dart';
 class CatsController extends GetxController {
   final categories = <Category>[
     Category(lang: 'en', title: 'Category:2023 films'),
-    Category(lang: 'en', title: 'Category:21st-century actresses'),
     Category(lang: 'en', title: 'Category:21st-century actors'),
     Category(lang: 'en', title: 'Category:2023 in television'),
     Category(lang: 'en', title: 'Category:2023 anime'),
