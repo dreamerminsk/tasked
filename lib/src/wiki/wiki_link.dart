@@ -16,4 +16,16 @@ class WikiLink {
       title: title ?? this.title,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is WikiLink &&
+      other.lang == lang &&
+      other.title == title;
+  }
+
+  @override
+  int get hashCode => lang.hashCode ^ title.hashCode;
 }
