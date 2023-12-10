@@ -22,7 +22,7 @@ class CatsController extends GetxController {
     Category(lang: 'en', title: 'Category:2023 in figure skating'),
     Category(lang: 'en', title: 'Category:2023 in ice hockey'),
     Category(lang: 'en', title: 'Category:2023 in tennis'),
-    Category(lang: 'en', title: 'Category:2023 in Europe'),
+    Category(lang: 'en', title: 'Category:2023 crimes'),
     Category(lang: 'en', title: 'Category:2023 in North America'),
     Category(lang: 'en', title: 'Category:Alpine skiers'),
     Category(lang: 'en', title: 'Category:Tennis players'),
