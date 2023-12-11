@@ -1,39 +1,44 @@
 import 'dart:core';
+import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-import '../models/category.dart';
+import '../wiki/category_info.dart';
+import '../wiki/wiki_link.dart';
+
+final links = <WikiLink>[
+    WikiLink(lang: 'en', title: 'Category:2023 films'),
+    WikiLink(lang: 'en', title: 'Category:21st-century actors'),
+    WikiLink(lang: 'en', title: 'Category:2023 in television'),
+    WikiLink(lang: 'en', title: 'Category:2023 anime'),
+    WikiLink(lang: 'en', title: 'Category:2023 books'),
+    WikiLink(lang: 'en', title: 'Category:2023 in music'),
+    WikiLink(lang: 'en', title: 'Category:2023 video games'),
+    WikiLink(lang: 'en', title: 'Category:2023 in basketball'),
+    WikiLink(lang: 'en', title: 'Category:2023 in ice hockey'),
+    WikiLink(lang: 'en', title: 'Category:2023 in snooker'),
+    WikiLink(lang: 'en', title: 'Category:2023 in biathlon'),
+    WikiLink(lang: 'en', title: 'Category:2023 in alpine skiing'),
+    WikiLink(lang: 'en', title: 'Category:2023 in figure skating'),
+    WikiLink(lang: 'en', title: 'Category:2023 in ice hockey'),
+    WikiLink(lang: 'en', title: 'Category:2023 in tennis'),
+    WikiLink(lang: 'en', title: 'Category:2023 crimes'),
+    WikiLink(lang: 'en', title: 'Category:21st-century rulers'),
+    WikiLink(lang: 'en', title: 'Category:Alpine skiers'),
+    WikiLink(lang: 'en', title: 'Category:Tennis players'),
+    WikiLink(lang: 'en', title: 'Category:Snooker players'),
+    WikiLink(lang: 'en', title: 'Category:Figure skaters'),
+    WikiLink(lang: 'en', title: 'Category:Ice hockey players'),
+    WikiLink(lang: 'en', title: 'Category:Cars introduced in 2023'),
+    WikiLink(lang: 'en', title: 'Category:Mobile phones introduced in 2023'),
+    WikiLink(lang: 'en', title: 'Category:2023 software'),
+    WikiLink(lang: 'en', title: 'Category:Buildings and structures completed in 2023'),
+    WikiLink(lang: 'en', title: 'Category:Buildings and structures demolished in 2023'),
+  ];
 
 class CatsController extends GetxController {
-  final categories = <Category>[
-    Category(lang: 'en', title: 'Category:2023 films'),
-    Category(lang: 'en', title: 'Category:21st-century actors'),
-    Category(lang: 'en', title: 'Category:2023 in television'),
-    Category(lang: 'en', title: 'Category:2023 anime'),
-    Category(lang: 'en', title: 'Category:2023 books'),
-    Category(lang: 'en', title: 'Category:2023 in music'),
-    Category(lang: 'en', title: 'Category:2023 video games'),
-    Category(lang: 'en', title: 'Category:2023 in basketball'),
-    Category(lang: 'en', title: 'Category:2023 in ice hockey'),
-    Category(lang: 'en', title: 'Category:2023 in snooker'),
-    Category(lang: 'en', title: 'Category:2023 in biathlon'),
-    Category(lang: 'en', title: 'Category:2023 in alpine skiing'),
-    Category(lang: 'en', title: 'Category:2023 in figure skating'),
-    Category(lang: 'en', title: 'Category:2023 in ice hockey'),
-    Category(lang: 'en', title: 'Category:2023 in tennis'),
-    Category(lang: 'en', title: 'Category:2023 crimes'),
-    Category(lang: 'en', title: 'Category:21st-century rulers'),
-    Category(lang: 'en', title: 'Category:Alpine skiers'),
-    Category(lang: 'en', title: 'Category:Tennis players'),
-    Category(lang: 'en', title: 'Category:Snooker players'),
-    Category(lang: 'en', title: 'Category:Figure skaters'),
-    Category(lang: 'en', title: 'Category:Ice hockey players'),
-    Category(lang: 'en', title: 'Category:Cars introduced in 2023'),
-    Category(lang: 'en', title: 'Category:Mobile phones introduced in 2023'),
-    Category(lang: 'en', title: 'Category:2023 software'),
-    Category(lang: 'en', title: 'Category:Buildings and structures completed in 2023'),
-    Category(lang: 'en', title: 'Category:Buildings and structures demolished in 2023'),
+  final categories = <CategoryInfo>[
   ].obs;
   var year = 2023.obs;
 
@@ -45,7 +50,7 @@ class CatsController extends GetxController {
   void after() {
     var newCats = categories.map(
       (item) => 
-      Category(
+      CategoryInfo(
         lang: item.lang, 
         title: item.title?.replaceFirst(year.value.toString(), (year.value + 1).toString()),
       )
@@ -58,7 +63,7 @@ class CatsController extends GetxController {
   void before() {
     var newCats = categories.map(
       (item) => 
-      Category(
+      CategoryInfo(
         lang: item.lang, 
         title: item.title?.replaceFirst(year.value.toString(), (year.value - 1).toString()),
       )
@@ -89,7 +94,7 @@ class CatsController extends GetxController {
       final jsonList = jsonDecode(text);
       final query = jsonList['query'];
       final pages = query['pages'];
-      final cats = pages.entries.map((item) => Category.fromJson(item.value)).toList();
+      final cats = pages.entries.map((item) => CategoryInfo.fromJson(item.value)).toList();
       return cats[0];
     } catch(e) {
       Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
