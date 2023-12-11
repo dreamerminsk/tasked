@@ -74,7 +74,7 @@ class CatsController extends GetxController {
   }
 
   void refresh() {
-    Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
+    Timer.periodic(const Duration(seconds: 8), refreshWikiStats);
   }
 
   void refreshWikiStats(Timer timer) async {
@@ -88,7 +88,7 @@ class CatsController extends GetxController {
     }
   }
 
-  CategoryInfo fetchCategoryInfo(String lang, String title) async {
+  Future<CategoryInfo> fetchCategoryInfo(String lang, String title) async {
     try {
       final link = 'https://${lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${title}';
       final text = await fetchString(link);
