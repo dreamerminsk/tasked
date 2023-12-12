@@ -88,6 +88,13 @@ class CatsController extends GetxController {
     }
   }
 
+  void refreshWikiLinks() async {
+    final stream = Stream<int>.periodic(
+      const Duration(seconds: 8),
+      (count) => links[count]).take(5);
+  }
+
+
   Future<CategoryInfo> fetchCategoryInfo(String lang, String title) async {
     try {
       final link = 'https://${lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${title}';
