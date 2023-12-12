@@ -79,14 +79,15 @@ class CatsController extends GetxController {
       const Duration(seconds: 8),
       (count) => links[count]).take(links.length);
     final infoStream =
-    linkStream.asyncMap<Result<CategoryInfo>>((link) =>          fetchCategoryInfo(link));
+    linkStream.asyncMap<Result<CategoryInfo>>(
+      (link) => fetchCategoryInfo(link));
     infoStream.forEach((info) => categories.add(info));
   }
 
-  Future<Result<CategoryInfo>> fetchCategoryInfo(String lang, String title) async {
+  Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
-      final link = 'https://${lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${title}';
-      final text = await fetchString(link);
+      final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}';
+      final text = await fetchString(url);
       final jsonList = jsonDecode(text);
       final query = jsonList['query'];
       final pages = query['pages'];
