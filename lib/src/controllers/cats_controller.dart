@@ -93,6 +93,9 @@ class CatsController extends GetxController {
     final stream = Stream<int>.periodic(
       const Duration(seconds: 8),
       (count) => links[count]).take(links.length);
+    final calculationStream =
+    stream.map<CategoryInfo>((event) => fetchCategoryInfo(event));
+calculationStream.forEach(print);
   }
 
 
