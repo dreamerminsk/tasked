@@ -39,7 +39,7 @@ final links = <WikiLink>[
   ];
 
 class CatsController extends GetxController {
-  final categories = <CategoryInfo>[
+  final categories = <Result<CategoryInfo>>[
   ].obs;
   var year = 2023.obs;
 
@@ -74,30 +74,14 @@ class CatsController extends GetxController {
     year--;
   }
 
-  void refresh() {
-    Timer.periodic(const Duration(seconds: 8), refreshWikiStats);
-  }
-
-  void refreshWikiStats(Timer timer) async {
-    final zeroes = links.where((a) => a.pageid == 0).toList();
-    if (zeroes.length > 0) {
-      final ci = await fetchCategoryInfo(zeroes[0].lang, zeroes[0].title);
-      categories.add(ci);
-      categories.refresh();
-    } else {
-      timer.cancel();
-    }
-  }
-
   void refreshWikiLinks() async {
-    final linkStream = Stream<int>.periodic(
+    final linkStream = Stream<WikiLink>.periodic(
       const Duration(seconds: 8),
       (count) => links[count]).take(links.length);
     final infoStream =
-    linkStream.asyncMap<Result<CategoryInfo>>((link) =>        fetchCategoryInfo(event));
-    infoStream.forEach(print);
+    linkStream.asyncMap<Result<CategoryInfo>>((link) =>          fetchCategoryInfo(link));
+    infoStream.forEach((info) => categories.add(info));
   }
-
 
   Future<Result<CategoryInfo>> fetchCategoryInfo(String lang, String title) async {
     try {
