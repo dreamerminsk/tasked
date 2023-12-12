@@ -90,12 +90,12 @@ class CatsController extends GetxController {
   }
 
   void refreshWikiLinks() async {
-    final stream = Stream<int>.periodic(
+    final linkStream = Stream<int>.periodic(
       const Duration(seconds: 8),
       (count) => links[count]).take(links.length);
-    final calculationStream =
-    stream.map<CategoryInfo>((event) => fetchCategoryInfo(event));
-calculationStream.forEach(print);
+    final infoStream =
+    linkStream.asyncMap<Result<CategoryInfo>>((link) =>        fetchCategoryInfo(event));
+    infoStream.forEach(print);
   }
 
 
