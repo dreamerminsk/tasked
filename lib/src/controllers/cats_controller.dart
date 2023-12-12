@@ -99,7 +99,7 @@ calculationStream.forEach(print);
   }
 
 
-  Future<CategoryInfo> fetchCategoryInfo(String lang, String title) async {
+  Future<Result<CategoryInfo>> fetchCategoryInfo(String lang, String title) async {
     try {
       final link = 'https://${lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${title}';
       final text = await fetchString(link);
@@ -107,20 +107,21 @@ calculationStream.forEach(print);
       final query = jsonList['query'];
       final pages = query['pages'];
       final cats = pages.entries.map((item) => CategoryInfo.fromJson(item.value)).toList();
-      return cats[0];
-    } catch(e) {
+      return Result value(cats[0]);
+    } catch(e, s) {
       Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+      return Result.error(e, s);
     }
   }
 
-  Future<String> fetchString(String link) async {
+  Future<Result<String>> fetchString(String link) async {
     try {
       var response = await Dio().get(link);
-      return response.data.toString();
-    } catch (e) {
+      return Result.value(response.data.toString());
+    } catch (e, s) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
+      return Result.error(e, s);
     }
-    return '';
   }
 
 }
