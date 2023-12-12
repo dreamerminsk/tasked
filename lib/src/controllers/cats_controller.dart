@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:async';
 
+import 'package:async/async.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
