@@ -91,7 +91,7 @@ class CatsController extends GetxController {
   void refreshWikiLinks() async {
     final stream = Stream<int>.periodic(
       const Duration(seconds: 8),
-      (count) => links[count]).take(5);
+      (count) => links[count]).take(links.length);
   }
 
 
