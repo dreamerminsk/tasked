@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/cats_controller.dart';
+import '../wiki/category_info.dart';
 import 'debug_view.dart';
 import 'home_view.dart';
 
