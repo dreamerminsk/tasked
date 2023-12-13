@@ -23,22 +23,26 @@ class CatsView extends StatelessWidget {
                 ? ListView.builder(
                   itemCount: c.categories.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return InkWell(
-                      onTap: () { },
-                      child: Card(
-                        child: ListTile(
-                          leading: Icon(Icons.tips_and_updates, size: 64.0),
-                          title: Text('${c.categories[index].title ?? "<~~~>"}'),
-                          subtitle: Text('...')
-                        ),
-                      )
-                    );
+                    return _catCard(c.categories[index]);
                   },
                 )
                 : const Center(child: Text('No items'))
                ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: _buttons(c),
+    );
+  }
+
+  Widget _catCard(Result<CategoryInfo> cat) {
+    return InkWell(
+      onTap: () { },
+      child: Card(
+        child: ListTile(
+          leading: Icon(Icons.tips_and_updates, size: 64.0),
+          title: Text('${cat.title ?? "<~~~>"}'),
+          subtitle: Text('...')
+        ),
+      ),
     );
   }
 
