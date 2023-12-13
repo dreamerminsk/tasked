@@ -23,7 +23,7 @@ class CatsView extends StatelessWidget {
                 ? ListView.builder(
                   itemCount: c.categories.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return _catCard(c.categories[index]);
+                    return _catOrErrorCard(c.categories[index]);
                   },
                 )
                 : const Center(child: Text('No items'))
@@ -36,11 +36,11 @@ class CatsView extends StatelessWidget {
   Widget _catOrErrorCard(Result<CategoryInfo> result) {
     swith (result) {
       case ErrorResult e:
-        return _errorCard(e),
+        return _errorCard(e);
       case ValueResult v:
-        return _catCard(v),
+        return _catCard(v);
       default:
-        return Text('very strange')
+        return Text('very strange');
     }
   }
 
