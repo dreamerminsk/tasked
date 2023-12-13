@@ -38,7 +38,12 @@ class CatsView extends StatelessWidget {
                 : const Center(child: Text('No items'))
                ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
+      floatingActionButton: _buttons(c),
+    );
+  }
+
+  Widget _buttons(CatsController c) {
+    return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,7 +60,6 @@ class CatsView extends StatelessWidget {
             )
           ],
         ),
-      )
-    );
-  }
+      );
+  }//_buttons
 }
