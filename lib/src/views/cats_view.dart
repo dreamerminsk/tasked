@@ -12,7 +12,7 @@ class CatsView extends StatelessWidget {
     final CatsController c = Get.put(CatsController());
 
     return Scaffold(
-      appBar: AppBar(title: Text("WikiStatsApp"),
+      appBar: AppBar(title: Text("WikiCats"),
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.home), onPressed: () { Get.to(HomeView()); },),
                 IconButton(icon: Icon(Icons.account_balance), onPressed: () { Get.to(DebugView()); },),
