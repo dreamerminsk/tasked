@@ -33,6 +33,17 @@ class CatsView extends StatelessWidget {
     );
   }
 
+  Widget _catOrErrorCard(Result<CategoryInfo> result) {
+    swith (result) {
+      case ErrorResult e:
+        return _errorCard(e),
+      case ValueResult v:
+        return _catCard(v),
+      default:
+        return Text('very strange')
+    }
+  }
+
   Widget _catCard(Result<CategoryInfo> cat) {
     return InkWell(
       onTap: () { },
