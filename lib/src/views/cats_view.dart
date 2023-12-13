@@ -1,3 +1,4 @@
+import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,6 +43,19 @@ class CatsView extends StatelessWidget {
       default:
         return Text('very strange');
     }
+  }
+
+  Widget _errorCard(Object e) {
+    return InkWell(
+      onTap: () { },
+      child: Card(
+        child: ListTile(
+          leading: Icon(Icons.error, size: 64.0),
+          title: Text('${e}'),
+          subtitle: Text('...')
+        ),
+      ),
+    );
   }
 
   Widget _catCard(CategoryInfo cat) {
