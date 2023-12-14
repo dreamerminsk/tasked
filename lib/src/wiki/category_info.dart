@@ -33,7 +33,7 @@ class CategoryInfo {
     );
   }
 
-  CategoryInfo.fromJson(Map<String, dynamic> json) {
+  factory CategoryInfo.fromJson(Map<String, dynamic> json) {
     pageid = json['pageid'] ?? 0;
     lang = json['lang'] ?? 'en';
     title = json['title'] ?? '';
