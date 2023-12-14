@@ -1,6 +1,5 @@
 import 'dart:core';
 
-import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
 import '../wiki/category_info.dart';
