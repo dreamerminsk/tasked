@@ -52,7 +52,7 @@ class CatsView extends StatelessWidget {
       child: Card(
         child: ListTile(
           leading: Icon(Icons.error, color: Colors.red, size: 64.0),
-          title: Text('${e}'),
+          title: Text('$e'),
           subtitle: Text('...')
         ),
       ),
@@ -65,7 +65,7 @@ class CatsView extends StatelessWidget {
       child: Card(
         child: ListTile(
           leading: Icon(Icons.tips_and_updates, size: 64.0),
-          title: Text('${cat.title ?? "<~~~>"}'),
+          title: Text('${cat.title}'),
           subtitle: Text('${cat.pages} pages, ${cat.subcats} categories')
         ),
       ),
