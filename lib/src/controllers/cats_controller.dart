@@ -76,7 +76,7 @@ class CatsController extends GetxController {
         final query = jsonList['query'];
         final pages = query['pages'];
         final cats = pages.entries.map((item) => CategoryInfo.fromJson(item.value)).toList();
-        return Result value(cats[0]);
+        return Result.value(cats[0]);
         }
       default:
           return Result.error('very strange');
