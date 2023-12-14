@@ -51,7 +51,7 @@ class CatsView extends StatelessWidget {
       onTap: () { },
       child: Card(
         child: ListTile(
-          leading: Icon(Icons.error, size: 64.0),
+          leading: Icon(Icons.error, color: Colors.red, size: 64.0),
           title: Text('${e}'),
           subtitle: Text('...')
         ),
