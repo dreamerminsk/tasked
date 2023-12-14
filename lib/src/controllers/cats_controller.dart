@@ -69,7 +69,7 @@ class CatsController extends GetxController {
     try {
       final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}';
       final result = await fetchString(url);
-      swith (result) {
+      switch (result) {
       case ErrorResult e:
         return Result.error(e.error);
       case ValueResult v: {
