@@ -46,6 +46,7 @@ class CatsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    refreshWikiLinks.then(() {});
   }
 
   void after() {
