@@ -7,12 +7,12 @@ class CategoryInfo {
   final int subcats;
 
   const CategoryInfo({
-    @required this.pageid = 0,
-    @required this.lang = 'en',
-    @required this.title = 'Main Page',
-    @required this.pages = 0,
-    @required this.files = 0,
-    @required this.subcats = 0
+    required this.pageid = 0,
+    required this.lang = 'en',
+    required this.title = 'Main Page',
+    required this.pages = 0,
+    required this.files = 0,
+    required this.subcats = 0
   });
 
   CategoryInfo copyWith({
