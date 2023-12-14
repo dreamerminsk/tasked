@@ -36,7 +36,7 @@ class CatsView extends StatelessWidget {
   }
 
   Widget _catOrErrorCard(Result<CategoryInfo> result) {
-    swith (result) {
+    switch (result) {
       case ErrorResult e:
         return _errorCard(e.error);
       case ValueResult v:
