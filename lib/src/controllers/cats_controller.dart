@@ -87,12 +87,19 @@ class CatsController extends GetxController {
   Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
       final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}';
-      final text = await fetchString(url);
-      final jsonList = jsonDecode(text);
-      final query = jsonList['query'];
-      final pages = query['pages'];
-      final cats = pages.entries.map((item) => CategoryInfo.fromJson(item.value)).toList();
-      return Result value(cats[0]);
+      final result = await fetchString(url);
+      swith (result) {
+      case ErrorResult e:
+        return Result.error(e.error);
+      case ValueResult v:
+        final jsonList = jsonDecode(v.value);
+        final query = jsonList['query'];
+        final pages = query['pages'];
+        final cats = pages.entries.map((item) => CategoryInfo.fromJson(item.value)).toList();
+        return Result value(cats[0]);
+      default:
+          return Result.error('very strange');
+      }
     } catch(e, s) {
       Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
