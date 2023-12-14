@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:convert';
 
 import 'package:async/async.dart';
 import 'package:dio/dio.dart';
@@ -45,7 +46,7 @@ class CatsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    refreshWikiLinks().then((_) {});
+    refreshWikiLinks().whenComplete(() {});
   }
 
   void after() {
