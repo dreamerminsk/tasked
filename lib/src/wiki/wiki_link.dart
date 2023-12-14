@@ -3,8 +3,8 @@ class WikiLink {
   final String title;
 
   const WikiLink({
-    required this.lang = 'en',
-    required this.title = 'Main Page'
+    @required this.lang = 'en',
+    @required this.title = 'Main Page'
   });
 
   WikiLink copyWith({
