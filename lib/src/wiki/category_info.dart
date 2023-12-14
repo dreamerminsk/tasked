@@ -41,5 +41,16 @@ class CategoryInfo {
     files = json['categoryinfo']?['files'] ?? 0;
     subcats = json['categoryinfo']?['subcats'] ?? 0;
   }
+
+  (int, String, String) _equality() => (pageid, lang, title);
+
+  @override
+  bool operator ==(covariant CategoryInfo other) {
+    if (identical(this, other)) return true;
+    return other._equality() == _equality();
+  }
+
+  @override
+  int get hashCode => _equality().hashCode;
 }
 
