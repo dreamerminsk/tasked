@@ -34,12 +34,14 @@ class CategoryInfo {
   }
 
   factory CategoryInfo.fromJson(Map<String, dynamic> json) {
-    pageid = json['pageid'] ?? 0;
-    lang = json['lang'] ?? 'en';
-    title = json['title'] ?? '';
-    pages = json['categoryinfo']?['pages'] ?? 0;
-    files = json['categoryinfo']?['files'] ?? 0;
-    subcats = json['categoryinfo']?['subcats'] ?? 0;
+    return CategoryInfo(
+      pageid: json['pageid'] ?? 0,
+      lang: json['lang'] ?? 'en',
+      title: json['title'] ?? '',
+      pages: json['categoryinfo']?['pages'] ?? 0,
+      files: json['categoryinfo']?['files'] ?? 0,
+      subcats: json['categoryinfo']?['subcats'] ?? 0,
+    );
   }
 
   (int, String, String) _equality() => (pageid, lang, title);
