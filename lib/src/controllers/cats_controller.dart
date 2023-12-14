@@ -49,29 +49,9 @@ class CatsController extends GetxController {
   }
 
   void after() {
-    var newCats = categories.map(
-      (item) => 
-      CategoryInfo(
-        lang: item.lang, 
-        title: item.title?.replaceFirst(year.value.toString(), (year.value + 1).toString()),
-      )
-    ).toList();
-    categories.clear();
-    categories.addAll(newCats);
-    year++;
   }
   
   void before() {
-    var newCats = categories.map(
-      (item) => 
-      CategoryInfo(
-        lang: item.lang, 
-        title: item.title?.replaceFirst(year.value.toString(), (year.value - 1).toString()),
-      )
-    ).toList();
-    categories.clear();
-    categories.addAll(newCats);
-    year--;
   }
 
   void refreshWikiLinks() async {
