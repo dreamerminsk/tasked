@@ -66,7 +66,7 @@ class CatsView extends StatelessWidget {
         child: ListTile(
           leading: Icon(Icons.tips_and_updates, size: 64.0),
           title: Text('${cat.title ?? "<~~~>"}'),
-          subtitle: Text('...')
+          subtitle: Text('${cat.pages} pages, ${cat.subcats} categories')
         ),
       ),
     );
