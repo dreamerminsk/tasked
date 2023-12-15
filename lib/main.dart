@@ -12,7 +12,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
           title: 'kb-app',
           theme: ThemeData(
-            primarySwatch: Colors.indigo,
+            useMaterial3: true,
+            //primarySwatch: Colors.indigo,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.indigo,
+            ),
           ),
           home: CatsView(),
         );
