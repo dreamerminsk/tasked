@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
               seedColor: Colors.indigo,
             ),
           ),
-          home: CatsView(),
+          initialRoute: AppPages.INITIAL,
+          getPages: AppPages.routes,
         );
   }
 }
