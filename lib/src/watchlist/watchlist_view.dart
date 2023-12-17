@@ -7,7 +7,7 @@ import '../wiki/category_info.dart';
 import '../views/debug_view.dart';
 import '../views/home_view.dart';
 
-class CatsView extends StatelessWidget {
+class WatchlistView extends StatelessWidget {
 
   @override
   Widget build(context) {
