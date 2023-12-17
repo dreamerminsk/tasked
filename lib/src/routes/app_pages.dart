@@ -10,9 +10,9 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.CATS,
-      page: () => CatsView(),
-      binding: CatsBinding(),
+      name: _Paths.WATCHLIST,
+      page: () => WatchlistView(),
+      binding: WatchlistBinding(),
     ),
     GetPage(
       name: _Paths.CAT,
