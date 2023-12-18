@@ -18,7 +18,9 @@ class WikiClient extends GetxService {
         //baseUrl: AppConstants.SERVER_API_URL,
         connectTimeout: const Duration(seconds: 32),
         receiveTimeout: const Duration(seconds: 32),
-        headers: {},
+        headers: {
+          'User-Agent': '',
+        },
         contentType: "application/json: charset=utf-8",
         responseType: ResponseType.json);
     dio = Dio(options);
