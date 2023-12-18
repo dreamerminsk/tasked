@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:dii/dii.dart';
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
 class WikiClient extends GetxService {
