@@ -5,13 +5,13 @@ abstract class Routes {
 
   static const HOME = _Paths.HOME;
   static const WATCHLIST = _Paths.WATCHLIST;
-  static const CAT = _Paths.CAT;
+  static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
 }
 
 abstract class _Paths {
   static const HOME = '/home';
   static const WATCHLIST = '/watchlist';
-  static const CAT = '/cat';
+  static const CATEGORY = '/category';
   static const DEBUG = '/debug';
 }
