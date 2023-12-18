@@ -19,7 +19,6 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(title: Obx(() => Text("Bookmarks [t:${c.timers}, r:${c.requests}]")),
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.app_shortcut), onPressed: () { Get.to(CatsView()); },),
-                IconButton(icon: Icon(Icons.account_balance), onPressed: () { Get.to(DebugView()); },),
                 IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
               ]),
 
