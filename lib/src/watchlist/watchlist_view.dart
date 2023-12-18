@@ -14,7 +14,7 @@ class WatchlistView extends StatelessWidget {
     final CatsController c = Get.put(CatsController());
 
     return Scaffold(
-      appBar: AppBar(title: Text("WikiCats"),
+      appBar: AppBar(title: Text("Watchlist"),
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.home), onPressed: () { Get.to(HomeView()); },),
                 IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
