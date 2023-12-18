@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'package:get/get.dart';
 
-class CatController extends GetxController {
+class CategoryController extends GetxController {
 
   @override
   void onInit() {
