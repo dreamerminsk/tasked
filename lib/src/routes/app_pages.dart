@@ -3,7 +3,7 @@ part 'app_routes.dart'
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.CATS;
+  static const INITIAL = Routes.WATCHLIST;
 
   static final routes = [
     GetPage(
