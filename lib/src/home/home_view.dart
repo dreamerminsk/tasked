@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import 'home_controller.dart';
-import '../models/anime.dart';
+import 'entities/anime.dart';
 import '../views/debug_view.dart';
 import '../watchlist/watchlist_view.dart';
 import '../views/anime_details_view.dart';
