@@ -17,9 +17,9 @@ class AppPages {
       binding: WatchlistBinding(),
     ),
     GetPage(
-      name: _Paths.CAT,
-      page: () => CatView(),
-      binding: CatBinding(),
+      name: _Paths.CATEGORY,
+      page: () => CategoryView(),
+      binding: CategoryBinding(),
    ),
  ];
 }
