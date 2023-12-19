@@ -19,7 +19,7 @@ class WikiClient extends GetxService {
         connectTimeout: const Duration(seconds: 32),
         receiveTimeout: const Duration(seconds: 32),
         headers: {
-          'User-Agent': '',
+          'User-Agent': 'KbDartBot 0/0/57 (https://github.com/dreamerminsk/kb-dart)',
         },
         contentType: "application/json: charset=utf-8",
         responseType: ResponseType.json);
