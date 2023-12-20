@@ -6,6 +6,7 @@ import 'watchlist_controller.dart';
 import '../wiki/category_info.dart';
 import '../views/debug_view.dart';
 import '../views/home_view.dart';
+import '../routes/app_pages.dart';
 
 class WatchlistView extends StatelessWidget {
 
@@ -16,8 +17,8 @@ class WatchlistView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Watchlist"),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.home), onPressed: () { Get.to(HomeView()); },),
-                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
+                IconButton(icon: Icon(Icons.home), onPressed: () { Get.toNamed(Routes.HOME); },),
+                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.toNamed(Routes.DEBUG); },),
               ]),
 
       body: Obx( () =>
