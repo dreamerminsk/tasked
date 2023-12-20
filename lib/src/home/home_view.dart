@@ -8,18 +8,19 @@ import 'entities/anime.dart';
 import '../views/debug_view.dart';
 import '../watchlist/watchlist_view.dart';
 import '../views/anime_details_view.dart';
+import '../routes/app_pages.dart';
 
 class HomeView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final HomeController c = Get.put(HomeController());
+    final HomeController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Bookmarks [t:${c.timers}, r:${c.requests}]")),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.app_shortcut), onPressed: () { Get.to(CatsView()); },),
-                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
+                IconButton(icon: Icon(Icons.app_shortcut), onPressed: () { Get.toNamed(Routes.WATCHLIST); },),
+                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.toNamed(Routes.DEBUG); },),
               ]),
 
       body: Obx( () =>
