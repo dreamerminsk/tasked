@@ -12,7 +12,7 @@ class WatchlistView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final WatchlistController Controller c = Get.find();
+    final WatchlistController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(title: Text("Watchlist"),
