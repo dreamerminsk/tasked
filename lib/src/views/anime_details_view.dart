@@ -13,10 +13,9 @@ class AnimeDetailsView extends StatelessWidget {
     return Scaffold(
       body: 
       Obx(()=>
-        Column(
+        Stack(
           children: <Widget>[
-            Card(
-              child: CachedNetworkImage(
+            CachedNetworkImage(
                     imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0),
@@ -33,8 +32,7 @@ class AnimeDetailsView extends StatelessWidget {
                           width: 1,
                         ),
                       ))
-                  )
-            ), //Card
+                  ), //CachedNetworkImage
             Expanded(
               child: Text(
                 c.selected.value.title ?? '<~~~~~>',
