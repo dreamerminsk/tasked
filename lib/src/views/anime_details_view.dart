@@ -20,8 +20,8 @@ class AnimeDetailsView extends StatelessWidget {
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0),
                     imageBuilder: (context, image) => Container(
-                      width: 512,
-                      height: 512,
+                      width: Get.width,
+                      //height: 512,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
