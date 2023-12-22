@@ -27,10 +27,9 @@ class AnimeDetailsView extends StatelessWidget {
                           image: image,
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.only(
-bottomLeft: Radius.circular(20.0),
-bottomRight: Radius.circular(20.0),
-),
+                        borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(40),
+                    ),
                       ))
                   ), //CachedNetworkImage
             Expanded(
