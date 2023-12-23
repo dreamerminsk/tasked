@@ -17,7 +17,7 @@ class AnimeDetailsView extends StatelessWidget {
         Stack(
           children: <Widget>[
             Positioned(
-              top: 512.0,
+              top: 20.0,
               left: 50.0,
               child: Expanded(
                 child: Text(
