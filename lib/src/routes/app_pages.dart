@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '../category/category_binding.dart';
 import '../category/category_view.dart';
 import '../debug/debug_binding.dart';
