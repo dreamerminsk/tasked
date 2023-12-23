@@ -11,7 +11,7 @@ class CategoryView extends StatelessWidget {
 
     return Scaffold(
       body: 
-      Obx(()=>
+      
         Stack(
           children: <Widget>[
             Positioned(
@@ -25,7 +25,7 @@ class CategoryView extends StatelessWidget {
               ), //Expanded
             ),
           ],
-        )), //Stack
+        ), //Stack
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: () {}));
   }
