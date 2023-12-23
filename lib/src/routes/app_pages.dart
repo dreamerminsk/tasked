@@ -19,6 +19,11 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
+      name: _Paths.DETAILS,
+      page: () => HomeDetailsView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
       name: _Paths.WATCHLIST,
       page: () => WatchlistView(),
       binding: WatchlistBinding(),
@@ -28,5 +33,15 @@ class AppPages {
       page: () => CategoryView(),
       binding: CategoryBinding(),
    ),
+   GetPage(
+      name: _Paths.DEBUG,
+      page: () => DebugView(),
+      binding: DebugBinding(),
+    ),
+    GetPage(
+      name: _Paths.POLITICS,
+      page: () => PoliticsView(),
+      binding: PoliticsBinding(),
+    ),
  ];
 }
