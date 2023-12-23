@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-import '../controllers/category_controller.dart';
+import 'category_controller.dart';
 
 class AnimeDetailsView extends StatelessWidget {
 
