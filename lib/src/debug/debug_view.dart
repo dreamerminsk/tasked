@@ -23,7 +23,7 @@ class DebugView extends StatelessWidget {
                 )
               ]),
 
-      body: const Center(child: Text('NOT IMPLEMENT ED')),
+      body: const Center(child: Text('NOT IMPLEMENTED')),
     );
   }
 
