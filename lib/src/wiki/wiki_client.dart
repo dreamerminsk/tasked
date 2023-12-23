@@ -29,14 +29,10 @@ class WikiClient extends GetxService {
       onRequest: (options, handler) {
         return handler.next(options);
       }, onResponse: (response, handler) {
-        if (kDebugMode) {
           print("app response data ${response.data}");
-        }
         return handler.next(response);
       }, onError: (DioException e, handler) {
-        if (kDebugMode) {
           print("app error data $e");
-        }
       }));
   }
 
