@@ -5,7 +5,7 @@ import 'package:loading_indicator/loading_indicator.dart';
 
 import 'category_controller.dart';
 
-class AnimeDetailsView extends StatelessWidget {
+class CategoryView extends StatelessWidget {
 
   @override
   Widget build(context) {
