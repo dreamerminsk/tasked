@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'src/views/cats_view.dart';
 import 'src/routes/app_pages.dart';
 
 void main() => runApp(MyApp());
