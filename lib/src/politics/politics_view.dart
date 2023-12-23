@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 
-import 'politics_controller.dart';
+//import 'politics_controller.dart';
 
 class PoliticsView extends StatelessWidget {
 
