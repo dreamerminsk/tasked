@@ -18,7 +18,7 @@ class DebugView extends StatelessWidget {
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.copy),
                   onPressed: () { 
-                    c.copyToClipboard();
+                    
                   },
                 )
               ]),
