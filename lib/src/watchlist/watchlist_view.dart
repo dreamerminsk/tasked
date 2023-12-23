@@ -2,22 +2,21 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/cats_controller.dart';
+import 'watchlist_controller.dart';
 import '../wiki/category_info.dart';
-import 'debug_view.dart';
-import 'home_view.dart';
+import '../routes/app_pages.dart';
 
-class CatsView extends StatelessWidget {
+class WatchlistView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final CatsController c = Get.put(CatsController());
+    final WatchlistController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: Text("WikiCats"),
+      appBar: AppBar(title: Text("Watchlist"),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.home), onPressed: () { Get.to(HomeView()); },),
-                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
+                IconButton(icon: Icon(Icons.home), onPressed: () { Get.toNamed(Routes.HOME); },),
+                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.toNamed(Routes.DEBUG); },),
               ]),
 
       body: Obx( () =>
@@ -61,7 +60,7 @@ class CatsView extends StatelessWidget {
 
   Widget _catCard(CategoryInfo cat) {
     return InkWell(
-      onTap: () { },
+      onTap: () { Get.toNamed(Routes.CATEGORY); },
       child: Card(
         child: ListTile(
           leading: Icon(Icons.tips_and_updates, size: 64.0),
@@ -72,7 +71,7 @@ class CatsView extends StatelessWidget {
     );
   }
 
-  Widget _buttons(CatsController c) {
+  Widget _buttons(WatchlistController c) {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(

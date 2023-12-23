@@ -3,24 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../controllers/home_controller.dart';
-import '../models/anime.dart';
-import 'debug_view.dart';
-import 'cats_view.dart';
-import 'anime_details_view.dart';
+import 'home_controller.dart';
+import 'entities/anime.dart';
+import '../routes/app_pages.dart';
 
 class HomeView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final HomeController c = Get.put(HomeController());
+    final HomeController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(title: Obx(() => Text("Bookmarks [t:${c.timers}, r:${c.requests}]")),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.app_shortcut), onPressed: () { Get.to(CatsView()); },),
-                IconButton(icon: Icon(Icons.account_balance), onPressed: () { Get.to(DebugView()); },),
-                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.to(DebugView()); },),
+                IconButton(icon: Icon(Icons.app_shortcut), onPressed: () { Get.toNamed(Routes.WATCHLIST); },),
+                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.toNamed(Routes.DEBUG); },),
               ]),
 
       body: Obx( () =>
@@ -28,8 +25,9 @@ class HomeView extends StatelessWidget {
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
-            return InkWell(onTap: () { c.select(index); Get.to(AnimeDetailsView());},
-             child: _buildCard(context, c.animeList[index]));
+            return InkWell(
+              onTap: () { c.select(index); Get.toNamed(Routes.DETAILS);},
+              child: _buildCard(context, c.animeList[index]));
           },
         )
       : const Center(child: Text('No items'))),

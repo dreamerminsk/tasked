@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
-import '../models/anime.dart';
+import 'entities/anime.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
@@ -35,7 +35,7 @@ class HomeController extends GetxController {
   }
 
   void refresh() {
-    Timer.periodic(const Duration(seconds: 16), refreshWikiStats);
+    Timer.periodic(const Duration(seconds: 8), refreshWikiStats);
     timers += 1;
   }
 

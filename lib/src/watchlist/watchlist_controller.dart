@@ -38,7 +38,7 @@ final links = <WikiLink>[
     WikiLink(lang: 'en', title: 'Category:Buildings and structures demolished in 2023'),
   ];
 
-class CatsController extends GetxController {
+class WatchlistController extends GetxController {
   final categories = <Result<CategoryInfo>>[
   ].obs;
   var year = 2023.obs;
