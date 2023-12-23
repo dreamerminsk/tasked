@@ -21,7 +21,7 @@ class AnimeDetailsView extends StatelessWidget {
               left: 50.0,
               child: Expanded(
                 child: Text(
-                  '<~~~~~>',
+                  'Category:*',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ), //Expanded
