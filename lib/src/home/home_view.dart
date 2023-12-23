@@ -5,8 +5,6 @@ import 'package:intl/intl.dart';
 
 import 'home_controller.dart';
 import 'entities/anime.dart';
-import '../views/debug_view.dart';
-import '../watchlist/watchlist_view.dart';
 import '../views/anime_details_view.dart';
 import '../routes/app_pages.dart';
 
