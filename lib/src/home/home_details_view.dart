@@ -17,11 +17,10 @@ class HomeDetailsView extends StatelessWidget {
         Stack(
           children: <Widget>[
             CachedNetworkImage(
-                    imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
-                    placeholder: (context, url) => LoadingIndicator(
-    indicatorType: Indicator.ballGridPulse),
-                    errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0),
-                    imageBuilder: (context, image) => Container(
+              imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
+              placeholder: (context, url) => LoadingIndicator(indicatorType: Indicator.ballGridPulse),
+              errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0),
+              imageBuilder: (context, image) => Container(
                       width: Get.width,
                       //height: 512,
                       decoration: new BoxDecoration(
