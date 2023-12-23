@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 
 import 'watchlist_controller.dart';
 import '../wiki/category_info.dart';
-import '../views/debug_view.dart';
-import '../views/home_view.dart';
 import '../routes/app_pages.dart';
 
 class WatchlistView extends StatelessWidget {
