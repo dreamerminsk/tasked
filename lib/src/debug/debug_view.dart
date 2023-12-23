@@ -7,7 +7,7 @@ class DebugView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final DebugController c = Get.find();
+    //final DebugController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(
