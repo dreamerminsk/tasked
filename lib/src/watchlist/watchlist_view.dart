@@ -71,7 +71,7 @@ class WatchlistView extends StatelessWidget {
     );
   }
 
-  Widget _buttons(CatsController c) {
+  Widget _buttons(WatchlistController c) {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
