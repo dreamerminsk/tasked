@@ -14,7 +14,7 @@ class DebugView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-              title: 'DEBUG',
+              title: const Text('DEBUG'),
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.copy),
                   onPressed: () { 
@@ -23,21 +23,8 @@ class DebugView extends StatelessWidget {
                 )
               ]),
 
-      body: Obx( () {
-        final encoder = JsonEncoder.withIndent('   ');
-        return _scrollable(encoder.convert(c.animeList));
-      }),
+      body: const Center(child: Text('NOT IMPLEMENT ED')),
     );
   }
 
-  Widget _scrollable(String text) {
-    return Row(children: <Widget>[
-             Expanded(
-               child: new SingleChildScrollView(
-                 scrollDirection: Axis.vertical,
-                   child: JsonViewer(jsonDecode(text)),
-               ),
-             ),]
-           );
-  }
 }
