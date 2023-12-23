@@ -1,7 +1,12 @@
 import '../category/category_binding.dart';
 import '../category/category_view.dart';
+import '../debug/debug_binding.dart';
+import '../debug/debug_view.dart';
 import '../home/home_binding.dart';
+import '../home/home_details_view.dart';
 import '../home/home_view.dart';
+import '../politics/politics_binding.dart';
+import '../politics/politics_view.dart';
 import '../watchlist/watchlist_binding.dart';
 import '../watchlist/watchlist_view.dart';
 
