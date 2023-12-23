@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 
 import 'home_controller.dart';
 import 'entities/anime.dart';
-import '../views/anime_details_view.dart';
 import '../routes/app_pages.dart';
 
 class HomeView extends StatelessWidget {
@@ -26,8 +25,9 @@ class HomeView extends StatelessWidget {
       ? ListView.builder(
           itemCount: c.animeList.length,
           itemBuilder: (BuildContext context, int index) {
-            return InkWell(onTap: () { c.select(index); Get.to(AnimeDetailsView());},
-             child: _buildCard(context, c.animeList[index]));
+            return InkWell(
+              onTap: () { c.select(index); Get.toNamed(Routes.DETAILS);},
+              child: _buildCard(context, c.animeList[index]));
           },
         )
       : const Center(child: Text('No items'))),
