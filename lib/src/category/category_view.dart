@@ -27,6 +27,6 @@ class CategoryView extends StatelessWidget {
           ],
         )), //Stack
       floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
+          FloatingActionButton(child: Icon(Icons.refresh), onPressed: () {}));
   }
 }
