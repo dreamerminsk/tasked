@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -17,7 +18,8 @@ class AnimeDetailsView extends StatelessWidget {
           children: <Widget>[
             CachedNetworkImage(
                     imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
-                    placeholder: (context, url) => CircularProgressIndicator(),
+                    placeholder: (context, url) => LoadingIndicator(
+    indicatorType: Indicator.ballGridPulse),
                     errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0),
                     imageBuilder: (context, image) => Container(
                       width: Get.width,
