@@ -34,14 +34,18 @@ class AnimeDetailsView extends StatelessWidget {
                     ),
                       ))
                   ), //CachedNetworkImage
-            Expanded(
-              child: Text(
-                c.selected.value.title ?? '<~~~~~>',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-            ), //Expanded
+            Positioned(
+              top: 512.0,
+              left: 50.0,
+              child: Expanded(
+                child: Text(
+                  c.selected.value.title ?? '<~~~~~>',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+              ), //Expanded
+            ),
           ],
-        )), //Row
+        )), //Stack
       floatingActionButton:
           FloatingActionButton(child: Icon(Icons.refresh), onPressed: c.refresh));
   }
