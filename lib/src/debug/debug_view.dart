@@ -4,16 +4,17 @@ import 'package:flutter_json_viewer/flutter_json_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
+import 'debug_controller.dart';
 
 class DebugView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final HomeController c = Get.find();
+    final DebugController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: Obx(() => Text("Anime: ${c.animeList.length}")),
+      appBar: AppBar(
+              title: 'DEBUG',
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.copy),
                   onPressed: () { 
