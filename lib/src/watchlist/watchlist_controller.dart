@@ -67,7 +67,7 @@ class WatchlistController extends GetxController {
 
   Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
-      final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}';
+      final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}&formatversion=2&format=json';
       final result = await fetchString(url);
       switch (result) {
       case ErrorResult e:
