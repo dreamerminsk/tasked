@@ -73,9 +73,9 @@ class WatchlistController extends GetxController {
       case ErrorResult e:
         return Result.error(e.error);
       case ValueResult v: {
-        final jsonList = jsonDecode(v.value);
-        final query = jsonList['query'];
-        final pages = query['pages'];
+        final jsonList = jsonDecode(v.value) as Map;
+        final query = jsonList['query'] as Map;
+        final pages = query['pages'] as List;
         final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
         return Result.value(cats[0]);
         }
