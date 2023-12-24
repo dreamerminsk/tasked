@@ -76,7 +76,7 @@ class WatchlistController extends GetxController {
         final jsonList = jsonDecode(v.value);
         final query = jsonList['query'];
         final pages = query['pages'];
-        final cats = pages.map((item) => CategoryInfo.fromJson(item.value)).toList();
+        final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
         return Result.value(cats[0]);
         }
       default:
