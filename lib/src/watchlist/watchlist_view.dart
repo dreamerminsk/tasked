@@ -37,7 +37,7 @@ class WatchlistView extends StatelessWidget {
   Widget _catOrErrorCard(Result<CategoryInfo> result) {
     switch (result) {
       case ErrorResult e:
-        return _errorCard(e.error);
+        return _errorCard(e.error, e.stackTrace);
       case ValueResult v:
         return _catCard(v.value);
       default:
@@ -45,14 +45,14 @@ class WatchlistView extends StatelessWidget {
     }
   }
 
-  Widget _errorCard(Object e) {
+  Widget _errorCard(Object e, StackTrace s) {
     return InkWell(
       onTap: () { },
       child: Card(
         child: ListTile(
           leading: Icon(Icons.error, color: Colors.red, size: 64.0),
           title: Text('$e'),
-          subtitle: Text('...')
+          subtitle: Text('$s')
         ),
       ),
     );
