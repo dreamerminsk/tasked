@@ -23,6 +23,7 @@ class HomeDetailsView extends StatelessWidget {
               imageBuilder: (context, image) => Container(
                       width: Get.width,
                       //height: 512,
+                      alignment: Alignment.topLeft,
                       decoration: new BoxDecoration(
                         image: new DecorationImage(
                           image: image,
