@@ -17,13 +17,17 @@ class CategoryView extends StatelessWidget {
             Positioned(
               top: 0.0,
               left: 0.0,
-              child: Expanded(
-                child: Text(
-                  'Category:*',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-              ), //Expanded
-            ),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      'Category:*',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                  ), //Expanded
+                ],
+              ), //Row
+            ), //Positioned
           ],
         ), //Stack
       floatingActionButton:
