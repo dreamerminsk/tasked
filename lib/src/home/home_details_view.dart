@@ -34,14 +34,17 @@ class HomeDetailsView extends StatelessWidget {
                       ))
                   ), //CachedNetworkImage
             Positioned(
-              top: 512.0,
-              left: 50.0,
-              child: Expanded(
-                child: Text(
-                  c.selected.value.title ?? '<~~~~~>',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-              ), //Expanded
+              top: 200.0,
+              left: 0.0,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      c.selected.value.title ?? '<~~~~~>',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    ),
+                  ), //Expanded
+              ]),
             ),
           ],
         )), //Stack
