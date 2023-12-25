@@ -68,13 +68,12 @@ class WatchlistController extends GetxController {
   Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
       final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}&formatversion=2&format=json';
-      final result = await fetchString(url);
+      final result = await fetchMap(url);
       switch (result) {
       case ErrorResult e:
         return Result.error(e.error);
       case ValueResult v: {
-        final jsonList = jsonDecode(v.value) as Map;
-        final query = jsonList['query'] as Map;
+        final query = v.value['query'] as Map;
         final pages = query['pages'] as List;
         final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
         return Result.value(cats[0]);
@@ -88,9 +87,19 @@ class WatchlistController extends GetxController {
     }
   }
 
+Future<Result<Map>> fetchMap(String link) async {
+    try {
+      final Response<Map> response = await Dio().get(link);
+      return Result.value(response.data);
+    } catch (e, s) {
+      Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
+      return Result.error(e, s);
+    }
+  }
+
   Future<Result<String>> fetchString(String link) async {
     try {
-      var response = await Dio().get(link);
+      final Response<String> response = await Dio().get(link);
       return Result.value(response.data.toString());
     } catch (e, s) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
