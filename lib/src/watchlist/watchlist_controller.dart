@@ -91,7 +91,7 @@ Future<Result<Map>> fetchMap(String link) async {
       final dio.Response<Map> response = await dio.Dio().get(link);
       return Result.value(response.data ?? {});
     } catch (e, s) {
-      Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
