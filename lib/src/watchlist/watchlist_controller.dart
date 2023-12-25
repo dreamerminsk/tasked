@@ -1,8 +1,7 @@
 import 'dart:core';
-import 'dart:convert';
 
 import 'package:async/async.dart';
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
 import '../wiki/category_info.dart';
@@ -89,7 +88,7 @@ class WatchlistController extends GetxController {
 
 Future<Result<Map>> fetchMap(String link) async {
     try {
-      final Response<Map> response = await Dio().get(link);
+      final dio.Response<Map> response = await Dio().get(link);
       return Result.value(response.data);
     } catch (e, s) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
@@ -99,7 +98,7 @@ Future<Result<Map>> fetchMap(String link) async {
 
   Future<Result<String>> fetchString(String link) async {
     try {
-      final Response<String> response = await Dio().get(link);
+      final dio.Response<String> response = await Dio().get(link);
       return Result.value(response.data.toString());
     } catch (e, s) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
