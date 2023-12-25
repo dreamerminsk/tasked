@@ -88,8 +88,8 @@ class WatchlistController extends GetxController {
 
 Future<Result<Map>> fetchMap(String link) async {
     try {
-      final dio.Response<Map> response = await Dio().get(link);
-      return Result.value(response.data);
+      final dio.Response<Map> response = await dio.Dio().get(link);
+      return Result.value(response.data ?? {});
     } catch (e, s) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
@@ -98,7 +98,7 @@ Future<Result<Map>> fetchMap(String link) async {
 
   Future<Result<String>> fetchString(String link) async {
     try {
-      final dio.Response<String> response = await Dio().get(link);
+      final dio.Response<String> response = await dio.Dio().get(link);
       return Result.value(response.data.toString());
     } catch (e, s) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
