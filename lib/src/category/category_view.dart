@@ -10,13 +10,12 @@ class CategoryView extends StatelessWidget {
     //final CategoryController c = Get.find();
 
     return Scaffold(
-      body: 
-      
-        Stack(
+      body: SafeArea(
+        child: Stack(
           children: <Widget>[
             Positioned(
               top: 0.0,
-              left: 0.0,
+              left: 20.0,
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -30,7 +29,7 @@ class CategoryView extends StatelessWidget {
             ), //Positioned
           ],
         ), //Stack
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.refresh), onPressed: () {}));
+      ),
+    );
   }
 }
