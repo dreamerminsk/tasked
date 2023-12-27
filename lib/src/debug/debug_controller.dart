@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'package:get/get.dart';
 
-class DebugController extends GetxController {
+class DebugController extends GetxService {
 
   @override
   void onInit() {
