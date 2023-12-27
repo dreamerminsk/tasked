@@ -4,8 +4,8 @@ import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
-import '../wiki/category_info.dart';
-import '../wiki/wiki_link.dart';
+import '../wiki/entities/category_info.dart';
+import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
     WikiLink(lang: 'en', title: 'Category:2023 films'),
