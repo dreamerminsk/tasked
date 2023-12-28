@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:get/get.dart';
 
 class DebugController extends GetxService {
+  DateTime started;
 
   @override
   void onInit() {
