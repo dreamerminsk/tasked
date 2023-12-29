@@ -12,6 +12,7 @@ class CategoryController extends GetxController {
 
   Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
+https://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:Physics&cmprop=ids|title|sortkeyprefix|timestamp&%20formatversion=2&format=json&cmlimit=50
       final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}&formatversion=2&format=json';
       final result = await fetchMap(url);
       switch (result) {
