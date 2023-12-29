@@ -74,7 +74,7 @@ class WatchlistController extends GetxController {
            'formatversion':2,
           'format': 'json',
       };
-      final result = await fetchMap(url, params);
+      final result = await fetchMap(url, params: params);
       switch (result) {
       case ErrorResult e:
         return Result.error(e.error);
@@ -93,7 +93,9 @@ class WatchlistController extends GetxController {
     }
   }
 
-Future<Result<Map>> fetchMap(String link, {Map<String, String>? params}) async {
+Future<Result<Map>> fetchMap(
+  String link,
+ {Map<String, String>? params}) async {
     try {
       final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
       return Result.value(response.data ?? {});
