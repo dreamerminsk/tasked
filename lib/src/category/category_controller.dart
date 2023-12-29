@@ -2,8 +2,12 @@ import 'dart:core';
 
 import 'package:get/get.dart';
 
+import '../wiki/responses/category_members_response.dart';
+
 class CategoryController extends GetxController {
   final category = Result<CategoryInfo>.value(CategoryInfo()).obs;
+
+  final members = Rxn<CategoryMembersResponse>();
 
   @override
   void onInit() {
