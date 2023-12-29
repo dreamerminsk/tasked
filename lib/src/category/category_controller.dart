@@ -10,7 +10,7 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
-  Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
+  Future<Result<CateroryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
     try {
       final url = 'https://${link.lang}.wikipedia.org/w/api.php';
       final params = {
@@ -27,16 +27,14 @@ class CategoryController extends GetxController {
       case ErrorResult e:
         return Result.error(e.error);
       case ValueResult v: {
-        final query = v.value['query'] as Map;
-        final pages = query['pages'] as List;
-        final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
-        return Result.value(cats[0]);
+        final response = CategoryMembersResponse.fromJson(v.value);
+        return Result.value(response);
         }
       default:
           return Result.error('very strange');
       }
     } catch(e, s) {
-      Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('fetchCategoryMembers', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
