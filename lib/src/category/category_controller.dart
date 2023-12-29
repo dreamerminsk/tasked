@@ -12,9 +12,17 @@ class CategoryController extends GetxController {
 
   Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
-https://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Category:Physics&cmprop=ids|title|sortkeyprefix|timestamp&%20formatversion=2&format=json&cmlimit=50
-      final url = 'https://${link.lang}.wikipedia.org/w/api.php?action=query&prop=categoryinfo&titles=${link.title}&formatversion=2&format=json';
-      final result = await fetchMap(url);
+      final url = 'https://${link.lang}.wikipedia.org/w/api.php';
+      final params = {
+          'action': 'query',
+          'list': 'categorymembers',
+          'cmtitle': '${link.title}',
+          'cmprop': 'ids|title|type|timestamp',
+          'cmlimit': 50,
+          'formatversion': 2,
+          'format': 'json',
+      };
+      final result = await fetchMap(url, params);
       switch (result) {
       case ErrorResult e:
         return Result.error(e.error);
@@ -33,9 +41,9 @@ https://en.wikipedia.org/w/api.php?action=query&list=categorymembers&cmtitle=Cat
     }
   }
 
-Future<Result<Map>> fetchMap(String link) async {
+Future<Result<Map>> fetchMap(String link, {Map<String, String>? params}) async {
     try {
-      final dio.Response<Map> response = await dio.Dio().get(link);
+      final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
       return Result.value(response.data ?? {});
     } catch (e, s) {
       Get.snackbar('fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
