@@ -3,11 +3,12 @@ import 'dart:core';
 import 'package:get/get.dart';
 
 class DebugController extends GetxService {
-  DateTime started;
+  final started = Rxn<DateTime>();
 
   @override
   void onInit() {
     super.onInit();
+    started.value = DateTime.now();
   }
 
   @override
