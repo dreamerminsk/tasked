@@ -22,7 +22,7 @@ class CategoryController extends GetxController {
           'formatversion': 2,
           'format': 'json',
       };
-      final result = await fetchMap(url, params);
+      final result = await fetchMap(url, params: params);
       switch (result) {
       case ErrorResult e:
         return Result.error(e.error);
