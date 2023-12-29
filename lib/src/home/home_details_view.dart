@@ -19,7 +19,7 @@ class HomeDetailsView extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
               placeholder: (context, url) => LoadingIndicator(indicatorType: Indicator.ballGridPulse),
-              errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0),
+              errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0, color: Colors.red,),
               imageBuilder: (context, image) => Container(
                       width: Get.width,
                       //height: 512,
