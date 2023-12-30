@@ -88,7 +88,7 @@ class WatchlistController extends GetxController {
           return Result.error('very strange');
       }
     } catch(e, s) {
-      Get.snackbar('fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('WatchlistController.fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
@@ -100,7 +100,7 @@ Future<Result<Map>> fetchMap(
       final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
       return Result.value(response.data ?? {});
     } catch (e, s) {
-      Get.snackbar('fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('WatchlistController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
@@ -110,7 +110,7 @@ Future<Result<Map>> fetchMap(
       final dio.Response<String> response = await dio.Dio().get(link);
       return Result.value(response.data.toString());
     } catch (e, s) {
-      Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('WatchlistController.fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
