@@ -13,6 +13,12 @@ class CategoryView extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: <Widget>[
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              color:
+                Theme.of(context).colorScheme.primary,
+            ),
             Positioned(
               top: 0.0,
               left: 20.0,
