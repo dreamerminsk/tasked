@@ -18,6 +18,12 @@ class CategoryView extends StatelessWidget {
               width: double.infinity,
               color:
                 Theme.of(context).colorScheme.primary,
+              child: Column(
+                crossAxisAlignment:
+                  CrossAxisAlignment.center,
+                mainAxisAlignment:
+                  MainAxisAlignment.start,
+              ),
             ),
             Positioned(
               top: 0.0,
