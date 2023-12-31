@@ -29,6 +29,18 @@ class CategoryView extends StatelessWidget {
                 ],
               ), // Column
             ), // Container
+            Positioned(
+              top: 150,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ), // BorderRadius
+                  color: Theme.of(context).colorScheme.secondaryContainer,
+                ), // BoxDecoration
+              ), //Container
+            ), // Positioned
           ],
         ), //Stack
       ),
