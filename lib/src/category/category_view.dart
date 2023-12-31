@@ -23,22 +23,12 @@ class CategoryView extends StatelessWidget {
                   CrossAxisAlignment.center,
                 mainAxisAlignment:
                   MainAxisAlignment.start,
-              ),
-            ),
-            Positioned(
-              top: 0.0,
-              left: 20.0,
-              child: Row(
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      'Category:*',
-                      style: Theme.of(context).textTheme.headlineLarge,
-                    ),
-                  ), //Expanded
+                  SizedBox(height: 20),
+                  Text('Category:*'),
                 ],
-              ), //Row
-            ), //Positioned
+              ), // Column
+            ), // Container
           ],
         ), //Stack
       ),
