@@ -8,33 +8,87 @@ import '../wiki/entities/category_info.dart';
 import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
-    WikiLink(lang: 'en', title: 'Category:2023 films'),
-    WikiLink(lang: 'en', title: 'Category:21st-century actors'),
-    WikiLink(lang: 'en', title: 'Category:2023 in television'),
-    WikiLink(lang: 'en', title: 'Category:2023 anime'),
-    WikiLink(lang: 'en', title: 'Category:2023 books'),
-    WikiLink(lang: 'en', title: 'Category:2023 in music'),
-    WikiLink(lang: 'en', title: 'Category:2023 video games'),
-    WikiLink(lang: 'en', title: 'Category:2023 in basketball'),
-    WikiLink(lang: 'en', title: 'Category:2023 in ice hockey'),
-    WikiLink(lang: 'en', title: 'Category:2023 in snooker'),
-    WikiLink(lang: 'en', title: 'Category:2023 in biathlon'),
-    WikiLink(lang: 'en', title: 'Category:2023 in alpine skiing'),
-    WikiLink(lang: 'en', title: 'Category:2023 in figure skating'),
-    WikiLink(lang: 'en', title: 'Category:2023 in ice hockey'),
-    WikiLink(lang: 'en', title: 'Category:2023 in tennis'),
-    WikiLink(lang: 'en', title: 'Category:2023 crimes'),
-    WikiLink(lang: 'en', title: 'Category:21st-century rulers'),
-    WikiLink(lang: 'en', title: 'Category:Alpine skiers'),
-    WikiLink(lang: 'en', title: 'Category:Tennis players'),
-    WikiLink(lang: 'en', title: 'Category:Snooker players'),
-    WikiLink(lang: 'en', title: 'Category:Figure skaters'),
-    WikiLink(lang: 'en', title: 'Category:Ice hockey players'),
-    WikiLink(lang: 'en', title: 'Category:Cars introduced in 2023'),
-    WikiLink(lang: 'en', title: 'Category:Mobile phones introduced in 2023'),
-    WikiLink(lang: 'en', title: 'Category:2023 software'),
-    WikiLink(lang: 'en', title: 'Category:Buildings and structures completed in 2023'),
-    WikiLink(lang: 'en', title: 'Category:Buildings and structures demolished in 2023'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 films'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:21st-century actors'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in television'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 anime'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 books'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in music'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 video games'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in basketball'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in ice hockey'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in snooker'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in biathlon'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in alpine skiing'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in figure skating'),
+    WikiLink(
+      prefix 'en',
+      title: 'Category:2023 in ice hockey'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 in tennis'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 crimes'),
+    WikiLink(
+      prefix 'en',
+      title: 'Category:21st-century rulers'),
+    WikiLink(
+      prefix 'en',
+      title: 'Category:Alpine skiers'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Tennis players'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Snooker players'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Figure skaters'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Ice hockey players'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Cars introduced in 2023'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Mobile phones introduced in 2023'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2023 software'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Buildings and structures completed in 2023'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Buildings and structures demolished in 2023'),
   ];
 
 class WatchlistController extends GetxController {
@@ -66,7 +120,7 @@ class WatchlistController extends GetxController {
 
   Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
     try {
-      final url = 'https://${link.lang}.wikipedia.org/w/api.php';
+      final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
       final params = {
           'action': 'query',
           'prop': 'categoryinfo',
