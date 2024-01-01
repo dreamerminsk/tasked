@@ -16,7 +16,7 @@ class CategoryController extends GetxController {
 
   Future<Result<CateroryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
     try {
-      final url = 'https://${link.lang}.wikipedia.org/w/api.php';
+      final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
       final params = {
           'action': 'query',
           'list': 'categorymembers',
