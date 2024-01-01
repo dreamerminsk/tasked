@@ -1,18 +1,18 @@
 class WikiLink {
-  final String lang;
+  final String prefix;
   final String title;
 
   const WikiLink({
-    this.lang = 'en',
+    this.prefix = 'en',
     this.title = 'Main Page'
   });
 
   WikiLink copyWith({
-    String? lang,
+    String? prefix,
     String? title,
   }) {
     return WikiLink(
-      lang: lang ?? this.lang,
+      prefix: prefix ?? this.prefix,
       title: title ?? this.title,
     );
   }
@@ -22,10 +22,10 @@ class WikiLink {
     if (identical(this, other)) return true;
   
     return other is WikiLink &&
-      other.lang == lang &&
+      other.prefix == prefix &&
       other.title == title;
   }
 
   @override
-  int get hashCode => lang.hashCode ^ title.hashCode;
+  int get hashCode => prefix.hashCode ^ title.hashCode;
 }
