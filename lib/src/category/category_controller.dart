@@ -22,7 +22,7 @@ class CategoryController extends GetxController {
           'list': 'categorymembers',
           'cmtitle': '${link.title}',
           'cmprop': 'ids|title|type|timestamp',
-          'cmlimit': 50,
+          'cmlimit': max,
           'formatversion': 2,
           'format': 'json',
       };
