@@ -1,5 +1,6 @@
 class CategoryMembersResponse {
 
+  final List<CategoryMember> members = [];
 }
 
 class CMResponse {
