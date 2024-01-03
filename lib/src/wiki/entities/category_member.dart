@@ -2,7 +2,7 @@ class CategoryMember {
   final int pageid;
   final String lang;
   final String title;
-  final DateTime timestamp;
+  final DateTime? timestamp;
 
   const CategoryMember({
     this.pageid = 0,
