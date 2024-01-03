@@ -8,32 +8,6 @@ class CategoryMembersResponse {
 	}
 }
 
-class CMResponse {
-	bool? batchcomplete;
-	Continue? continue;
-	Query? query;
-
-	CMResponse({this.batchcomplete, this.continue, this.query});
-
-	CMResponse.fromJson(Map<String, dynamic> json) {
-		batchcomplete = json['batchcomplete'];
-		continue = json['continue'] != null ? new Continue.fromJson(json['continue']) : null;
-		query = json['query'] != null ? new Query.fromJson(json['query']) : null;
-	}
-
-	Map<String, dynamic> toJson() {
-		final Map<String, dynamic> data = new Map<String, dynamic>();
-		data['batchcomplete'] = this.batchcomplete;
-		if (this.continue != null) {
-      data['continue'] = this.continue!.toJson();
-    }
-		if (this.query != null) {
-      data['query'] = this.query!.toJson();
-    }
-		return data;
-	}
-}
-
 class Continue {
 	String? cmcontinue;
 	String? continue;
