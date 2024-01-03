@@ -6,7 +6,7 @@ class CategoryMembersResponse {
     query = json['query'] != null
       ? _fromJson(json['query'] as Map)
       : null;
-	}
+  }
 
   List<CategoryMember> _fromJson(Map query) {
     return query['categorymembers'] != null
