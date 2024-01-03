@@ -47,25 +47,3 @@ class Query {
 		return data;
 	}
 }
-
-class Categorymembers {
-	int? pageid;
-	int? ns;
-	String? title;
-
-	Categorymembers({this.pageid, this.ns, this.title});
-
-	Categorymembers.fromJson(Map<String, dynamic> json) {
-		pageid = json['pageid'];
-		ns = json['ns'];
-		title = json['title'];
-	}
-
-	Map<String, dynamic> toJson() {
-		final Map<String, dynamic> data = new Map<String, dynamic>();
-		data['pageid'] = this.pageid;
-		data['ns'] = this.ns;
-		data['title'] = this.title;
-		return data;
-	}
-}
