@@ -12,6 +12,6 @@ class CategoryMembersResponse {
     ? query['categorymembers'].map(
       (item) => CategoryMember.fromJson(item)
     ).toList()
-    : [];
+    : List.empty();
   }
 }
