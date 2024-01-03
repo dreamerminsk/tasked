@@ -21,8 +21,9 @@ class CategoryController extends GetxController {
           'action': 'query',
           'list': 'categorymembers',
           'cmtitle': '${link.title}',
+          'cmtype': 'subcat',
           'cmprop': 'ids|title|type|timestamp',
-          'cmlimit': max,
+          'cmlimit': 'max',
           'formatversion': 2,
           'format': 'json',
       };
