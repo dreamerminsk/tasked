@@ -1,6 +1,11 @@
 class CategoryMembersResponse {
 
-  final List<CategoryMember> members = [];
+  final List<CategoryMember> query = [];
+
+  CategoryMembersResponse.fromJson(Map<String, dynamic> json) {
+		//continue = json['continue'] != null ? new Continue.fromJson(json['continue']) : null;
+		query = json['query'] != null ? new Query.fromJson(json['query']) : null;
+	}
 }
 
 class CMResponse {
