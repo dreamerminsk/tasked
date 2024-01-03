@@ -60,7 +60,9 @@ class WatchlistView extends StatelessWidget {
 
   Widget _catCard(CategoryInfo cat) {
     return InkWell(
-      onTap: () { Get.toNamed(Routes.CATEGORY); },
+      onTap: () { 
+        Get.toNamed(Routes.CATEGORY, arguments: cat); 
+      },
       child: Card(
         child: ListTile(
           leading: Icon(Icons.tips_and_updates, size: 64.0),
