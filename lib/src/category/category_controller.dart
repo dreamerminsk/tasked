@@ -9,6 +9,8 @@ class CategoryController extends GetxController {
 
   final cmResponse = Rxn<CategoryMembersResponse>();
 
+  final members = <CategoryMember>[].obs;
+
   @override
   void onInit() {
     super.onInit();
