@@ -7,7 +7,7 @@ import '../wiki/responses/category_members_response.dart';
 class CategoryController extends GetxController {
   final category = Rxn<CategoryInfo>().obs;
 
-  final members = Rxn<CategoryMembersResponse>();
+  final cmResponse = Rxn<CategoryMembersResponse>();
 
   @override
   void onInit() {
