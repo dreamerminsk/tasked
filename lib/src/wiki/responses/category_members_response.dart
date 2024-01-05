@@ -12,11 +12,11 @@ class CategoryMembersResponse {
     return CategoryMembersResponse(
       query: json['query'] != null
       ? _fromJson(json['query'] as Map)
-      : null
+      : List.empty();
     );
   }
 
-  List<CategoryMember> _fromJson(Map query) {
+  static List<CategoryMember> _fromJson(Map query) {
     return query['categorymembers'] != null
     ? query['categorymembers'].map(
       (item) => CategoryMember.fromJson(item)
