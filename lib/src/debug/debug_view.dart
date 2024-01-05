@@ -8,6 +8,8 @@ class DebugView extends StatelessWidget {
   @override
   Widget build(context) {
     final DebugController c = Get.find();
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -26,10 +28,10 @@ class DebugView extends StatelessWidget {
         child: Center(
           child: Obx(() => Text(
             c.started.value?.toString() ?? 'NOT IMPLEMENTED',
-            style: TextStyle(
-              fontSize: Theme.of(context).textTheme.displaySmall,
-              color: Theme.of(context).colorScheme.onSecondaryContainer,
-            ), // TextStyle
+            style: textTheme.displaySmall
+              .copyWith(
+                style: colorScheme.onSecondaryContainer
+              ),
           )), // Text
         ), // Center
         decoration: BoxDecoration(
