@@ -2,11 +2,23 @@ import 'dart:core';
 
 import 'package:get/get.dart';
 
-class DebugController extends GetxController {
+class DebugController extends GetxService {
+  final started = Rxn<DateTime>();
 
   @override
   void onInit() {
     super.onInit();
+    started.value = DateTime.now();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
   }
 
 }

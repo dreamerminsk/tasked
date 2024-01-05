@@ -55,4 +55,3 @@ class CategoryInfo {
   @override
   int get hashCode => _equality().hashCode;
 }
-

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'watchlist_controller.dart';
-import '../wiki/category_info.dart';
+import '../wiki/entities/category_info.dart';
 import '../routes/app_pages.dart';
 
 class WatchlistView extends StatelessWidget {
@@ -60,12 +60,14 @@ class WatchlistView extends StatelessWidget {
 
   Widget _catCard(CategoryInfo cat) {
     return InkWell(
-      onTap: () { Get.toNamed(Routes.CATEGORY); },
+      onTap: () { 
+        Get.toNamed(Routes.CATEGORY, arguments: cat); 
+      },
       child: Card(
         child: ListTile(
           leading: Icon(Icons.tips_and_updates, size: 64.0),
           title: Text('${cat.title}'),
-          subtitle: Text('${cat.pages} pages, ${cat.subcats} categories')
+          subtitle: Text('${cat.subcats} categories, ${cat.pages} pages')
         ),
       ),
     );

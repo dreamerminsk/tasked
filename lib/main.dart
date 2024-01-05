@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             //primarySwatch: Colors.indigo,
             colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.red,
+              seedColor: Colors.orange,
             ),
           ),
           initialRoute: AppPages.INITIAL,

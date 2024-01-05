@@ -3,17 +3,17 @@ import 'dart:core';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-class WikiClient extends GetxService {
+class MediaWiki extends GetxService {
 
   late Dio dio;
 
-  static final WikiClient _instance = WikiClient._internal();
+  static final MediaWiki _instance = MediaWiki._internal();
 
-  factory WikiClient() {
+  factory MediaWiki() {
     return _instance;
   }
 
-  WikiClient._internal() {
+  MediaWiki._internal() {
     BaseOptions options = BaseOptions(
         //baseUrl: AppConstants.SERVER_API_URL,
         connectTimeout: const Duration(seconds: 32),

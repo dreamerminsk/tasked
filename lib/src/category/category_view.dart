@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
+import 'package:get/get.dart';
 
-//import 'category_controller.dart';
+import 'category_controller.dart';
 
 class CategoryView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    //final CategoryController c = Get.find();
+    final CategoryController c = Get.find();
 
     return Scaffold(
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-            Positioned(
-              top: 0.0,
-              left: 20.0,
-              child: Row(
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              color:
+                Theme.of(context).colorScheme.primary,
+              child: Column(
+                crossAxisAlignment:
+                  CrossAxisAlignment.center,
+                mainAxisAlignment:
+                  MainAxisAlignment.start,
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      'Category:*',
-                      style: Theme.of(context).textTheme.headlineLarge,
-                    ),
-                  ), //Expanded
+                  SizedBox(height: 20),
+                  Obx(() => Text(c.category.value?.title ?? '~~~')),
                 ],
-              ), //Row
-            ), //Positioned
+              ), // Column
+            ), // Container
+            Positioned(
+              top: 150,
+              child: Container(
+                child: ListView(),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ), // BorderRadius
+                  color: Theme.of(context).colorScheme.secondaryContainer,
+                ), // BoxDecoration
+              ), //Container
+            ), // Positioned
           ],
         ), //Stack
       ),
