@@ -24,7 +24,12 @@ class DebugView extends StatelessWidget {
         width: Get.width,
         height: 200,
         child: Center(
-          child: Text('NOT IMPLEMENTED',),
+          child: Text('NOT IMPLEMENTED',
+            style: TextStyle(
+              fontSize: 24,
+              color: Theme.of(context).colorScheme.onSecondaryContainer,
+            ),
+          ),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
