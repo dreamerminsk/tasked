@@ -31,7 +31,7 @@ class CategoryController extends GetxController {
           'cmtype': 'subcat',
           'cmprop': 'ids|title|type|timestamp',
           'cmlimit': 'max',
-          'formatversion': 2,
+          'formatversion': '2',
           'format': 'json',
       };
       final result = await fetchMap(url, params: params);
