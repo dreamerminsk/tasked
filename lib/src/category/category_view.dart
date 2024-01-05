@@ -29,9 +29,9 @@ class CategoryView extends StatelessWidget {
                   SizedBox(height: 20),
                   Obx(() => Text(
                     c.category.value?.title ?? '~~~',
-                    style: textTheme.displaySmall
+                    style: textTheme.displaySmall!
                       .copyWith(
-                        style: colorScheme.onPrimary
+                        color: colorScheme.onPrimary
                       ),
                   )), // Text
                 ],
