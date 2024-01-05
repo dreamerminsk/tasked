@@ -10,52 +10,52 @@ import '../wiki/entities/wiki_link.dart';
 final links = <WikiLink>[
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 films'),
+      title: 'Category:2024 films'),
     WikiLink(
       prefix: 'en',
       title: 'Category:21st-century actors'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in television'),
+      title: 'Category:2024 in television'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 anime'),
+      title: 'Category:2024 anime'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 books'),
+      title: 'Category:2024 books'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in music'),
+      title: 'Category:2024 in music'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 video games'),
+      title: 'Category:2024 video games'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in basketball'),
+      title: 'Category:2024 in basketball'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in ice hockey'),
+      title: 'Category:2024 in ice hockey'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in snooker'),
+      title: 'Category:2024 in snooker'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in biathlon'),
+      title: 'Category:2024 in biathlon'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in alpine skiing'),
+      title: 'Category:2024 in alpine skiing'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in figure skating'),
+      title: 'Category:2024 in figure skating'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in ice hockey'),
+      title: 'Category:2024 in ice hockey'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 in tennis'),
+      title: 'Category:2024 in tennis'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 crimes'),
+      title: 'Category:2024 crimes'),
     WikiLink(
       prefix: 'en',
       title: 'Category:21st-century rulers'),
@@ -79,22 +79,22 @@ final links = <WikiLink>[
       title: 'Category:Cars introduced in 2023'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:Mobile phones introduced in 2023'),
+      title: 'Category:Mobile phones introduced in 2024'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:2023 software'),
+      title: 'Category:2024 software'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:Buildings and structures completed in 2023'),
+      title: 'Category:Buildings and structures completed in 2024'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:Buildings and structures demolished in 2023'),
+      title: 'Category:Buildings and structures demolished in 2024'),
   ];
 
 class WatchlistController extends GetxController {
   final categories = <Result<CategoryInfo>>[
   ].obs;
-  var year = 2023.obs;
+  var year = 2024.obs;
 
   @override
   void onInit() {
