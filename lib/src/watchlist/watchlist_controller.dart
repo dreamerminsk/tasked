@@ -48,7 +48,7 @@ final links = <WikiLink>[
       prefix: 'en',
       title: 'Category:2023 in figure skating'),
     WikiLink(
-      prefix 'en',
+      prefix: 'en',
       title: 'Category:2023 in ice hockey'),
     WikiLink(
       prefix: 'en',
