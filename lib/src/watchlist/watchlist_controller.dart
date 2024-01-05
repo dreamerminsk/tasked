@@ -125,7 +125,7 @@ class WatchlistController extends GetxController {
           'action': 'query',
           'prop': 'categoryinfo',
           'titles': '${link.title}',
-          'formatversion':2,
+          'formatversion': '2',
           'format': 'json',
       };
       final result = await fetchMap(url, params: params);
