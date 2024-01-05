@@ -2,13 +2,13 @@ import '../entities/category_member.dart';
 
 class CategoryMembersResponse {
 
-  final List<CategoryMember> query = [];
+  final List<CategoryMember> query;
 
   const CategoryMembersResponse({
     this.query,
   });
 
-  CategoryMembersResponse.fromJson(Map<String, dynamic> json) {
+  factory CategoryMembersResponse.fromJson(Map<String, dynamic> json) {
     return CategoryMembersResponse(
       query: json['query'] != null
       ? _fromJson(json['query'] as Map)
