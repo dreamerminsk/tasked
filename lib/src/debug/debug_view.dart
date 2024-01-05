@@ -27,9 +27,8 @@ class DebugView extends StatelessWidget {
           child: Text('NOT IMPLEMENTED',),
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40),
-            topRight: Radius.circular(40),
+          borderRadius: BorderRadius.all(
+            Radius.circular(40),
           ), // BorderRadius
           color: Theme.of(context).colorScheme.secondaryContainer,
         ), // BoxDecoration
