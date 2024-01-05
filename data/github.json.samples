@@ -9,3 +9,5 @@ https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/
 https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/schemas/periodicTableJSON.schema
 https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json
 https://raw.githubusercontent.com/dylanwal/dictpy/master/tests/cid_6.json
+http://api.open-notify.org/astros.json
+http://api.open-notify.org/iss-now.json
