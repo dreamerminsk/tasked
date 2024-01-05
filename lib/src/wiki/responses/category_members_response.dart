@@ -4,10 +4,16 @@ class CategoryMembersResponse {
 
   final List<CategoryMember> query = [];
 
+  const CategoryMembersResponse({
+    this.query,
+  });
+
   CategoryMembersResponse.fromJson(Map<String, dynamic> json) {
-    query = json['query'] != null
+    return CategoryMembersResponse(
+      query: json['query'] != null
       ? _fromJson(json['query'] as Map)
-      : null;
+      : null
+    );
   }
 
   List<CategoryMember> _fromJson(Map query) {
