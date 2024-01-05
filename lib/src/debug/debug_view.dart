@@ -28,9 +28,9 @@ class DebugView extends StatelessWidget {
         child: Center(
           child: Obx(() => Text(
             c.started.value?.toString() ?? 'NOT IMPLEMENTED',
-            style: textTheme.displaySmall
+            style: textTheme.displaySmall!
               .copyWith(
-                style: colorScheme.onSecondaryContainer
+                color: colorScheme.onSecondaryContainer
               ),
           )), // Text
         ), // Center
