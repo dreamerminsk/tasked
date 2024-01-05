@@ -5,6 +5,7 @@ import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
 import '../wiki/entities/category_info.dart';
+import '../wiki/entities/category_member.dart';
 import '../wiki/responses/category_members_response.dart';
 
 class CategoryController extends GetxController {
