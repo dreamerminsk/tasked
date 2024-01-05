@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'watchlist_controller.dart';
-import '../wiki/category_info.dart';
+import '../wiki/entities/category_info.dart';
 import '../routes/app_pages.dart';
 
 class WatchlistView extends StatelessWidget {
