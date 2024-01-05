@@ -25,7 +25,7 @@ class DebugView extends StatelessWidget {
         height: 200,
         child: Center(
           child: Obx(() => Text(
-            c.started?.value.toString() ?? 'NOT IMPLEMENTED',
+            c.started.value?.toString() ?? 'NOT IMPLEMENTED',
             style: TextStyle(
               fontSize: 24,
               color: Theme.of(context).colorScheme.onSecondaryContainer,
