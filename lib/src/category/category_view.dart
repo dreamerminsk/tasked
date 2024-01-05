@@ -25,7 +25,7 @@ class CategoryView extends StatelessWidget {
                   MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 20),
-                  Obx(() => Text(c.category.title)),
+                  Obx(() => Text(c.category.value.title)),
                 ],
               ), // Column
             ), // Container
