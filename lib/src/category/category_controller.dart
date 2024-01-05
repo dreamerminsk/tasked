@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:async/async.dart';
+import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
 import '../wiki/entities/category_info.dart';
