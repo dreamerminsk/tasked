@@ -8,6 +8,8 @@ class CategoryView extends StatelessWidget {
   @override
   Widget build(context) {
     final CategoryController c = Get.find();
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       body: SafeArea(
@@ -27,10 +29,10 @@ class CategoryView extends StatelessWidget {
                   SizedBox(height: 20),
                   Obx(() => Text(
                     c.category.value?.title ?? '~~~',
-                    style: TextStyle(
-                      fontSize: Theme.of(context).textTheme.displaySmall,
-                      color: Theme.of(context).colorScheme.onPrimary,
-            ), // TextStyle
+                    style: textTheme.displaySmall
+                      .copyWith(
+                        style: colorScheme.onPrimary
+                      ),
                   )), // Text
                 ],
               ), // Column
