@@ -57,7 +57,7 @@ final links = <WikiLink>[
       prefix: 'en',
       title: 'Category:2023 crimes'),
     WikiLink(
-      prefix 'en',
+      prefix: 'en',
       title: 'Category:21st-century rulers'),
     WikiLink(
       prefix: 'en',
