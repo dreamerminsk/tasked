@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../wiki/entities/category_info.dart';
 import '../wiki/entities/category_member.dart';
+import '../wiki/entities/wiki_link.dart';
 import '../wiki/responses/category_members_response.dart';
 
 class CategoryController extends GetxController {
@@ -20,7 +21,7 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
-  Future<Result<CateroryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
+  Future<Result<CategoryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
     try {
       final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
       final params = {
