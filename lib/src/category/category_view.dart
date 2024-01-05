@@ -30,7 +30,7 @@ class CategoryView extends StatelessWidget {
               ), // Column
             ), // Container
             Positioned(
-              top: 150,
+              top: 200,
               child: Container(
                 child: ListView(),
                 decoration: BoxDecoration(
