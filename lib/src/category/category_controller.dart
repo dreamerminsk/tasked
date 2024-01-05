@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:async/async.dart';
 import 'package:get/get.dart';
 
 import '../wiki/entities/category_info.dart';
