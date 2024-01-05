@@ -38,7 +38,11 @@ class CategoryView extends StatelessWidget {
             Positioned(
               top: 200,
               child: Container(
-                child: ListView(),
+                child: ListView(
+                  children: List<Widget>.generate(
+                    32, (int index) => Text('$index')
+                  ),
+                ), // ListView
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
