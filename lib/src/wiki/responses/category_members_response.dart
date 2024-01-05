@@ -1,3 +1,5 @@
+import '../entities/category_member.dart';
+
 class CategoryMembersResponse {
 
   final List<CategoryMember> query = [];
