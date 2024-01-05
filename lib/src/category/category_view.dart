@@ -28,7 +28,7 @@ class CategoryView extends StatelessWidget {
                   Obx(() => Text(
                     c.category.value?.title ?? '~~~',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: Theme.of(context).textTheme.displaySmall,
                       color: Theme.of(context).colorScheme.onPrimary,
             ), // TextStyle
                   )), // Text
