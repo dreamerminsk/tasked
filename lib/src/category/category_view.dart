@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
+import 'package:get/get.dart';
 
-//import 'category_controller.dart';
+import 'category_controller.dart';
 
 class CategoryView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    //final CategoryController c = Get.find();
+    final CategoryController c = Get.find();
 
     return Scaffold(
       body: SafeArea(
@@ -25,7 +25,7 @@ class CategoryView extends StatelessWidget {
                   MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 20),
-                  Text('Category:*'),
+                  Obx(() => Text(c.category.title)),
                 ],
               ), // Column
             ), // Container
