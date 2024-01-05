@@ -5,14 +5,14 @@ class CategoryMembersResponse {
   final List<CategoryMember> query;
 
   const CategoryMembersResponse({
-    this.query,
+    required this.query,
   });
 
   factory CategoryMembersResponse.fromJson(Map<String, dynamic> json) {
     return CategoryMembersResponse(
       query: json['query'] != null
       ? _fromJson(json['query'] as Map)
-      : List.empty();
+      : List.empty(),
     );
   }
 
