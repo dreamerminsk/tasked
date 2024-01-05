@@ -19,6 +19,7 @@ class CategoryController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    category.value = Get.arguments;
   }
 
   Future<Result<CategoryMembersResponse>> fetchCategoryMembers(WikiLink link) async {

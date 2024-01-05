@@ -25,14 +25,24 @@ class CategoryView extends StatelessWidget {
                   MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 20),
-                  Obx(() => Text(c.category.value?.title ?? '~~~')),
+                  Obx(() => Text(
+                    c.category.value?.title ?? '~~~',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Theme.of(context).colorScheme.onPrimary,
+            ), // TextStyle
+                  )), // Text
                 ],
               ), // Column
             ), // Container
             Positioned(
               top: 200,
               child: Container(
-                child: ListView(),
+                child: ListView(
+                  children: List<Widget>.generate(
+                    32, (int index) => Text('$index')
+                  ),
+                ), // ListView
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40),
