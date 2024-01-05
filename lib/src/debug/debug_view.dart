@@ -27,14 +27,14 @@ class DebugView extends StatelessWidget {
           child: Obx(() => Text(
             c.started.value?.toString() ?? 'NOT IMPLEMENTED',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: Theme.of(context).textTheme.displaySmall,
               color: Theme.of(context).colorScheme.onSecondaryContainer,
             ), // TextStyle
           )), // Text
         ), // Center
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
-            Radius.circular(40),
+            Radius.circular(30),
           ), // BorderRadius
           color: Theme.of(context).colorScheme.secondaryContainer,
         ), // BoxDecoration
