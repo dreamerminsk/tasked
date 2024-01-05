@@ -37,6 +37,9 @@ class CategoryView extends StatelessWidget {
             ), // Container
             Positioned(
               top: 200,
+              bottom: 0,
+              left: 0,
+              right: 0,
               child: Container(
                 child: ListView(
                   children: List<Widget>.generate(
