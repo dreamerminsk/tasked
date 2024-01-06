@@ -8,15 +8,21 @@ class HealthWidget extends StatelessWidget {
     return Container(
       width: Get.width,
       height: 200,
-      child: Center(
-        child: Obx(() => Text(
-          c.started.value?.toString() ?? 'NOT IMPLEMENTED',
-          style: textTheme.displaySmall!
-            .copyWith(
-              color: colorScheme.onSecondaryContainer
-            ),
-        )), // Text
-      ), // Center
+      child: Column(
+        crossAxisAlignment:
+          CrossAxisAlignment.center,
+        mainAxisAlignment:
+          MainAxisAlignment.center,
+        children: <Widget>[
+          Obx(() => Text(
+            c.started.value?.toString() ?? 'NOT IMPLEMENTED',
+              style: textTheme.displaySmall!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+          )), // Text
+        ],
+      ), // Column
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(30),
