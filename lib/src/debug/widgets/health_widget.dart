@@ -20,13 +20,13 @@ class HealthWidget extends StatelessWidget {
         mainAxisAlignment:
           MainAxisAlignment.center,
         children: <Widget>[
-          Obx(() => Text(
+          Text(
             started,
             style: textTheme.displaySmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
-          )), // Text
+          ), // Text
         ],
       ), // Column
       decoration: BoxDecoration(
