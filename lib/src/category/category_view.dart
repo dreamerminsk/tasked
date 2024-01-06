@@ -18,18 +18,19 @@ class CategoryView extends StatelessWidget {
             Container(
               height: double.infinity,
               width: double.infinity,
+              padding: const EdgeInsets.all(8),
               color:
-                Theme.of(context).colorScheme.primary,
+                colorScheme.primary,
               child: Column(
                 crossAxisAlignment:
                   CrossAxisAlignment.center,
                 mainAxisAlignment:
                   MainAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 20),
+                  //SizedBox(height: 20),
                   Obx(() => Text(
                     c.category.value?.title ?? '~~~',
-                    style: textTheme.displaySmall!
+                    style: textTheme.headlineSmall!
                       .copyWith(
                         color: colorScheme.onPrimary
                       ),
@@ -44,16 +45,22 @@ class CategoryView extends StatelessWidget {
               right: 0,
               child: Container(
                 child: ListView(
+                  padding: const EdgeInsets.all(8),
                   children: List<Widget>.generate(
-                    32, (int index) => Text('$index')
+                    32, (int index) => Text('$index',
+                      style: textTheme.bodyLarge!
+                      .copyWith(
+                        color: colorScheme.onSecondaryContainer
+                      ),
+                    )
                   ),
                 ), // ListView
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ), // BorderRadius
-                  color: Theme.of(context).colorScheme.secondaryContainer,
+                  color: colorScheme.secondaryContainer,
                 ), // BoxDecoration
               ), //Container
             ), // Positioned
