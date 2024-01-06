@@ -25,7 +25,7 @@ class HealthWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             started,
-            style: textTheme.displaySmall!
+            style: textTheme.headlineSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
@@ -34,7 +34,7 @@ class HealthWidget extends StatelessWidget {
       ), // Column
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
-          Radius.circular(30),
+          Radius.circular(20),
         ), // BorderRadius
         color: colorScheme.secondaryContainer,
       ), // BoxDecoration
