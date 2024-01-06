@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'debug_controller.dart';
+import 'widgets/health_widget.dart';
 
 class DebugView extends StatelessWidget {
 
@@ -22,25 +23,9 @@ class DebugView extends StatelessWidget {
           )
         ]),
 
-      body: Container(
-        width: Get.width,
-        height: 200,
-        child: Center(
-          child: Obx(() => Text(
-            c.started.value?.toString() ?? 'NOT IMPLEMENTED',
-            style: textTheme.displaySmall!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          )), // Text
-        ), // Center
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(30),
-          ), // BorderRadius
-          color: colorScheme.secondaryContainer,
-        ), // BoxDecoration
-      ), //Container
+      body: Obx(() => HealthWidget(
+        started: c.started.value?.toString() ?? 'NOT IMPLEMENTED',
+      )),
     );
   }
 
