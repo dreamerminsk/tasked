@@ -1,10 +1,28 @@
 class HealthWidget extends StatelessWidget {
-const HealthWidget({
+  const HealthWidget({
     super.key
   });
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(color: color, child: child);
-  }
+    return Container(
+      width: Get.width,
+      height: 200,
+      child: Center(
+        child: Obx(() => Text(
+          c.started.value?.toString() ?? 'NOT IMPLEMENTED',
+          style: textTheme.displaySmall!
+            .copyWith(
+              color: colorScheme.onSecondaryContainer
+            ),
+        )), // Text
+      ), // Center
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(30),
+        ), // BorderRadius
+        color: colorScheme.secondaryContainer,
+      ), // BoxDecoration
+    ); //Container
+  };
 }
