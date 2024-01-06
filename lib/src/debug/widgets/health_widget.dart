@@ -1,6 +1,9 @@
 class HealthWidget extends StatelessWidget {
+  final String started;
+  
   const HealthWidget({
-    super.key
+    super.key,
+    this.started = 'NOT IMPLEMENTED'
   });
 
   @override
@@ -15,11 +18,11 @@ class HealthWidget extends StatelessWidget {
           MainAxisAlignment.center,
         children: <Widget>[
           Obx(() => Text(
-            c.started.value?.toString() ?? 'NOT IMPLEMENTED',
-              style: textTheme.displaySmall!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
+            started,
+            style: textTheme.displaySmall!
+              .copyWith(
+                color: colorScheme.onSecondaryContainer
+              ),
           )), // Text
         ],
       ), // Column
