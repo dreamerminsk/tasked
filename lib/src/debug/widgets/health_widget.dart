@@ -32,6 +32,7 @@ class HealthWidget extends StatelessWidget {
           ), // Text
         ],
       ), // Column
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(20),
