@@ -1,0 +1,3 @@
+class HealthWidget extends StatelessWidget {
+
+}
