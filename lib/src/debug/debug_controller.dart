@@ -11,7 +11,7 @@ class DebugController extends GetxService {
   int get requests => _requests.value;
 
   void newReq() {
-    _requests = requests + 1;
+    _requests = _requests + 1;
   }
 
   @override
