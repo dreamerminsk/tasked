@@ -44,17 +44,7 @@ class CategoryView extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                child: ListView(
-                  padding: const EdgeInsets.all(8),
-                  children: List<Widget>.generate(
-                    32, (int index) => Text('$index',
-                      style: textTheme.bodyLarge!
-                      .copyWith(
-                        color: colorScheme.onSecondaryContainer
-                      ),
-                    )
-                  ),
-                ), // ListView
+                child: Obx(() => _buildList(context, c.members)),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -80,6 +70,25 @@ class CategoryView extends StatelessWidget {
               child: _buildCard(context, query[index]));
           },
         )
-      : const Center(child: Text('No items'));
+      : ListView(
+          padding: const EdgeInsets.all(8),
+          children: List<Widget>.generate(
+            32, (int index) => Text('$index',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            )
+          ),
+        ); // ListView
+  }
+
+  Widget _buildCard(BuildContext context, CategoryMember cm) {
+    return Text('$cm',
+      style: textTheme.bodyLarge!
+        .copyWith(
+          color: colorScheme.onSecondaryContainer
+        ),
+    );
   }
 }
