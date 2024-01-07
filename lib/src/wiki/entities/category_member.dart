@@ -30,7 +30,7 @@ class CategoryMember {
       pageid: json['pageid'] ?? 0,
       lang: json['lang'] ?? 'en',
       title: json['title'] ?? '',
-      timestamp: json['timestamp'] ?? null,
+      timestamp: DateTime.parse(json['timestamp']) ?? null,
     );
   }
 
