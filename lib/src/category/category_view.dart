@@ -6,14 +6,11 @@ import '../wiki/entities/category_member.dart';
 
 class CategoryView extends StatelessWidget {
 
-  final textTheme = Theme.of(context).textTheme;
-  
-  final colorScheme = Theme.of(context).colorScheme;
-
-
   @override
   Widget build(context) {
     final CategoryController c = Get.find();
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
     
     return Scaffold(
       body: SafeArea(
@@ -65,6 +62,9 @@ class CategoryView extends StatelessWidget {
   }
 
   Widget _buildList(BuildContext context, List<CategoryMember> query) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return query.length > 0
       ? ListView.builder(
           itemCount: query.length,
@@ -88,6 +88,9 @@ class CategoryView extends StatelessWidget {
   }
 
   Widget _buildCard(BuildContext context, CategoryMember cm) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Text('$cm',
       style: textTheme.bodyLarge!
         .copyWith(
