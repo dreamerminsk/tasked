@@ -6,7 +6,9 @@ class DebugController extends GetxService {
   
   final started = Rxn<DateTime>();
 
-  var requests = 0.obs;
+  var _requests = 0.obs;
+
+  int get requests => this.requests.value;
 
   @override
   void onInit() {
