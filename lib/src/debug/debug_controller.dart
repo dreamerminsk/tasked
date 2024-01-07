@@ -6,12 +6,12 @@ class DebugController extends GetxService {
   
   final started = Rxn<DateTime>();
 
-  var _requests = 0.obs;
+  var requests = 0.obs;
 
-  int get requests => _requests.value;
+  //int get requests => _requests.value;
 
   void newReq() {
-    _requests += 1;
+    requests += 1;
   }
 
   @override
