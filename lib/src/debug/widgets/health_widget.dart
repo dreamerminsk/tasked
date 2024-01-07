@@ -33,7 +33,7 @@ class HealthWidget extends StatelessWidget {
               ),
           ), // Text
           Text(
-            'requests: ${requests}',
+            'requests: $requests',
             style: textTheme.titleMedium!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
