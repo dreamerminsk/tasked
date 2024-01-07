@@ -4,6 +4,7 @@ import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
+import '../debug/debug_controller.dart';
 import '../wiki/entities/category_info.dart';
 import '../wiki/entities/wiki_link.dart';
 
@@ -92,8 +93,11 @@ final links = <WikiLink>[
   ];
 
 class WatchlistController extends GetxController {
-  final categories = <Result<CategoryInfo>>[
-  ].obs;
+
+  final DebugController debug = Get.find();
+
+  final categories = <Result<CategoryInfo>>[].obs;
+
   var year = 2024.obs;
 
   @override
@@ -161,6 +165,7 @@ Future<Result<Map>> fetchMap(
 
   Future<Result<String>> fetchString(String link) async {
     try {
+      debug.newReq();
       final dio.Response<String> response = await dio.Dio().get(link);
       return Result.value(response.data.toString());
     } catch (e, s) {
