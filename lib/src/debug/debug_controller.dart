@@ -3,7 +3,10 @@ import 'dart:core';
 import 'package:get/get.dart';
 
 class DebugController extends GetxService {
+  
   final started = Rxn<DateTime>();
+
+  var requests = 0.obs;
 
   @override
   void onInit() {
