@@ -24,7 +24,20 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
-  void _update(Result<CategoryMembersResponse> value) {
+  void _update(Result<CategoryMembersResponse> result) {
+    switch (result) {
+      case ErrorResult e:
+        print(e.error);
+      case ValueResult v:
+        _setMembers(v.value.query);
+      default:
+        print('very strange');
+    }
+  }
+
+  void _setMembers(List<CategoryMember> query) {
+    members.clear();
+    members.addAll(query);
   }
 
   Future<Result<CategoryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
