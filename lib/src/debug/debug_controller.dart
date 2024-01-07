@@ -8,7 +8,11 @@ class DebugController extends GetxService {
 
   var _requests = 0.obs;
 
-  int get requests => this.requests.value;
+  int get requests => _requests.value;
+
+  void newReq() {
+    _requests = requests + 1;
+  }
 
   @override
   void onInit() {
