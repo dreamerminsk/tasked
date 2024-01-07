@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'category_controller.dart';
+import '../wiki/entities/category_member.dart';
 
 class CategoryView extends StatelessWidget {
+
+  final textTheme = Theme.of(context).textTheme;
+  
+  final colorScheme = Theme.of(context).colorScheme;
+
 
   @override
   Widget build(context) {
     final CategoryController c = Get.find();
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
-
+    
     return Scaffold(
       body: SafeArea(
         child: Stack(
