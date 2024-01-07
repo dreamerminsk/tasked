@@ -69,4 +69,17 @@ class CategoryView extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildList(BuildContext context, List<CategoryMember> query) {
+    return query.length > 0
+      ? ListView.builder(
+          itemCount: query.length,
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+              onTap: () { },
+              child: _buildCard(context, query[index]));
+          },
+        )
+      : const Center(child: Text('No items'));
+  }
 }
