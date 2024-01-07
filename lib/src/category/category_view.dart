@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'category_controller.dart';
+import '../wiki/entities/category_member.dart';
 
 class CategoryView extends StatelessWidget {
 
@@ -10,7 +11,7 @@ class CategoryView extends StatelessWidget {
     final CategoryController c = Get.find();
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-
+    
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -44,17 +45,7 @@ class CategoryView extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                child: ListView(
-                  padding: const EdgeInsets.all(8),
-                  children: List<Widget>.generate(
-                    32, (int index) => Text('$index',
-                      style: textTheme.bodyLarge!
-                      .copyWith(
-                        color: colorScheme.onSecondaryContainer
-                      ),
-                    )
-                  ),
-                ), // ListView
+                child: Obx(() => _buildList(context, c.members)),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -67,6 +58,44 @@ class CategoryView extends StatelessWidget {
           ],
         ), //Stack
       ),
+    );
+  }
+
+  Widget _buildList(BuildContext context, List<CategoryMember> query) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return query.length > 0
+      ? ListView.builder(
+          itemCount: query.length,
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+              onTap: () { },
+              child: _buildCard(context, query[index]));
+          },
+        )
+      : ListView(
+          padding: const EdgeInsets.all(8),
+          children: List<Widget>.generate(
+            32, (int index) => Text('$index',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            )
+          ),
+        ); // ListView
+  }
+
+  Widget _buildCard(BuildContext context, CategoryMember cm) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Text('$cm',
+      style: textTheme.bodyLarge!
+        .copyWith(
+          color: colorScheme.onSecondaryContainer
+        ),
     );
   }
 }

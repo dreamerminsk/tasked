@@ -18,8 +18,26 @@ class CategoryController extends GetxController {
 
   @override
   void onInit() {
-    super.onInit();
     category.value = Get.arguments;
+    fetchCategoryMembers(WikiLink(prefix: 'en', title: category.value!.title))
+      .then((res) => _update(res));
+    super.onInit();
+  }
+
+  void _update(Result<CategoryMembersResponse> result) {
+    switch (result) {
+      case ErrorResult e:
+        print(e.error);
+      case ValueResult v:
+        _setMembers(v.value.query);
+      default:
+        print('very strange');
+    }
+  }
+
+  void _setMembers(List<CategoryMember> query) {
+    members.clear();
+    members.addAll(query);
   }
 
   Future<Result<CategoryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
