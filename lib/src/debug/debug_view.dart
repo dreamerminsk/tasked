@@ -24,6 +24,7 @@ class DebugView extends StatelessWidget {
         ]),
 
       body: ListView(
+        padding: EdgeInsets.all(8),
         children: <Widget>[
           Obx(() => HealthWidget(
             started: c.started.value?.toString() ?? 'NOT IMPLEMENTED',
