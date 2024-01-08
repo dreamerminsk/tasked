@@ -6,7 +6,7 @@ class DebugBinding implements Bindings {
   @override
   void dependencies() {
     Get.put<DebugController>(
-      () => DebugController(),
+      DebugController(),
       tag: 'debugger',
     );
   }
