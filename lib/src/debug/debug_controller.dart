@@ -8,6 +8,8 @@ class DebugController extends GetxService {
 
   var requests = 0.obs;
 
+  double get rpm => requests / (DateTime.now.difference(started?.value ?? DateTime.now()).inMinutes);
+
   //int get requests => _requests.value;
 
   void newReq() {
