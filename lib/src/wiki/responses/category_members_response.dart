@@ -12,7 +12,7 @@ class CategoryMembersResponse {
     return CategoryMembersResponse(
       query: json['query'] != null
       ? _fromJson(json['query'] as Map)
-      : List.empty(),
+      : List<CategoryMember>.empty(),
     );
   }
 
