@@ -87,17 +87,17 @@ class CategoryView extends StatelessWidget {
         ); // ListView
   }
 
-  Widget _buildCard(BuildContext context, CategoryMember cm) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+  //Widget _buildCard(BuildContext context, CategoryMember cm) {
+  //  final textTheme = Theme.of(context).textTheme;
+  //  final colorScheme = Theme.of(context).colorScheme;
 
-    return Text('$cm',
-      style: textTheme.bodyLarge!
-        .copyWith(
-          color: colorScheme.onSecondaryContainer
-        ),
-    );
-  }
+  //  return Text('$cm',
+  //    style: textTheme.bodyLarge!
+  //      .copyWith(
+  //        color: colorScheme.onSecondaryContainer
+  //      ),
+  //  );
+  //}
 
   Widget _catCard(BuildContext context, CategoryMember cm) {
     return InkWell(
