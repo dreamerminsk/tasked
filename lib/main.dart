@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'src/debug/debug_binding.dart';
 import 'src/routes/app_pages.dart';
 
 void main() => runApp(MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colors.green,
             ),
           ),
+          initialBinding: DebugBinding(),
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
         );
