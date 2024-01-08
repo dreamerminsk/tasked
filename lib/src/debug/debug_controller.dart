@@ -16,8 +16,8 @@ class DebugController extends GetxService {
 
   @override
   void onInit() {
-    super.onInit();
     started.value = DateTime.now();
+    super.onInit();
   }
 
   @override
