@@ -25,7 +25,7 @@ class HealthWidget extends StatelessWidget {
         crossAxisAlignment:
           CrossAxisAlignment.start,
         mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+          MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
             started,
