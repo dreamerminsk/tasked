@@ -4,11 +4,13 @@ import 'package:get/get.dart';
 class HealthWidget extends StatelessWidget {
   final String started;
   final int requests;
+  final double rpm;
   
   const HealthWidget({
     super.key,
     this.started = 'NOT IMPLEMENTED',
-    this.requests = 0
+    this.requests = 0,
+    this.rpm = 0.0,
   });
 
   @override
@@ -33,7 +35,7 @@ class HealthWidget extends StatelessWidget {
               ),
           ), // Text
           Text(
-            'requests: $requests',
+            'requests: $requests, rpm: $rpm',
             style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
