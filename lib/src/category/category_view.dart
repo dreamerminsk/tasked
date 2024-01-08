@@ -71,7 +71,7 @@ class CategoryView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return InkWell(
               onTap: () { },
-              child: _buildCard(context, query[index]));
+              child: _catCard(context, query[index]));
           },
         )
       : ListView(
@@ -96,6 +96,21 @@ class CategoryView extends StatelessWidget {
         .copyWith(
           color: colorScheme.onSecondaryContainer
         ),
+    );
+  }
+
+  Widget _catCard(BuildContext context, CategoryMember cm) {
+    return InkWell(
+      onTap: () { 
+        //Get.toNamed(Routes.CATEGORY, arguments: cat); 
+      },
+      child: Card(
+        child: ListTile(
+          leading: Icon(Icons.category, size: 64.0),
+          title: Text('${cm.title}'),
+          //subtitle: Text('${cat.subcats} categories, ${cat.pages} pages')
+        ),
+      ),
     );
   }
 }
