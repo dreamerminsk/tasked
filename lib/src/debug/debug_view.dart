@@ -29,6 +29,7 @@ class DebugView extends StatelessWidget {
           Obx(() => HealthWidget(
             started: c.started.value?.toString() ?? 'NOT IMPLEMENTED',
             requests: c.requests.value,
+            rpm: c.rpm,
           )),
         ],
       ), // ListView
