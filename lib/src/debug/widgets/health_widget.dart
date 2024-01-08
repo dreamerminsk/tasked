@@ -21,9 +21,9 @@ class HealthWidget extends StatelessWidget {
       height: 200,
       child: Column(
         crossAxisAlignment:
-          CrossAxisAlignment.center,
+          CrossAxisAlignment.start,
         mainAxisAlignment:
-          MainAxisAlignment.center,
+          MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
             started,
@@ -34,14 +34,14 @@ class HealthWidget extends StatelessWidget {
           ), // Text
           Text(
             'requests: $requests',
-            style: textTheme.titleMedium!
+            style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
           ), // Text
         ],
       ), // Column
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(20),
