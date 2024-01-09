@@ -90,6 +90,9 @@ final links = <WikiLink>[
     WikiLink(
       prefix: 'en',
       title: 'Category:Buildings and structures demolished in 2024'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Current events'),
   ];
 
 class WatchlistController extends GetxController {
