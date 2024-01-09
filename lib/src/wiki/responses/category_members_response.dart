@@ -18,7 +18,7 @@ class CategoryMembersResponse {
 
   static List<CategoryMember> _fromJson(Map query) {
     return query['categorymembers'] != null
-    ? query['categorymembers'].map(
+    ? query['categorymembers'].map<CategoryMember>(
       (item) => CategoryMember.fromJson(item)
     ).toList()
     : List<CategoryMember>.empty();
