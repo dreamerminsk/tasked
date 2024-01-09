@@ -65,7 +65,7 @@ class CategoryController extends GetxController {
           return Result.error('very strange');
       }
     } catch(e, s) {
-      Get.snackbar('fetchCategoryMembers', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('fetchCategoryMembers', '$e,\r\n$s', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
