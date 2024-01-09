@@ -77,7 +77,7 @@ final links = <WikiLink>[
       title: 'Category:Ice hockey players'),
     WikiLink(
       prefix: 'en',
-      title: 'Category:Cars introduced in 2023'),
+      title: 'Category:Cars introduced in 2024'),
     WikiLink(
       prefix: 'en',
       title: 'Category:Mobile phones introduced in 2024'),
@@ -94,7 +94,7 @@ final links = <WikiLink>[
 
 class WatchlistController extends GetxController {
 
-  final DebugController debug = Get.find();
+  final DebugController debug = Get.find(tag: 'debugger');
 
   final categories = <Result<CategoryInfo>>[].obs;
 
