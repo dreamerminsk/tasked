@@ -93,6 +93,15 @@ final links = <WikiLink>[
     WikiLink(
       prefix: 'en',
       title: 'Category:Current events'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2024 in science'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2024 in politics'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2024 in sports'),
   ];
 
 class WatchlistController extends GetxController {
