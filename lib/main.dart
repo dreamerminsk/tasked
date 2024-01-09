@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             //primarySwatch: Colors.indigo,
             colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.primaries[Random().nextInt(Colors.primaries.length),
+              seedColor: Colors.primaries[Random().nextInt(Colors.primaries.length)],
             ),
           ),
           initialBinding: DebugBinding(),
