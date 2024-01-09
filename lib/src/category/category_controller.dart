@@ -4,12 +4,15 @@ import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
+import '../debug/debug_controller.dart';
 import '../wiki/entities/category_info.dart';
 import '../wiki/entities/category_member.dart';
 import '../wiki/entities/wiki_link.dart';
 import '../wiki/responses/category_members_response.dart';
 
 class CategoryController extends GetxController {
+  final DebugController debug = Get.find(tag: 'debugger');
+  
   final category = Rxn<CategoryInfo>();
 
   final cmResponse = Rxn<CategoryMembersResponse>();
@@ -72,6 +75,7 @@ class CategoryController extends GetxController {
 
 Future<Result<Map>> fetchMap(String link, {Map<String, String>? params}) async {
     try {
+      debug.newReq();
       final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
       return Result.value(response.data ?? {});
     } catch (e, s) {
@@ -82,6 +86,7 @@ Future<Result<Map>> fetchMap(String link, {Map<String, String>? params}) async {
 
   Future<Result<String>> fetchString(String link) async {
     try {
+      debug.newReq();
       final dio.Response<String> response = await dio.Dio().get(link);
       return Result.value(response.data.toString());
     } catch (e, s) {
