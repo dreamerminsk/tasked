@@ -8,7 +8,7 @@ class DebugView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final DebugController c = Get.find();
+    final DebugController c = Get.find(tag: 'debugger');
     //final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
 
