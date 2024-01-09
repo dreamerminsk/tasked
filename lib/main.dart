@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             //primarySwatch: Colors.indigo,
             colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.green,
+              seedColor: Colors.primaries[Random().nextInt(Colors.primaries.length),
             ),
           ),
           initialBinding: DebugBinding(),
