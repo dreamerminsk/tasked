@@ -155,6 +155,7 @@ Future<Result<Map>> fetchMap(
   String link,
  {Map<String, String>? params}) async {
     try {
+      debug.newReq();
       final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
       return Result.value(response.data ?? {});
     } catch (e, s) {
