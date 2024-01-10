@@ -24,7 +24,7 @@ class DebugController extends GetxService {
   void onInit() {
     started.value = DateTime.now();
     loadSamples().then(
-      (items) => samples.assignAll(items);
+      (items) => samples.assignAll(items)
     );
     super.onInit();
   }
@@ -42,7 +42,7 @@ class DebugController extends GetxService {
   Future<List<String>> loadSamples() async {
     final asset = await loadAsset();
     final ls = LineSplitter();
-    return ls.convert(asset).toList() as List<String>;
+    return ls.convert(asset).toList();
   }
 
   Future<String> loadAsset() async {
