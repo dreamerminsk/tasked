@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class JsonDebugWidget extends StatelessWidget {
-  final random = Random.secure();
+  var random = Random.secure();
   final List<String> jsonFiles;
   
   const JsonDebugWidget({
