@@ -28,7 +28,7 @@ class DebugView extends StatelessWidget {
         padding: EdgeInsets.all(8),
         children: <Widget>[
           Obx(() => HealthWidget(
-            started: c.started.value?.toString() ?? 'NOT IMPLEMENTED',
+            started: c.started.value ?? DateTime.now(),
             requests: c.requests.value,
             rpm: c.rpm,
           )),
