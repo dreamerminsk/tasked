@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class HealthWidget extends StatelessWidget {
-  final String started;
+  final DateTime started;
   final int requests;
   final double rpm;
   
@@ -28,7 +29,7 @@ class HealthWidget extends StatelessWidget {
           MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
-            started,
+            '${DateFormat.Hms().format(started)}',
             style: textTheme.headlineSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
