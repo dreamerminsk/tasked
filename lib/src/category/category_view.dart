@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'category_controller.dart';
 import '../wiki/entities/category_info.dart';
 import '../wiki/entities/category_member.dart';
+import '../routes/app_pages.dart';
 
 class CategoryView extends StatelessWidget {
 
@@ -103,7 +104,7 @@ class CategoryView extends StatelessWidget {
   Widget _catCard(BuildContext context, CategoryMember cm) {
     return InkWell(
       onTap: () { 
-        Get.toNamed(Routes.CATEGORY, arguments: CaregoryInfo(title:  cm.title)); 
+        Get.toNamed(Routes.CATEGORY, arguments: CategoryInfo(title:  cm.title)); 
       },
       child: Card(
         child: ListTile(
