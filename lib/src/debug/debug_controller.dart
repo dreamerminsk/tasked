@@ -14,7 +14,7 @@ class DebugController extends GetxService {
 
   //int get requests => _requests.value;
 
-  final samples = [].obs
+  final samples = [].obs;
 
   void newReq() {
     requests += 1;
