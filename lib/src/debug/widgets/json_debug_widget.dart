@@ -27,14 +27,14 @@ class JsonDebugWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             jsonFiles[Random.secure().nextInt(jsonFiles.length)],
-            style: textTheme.headlineSmall!
+            style: textTheme.titleSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
           ), // Text
           Text(
             jsonFiles[0],
-            style: textTheme.titleLarge!
+            style: textTheme.titleSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
