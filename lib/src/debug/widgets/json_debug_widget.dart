@@ -1,12 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class JsonDebugWidget extends StatelessWidget {
-  final String jsonFile;
+  final random = Random.secure();
+  final List<String> jsonFiles;
   
   const JsonDebugWidget({
     super.key,
-    this.jsonFile = 'NOT IMPLEMENTED',
+    required this.jsonFiles,
   });
 
   @override
@@ -24,7 +27,7 @@ class JsonDebugWidget extends StatelessWidget {
           MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
-            jsonFile,
+            jsonFile[0],
             style: textTheme.headlineSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
