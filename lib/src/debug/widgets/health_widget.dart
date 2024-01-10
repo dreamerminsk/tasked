@@ -10,7 +10,7 @@ class HealthWidget extends StatelessWidget {
   
   const HealthWidget({
     super.key,
-    this.started,
+    this.started = DateTime.now(),
     this.requests = 0,
     this.rpm = 0.0,
   });
