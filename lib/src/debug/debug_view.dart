@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'debug_controller.dart';
 import 'widgets/health_widget.dart';
+import 'widgets/json_debug_widget.dart';
 
 class DebugView extends StatelessWidget {
 
