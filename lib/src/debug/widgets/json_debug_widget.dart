@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class JsonDebugWidget extends StatelessWidget {
-  var random = Random.secure();
   final List<String> jsonFiles;
   
   const JsonDebugWidget({
@@ -27,14 +26,14 @@ class JsonDebugWidget extends StatelessWidget {
           MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
-            jsonFiles[random.nextInt(jsonFiles.length)],
+            jsonFiles[Random.secure().nextInt(jsonFiles.length)],
             style: textTheme.headlineSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
           ), // Text
           Text(
-            jsonFile,
+            jsonFiles[0],
             style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
