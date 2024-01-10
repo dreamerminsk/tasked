@@ -1,5 +1,5 @@
 name: kb_dart
-description: Movie stats application.
+description: wikied-views application.
 
 version: 1.0.0+2
 
@@ -10,28 +10,25 @@ dependencies:
   flutter:
     sdk: flutter
   async: ^2.11.0
-  html: ^0.15.4
-  dio: ^5.4.0
-  random_string: ^2.3.1
-  file_picker: ^6.1.1
-  timeago: ^3.6.0
-  loading_indicator: ^3.1.1
-  intl: ^0.18.0
-  flutter_json_viewer: ^1.0.1
-  
-  get: ^4.6.6
-  duration: ^3.0.13
-
-  cupertino_icons: ^1.0.6
-  
   cached_network_image: ^3.3.0
-  uuid: ^4.1.0
-  ulid: ^2.0.0
   cuid2: ^3.1.0
-  rxdart: ^0.27.7
+  cupertino_icons: ^1.0.6
+  dio: ^5.4.0
+  duration: ^3.0.13
+  file_picker: ^6.1.1
+  flutter_json_viewer: ^1.0.1
   font_awesome_flutter: ^10.5.0
+  get: ^4.6.6
   google_fonts: ^6.1.0
-
+  html: ^0.15.4
+  intl: ^0.18.0
+  loading_indicator: ^3.1.1  
+  random_string: ^2.3.1
+  rxdart: ^0.27.7
+  timeago: ^3.6.0
+  ulid: ^2.0.0
+  uuid: ^4.1.0
+  
 dev_dependencies:
   test:
   flutter_test:
@@ -39,3 +36,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - data/github.json.samples
