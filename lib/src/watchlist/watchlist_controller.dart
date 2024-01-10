@@ -105,6 +105,9 @@ final links = <WikiLink>[
     WikiLink(
       prefix: 'en',
       title: 'Category:2022 in aviation'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:2024 in technology'),
   ];
 
 class WatchlistController extends GetxController {
