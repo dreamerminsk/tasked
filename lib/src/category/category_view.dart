@@ -104,7 +104,9 @@ class CategoryView extends StatelessWidget {
   Widget _catCard(BuildContext context, CategoryMember cm) {
     return InkWell(
       onTap: () { 
-        Get.toNamed(Routes.CATEGORY, arguments: CategoryInfo(title:  cm.title)); 
+        Get.toNamed(Routes.CATEGORY,
+                    arguments: CategoryInfo(title:  cm.title),
+                    preventDuplicates: false); 
       },
       child: Card(
         child: ListTile(
