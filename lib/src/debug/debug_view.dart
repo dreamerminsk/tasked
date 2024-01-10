@@ -31,6 +31,9 @@ class DebugView extends StatelessWidget {
             requests: c.requests.value,
             rpm: c.rpm,
           )),
+          Obx(() => JsonDebugWidget(
+            jsonFiles: c.samples,
+          )),
         ],
       ), // ListView
     );
