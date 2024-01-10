@@ -15,7 +15,8 @@ class JsonDebugWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-
+    final jsonFile = jsonFiles[Random.secure().nextInt(jsonFiles.length)];
+    
     return Container(
       width: Get.width,
       height: 200,
@@ -26,14 +27,14 @@ class JsonDebugWidget extends StatelessWidget {
           MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
-            jsonFiles[Random.secure().nextInt(jsonFiles.length)],
+            jsonFile.split('/').last,
             style: textTheme.titleSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
               ),
           ), // Text
           Text(
-            jsonFiles[0],
+            jsonFiles[0].split('/').last,
             style: textTheme.titleSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
