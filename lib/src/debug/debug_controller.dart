@@ -1,7 +1,7 @@
-import 'package:flutter/services.dart' show rootBundle;
-
 import 'dart:core';
+import 'dart:convert';
 
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 
 class DebugController extends GetxService {
@@ -42,7 +42,7 @@ class DebugController extends GetxService {
   Future<List<String>> loadSamples() async {
     final asset = await loadAsset();
     final ls = LineSplitter();
-    return ls.convert(asset).toList();
+    return ls.convert(asset).toList() as List<String>;
   }
 
   Future<String> loadAsset() async {
