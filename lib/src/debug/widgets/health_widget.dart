@@ -1,3 +1,4 @@
+import 'package:duration/duration.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -9,7 +10,7 @@ class HealthWidget extends StatelessWidget {
   
   const HealthWidget({
     super.key,
-    this.started = 'NOT IMPLEMENTED',
+    this.started,
     this.requests = 0,
     this.rpm = 0.0,
   });
@@ -29,7 +30,7 @@ class HealthWidget extends StatelessWidget {
           MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
-            '${DateFormat.Hms().format(started)}',
+            '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
             style: textTheme.headlineSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
