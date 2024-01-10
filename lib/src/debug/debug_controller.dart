@@ -1,5 +1,7 @@
 import 'dart:core';
+import 'dart:convert';
 
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 
 class DebugController extends GetxService {
@@ -12,6 +14,8 @@ class DebugController extends GetxService {
 
   //int get requests => _requests.value;
 
+  final samples = [].obs;
+
   void newReq() {
     requests += 1;
   }
@@ -19,6 +23,9 @@ class DebugController extends GetxService {
   @override
   void onInit() {
     started.value = DateTime.now();
+    loadSamples().then(
+      (items) => samples.assignAll(items)
+    );
     super.onInit();
   }
 
@@ -30,6 +37,16 @@ class DebugController extends GetxService {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  Future<List<String>> loadSamples() async {
+    final asset = await loadAsset();
+    final ls = LineSplitter();
+    return ls.convert(asset).toList();
+  }
+
+  Future<String> loadAsset() async {
+    return await rootBundle.loadString('data/github.json.samples');
   }
 
 }

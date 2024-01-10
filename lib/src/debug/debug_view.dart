@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'debug_controller.dart';
 import 'widgets/health_widget.dart';
+import 'widgets/json_debug_widget.dart';
 
 class DebugView extends StatelessWidget {
 
@@ -30,6 +31,9 @@ class DebugView extends StatelessWidget {
             started: c.started.value?.toString() ?? 'NOT IMPLEMENTED',
             requests: c.requests.value,
             rpm: c.rpm,
+          )),
+          Obx(() => JsonDebugWidget(
+            jsonFiles: List<String>.from(c.samples),
           )),
         ],
       ), // ListView
