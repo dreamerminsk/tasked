@@ -27,7 +27,7 @@ class JsonDebugWidget extends StatelessWidget {
           MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text(
-            jsonFile[0],
+            jsonFiles[random.nextInt(jsonFiles.length)],
             style: textTheme.headlineSmall!
               .copyWith(
                 color: colorScheme.onSecondaryContainer
