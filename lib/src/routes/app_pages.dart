@@ -4,6 +4,7 @@ import '../category/category_binding.dart';
 import '../category/category_view.dart';
 import '../debug/debug_binding.dart';
 import '../debug/debug_view.dart';
+import '../debug/colorscheme/color_scheme_page.dart';
 import '../home/home_binding.dart';
 import '../home/home_details_view.dart';
 import '../home/home_view.dart';
@@ -49,6 +50,11 @@ class AppPages {
       name: _Paths.POLITICS,
       page: () => PoliticsView(),
       binding: PoliticsBinding(),
+    ),
+    GetPage(
+      name: _Paths.COLORSCHEME,
+      page: () => ColorSchemePage(),
+      //binding: ColorSchemeBinding(),
     ),
  ];
 }
