@@ -4,21 +4,21 @@ class NamedColor {
   final String name;
   final Color color;
 
-  const NamedColor(this.name, this.color);
+  const NamedColor({this.name, this.color});
 }
 
 class NamedMaterialColor {
   final String name;
   final MaterialColor primary;
 
-  const NamedMaterialColor(this.name, this.primary);
+  const NamedMaterialColor({this.name, this.primary});
 }
 
 class NamedAccentColor {
   final String name;
   final MaterialAccentColor accent;
 
-  const NamedAccentColor(this.name, this.accent);
+  const NamedAccentColor({this.name, this.accent});
 }
 
 abstract final class NamedColors {
