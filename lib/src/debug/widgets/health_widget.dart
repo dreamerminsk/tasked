@@ -33,14 +33,14 @@ class HealthWidget extends StatelessWidget {
             '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
             style: textTheme.headlineSmall!
               .copyWith(
-                color: colorScheme.onSecondaryContainer
+                color: colorScheme.onPrimaryContainer
               ),
           ), // Text
           Text(
             'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}',
             style: textTheme.titleLarge!
               .copyWith(
-                color: colorScheme.onSecondaryContainer
+                color: colorScheme.onPrimaryContainer
               ),
           ), // Text
         ],
@@ -50,7 +50,7 @@ class HealthWidget extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(20),
         ), // BorderRadius
-        color: colorScheme.secondaryContainer,
+        color: colorScheme.primaryContainer,
       ), // BoxDecoration
     ); //Container
   }
