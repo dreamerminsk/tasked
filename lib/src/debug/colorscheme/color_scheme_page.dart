@@ -17,31 +17,84 @@ class ColorSchemePage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(16),
-            child: Material(
-              elevation: 4,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-              child: Container(
-                width: Get.width,
-                height: 96,
-                child: Text(
-                  'primary',
-                  style: textTheme.headlineSmall!
-                    .copyWith(
-                      color: colorScheme.onPrimary
-                  ),
-                ), // Text,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ), // BorderRadius
-                  color: colorScheme.primary,
-                ), // BoxDecoration
-              ), // Container
-            ), // Material
+            child: ColorContainer(
+              title: 'primary',
+              background: colorScheme.primary,
+              foreground: colorScheme.onPrimary,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: ColorContainer(
+              title: 'secondary',
+              background: colorScheme.secondary,
+              foreground: colorScheme.onSecondary,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: ColorContainer(
+              title: 'tertiary',
+              background: colorScheme.tertiary,
+              foreground: colorScheme.onTertiary,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: ColorContainer(
+              title: 'error',
+              background: colorScheme.error,
+              foreground: colorScheme.onError,
+            ), // ColorContainer
           ), // Padding
         ],
       ), // ListView
     );
   }
 
+}
+
+
+
+class ColorContainer {
+  final String title;
+  final Color background;
+  final Color foreground;
+
+  const ColorContainer({
+    required this.title,
+    required this.background,
+    required this.foreground,
+  });
+
+  @override
+  Widget build(context) {
+    final textTheme = Theme.of(context).textTheme;
+    //final colorScheme = Theme.of(context).colorScheme;
+
+    return Material(
+      elevation: 4,
+      borderRadius:
+        BorderRadius.all(Radius.circular(20)),
+      child: Container(
+        width: Get.width,
+        height: 96,
+        child: Center(
+          child: Text(
+            title,
+            style: textTheme.headlineSmall!
+              .copyWith(
+                color: foreground,
+            ),
+          ), // Text,
+        ), // Center
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ), // BorderRadius
+          color: background,
+        ), // BoxDecoration
+      ), // Container
+    ); // Material
+  }
 }
