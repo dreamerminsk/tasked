@@ -9,7 +9,7 @@ class ColorSchemePage extends StatelessWidget {
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
     //final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       body: ListView(
@@ -22,9 +22,15 @@ class ColorSchemePage extends StatelessWidget {
               child: Container(
                 width: Get.width,
                 height: 96,
-                child: Placeholder(),
-              ),
-            ),
+                //child: Placeholder(),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ), // BorderRadius
+                  color: colorScheme.surfaceVariant,
+                ), // BoxDecoration
+              ), // Container
+            ), // Material
           ), // Padding
         ],
       ), // ListView
