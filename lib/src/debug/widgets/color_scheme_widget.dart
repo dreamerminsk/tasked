@@ -25,7 +25,7 @@ class ColorSchemeWidget extends StatelessWidget {
             'coloSchemeViewer',
             style: textTheme.headlineSmall!
               .copyWith(
-                color: colorScheme.onSecondaryContainer
+                color: colorScheme.onTertiaryContainer
               ),
           ), // Text
         ],
@@ -35,7 +35,7 @@ class ColorSchemeWidget extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(20),
         ), // BorderRadius
-        color: colorScheme.secondaryContainer,
+        color: colorScheme.tertiaryContainer,
       ), // BoxDecoration
     ); //Container
   }
