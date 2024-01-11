@@ -15,7 +15,7 @@ class ColorSchemeWidget extends StatelessWidget {
     return Material(
       elevation: 1,
       borderRadius: BorderRadius.all(Radius.circular(20)),
-      Container(
+      child: Container(
         width: Get.width,
         height: 100,
         child: Column(
