@@ -8,7 +8,7 @@ class ColorSchemePage extends StatelessWidget {
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -17,7 +17,7 @@ class ColorSchemePage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(16),
-            child: ColorContainer(
+            child: const ColorContainer(
               title: 'primary',
               background: colorScheme.primary,
               foreground: colorScheme.onPrimary,
@@ -25,7 +25,7 @@ class ColorSchemePage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
-            child: ColorContainer(
+            child: const ColorContainer(
               title: 'secondary',
               background: colorScheme.secondary,
               foreground: colorScheme.onSecondary,
@@ -33,7 +33,7 @@ class ColorSchemePage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
-            child: ColorContainer(
+            child: const ColorContainer(
               title: 'tertiary',
               background: colorScheme.tertiary,
               foreground: colorScheme.onTertiary,
@@ -41,7 +41,7 @@ class ColorSchemePage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
-            child: ColorContainer(
+            child: const ColorContainer(
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
