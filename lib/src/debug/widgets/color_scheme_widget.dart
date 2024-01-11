@@ -23,7 +23,7 @@ class ColorSchemeWidget extends StatelessWidget {
         },
         child: Container(
           width: Get.width,
-          height: 100,
+          height: 96,
           child: Column(
             crossAxisAlignment:
               CrossAxisAlignment.center,
@@ -35,7 +35,7 @@ class ColorSchemeWidget extends StatelessWidget {
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color:
-                      colorScheme.onTertiaryContainer
+                      colorScheme.onSurfaceVariant
                   ),
               ), // Text
             ],
@@ -45,7 +45,7 @@ class ColorSchemeWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.tertiaryContainer,
+            color: colorScheme.surfaceVariant,
           ), // BoxDecoration
         ), //Container
       ), // InkWell
