@@ -12,8 +12,6 @@ class DebugController extends GetxService {
 
   double get rpm => 60 * requests / (DateTime.now().difference(started.value ?? DateTime.now()).inSeconds);
 
-  //int get requests => _requests.value;
-
   final samples = [].obs;
 
   void newReq() {
