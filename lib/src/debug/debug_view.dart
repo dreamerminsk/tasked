@@ -25,7 +25,7 @@ class DebugView extends StatelessWidget {
         ]),
 
       body: ListView(
-        padding: EdgeInsets.all(8),
+        //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(8, 4, 4, 4),
