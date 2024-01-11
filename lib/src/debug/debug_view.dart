@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'debug_controller.dart';
+import 'widgets/color_scheme_widget.dart';
 import 'widgets/health_widget.dart';
 import 'widgets/json_debug_widget.dart';
 
@@ -40,6 +41,11 @@ class DebugView extends StatelessWidget {
             child: Obx(() => JsonDebugWidget(
               jsonFiles: List<String>.from(c.samples),
             )),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(8, 4, 4, 4),
+            child: ColorSchemeWidget(
+            ),
           ), // Padding
         ],
       ), // ListView
