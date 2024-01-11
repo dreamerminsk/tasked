@@ -37,7 +37,7 @@ class HealthWidget extends StatelessWidget {
               ),
           ), // Text
           Text(
-            'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}',
+            'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}, rph: {(60*rpm).toStringAsFixed(2)}',
             style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
