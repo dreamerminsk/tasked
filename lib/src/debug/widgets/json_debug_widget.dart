@@ -1,4 +1,4 @@
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ class JsonDebugWidget extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     //final jsonFile = jsonFiles[Random.secure().nextInt(jsonFiles.length)];
-    final randomThree = (jsonFiles.toList()..shuffle()).take(3);
+    final randomThree = (jsonFiles.toList()..shuffle()).take(3).toList();
     
     return Container(
       width: Get.width,
