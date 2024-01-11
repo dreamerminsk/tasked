@@ -27,14 +27,20 @@ class DebugView extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(8),
         children: <Widget>[
-          Obx(() => HealthWidget(
-            started: c.started.value ?? DateTime.now(),
-            requests: c.requests.value,
-            rpm: c.rpm,
-          )),
-          Obx(() => JsonDebugWidget(
-            jsonFiles: List<String>.from(c.samples),
-          )),
+          Padding(
+            padding: EdgeInsets.fromLTRB(8, 4, 4, 4),
+            child: Obx(() => HealthWidget(
+              started: c.started.value ?? DateTime.now(),
+              requests: c.requests.value,
+              rpm: c.rpm,
+            )),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(4, 4, 8, 4),
+            child: Obx(() => JsonDebugWidget(
+              jsonFiles: List<String>.from(c.samples),
+            )),
+          ), // Padding
         ],
       ), // ListView
     );
