@@ -19,6 +19,7 @@ class ColorSchemePage extends StatelessWidget {
             padding: EdgeInsets.all(16),
             child: Material(
               elevation: 4,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
               child: Container(
                 width: Get.width,
                 height: 96,
@@ -27,7 +28,7 @@ class ColorSchemePage extends StatelessWidget {
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ), // BorderRadius
-                  color: colorScheme.surfaceVariant,
+                  color: colorScheme.primary,
                 ), // BoxDecoration
               ), // Container
             ), // Material
