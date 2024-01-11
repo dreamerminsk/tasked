@@ -8,7 +8,7 @@ class ColorSchemePage extends StatelessWidget {
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -23,7 +23,13 @@ class ColorSchemePage extends StatelessWidget {
               child: Container(
                 width: Get.width,
                 height: 96,
-                //child: Placeholder(),
+                child: Text(
+                  'primary',
+                  style: textTheme.headlineSmall!
+                    .copyWith(
+                      color: colorScheme.onPrimary
+                  ),
+                ), // Text,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
