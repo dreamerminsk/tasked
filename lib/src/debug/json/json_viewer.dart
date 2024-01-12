@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 
-//import 'debug_controller.dart';
+import 'json_controller.dart';
 
 class JsonViewer extends StatelessWidget {
-  String? jsonRef;
 
   const JsonViewer({
     super.key,
-    this.jsonRef,
   });
   
   @override
   Widget build(context) {
-    //final DebugController c = Get.find(tag: 'debugger');
+    final JsonController c = Get.find();
     //final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
-        title: 'json-viewer',
+        title: Text('json-viewer'),
       ),
 
       body: Container(
@@ -27,7 +25,7 @@ class JsonViewer extends StatelessWidget {
         height: double.infinity,
         color: Colors.white,
         child: Center(
-          child: Text(path),
+          child: obx(() => Text(c.jsonRef.value)),
         ),
       ),
     );
