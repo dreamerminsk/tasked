@@ -71,6 +71,14 @@ class ColorSchemePage extends StatelessWidget {
               foreground: colorScheme.onSurfaceVariant,
             ), // ColorContainer
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
+              title: 'inverseSurface',
+              background: colorScheme.inverseSurface,
+              foreground: colorScheme.onInverseSurface,
+            ), // ColorContainer
+          ), // Padding
         ],
       ), // ListView
     );
