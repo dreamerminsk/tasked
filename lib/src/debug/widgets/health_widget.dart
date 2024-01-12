@@ -33,7 +33,7 @@ class HealthWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
-            style: textTheme.headlineSmall!
+            style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
               ),
