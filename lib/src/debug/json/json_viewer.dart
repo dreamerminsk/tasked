@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 //import 'debug_controller.dart';
 
 class JsonViewer extends StatelessWidget {
+  final String path;
 
+  const JsonViewer(super.key, required this.path);
+  
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
@@ -20,6 +23,9 @@ class JsonViewer extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         color: Colors.white,
+        child: Center(
+          child: Text(path),
+        ),
       ),
     );
   }
