@@ -66,32 +66,75 @@ class CategoryView extends StatelessWidget {
 
 
   Widget _buildProps(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Column(
           children: <Widget>[
-            Text('999'),
-            Text('subcats'),
+            Text('999',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
+            Text('subcats',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
           ],
         ),
         Column(
           children: <Widget>[
-            Text('99.999'),
-            Text('pages'),
+            Text('99.999',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
+            Text('pages',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
           ],
         ),
         Column(
           children: <Widget>[
-            Text('999'),
-            Text('cats'),
+            Text('999',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
+            Text('cats',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
           ],
         ),
         Column(
           children: <Widget>[
-            Text('999'),
-            Text('langs'),
+            Text('999',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
+            Text('langs',
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ),
           ],
         ),
       ],
