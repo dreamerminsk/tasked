@@ -47,6 +47,30 @@ class ColorSchemePage extends StatelessWidget {
               foreground: colorScheme.onError,
             ), // ColorContainer
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
+              title: 'background',
+              background: colorScheme.background,
+              foreground: colorScheme.onBackground,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
+              title: 'surface',
+              background: colorScheme.surface,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
+              title: 'surfaceVariant',
+              background: colorScheme.surfaceVariant,
+              foreground: colorScheme.onSurfaceVariant,
+            ), // ColorContainer
+          ), // Padding
         ],
       ), // ListView
     );
