@@ -9,7 +9,7 @@ class TextThemePage extends StatelessWidget {
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
     final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       body: ListView(
@@ -137,7 +137,7 @@ class TextContainer extends StatelessWidget {
 
   const TextContainer({
     required this.title,
-    required style,
+    required this.style,
     //required this.background,
     //required this.foreground,
   });
