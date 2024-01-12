@@ -39,9 +39,22 @@ class TextThemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(16),
             child: TextContainer(
-              title: 'error',
-              background: colorScheme.error,
-              foreground: colorScheme.onError,
+              title: 'headlineLarge',
+              style: textTheme.headlineLarge!
+            ), // TextContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: TextContainer(
+              title: 'headlineMedium',
+              style: textTheme.headlineMedium!
+            ), // TextContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: TextContainer(
+              title: 'headlineSmall',
+              style: textTheme.headlineSmall!
             ), // TextContainer
           ), // Padding
         ],
