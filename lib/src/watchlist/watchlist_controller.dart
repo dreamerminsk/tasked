@@ -174,7 +174,13 @@ Future<Result<Map>> fetchMap(
  {Map<String, String>? params}) async {
     try {
       debug.newReq();
-      final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
+      var bytes = 0;
+      final dio.Response<Map> response = await dio.Dio().get(
+          link, queryParameters: params,
+          onReceiveProgress(received, total) {
+            bytes = received;
+          }
+      );
       return Result.value(response.data ?? {});
     } catch (e, s) {
       Get.snackbar('WatchlistController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
