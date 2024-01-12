@@ -18,26 +18,23 @@ class TextThemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(16),
             child: TextContainer(
-              title: 'primary',
-              background: colorScheme.primary,
-              foreground: colorScheme.onPrimary,
-            ), // ColorContainer
+              title: 'displayLarge',
+              style: textTheme.displayLarge!
+            ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
             child: TextContainer(
-              title: 'secondary',
-              background: colorScheme.secondary,
-              foreground: colorScheme.onSecondary,
-            ), // ColorContainer
+              title: 'displayMedium',
+              style: textTheme.displayMedium!
+            ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
             child: TextContainer(
-              title: 'tertiary',
-              background: colorScheme.tertiary,
-              foreground: colorScheme.onTertiary,
-            ), // ColorContainer
+              title: 'displaySmall',
+              style: textTheme.displaySmall!
+            ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
@@ -45,7 +42,7 @@ class TextThemePage extends StatelessWidget {
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
-            ), // ColorContainer
+            ), // TextContainer
           ), // Padding
         ],
       ), // ListView
@@ -58,13 +55,15 @@ class TextThemePage extends StatelessWidget {
 
 class TextContainer extends StatelessWidget {
   final String title;
-  final Color background;
-  final Color foreground;
+  final TextStyle style;
+  //final Color background;
+  //final Color foreground;
 
   const TextContainer({
     required this.title,
-    required this.background,
-    required this.foreground,
+    required style,
+    //required this.background,
+    //required this.foreground,
   });
 
   @override
@@ -82,9 +81,9 @@ class TextContainer extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: textTheme.headlineSmall!
+            style: style
               .copyWith(
-                color: foreground,
+                color: colorScheme.onSurfaceVariant,
             ),
           ), // Text,
         ), // Center
@@ -92,7 +91,7 @@ class TextContainer extends StatelessWidget {
           borderRadius: BorderRadius.all(
             Radius.circular(20),
           ), // BorderRadius
-          color: background,
+          color: colorScheme.surfaceVariant,
         ), // BoxDecoration
       ), // Container
     ); // Material
