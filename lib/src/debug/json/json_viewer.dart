@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
+import 'package:get/get.dart';
 
 import 'json_controller.dart';
 
@@ -25,7 +25,7 @@ class JsonViewer extends StatelessWidget {
         height: double.infinity,
         color: Colors.white,
         child: Center(
-          child: obx(() => Text(c.jsonRef.value)),
+          child: Obx(() => Text(c.jsonRef.value)),
         ),
       ),
     );
