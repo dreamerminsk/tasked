@@ -181,6 +181,7 @@ Future<Result<Map>> fetchMap(
             bytes = received;
           }
       );
+      debug.newBytes(bytes);
       return Result.value(response.data ?? {});
     } catch (e, s) {
       Get.snackbar('WatchlistController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
