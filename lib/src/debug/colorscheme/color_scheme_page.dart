@@ -26,9 +26,25 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ColorContainer(
+              title: 'primaryContainer',
+              background: colorScheme.primaryContainer,
+              foreground: colorScheme.onPrimaryContainer,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
               title: 'secondary',
               background: colorScheme.secondary,
               foreground: colorScheme.onSecondary,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
+              title: 'secondaryContainer',
+              background: colorScheme.secondaryContainer,
+              foreground: colorScheme.onSecondaryContainer,
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -42,9 +58,25 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ColorContainer(
+              title: 'tertiaryContainer',
+              background: colorScheme.tertiaryContainer,
+              foreground: colorScheme.onTertiaryContainer,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ColorContainer(
+              title: 'errorContainer',
+              background: colorScheme.errorContainer,
+              foreground: colorScheme.onErrorContainer,
             ), // ColorContainer
           ), // Padding
           Padding(
