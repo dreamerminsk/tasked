@@ -43,6 +43,13 @@ class HealthWidget extends StatelessWidget {
                 color: colorScheme.onPrimaryContainer
               ),
           ), // Text
+          Text(
+            'received: 0 kB, bpm: 0 kBpm, bph: 0 kBph',
+            style: textTheme.titleLarge!
+              .copyWith(
+                color: colorScheme.onPrimaryContainer
+              ),
+          ), // Text
         ],
       ), // Column
       padding: const EdgeInsets.all(16),
