@@ -12,12 +12,12 @@ class JsonViewer extends StatelessWidget {
   @override
   Widget build(context) {
     final JsonController c = Get.find();
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('json-viewer'),
+        title: Obx(() => Text(c.jsonRef.value.split('/').last)),
       ),
 
       body: Container(
@@ -25,7 +25,11 @@ class JsonViewer extends StatelessWidget {
         height: double.infinity,
         color: Colors.white,
         child: Center(
-          child: Obx(() => Text(c.jsonRef.value)),
+          child: Obx(() => 
+            Text(
+              c.jsonRef.value.split('/'.last),
+              style: textTheme.headlineLarge!,
+            )),
         ),
       ),
     );
