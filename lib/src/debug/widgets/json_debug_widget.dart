@@ -27,41 +27,66 @@ class JsonDebugWidget extends StatelessWidget {
         mainAxisAlignment:
           MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Text(
-            randomThree[0].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[1].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[2].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[3].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[4].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.JSON, arguments: randomThree[0],);
+            },
+            child: Text(
+              randomThree[0].split('/').last,
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            ), // Text
+          ), // InkWell
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.JSON, arguments: randomThree[1],);
+            },
+            child: Text(
+              randomThree[1].split('/').last,
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            ), // Text
+          ), // InkWell
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.JSON, arguments: randomThree[2],);
+            },
+            child: Text(
+              randomThree[2].split('/').last,
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            ), // Text
+          ), // InkWell
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.JSON, arguments: randomThree[3],);
+            },
+            child: Text(
+              randomThree[3].split('/').last,
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            ), // Text
+          ), // InkWell
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.JSON, arguments: randomThree[4],);
+            },
+            child: Text(
+              randomThree[4].split('/').last,
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: colorScheme.onSecondaryContainer
+                ),
+            ), // Text
+          ), // InkWell
         ],
       ), // Column
       padding: const EdgeInsets.all(16),
