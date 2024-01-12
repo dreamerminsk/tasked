@@ -39,7 +39,7 @@ class JsonDebugWidget extends StatelessWidget {
               CrossAxisAlignment.start,
             mainAxisAlignment:
               MainAxisAlignment.spaceAround,
-            children: _files(textTheme, colorScheme),
+            children: _files(randomThree, textTheme, colorScheme),
           ), // Column
         ],
       ), // Row
@@ -53,18 +53,18 @@ class JsonDebugWidget extends StatelessWidget {
     ); //Container
   }
 
-  List<Widget> _files(TextTheme tt, ColorScheme cs) {
+  List<Widget> _files(List<String> five, TextTheme tt, ColorScheme cs) {
     return List<Widget>.generate(5,
       (int index) => 
       InkWell(
         onTap: () {
-          Get.toNamed(Routes.JSON, arguments: randomThree[index],);
+          Get.toNamed(Routes.JSON, arguments: five[index],);
         },
         child: Text(
-          randomThree[index].split('/').last,
-            style: textTheme.titleLarge!
+          five[index].split('/').last,
+            style: tt.titleLarge!
               .copyWith(
-                color: colorScheme.onSecondaryContainer
+                color: cs.onSecondaryContainer
               ),
         ), // Text
       ), // InkWell                 
