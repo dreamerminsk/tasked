@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 class JsonViewer extends StatelessWidget {
   final String path;
 
-  const JsonViewer(super.key, required this.path);
+  const JsonViewer({
+    super.key,
+    required this.path
+  });
   
   @override
   Widget build(context) {
