@@ -26,13 +26,13 @@ class JsonDebugWidget extends StatelessWidget {
       height: 200,
       child: Row(
         crossAxisAlignment:
-          CrossAxisAlignment.start,
+          CrossAxisAlignment.spaceAround,
         mainAxisAlignment:
           MainAxisAlignment.start,
         children: <Widget>[
           const RotatedBox(
             quarterTurns: 3,
-            child: Text('JSON'),
+            child: Text('JSON Viewer'),
           ),
           Column(
             crossAxisAlignment:
