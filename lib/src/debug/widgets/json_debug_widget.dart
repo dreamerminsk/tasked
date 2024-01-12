@@ -24,74 +24,21 @@ class JsonDebugWidget extends StatelessWidget {
     return Container(
       width: Get.width,
       height: 200,
-      child: Column(
+      child: Row(
         crossAxisAlignment:
           CrossAxisAlignment.start,
         mainAxisAlignment:
-          MainAxisAlignment.spaceAround,
+          MainAxisAlignment.start,
         children: <Widget>[
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.JSON, arguments: randomThree[0],);
-            },
-            child: Text(
-              randomThree[0].split('/').last,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
-            ), // Text
-          ), // InkWell
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.JSON, arguments: randomThree[1],);
-            },
-            child: Text(
-              randomThree[1].split('/').last,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
-            ), // Text
-          ), // InkWell
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.JSON, arguments: randomThree[2],);
-            },
-            child: Text(
-              randomThree[2].split('/').last,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
-            ), // Text
-          ), // InkWell
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.JSON, arguments: randomThree[3],);
-            },
-            child: Text(
-              randomThree[3].split('/').last,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
-            ), // Text
-          ), // InkWell
-          InkWell(
-            onTap: () {
-              Get.toNamed(Routes.JSON, arguments: randomThree[4],);
-            },
-            child: Text(
-              randomThree[4].split('/').last,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
-            ), // Text
-          ), // InkWell
+          Column(
+            crossAxisAlignment:
+              CrossAxisAlignment.start,
+            mainAxisAlignment:
+              MainAxisAlignment.spaceAround,
+            children: _files(textTheme, colorScheme),
+          ), // Column
         ],
-      ), // Column
+      ), // Row
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
@@ -100,5 +47,23 @@ class JsonDebugWidget extends StatelessWidget {
         color: colorScheme.secondaryContainer,
       ), // BoxDecoration
     ); //Container
+  }
+
+  List<Widget> _files(TextTheme tt, ColorScheme cs) {
+    return List<Widget>.generate(5,
+      (int index) => 
+      InkWell(
+        onTap: () {
+          Get.toNamed(Routes.JSON, arguments: randomThree[index],);
+        },
+        child: Text(
+          randomThree[index].split('/').last,
+            style: textTheme.titleLarge!
+              .copyWith(
+                color: colorScheme.onSecondaryContainer
+              ),
+        ), // Text
+      ), // InkWell                 
+    );
   }
 }
