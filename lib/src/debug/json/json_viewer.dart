@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 //import 'debug_controller.dart';
 
 class JsonViewer extends StatelessWidget {
-  final String path;
+  String? jsonRef;
 
   const JsonViewer({
     super.key,
-    required this.path
+    this.jsonRef,
   });
   
   @override
