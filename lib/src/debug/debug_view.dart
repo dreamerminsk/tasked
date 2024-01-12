@@ -35,7 +35,7 @@ class DebugView extends StatelessWidget {
               started: c.started.value ?? DateTime.now(),
               requests: c.requests.value,
               rpm: c.rpm,
-              received: c.received,
+              received: c.received.value,
             )),
           ), // Padding
           Padding(
