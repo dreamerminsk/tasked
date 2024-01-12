@@ -17,7 +17,7 @@ class ColorSchemePage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(16),
-            child: const ColorContainer(
+            child: ColorContainer(
               title: 'primary',
               background: colorScheme.primary,
               foreground: colorScheme.onPrimary,
@@ -25,7 +25,7 @@ class ColorSchemePage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
-            child: const ColorContainer(
+            child: ColorContainer(
               title: 'secondary',
               background: colorScheme.secondary,
               foreground: colorScheme.onSecondary,
@@ -33,7 +33,7 @@ class ColorSchemePage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
-            child: const ColorContainer(
+            child: ColorContainer(
               title: 'tertiary',
               background: colorScheme.tertiary,
               foreground: colorScheme.onTertiary,
@@ -41,7 +41,7 @@ class ColorSchemePage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(16),
-            child: const ColorContainer(
+            child: ColorContainer(
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
@@ -56,7 +56,7 @@ class ColorSchemePage extends StatelessWidget {
 
 
 
-class ColorContainer {
+class ColorContainer extends StatelessWidget {
   final String title;
   final Color background;
   final Color foreground;
