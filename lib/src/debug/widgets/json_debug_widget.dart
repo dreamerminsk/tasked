@@ -30,6 +30,10 @@ class JsonDebugWidget extends StatelessWidget {
         mainAxisAlignment:
           MainAxisAlignment.start,
         children: <Widget>[
+          const RotatedBox(
+            quarterTurns: 3,
+            child: Text('JSON'),
+          ),
           Column(
             crossAxisAlignment:
               CrossAxisAlignment.start,
