@@ -15,32 +15,37 @@ class TextThemeWidget extends StatelessWidget {
     return Material(
       elevation: 1,
       borderRadius: BorderRadius.all(Radius.circular(20)),
-      child: Container(
-        width: Get.width,
-        height: 100,
-        child: Column(
-          crossAxisAlignment:
-            CrossAxisAlignment.center,
-          mainAxisAlignment:
-            MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'textThemeViewer',
-              style: textTheme.headlineSmall!
-                .copyWith(
-                  color: colorScheme.onSurfaceVariant
-                ),
-            ), // Text
-          ],
-        ), // Column
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.surfaceVariant,
-        ), // BoxDecoration
-      ), //Container
+      child: InkWell(
+        onTap: () {
+          Get.toNamed();
+        },
+        child: Container(
+          width: Get.width,
+          height: 100,
+          child: Column(
+            crossAxisAlignment:
+              CrossAxisAlignment.center,
+            mainAxisAlignment:
+              MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'textThemeViewer',
+                style: textTheme.headlineSmall!
+                  .copyWith(
+                    color: colorScheme.onSurfaceVariant
+                  ),
+              ), // Text
+            ],
+          ), // Column
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: colorScheme.surfaceVariant,
+          ), // BoxDecoration
+        ), //Container
+      ),
     ); // Material
   }
 }
