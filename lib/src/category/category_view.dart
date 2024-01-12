@@ -38,6 +38,7 @@ class CategoryView extends StatelessWidget {
                         color: colorScheme.onPrimary
                       ),
                   )), // Text
+                  _buildProps(context),
                 ],
               ), // Column
             ), // Container
@@ -60,6 +61,40 @@ class CategoryView extends StatelessWidget {
           ],
         ), //Stack
       ),
+    );
+  }
+
+
+  Widget _buildProps(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            Text('999'),
+            Text('subcats'),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Text('99.999'),
+            Text('pages'),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Text('999'),
+            Text('cats'),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            Text('999'),
+            Text('langs'),
+          ],
+        ),
+      ],
     );
   }
 
