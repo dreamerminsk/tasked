@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../routes/app_pages.dart';
+
+
 class JsonDebugWidget extends StatelessWidget {
   final List<String> jsonFiles;
   
@@ -21,49 +24,25 @@ class JsonDebugWidget extends StatelessWidget {
     return Container(
       width: Get.width,
       height: 200,
-      child: Column(
+      child: Row(
         crossAxisAlignment:
           CrossAxisAlignment.start,
         mainAxisAlignment:
-          MainAxisAlignment.spaceAround,
+          MainAxisAlignment.start,
         children: <Widget>[
-          Text(
-            randomThree[0].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[1].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[2].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[3].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
-          Text(
-            randomThree[4].split('/').last,
-            style: textTheme.titleLarge!
-              .copyWith(
-                color: colorScheme.onSecondaryContainer
-              ),
-          ), // Text
+          const RotatedBox(
+            quarterTurns: 3,
+            child: Text('JSON'),
+          ),
+          Column(
+            crossAxisAlignment:
+              CrossAxisAlignment.start,
+            mainAxisAlignment:
+              MainAxisAlignment.spaceAround,
+            children: _files(randomThree, textTheme, colorScheme),
+          ), // Column
         ],
-      ), // Column
+      ), // Row
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
@@ -72,5 +51,23 @@ class JsonDebugWidget extends StatelessWidget {
         color: colorScheme.secondaryContainer,
       ), // BoxDecoration
     ); //Container
+  }
+
+  List<Widget> _files(List<String> five, TextTheme tt, ColorScheme cs) {
+    return List<Widget>.generate(5,
+      (int index) => 
+      InkWell(
+        onTap: () {
+          Get.toNamed(Routes.JSON, arguments: five[index],);
+        },
+        child: Text(
+          five[index].split('/').last,
+            style: tt.titleLarge!
+              .copyWith(
+                color: cs.onSecondaryContainer
+              ),
+        ), // Text
+      ), // InkWell                 
+    );
   }
 }

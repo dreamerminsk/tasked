@@ -6,6 +6,8 @@ import '../debug/debug_binding.dart';
 import '../debug/debug_view.dart';
 import '../debug/colorscheme/color_scheme_page.dart';
 import '../debug/texttheme/text_theme_page.dart';
+import '../debug/json/json_viewer.dart';
+import '../debug/json/json_binding.dart';
 import '../home/home_binding.dart';
 import '../home/home_details_view.dart';
 import '../home/home_view.dart';
@@ -61,6 +63,11 @@ class AppPages {
       name: _Paths.TEXTTHEME,
       page: () => TextThemePage(),
       //binding: ColorSchemeBinding(),
+    ),
+    GetPage(
+      name: _Paths.JSON,
+      page: () => JsonViewer(),
+      binding: JsonBinding(),
     ),
  ];
 }

@@ -7,12 +7,14 @@ class HealthWidget extends StatelessWidget {
   final DateTime started;
   final int requests;
   final double rpm;
+  final int received;
   
   const HealthWidget({
     super.key,
     required this.started,
     this.requests = 0,
     this.rpm = 0.0,
+    this.received = 0,
   });
 
   @override
@@ -38,6 +40,13 @@ class HealthWidget extends StatelessWidget {
           ), // Text
           Text(
             'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}, rph: ${(60*rpm).toStringAsFixed(2)}',
+            style: textTheme.titleLarge!
+              .copyWith(
+                color: colorScheme.onPrimaryContainer
+              ),
+          ), // Text
+          Text(
+            'received: $received bytes, bpm: 0 kBpm, bph: 0 kBph',
             style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
