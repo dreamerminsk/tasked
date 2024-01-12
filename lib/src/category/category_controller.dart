@@ -73,13 +73,22 @@ class CategoryController extends GetxController {
     }
   }
 
-Future<Result<Map>> fetchMap(String link, {Map<String, String>? params}) async {
+  Future<Result<Map>> fetchMap(
+    String link,
+    {Map<String, String>? params}) async {
     try {
       debug.newReq();
-      final dio.Response<Map> response = await dio.Dio().get(link, queryParameters: params);
+      var bytes = 0;
+      final dio.Response<Map> response = await dio.Dio().get(
+          link, queryParameters: params,
+          onReceiveProgress: (received, total) {
+            bytes = received;
+          }
+      );
+      debug.newBytes(bytes);
       return Result.value(response.data ?? {});
     } catch (e, s) {
-      Get.snackbar('fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('CategoryController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
