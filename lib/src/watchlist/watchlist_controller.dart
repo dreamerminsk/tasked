@@ -177,7 +177,7 @@ Future<Result<Map>> fetchMap(
       var bytes = 0;
       final dio.Response<Map> response = await dio.Dio().get(
           link, queryParameters: params,
-          onReceiveProgress(received, total) {
+          onReceiveProgress: (received, total) {
             bytes = received;
           }
       );
