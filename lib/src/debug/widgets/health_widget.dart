@@ -33,21 +33,21 @@ class HealthWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
-            style: textTheme.titleLarge!
+            style: textTheme.bodyLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
               ),
           ), // Text
           Text(
             'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}, rph: ${(60*rpm).toStringAsFixed(2)}',
-            style: textTheme.titleLarge!
+            style: textTheme.bodyLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
               ),
           ), // Text
           Text(
             'received: $received, bpm: ${_bpm(started, received).toStringAsFixed(0)}, bph: ${_bph(started, received).toStringAsFixed(0)}',
-            style: textTheme.titleLarge!
+            style: textTheme.bodyLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
               ),
