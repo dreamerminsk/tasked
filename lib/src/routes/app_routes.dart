@@ -11,6 +11,7 @@ abstract class Routes {
   static const POLITICS = _Paths.POLITICS;
   static const COLORSCHEME = _Paths.COLORSCHEME;
   static const TEXTTHEME = _Paths.TEXTTHEME;
+  static const JSON = _Paths.JSON;
 }
 
 abstract class _Paths {
@@ -22,4 +23,5 @@ abstract class _Paths {
   static const POLITICS = '/politics';
   static const COLORSCHEME = '/colorscheme';
   static const TEXTTHEME = '/texttheme';
+  static const JSON = '/json';
 }
