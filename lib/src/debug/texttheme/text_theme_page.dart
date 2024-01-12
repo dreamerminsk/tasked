@@ -57,6 +57,27 @@ class TextThemePage extends StatelessWidget {
               style: textTheme.headlineSmall!
             ), // TextContainer
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: TextContainer(
+              title: 'titleLarge',
+              style: textTheme.titleLarge!
+            ), // TextContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: TextContainer(
+              title: 'titleMedium',
+              style: textTheme.titleMedium!
+            ), // TextContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: TextContainer(
+              title: 'titleSmall',
+              style: textTheme.titleSmall!
+            ), // TextContainer
+          ), // Padding
         ],
       ), // ListView
     );
