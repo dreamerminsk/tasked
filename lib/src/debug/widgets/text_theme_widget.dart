@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../routes/app_pages.dart';
+
 class TextThemeWidget extends StatelessWidget {
   
   const TextThemeWidget({
@@ -17,7 +19,7 @@ class TextThemeWidget extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed();
+          Get.toNamed(Routes.TEXTTHEME);
         },
         child: Container(
           width: Get.width,
