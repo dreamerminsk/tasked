@@ -16,105 +16,105 @@ class TextThemePage extends StatelessWidget {
         //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'displayLarge',
               style: textTheme.displayLarge!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'displayMedium',
               style: textTheme.displayMedium!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'displaySmall',
               style: textTheme.displaySmall!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'headlineLarge',
               style: textTheme.headlineLarge!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'headlineMedium',
               style: textTheme.headlineMedium!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'headlineSmall',
               style: textTheme.headlineSmall!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'titleLarge',
               style: textTheme.titleLarge!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'titleMedium',
               style: textTheme.titleMedium!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'titleSmall',
               style: textTheme.titleSmall!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'labelLarge',
               style: textTheme.labelLarge!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'labelMedium',
               style: textTheme.labelMedium!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'labelSmall',
               style: textTheme.labelSmall!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'bodyLarge',
               style: textTheme.bodyLarge!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'bodyMedium',
               style: textTheme.bodyMedium!
             ), // TextContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: TextContainer(
               title: 'bodySmall',
               style: textTheme.bodySmall!
