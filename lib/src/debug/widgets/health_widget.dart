@@ -46,7 +46,7 @@ class HealthWidget extends StatelessWidget {
               ),
           ), // Text
           Text(
-            'received: $received bytes, bpm: 0 kBpm, bph: 0 kBph',
+            'received: $received, bpm: ${_bpm(started, received).toStringAsFixed(0)}, bph: ${_bph(started, received).toStringAsFixed(0)}',
             style: textTheme.titleLarge!
               .copyWith(
                 color: colorScheme.onPrimaryContainer
@@ -62,5 +62,13 @@ class HealthWidget extends StatelessWidget {
         color: colorScheme.primaryContainer,
       ), // BoxDecoration
     ); //Container
+  }
+
+  double _bpm(DateTime s, int r) {
+    return 60 * r / (DateTime.now().difference(s).inSeconds);
+  }
+
+  double _bph(DateTime s, int r) {
+    return 60 * 60 * r / (DateTime.now().difference(s).inSeconds);
   }
 }
