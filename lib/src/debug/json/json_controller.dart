@@ -1,7 +1,5 @@
 import 'dart:core';
-import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 
 class JsonController extends GetxController {
