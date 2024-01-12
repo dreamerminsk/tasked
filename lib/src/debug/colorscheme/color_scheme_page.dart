@@ -16,7 +16,7 @@ class ColorSchemePage extends StatelessWidget {
         //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: ColorContainer(
               title: 'primary',
               background: colorScheme.primary,
@@ -24,7 +24,7 @@ class ColorSchemePage extends StatelessWidget {
             ), // ColorContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: ColorContainer(
               title: 'secondary',
               background: colorScheme.secondary,
@@ -32,7 +32,7 @@ class ColorSchemePage extends StatelessWidget {
             ), // ColorContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: ColorContainer(
               title: 'tertiary',
               background: colorScheme.tertiary,
@@ -40,7 +40,7 @@ class ColorSchemePage extends StatelessWidget {
             ), // ColorContainer
           ), // Padding
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(8),
             child: ColorContainer(
               title: 'error',
               background: colorScheme.error,
@@ -82,7 +82,7 @@ class ColorContainer extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: textTheme.headlineSmall!
+            style: textTheme.headlineMedium!
               .copyWith(
                 color: foreground,
             ),
