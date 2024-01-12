@@ -10,6 +10,7 @@ abstract class Routes {
   static const DEBUG = _Paths.DEBUG;
   static const POLITICS = _Paths.POLITICS;
   static const COLORSCHEME = _Paths.COLORSCHEME;
+  static const TEXTTHEME = _Paths.TEXTTHEME;
 }
 
 abstract class _Paths {
@@ -20,4 +21,5 @@ abstract class _Paths {
   static const DEBUG = '/debug';
   static const POLITICS = '/politics';
   static const COLORSCHEME = '/colorscheme';
+  static const TEXTTHEME = '/texttheme';
 }
