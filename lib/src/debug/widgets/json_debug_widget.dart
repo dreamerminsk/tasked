@@ -40,7 +40,10 @@ class JsonDebugWidget extends StatelessWidget {
           const RotatedBox(
             quarterTurns: 3,
             child: Text('JSON Viewer',
-              style: textTheme.titleLarge!,
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: cs.onPrimary
+                ),
             ),
           ),
         ],
