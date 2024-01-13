@@ -30,7 +30,6 @@ class CategoryView extends StatelessWidget {
                 mainAxisAlignment:
                   MainAxisAlignment.start,
                 children: <Widget>[
-                  //SizedBox(height: 20),
                   Obx(() => Text(
                     c.category.value?.title ?? '~~~',
                     style: textTheme.headlineSmall!
@@ -38,12 +37,13 @@ class CategoryView extends StatelessWidget {
                         color: colorScheme.onPrimary
                       ),
                   )), // Text
+                  SizedBox(height: 8),
                   _buildProps(context),
                 ],
               ), // Column
             ), // Container
             Positioned(
-              top: 200,
+              top: 175,
               bottom: 0,
               left: 0,
               right: 0,
@@ -76,7 +76,7 @@ class CategoryView extends StatelessWidget {
         Column(
           children: <Widget>[
             Text('999',
-              style: textTheme.bodyLarge!
+              style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
                 ),
@@ -92,7 +92,7 @@ class CategoryView extends StatelessWidget {
         Column(
           children: <Widget>[
             Text('99.999',
-              style: textTheme.bodyLarge!
+              style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
                 ),
@@ -108,7 +108,7 @@ class CategoryView extends StatelessWidget {
         Column(
           children: <Widget>[
             Text('999',
-              style: textTheme.bodyLarge!
+              style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
                 ),
@@ -124,7 +124,7 @@ class CategoryView extends StatelessWidget {
         Column(
           children: <Widget>[
             Text('999',
-              style: textTheme.bodyLarge!
+              style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
                 ),
