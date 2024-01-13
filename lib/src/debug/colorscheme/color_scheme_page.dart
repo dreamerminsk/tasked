@@ -144,10 +144,11 @@ class SampleColor extends StatelessWidget {
         width: Get.width,
         height: 100,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Text(
               title,
-              style: textTheme.headlineMedium!
+              style: textTheme.titleLarge!
                 .copyWith(
                   color: foreground,
               ),
