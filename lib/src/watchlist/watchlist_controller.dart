@@ -10,6 +10,9 @@ import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
     WikiLink(
+      prefix: 'zh',
+      title: 'Category:2023年開播的美國電視影集'),
+    WikiLink(
       prefix: 'uk',
       title: 'Категорія:Телесеріали США, запущені у 2023'),
     WikiLink(
