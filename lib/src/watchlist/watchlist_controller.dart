@@ -11,6 +11,9 @@ import '../wiki/entities/wiki_link.dart';
 final links = <WikiLink>[
     WikiLink(
       prefix: 'ru',
+      title: 'Категория:Телесериалы России, запущенные в 2023 году'),
+    WikiLink(
+      prefix: 'ru',
       title: 'Категория:Пришедшие к власти в 2023 году'),
     WikiLink(
       prefix: 'en',
