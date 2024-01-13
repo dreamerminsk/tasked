@@ -155,7 +155,7 @@ class SampleStyle extends StatelessWidget {
         width: Get.width,
         height: 100,
         child: Column(
-          mainAxisAlignment: MainAxisAkignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Text(
               text ?? title,
