@@ -25,35 +25,40 @@ class HealthWidget extends StatelessWidget {
     return Container(
       width: Get.width,
       height: 200,
-      child: Column(
-        crossAxisAlignment:
-          CrossAxisAlignment.start,
-        mainAxisAlignment:
-          MainAxisAlignment.spaceAround,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(
-            '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
-            style: textTheme.bodyLarge!
-              .copyWith(
-                color: colorScheme.onPrimaryContainer
-              ),
-          ), // Text
-          Text(
-            'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}, rph: ${(60*rpm).toStringAsFixed(2)}',
-            style: textTheme.bodyLarge!
-              .copyWith(
-                color: colorScheme.onPrimaryContainer
-              ),
-          ), // Text
-          Text(
-            'received: $received, bpm: ${_bpm(started, received).toStringAsFixed(0)}, bph: ${_bph(started, received).toStringAsFixed(0)}',
-            style: textTheme.bodyLarge!
-              .copyWith(
-                color: colorScheme.onPrimaryContainer
-              ),
-          ), // Text
+          Column(
+            crossAxisAlignment:
+              CrossAxisAlignment.start,
+            mainAxisAlignment:
+              MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Text(
+                '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
+                style: textTheme.bodyLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+              Text(
+                'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}, rph: ${(60*rpm).toStringAsFixed(2)}',
+                style: textTheme.bodyLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+              Text(
+                'received: $received, bpm: ${_bpm(started, received).toStringAsFixed(0)}, bph: ${_bph(started, received).toStringAsFixed(0)}',
+                style: textTheme.bodyLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+            ],
+          ), // Column
         ],
-      ), // Column
+      ), // Row
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
