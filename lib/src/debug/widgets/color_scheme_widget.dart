@@ -35,7 +35,7 @@ class ColorSchemeWidget extends StatelessWidget {
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color:
-                      colorScheme.onSurfaceVariant
+                      colorScheme.onPrimary
                   ),
               ), // Text
             ],
