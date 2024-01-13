@@ -42,8 +42,8 @@ class JsonDebugWidget extends StatelessWidget {
                 .copyWith(
                   color: colorScheme.onPrimary
                 ),
-            ),
-          ),
+            ), // Text
+          ), // RotatedBox
         ],
       ), // Row
       padding: const EdgeInsets.all(16),
