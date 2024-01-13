@@ -37,12 +37,12 @@ class JsonDebugWidget extends StatelessWidget {
               MainAxisAlignment.spaceAround,
             children: _files(randomThree, textTheme, colorScheme),
           ), // Column
-          const RotatedBox(
+          RotatedBox(
             quarterTurns: 3,
             child: Text('JSON Viewer',
               style: textTheme.titleLarge!
                 .copyWith(
-                  color: cs.onPrimary
+                  color: colorScheme.onPrimary
                 ),
             ),
           ),
