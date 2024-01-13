@@ -31,7 +31,7 @@ class TextThemeWidget extends StatelessWidget {
               MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'textThemeViewer',
+                'textTheme',
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color: colorScheme.onPrimary
