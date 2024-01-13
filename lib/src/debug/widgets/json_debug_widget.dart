@@ -64,7 +64,7 @@ class JsonDebugWidget extends StatelessWidget {
         },
         child: Text(
           five[index].split('/').last,
-            style: tt.titleLarge!
+            style: tt.bodyLarge!
               .copyWith(
                 color: cs.onSecondaryContainer
               ),
