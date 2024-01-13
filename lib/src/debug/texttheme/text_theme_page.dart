@@ -165,7 +165,7 @@ class SampleStyle extends StatelessWidget {
               ),
             ), // Text,
             Text(
-              text ?? title,
+              "${style.fontFamily ?? '.'}, ${style.fontSize ?? 0.0} pt",
               style: textTheme.bodyLarge!
                 .copyWith(
                   color: colorScheme.onPrimary,
