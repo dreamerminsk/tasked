@@ -25,7 +25,7 @@ class DebugView extends StatelessWidget {
         //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 4, 4, 4),
+            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: Obx(() => HealthWidget(
               started: c.started.value ?? DateTime.now(),
               requests: c.requests.value,
@@ -34,18 +34,18 @@ class DebugView extends StatelessWidget {
             )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(4, 4, 16, 4),
+            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
             child: Obx(() => JsonDebugWidget(
               jsonFiles: List<String>.from(c.samples),
             )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 4, 4, 4),
+            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: ColorSchemeWidget(
             ),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(4, 4, 16, 4),
+            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
             child: TextThemeWidget(
             ),
           ), // Padding
