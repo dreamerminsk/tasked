@@ -17,7 +17,7 @@ class ThemeDataPage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'primary',
               background: colorScheme.primary,
               foreground: colorScheme.onPrimary,
@@ -25,7 +25,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'primaryContainer',
               background: colorScheme.primaryContainer,
               foreground: colorScheme.onPrimaryContainer,
@@ -33,7 +33,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'secondary',
               background: colorScheme.secondary,
               foreground: colorScheme.onSecondary,
@@ -41,7 +41,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'secondaryContainer',
               background: colorScheme.secondaryContainer,
               foreground: colorScheme.onSecondaryContainer,
@@ -49,7 +49,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'tertiary',
               background: colorScheme.tertiary,
               foreground: colorScheme.onTertiary,
@@ -57,7 +57,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'tertiaryContainer',
               background: colorScheme.tertiaryContainer,
               foreground: colorScheme.onTertiaryContainer,
@@ -65,7 +65,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
@@ -73,7 +73,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'errorContainer',
               background: colorScheme.errorContainer,
               foreground: colorScheme.onErrorContainer,
@@ -81,7 +81,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'background',
               background: colorScheme.background,
               foreground: colorScheme.onBackground,
@@ -89,7 +89,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'surface',
               background: colorScheme.surface,
               foreground: colorScheme.onSurface,
@@ -97,7 +97,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'surfaceVariant',
               background: colorScheme.surfaceVariant,
               foreground: colorScheme.onSurfaceVariant,
@@ -105,7 +105,7 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: ColorContainer(
+            child: SampleColor(
               title: 'inverseSurface',
               background: colorScheme.inverseSurface,
               foreground: colorScheme.onInverseSurface,
@@ -120,12 +120,12 @@ class ThemeDataPage extends StatelessWidget {
 
 
 
-class ColorContainer extends StatelessWidget {
+class SampleColor extends StatelessWidget {
   final String title;
   final Color background;
   final Color foreground;
 
-  const ColorContainer({
+  const SampleColor({
     required this.title,
     required this.background,
     required this.foreground,
@@ -137,21 +137,31 @@ class ColorContainer extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 4,
+      elevation: 2,
       borderRadius:
         BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
-        height: 96,
-        child: Center(
-          child: Text(
-            title,
-            style: textTheme.headlineMedium!
-              .copyWith(
-                color: foreground,
-            ),
-          ), // Text,
-        ), // Center
+        height: 100,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              title,
+              style: textTheme.titleMedium!
+                .copyWith(
+                  color: foreground,
+              ),
+            ), // Text
+            Text(
+              '$background',
+              style: textTheme.bodyMedium!
+                .copyWith(
+                  color: foreground,
+              ),
+            ), // Text
+          ],
+        ), // Column
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
