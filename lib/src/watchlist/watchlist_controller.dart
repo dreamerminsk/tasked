@@ -11,6 +11,27 @@ import '../wiki/entities/wiki_link.dart';
 final links = <WikiLink>[
     WikiLink(
       prefix: 'en',
+      title: 'Category:2024'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Animals'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Fish'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Flowers'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Birds'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Vehicles'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Cuisine'),
+    WikiLink(
+      prefix: 'en',
       title: 'Category:2024 films'),
     WikiLink(
       prefix: 'en',
