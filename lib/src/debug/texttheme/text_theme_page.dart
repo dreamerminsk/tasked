@@ -17,105 +17,105 @@ class TextThemePage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'displayLarge',
               style: textTheme.displayLarge!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'displayMedium',
               style: textTheme.displayMedium!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'displaySmall',
               style: textTheme.displaySmall!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'headlineLarge',
               style: textTheme.headlineLarge!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'headlineMedium',
               style: textTheme.headlineMedium!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'headlineSmall',
               style: textTheme.headlineSmall!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'titleLarge',
               style: textTheme.titleLarge!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'titleMedium',
               style: textTheme.titleMedium!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'titleSmall',
               style: textTheme.titleSmall!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'labelLarge',
               style: textTheme.labelLarge!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'labelMedium',
               style: textTheme.labelMedium!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'labelSmall',
               style: textTheme.labelSmall!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'bodyLarge',
               style: textTheme.bodyLarge!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'bodyMedium',
               style: textTheme.bodyMedium!
             ), // TextContainer
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: TextContainer(
+            child: SampleStyle(
               title: 'bodySmall',
               style: textTheme.bodySmall!
             ), // TextContainer
@@ -127,47 +127,57 @@ class TextThemePage extends StatelessWidget {
 
 }
 
-
-
-class TextContainer extends StatelessWidget {
+class SampleStyle extends StatelessWidget {
   final String title;
   final TextStyle style;
+  final String? text;
   //final Color background;
   //final Color foreground;
 
-  const TextContainer({
+  const SampleStyle({
     required this.title,
     required this.style,
+    this.text,
     //required this.background,
     //required this.foreground,
   });
 
   @override
   Widget build(context) {
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 4,
+      elevation: 2,
       borderRadius:
         BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
-        height: 96,
-        child: Center(
-          child: Text(
-            title,
-            style: style
-              .copyWith(
-                color: colorScheme.onSurfaceVariant,
-            ),
-          ), // Text,
-        ), // Center
+        height: 100,
+        child: Column(
+          mainAxisAlignment: MainAxisAkignment.spaceAround,
+          children: <Widget>[
+            Text(
+              text ?? title,
+              style: style
+                .copyWith(
+                  color: colorScheme.onPrimary,
+              ),
+            ), // Text,
+            Text(
+              text ?? title,
+              style: textTheme.bodyLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary,
+              ),
+            ), // Text,
+          ],
+        ), // Column
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
           ), // BorderRadius
-          color: colorScheme.surfaceVariant,
+          color: colorScheme.primary,
         ), // BoxDecoration
       ), // Container
     ); // Material
