@@ -7,12 +7,12 @@ import '../wiki/entities/category_info.dart';
 import '../routes/app_pages.dart';
 
 class WatchlistView extends StatelessWidget {
-  Color? primaryColor;
+  final colors = [Colors.black,];
   
   @override
   Widget build(context) {
     final WatchlistController c = Get.find();
-    this.primaryColor = Theme.of(context).colorScheme.primary;
+    this.colors[0] = Theme.of(context).colorScheme.primary;
     
     return Scaffold(
       appBar: AppBar(title: Text("Watchlist"),
@@ -77,7 +77,7 @@ class WatchlistView extends StatelessWidget {
         child: ListTile(
           leading: Icon(
             Icons.tips_and_updates,
-            color: this.primaryColor,
+            color: this.colors[0],
             size: 64.0
           ),
           title: Text('${cat.title}'),
