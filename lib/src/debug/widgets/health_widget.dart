@@ -26,7 +26,8 @@ class HealthWidget extends StatelessWidget {
       width: Get.width,
       height: 200,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment:
+          MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Column(
             crossAxisAlignment:
@@ -42,7 +43,7 @@ class HealthWidget extends StatelessWidget {
                   ),
               ), // Text
               Text(
-                'requests: $requests, rpm: ${rpm.toStringAsFixed(2)}, rph: ${(60*rpm).toStringAsFixed(2)}',
+                'requests: $requests, rpm: ${rpm.toStringAsFixed(1)}, rph: ${(60*rpm).toStringAsFixed(0)}',
                 style: textTheme.bodyLarge!
                   .copyWith(
                     color: colorScheme.onPrimary
