@@ -19,7 +19,7 @@ class ThemeDataWidget extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.THEMEDATA); 
+          Get.toNamed(Routes.THEME); 
         },
         child: Container(
           width: Get.width,
