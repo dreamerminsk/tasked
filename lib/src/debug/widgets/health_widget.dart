@@ -57,6 +57,15 @@ class HealthWidget extends StatelessWidget {
               ), // Text
             ],
           ), // Column
+          RotatedBox(
+            quarterTurns: 3,
+            child: Text('Network Stats',
+              style: textTheme.titleLarge!
+                .copyWith(
+                  color: colorScheme.onPrimary
+                ),
+            ), // Text
+          ), // RotatedBox
         ],
       ), // Row
       padding: const EdgeInsets.all(16),
