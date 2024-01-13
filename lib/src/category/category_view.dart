@@ -189,7 +189,11 @@ class CategoryView extends StatelessWidget {
       },
       child: Card(
         child: ListTile(
-          leading: Icon(Icons.category, size: 64.0),
+          leading: Icon(
+            Icons.category,
+            color: Theme.of(context).colorScheme.primary,
+            size: 64.0
+          ),
           title: Text('${cm.title}'),
           subtitle: Text('${cm.timestamp}'),
           //subtitle: Text('${cat.subcats} categories, ${cat.pages} pages')
