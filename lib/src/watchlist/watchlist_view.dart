@@ -73,7 +73,11 @@ class WatchlistView extends StatelessWidget {
       },
       child: Card(
         child: ListTile(
-          leading: Icon(Icons.tips_and_updates, size: 64.0),
+          leading: Icon(
+            Icons.tips_and_updates,
+            color: Theme.of(context).colorScheme.primary,
+            size: 64.0
+          ),
           title: Text('${cat.title}'),
           subtitle: Text('${cat.subcats} categories, ${cat.pages} pages')
         ),
