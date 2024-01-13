@@ -30,6 +30,7 @@ class CategoryView extends StatelessWidget {
                 mainAxisAlignment:
                   MainAxisAlignment.start,
                 children: <Widget>[
+                  SizedBox(height: 8),
                   Obx(() => Text(
                     c.category.value?.title ?? '~~~',
                     style: textTheme.headlineSmall!
@@ -37,7 +38,7 @@ class CategoryView extends StatelessWidget {
                         color: colorScheme.onPrimary
                       ),
                   )), // Text
-                  SizedBox(height: 8),
+                  SizedBox(height: 12),
                   _buildProps(context),
                 ],
               ), // Column
@@ -75,7 +76,7 @@ class CategoryView extends StatelessWidget {
       children: <Widget>[
         Column(
           children: <Widget>[
-            Text('999',
+            Text('∞',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
@@ -91,7 +92,7 @@ class CategoryView extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            Text('99.999',
+            Text('∞',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
@@ -107,7 +108,7 @@ class CategoryView extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            Text('999',
+            Text('∞',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
@@ -123,7 +124,7 @@ class CategoryView extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            Text('999',
+            Text('∞',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
