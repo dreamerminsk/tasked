@@ -10,6 +10,12 @@ import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
     WikiLink(
+      prefix: 'el',
+      title: 'Κατηγορία:Χώρες'),
+    WikiLink(
+      prefix: 'en',
+      title: 'Category:Countries'),
+    WikiLink(
       prefix: 'ja',
       title: 'Category:2024年のアニメ'),
     WikiLink(
