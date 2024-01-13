@@ -19,11 +19,6 @@ class DebugView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('DEBUG'),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.copy),
-            onPressed: () { 
-                    
-            },
-          )
         ]),
 
       body: ListView(
