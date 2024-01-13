@@ -64,7 +64,7 @@ class HealthWidget extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(20),
         ), // BorderRadius
-        color: colorScheme.primaryContainer,
+        color: colorScheme.primary,
       ), // BoxDecoration
     ); //Container
   }
