@@ -15,8 +15,16 @@ class WatchlistView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Watchlist"),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.home), onPressed: () { Get.toNamed(Routes.HOME); },),
-                IconButton(icon: Icon(Icons.query_stats), onPressed: () { Get.toNamed(Routes.DEBUG); },),
+                IconButton(
+                  icon: Icon(Icons.home),
+                  color: Theme.of(context).colorScheme.primary,
+                  onPressed: () { Get.toNamed(Routes.HOME); },
+                ),
+                IconButton(
+                  icon: Icon(Icons.query_stats),
+                  color: Theme.of(context).colorScheme.primary,
+                  onPressed: () { Get.toNamed(Routes.DEBUG); },
+                ),
               ]),
 
       body: Obx( () =>
