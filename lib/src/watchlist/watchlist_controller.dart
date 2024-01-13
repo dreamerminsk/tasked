@@ -10,6 +10,9 @@ import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
     WikiLink(
+      prefix: 'uk',
+      title: 'Категорія:Телесеріали США, запущені у 2023'),
+    WikiLink(
       prefix: 'ru',
       title: 'Категория:Телесериалы России, запущенные в 2023 году'),
     WikiLink(
