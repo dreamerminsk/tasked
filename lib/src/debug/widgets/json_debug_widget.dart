@@ -25,8 +25,6 @@ class JsonDebugWidget extends StatelessWidget {
       width: Get.width,
       height: 200,
       child: Row(
-        crossAxisAlignment:
-          CrossAxisAlignment.center,
         mainAxisAlignment:
           MainAxisAlignment.start,
         children: <Widget>[
