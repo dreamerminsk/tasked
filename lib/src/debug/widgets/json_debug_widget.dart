@@ -50,7 +50,7 @@ class JsonDebugWidget extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(20),
         ), // BorderRadius
-        color: colorScheme.secondaryContainer,
+        color: colorScheme.primary,
       ), // BoxDecoration
     ); //Container
   }
@@ -66,7 +66,7 @@ class JsonDebugWidget extends StatelessWidget {
           five[index].split('/').last,
             style: tt.bodyLarge!
               .copyWith(
-                color: cs.onSecondaryContainer
+                color: cs.onPrimary
               ),
         ), // Text
       ), // InkWell                 
