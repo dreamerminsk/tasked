@@ -31,7 +31,7 @@ class ColorSchemeWidget extends StatelessWidget {
               MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'colorSchemeViewer',
+                'colorScheme',
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color:
