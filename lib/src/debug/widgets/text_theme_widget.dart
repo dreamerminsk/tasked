@@ -34,7 +34,7 @@ class TextThemeWidget extends StatelessWidget {
                 'textThemeViewer',
                 style: textTheme.headlineSmall!
                   .copyWith(
-                    color: colorScheme.onSurfaceVariant
+                    color: colorScheme.onPrimary
                   ),
               ), // Text
             ],
@@ -44,7 +44,7 @@ class TextThemeWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.surfaceVariant,
+            color: colorScheme.primary,
           ), // BoxDecoration
         ), //Container
       ),
