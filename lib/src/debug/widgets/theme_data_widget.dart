@@ -29,7 +29,7 @@ class ThemeDataWidget extends StatelessWidget {
               MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'ThemeData',
+                'themeData',
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color:
