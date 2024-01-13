@@ -17,11 +17,27 @@ class ThemeDataPage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'primary',
-              background: colorScheme.primary,
-              foreground: colorScheme.onPrimary,
-            ), // ColorContainer
+            child: SampleTheme(
+              title: 'actionIconTheme',
+            ), // SampleTheme
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleTheme(
+              title: 'appBarTheme',
+            ), // SampleTheme
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleTheme(
+              title: 'badgeTheme',
+            ), // SampleTheme
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleTheme(
+              title: 'bannerTheme',
+            ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
