@@ -10,6 +10,9 @@ import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
     WikiLink(
+      prefix: 'ar',
+      title: 'تصنيف:بلدان'),
+    WikiLink(
       prefix: 'el',
       title: 'Κατηγορία:Χώρες'),
     WikiLink(
