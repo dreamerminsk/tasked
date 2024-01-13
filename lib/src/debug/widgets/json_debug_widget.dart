@@ -30,10 +30,6 @@ class JsonDebugWidget extends StatelessWidget {
         mainAxisAlignment:
           MainAxisAlignment.start,
         children: <Widget>[
-          const RotatedBox(
-            quarterTurns: 3,
-            child: Text('JSON Viewer'),
-          ),
           Column(
             crossAxisAlignment:
               CrossAxisAlignment.start,
@@ -41,6 +37,10 @@ class JsonDebugWidget extends StatelessWidget {
               MainAxisAlignment.spaceAround,
             children: _files(randomThree, textTheme, colorScheme),
           ), // Column
+          const RotatedBox(
+            quarterTurns: 3,
+            child: Text('JSON Viewer'),
+          ),
         ],
       ), // Row
       padding: const EdgeInsets.all(16),
