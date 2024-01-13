@@ -10,6 +10,9 @@ import '../wiki/entities/wiki_link.dart';
 
 final links = <WikiLink>[
     WikiLink(
+      prefix: 'ja',
+      title: 'Category:2024年のアニメ'),
+    WikiLink(
       prefix: 'zh',
       title: 'Category:2023年開播的美國電視影集'),
     WikiLink(
