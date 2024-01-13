@@ -45,7 +45,7 @@ class ColorSchemeWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.surfaceVariant,
+            color: colorScheme.primary,
           ), // BoxDecoration
         ), //Container
       ), // InkWell
