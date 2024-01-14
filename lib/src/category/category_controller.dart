@@ -48,6 +48,7 @@ class CategoryController extends GetxController {
       subcats: info.subcats,
       pages: info.pages
     );
+    category.refresh();
   }
 
   void _update(Result<CategoryMembersResponse> result) {
@@ -67,6 +68,7 @@ class CategoryController extends GetxController {
           subcats: query.length,
         );
     }
+    category.refresh();
     members.clear();
     members.addAll(query);
   }
