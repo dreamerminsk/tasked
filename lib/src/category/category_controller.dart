@@ -38,7 +38,9 @@ class CategoryController extends GetxController {
 
   void _setMembers(List<CategoryMember> query) {
     category.update((value) {
-      
+      if (value!.cats < query.length) {
+        value!.cats = query.length;
+      }
     });
     members.clear();
     members.addAll(query);
