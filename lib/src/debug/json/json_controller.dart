@@ -9,10 +9,13 @@ import '../debug_controller.dart';
 class JsonController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final jsonRef = ''.obs;
+  final content = ''.obs;
+
 
   @override
   void onInit() {
     jsonRef.value = Get.arguments;
+    load();
     super.onInit();
   }
 
@@ -24,6 +27,19 @@ class JsonController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  void load() async {
+    final fs = await fetchString(jsonRef);
+    switch (fs) {
+      case ErrorResult e:
+        content.value = '$e';
+      case ValueResult v: {
+        content.value = '${v.value.length}: ${v.value}';
+      }
+      default:
+          content.value = 'very strange';
+      }
   }
 
   Future<Result<String>> fetchString(String link) async {
