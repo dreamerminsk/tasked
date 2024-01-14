@@ -58,8 +58,8 @@ class HealthWidget extends StatelessWidget {
                     color: colorScheme.onPrimary
                   ),
               ), // Text
-              Text('last',
-                //'last: ${lastRes['time'] ? DateFormat.Hms().format(lastRes['time']) : '~:~:~'}, total: ${lastRes['total'] ?? 0}',
+              Text(//'last',
+                'last: ${lastRes.containsKey("time") ? DateFormat.Hms().format(lastRes["time"]) : "~:~:~"}, total: ${lastRes["total"] ?? 0}',
                 style: textTheme.bodyLarge!
                   .copyWith(
                     color: colorScheme.onPrimary
