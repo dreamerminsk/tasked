@@ -23,7 +23,8 @@ class DebugController extends GetxService {
   }
 
   void newRes(Map res) {
-    
+    lastResponse.clear();
+    lastResponse.addAll(res);
   }
 
   void newBytes(int bytes) {
