@@ -20,9 +20,36 @@ class CategoryController extends GetxController {
   @override
   void onInit() {
     category.value = Get.arguments;
-    fetchCategoryMembers(WikiLink(prefix: 'en', title: category.value!.title))
-      .then((res) => _update(res));
+    final link = WikiLink(
+      prefix: category.value!.lang,
+      title: category.value!.title
+    );
+    fetchCategoryMembers(link).then((res) {
+      _update(res);
+      fetchCategoryInfo(link).then((res) =>
+        _updateInfo(res)
+      );
+    );
     super.onInit();
+  }
+
+  void _updateInfo(Result<CategoryInfo> result) {
+    switch (result) {
+      case ErrorResult e:
+        print(e.error);
+      case ValueResult v:
+        _setInfo(v.value);
+      default:
+        print('very strange');
+    }
+  }
+
+  void _setInfo(CategoryInfo info) {
+    category.update((value) {
+      category.value!.subcats = info.subcats;
+      category.value!.pages = info.pages;
+      category.value!.cats = info.cats;
+    });
   }
 
   void _update(Result<CategoryMembersResponse> result) {
@@ -64,7 +91,7 @@ class CategoryController extends GetxController {
         final query = v.value['query'] as Map;
         final pages = query['pages'] as List;
         final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
-        return Result.value(cats[0]);
+        return Result.value(cats[0].copyWith(lang: link.prefix));
         }
       default:
           return Result.error('very strange');
