@@ -8,6 +8,7 @@ class HealthWidget extends StatelessWidget {
   final int requests;
   final double rpm;
   final int received;
+  final Map lastRes;
   
   const HealthWidget({
     super.key,
@@ -15,6 +16,7 @@ class HealthWidget extends StatelessWidget {
     this.requests = 0,
     this.rpm = 0.0,
     this.received = 0,
+    this.lastRes = {},
   });
 
   @override
@@ -51,6 +53,13 @@ class HealthWidget extends StatelessWidget {
               ), // Text
               Text(
                 'received: $received, bpm: ${_bpm(started, received).toStringAsFixed(0)}, bph: ${_bph(started, received).toStringAsFixed(0)}',
+                style: textTheme.bodyLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+              Text(
+                'last: ${lastRes['time'] ? DateFormat.Hms().format(lastRes['time']) : '~:~:~'}, total: ${lastRes['total'] ?? 0}',
                 style: textTheme.bodyLarge!
                   .copyWith(
                     color: colorScheme.onPrimary
