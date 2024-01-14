@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:kb_dart/main.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemeWidget extends StatelessWidget {
@@ -31,7 +31,7 @@ class ColorSchemeWidget extends StatelessWidget {
               MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'colorScheme',
+                'colorScheme, ${MyApp.seedColor.name}',
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color:
