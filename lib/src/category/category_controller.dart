@@ -45,8 +45,9 @@ class CategoryController extends GetxController {
 
   void _setInfo(CategoryInfo info) {
     category.update((value) {
-      category.value!.subcats = info.subcats;
-      category.value!.pages = info.pages;
+      value = value.copyWith(
+        subcats: info.subcats,
+        pages: info.pages);
     });
   }
 
@@ -63,8 +64,10 @@ class CategoryController extends GetxController {
 
   void _setMembers(List<CategoryMember> query) {
     category.update((value) {
-      if (value!.cats < query.length) {
-        value!.cats = query.length;
+      if (value!.subcats < query.length) {
+        value = value.copyWith(
+          subcats: info.subcats,
+        );
       }
     });
     members.clear();
