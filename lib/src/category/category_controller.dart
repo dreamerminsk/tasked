@@ -15,8 +15,6 @@ class CategoryController extends GetxController {
   
   final category = Rxn<CategoryInfo>();
 
-  final cmResponse = Rxn<CategoryMembersResponse>();
-
   final members = <CategoryMember>[].obs;
 
   @override
@@ -39,6 +37,9 @@ class CategoryController extends GetxController {
   }
 
   void _setMembers(List<CategoryMember> query) {
+    category.update((value) {
+      
+    });
     members.clear();
     members.addAll(query);
   }
