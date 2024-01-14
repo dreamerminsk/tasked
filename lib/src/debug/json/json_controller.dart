@@ -11,7 +11,6 @@ class JsonController extends GetxController {
   final jsonRef = ''.obs;
   final content = ''.obs;
 
-
   @override
   void onInit() {
     jsonRef.value = Get.arguments;
@@ -35,7 +34,7 @@ class JsonController extends GetxController {
       case ErrorResult e:
         content.value = '$e';
       case ValueResult v: {
-        content.value = '${v.value.length}: ${v.value}';
+        content.value = '${v.value.length}: ${v.value.substring(0, 32)}';
       }
       default:
           content.value = 'very strange';
