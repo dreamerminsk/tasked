@@ -43,6 +43,35 @@ class CategoryController extends GetxController {
     members.addAll(query);
   }
 
+  Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
+    try {
+      final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
+      final params = {
+          'action': 'query',
+          'prop': 'categoryinfo',
+          'titles': '${link.title}',
+          'formatversion': '2',
+          'format': 'json',
+      };
+      final result = await fetchMap(url, params: params);
+      switch (result) {
+      case ErrorResult e:
+        return Result.error(e.error);
+      case ValueResult v: {
+        final query = v.value['query'] as Map;
+        final pages = query['pages'] as List;
+        final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
+        return Result.value(cats[0]);
+        }
+      default:
+          return Result.error('very strange');
+      }
+    } catch(e, s) {
+      Get.snackbar('CategoryController.fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+      return Result.error(e, s);
+    }
+  }
+
   Future<Result<CategoryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
     try {
       final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
@@ -68,7 +97,7 @@ class CategoryController extends GetxController {
           return Result.error('very strange');
       }
     } catch(e, s) {
-      Get.snackbar('fetchCategoryMembers', '$e,\r\n$s', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('CategoryController.fetchCategoryMembers', '$e,\r\n$s', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
