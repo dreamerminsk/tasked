@@ -28,7 +28,6 @@ class CategoryController extends GetxController {
       _update(res);
       fetchCategoryInfo(link).then((res) =>
         _updateInfo(res));
-      );
     });
     super.onInit();
   }
