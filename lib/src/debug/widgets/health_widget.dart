@@ -16,7 +16,7 @@ class HealthWidget extends StatelessWidget {
     this.requests = 0,
     this.rpm = 0.0,
     this.received = 0,
-    this.lastRes = {},
+    this.lastRes ?? {},
   });
 
   @override
