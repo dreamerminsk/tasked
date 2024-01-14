@@ -9,6 +9,8 @@ import 'src/routes/app_pages.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  //static NamedColor seedColor;
+  
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
