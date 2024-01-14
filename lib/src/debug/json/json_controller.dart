@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:async/async.dart';
 
+import '../debug_controller.dart';
+
 class JsonController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final jsonRef = ''.obs;
