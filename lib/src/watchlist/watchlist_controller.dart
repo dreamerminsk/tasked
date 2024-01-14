@@ -213,7 +213,7 @@ class WatchlistController extends GetxController {
         final query = v.value['query'] as Map;
         final pages = query['pages'] as List;
         final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
-        return Result.value(cats[0].copyWith(prefix: link.prefix));
+        return Result.value(cats[0].copyWith(lang: link.prefix));
         }
       default:
           return Result.error('very strange');
