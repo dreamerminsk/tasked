@@ -10,7 +10,7 @@ import 'src/core/colors.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  static NamedMaterialColor seedColor;
+  static NamedMaterialColor seedColor = NamedColors.indigo;
   
   @override
   Widget build(BuildContext context) {
