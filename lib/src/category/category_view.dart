@@ -44,7 +44,7 @@ class CategoryView extends StatelessWidget {
               ), // Column
             ), // Container
             Positioned(
-              top: 175,
+              top: 150,
               bottom: 0,
               left: 0,
               right: 0,
