@@ -44,7 +44,7 @@ class CategoryInfo {
     );
   }
 
-  (int, String, String) _equality() => (pageid, lang, title);
+  (int, String, String, int, int) _equality() => (pageid, lang, title, pages, subcats);
 
   @override
   bool operator ==(covariant CategoryInfo other) {
