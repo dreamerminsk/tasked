@@ -138,16 +138,16 @@ class CategoryController extends GetxController {
     try {
       debug.newReq();
       var bytes = 0;
-      var total = 0;
+      var ttl = 0;
       final dio.Response<Map> response = await dio.Dio().get(
           link, queryParameters: params,
           onReceiveProgress: (received, total) {
             bytes = received;
-            total = (total > 0) ? total : received;
+            ttl = (total > 0) ? total : received;
           }
       );
       debug.newBytes(bytes);
-      debug.newRes({'time': DateTime.now(), 'total': total});
+      debug.newRes({'time': DateTime.now(), 'total': ttl});
       return Result.value(response.data ?? {});
     } catch (e, s) {
       Get.snackbar('CategoryController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
