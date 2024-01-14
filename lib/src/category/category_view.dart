@@ -39,7 +39,7 @@ class CategoryView extends StatelessWidget {
                       ),
                   )), // Text
                   SizedBox(height: 12),
-                  _buildProps(context),
+                  Obx(() => _buildProps(context, c.category.value)),
                 ],
               ), // Column
             ), // Container
@@ -66,7 +66,7 @@ class CategoryView extends StatelessWidget {
   }
 
 
-  Widget _buildProps(BuildContext context) {
+  Widget _buildProps(BuildContext context, CategoryInfo? ci) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -76,7 +76,7 @@ class CategoryView extends StatelessWidget {
       children: <Widget>[
         Column(
           children: <Widget>[
-            Text('∞',
+            Text(ci?.subcats.toString() ?? '∞',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
@@ -92,7 +92,7 @@ class CategoryView extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            Text('∞',
+            Text(ci?.pages.toString() ?? '∞',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
