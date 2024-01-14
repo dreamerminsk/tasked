@@ -48,7 +48,6 @@ class CategoryController extends GetxController {
     category.update((value) {
       category.value!.subcats = info.subcats;
       category.value!.pages = info.pages;
-      category.value!.cats = info.cats;
     });
   }
 
