@@ -29,7 +29,7 @@ class JsonController extends GetxController {
   }
 
   void load() async {
-    final fs = await fetchString(jsonRef);
+    final fs = await fetchString(jsonRef.value);
     switch (fs) {
       case ErrorResult e:
         content.value = '$e';
