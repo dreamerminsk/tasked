@@ -27,7 +27,7 @@ class CategoryController extends GetxController {
     fetchCategoryMembers(link).then((res) {
       _update(res);
       fetchCategoryInfo(link).then((res) =>
-        _updateInfo(res)
+        _updateInfo(res));
       );
     });
     super.onInit();
