@@ -39,8 +39,8 @@ class WatchlistView extends StatelessWidget {
                 )
                 : const Center(child: Text('No items'))
                ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _buttons(c),
+      //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      //floatingActionButton: _buttons(c),
     );
   }
 
@@ -81,7 +81,7 @@ class WatchlistView extends StatelessWidget {
             size: 64.0
           ),
           title: Text('${cat.title}'),
-          subtitle: Text('${cat.subcats} categories, ${cat.pages} pages')
+          subtitle: Text('${cat.subcats} subcats, ${cat.pages} pages, 0 cats, 0 langs')
         ),
       ),
     );
