@@ -23,6 +23,11 @@ class WatchlistView extends StatelessWidget {
                   onPressed: () { Get.toNamed(Routes.HOME); },
                 ),
                 IconButton(
+                  icon: Icon(Icons.casino,
+                  color: Theme.of(context).colorScheme.primary,
+                  onPressed: () { Get.toNamed(Routes.HOME); },
+                ),
+                IconButton(
                   icon: Icon(Icons.query_stats),
                   color: Theme.of(context).colorScheme.primary,
                   onPressed: () { Get.toNamed(Routes.DEBUG); },
