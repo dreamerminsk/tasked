@@ -34,7 +34,7 @@ class JsonController extends GetxController {
       case ErrorResult e:
         content.value = '$e';
       case ValueResult v: {
-        content.value = '${v.value.length}: ${v.value.substring(0, 32)}';
+        content.value = '${v.value.length}: ${v.value.substring(0, 256)}';
       }
       default:
           content.value = 'very strange';
