@@ -7,10 +7,10 @@ import '../wiki/entities/category_member.dart';
 import '../routes/app_pages.dart';
 
 class CategoryView extends StatelessWidget {
-
+  final CategoryController c = Get.find();
+  
   @override
   Widget build(context) {
-    final CategoryController c = Get.find();
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     
@@ -155,17 +155,13 @@ class CategoryView extends StatelessWidget {
               child: _catCard(context, query[index]));
           },
         )
-      : ListView(
-          padding: const EdgeInsets.all(8),
-          children: List<Widget>.generate(
-            32, (int index) => Text('$index',
-              style: textTheme.bodyLarge!
-                .copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
-            )
-          ),
-        ); // ListView
+      : Center(
+        child: Icon(
+          Icons.category,
+          color: Theme.of(context).colorScheme.primary,
+          size: 128.0
+        ),
+      );
   }
 
   //Widget _buildCard(BuildContext context, CategoryMember cm) {
