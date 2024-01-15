@@ -184,7 +184,7 @@ class CategoryView extends StatelessWidget {
     return InkWell(
       onTap: () { 
         Get.toNamed(Routes.CATEGORY,
-                    arguments: CategoryInfo(title:  cm.title),
+                    arguments: CategoryInfo(title:  cm.title, lang: c.category.value?.lang ?? 'en'),
                     preventDuplicates: false); 
       },
       child: Card(
