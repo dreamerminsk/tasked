@@ -143,7 +143,7 @@ class CategoryView extends StatelessWidget {
   }
 
   Widget _buildList(BuildContext context, List<CategoryMember> query) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return query.length > 0
@@ -158,7 +158,7 @@ class CategoryView extends StatelessWidget {
       : Center(
         child: Icon(
           Icons.category,
-          color: Theme.of(context).colorScheme.primary,
+          color: colorScheme.primary,
           size: 128.0
         ),
       );
