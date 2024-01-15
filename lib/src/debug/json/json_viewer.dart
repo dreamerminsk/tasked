@@ -28,7 +28,7 @@ class JsonViewer extends StatelessWidget {
           child: Obx(() => 
             Text(
               '${c.jsonRef.value.split("/").last}, ${c.content.value}',
-              style: textTheme.headlineLarge!,
+              style: textTheme.bodyLarge!,
             )),
         ),
       ),
