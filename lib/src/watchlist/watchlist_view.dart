@@ -81,30 +81,30 @@ class WatchlistView extends StatelessWidget {
             size: 64.0
           ),
           title: Text('${cat.title}'),
-          subtitle: Text('${cat.subcats} subcats, ${cat.pages} pages, 0 cats, 0 langs')
+          subtitle: Text('${cat.subcats} subcats, ${cat.pages} pages, ∞ cats, ∞ langs')
         ),
       ),
     );
   }
 
-  Widget _buttons(WatchlistController c) {
-    return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            FloatingActionButton(
-              heroTag: null,
-              onPressed: () { c.before(); },
-              child: Icon(Icons.navigate_before),
-            ),
-            FloatingActionButton(
-              heroTag: null,
-              onPressed: () { c.after(); },
-              child: Icon(Icons.navigate_next),
-            )
-          ],
-        ),
-      );
-  }//_buttons
+  //Widget _buttons(WatchlistController c) {
+    //return Padding(
+        //padding: const EdgeInsets.all(8.0),
+        //child: Row(
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //children: <Widget>[
+           // FloatingActionButton(
+              //heroTag: null,
+              //onPressed: () { c.before(); },
+              //child: Icon(Icons.navigate_before),
+            //),
+            //FloatingActionButton(
+              //heroTag: null,
+              //onPressed: () { c.after(); },
+              //child: Icon(Icons.navigate_next),
+            //)
+          //],
+        //),
+      //);
+  //}//_buttons
 }
