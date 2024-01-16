@@ -20,7 +20,7 @@ class WikiLink {
   factory WikiLink.fromJson(Map<String, dynamic> json) {
     return WikiLink(
       prefix: json['prefix'] ?? 'en',
-      lang: json['lang'] ?? 'Main Page',
+      title: json['title'] ?? 'Main Page',
     );
   }
 
