@@ -17,6 +17,13 @@ class WikiLink {
     );
   }
 
+  factory WikiLink.fromJson(Map<String, dynamic> json) {
+    return WikiLink(
+      prefix: json['prefix'] ?? 'en',
+      lang: json['lang'] ?? 'Main Page',
+    );
+  }
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
