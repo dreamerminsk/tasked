@@ -143,25 +143,36 @@ class SampleColor extends StatelessWidget {
       child: Container(
         width: Get.width,
         height: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Text(
-              title,
-              style: textTheme.titleMedium!
-                .copyWith(
-                  color: foreground,
-              ),
-            ), // Text
-            Text(
-              '$background',
-              style: textTheme.bodyMedium!
-                .copyWith(
-                  color: foreground,
-              ),
-            ), // Text
-          ],
-        ), // Column
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            border: Border.all(
+              color: foreground,
+              width: 1.0,
+            ), // Border
+            borderRadius: BorderRadius.circular(12),
+          ), // BoxDecoration
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text(
+                title,
+                style: textTheme.titleMedium!
+                  .copyWith(
+                    color: foreground,
+                ),
+              ), // Text
+              Text(
+                '$background',
+                style: textTheme.bodyMedium!
+                  .copyWith(
+                    color: foreground,
+                ),
+              ), // Text
+            ],
+          ), // Column
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
