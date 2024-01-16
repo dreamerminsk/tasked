@@ -9,27 +9,13 @@
 {"prefix": "ru","title": "Категория:Телесериалы России, запущенные в 2023 году"},
 {"prefix": "ru","title": "Категория:Пришедшие к власти в 2023 году"},
 {"prefix": "en","title": "Category:Dogs"},
-    WikiLink(
-      prefix: 'ru',
-      title: 'Категория:Фильмы 2024 года'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:2024'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:Animals'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:Fish'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:Flowers'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:Birds'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:Vehicles'),
+{"prefix": "ru","title": "Категория:Фильмы 2024 года"},
+{"prefix": "en","title": "Category:2024"},
+{"prefix": "en","title": "Category:Animals"},
+{"prefix": "en","title": "Category:Fish"},
+{"prefix": "en","title": "Category:Flowers"},
+{"prefix": "en","title": "Category:Birds"},
+{"prefix": "en","title": "Category:Vehicles"},
     WikiLink(
       prefix: 'en',
       title: 'Category:Cuisine'),
