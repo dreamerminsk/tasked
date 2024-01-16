@@ -13,6 +13,7 @@ abstract class Routes {
   static const TEXTTHEME = _Paths.TEXTTHEME;
   static const JSON = _Paths.JSON;
   static const THEME = _Paths.THEME;
+  static const FILES = _Paths.FILES;
 }
 
 abstract class _Paths {
@@ -26,4 +27,5 @@ abstract class _Paths {
   static const TEXTTHEME = '/texttheme';
   static const JSON = '/json';
   static const THEME = '/theme';
+  static const FILES = '/files';
 }
