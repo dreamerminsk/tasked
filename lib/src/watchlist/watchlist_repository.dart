@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart' show rootBundle;
+
 import '../wiki/entities/wiki_link.dart';
 
 class WatchlistRepository {
