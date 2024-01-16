@@ -5,18 +5,10 @@ import 'package:intl/intl.dart';
 
 class HealthWidget extends StatelessWidget {
   final DateTime started;
-  final int requests;
-  final double rpm;
-  final int received;
-  final Map lastRes;
   
   const HealthWidget({
     super.key,
     required this.started,
-    this.requests = 0,
-    this.rpm = 0.0,
-    this.received = 0,
-    required this.lastRes,
   });
 
   @override
@@ -44,27 +36,6 @@ class HealthWidget extends StatelessWidget {
                     color: colorScheme.onPrimary
                   ),
               ), // Text
-              Text(
-                'requests: $requests, rpm: ${rpm.toStringAsFixed(1)}, rph: ${(60*rpm).toStringAsFixed(0)}',
-                style: textTheme.bodyLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
-              ), // Text
-              Text(
-                'received: $received, bpm: ${_bpm(started, received).toStringAsFixed(0)}, bph: ${_bph(started, received).toStringAsFixed(0)}',
-                style: textTheme.bodyLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
-              ), // Text
-              Text(//'last',
-                'last: ${lastRes.containsKey("time") ? DateFormat.Hms().format(lastRes["time"]) : "~:~:~"}, total: ${lastRes["total"] ?? 0}',
-                style: textTheme.bodyLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
-              ), // Text
             ],
           ), // Column
           RotatedBox(
@@ -86,13 +57,5 @@ class HealthWidget extends StatelessWidget {
         color: colorScheme.primary,
       ), // BoxDecoration
     ); //Container
-  }
-
-  double _bpm(DateTime s, int r) {
-    return 60 * r / (DateTime.now().difference(s).inSeconds);
-  }
-
-  double _bph(DateTime s, int r) {
-    return 60 * 60 * r / (DateTime.now().difference(s).inSeconds);
   }
 }
