@@ -2,21 +2,11 @@
 {"prefix": "vi","title": "Thể loại:Quốc gia"},
 {"prefix": "ar","title": "تصنيف:بلدان"},
 {"prefix": "el","title": "Κατηγορία:Χώρες"},
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:Countries'),
-    WikiLink(
-      prefix: 'ja',
-      title: 'Category:2024年のアニメ'),
-    WikiLink(
-      prefix: 'zh',
-      title: 'Category:2023年開播的美國電視影集'),
-    WikiLink(
-      prefix: 'uk',
-      title: 'Категорія:Телесеріали США, запущені у 2023'),
-    WikiLink(
-      prefix: 'ru',
-      title: 'Категория:Телесериалы России, запущенные в 2023 году'),
+{"prefix": "en","title": "Category:Countries"},
+{"prefix": "ja","title": "Category:2024年のアニメ"},
+{"prefix": "zh","title": "Category:2023年開播的美國電視影集"},
+{"prefix": "uk","title": "Категорія:Телесеріали США, запущені у 2023"},
+{"prefix": "ru","title": "Категория:Телесериалы России, запущенные в 2023 году"},
     WikiLink(
       prefix: 'ru',
       title: 'Категория:Пришедшие к власти в 2023 году'),
