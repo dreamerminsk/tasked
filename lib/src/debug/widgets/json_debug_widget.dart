@@ -51,7 +51,7 @@ class JsonDebugWidget extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(20),
         ), // BorderRadius
-        color: colorScheme.primary.withOpacity(0.75),
+        color: colorScheme.primary,
       ), // BoxDecoration
     ); //Container
   }
