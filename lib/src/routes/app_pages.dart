@@ -5,7 +5,7 @@ import '../category/category_view.dart';
 import '../debug/debug_binding.dart';
 import '../debug/debug_view.dart';
 import '../debug/colorscheme/color_scheme_page.dart';
-import '../debug/texttheme/text_theme_page.dart';
+import '../debug/theme/text_theme_page.dart';
 import '../debug/json/json_viewer.dart';
 import '../debug/json/json_binding.dart';
 import '../debug/theme/theme_data_page.dart';
