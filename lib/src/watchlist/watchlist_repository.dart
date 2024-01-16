@@ -8,4 +8,8 @@ class WatchlistRepository {
     return List<WikiLink>.empty();
   }
 
+  Future<String> loadAsset() async {
+    return await rootBundle.loadString('data/Watchlist.Cats.json');
+  }
+
 }
