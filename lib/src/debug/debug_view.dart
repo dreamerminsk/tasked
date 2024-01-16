@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'debug_controller.dart';
+import 'files/files.dart';
 import 'widgets/color_scheme_widget.dart';
 import 'widgets/health_widget.dart';
 import 'widgets/network_stats.dart';
@@ -55,11 +56,16 @@ class DebugView extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: ColorSchemeWidget(
+            child: Files(
             ),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            child: ColorSchemeWidget(
+            ),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: TextThemeWidget(
             ),
           ), // Padding
