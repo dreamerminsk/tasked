@@ -30,10 +30,6 @@ class DebugView extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: Obx(() => HealthWidget(
               started: c.started.value ?? DateTime.now(),
-              requests: c.requests.value,
-              rpm: c.rpm,
-              received: c.received.value,
-              lastRes: Map.from(c.lastResponse),
             )),
           ), // Padding
           Padding(
