@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 
-class JsonDebugWidget extends StatelessWidget {
+class RandomJsonFiles extends StatelessWidget {
   final List<String> jsonFiles;
   
-  const JsonDebugWidget({
+  const RandomJsonFiles({
     super.key,
     required this.jsonFiles,
   });
@@ -18,7 +18,6 @@ class JsonDebugWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    //final jsonFile = jsonFiles[Random.secure().nextInt(jsonFiles.length)];
     final randomThree = (jsonFiles.toList()..shuffle()).take(5).toList();
     
     return Container(
