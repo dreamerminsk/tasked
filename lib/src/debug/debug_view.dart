@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'debug_controller.dart';
 import 'widgets/color_scheme_widget.dart';
 import 'widgets/health_widget.dart';
-import 'widgets/json_debug_widget.dart';
+import 'widgets/random_json_files.dart';
 import 'widgets/text_theme_widget.dart';
 import 'widgets/theme_data_widget.dart';
 
@@ -37,7 +37,7 @@ class DebugView extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: Obx(() => JsonDebugWidget(
+            child: Obx(() => RandomJsonFiles(
               jsonFiles: List<String>.from(c.samples),
             )),
           ), // Padding
