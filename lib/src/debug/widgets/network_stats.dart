@@ -38,13 +38,6 @@ class NetworkStats extends StatelessWidget {
               MainAxisAlignment.spaceAround,
             children: <Widget>[
               Text(
-                '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
-                style: textTheme.bodyLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
-              ), // Text
-              Text(
                 'requests: $requests, rpm: ${rpm.toStringAsFixed(1)}',
                 style: textTheme.bodyLarge!
                   .copyWith(
