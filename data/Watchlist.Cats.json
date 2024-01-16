@@ -26,15 +26,9 @@
 {"prefix": "en","title": "Category:2024 video games"},
 {"prefix": "en","title": "Category:2024 in basketball"},
 {"prefix": "en","title": "Category:2024 in ice hockey"},
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:2024 in snooker'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:2024 in biathlon'),
-    WikiLink(
-      prefix: 'en',
-      title: 'Category:2024 in alpine skiing'),
+{"prefix": "en","title": "Category:2024 in snooker"},
+{"prefix": "en","title": "Category:2024 in biathlon"},
+{"prefix": "en","title": "Category:2024 in alpine skiing"},
     WikiLink(
       prefix: 'en',
       title: 'Category:2024 in figure skating'),
