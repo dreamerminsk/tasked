@@ -40,7 +40,7 @@ class HealthWidget extends StatelessWidget {
           ), // Column
           RotatedBox(
             quarterTurns: 3,
-            child: Text('Network Stats',
+            child: Text('Health Status',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary
