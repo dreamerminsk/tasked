@@ -10,7 +10,7 @@ class DirPage extends StatelessWidget {
   final path;
   final RxList entries = RxList();
 
-  const DirPage(super.key, required this.path);
+  DirPage(super.key, required this.path);
 
   @override
   Widget build(context) {
@@ -18,7 +18,7 @@ class DirPage extends StatelessWidget {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    if (entries.value.isEmpty) {
+    if (entries.isEmpty) {
       final d = Directory(path);
       d.list().map((item) => item.path).forEach((item) => entries.add(item));
     }
