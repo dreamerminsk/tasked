@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class FilesPage extends StatelessWidget {
 
-  final temp = ''.obx;
+  final temp = ''.obs;
 
   @override
   Widget build(context) {
@@ -19,11 +19,14 @@ class FilesPage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'primary',
-              background: colorScheme.primary,
-              foreground: colorScheme.onPrimary,
-            ), // ColorContainer
+            child: ObxValue(
+              (data) =>   SampleColor(
+                title: data.value,
+                background: colorScheme.primary,
+                foreground: colorScheme.onPrimary,
+              ), // SampleColor
+              temp,
+            ),
           ), // Padding
         ],
       ), // ListView
