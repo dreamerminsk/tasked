@@ -42,8 +42,14 @@ class WatchlistView extends StatelessWidget {
                     return _catOrErrorCard(c.categories[index]);
                   },
                 )
-                : const Center(child: Text('No items'))
+                : Center(
+                    child: Icon(
+                    Icons.tips_and_updates,
+                    color: colorScheme.primary,
+                    size: 160.0
+                  )
                ),
+            ),
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //floatingActionButton: _buttons(c),
     );
