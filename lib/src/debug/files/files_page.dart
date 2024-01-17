@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 
 //import '../debug_controller.dart';
 
@@ -7,13 +8,17 @@ class FilesPage extends StatelessWidget {
 
   final temp = ''.obs;
 
-  FilesPage();
-
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+
+    if (temp.value.isEmpty) {
+      getTemporaryDirectory().then(
+        (d) => temp.value = '$d'
+      );
+    }
 
     return Scaffold(
       body: ListView(
