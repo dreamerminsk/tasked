@@ -47,8 +47,8 @@ class ThemeDataPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
-              title: 'primaryContainer',
-              background: colorScheme.primaryContainer,
+              title: 'canvasColor',
+              background: theme.canvasColor,
               foreground: colorScheme.onPrimaryContainer,
             ), // ColorContainer
           ), // Padding
