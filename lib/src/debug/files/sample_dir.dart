@@ -17,32 +17,35 @@ class SampleDir extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
 
-    return Material(
-      elevation: 2,
-      borderRadius:
-        BorderRadius.all(Radius.circular(20)),
-      child: Container(
-        width: Get.width,
-        height: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              title,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: foreground,
-              ),
-            ), // Text
-          ],
-        ), // Column
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: background,
-        ), // BoxDecoration
-      ), // Container
-    ); // Material
+    return InkWell(
+      onTap: () { Get.to(DirPage(title)); },
+      child: Material(
+        elevation: 2,
+        borderRadius:
+          BorderRadius.all(Radius.circular(20)),
+        child: Container(
+          width: Get.width,
+          height: 100,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                title,
+                style: textTheme.titleLarge!
+                  .copyWith(
+                    color: foreground,
+                ),
+              ), // Text
+            ],
+          ), // Column
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: background,
+          ), // BoxDecoration
+        ), // Container
+      ), // Material
+    );
   }
 }
