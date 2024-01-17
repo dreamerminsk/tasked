@@ -50,7 +50,7 @@ class ThemeDataPage extends StatelessWidget {
               title: 'canvasColor',
               background: theme.canvasColor,
               foreground: invert(theme.canvasColor),
-            ), // ColorContainer
+            ), // SampleColor
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
@@ -58,7 +58,31 @@ class ThemeDataPage extends StatelessWidget {
               title: 'cardColor',
               background: theme.cardColor,
               foreground: invert(theme.cardColor),
-            ), // ColorContainer
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'dialogBackgroundColor',
+              background: theme.dialogBackgroundColor,
+              foreground: invert(theme.dialogBackgroundColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'disabledColor',
+              background: theme.disabledColor,
+              foreground: invert(theme.disabledColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'dividerColor',
+              background: theme.dividerColor,
+              foreground: invert(theme.dividerColor),
+            ), // SampleColor
           ), // Padding
         ],
       ), // ListView
