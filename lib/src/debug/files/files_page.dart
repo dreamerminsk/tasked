@@ -7,6 +7,8 @@ class FilesPage extends StatelessWidget {
 
   final temp = ''.obs;
 
+  FilesPage();
+
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
