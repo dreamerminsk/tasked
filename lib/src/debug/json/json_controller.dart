@@ -10,6 +10,8 @@ class JsonController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final jsonRef = ''.obs;
   final content = ''.obs;
+  final objects = 0.obs;
+  final arrays = 0.obs;
 
   @override
   void onInit() {
@@ -34,11 +36,16 @@ class JsonController extends GetxController {
       case ErrorResult e:
         content.value = '$e';
       case ValueResult v: {
+        process(v.value);
         content.value = '${v.value.length}: ${v.value.substring(0, 512 > v.value.length ? v.value.length : 512)}';
       }
       default:
           content.value = 'very strange';
       }
+  }
+
+  void process(String value) {
+    
   }
 
   Future<Result<String>> fetchString(String link) async {
