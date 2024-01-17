@@ -5,10 +5,10 @@ import 'package:get/get.dart';
 import 'sample_dir.dart';
 
 class DirPage extends StatelessWidget {
-  final path = ''.obs;
+  final path;
   final entries = [].obs;
 
-  const DirPage(super.key, this.path);
+  const DirPage(super.key, required this.path);
 
   @override
   Widget build(context) {
@@ -21,47 +21,24 @@ class DirPage extends StatelessWidget {
       d.list().map((item) => item.path).forEach((item) => entries.add(item));
     }
     
-
     return Scaffold(
-      body: ListView(
-        //padding: EdgeInsets.all(8),
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) =>   SampleDir(
-                title: data.value,
+      body: ObxValue((data) =>
+        ListView.builder(
+          itemCount: data.value.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.all(8),
+              child: SampleDir(
+                title: data.value[index],
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
               ), // SampleDir
-              temp,
-            ),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) =>   SampleDir(
-                title: data.value,
-                background: colorScheme.primary,
-                foreground: colorScheme.onPrimary,
-              ), // SampleDir
-              docs,
-            ),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) =>   SampleDir(
-                title: data.value,
-                background: colorScheme.primary,
-                foreground: colorScheme.onPrimary,
-              ), // SampleDir
-              cache,
-            ),
-          ), // Padding
-        ],
-      ), // ListView
-    );
+            ), // Padding;
+          },
+        ),
+        entries,
+      ),
+      );
   }
 
 }
