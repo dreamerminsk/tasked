@@ -22,7 +22,7 @@ class SampleDir extends StatelessWidget {
     return InkWell(
       onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
       child: Material(
-        elevation: 2,
+        elevation: 1,
         borderRadius:
           BorderRadius.all(Radius.circular(20)),
         child: Container(
@@ -32,7 +32,7 @@ class SampleDir extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                title,
+                title.split('/').last,
                 style: textTheme.titleLarge!
                   .copyWith(
                     color: foreground,
