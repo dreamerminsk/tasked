@@ -27,7 +27,7 @@ class FilesPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) =>   SampleColor(
+              (data) =>   SampleDir(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -44,7 +44,7 @@ class FilesPage extends StatelessWidget {
 
 
 
-class SampleColor extends StatelessWidget {
+class SampleDir extends StatelessWidget {
   final String title;
   final Color background;
   final Color foreground;
@@ -68,18 +68,11 @@ class SampleColor extends StatelessWidget {
         width: Get.width,
         height: 100,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               title,
-              style: textTheme.titleMedium!
-                .copyWith(
-                  color: foreground,
-              ),
-            ), // Text
-            Text(
-              '$background',
-              style: textTheme.bodyMedium!
+              style: textTheme.titleLarge!
                 .copyWith(
                   color: foreground,
               ),
