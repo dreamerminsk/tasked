@@ -67,7 +67,7 @@ class SampleTheme extends StatelessWidget {
   const SampleTheme({
     super.key,
     required this.title,
-    required this.theme;
+    required this.theme,
   });
 
   @override
