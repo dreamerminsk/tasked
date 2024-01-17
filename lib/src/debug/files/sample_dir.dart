@@ -20,7 +20,7 @@ class SampleDir extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
-      onTap: () { Get.to(DirPage(title), preventDuplicates: false); },
+      onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
       child: Material(
         elevation: 2,
         borderRadius:
