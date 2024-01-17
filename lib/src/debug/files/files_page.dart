@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 
 class FilesPage extends StatelessWidget {
 
+  final temp = ''.obx;
+
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
