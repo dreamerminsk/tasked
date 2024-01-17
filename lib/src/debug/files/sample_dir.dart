@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 class SampleDir extends StatelessWidget {
   final String title;
   final Color background;
