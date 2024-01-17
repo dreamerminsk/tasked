@@ -150,7 +150,7 @@ class SampleColor extends StatelessWidget {
             color: Colors.transparent,
             border: Border.all(
               color: foreground,
-              width: 1.0,
+              width: 2.0,
             ), // Border
             borderRadius: BorderRadius.circular(12),
           ), // BoxDecoration
