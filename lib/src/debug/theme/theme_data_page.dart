@@ -84,6 +84,110 @@ class ThemeDataPage extends StatelessWidget {
               foreground: invert(theme.dividerColor),
             ), // SampleColor
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'focusColor',
+              background: theme.focusColor,
+              foreground: invert(theme.focusColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'highlightColor',
+              background: theme.highlightColor,
+              foreground: invert(theme.highlightColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'hintColor',
+              background: theme.hintColor,
+              foreground: invert(theme.hintColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'hoverColor',
+              background: theme.hoverColor,
+              foreground: invert(theme.hoverColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'indicatorColor',
+              background: theme.indicatorColor,
+              foreground: invert(theme.indicatorColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'primaryColor',
+              background: theme.primaryColor,
+              foreground: invert(theme.primaryColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'primaryColorDark',
+              background: theme.primaryColorDark,
+              foreground: invert(theme.primaryColorDark),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'primaryColorLight',
+              background: theme.primaryColorLight,
+              foreground: invert(theme.primaryColorLight),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'scaffoldBackgroundColor',
+              background: theme.scaffoldBackgroundColor,
+              foreground: invert(theme.scaffoldBackgroundColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'secondaryHeaderColor',
+              background: theme.secondaryHeaderColor,
+              foreground: invert(theme.secondaryHeaderColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'shadowColor',
+              background: theme.shadowColor,
+              foreground: invert(theme.shadowColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'splashColor',
+              background: theme.splashColor,
+              foreground: invert(theme.splashColor),
+            ), // SampleColor
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'unselectedWidgetColor',
+              background: theme.unselectedWidgetColor,
+              foreground: invert(theme.unselectedWidgetColor),
+            ), // SampleColor
+          ), // Padding
         ],
       ), // ListView
     );
