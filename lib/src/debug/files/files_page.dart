@@ -20,17 +20,17 @@ class FilesPage extends StatelessWidget {
 
     if (temp.value.isEmpty) {
       getTemporaryDirectory().then(
-        (d) => temp.value = '$d'
+        (d) => temp.value = d.path
       );
     }
     if (docs.value.isEmpty) {
       getApplicationDocumentsDirectory().then(
-        (d) => docs.value = '$d'
+        (d) => docs.value = d.path
       );
     }
     if (cache.value.isEmpty) {
       getApplicationCacheDirectory().then(
-        (d) => cache.value = '$d'
+        (d) => cache.value = d.path
       );
     }
 
@@ -45,7 +45,7 @@ class FilesPage extends StatelessWidget {
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
-              ), // SampleColor
+              ), // SampleDir
               temp,
             ),
           ), // Padding
@@ -56,7 +56,7 @@ class FilesPage extends StatelessWidget {
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
-              ), // SampleColor
+              ), // SampleDir
               docs,
             ),
           ), // Padding
@@ -67,7 +67,7 @@ class FilesPage extends StatelessWidget {
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
-              ), // SampleColor
+              ), // SampleDir
               cache,
             ),
           ), // Padding
