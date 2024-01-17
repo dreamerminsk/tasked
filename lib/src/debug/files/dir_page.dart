@@ -10,7 +10,7 @@ class DirPage extends StatelessWidget {
   final path;
   final RxList entries = RxList();
 
-  DirPage(super.key, required this.path);
+  DirPage({super.key, required this.path});
 
   @override
   Widget build(context) {
