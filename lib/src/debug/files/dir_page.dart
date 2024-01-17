@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,7 +8,7 @@ import 'sample_dir.dart';
 
 class DirPage extends StatelessWidget {
   final path;
-  final entries = [].obs;
+  final RxList entries = RxList();
 
   const DirPage(super.key, required this.path);
 
@@ -24,12 +26,12 @@ class DirPage extends StatelessWidget {
     return Scaffold(
       body: ObxValue((data) =>
         ListView.builder(
-          itemCount: data.value.length,
+          itemCount: data.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: EdgeInsets.all(8),
               child: SampleDir(
-                title: data.value[index],
+                title: data[index],
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
               ), // SampleDir
