@@ -10,7 +10,7 @@ class ThemeDataPage extends StatelessWidget {
     //final DebugController c = Get.find(tag: 'debugger');
     final theme = Theme.of(context);
     //final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       body: ListView(
