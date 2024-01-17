@@ -8,6 +8,8 @@ class FilesPage extends StatelessWidget {
 
   final temp = ''.obs;
 
+  final docs = ''.obs;
+
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
@@ -17,6 +19,11 @@ class FilesPage extends StatelessWidget {
     if (temp.value.isEmpty) {
       getTemporaryDirectory().then(
         (d) => temp.value = '$d'
+      );
+    }
+    if (docs.value.isEmpty) {
+      getApplicationDocumentsDirectory().then(
+        (d) => docs.value = '$d'
       );
     }
 
@@ -33,6 +40,17 @@ class FilesPage extends StatelessWidget {
                 foreground: colorScheme.onPrimary,
               ), // SampleColor
               temp,
+            ),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ObxValue(
+              (data) =>   SampleDir(
+                title: data.value,
+                background: colorScheme.primary,
+                foreground: colorScheme.onPrimary,
+              ), // SampleColor
+              docs,
             ),
           ), // Padding
         ],
