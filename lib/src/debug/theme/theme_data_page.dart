@@ -198,7 +198,8 @@ class ThemeDataPage extends StatelessWidget {
   final g = 255 - color.green;
   final b = 255 - color.blue;
 
-  return Color.fromARGB((color.opacity * 255).round(), r, g, b);
+  //return Color.fromARGB((color.opacity * 255).round(), r, g, b);
+  return Color.fromARGB(255, r, g, b);
   }
 
 }
