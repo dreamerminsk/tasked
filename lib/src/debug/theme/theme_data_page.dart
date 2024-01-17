@@ -52,6 +52,14 @@ class ThemeDataPage extends StatelessWidget {
               foreground: colorScheme.onPrimaryContainer,
             ), // ColorContainer
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'cardColor',
+              background: theme.cardColor,
+              foreground: colorScheme.onPrimaryContainer,
+            ), // ColorContainer
+          ), // Padding
         ],
       ), // ListView
     );
