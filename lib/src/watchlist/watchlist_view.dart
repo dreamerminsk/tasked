@@ -45,7 +45,7 @@ class WatchlistView extends StatelessWidget {
                 : Center(
                     child: Icon(
                     Icons.tips_and_updates,
-                    color: colorScheme.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 160.0
                   )
                ),
