@@ -8,6 +8,7 @@ class ThemeDataPage extends StatelessWidget {
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
+    final theme = Theme.of(context);
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -19,24 +20,28 @@ class ThemeDataPage extends StatelessWidget {
             padding: EdgeInsets.all(8),
             child: SampleTheme(
               title: 'actionIconTheme',
+              theme: theme.actionIconTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleTheme(
               title: 'appBarTheme',
+              theme: theme.appBarTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleTheme(
               title: 'badgeTheme',
+              theme: theme.badgeTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleTheme(
               title: 'bannerTheme',
+              theme: theme.bannerTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
@@ -45,86 +50,6 @@ class ThemeDataPage extends StatelessWidget {
               title: 'primaryContainer',
               background: colorScheme.primaryContainer,
               foreground: colorScheme.onPrimaryContainer,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'secondary',
-              background: colorScheme.secondary,
-              foreground: colorScheme.onSecondary,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'secondaryContainer',
-              background: colorScheme.secondaryContainer,
-              foreground: colorScheme.onSecondaryContainer,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'tertiary',
-              background: colorScheme.tertiary,
-              foreground: colorScheme.onTertiary,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'tertiaryContainer',
-              background: colorScheme.tertiaryContainer,
-              foreground: colorScheme.onTertiaryContainer,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'error',
-              background: colorScheme.error,
-              foreground: colorScheme.onError,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'errorContainer',
-              background: colorScheme.errorContainer,
-              foreground: colorScheme.onErrorContainer,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'background',
-              background: colorScheme.background,
-              foreground: colorScheme.onBackground,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'surface',
-              background: colorScheme.surface,
-              foreground: colorScheme.onSurface,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'surfaceVariant',
-              background: colorScheme.surfaceVariant,
-              foreground: colorScheme.onSurfaceVariant,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
-              title: 'inverseSurface',
-              background: colorScheme.inverseSurface,
-              foreground: colorScheme.onInverseSurface,
             ), // ColorContainer
           ), // Padding
         ],
@@ -137,10 +62,12 @@ class ThemeDataPage extends StatelessWidget {
 
 class SampleTheme extends StatelessWidget {
   final String title;
+  final Object? theme;
   
   const SampleTheme({
     super.key,
     required this.title,
+    required this.theme;
   });
 
   @override
@@ -157,7 +84,7 @@ class SampleTheme extends StatelessWidget {
         },
         child: Container(
           width: Get.width,
-          height: 96,
+          height: 100,
           child: Column(
             mainAxisAlignment:
               MainAxisAlignment.center,
@@ -167,7 +94,7 @@ class SampleTheme extends StatelessWidget {
                 style: textTheme.headlineSmall!
                   .copyWith(
                     color:
-                      colorScheme.onPrimary
+                      theme == null ?  colorScheme.onSurfaceVariant : colorScheme.onPrimary,
                   ),
               ), // Text
             ],
@@ -177,7 +104,7 @@ class SampleTheme extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.primary,
+            color: theme == null ?  colorScheme.surfaceVariant : colorScheme.primary,
           ), // BoxDecoration
         ), //Container
       ), // InkWell
