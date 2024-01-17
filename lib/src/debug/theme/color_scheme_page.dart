@@ -154,6 +154,7 @@ class SampleColor extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ), // BoxDecoration
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text(
