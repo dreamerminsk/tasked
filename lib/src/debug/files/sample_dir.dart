@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'dir_page.dart';
+
 class SampleDir extends StatelessWidget {
   final String title;
   final Color background;
@@ -18,7 +20,7 @@ class SampleDir extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
-      onTap: () { Get.to(DirPage(title)); },
+      onTap: () { Get.to(DirPage(title), preventDuplicates: false); },
       child: Material(
         elevation: 2,
         borderRadius:
