@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
 
 //import '../debug_controller.dart';
 import 'sample_dir.dart';
 
 class DirPage extends StatelessWidget {
-
-  final temp = ''.obs;
-
-  final docs = ''.obs;
-
-  final cache = ''.obs;
-
- final path = ''.obs;
-
+  final path = ''.obs;
+  final entries = [].obs;
 
   const DirPage(super.key, this.path);
 
@@ -24,21 +16,11 @@ class DirPage extends StatelessWidget {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    if (temp.value.isEmpty) {
-      getTemporaryDirectory().then(
-        (d) => temp.value = d.path
-      );
+    if (entries.value.isEmpty) {
+      final d = Directory(path);
+      d.list().map((item) => item.path).forEach((item) => entries.add(item));
     }
-    if (docs.value.isEmpty) {
-      getApplicationDocumentsDirectory().then(
-        (d) => docs.value = d.path
-      );
-    }
-    if (cache.value.isEmpty) {
-      getApplicationCacheDirectory().then(
-        (d) => cache.value = d.path
-      );
-    }
+    
 
     return Scaffold(
       body: ListView(
