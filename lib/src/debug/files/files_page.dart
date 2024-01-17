@@ -10,6 +10,8 @@ class FilesPage extends StatelessWidget {
 
   final docs = ''.obs;
 
+  final cache = ''.obs;
+
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
@@ -24,6 +26,11 @@ class FilesPage extends StatelessWidget {
     if (docs.value.isEmpty) {
       getApplicationDocumentsDirectory().then(
         (d) => docs.value = '$d'
+      );
+    }
+    if (cache.value.isEmpty) {
+      getApplicationCacheDirectory().then(
+        (d) => cache.value = '$d'
       );
     }
 
@@ -51,6 +58,17 @@ class FilesPage extends StatelessWidget {
                 foreground: colorScheme.onPrimary,
               ), // SampleColor
               docs,
+            ),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ObxValue(
+              (data) =>   SampleDir(
+                title: data.value,
+                background: colorScheme.primary,
+                foreground: colorScheme.onPrimary,
+              ), // SampleColor
+              cache,
             ),
           ), // Padding
         ],
