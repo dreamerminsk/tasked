@@ -85,7 +85,7 @@ class SampleDir extends StatelessWidget {
   final Color background;
   final Color foreground;
 
-  const SampleColor({
+  const SampleDir({
     required this.title,
     required this.background,
     required this.foreground,
