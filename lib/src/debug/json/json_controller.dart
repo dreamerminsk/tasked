@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:async/async.dart';
+import 'package:characters/characters.dart';
 
 import '../debug_controller.dart';
 
@@ -45,7 +46,14 @@ class JsonController extends GetxController {
   }
 
   void process(String value) {
-    
+    for (var char in value.characters) {
+      if (char == '{') {
+        objects.value++;
+      }
+      if (char == '[') {
+        arrays.value++;
+      }
+    }
   }
 
   Future<Result<String>> fetchString(String link) async {
