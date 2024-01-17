@@ -145,7 +145,7 @@ class SampleColor extends StatelessWidget {
         height: 100,
         alignment: Alignment.bottomCenter,
         child: Container(
-          padding: EdgeInsets.all(2),
+          padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
           decoration: BoxDecoration(
             color: Colors.transparent,
             border: Border.all(
