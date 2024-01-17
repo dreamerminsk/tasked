@@ -33,7 +33,7 @@ class DirPage extends StatelessWidget {
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
               ), // SampleDir
-            ), // Padding;
+            ); // Padding;
           },
         ),
         entries,
