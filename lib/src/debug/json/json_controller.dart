@@ -10,15 +10,18 @@ import '../debug_controller.dart';
 class JsonController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final jsonRef = ''.obs;
-  final content = ''.obs;
   final objects = 0.obs;
   final arrays = 0.obs;
+  final levels = 1.obs;
+  final lobjects = [].obs;
+  final larrays = [].obs;
+
 
   @override
   void onInit() {
+    super.onInit();
     jsonRef.value = Get.arguments;
     load();
-    super.onInit();
   }
 
   @override
@@ -37,21 +40,42 @@ class JsonController extends GetxController {
       case ErrorResult e:
         content.value = '$e';
       case ValueResult v: {
-        process(v.value);
-        content.value = '${v.value.length}: ${v.value.substring(0, 512 > v.value.length ? v.value.length : 512)}';
+        await process(v.value);
       }
       default:
           content.value = 'very strange';
       }
   }
 
-  void process(String value) {
+  void process(String value) async {
+    var level = 1;
     for (var char in value.characters) {
       if (char == '{') {
+        if (level > lobjects.length) {
+          lobjects.add(1);
+        } else {
+          lobjects[level - 1]++;
+        }
         objects.value++;
-      }
-      if (char == '[') {
+        level++;
+        if (levels < level) {
+          levels = level;
+        }
+      } else if (char == '}') {
+        level--;
+      } else if (char == '[') {
+        if (level > larrays.length) {
+          larrays.add(1);
+        } else {
+          larrays[level - 1]++;
+        }
         arrays.value++;
+        level++;
+        if (levels < level) {
+          levels = level;
+        }
+      } else if (char == ']') {
+        level--;
       }
     }
   }
