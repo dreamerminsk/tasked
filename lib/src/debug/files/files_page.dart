@@ -7,6 +7,8 @@ import 'sample_dir.dart';
 
 class FilesPage extends StatelessWidget {
 
+  final app = ''.obs;
+
   final temp = ''.obs;
 
   final docs = ''.obs;
@@ -26,7 +28,10 @@ class FilesPage extends StatelessWidget {
     }
     if (docs.value.isEmpty) {
       getApplicationDocumentsDirectory().then(
-        (d) => docs.value = d.path
+        (d) {
+          docs.value = d.path;
+          app.value = d.parent.path;
+        }
       );
     }
     if (cache.value.isEmpty) {
