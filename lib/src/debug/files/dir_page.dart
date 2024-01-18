@@ -43,6 +43,7 @@ class DirPage extends StatelessWidget {
                 ? EdgeInsets.fromLTRB(0, 8, 24, 8)
                 : EdgeInsets.fromLTRB(24, 8, 0, 8),
               child: SampleDir(
+                index: index,
                 title: data[index - 1],
                 background: colorScheme.primaryContainer,
                 foreground: colorScheme.onPrimaryContainer,
