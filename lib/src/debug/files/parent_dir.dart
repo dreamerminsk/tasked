@@ -18,7 +18,7 @@ class ParentDir extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Get.off();
+        Get.back();
         //Get.to(DirPage(path: title), preventDuplicates: false);
       },
       child: Material(
