@@ -27,7 +27,7 @@ class JsonViewer extends StatelessWidget {
         child: Center(
           child: Obx(() => 
             Text(
-              'objects: ${c.lobjects.map((it) => '$it').toList().join(', ')},\narrays: ${c.arrays.map((it) => '$it').toList().join(', ')}',
+              'objects: ${c.lobjects.map((it) => '$it').toList().join(', ')},\narrays: ${c.larrays.map((it) => '$it').toList().join(', ')}',
               style: textTheme.titleLarge!,
             )),
         ),
