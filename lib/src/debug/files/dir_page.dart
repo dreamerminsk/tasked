@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 //import '../debug_controller.dart';
+import 'parent_dir.dart';
 import 'sample_dir.dart';
 
 class DirPage extends StatelessWidget {
@@ -38,7 +39,9 @@ class DirPage extends StatelessWidget {
               ), // SampleDir
             ) // Padding
             : Padding(
-              padding: EdgeInsets.all(8),
+              padding: index.isEven
+                ? EdgeInsets.fromLTRB(0, 8, 24, 8)
+                : EdgeInsets.fromLTRB(24, 8, 0, 8),
               child: SampleDir(
                 title: data[index - 1],
                 background: colorScheme.primaryContainer,
