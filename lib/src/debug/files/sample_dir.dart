@@ -4,11 +4,13 @@ import 'package:get/get.dart';
 import 'dir_page.dart';
 
 class SampleDir extends StatelessWidget {
+  final int index;
   final String title;
   final Color background;
   final Color foreground;
 
   const SampleDir({
+    required this.index;
     required this.title,
     required this.background,
     required this.foreground,
@@ -41,9 +43,13 @@ class SampleDir extends StatelessWidget {
             ],
           ), // Column
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
+            borderRadius: index.isEven 
+            ? BorderRadius.all(
+                Radius.circular(20),
+              ) // BorderRadius
+            : BorderRadius.all(
+                Radius.circular(20),
+              ), // BorderRadius
             color: background,
           ), // BoxDecoration
         ), // Container
