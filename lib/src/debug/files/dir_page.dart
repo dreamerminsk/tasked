@@ -30,7 +30,7 @@ class DirPage extends StatelessWidget {
         ListView.builder(
           itemCount: data.length + 1,
           itemBuilder: (BuildContext context, int index) {
-            return i == 0
+            return index == 0
             ? Padding(
               padding: EdgeInsets.fromLTRB(2, 0, 2, 8),
               child: SampleDir(
