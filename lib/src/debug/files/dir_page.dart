@@ -8,6 +8,7 @@ import 'sample_dir.dart';
 
 class DirPage extends StatelessWidget {
   final path;
+  //final RxString parent = RxString();
   final RxList entries = RxList();
 
   DirPage({super.key, required this.path});
@@ -20,22 +21,32 @@ class DirPage extends StatelessWidget {
 
     if (entries.isEmpty) {
       final d = Directory(path);
+      //parent.value = d.parent.path;
       d.list().map((item) => item.path).forEach((item) => entries.add(item));
     }
     
     return Scaffold(
       body: ObxValue((data) =>
         ListView.builder(
-          itemCount: data.length,
+          itemCount: data.length + 1,
           itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: EdgeInsets.all(8),
+            return i == 0
+            ? Padding(
+              padding: EdgeInsets.fromLTRB(2, 0, 2, 8),
               child: SampleDir(
-                title: data[index],
+                title: path.split('/').last,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
               ), // SampleDir
-            ); // Padding;
+            ) // Padding
+            : Padding(
+              padding: EdgeInsets.all(8),
+              child: SampleDir(
+                title: data[index - 1],
+                background: colorScheme.primaryContainer,
+                foreground: colorScheme.onPrimaryContainer,
+              ), // SampleDir
+            ); // Padding
           },
         ),
         entries,
