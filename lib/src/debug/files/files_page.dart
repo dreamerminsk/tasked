@@ -52,6 +52,17 @@ class FilesPage extends StatelessWidget {
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
               ), // SampleDir
+              app,
+            ),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: ObxValue(
+              (data) =>   SampleDir(
+                title: data.value,
+                background: colorScheme.primary,
+                foreground: colorScheme.onPrimary,
+              ), // SampleDir
               temp,
             ),
           ), // Padding
