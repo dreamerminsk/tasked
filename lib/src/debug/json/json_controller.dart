@@ -15,6 +15,7 @@ class JsonController extends GetxController {
   final levels = 1.obs;
   final lobjects = [].obs;
   final larrays = [].obs;
+  final content = ''.obs;
 
 
   @override
@@ -40,7 +41,7 @@ class JsonController extends GetxController {
       case ErrorResult e:
         content.value = '$e';
       case ValueResult v: {
-        await process(v.value);
+        process(v.value);
       }
       default:
           content.value = 'very strange';
@@ -59,7 +60,7 @@ class JsonController extends GetxController {
         objects.value++;
         level++;
         if (levels < level) {
-          levels = level;
+          levels.value = level;
         }
       } else if (char == '}') {
         level--;
@@ -72,7 +73,7 @@ class JsonController extends GetxController {
         arrays.value++;
         level++;
         if (levels < level) {
-          levels = level;
+          levels.value = level;
         }
       } else if (char == ']') {
         level--;
