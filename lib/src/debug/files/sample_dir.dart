@@ -25,8 +25,15 @@ class SampleDir extends StatelessWidget {
       onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
       child: Material(
         elevation: 1,
-        borderRadius:
-          BorderRadius.all(Radius.circular(20)),
+        borderRadius: index.isEven 
+            ? BorderRadius.only(
+                topRight: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ) // BorderRadius
+            : BorderRadius.only(
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
+              ), // BorderRadius
         child: Container(
           width: Get.width,
           height: 100,
