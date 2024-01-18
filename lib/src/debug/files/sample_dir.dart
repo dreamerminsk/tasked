@@ -44,11 +44,13 @@ class SampleDir extends StatelessWidget {
           ), // Column
           decoration: BoxDecoration(
             borderRadius: index.isEven 
-            ? BorderRadius.all(
-                Radius.circular(20),
+            ? BorderRadius.only(
+                topRight: Radius.circular(20),
+                bottomRight: Radius.circular(20),
               ) // BorderRadius
-            : BorderRadius.all(
-                Radius.circular(20),
+            : BorderRadius.only(
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
               ), // BorderRadius
             color: background,
           ), // BoxDecoration
