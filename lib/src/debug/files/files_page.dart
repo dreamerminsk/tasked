@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
 //import '../debug_controller.dart';
-import 'sample_dir.dart';
+import 'special_dir.dart';
 
 class FilesPage extends StatelessWidget {
 
@@ -47,7 +47,7 @@ class FilesPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) =>   SampleDir(
+              (data) => SpecialDir(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -58,7 +58,7 @@ class FilesPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) =>   SampleDir(
+              (data) => SpecialDir(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -69,7 +69,7 @@ class FilesPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) =>   SampleDir(
+              (data) => SpecialDir(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -80,7 +80,7 @@ class FilesPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) =>   SampleDir(
+              (data) => SpecialDir(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
