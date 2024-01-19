@@ -33,6 +33,12 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
+  @override
+  void onClose() {
+    debug.newClose();
+    super.onClose();
+  }
+
   void _updateInfo(Result<CategoryInfo> result) {
     switch (result) {
       case ErrorResult e:
