@@ -5,10 +5,12 @@ import 'package:intl/intl.dart';
 
 class HealthWidget extends StatelessWidget {
   final DateTime started;
+  final int instances;
   
   const HealthWidget({
     super.key,
     required this.started,
+    required this.instances,
   });
 
   @override
@@ -31,6 +33,13 @@ class HealthWidget extends StatelessWidget {
             children: <Widget>[
               Text(
                 '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
+                style: textTheme.bodyLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+              Text(
+                '$instances',
                 style: textTheme.bodyLarge!
                   .copyWith(
                     color: colorScheme.onPrimary
