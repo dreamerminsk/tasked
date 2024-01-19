@@ -21,11 +21,11 @@ class DebugController extends GetxService {
   final samples = [].obs;
 
   void newInit() {
-    instances++;
+    instances.value++;
   }
 
   void newClose() {
-    instances--;
+    instances.value--;
   }
   void newReq() {
     requests += 1;
