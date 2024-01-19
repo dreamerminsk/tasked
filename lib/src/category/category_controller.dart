@@ -19,6 +19,7 @@ class CategoryController extends GetxController {
 
   @override
   void onInit() {
+    debug.newInit();
     category.value = Get.arguments;
     final link = WikiLink(
       prefix: category.value!.lang,
