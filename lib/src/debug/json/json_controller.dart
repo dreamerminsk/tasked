@@ -54,6 +54,7 @@ class JsonController extends GetxController {
       if (char == '{') {
         if (level > lobjects.length) {
           lobjects.add(1);
+          larrays.add(0);
         } else {
           lobjects[level - 1]++;
         }
@@ -67,6 +68,7 @@ class JsonController extends GetxController {
       } else if (char == '[') {
         if (level > larrays.length) {
           larrays.add(1);
+          lobjects.add(0);
         } else {
           larrays[level - 1]++;
         }
