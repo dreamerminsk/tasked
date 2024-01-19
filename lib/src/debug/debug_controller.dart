@@ -8,6 +8,8 @@ class DebugController extends GetxService {
   
   final started = Rxn<DateTime>();
 
+  final instances = 0.obs;
+
   var requests = 0.obs;
 
   var received = 0.obs;
@@ -18,6 +20,13 @@ class DebugController extends GetxService {
 
   final samples = [].obs;
 
+  void newInit() {
+    instances++;
+  }
+
+  void newClose() {
+    instances--;
+  }
   void newReq() {
     requests += 1;
   }
