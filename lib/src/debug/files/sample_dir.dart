@@ -42,7 +42,7 @@ class SampleDir extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.titleLarge!
+                style: textTheme.titleMedium!
                   .copyWith(
                     color: foreground,
                 ),
