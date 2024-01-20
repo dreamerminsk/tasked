@@ -25,7 +25,7 @@ class WatchlistView extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.casino),
                   color: Theme.of(context).colorScheme.primary,
-                  onPressed: () { Get.toNamed(Routes.HOME); },
+                  onPressed: () { Get.toNamed(Routes.RANDOM); },
                 ),
                 IconButton(
                   icon: Icon(Icons.query_stats),
