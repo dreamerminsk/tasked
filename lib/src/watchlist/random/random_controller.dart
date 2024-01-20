@@ -18,13 +18,22 @@ class RandomController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchRandomCategoryInfo('ru', 8).then(
+    fetchRandom('en', 8);
+    fetchRandom('ru', 8);
+    fetchRandom('be', 8);
+    fetchRandom('uk', 8);
+  }
+
+  void fetchRandom(String prefix, int count) {
+    fetchRandomCategoryInfo(prefix, count).then(
       (item) {
         switch (item) {
             case ErrorResult e:
               lastError.value = e.error;
-            case ValueResult v:
-              categories.assignAll(v.value);
+            case ValueResult v: {
+              categories.addAll(v.value);
+              categories.shuffle();
+            }
             default:
               lastError.value = 'very strange';
         }
