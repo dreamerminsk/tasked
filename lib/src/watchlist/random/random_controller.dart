@@ -19,14 +19,16 @@ class RandomController extends GetxController {
   void onInit() {
     super.onInit();
     fetchRandomCategoryInfo('en').then(
-      (item) =>
+      (item) {
         switch (item) {
             case ErrorResult e:
               lastError.value = e.error;
             case ValueResult v:
-              categories.asignAll(v.value);
+              categories.assignAll(v.value);
             default:
-              lastError.value = 'very strange')
+              lastError.value = 'very strange';
+        }
+      }
     );
   }
 
