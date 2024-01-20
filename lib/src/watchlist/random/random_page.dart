@@ -1,4 +1,4 @@
-import 'package:async/async.dart';
+//import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -56,18 +56,18 @@ class RandomPage extends StatelessWidget {
     //}
   //}
 
-  Widget _errorCard(Object e, StackTrace s) {
-    return InkWell(
-      onTap: () { },
-      child: Card(
-        child: ListTile(
-          leading: Icon(Icons.error, color: Colors.red, size: 64.0),
-          title: Text('$e'),
-          subtitle: Text('$s')
-        ),
-      ),
-    );
-  }
+  //Widget _errorCard(Object e, StackTrace s) {
+    //return InkWell(
+      //onTap: () { },
+      //child: Card(
+        //child: ListTile(
+          //leading: Icon(Icons.error, color: Colors.red, size: 64.0),
+          //title: Text('$e'),
+          //subtitle: Text('$s')
+        //),
+      //),
+    //);
+  //}
 
   Widget _catCard(CategoryInfo cat) {
     return InkWell(
