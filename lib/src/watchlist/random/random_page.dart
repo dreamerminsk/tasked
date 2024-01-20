@@ -79,7 +79,7 @@ class RandomPage extends StatelessWidget {
           leading: Icon(
             Icons.category,
             color: this.colors[0],
-            size: 96.0
+            size: 64.0
           ),
           title: Text('${cat.title}'),
           subtitle: Text('${cat.subcats} subcats, ${cat.pages} pages, ∞ cats, ∞ langs')
