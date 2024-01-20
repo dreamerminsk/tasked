@@ -34,7 +34,7 @@ class RandomController extends GetxController {
 
   Future<Result<List<CategoryInfo>>> fetchRandomCategoryInfo(String prefix) async {
     try {
-      final url = 'https://${prefix}.wikipedia.org/w/api.php';
+      final url = 'https://$prefix.wikipedia.org/w/api.php';
       final params = {
           'action': 'query',
           'generator': 'random',
