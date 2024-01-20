@@ -18,7 +18,7 @@ class RandomController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchRandomCategoryInfo('en').then(
+    fetchRandomCategoryInfo('ru').then(
       (item) {
         switch (item) {
             case ErrorResult e:
