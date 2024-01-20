@@ -11,22 +11,12 @@ class RandomPage extends StatelessWidget {
   
   @override
   Widget build(context) {
-    final WatchlistController c = Get.find();
+    final RandomController c = Get.find();
     this.colors[0] = Theme.of(context).colorScheme.primary;
     
     return Scaffold(
       appBar: AppBar(title: Text("Random"),
               actions: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.home),
-                  color: Theme.of(context).colorScheme.primary,
-                  onPressed: () { Get.toNamed(Routes.HOME); },
-                ),
-                IconButton(
-                  icon: Icon(Icons.casino),
-                  color: Theme.of(context).colorScheme.primary,
-                  onPressed: () { Get.toNamed(Routes.HOME); },
-                ),
                 IconButton(
                   icon: Icon(Icons.query_stats),
                   color: Theme.of(context).colorScheme.primary,
@@ -39,7 +29,7 @@ class RandomPage extends StatelessWidget {
                 ? ListView.builder(
                   itemCount: c.categories.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return _catOrErrorCard(c.categories[index]);
+                    return _catCard(c.categories[index]);
                   },
                 )
                 : const Center(child: Text('No items'))
@@ -81,9 +71,9 @@ class RandomPage extends StatelessWidget {
       child: Card(
         child: ListTile(
           leading: Icon(
-            Icons.tips_and_updates,
+            Icons.category,
             color: this.colors[0],
-            size: 64.0
+            size: 96.0
           ),
           title: Text('${cat.title}'),
           subtitle: Text('${cat.subcats} subcats, ${cat.pages} pages, ∞ cats, ∞ langs')
