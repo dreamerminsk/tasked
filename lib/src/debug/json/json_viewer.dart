@@ -24,13 +24,34 @@ class JsonViewer extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         color: Colors.white,
-        child: Center(
-          child: Obx(() => 
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: Get.width,
+              height: 160,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    width: Get.width,
+                    height: 100,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  Positioned(
+                    bottom: -16,
+                    left: 20,
+                    right: 20,
+                    child: Text('JSON Object),
+                  ),
+                ],
+              ),
+            ),
+            Obx(() => 
             Text(
               'objects: ${c.lobjects.map((it) => '$it').toList().join(', ')},\narrays: ${c.larrays.map((it) => '$it').toList().join(', ')}',
               style: textTheme.titleLarge!,
             )),
-        ),
+          ],
+        ), // Column
       ),
     );
   }
