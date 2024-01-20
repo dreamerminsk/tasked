@@ -10,6 +10,8 @@ class DebugController extends GetxService {
 
   final instances = 0.obs;
 
+  final maxIns = 0.obs;
+
   var requests = 0.obs;
 
   var received = 0.obs;
@@ -22,6 +24,9 @@ class DebugController extends GetxService {
 
   void newInit() {
     instances.value++;
+    if (instances.value > maxIns.value) {
+      maxIns.value = instances.value;
+    }
   }
 
   void newClose() {
