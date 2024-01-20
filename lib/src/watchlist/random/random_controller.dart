@@ -12,25 +12,14 @@ class RandomController extends GetxController {
 
   final DebugController debug = Get.find(tag: 'debugger');
 
-  final categories = <Result<CategoryInfo>>[].obs;
+  final categories = <CategoryInfo>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    refreshWikiLinks();
   }
 
-  void refreshWikiLinks() async {
-    final linkStream = Stream<WikiLink>.periodic(
-      const Duration(seconds: 8),
-      (count) => links[count]).take(links.length);
-    final infoStream =
-    linkStream.asyncMap<Result<CategoryInfo>>(
-      (link) => fetchCategoryInfo(link));
-    infoStream.forEach((info) => categories.add(info));
-  }
-
-  Future<Result<CategoryInfo>> fetchRandomCategoryInfo(String prefix) async {
+  Future<Result<List<CategoryInfo>>> fetchRandomCategoryInfo(String prefix) async {
     try {
       final url = 'https://${prefix}.wikipedia.org/w/api.php';
       final params = {
@@ -50,13 +39,13 @@ class RandomController extends GetxController {
         final query = v.value['query'] as Map;
         final pages = query['pages'] as List;
         final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
-        return Result.value(cats[0].copyWith(lang: link.prefix));
-        }
+        return Result.value(cats.map((item) => item.copyWith(lang: link.prefix)).toList());
+      }
       default:
           return Result.error('very strange');
       }
     } catch(e, s) {
-      Get.snackbar('WatchlistController.fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('RandomController.fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
