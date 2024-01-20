@@ -32,6 +32,7 @@ class DebugView extends StatelessWidget {
             child: Obx(() => HealthWidget(
               started: c.started.value ?? DateTime.now(),
               instances: c.instances.value,
+              maxIns: c.maxIns.value,
             )),
           ), // Padding
           Padding(
