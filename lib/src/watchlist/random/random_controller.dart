@@ -18,7 +18,7 @@ class RandomController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchRandomCategoryInfo('ru').then(
+    fetchRandomCategoryInfo('ru', 8).then(
       (item) {
         switch (item) {
             case ErrorResult e:
@@ -32,14 +32,15 @@ class RandomController extends GetxController {
     );
   }
 
-  Future<Result<List<CategoryInfo>>> fetchRandomCategoryInfo(String prefix) async {
+  Future<Result<List<CategoryInfo>>> 
+    fetchRandomCategoryInfo(String prefix, int count) async {
     try {
       final url = 'https://$prefix.wikipedia.org/w/api.php';
       final params = {
           'action': 'query',
           'generator': 'random',
           'grnnamespace': '14',
-          'grnlimit': '32',
+          'grnlimit': count.toString(),
           'prop': 'categoryinfo',
           'formatversion': '2',
           'format': 'json',
