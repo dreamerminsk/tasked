@@ -175,8 +175,15 @@ class WatchlistController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    debug.newInit();
     links.sort((a, b) => a.title.compareTo(b.title));
     refreshWikiLinks();
+  }
+
+  @override
+  void onClose() {
+    debug.newClose();
+    super.onClose();
   }
 
   void after() {
