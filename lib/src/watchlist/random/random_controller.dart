@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 
 import '../../debug/debug_controller.dart';
 import '../../wiki/entities/category_info.dart';
-import '../../wiki/entities/wiki_link.dart';
 
 class RandomController extends GetxController {
 
@@ -20,16 +19,14 @@ class RandomController extends GetxController {
   void onInit() {
     super.onInit();
     fetchRandomCategoryInfo('en').then(
-      (item) {
-        switch (result) {
+      (item) =>
+        switch (item) {
             case ErrorResult e:
               lastError.value = e.error;
             case ValueResult v:
               categories.asignAll(v.value);
             default:
-              lastError.value = 'very strange');
-        }
-      }
+              lastError.value = 'very strange')
     );
   }
 
@@ -53,7 +50,7 @@ class RandomController extends GetxController {
         final query = v.value['query'] as Map;
         final pages = query['pages'] as List;
         final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
-        return Result.value(cats.map((item) => item.copyWith(lang: link.prefix)).toList());
+        return Result.value(cats.map((item) => item.copyWith(lang: prefix)).toList());
       }
       default:
           return Result.error('very strange');
