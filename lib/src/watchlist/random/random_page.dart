@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'random_controller.dart';
-import '../wiki/entities/category_info.dart';
-import '../routes/app_pages.dart';
+import '../../wiki/entities/category_info.dart';
+import '../../routes/app_pages.dart';
 
 class RandomPage extends StatelessWidget {
   final colors = [Colors.black,];
