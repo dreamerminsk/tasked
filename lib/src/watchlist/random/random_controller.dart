@@ -5,8 +5,8 @@ import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
 import '../../debug/debug_controller.dart';
-import '../wiki/entities/category_info.dart';
-import '../wiki/entities/wiki_link.dart';
+import '../../wiki/entities/category_info.dart';
+import '../../wiki/entities/wiki_link.dart';
 
 class RandomController extends GetxController {
 
@@ -26,6 +26,8 @@ class RandomController extends GetxController {
               lastError.value = e.error;
             case ValueResult v:
               categories.asignAll(v.value);
+            default:
+              lastError.value = 'very strange');
         }
       }
     );
