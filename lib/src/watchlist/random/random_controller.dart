@@ -12,11 +12,23 @@ class RandomController extends GetxController {
 
   final DebugController debug = Get.find(tag: 'debugger');
 
+  final Rxn<Object> lastError = Rxn<Object>();
+
   final categories = <CategoryInfo>[].obs;
 
   @override
   void onInit() {
     super.onInit();
+    fetchRandomCategoryInfo('en').then(
+      (item) {
+        switch (result) {
+            case ErrorResult e:
+              lastError.value = e.error;
+            case ValueResult v:
+              categories.asignAll(v.value);
+        }
+      }
+    );
   }
 
   Future<Result<List<CategoryInfo>>> fetchRandomCategoryInfo(String prefix) async {
