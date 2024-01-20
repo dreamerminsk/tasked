@@ -39,7 +39,7 @@ class HealthWidget extends StatelessWidget {
                   ),
               ), // Text
               Text(
-                '$instances',
+                'instances: $instances',
                 style: textTheme.bodyLarge!
                   .copyWith(
                     color: colorScheme.onPrimary
