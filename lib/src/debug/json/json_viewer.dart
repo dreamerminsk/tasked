@@ -46,7 +46,7 @@ class JsonViewer extends StatelessWidget {
                       color: Theme.of(context).colorScheme.primary,
                       child: Text(
                         'JSON Object',
-                        style: Theme.of(context).textTheme.bodeLarge!
+                        style: Theme.of(context).textTheme.bodyLarge!
                         .copyWith(Theme.of(context).colorScheme.onPrimary),
                       ),
                     ),
