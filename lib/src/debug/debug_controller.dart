@@ -32,6 +32,7 @@ class DebugController extends GetxService {
   void newClose() {
     instances.value--;
   }
+  
   void newReq() {
     requests += 1;
   }
@@ -47,6 +48,7 @@ class DebugController extends GetxService {
 
   @override
   void onInit() {
+    newInit();
     started.value = DateTime.now();
     loadSamples().then(
       (items) => samples.assignAll(items)
@@ -61,6 +63,7 @@ class DebugController extends GetxService {
 
   @override
   void onClose() {
+    newClose();
     super.onClose();
   }
 
