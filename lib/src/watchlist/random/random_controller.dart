@@ -4,7 +4,7 @@ import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 
-import '../debug/debug_controller.dart';
+import '../../debug/debug_controller.dart';
 import '../wiki/entities/category_info.dart';
 import '../wiki/entities/wiki_link.dart';
 
