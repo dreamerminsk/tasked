@@ -15,6 +15,8 @@ import '../home/home_details_view.dart';
 import '../home/home_view.dart';
 import '../politics/politics_binding.dart';
 import '../politics/politics_view.dart';
+import '../watchlist/random/random_binding.dart';
+import '../watchlist/random/random_page.dart';
 import '../watchlist/watchlist_binding.dart';
 import '../watchlist/watchlist_view.dart';
 
@@ -80,6 +82,11 @@ class AppPages {
       name: _Paths.FILES,
       page: () => FilesPage(),
       //binding: JsonBinding(),
+    ),
+    GetPage(
+      name: _Paths.RANDOM,
+      page: () => RandomPage(),
+      binding: RandomBinding(),
     ),
  ];
 }
