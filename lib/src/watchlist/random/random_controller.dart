@@ -30,7 +30,7 @@ class WatchlistController extends GetxController {
     infoStream.forEach((info) => categories.add(info));
   }
 
-  Future<Result<CategoryInfo>> fetchCategoryInfo(WikiLink link) async {
+  Future<Result<CategoryInfo>> fetchRandomCategoryInfo(WikiLink link) async {
     try {
       final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
       final params = {
