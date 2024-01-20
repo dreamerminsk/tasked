@@ -30,7 +30,7 @@ class JsonViewer extends StatelessWidget {
               width: Get.width,
               height: 160,
               child: Stack(
-                overflow: Overflow.visible,
+                clipBehavior: Clip.none,
                 children: <Widget>[
                   Container(
                     width: Get.width,
