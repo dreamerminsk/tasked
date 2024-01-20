@@ -45,16 +45,16 @@ class RandomPage extends StatelessWidget {
     );
   }
 
-  Widget _catOrErrorCard(Result<CategoryInfo> result) {
-    switch (result) {
-      case ErrorResult e:
-        return _errorCard(e.error, e.stackTrace);
-      case ValueResult v:
-        return _catCard(v.value);
-      default:
-        return Text('very strange');
-    }
-  }
+  //Widget _catOrErrorCard(Result<CategoryInfo> result) {
+    //switch (result) {
+      //case ErrorResult e:
+        //return _errorCard(e.error, e.stackTrace);
+      //case ValueResult v:
+        //return _catCard(v.value);
+      //default:
+        //return Text('very strange');
+    //}
+  //}
 
   Widget _errorCard(Object e, StackTrace s) {
     return InkWell(
