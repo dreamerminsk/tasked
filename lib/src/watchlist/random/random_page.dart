@@ -32,7 +32,13 @@ class RandomPage extends StatelessWidget {
                     return _catCard(c.categories[index]);
                   },
                 )
-                : const Center(child: Text('No items'))
+                : Center(
+                    child: Icon(
+                    Icons.tips_and_updates,
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 160.0
+                    )
+                 ),
                ),
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //floatingActionButton: _buttons(c),
