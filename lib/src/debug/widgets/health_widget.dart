@@ -6,11 +6,13 @@ import 'package:intl/intl.dart';
 class HealthWidget extends StatelessWidget {
   final DateTime started;
   final int instances;
+  final int maxIns;
   
   const HealthWidget({
     super.key,
     required this.started,
     required this.instances,
+    required this.maxIns,
   });
 
   @override
@@ -39,7 +41,7 @@ class HealthWidget extends StatelessWidget {
                   ),
               ), // Text
               Text(
-                'instances: $instances',
+                'instances: $instances, max: $maxIns',
                 style: textTheme.bodyLarge!
                   .copyWith(
                     color: colorScheme.onPrimary
