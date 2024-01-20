@@ -8,7 +8,7 @@ import '../debug/debug_controller.dart';
 import '../wiki/entities/category_info.dart';
 import '../wiki/entities/wiki_link.dart';
 
-class WatchlistController extends GetxController {
+class RandomController extends GetxController {
 
   final DebugController debug = Get.find(tag: 'debugger');
 
@@ -30,13 +30,15 @@ class WatchlistController extends GetxController {
     infoStream.forEach((info) => categories.add(info));
   }
 
-  Future<Result<CategoryInfo>> fetchRandomCategoryInfo(WikiLink link) async {
+  Future<Result<CategoryInfo>> fetchRandomCategoryInfo(String prefix) async {
     try {
-      final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
+      final url = 'https://${prefix}.wikipedia.org/w/api.php';
       final params = {
           'action': 'query',
+          'generator': 'random',
+          'grnnamespace': '14',
+          'grnlimit': '32',
           'prop': 'categoryinfo',
-          'titles': '${link.title}',
           'formatversion': '2',
           'format': 'json',
       };
