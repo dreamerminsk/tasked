@@ -31,18 +31,10 @@ class RandomJsonFiles extends StatelessWidget {
         mainAxisAlignment:
           MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Column(
-            crossAxisAlignment:
-              CrossAxisAlignment.start,
-            mainAxisAlignment:
-              MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ObxValue(
-                (data) => _files(data, textTheme, colorScheme),
-                randomFive,
-              ), // ObxValue
-            ],
-          ), // Column
+          ObxValue(
+            (data) => _files(data, textTheme, colorScheme),
+              randomFive,
+          ), // ObxValue
           GestureDetector(
             onTap: () => _shuffle(),
             child: RotatedBox(
@@ -72,21 +64,27 @@ class RandomJsonFiles extends StatelessWidget {
     randomFive.assignAll(random5);
   }
 
-  List<Widget> _files(List<String> five, TextTheme tt, ColorScheme cs) {
-    return List<Widget>.generate(5,
-      (int index) => 
-      InkWell(
-        onTap: () {
-          Get.toNamed(Routes.JSON, arguments: five[index],);
-        },
-        child: Text(
-          five[index].split('/').last,
-            style: tt.bodyLarge!
-              .copyWith(
-                color: cs.onPrimary
-              ),
-        ), // Text
-      ), // InkWell                 
-    );
+  Widget _files(List<String> five, TextTheme tt, ColorScheme cs) {
+    return Column(
+            crossAxisAlignment:
+              CrossAxisAlignment.start,
+            mainAxisAlignment:
+              MainAxisAlignment.spaceAround,
+            children: List<Widget>.generate(5,
+              (int index) => 
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(Routes.JSON, arguments: five[index],);
+                  },
+                  child: Text(
+                    five[index].split('/').last,
+                    style: tt.bodyLarge!
+                      .copyWith(
+                        color: cs.onPrimary
+                    ),
+                  ), // Text
+                ), // InkWell                 
+            ),
+          ); // Column
   }
 }
