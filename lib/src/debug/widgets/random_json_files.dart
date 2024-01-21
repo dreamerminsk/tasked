@@ -8,6 +8,8 @@ import '../../routes/app_pages.dart';
 
 class RandomJsonFiles extends StatelessWidget {
   final List<String> jsonFiles;
+
+  final randomFive = [].obs;
   
   const RandomJsonFiles({
     super.key,
@@ -53,6 +55,11 @@ class RandomJsonFiles extends StatelessWidget {
         color: colorScheme.primary,
       ), // BoxDecoration
     ); //Container
+  }
+
+  void _shuffle() {
+    final random5 = (jsonFiles.toList()..shuffle()).take(5).toList();
+    randomFive.assignAll(random5);
   }
 
   List<Widget> _files(List<String> five, TextTheme tt, ColorScheme cs) {
