@@ -11,7 +11,7 @@ class RandomJsonFiles extends StatelessWidget {
 
   final RxList<String> randomFive = RxList<String>();
   
-  const RandomJsonFiles({
+  RandomJsonFiles({
     super.key,
     required this.jsonFiles,
   });
@@ -37,7 +37,7 @@ class RandomJsonFiles extends StatelessWidget {
             mainAxisAlignment:
               MainAxisAlignment.spaceAround,
             children: ObxValue(
-              (data) => _files(data.value, textTheme, colorScheme),
+              (data) => _files(data, textTheme, colorScheme),
               randomFive,
             ), // ObxValue
           ), // Column
