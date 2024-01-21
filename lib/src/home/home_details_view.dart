@@ -24,8 +24,8 @@ class HomeDetailsView extends StatelessWidget {
                       width: Get.width,
                       //height: 512,
                       alignment: Alignment.topLeft,
-                      decoration: new BoxDecoration(
-                        image: new DecorationImage(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
                           image: image,
                           fit: BoxFit.fitWidth,
                         ),
@@ -39,6 +39,11 @@ class HomeDetailsView extends StatelessWidget {
               top: 200.0,
               left: 0.0,
               child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(4),
+                  ),
+                ), // BoxDecoration
                 color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
                 child: Row(
                   children: <Widget>[
