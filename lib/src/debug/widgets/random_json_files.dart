@@ -36,15 +36,18 @@ class RandomJsonFiles extends StatelessWidget {
               MainAxisAlignment.spaceAround,
             children: _files(randomThree, textTheme, colorScheme),
           ), // Column
-          RotatedBox(
-            quarterTurns: 3,
-            child: Text('JSON Viewer',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
-            ), // Text
-          ), // RotatedBox
+          GestureDetector(
+            onTap: () => _shuffle(),
+            child: RotatedBox(
+              quarterTurns: 3,
+              child: Text('JSON Viewer',
+                style: textTheme.titleLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+            ), // RotatedBox
+          ), // GestureDetector
         ],
       ), // Row
       padding: const EdgeInsets.all(16),
