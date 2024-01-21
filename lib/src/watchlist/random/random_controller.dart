@@ -38,7 +38,19 @@ class RandomController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    debug.newInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
     refreshLinks();
+  }
+
+  @override
+  void onClose() {
+    debug.newClose();
+    super.onClose();
   }
 
   void refreshLinks() async {
