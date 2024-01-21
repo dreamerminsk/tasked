@@ -29,6 +29,9 @@ class HomeDetailsView extends StatelessWidget {
                           image: image,
                           fit: BoxFit.fitWidth,
                         ),
+                        border: Border.all(
+                          width: 2, color: Colors.red,
+                        ),
                         borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(40),
                         ),
@@ -40,11 +43,11 @@ class HomeDetailsView extends StatelessWidget {
               left: 0.0,
               child: Container(
                 decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
                   borderRadius: BorderRadius.all(
                     Radius.circular(4),
                   ),
                 ), // BoxDecoration
-                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
                 child: Row(
                   children: <Widget>[
                     Expanded(
