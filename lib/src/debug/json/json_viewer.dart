@@ -36,7 +36,13 @@ class JsonViewer extends StatelessWidget {
                   Container(
                     width: Get.width,
                     height: 100,
-                    color: Theme.of(context).colorScheme.primaryContainer,
+                    //color: Theme.of(context).colorScheme.primaryContainer,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(16),
+                      ), // BorderRadius
+                      color: Theme.of(context).colorScheme.primaryContainer,
+                    ), // BoxDecoration
                   ),
                   Positioned(
                     top: 92,
@@ -44,7 +50,7 @@ class JsonViewer extends StatelessWidget {
                     left: 20,
                     right: 20,
                     child: Container(
-                      color: Theme.of(context).colorScheme.primary,
+                      //color: Theme.of(context).colorScheme.primary,
                       child: Center(
                         child: Text(
                           'JSON Object',
@@ -52,11 +58,17 @@ class JsonViewer extends StatelessWidget {
                             .copyWith(color: Theme.of(context).colorScheme.onPrimary),
                         ), // Text
                       ), // Center
-                    ),
-                  ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        ), // BorderRadius
+                        color: Theme.of(context).colorScheme.primary,
+                      ), // BoxDecoration
+                    ), // Container
+                  ), // Positioned
                 ],
-              ),
-            ),
+              ), // Stack
+            ), // Container
             Obx(() => 
             Text(
               'objects: ${c.lobjects.map((it) => '$it').toList().join(', ')},\narrays: ${c.larrays.map((it) => '$it').toList().join(', ')}',
