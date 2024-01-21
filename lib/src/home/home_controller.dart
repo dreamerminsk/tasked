@@ -12,7 +12,7 @@ import '../debug/debug_controller.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
-  final DebugController debug = Get.find();
+  final DebugController debug = Get.find(tag: 'debugger');
   final animeList = <Anime>[].obs;
   var selected = Anime().obs;
   var timers = 0.obs;
