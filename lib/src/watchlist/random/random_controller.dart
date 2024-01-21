@@ -15,13 +15,43 @@ class RandomController extends GetxController {
 
   final categories = <CategoryInfo>[].obs;
 
+  final links = <Map>[
+    { 'prefix': 'en', 'count': 4, },
+    { 'prefix': 'de', 'count': 2, },
+    { 'prefix': 'nl', 'count': 1, },
+    { 'prefix': 'ru', 'count': 4, },
+    { 'prefix': 'be', 'count': 4, },
+    { 'prefix': 'uk', 'count': 4, },
+    { 'prefix': 'sr', 'count': 2, },
+    { 'prefix': 'bg', 'count': 2, },
+    { 'prefix': 'es', 'count': 4, },
+    { 'prefix': 'it', 'count': 4, },
+    { 'prefix': 'pt', 'count': 2, },
+    { 'prefix': 'ko', 'count': 2, },
+    { 'prefix': 'ja', 'count': 4, },
+    { 'prefix': 'zh', 'count': 4, },
+    { 'prefix': 'vi', 'count': 2, },
+    { 'prefix': 'ar', 'count': 2, },
+    { 'prefix': 'he', 'count': 2, },
+  ];
+
   @override
   void onInit() {
     super.onInit();
-    fetchRandom('en', 8);
-    fetchRandom('ru', 8);
-    fetchRandom('be', 8);
-    fetchRandom('uk', 8);
+    refreshLinks();
+  }
+
+  void refreshLinks() async {
+    final linkStream = Stream<Map>.periodic(
+      const Duration(seconds: 2),
+      (index) => links[index])
+      .take(links.length);
+    linkStream.forEach(
+      (link) => 
+      fetchRandom(
+        link['prefix'] as String,
+        link['count'] as int,
+      ));
   }
 
   void fetchRandom(String prefix, int count) {
