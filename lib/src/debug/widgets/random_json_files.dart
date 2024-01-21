@@ -20,7 +20,9 @@ class RandomJsonFiles extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    final randomThree = (jsonFiles.toList()..shuffle()).take(5).toList();
+    //final randomThree = (jsonFiles.toList()..shuffle()).take(5).toList();
+    
+    _shuffle();
     
     return Container(
       width: Get.width,
@@ -35,7 +37,7 @@ class RandomJsonFiles extends StatelessWidget {
             mainAxisAlignment:
               MainAxisAlignment.spaceAround,
             children: ObxValue(
-              (data) => _files(data.value), textTheme, colorScheme),
+              (data) => _files(data.value, textTheme, colorScheme),
               randomFive,
             ), // ObxValue
           ), // Column
