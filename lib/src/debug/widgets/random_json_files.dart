@@ -34,7 +34,10 @@ class RandomJsonFiles extends StatelessWidget {
               CrossAxisAlignment.start,
             mainAxisAlignment:
               MainAxisAlignment.spaceAround,
-            children: _files(randomThree, textTheme, colorScheme),
+            children: ObxValue(
+              (data) => _files(data.value), textTheme, colorScheme),
+              randomFive,
+            ), // ObxValue
           ), // Column
           GestureDetector(
             onTap: () => _shuffle(),
