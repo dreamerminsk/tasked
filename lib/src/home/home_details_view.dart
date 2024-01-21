@@ -19,7 +19,7 @@ class HomeDetailsView extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
               placeholder: (context, url) => LoadingIndicator(indicatorType: Indicator.ballGridPulse),
-              errorWidget: (context, url, error) => Icon(Icons.error, size: 512.0, color: Colors.red,),
+              errorWidget: (context, url, error) => Icon(Icons.error, size: 256.0, color: Colors.black,),
               imageBuilder: (context, image) => Container(
                       width: Get.width,
                       //height: 512,
@@ -30,22 +30,28 @@ class HomeDetailsView extends StatelessWidget {
                           fit: BoxFit.fitWidth,
                         ),
                         borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(40),
-                    ),
-                      ))
+                          bottom: Radius.circular(40),
+                        ),
+                      ),
+              ),
                   ), //CachedNetworkImage
             Positioned(
               top: 200.0,
               left: 0.0,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      c.selected.value.title ?? '<~~~~~>',
-                      style: Theme.of(context).textTheme.headlineLarge,
-                    ),
-                  ), //Expanded
-              ]),
+              child: Container(
+                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        c.selected.value.title ?? '<~~~~~>',
+                        style: Theme.of(context).textTheme.headlineLarge!
+                        .copyWith(color: Theme.of(context).colorScheme.primary,),
+                      ), // Text
+                    ), //Expanded
+                  ],
+                ), // Row
+              ), // Container
             ),
           ],
         )), //Stack
