@@ -39,16 +39,19 @@ class JsonViewer extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primaryContainer,
                   ),
                   Positioned(
-                    bottom: -8,
+                    top: 92,
+                    //bottom: -8,
                     left: 20,
                     right: 20,
                     child: Container(
                       color: Theme.of(context).colorScheme.primary,
-                      child: Text(
-                        'JSON Object',
-                        style: Theme.of(context).textTheme.bodyLarge!
-                        .copyWith(color: Theme.of(context).colorScheme.onPrimary),
-                      ),
+                      child: Center(
+                        child: Text(
+                          'JSON Object',
+                          style: Theme.of(context).textTheme.bodyLarge!
+                            .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                        ), // Text
+                      ), // Center
                     ),
                   ),
                 ],
