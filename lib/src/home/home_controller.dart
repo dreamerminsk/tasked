@@ -8,9 +8,11 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
 import 'entities/anime.dart';
+import '../debug/debug_controller.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
+  final DebugController debug = Get.find();
   final animeList = <Anime>[].obs;
   var selected = Anime().obs;
   var timers = 0.obs;
@@ -18,8 +20,20 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    fetchAnime();
+    debug.newInit();
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+    fetchAnime();
+  }
+
+  @override
+  void onClose() {
+    debug.newClose();
+    super.onClose();
   }
 
   void select(int idx) {
