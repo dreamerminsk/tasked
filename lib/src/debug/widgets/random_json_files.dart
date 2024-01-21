@@ -9,7 +9,7 @@ import '../../routes/app_pages.dart';
 class RandomJsonFiles extends StatelessWidget {
   final List<String> jsonFiles;
 
-  final randomFive = [].obs;
+  final RxList<String> randomFive = RxList<String>();
   
   const RandomJsonFiles({
     super.key,
