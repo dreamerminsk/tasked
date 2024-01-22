@@ -27,7 +27,7 @@ class HomeDetailsView extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: image,
-                          fit: BoxFit.fitWidth,
+                          fit: BoxFit.fitCover,
                         ),
                         border: Border.all(
                           width: 2, color: Colors.red,
