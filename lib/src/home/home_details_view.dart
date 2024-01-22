@@ -43,7 +43,7 @@ class HomeDetailsView extends StatelessWidget {
               left: 0.0,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.75),
                   borderRadius: BorderRadius.all(
                     Radius.circular(4),
                   ),
@@ -54,7 +54,7 @@ class HomeDetailsView extends StatelessWidget {
                       child: Text(
                         c.selected.value.title ?? '<~~~~~>',
                         style: Theme.of(context).textTheme.headlineLarge!
-                        .copyWith(color: Theme.of(context).colorScheme.primary,),
+                        .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
                       ), // Text
                     ), //Expanded
                   ],
