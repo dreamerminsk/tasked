@@ -45,7 +45,7 @@ class JsonViewer extends StatelessWidget {
                     ), // BoxDecoration
                   ),
                   Positioned(
-                    top: 92,
+                    top: 90,
                     //bottom: -8,
                     left: 20,
                     right: 20,
