@@ -81,7 +81,7 @@ class RandomPage extends StatelessWidget {
             color: this.colors[0],
             size: 64.0
           ),
-          title: Text('${cat.title}'),
+          title: Text('${cat.lang}, ${cat.title} ~ ${cat.pageid}'),
           subtitle: Text('${cat.subcats} subcats, ${cat.pages} pages, ∞ cats, ∞ langs')
         ),
       ),
