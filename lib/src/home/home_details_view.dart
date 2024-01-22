@@ -19,7 +19,7 @@ class HomeDetailsView extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
               placeholder: (context, url) => LoadingIndicator(indicatorType: Indicator.ballGridPulse),
-              errorWidget: (context, url, error) => Icon(Icons.error, size: 256.0, color: Colors.black,),
+              errorWidget: (context, url, error) => Icon(Icons.error, size: Get.width - 16, color: Colors.black,),
               imageBuilder: (context, image) => Container(
                       width: Get.width,
                       //height: 512,
@@ -27,10 +27,10 @@ class HomeDetailsView extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: image,
-                          fit: BoxFit.contain,
+                          fit: BoxFit.cover,
                         ),
                         border: Border.all(
-                          width: 2, color: Colors.red,
+                          width: 3, color: Colors.red,
                         ),
                         borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(40),
@@ -41,12 +41,16 @@ class HomeDetailsView extends StatelessWidget {
             Positioned(
               top: 200.0,
               left: 0.0,
+              right: 32,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.75),
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.85),
                   borderRadius: BorderRadius.all(
-                    Radius.circular(4),
+                    Radius.circular(8),
                   ),
+                  border: Border.all(
+                          width: 1, color: Colors.red,
+                        ),
                 ), // BoxDecoration
                 child: Row(
                   children: <Widget>[
