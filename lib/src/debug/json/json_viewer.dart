@@ -36,12 +36,12 @@ class JsonViewer extends StatelessWidget {
                   Container(
                     width: Get.width,
                     height: 100,
-                    //color: Theme.of(context).colorScheme.primary,
+                    //color: Theme.of(context).colorScheme.secondary,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
-                        Radius.circular(16),
+                        Radius.circular(8),
                       ), // BorderRadius
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Theme.of(context).colorScheme.secondary,
                     ), // BoxDecoration
                   ),
                   Positioned(
@@ -55,14 +55,14 @@ class JsonViewer extends StatelessWidget {
                         child: Text(
                           'JSON Object',
                           style: Theme.of(context).textTheme.bodyLarge!
-                            .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+                            .copyWith(color: Theme.of(context).colorScheme.onPrimary),
                         ), // Text
                       ), // Center
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
-                          Radius.circular(4),
+                          Radius.circular(12),
                         ), // BorderRadius
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Theme.of(context).colorScheme.primary,
                       ), // BoxDecoration
                     ), // Container
                   ), // Positioned
