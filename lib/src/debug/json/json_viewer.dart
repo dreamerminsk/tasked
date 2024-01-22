@@ -29,7 +29,7 @@ class JsonViewer extends StatelessWidget {
             Container(
               width: Get.width,
               height: 160,
-              color: Theme.of(context).colorScheme.surfaceVariant,
+              //color: Theme.of(context).colorScheme.surfaceVariant,
               child: Stack(
                 clipBehavior: Clip.none,
                 children: <Widget>[
