@@ -44,13 +44,13 @@ class HomeDetailsView extends StatelessWidget {
               right: 32,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.85),
+                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
                   borderRadius: BorderRadius.all(
                     Radius.circular(8),
                   ),
                   border: Border.all(
-                          width: 1, color: Colors.red,
-                        ),
+                          width: 1, color: Theme.of(context).colorScheme.primary,
+                  ),
                 ), // BoxDecoration
                 child: Row(
                   children: <Widget>[
@@ -58,7 +58,7 @@ class HomeDetailsView extends StatelessWidget {
                       child: Text(
                         c.selected.value.title ?? '<~~~~~>',
                         style: Theme.of(context).textTheme.headlineLarge!
-                        .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
+                        .copyWith(color: Theme.of(context).colorScheme.primary,),
                       ), // Text
                     ), //Expanded
                   ],
