@@ -5,6 +5,7 @@ import 'package:loading_indicator/loading_indicator.dart';
 
 import 'home_controller.dart';
 
+//https://en.wikipedia.org/api/rest_v1/page/summary/Minsk
 class HomeDetailsView extends StatelessWidget {
 
   @override
