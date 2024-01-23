@@ -39,8 +39,8 @@ class HomeDetailsView extends StatelessWidget {
               ),
                   ), //CachedNetworkImage
             Positioned(
-              top: 200.0,
-              left: 0.0,
+              top: 300,
+              left: 32,
               right: 32,
               child: Container(
                 decoration: BoxDecoration(
