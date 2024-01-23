@@ -39,7 +39,7 @@ class SampleDir extends StatelessWidget {
           width: Get.width,
           height: 100,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
                 title.split('/').last,
@@ -48,6 +48,16 @@ class SampleDir extends StatelessWidget {
                     color: foreground,
                 ),
               ), // Text
+              ObxValue((data) => 
+                Text(
+                  'size: ${data.value?.size ?? 0}, modified: ${data.value?.modified.toString() ?? ~~.~~.~~~~}',
+                  style: textTheme.titleMedium!
+                    .copyWith(
+                      color: foreground,
+                  ),
+                ), // Text
+                stat,
+              ), // ObxValue
             ],
           ), // Column
           decoration: BoxDecoration(
