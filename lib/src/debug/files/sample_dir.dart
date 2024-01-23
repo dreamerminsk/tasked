@@ -23,6 +23,8 @@ class SampleDir extends StatelessWidget {
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
+  final d = Directory(title);
+  d.stat.then( (value) => stat.value = value );
 
     return InkWell(
       onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
@@ -41,7 +43,7 @@ class SampleDir extends StatelessWidget {
           width: Get.width,
           height: 100,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text(
                 title.split('/').last,
