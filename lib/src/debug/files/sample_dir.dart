@@ -8,8 +8,9 @@ class SampleDir extends StatelessWidget {
   final String title;
   final Color background;
   final Color foreground;
+  final Rxn<FileStat> stat = Rxn<FileStat>();
 
-  const SampleDir({
+  SampleDir({
     required this.index,
     required this.title,
     required this.background,
