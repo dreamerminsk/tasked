@@ -29,13 +29,13 @@ class HomeDetailsView extends StatelessWidget {
                           image: image,
                           fit: BoxFit.cover,
                         ),
-                        border: Border.all(
-                          width: 3, color: Colors.red,
-                        ),
-                        borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(40),
-                        ),
-                      ),
+                        //border: Border.all(
+                          //width: 3, color: Colors.red,
+                        //),
+                        //borderRadius: BorderRadius.vertical(
+                          //bottom: Radius.circular(40),
+                        //),
+                      //),
               ),
                   ), //CachedNetworkImage
             Positioned(
