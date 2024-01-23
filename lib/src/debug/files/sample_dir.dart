@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -50,7 +52,7 @@ class SampleDir extends StatelessWidget {
               ), // Text
               ObxValue((data) => 
                 Text(
-                  'size: ${data.value?.size ?? 0}, modified: ${data.value?.modified.toString() ?? ~~.~~.~~~~}',
+                  'size: ${data.value?.size ?? 0}, modified: ${data.value?.modified.toString() ?? "~~.~~.~~~~"}',
                   style: textTheme.titleMedium!
                     .copyWith(
                       color: foreground,
