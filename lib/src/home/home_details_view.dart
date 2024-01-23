@@ -35,7 +35,7 @@ class HomeDetailsView extends StatelessWidget {
                         //borderRadius: BorderRadius.vertical(
                           //bottom: Radius.circular(40),
                         //),
-                      //),
+                      ),
               ),
                   ), //CachedNetworkImage
             Positioned(
