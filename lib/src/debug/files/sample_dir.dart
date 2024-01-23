@@ -24,7 +24,7 @@ class SampleDir extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
   final d = Directory(title);
-  d.stat.then( (value) => stat.value = value );
+  d.stat().then( (value) => stat.value = value );
 
     return InkWell(
       onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
