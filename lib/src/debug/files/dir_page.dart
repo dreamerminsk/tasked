@@ -33,7 +33,7 @@ class DirPage extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return index == 0
             ? Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 16),
+              padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
               child: ParentDir(
                 title: path,
               ), // SampleDir
