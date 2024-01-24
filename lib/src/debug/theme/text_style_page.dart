@@ -182,6 +182,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.shadows,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'textBaseline',
+              object: textStyle.textBaseline,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
