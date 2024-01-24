@@ -1,5 +1,33 @@
 [
     {
+      "title": "Dafne Keen",
+      "wiki": {
+           "title": "Dafne Keen",
+           "mviMonth": 271931
+        }
+    },
+    {
+      "title": "Freya Allan",
+      "wiki": {
+           "title": "Freya Allan",
+           "mviMonth": 271931
+        }
+    },
+    {
+      "title": "Jenna Ortega",
+      "wiki": {
+           "title": "Jenna Ortega",
+           "mviMonth": 271931
+        }
+    },
+    {
+      "title": "Rachel Zegler",
+      "wiki": {
+           "title": "Rachel Zegler",
+           "mviMonth": 2719310
+        }
+    },
+    {
       "title": "Dune: Part Two",
       "wiki": {
            "title": "Dune: Part Two",
@@ -42,9 +70,23 @@
         }
    },
    {
-      "title": "2023 Israel–Hamas war",
+      "title": "Israel–Hamas war",
       "wiki": {
-           "title": "2023 Israel–Hamas war",
+           "title": "Israel–Hamas war",
+           "mviMonth": 3240333
+        }
+   },
+   {
+      "title": "2023 Hamas-led attack on Israel",
+      "wiki": {
+           "title": "2023 Hamas-led attack on Israel",
+           "mviMonth": 3240333
+        }
+   },
+   {
+      "title": "2023 Israeli invasion of the Gaza Strip",
+      "wiki": {
+           "title": "2023 Israeli invasion of the Gaza Strip",
            "mviMonth": 3240333
         }
    },
