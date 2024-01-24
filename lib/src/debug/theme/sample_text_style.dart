@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'text_style_page.dart';
+
 class SampleTextStyle extends StatelessWidget {
   final String title;
   final TextStyle style;
@@ -21,28 +23,31 @@ class SampleTextStyle extends StatelessWidget {
       elevation: 2,
       borderRadius:
         BorderRadius.all(Radius.circular(20)),
-      child: Container(
-        width: Get.width,
-        height: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              text ?? style.runtimeType ?? title,
-              style: style
-                .copyWith(
-                  color: colorScheme.onPrimary,
-              ),
-            ), // Text,
-          ],
-        ), // Column
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.primary,
-        ), // BoxDecoration
-      ), // Container
+      child: InkWell(
+        onTap: () => Get.to(TextStylePage(style)),
+        child: Container(
+          width: Get.width,
+          height: 100,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                text ?? style.runtimeType ?? title,
+                style: style
+                  .copyWith(
+                    color: colorScheme.onPrimary,
+                ),
+              ), // Text,
+            ],
+          ), // Column
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: colorScheme.primary,
+          ), // BoxDecoration
+        ), // Container
+      ), // InkWell
     ); // Material
   }
 }
