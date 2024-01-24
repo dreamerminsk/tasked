@@ -68,6 +68,13 @@ class ColorPage extends StatelessWidget {
               object: textStyle.runtimeType,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'value',
+              object: textStyle.value,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
