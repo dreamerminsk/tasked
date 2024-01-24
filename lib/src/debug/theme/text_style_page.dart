@@ -154,6 +154,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.leadingDistribution,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'letterSpacing',
+              object: textStyle.letterSpacing,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
