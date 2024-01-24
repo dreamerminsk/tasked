@@ -189,6 +189,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.textBaseline,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'wordSpacing',
+              object: textStyle.wordSpacing,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
