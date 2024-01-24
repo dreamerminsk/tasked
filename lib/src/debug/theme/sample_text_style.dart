@@ -5,8 +5,6 @@ class SampleTextStyle extends StatelessWidget {
   final String title;
   final TextStyle style;
   final String? text;
-  //final Color background;
-  //final Color foreground;
 
   const SampleTextStyle({
     required this.title,
@@ -30,7 +28,7 @@ class SampleTextStyle extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              text ?? title,
+              text ?? style.runtimeType ?? title,
               style: style
                 .copyWith(
                   color: colorScheme.onPrimary,
