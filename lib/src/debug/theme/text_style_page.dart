@@ -91,6 +91,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.fontFamilyFallback,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'fontFeatures',
+              object: textStyle.fontFeatures,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
