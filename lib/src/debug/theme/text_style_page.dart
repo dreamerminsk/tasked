@@ -63,6 +63,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.decorationColor,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'decorationStyle',
+              object: textStyle.decorationStyle,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
