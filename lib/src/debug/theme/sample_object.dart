@@ -27,7 +27,7 @@ class SampleObject extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Text(
-              object?.runtimeType.toString() ?? 'null',
+              '${object?.runtimeType.toString() ?? "null"}\n$object',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary,
