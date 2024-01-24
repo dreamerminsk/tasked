@@ -49,6 +49,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.debugLabel,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'decoration',
+              object: textStyle.decoration,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
