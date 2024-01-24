@@ -98,6 +98,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.fontFeatures,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'fontSize',
+              object: textStyle.fontSize,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
