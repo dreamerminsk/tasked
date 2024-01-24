@@ -23,56 +23,56 @@ class ColorPage extends StatelessWidget {
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'alpha',
-              object: textStyle.alpha,
+              object: color.alpha,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'blue',
-              object: textStyle.blue,
+              object: color.blue,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'green',
-              object: textStyle.green,
+              object: color.green,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'hashCode',
-              object: textStyle.hashCode,
+              object: color.hashCode,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'opacity',
-              object: textStyle.opacity,
+              object: color.opacity,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'red',
-              object: textStyle.red,
+              object: color.red,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'runtimeType',
-              object: textStyle.runtimeType,
+              object: color.runtimeType,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'value',
-              object: textStyle.value,
+              object: color.value,
             ), // SampleObject
           ), // Padding
         ],
