@@ -126,6 +126,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.fontWeight,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'foreground',
+              object: textStyle.foreground,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
