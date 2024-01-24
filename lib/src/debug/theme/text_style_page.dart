@@ -3,6 +3,13 @@ import 'package:get/get.dart';
 
 class TextStylePage extends StatelessWidget {
 
+  final TextStyle textStyle;
+
+  const TextStylePage({
+    super.key,
+    required this.textStyle,
+  });
+
   @override
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
@@ -14,10 +21,10 @@ class TextStylePage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleStyle(
-              title: 'displayLarge',
-              style: textTheme.displayLarge!
-            ), // TextContainer
+            child: SampleObject(
+              title: 'background',
+              object: textStyle.background,
+            ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
