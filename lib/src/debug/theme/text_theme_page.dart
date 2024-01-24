@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'sample_text_style.dart';
+
 class TextThemePage extends StatelessWidget {
 
   @override
