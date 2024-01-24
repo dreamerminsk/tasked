@@ -147,6 +147,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.inherit,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'leadingDistribution',
+              object: textStyle.leadingDistribution,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
