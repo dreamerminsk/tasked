@@ -41,14 +41,7 @@ class SampleColor extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: textTheme.titleMedium!
-                  .copyWith(
-                    color: foreground,
-                ),
-              ), // Text
-              Text(
-                '$background',
-                style: textTheme.bodyMedium!
+                style: textTheme.titleLarge!
                   .copyWith(
                     color: foreground,
                 ),
