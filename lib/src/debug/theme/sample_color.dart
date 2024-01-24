@@ -22,6 +22,9 @@ class SampleColor extends StatelessWidget {
       borderRadius:
         BorderRadius.all(Radius.circular(20)),
       child: InkWell(
+        onTap: () => Get.to(ColorPage(
+          color: background
+        )),
         child: Container(
           width: Get.width,
           height: 100,
