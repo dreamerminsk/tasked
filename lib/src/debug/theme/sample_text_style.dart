@@ -24,7 +24,9 @@ class SampleTextStyle extends StatelessWidget {
       borderRadius:
         BorderRadius.all(Radius.circular(20)),
       child: InkWell(
-        onTap: () => Get.to(TextStylePage(style)),
+        onTap: () => Get.to(TextStylePage(
+          textStyle: style
+        )),
         child: Container(
           width: Get.width,
           height: 100,
