@@ -175,6 +175,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.overflow,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'shadows',
+              object: textStyle.shadows,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
