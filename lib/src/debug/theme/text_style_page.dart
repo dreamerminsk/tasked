@@ -70,6 +70,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.decorationStyle,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'decorationThickness',
+              object: textStyle.decorationThickness,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
