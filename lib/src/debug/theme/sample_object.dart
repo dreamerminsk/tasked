@@ -6,6 +6,7 @@ class SampleObject extends StatelessWidget {
   final Object? object;
 
   const SampleObject({
+    super.key,
     required this.title,
     required this.object,
   });
