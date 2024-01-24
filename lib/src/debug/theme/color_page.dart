@@ -22,8 +22,8 @@ class ColorPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'background',
-              object: textStyle.background,
+              title: 'alpha',
+              object: textStyle.alpha,
             ), // SampleObject
           ), // Padding
         ],
