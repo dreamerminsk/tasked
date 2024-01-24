@@ -161,6 +161,13 @@ class TextStylePage extends StatelessWidget {
               object: textStyle.letterSpacing,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'locale',
+              object: textStyle.locale,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
