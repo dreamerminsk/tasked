@@ -47,6 +47,13 @@ class ColorPage extends StatelessWidget {
               object: textStyle.hashCode,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'opacity',
+              object: textStyle.opacity,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
