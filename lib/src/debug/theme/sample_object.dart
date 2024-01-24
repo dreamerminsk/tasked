@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class SampleObject extends StatelessWidget {
   final String title;
-  final Object object;
+  final Object? object;
 
   const SampleObject({
     required this.title,
@@ -26,7 +26,7 @@ class SampleObject extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Text(
-              object.runtimeType.toString(),
+              object?.runtimeType.toString() ?? 'null',
               style: textTheme.titleLarge!
                 .copyWith(
                   color: colorScheme.onPrimary,
