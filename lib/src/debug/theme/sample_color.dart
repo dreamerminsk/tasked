@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'color_page.dart';
+
 class SampleColor extends StatelessWidget {
   final String title;
   final Color background;
