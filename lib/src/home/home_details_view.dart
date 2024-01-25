@@ -41,12 +41,41 @@ class HomeDetailsView extends StatelessWidget {
               ),
                   ), //CachedNetworkImage
             Positioned(
-              top: 300,
+              top: 32,
               left: 32,
               right: 32,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.75),
+                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.60),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                  border: Border.all(
+                          width: 1, color: Theme.of(context).colorScheme.primary,
+                  ),
+                ), // BoxDecoration
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    //Expanded(
+                      //child: Text(
+                      Text(
+                        c.selected.value.title ?? '<~~~~~>',
+                        style: Theme.of(context).textTheme.headlineLarge!
+                        .copyWith(color: Theme.of(context).colorScheme.primary,),
+                      ), // Text
+                    //), //Expanded
+                  ],
+                ), // Row
+              ), // Container
+            ), // Positioned
+            Positioned(
+              top: 2 * Get.height / 3,
+              left: 32,
+              right: 32,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.50),
                   borderRadius: BorderRadius.all(
                     Radius.circular(8),
                   ),
@@ -59,15 +88,15 @@ class HomeDetailsView extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
-                        c.selected.value.title ?? '<~~~~~>',
-                        style: Theme.of(context).textTheme.headlineLarge!
+                        'very very very long article description',
+                        style: Theme.of(context).textTheme.headlineMedium!
                         .copyWith(color: Theme.of(context).colorScheme.primary,),
                       ), // Text
                     ), //Expanded
                   ],
                 ), // Row
               ), // Container
-            ),
+            ), // Positioned
           ],
         )), //Stack
       floatingActionButton:
