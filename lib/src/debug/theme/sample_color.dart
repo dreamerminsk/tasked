@@ -35,16 +35,19 @@ class SampleColor extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
             decoration: BoxDecoration(
               color: Colors.transparent,
-              border: Border.all(
-                color: foreground,
-                width: 2.0,
-              ), // Border
+              //border: Border.all(
+                //color: foreground,
+                //width: 2.0,
+              //), // Border
               borderRadius: BorderRadius.circular(12),
             ), // BoxDecoration
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
+                Divider(
+                  color: foreground,
+                ), // Divider
                 Text(
                   title,
                   style: textTheme.titleLarge!
