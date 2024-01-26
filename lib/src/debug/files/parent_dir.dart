@@ -33,13 +33,18 @@ class ParentDir extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                title.split('/').last,
-                style: textTheme.titleLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary,
-                ),
-              ), // Text
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    title.split('/').last,
+                    style: textTheme.titleLarge!
+                      .copyWith(
+                        color: colorScheme.onPrimary,
+                    ),
+                  ), // Text
+                ],
+              ), // Row
             ],
           ), // Column
           decoration: BoxDecoration(
