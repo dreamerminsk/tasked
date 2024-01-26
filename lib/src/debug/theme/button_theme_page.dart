@@ -33,6 +33,13 @@ class ButtonThemePage extends StatelessWidget {
               object: theme.colorScheme,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'constraints',
+              object: theme.constraints,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
