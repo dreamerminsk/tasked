@@ -22,8 +22,8 @@ class ButtonThemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'alpha',
-              object: theme,
+              title: 'alignedDropdown',
+              object: theme.alignedDropdown,
             ), // SampleObject
           ), // Padding
         ],
