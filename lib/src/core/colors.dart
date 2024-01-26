@@ -12,6 +12,11 @@ class NamedMaterialColor {
   final MaterialColor primary;
 
   const NamedMaterialColor({required this.name, required this.primary});
+
+  NamedColor get shade50 => NamedColor(
+    name: '$name[50]',
+    color: this[50],
+  );
 }
 
 class NamedAccentColor {
