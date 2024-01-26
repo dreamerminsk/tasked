@@ -26,6 +26,13 @@ class ButtonThemePage extends StatelessWidget {
               object: theme.alignedDropdown,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'colorScheme',
+              object: theme.colorScheme,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
