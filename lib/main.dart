@@ -11,7 +11,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   static NamedMaterialColor seedColor = NamedColors.indigo;
-  static NamedColor shadeColor = NamedColor.indigo.shade500;
+  static NamedColor shadeColor = NamedColors.indigo.shade500;
   
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             //primarySwatch: Colors.indigo,
             colorScheme: ColorScheme.fromSeed(
-              seedColor: shadeColor,
+              seedColor: shadeColor.color,
             ),
           ),
           initialBinding: DebugBinding(),
