@@ -40,6 +40,7 @@ class ParentDir extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     //iconSize: 72,
+                    color: colorScheme.onPrimary,
                     icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Get.back();
@@ -54,6 +55,7 @@ class ParentDir extends StatelessWidget {
                   ), // Text
                   IconButton(
                     //iconSize: 72,
+                    color: colorScheme.onPrimary,
                     icon: const Icon(Icons.query_stats),
                     onPressed: () {
                       Get.toNamed(Routes.DEBUG);
