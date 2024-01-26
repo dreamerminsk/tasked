@@ -30,6 +30,7 @@ class SampleObject extends StatelessWidget {
               '${object == null ? "null" : object.toString()}',
               style: textTheme.titleLarge!
                 .copyWith(
+                  fontWeight: FontWeight.w700,
                   color: colorScheme.onPrimary,
               ),
             ), // Text
