@@ -69,6 +69,31 @@ class NamedAccentColor {
   final MaterialAccentColor accent;
 
   const NamedAccentColor({required this.name, required this.accent});
+
+  NamedColor get shade50 => NamedColor(
+    name: '$name[50]',
+    color: primary[50]!,
+  );
+
+  NamedColor get shade100 => NamedColor(
+    name: '$name[100]',
+    color: primary[100]!,
+  );
+
+  NamedColor get shade200 => NamedColor(
+    name: '$name[200]',
+    color: primary[200]!,
+  );
+
+  NamedColor get shade400 => NamedColor(
+    name: '$name[400]',
+    color: primary[400]!,
+  );
+
+  NamedColor get shade700 => NamedColor(
+    name: '$name[700]',
+    color: primary[700]!,
+  );
 }
 
 abstract final class NamedColors {
