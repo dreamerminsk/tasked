@@ -77,12 +77,12 @@ class HomeDetailsView extends StatelessWidget {
               right: 32,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.50),
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.50),
                   borderRadius: BorderRadius.all(
                     Radius.circular(8),
                   ),
                   border: Border.all(
-                          width: 1, color: Theme.of(context).colorScheme.primary,
+                          width: 1, color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ), // BoxDecoration
                 child: Row(
@@ -92,7 +92,7 @@ class HomeDetailsView extends StatelessWidget {
                       child: Text(
                         'very very very long article description',
                         style: Theme.of(context).textTheme.headlineMedium!
-                        .copyWith(color: Theme.of(context).colorScheme.primary,),
+                        .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
                       ), // Text
                     ), //Expanded
                   ],
