@@ -36,6 +36,13 @@ class ParentDir extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  IconButton(
+                    //iconSize: 72,
+                    icon: const Icon(Icons.favorite),
+                    onPressed: () {
+                      // ...
+                    },
+                  ),
                   Text(
                     title.split('/').last,
                     style: textTheme.titleLarge!
