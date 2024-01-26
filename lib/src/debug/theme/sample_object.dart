@@ -41,6 +41,7 @@ class SampleObject extends StatelessWidget {
               title,
               style: textTheme.titleLarge!
                 .copyWith(
+                  fontSize: textTheme.titleLarge!.fontSize! - 1,
                   color: colorScheme.onPrimary,
               ),
             ), // Text,
