@@ -32,7 +32,8 @@ class SampleObject extends StatelessWidget {
                 .copyWith(
                   color: colorScheme.onPrimary,
               ),
-            ), // Text,
+            ), // Text
+            Divider(), // Divider
             Text(
               title,
               style: textTheme.titleLarge!
