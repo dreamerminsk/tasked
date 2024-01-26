@@ -61,6 +61,8 @@ class HomeDetailsView extends StatelessWidget {
                       //child: Text(
                       Text(
                         c.selected.value.title ?? '<~~~~~>',
+                        maxLines: 2,
+                        overflow: TextOverflow.fade,
                         style: Theme.of(context).textTheme.headlineLarge!
                         .copyWith(color: Theme.of(context).colorScheme.primary,),
                       ), // Text
