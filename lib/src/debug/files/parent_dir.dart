@@ -48,6 +48,7 @@ class ParentDir extends StatelessWidget {
                   ),
                   Text(
                     title.split('/').last,
+                    overflow: TextOverflow.fade,
                     style: textTheme.titleLarge!
                       .copyWith(
                         color: colorScheme.onPrimary,
