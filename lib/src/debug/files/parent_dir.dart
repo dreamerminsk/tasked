@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../routes/app_pages.dart';
+
 //import 'dir_page.dart';
 
 class ParentDir extends StatelessWidget {
@@ -18,7 +20,7 @@ class ParentDir extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Get.back();
+        //Get.back();
         //Get.to(DirPage(path: title), preventDuplicates: false);
       },
       child: Material(
@@ -38,9 +40,9 @@ class ParentDir extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     //iconSize: 72,
-                    icon: const Icon(Icons.favorite),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
-                      // ...
+                      Get.back();
                     },
                   ),
                   Text(
@@ -50,6 +52,13 @@ class ParentDir extends StatelessWidget {
                         color: colorScheme.onPrimary,
                     ),
                   ), // Text
+                  IconButton(
+                    //iconSize: 72,
+                    icon: const Icon(Icons.query_stats),
+                    onPressed: () {
+                      Get.toNamed(Routes.DEBUG);
+                    },
+                  ),
                 ],
               ), // Row
             ],
