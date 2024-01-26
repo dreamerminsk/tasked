@@ -15,7 +15,7 @@ class NamedMaterialColor {
 
   NamedColor get shade50 => NamedColor(
     name: '$name[50]',
-    color: this[50],
+    color: primary[50],
   );
 }
 
