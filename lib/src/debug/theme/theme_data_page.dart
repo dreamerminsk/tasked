@@ -25,9 +25,9 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleTheme(
+            child: SampleObject(
               title: 'appBarTheme',
-              theme: theme.appBarTheme,
+              object: theme.appBarTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
