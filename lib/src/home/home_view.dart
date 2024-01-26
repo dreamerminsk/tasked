@@ -61,7 +61,7 @@ class HomeView extends StatelessWidget {
                       Text(
                         item.title ?? '...',
                         style: textTheme.headlineSmall!.copyWith(
-                          fontSize: textTheme.headlineSmall!.fontSize - 1,
+                          fontSize: textTheme.headlineSmall!.fontSize! - 1,
                         ),
                       ),
                       SizedBox(height: 4),
