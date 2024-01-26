@@ -36,6 +36,8 @@ class HomeView extends StatelessWidget {
   }
 
   Widget _buildCard(BuildContext context, Anime item) {
+    final textTheme = Theme.of(context).textTheme;
+    
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
@@ -58,7 +60,9 @@ class HomeView extends StatelessWidget {
                       SizedBox(height: 4),
                       Text(
                         item.title ?? '...',
-                        style: Theme.of(context).textTheme.headlineSmall,
+                        style: textTheme.headlineSmall!.copyWith(
+                          fontSize: textTheme.headlineSmall!.fontSize - 1,
+                        ),
                       ),
                       SizedBox(height: 4),
                       Text(
@@ -69,7 +73,7 @@ class HomeView extends StatelessWidget {
                       Text(
                         "<~description~>",
                         maxLines: 2,
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: textTheme.bodyLarge,
                       ),
                     ],
                   ),
