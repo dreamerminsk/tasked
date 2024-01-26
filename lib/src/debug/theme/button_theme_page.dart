@@ -54,6 +54,13 @@ class ButtonThemePage extends StatelessWidget {
               object: theme.layoutBehavior,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'minWidth',
+              object: theme.minWidth,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
