@@ -17,6 +17,51 @@ class NamedMaterialColor {
     name: '$name[50]',
     color: primary[50]!,
   );
+
+  NamedColor get shade100 => NamedColor(
+    name: '$name[100]',
+    color: primary[100]!,
+  );
+
+  NamedColor get shade200 => NamedColor(
+    name: '$name[200]',
+    color: primary[200]!,
+  );
+
+  NamedColor get shade300 => NamedColor(
+    name: '$name[300]',
+    color: primary[300]!,
+  );
+
+  NamedColor get shade400 => NamedColor(
+    name: '$name[400]',
+    color: primary[400]!,
+  );
+
+  NamedColor get shade500 => NamedColor(
+    name: '$name[500]',
+    color: primary[500]!,
+  );
+
+  NamedColor get shade600 => NamedColor(
+    name: '$name[600]',
+    color: primary[600]!,
+  );
+
+  NamedColor get shade700 => NamedColor(
+    name: '$name[700]',
+    color: primary[700]!,
+  );
+
+  NamedColor get shade800 => NamedColor(
+    name: '$name[800]',
+    color: primary[800]!,
+  );
+
+  NamedColor get shade900 => NamedColor(
+    name: '$name[900]',
+    color: primary[900]!,
+  );
 }
 
 class NamedAccentColor {
