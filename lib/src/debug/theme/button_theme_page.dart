@@ -23,7 +23,7 @@ class ButtonThemePage extends StatelessWidget {
             padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'alpha',
-              object: color.alpha,
+              object: theme,
             ), // SampleObject
           ), // Padding
         ],
