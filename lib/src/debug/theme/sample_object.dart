@@ -33,7 +33,9 @@ class SampleObject extends StatelessWidget {
                   color: colorScheme.onPrimary,
               ),
             ), // Text
-            Divider(), // Divider
+            Divider(
+              color: colorScheme.onPrimary,
+            ), // Divider
             Text(
               title,
               style: textTheme.titleLarge!
