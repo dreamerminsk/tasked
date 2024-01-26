@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SampleTheme extends StatelessWidget {
+  static final routes = {
+    'ButtonThemeData': () => ButtonThemePage(),
+  };
   final String title;
   final Object? theme;
   
