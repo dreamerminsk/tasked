@@ -64,15 +64,22 @@ class ButtonThemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'padding
+              title: 'padding',
               object: theme.padding,
             ), // SampleObject
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'shape
+              title: 'shape',
               object: theme.shape,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'textTheme',
+              object: theme.textTheme,
             ), // SampleObject
           ), // Padding
         ],
