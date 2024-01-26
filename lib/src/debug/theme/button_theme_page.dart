@@ -40,6 +40,13 @@ class ButtonThemePage extends StatelessWidget {
               object: theme.constraints,
             ), // SampleObject
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'height',
+              object: theme.height,
+            ), // SampleObject
+          ), // Padding
         ],
       ), // ListView
     );
