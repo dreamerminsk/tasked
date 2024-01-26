@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//import '../debug_controller.dart';
+import 'sample_theme.dart';
+import 'sample_object.dart';
 
 class ThemeDataPage extends StatelessWidget {
 
