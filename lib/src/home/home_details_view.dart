@@ -15,6 +15,8 @@ class HomeDetailsView extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
     final HomeController c = Get.find();
 
     return Scaffold(
@@ -48,33 +50,41 @@ class HomeDetailsView extends StatelessWidget {
               top: 32,
               left: 32,
               right: 32,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.60),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                  border: Border.all(
-                          width: 1, color: Theme.of(context).colorScheme.primary,
-                  ),
-                ), // BoxDecoration
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    //Expanded(
-                      //child: Text(
-                      Text(
-                        c.selected.value.title ?? '<~~~~~>',
-                        maxLines: 2,
-                        overflow: TextOverflow.fade,
-                        style: Theme.of(context).textTheme.headlineLarge!
-                        .copyWith(color: Theme.of(context).colorScheme.primary,),
-                      ), // Text
-                    //), //Expanded
-                  ],
-                ), // Row
-              ), // Container
+              child: GestureDetector(
+                onTap: () {
+                  
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: ObxValue(
+                      (data) => colorScheme.onPrimary.withOpacity(data.value),
+                      textOpacity
+                    ), // ObxValue
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                    border: Border.all(
+                      width: 1, color: colorScheme.primary,
+                    ),
+                  ), // BoxDecoration
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      //Expanded(
+                        //child: Text(
+                        Text(
+                          c.selected.value.title ?? '<~~~~~>',
+                          maxLines: 2,
+                          overflow: TextOverflow.fade,
+                          style: textTheme.headlineLarge!
+                          .copyWith(color: colorScheme.primary,),
+                        ), // Text
+                      //), //Expanded
+                    ],
+                  ), // Row
+                ), // Container
+              ), // GestureDetector
             ), // Positioned
             Positioned(
               top: 2 * Get.height / 3,
@@ -82,12 +92,12 @@ class HomeDetailsView extends StatelessWidget {
               right: 32,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.50),
+                  color: colorScheme.primary.withOpacity(0.50),
                   borderRadius: BorderRadius.all(
                     Radius.circular(8),
                   ),
                   border: Border.all(
-                          width: 1, color: Theme.of(context).colorScheme.onPrimary,
+                    width: 1, color: colorScheme.onPrimary,
                   ),
                 ), // BoxDecoration
                 child: Row(
@@ -96,7 +106,7 @@ class HomeDetailsView extends StatelessWidget {
                     Expanded(
                       child: Text(
                         'very very very long article description',
-                        style: Theme.of(context).textTheme.headlineMedium!
+                        style: textTheme.headlineMedium!
                         .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
                       ), // Text
                     ), //Expanded
