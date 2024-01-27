@@ -58,19 +58,17 @@ class HomeDetailsView extends StatelessWidget {
                   if (titleOpacity.value == 0) { toDir.value *= -1; }
                   if (titleOpacity.value == 100) { toDir.value *= -1; }
                 },
-                child: Container(
-                  decoration: ObxValue(
-                    (data) => BoxDecoration(
-                      color: colorScheme.onPrimary.withOpacity(data.value * 0.01),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(8),
-                      ),
-                      border: Border.all(
-                        width: 1, color: colorScheme.primary,
-                      ),
-                    ), // BoxDecoration
-                    textOpacity,
-                  ), // ObxValue
+                child: ObxValue(
+                  (data) => Container(
+                  decoration: BoxDecoration(
+                    color: colorScheme.onPrimary.withOpacity(data.value * 0.01),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                    border: Border.all(
+                      width: 1, color: colorScheme.primary,
+                    ),
+                  ), // BoxDecoration
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -88,6 +86,8 @@ class HomeDetailsView extends StatelessWidget {
                     ],
                   ), // Row
                 ), // Container
+                  titleOpacity,
+                ), // ObxValue
               ), // GestureDetector
             ), // Positioned
             Positioned(
