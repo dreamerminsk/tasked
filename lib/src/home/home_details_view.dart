@@ -100,9 +100,9 @@ class HomeDetailsView extends StatelessWidget {
                   if (descOpacity.value == 0) { doDir.value *= -1; }
                   if (descOpacity.value == 100) { doDir.value *= -1; }
                 },
-                child: Container(
-                  decoration: ObxValue(
-                    (data) => BoxDecoration(
+                child: ObxValue(
+                  (data) => Container(
+                    decoration: BoxDecoration(
                       color: colorScheme.primary.withOpacity(data.value * 0.01),
                       borderRadius: BorderRadius.all(
                         Radius.circular(8),
@@ -111,21 +111,21 @@ class HomeDetailsView extends StatelessWidget {
                         width: 1, color: colorScheme.onPrimary,
                       ),
                     ), // BoxDecoration
-                    descOpacity,
-                  ), // ObxValue
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: Text(
-                          'very very very long article description',
-                          style: textTheme.headlineMedium!
-                          .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
-                        ), // Text
-                      ), //Expanded
-                    ],
-                  ), // Row
-                ), // Container
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            'very very very long article description',
+                            style: textTheme.headlineMedium!
+                            .copyWith(color: colorScheme.onPrimary,),
+                          ), // Text
+                        ), //Expanded
+                      ],
+                    ), // Row
+                  ), // Container
+                  descOpacity,
+                ), // ObxValue
               ), // GestureDetector
             ), // Positioned
           ],
