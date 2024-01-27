@@ -9,6 +9,10 @@ import 'home_controller.dart';
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
 class HomeDetailsView extends StatelessWidget {
 
+  final titleOpacity = 0.6.obs;
+
+  final descOpacity = 0.5.obs;
+
   @override
   Widget build(context) {
     final HomeController c = Get.find();
