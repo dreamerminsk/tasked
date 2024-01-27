@@ -31,7 +31,7 @@ class SampleTheme extends StatelessWidget {
           final name = theme?.runtimeType.toString() ?? 'Object';
           if (routes.containsKey(name)) {
             if (theme != null) {
-              Get.to(routes[name].call(theme!));
+              Get.to(routes[name]!.call(theme!));
             }
           }
           //Get.toNamed(Routes.THEME); 
