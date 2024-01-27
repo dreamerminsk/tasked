@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,10 +9,12 @@ import '../../routes/app_pages.dart';
 
 class ParentDir extends StatelessWidget {
   final String title;
+  final VoidCallback? onTap;
 
   const ParentDir({
     super.key,
     required this.title,
+    this.onTap,
   });
 
   @override
@@ -46,14 +50,17 @@ class ParentDir extends StatelessWidget {
                       Get.back();
                     },
                   ),
-                  Text(
-                    title.split('/').last,
-                    overflow: TextOverflow.fade,
-                    style: textTheme.titleLarge!
-                      .copyWith(
-                        color: colorScheme.onPrimary,
-                    ),
-                  ), // Text
+                  GestureDetector(
+                    onTap: () => this.onTap?.call(),
+                    child: Text(
+                      title.split('/').last,
+                      overflow: TextOverflow.fade,
+                      style: textTheme.titleLarge!
+                        .copyWith(
+                          color: colorScheme.onPrimary,
+                      ),
+                    ), // Text
+                  ), // GestureDetector
                   IconButton(
                     //iconSize: 72,
                     color: colorScheme.onPrimary,
