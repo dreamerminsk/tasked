@@ -30,7 +30,9 @@ class SampleTheme extends StatelessWidget {
         onTap: () {
           final name = theme?.runtimeType.toString() ?? 'Object';
           if (routes.containsKey(name)) {
-            Get.to(routes[name].call(theme));
+            if (theme != null) {
+              Get.to(routes[name].call(theme!));
+            }
           }
           //Get.toNamed(Routes.THEME); 
         },
