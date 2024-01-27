@@ -9,8 +9,16 @@ import 'home_controller.dart';
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
 class HomeDetailsView extends StatelessWidget {
 
+  final RxInt titleOpacity = RxInt(60);
+  final RxInt toDir = RxInt(-5);
+
+  final RxInt descOpacity = RxInt(50);
+  final RxInt doDir = RxInt(-5);
+
   @override
   Widget build(context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
     final HomeController c = Get.find();
 
     return Scaffold(
@@ -44,61 +52,81 @@ class HomeDetailsView extends StatelessWidget {
               top: 32,
               left: 32,
               right: 32,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.60),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                  border: Border.all(
-                          width: 1, color: Theme.of(context).colorScheme.primary,
-                  ),
-                ), // BoxDecoration
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    //Expanded(
-                      //child: Text(
-                      Text(
-                        c.selected.value.title ?? '<~~~~~>',
-                        maxLines: 2,
-                        overflow: TextOverflow.fade,
-                        style: Theme.of(context).textTheme.headlineLarge!
-                        .copyWith(color: Theme.of(context).colorScheme.primary,),
-                      ), // Text
-                    //), //Expanded
-                  ],
-                ), // Row
-              ), // Container
+              child: GestureDetector(
+                onTap: () {
+                  titleOpacity.value += toDir.value;
+                  if (titleOpacity.value == 0) { toDir.value *= -1; }
+                  if (titleOpacity.value == 100) { toDir.value *= -1; }
+                },
+                child: ObxValue(
+                  (data) => Container(
+                  decoration: BoxDecoration(
+                    color: colorScheme.onPrimary.withOpacity(data.value * 0.01),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                    border: Border.all(
+                      width: 1, color: colorScheme.primary,
+                    ),
+                  ), // BoxDecoration
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      //Expanded(
+                        //child: Text(
+                        Text(
+                          c.selected.value.title ?? '<~~~~~>',
+                          maxLines: 2,
+                          overflow: TextOverflow.fade,
+                          style: textTheme.headlineLarge!
+                          .copyWith(color: colorScheme.primary,),
+                        ), // Text
+                      //), //Expanded
+                    ],
+                  ), // Row
+                ), // Container
+                  titleOpacity,
+                ), // ObxValue
+              ), // GestureDetector
             ), // Positioned
             Positioned(
               top: 2 * Get.height / 3,
               left: 32,
               right: 32,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.50),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                  border: Border.all(
-                          width: 1, color: Theme.of(context).colorScheme.onPrimary,
-                  ),
-                ), // BoxDecoration
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        'very very very long article description',
-                        style: Theme.of(context).textTheme.headlineMedium!
-                        .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
-                      ), // Text
-                    ), //Expanded
-                  ],
-                ), // Row
-              ), // Container
+              child: GestureDetector(
+                onTap: () {
+                  descOpacity.value += doDir.value;
+                  if (descOpacity.value == 0) { doDir.value *= -1; }
+                  if (descOpacity.value == 100) { doDir.value *= -1; }
+                },
+                child: ObxValue(
+                  (data) => Container(
+                    decoration: BoxDecoration(
+                      color: colorScheme.primary.withOpacity(data.value * 0.01),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8),
+                      ),
+                      border: Border.all(
+                        width: 1, color: colorScheme.onPrimary,
+                      ),
+                    ), // BoxDecoration
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            'very very very long article description',
+                            style: textTheme.headlineMedium!
+                            .copyWith(color: colorScheme.onPrimary,),
+                          ), // Text
+                        ), //Expanded
+                      ],
+                    ), // Row
+                  ), // Container
+                  descOpacity,
+                ), // ObxValue
+              ), // GestureDetector
             ), // Positioned
           ],
         )), //Stack
