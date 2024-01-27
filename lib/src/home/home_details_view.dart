@@ -10,7 +10,7 @@ import 'home_controller.dart';
 class HomeDetailsView extends StatelessWidget {
 
   final RxInt titleOpacity = RxInt(60);
-  final RxInt toDir = RxInt-5);
+  final RxInt toDir = RxInt(-5);
 
   final RxInt descOpacity = RxInt(50);
   final RxInt doDir = RxInt(-5);
