@@ -26,8 +26,8 @@ class ParentDir extends StatelessWidget {
       child: Material(
         elevation: 1,
         borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
         ), // BorderRadius
         child: Container(
           width: Get.width,
