@@ -6,6 +6,7 @@ import 'button_theme_page.dart';
 class SampleTheme extends StatelessWidget {
   static final routes = {
     'ButtonThemeData': (ButtonThemeData value) => ButtonThemePage(theme: value),
+    'CardTheme': (CardTheme value) => CardThemePage(theme: value),
   };
   final String title;
   final Object? theme;
