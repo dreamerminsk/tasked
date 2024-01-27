@@ -6,8 +6,8 @@ import 'card_theme_page.dart';
 
 class SampleTheme extends StatelessWidget {
   static final routes = {
-    'ButtonThemeData': (ButtonThemeData value) => ButtonThemePage(theme: value),
-    'CardTheme': (CardTheme value) => CardThemePage(theme: value),
+    'ButtonThemeData': (ButtonThemeData value) => ButtonThemePage({theme: value}),
+    'CardTheme': (CardTheme value) => CardThemePage({theme: value}),
   };
   final String title;
   final Object? theme;
@@ -28,7 +28,7 @@ class SampleTheme extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          final name = theme.runtimeType.toString() ?? 'Object';
+          final name = theme?.runtimeType.toString() ?? 'Object';
           if (routes.containsKey(name)) {
             Get.to(routes[name].call(theme));
           }
