@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import 'dir_page.dart';
 
@@ -54,7 +55,7 @@ class SampleDir extends StatelessWidget {
               ), // Text
               ObxValue((data) => 
                 Text(
-                  'size: ${data.value?.size ?? 0}, modified: ${data.value?.modified.toString() ?? "~~.~~.~~~~"}',
+                  'size: ${data.value?.size ?? 0}, modified: ${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
                   style: textTheme.titleMedium!
                     .copyWith(
                       color: foreground,
@@ -79,5 +80,9 @@ class SampleDir extends StatelessWidget {
         ), // Container
       ), // Material
     );
+  }
+
+  String _format(DateTime dt) {
+    return DateFormat.yMMMMd().add_Hms().format(dt);
   }
 }
