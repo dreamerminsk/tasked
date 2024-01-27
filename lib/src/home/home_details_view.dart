@@ -59,18 +59,18 @@ class HomeDetailsView extends StatelessWidget {
                   if (titleOpacity.value == 100) { toDir.value *= -1; }
                 },
                 child: Container(
-                  decoration: BoxDecoration(
-                    color: ObxValue(
-                      (data) => colorScheme.onPrimary.withOpacity(data.value * 0.01),
-                      textOpacity
-                    ), // ObxValue
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                    border: Border.all(
-                      width: 1, color: colorScheme.primary,
-                    ),
-                  ), // BoxDecoration
+                  decoration: ObxValue(
+                    (data) => BoxDecoration(
+                      color: colorScheme.onPrimary.withOpacity(data.value * 0.01),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8),
+                      ),
+                      border: Border.all(
+                        width: 1, color: colorScheme.primary,
+                      ),
+                    ), // BoxDecoration
+                    textOpacity,
+                  ), // ObxValue
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -101,18 +101,18 @@ class HomeDetailsView extends StatelessWidget {
                   if (descOpacity.value == 100) { doDir.value *= -1; }
                 },
                 child: Container(
-                  decoration: BoxDecoration(
-                    color: ObxValue(
-                        (data) => colorScheme.primary.withOpacity(data.value * 0.01),
-                        descOpacity
-                      ), // ObxValue
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                    border: Border.all(
-                      width: 1, color: colorScheme.onPrimary,
-                    ),
-                  ), // BoxDecoration
+                  decoration: ObxValue(
+                    (data) => BoxDecoration(
+                      color: colorScheme.primary.withOpacity(data.value * 0.01),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8),
+                      ),
+                      border: Border.all(
+                        width: 1, color: colorScheme.onPrimary,
+                      ),
+                    ), // BoxDecoration
+                    textOpacity,
+                  ), // ObxValue
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
