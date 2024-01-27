@@ -58,19 +58,19 @@ class DirPage extends StatelessWidget {
       );
   }
 
-  Widget _buildSheet(BuilderContext context) {
+  Widget _buildSheet(BuildContext context) {
     return SizedBox(
       height: 320,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('accessed: ${stat?.value.accessed}'),
-          Text('changed: ${stat?.value.changed}'),
-          Text('modified: ${stat?.value.modified}'),
-          Text('mode: ${stat?.value.mode}, ${stat?.value.modeString()}'),
-          Text('size: ${stat?.value.size}'),
-          Text('type: ${stat?.value.type}'),
+          Text('accessed: ${stat.value?.accessed}'),
+          Text('changed: ${stat.value?.changed}'),
+          Text('modified: ${stat.value?.modified}'),
+          Text('mode: ${stat.value?.mode}, ${stat.value?.modeString()}'),
+          Text('size: ${stat.value?.size}'),
+          Text('type: ${stat.value?.type}'),
         ],
       ), // Column
     );
