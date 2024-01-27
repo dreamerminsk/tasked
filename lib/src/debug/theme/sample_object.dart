@@ -23,7 +23,7 @@ class SampleObject extends StatelessWidget {
         BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
-        height: 100,
+        height: 120,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
