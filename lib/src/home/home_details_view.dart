@@ -111,7 +111,7 @@ class HomeDetailsView extends StatelessWidget {
                         width: 1, color: colorScheme.onPrimary,
                       ),
                     ), // BoxDecoration
-                    textOpacity,
+                    descOpacity,
                   ), // ObxValue
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
