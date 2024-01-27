@@ -27,7 +27,7 @@ class SampleObject extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Text(
-              '${object == null ? "null" : object.toString()}',
+              '${object == null ? "null" : (object is Diagnosticable ? object.toStringShort() : object.toString())}',
               style: textTheme.titleLarge!
                 .copyWith(
                   fontWeight: FontWeight.w700,
