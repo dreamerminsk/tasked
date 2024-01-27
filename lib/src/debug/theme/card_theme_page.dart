@@ -22,8 +22,50 @@ class CardThemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'alignedDropdown',
-              object: theme,
+              title: 'clipBehavior',
+              object: theme.clipBehavior,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'color',
+              object: theme.color,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'elevation',
+              object: theme.elevation,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'margin',
+              object: theme.margin,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'shadowColor',
+              object: theme.shadowColor,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'shape',
+              object: theme.shape,
+            ), // SampleObject
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleObject(
+              title: 'surfaceTintColor',
+              object: theme.surfaceTintColor,
             ), // SampleObject
           ), // Padding
         ],
