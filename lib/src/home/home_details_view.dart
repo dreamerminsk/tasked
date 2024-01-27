@@ -9,9 +9,11 @@ import 'home_controller.dart';
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
 class HomeDetailsView extends StatelessWidget {
 
-  final titleOpacity = 0.6.obs;
+  final titleOpacity = 60.obs;
+  int toDir = -5;
 
   final descOpacity = 0.5.obs;
+  double doDir = -0.05;
 
   @override
   Widget build(context) {
@@ -52,12 +54,14 @@ class HomeDetailsView extends StatelessWidget {
               right: 32,
               child: GestureDetector(
                 onTap: () {
-                  
+                  titleOpacity.value += toDir;
+                  if (titleOpacity.value == 0) { toDir *= -1; }
+                  if (titleOpacity.value == 100) { toDir *= -1; }
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     color: ObxValue(
-                      (data) => colorScheme.onPrimary.withOpacity(data.value),
+                      (data) => colorScheme.onPrimary.withOpacity(data.value * 0.01),
                       textOpacity
                     ), // ObxValue
                     borderRadius: BorderRadius.all(
