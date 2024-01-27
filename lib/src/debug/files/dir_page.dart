@@ -32,6 +32,10 @@ class DirPage extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
               child: ParentDir(
                 title: path,
+                onTap: () => showModalBottomSheet<void>(
+                  context: context,
+                  builder: _buildSheet,
+                ),
               ), // SampleDir
             ) // Padding
             : Padding(
@@ -50,6 +54,19 @@ class DirPage extends StatelessWidget {
         entries,
       ),
       );
+  }
+
+  Widget _buildSheet(BuulderContext context) {
+    return SizedBox(
+      height: 320,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const Text('Modal BottomSheet'),
+        ],
+      ), // Column
+    );
   }
 
 }
