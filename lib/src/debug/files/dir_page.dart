@@ -8,6 +8,7 @@ import 'sample_dir.dart';
 
 class DirPage extends StatelessWidget {
   final path;
+  final Rxn<FileStat> stat = Rxn<FileStat>();
   final RxList entries = RxList();
 
   DirPage({super.key, required this.path});
@@ -19,6 +20,7 @@ class DirPage extends StatelessWidget {
 
     if (entries.isEmpty) {
       final d = Directory(path);
+      d.stat().then( (value) => stat.value = value );
       d.list().map((item) => item.path).forEach((item) => entries.add(item));
     }
     
@@ -56,14 +58,19 @@ class DirPage extends StatelessWidget {
       );
   }
 
-  Widget _buildSheet(BuulderContext context) {
+  Widget _buildSheet(BuilderContext context) {
     return SizedBox(
       height: 320,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const Text('Modal BottomSheet'),
+          Text('accessed: ${stat?.value.accessed}'),
+          Text('changed: ${stat?.value.changed}'),
+          Text('modified: ${stat?.value.modified}'),
+          Text('mode: ${stat?.value.mode}, ${stat?.value.modeString()}'),
+          Text('size: ${stat?.value.size}'),
+          Text('type: ${stat?.value.type}'),
         ],
       ), // Column
     );
