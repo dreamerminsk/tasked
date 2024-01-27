@@ -33,35 +33,35 @@ class ThemeDataPage extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleTheme(
+            child: SampleObject(
               title: 'badgeTheme',
               theme: theme.badgeTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleTheme(
+            child: SampleObject(
               title: 'bannerTheme',
               theme: theme.bannerTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleTheme(
+            child: SampleObject(
               title: 'bottomAppBarTheme',
               theme: theme.bottomAppBarTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleTheme(
+            child: SampleObject(
               title: 'bottomNavigationBarTheme',
               theme: theme.bottomNavigationBarTheme,
             ), // SampleTheme
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
-            child: SampleTheme(
+            child: SampleObject(
               title: 'bottomSheetTheme',
               theme: theme.bottomSheetTheme,
             ), // SampleTheme
