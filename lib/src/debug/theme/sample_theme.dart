@@ -28,6 +28,10 @@ class SampleTheme extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
+          final name = theme.runtimeType.toString() ?? 'Object';
+          if (routes.containsKey(name)) {
+            Get.to(routes[name].call(theme));
+          }
           //Get.toNamed(Routes.THEME); 
         },
         child: Container(
