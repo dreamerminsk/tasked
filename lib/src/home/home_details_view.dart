@@ -9,11 +9,11 @@ import 'home_controller.dart';
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
 class HomeDetailsView extends StatelessWidget {
 
-  final titleOpacity = 60.obs;
-  final toDir = -5.obs;
+  final RxInt titleOpacity = RxInt(60);
+  final RxInt toDir = RxInt-5);
 
-  final descOpacity = 50.obs;
-  final doDir = -5.obs;
+  final RxInt descOpacity = RxInt(50);
+  final RxInt doDir = RxInt(-5);
 
   @override
   Widget build(context) {
