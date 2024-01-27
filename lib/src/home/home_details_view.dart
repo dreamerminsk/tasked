@@ -10,10 +10,10 @@ import 'home_controller.dart';
 class HomeDetailsView extends StatelessWidget {
 
   final titleOpacity = 60.obs;
-  int toDir = -5;
+  final toDir = -5.obs;
 
   final descOpacity = 50.obs;
-  int doDir = -5;
+  final doDir = -5.obs;
 
   @override
   Widget build(context) {
@@ -54,9 +54,9 @@ class HomeDetailsView extends StatelessWidget {
               right: 32,
               child: GestureDetector(
                 onTap: () {
-                  titleOpacity.value += toDir;
-                  if (titleOpacity.value == 0) { toDir *= -1; }
-                  if (titleOpacity.value == 100) { toDir *= -1; }
+                  titleOpacity.value += toDir.value;
+                  if (titleOpacity.value == 0) { toDir.value *= -1; }
+                  if (titleOpacity.value == 100) { toDir.value *= -1; }
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -96,9 +96,9 @@ class HomeDetailsView extends StatelessWidget {
               right: 32,
               child: GestureDetector(
                 onTap: () {
-                  descOpacity.value += doDir;
-                  if (descOpacity.value == 0) { doDir *= -1; }
-                  if (descOpacity.value == 100) { doDir *= -1; }
+                  descOpacity.value += doDir.value;
+                  if (descOpacity.value == 0) { doDir.value *= -1; }
+                  if (descOpacity.value == 100) { doDir.value *= -1; }
                 },
                 child: Container(
                   decoration: BoxDecoration(
