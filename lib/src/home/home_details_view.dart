@@ -12,8 +12,8 @@ class HomeDetailsView extends StatelessWidget {
   final titleOpacity = 60.obs;
   int toDir = -5;
 
-  final descOpacity = 0.5.obs;
-  double doDir = -0.05;
+  final descOpacity = 50.obs;
+  int doDir = -5;
 
   @override
   Widget build(context) {
@@ -94,29 +94,39 @@ class HomeDetailsView extends StatelessWidget {
               top: 2 * Get.height / 3,
               left: 32,
               right: 32,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: colorScheme.primary.withOpacity(0.50),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                  border: Border.all(
-                    width: 1, color: colorScheme.onPrimary,
-                  ),
-                ), // BoxDecoration
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        'very very very long article description',
-                        style: textTheme.headlineMedium!
-                        .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
-                      ), // Text
-                    ), //Expanded
-                  ],
-                ), // Row
-              ), // Container
+              child: GestureDetector(
+                onTap: () {
+                  descOpacity.value += doDir;
+                  if (descOpacity.value == 0) { doDir *= -1; }
+                  if (descOpacity.value == 100) { doDir *= -1; }
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: ObxValue(
+                        (data) => colorScheme.primary.withOpacity(data.value * 0.01),
+                        descOpacity
+                      ), // ObxValue
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                    border: Border.all(
+                      width: 1, color: colorScheme.onPrimary,
+                    ),
+                  ), // BoxDecoration
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          'very very very long article description',
+                          style: textTheme.headlineMedium!
+                          .copyWith(color: Theme.of(context).colorScheme.onPrimary,),
+                        ), // Text
+                      ), //Expanded
+                    ],
+                  ), // Row
+                ), // Container
+              ), // GestureDetector
             ), // Positioned
           ],
         )), //Stack
