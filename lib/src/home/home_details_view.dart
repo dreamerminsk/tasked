@@ -115,6 +115,7 @@ class HomeDetailsView extends StatelessWidget {
                     ), // BoxDecoration
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Expanded(
                           child: Text(
