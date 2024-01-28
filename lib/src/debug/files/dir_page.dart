@@ -62,15 +62,79 @@ class DirPage extends StatelessWidget {
     return SizedBox(
       height: 320,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        //mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('accessed: ${stat.value?.accessed}'),
-          Text('changed: ${stat.value?.changed}'),
-          Text('modified: ${stat.value?.modified}'),
-          Text('mode: ${stat.value?.mode}, ${stat.value?.modeString()}'),
-          Text('size: ${stat.value?.size}'),
-          Text('type: ${stat.value?.type}'),
+          DataTable(
+            columns: const <DataColumn>[
+              DataColumn(
+                label: Expanded(
+                  child: Text(
+                    'Name',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+              DataColumn(
+                label: Expanded(
+                  child: Text(
+                    'Value',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+            ],
+            rows: const <DataRow>[
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('accessed')),
+                  DataCell(
+                    Text('${stat.value?.accessed}')
+                  ),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('changed')),
+                  DataCell(
+                    Text('${stat.value?.changed}')
+                  ),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('modified')),
+                  DataCell(
+                    Text('${stat.value?.modified}')
+                  ),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('mode')),
+                  DataCell(
+                    Text('${stat.value?.mode}, ${stat.value?.modeString()}')
+                  ),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('size')),
+                  DataCell(
+                    Text('${stat.value?.size}')
+                  ),
+                ],
+              ),
+              DataRow(
+                cells: <DataCell>[
+                  DataCell(Text('type')),
+                  DataCell(
+                    Text('${stat.value?.type}')
+                  ),
+                ],
+              ),
+            ],
+          ), // DataTable
         ],
       ), // Column
     );
