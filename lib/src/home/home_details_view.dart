@@ -305,7 +305,7 @@ class _LineChart extends StatelessWidget {
         show: true,
         border: Border(
           bottom:
-              BorderSide(color: AppColors.primary.withOpacity(0.2), width: 4),
+              BorderSide(color: Theme.of(context).colorScheme.primary.withOpacity(0.2), width: 4),
           left: const BorderSide(color: Colors.transparent),
           right: const BorderSide(color: Colors.transparent),
           top: const BorderSide(color: Colors.transparent),
@@ -314,7 +314,7 @@ class _LineChart extends StatelessWidget {
 
   LineChartBarData get lineChartBarData1_1 => LineChartBarData(
         isCurved: true,
-        color: AppColors.contentColorGreen,
+        color: Colors.green,
         barWidth: 8,
         isStrokeCapRound: true,
         dotData: const FlDotData(show: false),
@@ -332,7 +332,7 @@ class _LineChart extends StatelessWidget {
 
   LineChartBarData get lineChartBarData1_2 => LineChartBarData(
         isCurved: true,
-        color: AppColors.contentColorPink,
+        color: Colors.pink,
         barWidth: 8,
         isStrokeCapRound: true,
         dotData: const FlDotData(show: false),
