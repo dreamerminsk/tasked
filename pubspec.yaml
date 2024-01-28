@@ -17,6 +17,7 @@ dependencies:
   dio: ^5.4.0
   duration: ^3.0.13
   file_picker: ^6.1.1
+  fl_chart: ^0.66.1
   flutter_json_viewer: ^1.0.1
   font_awesome_flutter: ^10.5.0
   get: ^4.6.6
