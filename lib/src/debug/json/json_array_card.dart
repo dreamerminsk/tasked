@@ -1,0 +1,3 @@
+class JsonArrayCard extends StatelessWidget {
+
+}
