@@ -1,0 +1,3 @@
+class JsonObjectCard extends StatelessWidget {
+
+}
