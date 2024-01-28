@@ -67,12 +67,13 @@ class HomeDetailsView extends StatelessWidget {
                       Radius.circular(8),
                     ),
                     border: Border.all(
-                      width: 1, color: colorScheme.primary,
+                      width: 2, color: colorScheme.primary,
                     ),
                   ), // BoxDecoration
-                  child: Row(
+                  child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //Expanded(
                         //child: Text(
@@ -109,11 +110,11 @@ class HomeDetailsView extends StatelessWidget {
                         Radius.circular(8),
                       ),
                       border: Border.all(
-                        width: 1, color: colorScheme.onPrimary,
+                        width: 2, color: colorScheme.onPrimary,
                       ),
                     ), // BoxDecoration
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Expanded(
                           child: Text(
@@ -121,6 +122,11 @@ class HomeDetailsView extends StatelessWidget {
                             style: textTheme.headlineMedium!
                             .copyWith(color: colorScheme.onPrimary,),
                           ), // Text
+                        ), //Expanded
+                        Expanded(
+                          child: _LineChart(
+                            isShowingMainData: true,
+                          ),
                         ), //Expanded
                       ],
                     ), // Row
