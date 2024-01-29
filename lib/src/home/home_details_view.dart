@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 import 'home_controller.dart';
+import 'home_chart.dart';
 
 //https://en.wikipedia.org/api/rest_v1/page/summary/Minsk
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
