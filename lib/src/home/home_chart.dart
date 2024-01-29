@@ -30,14 +30,6 @@ class HomeChart extends StatelessWidget {
         ), // Column
       ), // Container
     );
-
-    return Scaffold(
-      body: Expanded(
-        child: _LineChart(
-          isShowingMainData: true,
-        ),
-      ), //Expanded
-    );
   }
 }
 
