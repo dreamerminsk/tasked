@@ -21,6 +21,13 @@ class JsonViewer extends StatelessWidget {
       ),
 
       body: Container(
+        child: Text(''),
+      ), // Container
+    );
+  }
+
+  Widget _build() {
+    return Container(
         width: double.infinity,
         height: double.infinity,
         color: Colors.white,
@@ -76,8 +83,7 @@ class JsonViewer extends StatelessWidget {
             )),
           ],
         ), // Column
-      ),
-    );
+      );
   }
 
 }
