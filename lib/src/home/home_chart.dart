@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-import 'home_controller.dart';
+//import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
-    final HomeController c = Get.find();
+    //final textTheme = Theme.of(context).textTheme;
+    //final colorScheme = Theme.of(context).colorScheme;
+    //final HomeController c = Get.find();
  
     return Scaffold(
       body: Container(
