@@ -115,6 +115,7 @@ class HomeDetailsView extends StatelessWidget {
                     ), // BoxDecoration
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Expanded(
@@ -124,11 +125,12 @@ class HomeDetailsView extends StatelessWidget {
                             .copyWith(color: colorScheme.onPrimary,),
                           ), // Text
                         ), //Expanded
-                        Expanded(
-                          child: _LineChart(
+                        //Expanded(
+                         // child:
+                            _LineChart(
                             isShowingMainData: true,
                           ),
-                        ), //Expanded
+                        //), //Expanded
                       ],
                     ), // Row
                   ), // Container
