@@ -93,7 +93,7 @@ class HomeDetailsView extends StatelessWidget {
               ), // GestureDetector
             ), // Positioned
             Positioned(
-              top: Get.height / 3,
+              top: 2 * Get.height / 3,
               left: 32,
               right: 32,
               child: GestureDetector(
