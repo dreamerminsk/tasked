@@ -43,10 +43,22 @@ class _LineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LineChart(
-      isShowingMainData ? sampleData1 : sampleData2,
+      isShowingMainData ? sampleData0 : sampleData1,
       duration: const Duration(milliseconds: 1250),
     );
   }
+
+  LineChartData get sampleData0 => LineChartData(
+        lineTouchData: lineTouchData0,
+        gridData: gridData,
+        titlesData: titlesData0,
+        borderData: borderData,
+        lineBarsData: lineBarsData0,
+        minX: 0,
+        maxX: 14,
+        maxY: 386000,
+        minY: 0,
+      );
 
   LineChartData get sampleData1 => LineChartData(
         lineTouchData: lineTouchData1,
@@ -72,10 +84,29 @@ class _LineChart extends StatelessWidget {
         minY: 0,
       );
 
+  LineTouchData get lineTouchData0 => const LineTouchData(
+        enabled: false,
+      );
+
   LineTouchData get lineTouchData1 => LineTouchData(
         handleBuiltInTouches: true,
         touchTooltipData: LineTouchTooltipData(
           tooltipBgColor: Colors.blueGrey.withOpacity(0.8),
+        ),
+      );
+
+  FlTitlesData get titlesData0 => FlTitlesData(
+        bottomTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        rightTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        topTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
+        ),
+        leftTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
         ),
       );
 
@@ -93,6 +124,10 @@ class _LineChart extends StatelessWidget {
           sideTitles: leftTitles(),
         ),
       );
+
+  List<LineChartBarData> get lineBarsData0 => [
+        lineChartBarData0_1,
+      ];
 
   List<LineChartBarData> get lineBarsData1 => [
         lineChartBarData1_1,
@@ -224,7 +259,6 @@ class _LineChart extends StatelessWidget {
           FlSpot(5, 156045),
           FlSpot(6, 59728),
           FlSpot(7, 41071),
-
           FlSpot(8, 39796),
           FlSpot(9, 80910),
           FlSpot(10, 71686),
