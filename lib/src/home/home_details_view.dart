@@ -147,6 +147,6 @@ class HomeDetailsView extends StatelessWidget {
           ],
         )), //Stack
       floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.query_stats), onPressed: Get.to(HomeChart())));
+          FloatingActionButton(child: Icon(Icons.query_stats), onPressed: ()=> Get.to(HomeChart())));
   }
 }
