@@ -115,28 +115,16 @@ class HomeDetailsView extends StatelessWidget {
                     ), // BoxDecoration
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
-
-
                       crossAxisAlignment: CrossAxisAlignment.start,
-
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Expanded(
-                          child: Text(
+                       // Expanded(child:
+                          Text(
                             'very very very long article description',
                             style: textTheme.headlineMedium!
                             .copyWith(color: colorScheme.onPrimary,),
                           ), // Text
-                        ), //Expanded
-
-
-       
-                        
-         
-          
-
-
-
+                       // ), //Expanded
                       ],
                     ), // Row
                   ), // Container
