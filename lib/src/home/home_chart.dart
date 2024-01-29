@@ -209,6 +209,30 @@ class _LineChart extends StatelessWidget {
         ),
       );
 
+  LineChartBarData get lineChartBarData0_1 => LineChartBarData(
+        isCurved: true,
+        color: Colors.red,
+        barWidth: 6,
+        isStrokeCapRound: true,
+        dotData: const FlDotData(show: false),
+        belowBarData: BarAreaData(show: false),
+        spots: const [
+          FlSpot(1, 164361),
+          FlSpot(2, 71020),
+          FlSpot(3, 51699),
+          FlSpot(4, 257168),
+          FlSpot(5, 156045),
+          FlSpot(6, 59728),
+          FlSpot(7, 41071),
+
+          FlSpot(8, 39796),
+          FlSpot(9, 80910),
+          FlSpot(10, 71686),
+          FlSpot(11, 192024),
+          FlSpot(12, 385736),
+        ],
+      );
+
   LineChartBarData get lineChartBarData1_1 => LineChartBarData(
         isCurved: true,
         color: Colors.green,
