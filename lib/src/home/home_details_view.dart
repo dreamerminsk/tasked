@@ -93,7 +93,7 @@ class HomeDetailsView extends StatelessWidget {
               ), // GestureDetector
             ), // Positioned
             Positioned(
-              top: 2 * Get.height / 3,
+              top: Get.height / 3,
               left: 32,
               right: 32,
               child: GestureDetector(
@@ -115,6 +115,10 @@ class HomeDetailsView extends StatelessWidget {
                     ), // BoxDecoration
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
+
+
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Expanded(
@@ -124,6 +128,15 @@ class HomeDetailsView extends StatelessWidget {
                             .copyWith(color: colorScheme.onPrimary,),
                           ), // Text
                         ), //Expanded
+
+
+       
+                        
+         
+          
+
+
+
                       ],
                     ), // Row
                   ), // Container
