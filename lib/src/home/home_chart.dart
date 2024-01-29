@@ -14,12 +14,12 @@ class HomeChart extends StatelessWidget {
  
     return Scaffold(
       body: Container(
-        width: Get.width,
-        height: Get.height,
+        width: Get.width * 0.96,
+        height: Get.width * 0.96,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.centee,
           children: <Widget>[
             Expanded(
               child: _LineChart(
