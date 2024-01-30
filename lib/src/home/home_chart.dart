@@ -9,7 +9,7 @@ class HomeChart extends StatelessWidget {
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
     //final HomeController c = Get.find();
  
     return Scaffold(
