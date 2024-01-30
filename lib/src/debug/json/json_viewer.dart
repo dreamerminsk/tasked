@@ -21,8 +21,53 @@ class JsonViewer extends StatelessWidget {
       ),
 
       body: Container(
-        child: Text(''),
-      ), // Container
+        width: Get.width,
+        height: 200,
+        child: Row(
+          mainAxisAlignment:
+            MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Column(
+              crossAxisAlignment:
+                CrossAxisAlignment.start,
+              mainAxisAlignment:
+                MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text(
+                  'pos: 0',
+                  style: textTheme.bodyLarge!
+                    .copyWith(
+                      color: colorScheme.onPrimary
+                    ),
+                ), // Text
+                Text(
+                  'length: 100000',
+                  style: textTheme.bodyLarge!
+                    .copyWith(
+                      color: colorScheme.onPrimary
+                    ),
+                ), // Text
+              ],
+            ), // Column
+            RotatedBox(
+              quarterTurns: 3,
+              child: Text('Json Source',
+                style: textTheme.titleLarge!
+                  .copyWith(
+                    color: colorScheme.onPrimary
+                  ),
+              ), // Text
+            ), // RotatedBox
+          ],
+        ), // Row
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ), // BorderRadius
+          color: colorScheme.primary,
+        ), // BoxDecoration
+      ), //Container
     );
   }
 
