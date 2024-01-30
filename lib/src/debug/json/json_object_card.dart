@@ -5,11 +5,12 @@ import 'json_controller.dart';
 
 class JsonObjectCard extends StatelessWidget {
   final JsonController c = Get.find();
-  final textTheme = Theme.of(context).textTheme;
-  final colorScheme = Theme.of(context).colorScheme;
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return  Container(
         margin: EdgeInsets.all(8.0),
         width: Get.width,
