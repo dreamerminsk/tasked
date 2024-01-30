@@ -23,7 +23,7 @@ class HomeChart extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          //mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(
