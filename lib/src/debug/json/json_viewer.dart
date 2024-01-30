@@ -13,7 +13,7 @@ class JsonViewer extends StatelessWidget {
   Widget build(context) {
     final JsonController c = Get.find();
     final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
