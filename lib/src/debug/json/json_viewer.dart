@@ -50,6 +50,7 @@ class JsonViewer extends StatelessWidget {
               ],
             ), // Column
             Container(
+              height: 200,
               child: RotatedBox(
                 quarterTurns: 3,
                 child: Text('Json Source',
