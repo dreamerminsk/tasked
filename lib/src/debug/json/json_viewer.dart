@@ -19,8 +19,8 @@ class JsonViewer extends StatelessWidget {
       appBar: AppBar(
         title: Obx(() => Text(c.jsonRef.value.split('/').last)),
       ),
-
       body: Container(
+        padding: EdgeInsets.all(8.0),
         width: Get.width,
         height: 200,
         child: Row(
@@ -61,9 +61,9 @@ class JsonViewer extends StatelessWidget {
               ), // RotatedBox,
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(
-                    color: Colors.grey,
-                    width: 5,
+                  left: BorderSide(
+                    color: colorScheme.onPrimary,
+                    width: 1,
                   ), // BorderSide
                 ), // Border
               ), // BoxDecoration
