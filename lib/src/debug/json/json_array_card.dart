@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class JsonArrayCard extends StatelessWidget {
+  final JsonController c = Get.find();
+  final textTheme = Theme.of(context).textTheme;
+  final colorScheme = Theme.of(context).colorScheme;
 
   @override
   Widget build(BuildContext context) {
