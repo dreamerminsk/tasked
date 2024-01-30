@@ -28,7 +28,7 @@ class HomeChart extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(4.0),
-              Expanded(
+              child: Expanded(
                 child: _LineChart(
                   isShowingMainData: true,
                 ),
