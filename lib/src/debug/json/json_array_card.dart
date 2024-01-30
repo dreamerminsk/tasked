@@ -45,7 +45,7 @@ class JsonArrayCard extends StatelessWidget {
               alignment: Alignment.center,
               child: RotatedBox(
                 quarterTurns: 3,
-                child: Text('Json Source',
+                child: Text('JsonArray',
                   style: textTheme.titleLarge!
                     .copyWith(
                       color: colorScheme.onPrimary
