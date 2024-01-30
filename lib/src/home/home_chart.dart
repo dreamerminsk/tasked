@@ -15,7 +15,7 @@ class HomeChart extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: Get.width * 0.96,
-        height: Get.width * 0.96,
+        height: Get.height * 0.96,
         decoration: BoxDecoration(
           border: Border.all(
             color: colorScheme.primary,
@@ -26,12 +26,22 @@ class HomeChart extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(4.0),
-              child: _LineChart(
-                isShowingMainData: true,
-              ),
-            ), // Padding
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(4.0),
+                child: _LineChart(
+                  isShowingMainData: true,
+                ),
+              ), // Padding
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Text(
+                  'last year',
+                ),
+              ), // Padding
+            ),
           ],
         ), // Column
       ), // Container
