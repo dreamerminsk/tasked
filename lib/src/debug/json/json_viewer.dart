@@ -54,7 +54,7 @@ class JsonViewer extends StatelessWidget {
               alignment: Alignment.center,
               child: RotatedBox(
                 quarterTurns: 3,
-                child: Text('Json Source',
+                child: Text('JsonDocument',
                   style: textTheme.titleLarge!
                     .copyWith(
                       color: colorScheme.onPrimary
