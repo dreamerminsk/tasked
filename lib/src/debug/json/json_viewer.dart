@@ -41,7 +41,7 @@ class JsonViewer extends StatelessWidget {
                     ),
                 ), // Text
                 Text(
-                  'length: 100000',
+                  'length: ${c.content.value.length}',
                   style: textTheme.bodyLarge!
                     .copyWith(
                       color: colorScheme.onPrimary
