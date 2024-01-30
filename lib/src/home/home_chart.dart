@@ -16,16 +16,24 @@ class HomeChart extends StatelessWidget {
       body: Container(
         width: Get.width * 0.96,
         height: Get.width * 0.96,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: colorScheme.primary,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
+          //mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              child: _LineChart(
-                isShowingMainData: true,
-              ),
-            ), //Expanded
+            Padding(
+              padding: EdgeInsets.all(4.0),
+              Expanded(
+                child: _LineChart(
+                  isShowingMainData: true,
+                ),
+              ), // Expanded
+            ), // Padding
           ],
         ), // Column
       ), // Container
@@ -56,7 +64,7 @@ class _LineChart extends StatelessWidget {
         lineBarsData: lineBarsData0,
         minX: 0,
         maxX: 14,
-        maxY: 386000,
+        maxY: 400000,
         minY: 0,
       );
 
