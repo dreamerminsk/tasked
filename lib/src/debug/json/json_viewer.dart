@@ -49,15 +49,25 @@ class JsonViewer extends StatelessWidget {
                 ), // Text
               ],
             ), // Column
-            RotatedBox(
-              quarterTurns: 3,
-              child: Text('Json Source',
-                style: textTheme.titleLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
-              ), // Text
-            ), // RotatedBox
+            Container(
+              child: RotatedBox(
+                quarterTurns: 3,
+                child: Text('Json Source',
+                  style: textTheme.titleLarge!
+                    .copyWith(
+                      color: colorScheme.onPrimary
+                    ),
+                ), // Text
+              ), // RotatedBox,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.grey,
+                    width: 5,
+                  ), // BorderSide
+                ), // Border
+              ), // BoxDecoration
+            ), // Container
           ],
         ), // Row
         padding: const EdgeInsets.all(16),
