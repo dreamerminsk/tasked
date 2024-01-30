@@ -20,7 +20,6 @@ class JsonViewer extends StatelessWidget {
         title: Obx(() => Text(c.jsonRef.value.split('/').last)),
       ),
       body: Container(
-        padding: EdgeInsets.all(8.0),
         width: Get.width,
         height: 200,
         child: Row(
