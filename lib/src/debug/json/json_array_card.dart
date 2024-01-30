@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'json_controller.dart';
 
 class JsonArrayCard extends StatelessWidget {
   final JsonController c = Get.find();
