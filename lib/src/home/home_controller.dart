@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
+import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
