@@ -28,7 +28,7 @@ class HomeDetailsView extends StatelessWidget {
         Stack(
           children: <Widget>[
             CachedNetworkImage(
-              imageUrl: (c.selected.value.wiki?.image ?? '').replaceFirst('220px','512px'),
+              imageUrl: (c.selected.value.wiki?.image ?? c.summary.originalimage.source ?? '').replaceFirst('220px','512px'),
               placeholder: (context, url) => LoadingIndicator(indicatorType: Indicator.ballGridPulse),
               errorWidget: (context, url, error) => Icon(Icons.error, size: Get.width - 16, color: Colors.black,),
               imageBuilder: (context, image) => Container(
@@ -119,11 +119,11 @@ class HomeDetailsView extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                        // Expanded(child:
-                          Text(
-                            'very very very long article description',
+                          Obx(()=> Text(
+                            c.summary.value.description,
                             style: textTheme.headlineMedium!
                             .copyWith(color: colorScheme.onPrimary,),
-                          ), // Text
+                          )), // Text
                        // ), //Expanded
                       ],
                     ), // Row
