@@ -3,12 +3,14 @@ class Summary {
   final String lang;
   final String title;
   final String description;
+  final String extract;
 
   const Summary({
     this.pageid = 0,
     this.lang = 'en',
     this.title = 'Main Page',
     this.description = '',
+    this.extract = '',
   });
 
   Summary copyWith({
@@ -16,12 +18,14 @@ class Summary {
     String? lang,
     String? title,
     String? description,
+    String? extract,
   }) {
     return Summary(
       pageid: pageid ?? this.pageid,
       lang: lang ?? this.lang,
       title: title ?? this.title,
       description: description ?? this.description,
+      extract: extract ?? this.extract,
     );
   }
 
@@ -31,6 +35,7 @@ class Summary {
       lang: json['lang'] ?? 'en',
       title: json['title'] ?? '',
       description: json['description'] ?? '',
+      extract: json['extract'] ?? '',
     );
   }
 
