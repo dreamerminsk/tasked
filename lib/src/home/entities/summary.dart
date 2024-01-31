@@ -34,7 +34,7 @@ class Summary {
   }
 
   factory CategoryInfo.fromJson(Map<String, dynamic> json) {
-    return CategoryInfo(
+    return Summary(
       pageid: json['pageid'] ?? 0,
       lang: json['lang'] ?? 'en',
       title: json['title'] ?? '',
@@ -47,7 +47,7 @@ class Summary {
   (int, String, String, int, int) _equality() => (pageid, lang, title, pages, subcats);
 
   @override
-  bool operator ==(covariant CategoryInfo other) {
+  bool operator ==(covariant Summary other) {
     if (identical(this, other)) return true;
     return other._equality() == _equality();
   }
