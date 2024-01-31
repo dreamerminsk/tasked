@@ -51,7 +51,7 @@ class HomeController extends GetxController {
     switch (result) {
       case ErrorResult e:
         this.summary.value = Summary(
-          title: animeList[idx].wiki.title,
+          title: animeList[idx].wiki.title ?? '~~~',
           description: e.error.toString()
         );
       case ValueResult v: {
@@ -59,7 +59,7 @@ class HomeController extends GetxController {
         }
       default:
         this.summary.value = Summary(
-          title: animeList[idx].wiki.title,
+          title: animeList[idx].wiki.title ?? '~~~',
           description: 'very strange',
         );
       }
