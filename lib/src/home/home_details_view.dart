@@ -61,6 +61,7 @@ class HomeDetailsView extends StatelessWidget {
                 },
                 child: ObxValue(
                   (data) => Container(
+                  padding: EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: colorScheme.onPrimary.withOpacity(data.value * 0.01),
                     borderRadius: BorderRadius.all(
