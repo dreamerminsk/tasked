@@ -16,7 +16,8 @@ class HomeChart extends StatelessWidget {
       body: Container(
         width: Get.width * 0.96,
         height: Get.height * 0.96,
-        padding: EdgeInsets.all(16.0),
+        margin: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           border: Border.all(
             color: colorScheme.primary,
