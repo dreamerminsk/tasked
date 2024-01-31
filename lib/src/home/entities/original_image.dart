@@ -1,5 +1,5 @@
 class OriginalImage {
-  final static String wikiLogo = 'https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png';
+  static final String wikiLogo = 'https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png';
 
   final String source;
   final int width;
