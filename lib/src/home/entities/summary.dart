@@ -14,7 +14,7 @@ class Summary {
     this.title = 'Main Page',
     this.description = '',
     this.extract = '',
-    this.originalImage = OriginalImage(),
+    this.originalImage = const OriginalImage(),
   });
 
   Summary copyWith({
