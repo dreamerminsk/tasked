@@ -21,6 +21,7 @@ class HomeChart extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
             color: colorScheme.primary,
+            width: 3.0,
           ),
         ),
         child: Column(
