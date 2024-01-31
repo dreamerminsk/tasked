@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:html/parser.dart';
 
 import 'entities/anime.dart';
+import 'entities/summary.dart';
 import '../debug/debug_controller.dart';
 
 class HomeController extends GetxController {
@@ -18,7 +19,7 @@ class HomeController extends GetxController {
   final animeList = <Anime>[].obs;
 
   var selected = Anime().obs;
-  var Rxn<Summary> summary = Rxn<Summary>();
+  var summary = Rxn<Summary>();
 
   var timers = 0.obs;
   var requests = 0.obs;
@@ -41,7 +42,7 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void select(int idx) {
+  void select(int idx) async {
     selected.update((value) {
       value?.title = animeList[idx].title;
       value?.wiki = animeList[idx].wiki;
@@ -49,12 +50,12 @@ class HomeController extends GetxController {
     final result = await fetchMap('https://en.wikipedia.org/api/rest_v1/page/summary/${animeList[idx].title}');
     switch (result) {
       case ErrorResult e:
-        this.summary.value = Summary(e.error);
+        this.summary.value = Summary(description: e.error);
       case ValueResult v: {
         this.summary.value = Summary.fromJson(v.value);
         }
       default:
-        this.summary.value = Summary(e.error);
+        this.summary.value = Summary(description: 'very strange',);
       }
   }
 
