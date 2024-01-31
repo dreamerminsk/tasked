@@ -13,9 +13,13 @@ import '../debug/debug_controller.dart';
 
 class HomeController extends GetxController {
   static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
+
   final DebugController debug = Get.find(tag: 'debugger');
   final animeList = <Anime>[].obs;
+
   var selected = Anime().obs;
+  var Rxn<Summary> summary = Rxn<Summary>();
+
   var timers = 0.obs;
   var requests = 0.obs;
 
@@ -42,7 +46,16 @@ class HomeController extends GetxController {
       value?.title = animeList[idx].title;
       value?.wiki = animeList[idx].wiki;
     });
-    //https://en.wikipedia.org/api/rest_v1/page/summary/Minsk
+    final result = await fetchMap('https://en.wikipedia.org/api/rest_v1/page/summary/${animeList[idx].title}');
+    switch (result) {
+      case ErrorResult e:
+        this.summary.value = Summary(e.error);
+      case ValueResult v: {
+        this.summary.value = Summary.fromJson(v.value);
+        }
+      default:
+        this.summary.value = Summary(e.error);
+      }
   }
 
   void copyToClipboard() {
