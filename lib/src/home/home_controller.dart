@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart';
@@ -90,10 +90,33 @@ class HomeController extends GetxController {
     }
   }
 
+  Future<Result<Map>> fetchMap(
+  String link,
+ {Map<String, String>? params}) async {
+    try {
+      debug.newReq();
+      var bytes = 0;
+      var ttl = 0;
+      final dio.Response<Map> response = await dio.Dio().get(
+          link, queryParameters: params,
+          onReceiveProgress: (received, total) {
+            bytes = received;
+            ttl = (total > 0) ? total : received;
+          }
+      );
+      debug.newBytes(bytes);
+      debug.newRes({'time': DateTime.now(), 'total': ttl});
+      return Result.value(response.data ?? {});
+    } catch (e, s) {
+      Get.snackbar('HomeController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
+      return Result.error(e, s);
+    }
+  }
+
   Future<String> fetchString(String link) async {
     try {
       requests += 1;
-      var response = await Dio().get(link);
+      var response = await dio.Dio().get(link);
       return response.data.toString();
     } catch (e) {
       Get.snackbar('fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
