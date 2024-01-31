@@ -8,7 +8,7 @@ class HomeChart extends StatelessWidget {
 
   @override
   Widget build(context) {
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     //final HomeController c = Get.find();
  
@@ -41,6 +41,7 @@ class HomeChart extends StatelessWidget {
                 padding: EdgeInsets.all(4.0),
                 child: Text(
                   'last year',
+                  style: textTheme.headlineSmall!,
                 ),
               ), // Padding
             ),
