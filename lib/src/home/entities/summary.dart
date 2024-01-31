@@ -33,7 +33,7 @@ class Summary {
     );
   }
 
-  factory CategoryInfo.fromJson(Map<String, dynamic> json) {
+  factory Summary(Map<String, dynamic> json) {
     return Summary(
       pageid: json['pageid'] ?? 0,
       lang: json['lang'] ?? 'en',
