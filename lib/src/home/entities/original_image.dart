@@ -1,10 +1,12 @@
 class OriginalImage {
+  final static String wikiLogo = 'https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png';
+
   final String source;
   final int width;
   final int height;
 
   const OriginalImage({
-    this.source = 'Main Page',
+    this.source = '',
     this.width = -1,
     this.height = -1,
   });
