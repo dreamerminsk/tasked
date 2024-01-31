@@ -10,12 +10,12 @@ class OriginalImage {
   });
 
   OriginalImage copyWith({
-    String? title,
+    String? source,
     int? width,
     int? height,
   }) {
     return OriginalImage(
-      title: source ?? this.source,
+      source: source ?? this.source,
       width: width ?? this.width,
       height: height ?? this.height,
     );
