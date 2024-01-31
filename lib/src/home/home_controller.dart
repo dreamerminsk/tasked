@@ -42,6 +42,7 @@ class HomeController extends GetxController {
       value?.title = animeList[idx].title;
       value?.wiki = animeList[idx].wiki;
     });
+    //https://en.wikipedia.org/api/rest_v1/page/summary/Minsk
   }
 
   void copyToClipboard() {
