@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-//import 'home_controller.dart';
+import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
 
@@ -10,7 +10,7 @@ class HomeChart extends StatelessWidget {
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    //final HomeController c = Get.find();
+    final HomeController c = Get.find();
  
     return Scaffold(
       body: Container(
@@ -40,10 +40,10 @@ class HomeChart extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(4.0),
-                child: Text(
-                  'last year',
+                child: Obx(() => Text(
+                  c.summary?.value.extract ?? '~~~~~',
                   style: textTheme.headlineSmall!,
-                ),
+                )),
               ), // Padding
             ),
           ],
