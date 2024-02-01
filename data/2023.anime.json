@@ -1,5 +1,19 @@
 [
     {
+      "title": "Donald Trump",
+      "wiki": {
+           "title": "Donald Trump",
+           "mviMonth": 1000000
+        }
+    },
+    {
+      "title": "2024 United States presidential election",
+      "wiki": {
+           "title": "2024 United States presidential election",
+           "mviMonth": 1000000
+        }
+    },
+    {
       "title": "Javier Milei",
       "wiki": {
            "title": "Javier Milei",
