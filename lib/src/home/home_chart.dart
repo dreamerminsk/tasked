@@ -41,7 +41,7 @@ class HomeChart extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(4.0),
                 child: Obx(() => Text(
-                  c.summary?.value.extract ?? '~~~~~',
+                  c.summary.value?.extract ?? '~~~~~',
                   textAlign: TextAlign.center,
                   style: textTheme.headlineSmall!,
                 )),
