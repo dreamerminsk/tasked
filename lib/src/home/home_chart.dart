@@ -259,7 +259,7 @@ class _LineChart extends StatelessWidget {
         show: true,
         border: Border(
           bottom:
-              BorderSide(color: Colors.blue.withOpacity(0.2), width: 4),
+              BorderSide(color: Colors.black, width: 4),
           left: const BorderSide(color: Colors.transparent),
           right: const BorderSide(color: Colors.transparent),
           top: const BorderSide(color: Colors.transparent),
