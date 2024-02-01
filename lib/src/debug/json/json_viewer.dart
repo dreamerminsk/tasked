@@ -40,13 +40,13 @@ class JsonViewer extends StatelessWidget {
                       color: colorScheme.onPrimary
                     ),
                 ), // Text
-                Text(
+                Obx(() => Text(
                   'length: ${c.content.value.length}',
                   style: textTheme.bodyLarge!
                     .copyWith(
                       color: colorScheme.onPrimary
                     ),
-                ), // Text
+                )), // Text
               ],
             ), // Column
             Container(
