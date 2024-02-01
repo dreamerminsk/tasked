@@ -41,6 +41,7 @@ class JsonController extends GetxController {
       case ErrorResult e:
         content.value = '$e';
       case ValueResult v: {
+        content.value = v.value;
         process(v.value);
       }
       default:
