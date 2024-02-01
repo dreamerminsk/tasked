@@ -16,12 +16,12 @@ class HomeChart extends StatelessWidget {
       body: Container(
         width: Get.width * 0.96,
         height: Get.height * 0.96,
-        margin: EdgeInsets.all(8.0),
+        margin: EdgeInsets.all(12.0),
         padding: EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           border: Border.all(
             color: colorScheme.primary,
-            width: 3.0,
+            width: 2.0,
           ),
         ),
         child: Column(
@@ -43,7 +43,8 @@ class HomeChart extends StatelessWidget {
                 child: Obx(() => Text(
                   c.summary.value?.extract ?? '~~~~~',
                   textAlign: TextAlign.center,
-                  style: textTheme.headlineSmall!,
+                  overflow: TextOverflow.fade,
+                  style: textTheme.bodyLarge!,
                 )),
               ), // Padding
             ),
