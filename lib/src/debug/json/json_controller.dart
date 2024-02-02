@@ -16,6 +16,7 @@ class JsonController extends GetxController {
   final lobjects = [].obs;
   final larrays = [].obs;
   final content = ''.obs;
+  final level = -1.obs;
 
 
   @override
