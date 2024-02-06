@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'debug_controller.dart';
 import 'files/files.dart';
 import 'widgets/color_scheme_widget.dart';
+import 'widgets/custom_widget.dart';
 import 'widgets/health_widget.dart';
 import 'widgets/network_stats.dart';
 import 'widgets/random_json_files.dart';
@@ -69,6 +70,11 @@ class DebugView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: TextThemeWidget(
+            ),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            child: CustomWidget(
             ),
           ), // Padding
         ],
