@@ -7,7 +7,7 @@ class ScannerWidget extends StatelessWidget {
   final colors = RxList<Color>();
   final onColors =RxList<Color>();
   final colorIdx = RxInt(0);
-  const ScannerWidget({
+  ScannerWidget({
     super.key,
   });
   void setUpColors(ColorScheme colorScheme) {
