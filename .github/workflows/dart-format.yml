@@ -1,0 +1,21 @@
+name: Dart Format
+on: workflow_dispatch
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Format .dart files
+        run: dart format .
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
+      - name: Update changes in GitHub repository
+        if: steps.git-check.outputs.modified == 'true'
+        uses: EndBug/add-and-commit@v9
+        with:
+            author_name: dreamerminsk
+            author_email: tutmirage@gmail.com
+            message: 'dart format'
