@@ -49,10 +49,11 @@ class HomeView extends StatelessWidget {
 
   Widget _buildCard(BuildContext context, Anime item) {
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(12),
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Column(
@@ -79,13 +80,13 @@ class HomeView extends StatelessWidget {
                       SizedBox(height: 4),
                       Text(
                         '${item.wiki?.mviMonth ?? 0} - ${DateFormat("HH:mm:ss.SSS").format(item.wiki?.lastUpdate ?? DateTime(2000))}',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: textTheme.bodyLarge!,
                       ),
                       SizedBox(height: 8),
                       Text(
                         "<~description~>",
                         maxLines: 2,
-                        style: textTheme.bodyLarge,
+                        style: textTheme.bodyLarge!,
                       ),
                     ],
                   ),
