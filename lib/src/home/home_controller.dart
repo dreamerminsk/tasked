@@ -34,7 +34,7 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    fetchAnime();
+    fetchAnime().whenComplete(()=>refresh());
   }
 
   @override
@@ -108,7 +108,7 @@ class HomeController extends GetxController {
     }
   }
 
-  void fetchAnime() async {
+  Future<void> fetchAnime() async {
     try {
       final text = await fetchString(animeRef);
       final jsonList = jsonDecode(text);
