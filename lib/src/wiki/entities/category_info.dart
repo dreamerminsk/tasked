@@ -6,14 +6,13 @@ class CategoryInfo {
   final int files;
   final int subcats;
 
-  const CategoryInfo({
-    this.pageid = 0,
-    this.lang = 'en',
-    this.title = 'Main Page',
-    this.pages = 0,
-    this.files = 0,
-    this.subcats = 0
-  });
+  const CategoryInfo(
+      {this.pageid = 0,
+      this.lang = 'en',
+      this.title = 'Main Page',
+      this.pages = 0,
+      this.files = 0,
+      this.subcats = 0});
 
   CategoryInfo copyWith({
     int? pageid,
@@ -44,7 +43,8 @@ class CategoryInfo {
     );
   }
 
-  (int, String, String, int, int) _equality() => (pageid, lang, title, pages, subcats);
+  (int, String, String, int, int) _equality() =>
+      (pageid, lang, title, pages, subcats);
 
   @override
   bool operator ==(covariant CategoryInfo other) {

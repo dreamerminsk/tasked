@@ -12,7 +12,6 @@ import 'widgets/text_theme_widget.dart';
 import 'widgets/theme_data_widget.dart';
 
 class DebugView extends StatelessWidget {
-
   @override
   Widget build(context) {
     final DebugController c = Get.find(tag: 'debugger');
@@ -20,10 +19,7 @@ class DebugView extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('DEBUG'),
-        actions: <Widget>[
-        ]),
+      appBar: AppBar(title: const Text('DEBUG'), actions: <Widget>[]),
 
       body: ListView(
         //padding: EdgeInsets.all(8),
@@ -31,55 +27,49 @@ class DebugView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: Obx(() => HealthWidget(
-              started: c.started.value ?? DateTime.now(),
-              instances: c.instances.value,
-              maxIns: c.maxIns.value,
-            )),
+                  started: c.started.value ?? DateTime.now(),
+                  instances: c.instances.value,
+                  maxIns: c.maxIns.value,
+                )),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
             child: Obx(() => NetworkStats(
-              started: c.started.value ?? DateTime.now(),
-              requests: c.requests.value,
-              rpm: c.rpm,
-              received: c.received.value,
-              lastRes: Map.from(c.lastResponse),
-            )),
+                  started: c.started.value ?? DateTime.now(),
+                  requests: c.requests.value,
+                  rpm: c.rpm,
+                  received: c.received.value,
+                  lastRes: Map.from(c.lastResponse),
+                )),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: Obx(() => RandomJsonFiles(
-              jsonFiles: List<String>.from(c.samples),
-            )),
+                  jsonFiles: List<String>.from(c.samples),
+                )),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: ThemeDataWidget(
-            ),
+            child: ThemeDataWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: Files(
-            ),
+            child: Files(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: ColorSchemeWidget(
-            ),
+            child: ColorSchemeWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: TextThemeWidget(
-            ),
+            child: TextThemeWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: ScannerWidget(
-            ),
+            child: ScannerWidget(),
           ), // Padding
         ],
       ), // ListView
     );
   }
-
 }

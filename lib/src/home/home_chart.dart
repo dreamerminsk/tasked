@@ -5,13 +5,12 @@ import 'package:fl_chart/fl_chart.dart';
 import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
-
   @override
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     final HomeController c = Get.find();
- 
+
     return Scaffold(
       body: Container(
         width: Get.width * 0.96,
@@ -41,11 +40,11 @@ class HomeChart extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(4.0),
                 child: Obx(() => Text(
-                  c.summary.value?.extract ?? '~~~~~',
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.fade,
-                  style: textTheme.bodyLarge!,
-                )),
+                      c.summary.value?.extract ?? '~~~~~',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.fade,
+                      style: textTheme.bodyLarge!,
+                    )),
               ), // Padding
             ),
           ],
@@ -54,8 +53,6 @@ class HomeChart extends StatelessWidget {
     );
   }
 }
-
-
 
 class _LineChart extends StatelessWidget {
   const _LineChart({required this.isShowingMainData});
@@ -258,8 +255,7 @@ class _LineChart extends StatelessWidget {
   FlBorderData get borderData => FlBorderData(
         show: true,
         border: Border(
-          bottom:
-              BorderSide(color: Colors.black, width: 4),
+          bottom: BorderSide(color: Colors.black, width: 4),
           left: const BorderSide(color: Colors.transparent),
           right: const BorderSide(color: Colors.transparent),
           top: const BorderSide(color: Colors.transparent),

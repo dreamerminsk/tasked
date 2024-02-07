@@ -18,7 +18,6 @@ class JsonController extends GetxController {
   final content = ''.obs;
   final level = -1.obs;
 
-
   @override
   void onInit() {
     super.onInit();
@@ -41,13 +40,14 @@ class JsonController extends GetxController {
     switch (fs) {
       case ErrorResult e:
         content.value = '$e';
-      case ValueResult v: {
-        content.value = v.value;
-        process(v.value);
-      }
+      case ValueResult v:
+        {
+          content.value = v.value;
+          process(v.value);
+        }
       default:
-          content.value = 'very strange';
-      }
+        content.value = 'very strange';
+    }
   }
 
   void process(String value) async {
@@ -90,19 +90,18 @@ class JsonController extends GetxController {
       debug.newReq();
       var bytes = 0;
       var ttl = 0;
-      final dio.Response<String> response = await dio.Dio().get(link,
-          onReceiveProgress: (received, total) {
-            bytes = received;
-            ttl = (total > 0) ? total : received;
-          }
-      );
+      final dio.Response<String> response =
+          await dio.Dio().get(link, onReceiveProgress: (received, total) {
+        bytes = received;
+        ttl = (total > 0) ? total : received;
+      });
       debug.newBytes(bytes);
       debug.newRes({'time': DateTime.now(), 'total': ttl});
       return Result.value(response.data.toString());
     } catch (e, s) {
-      Get.snackbar('JsonController.fetchString', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('JsonController.fetchString', '$e',
+          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
-
 }

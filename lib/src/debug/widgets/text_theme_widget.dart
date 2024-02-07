@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
-  
   const TextThemeWidget({
     super.key,
   });
@@ -25,17 +24,13 @@ class TextThemeWidget extends StatelessWidget {
           width: Get.width,
           height: 100,
           child: Column(
-            crossAxisAlignment:
-              CrossAxisAlignment.center,
-            mainAxisAlignment:
-              MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'textTheme',
                 style: textTheme.headlineSmall!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
+                    .copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column

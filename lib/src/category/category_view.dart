@@ -8,12 +8,12 @@ import '../routes/app_pages.dart';
 
 class CategoryView extends StatelessWidget {
   final CategoryController c = Get.find();
-  
+
   @override
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    
+
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -22,22 +22,17 @@ class CategoryView extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               padding: const EdgeInsets.all(8),
-              color:
-                colorScheme.primary,
+              color: colorScheme.primary,
               child: Column(
-                crossAxisAlignment:
-                  CrossAxisAlignment.center,
-                mainAxisAlignment:
-                  MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(height: 8),
                   Obx(() => Text(
-                    c.category.value?.title ?? '~~~',
-                    style: textTheme.headlineSmall!
-                      .copyWith(
-                        color: colorScheme.onPrimary
-                      ),
-                  )), // Text
+                        c.category.value?.title ?? '~~~',
+                        style: textTheme.headlineSmall!
+                            .copyWith(color: colorScheme.onPrimary),
+                      )), // Text
                   SizedBox(height: 12),
                   Obx(() => _buildProps(context, c.category.value)),
                 ],
@@ -65,7 +60,6 @@ class CategoryView extends StatelessWidget {
     );
   }
 
-
   Widget _buildProps(BuildContext context, CategoryInfo? ci) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
@@ -76,65 +70,57 @@ class CategoryView extends StatelessWidget {
       children: <Widget>[
         Column(
           children: <Widget>[
-            Text(ci?.subcats.toString() ?? '∞',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              ci?.subcats.toString() ?? '∞',
+              style:
+                  textTheme.titleLarge!.copyWith(color: colorScheme.onPrimary),
             ),
-            Text('subcats',
-              style: textTheme.bodyLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              'subcats',
+              style:
+                  textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
             ),
           ],
         ),
         Column(
           children: <Widget>[
-            Text(ci?.pages.toString() ?? '∞',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              ci?.pages.toString() ?? '∞',
+              style:
+                  textTheme.titleLarge!.copyWith(color: colorScheme.onPrimary),
             ),
-            Text('pages',
-              style: textTheme.bodyLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              'pages',
+              style:
+                  textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
             ),
           ],
         ),
         Column(
           children: <Widget>[
-            Text('∞',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              '∞',
+              style:
+                  textTheme.titleLarge!.copyWith(color: colorScheme.onPrimary),
             ),
-            Text('cats',
-              style: textTheme.bodyLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              'cats',
+              style:
+                  textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
             ),
           ],
         ),
         Column(
           children: <Widget>[
-            Text('∞',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              '∞',
+              style:
+                  textTheme.titleLarge!.copyWith(color: colorScheme.onPrimary),
             ),
-            Text('langs',
-              style: textTheme.bodyLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            Text(
+              'langs',
+              style:
+                  textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
             ),
           ],
         ),
@@ -147,21 +133,17 @@ class CategoryView extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return query.length > 0
-      ? ListView.builder(
-          itemCount: query.length,
-          itemBuilder: (BuildContext context, int index) {
-            return InkWell(
-              onTap: () { },
-              child: _catCard(context, query[index]));
-          },
-        )
-      : Center(
-        child: Icon(
-          Icons.category,
-          color: colorScheme.primary,
-          size: 128.0
-        ),
-      );
+        ? ListView.builder(
+            itemCount: query.length,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                  onTap: () {}, child: _catCard(context, query[index]));
+            },
+          )
+        : Center(
+            child:
+                Icon(Icons.category, color: colorScheme.primary, size: 128.0),
+          );
   }
 
   //Widget _buildCard(BuildContext context, CategoryMember cm) {
@@ -178,18 +160,16 @@ class CategoryView extends StatelessWidget {
 
   Widget _catCard(BuildContext context, CategoryMember cm) {
     return InkWell(
-      onTap: () { 
+      onTap: () {
         Get.toNamed(Routes.CATEGORY,
-                    arguments: CategoryInfo(title:  cm.title, lang: c.category.value?.lang ?? 'en'),
-                    preventDuplicates: false); 
+            arguments: CategoryInfo(
+                title: cm.title, lang: c.category.value?.lang ?? 'en'),
+            preventDuplicates: false);
       },
       child: Card(
         child: ListTile(
-          leading: Icon(
-            Icons.category,
-            color: Theme.of(context).colorScheme.primary,
-            size: 64.0
-          ),
+          leading: Icon(Icons.category,
+              color: Theme.of(context).colorScheme.primary, size: 64.0),
           title: Text('${cm.title}'),
           subtitle: Text('${cm.timestamp}'),
           //subtitle: Text('${cat.subcats} categories, ${cat.pages} pages')

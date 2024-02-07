@@ -7,7 +7,7 @@ class HealthWidget extends StatelessWidget {
   final DateTime started;
   final int instances;
   final int maxIns;
-  
+
   const HealthWidget({
     super.key,
     required this.started,
@@ -24,38 +24,30 @@ class HealthWidget extends StatelessWidget {
       width: Get.width,
       height: 200,
       child: Row(
-        mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Column(
-            crossAxisAlignment:
-              CrossAxisAlignment.start,
-            mainAxisAlignment:
-              MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Text(
                 '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
-                style: textTheme.bodyLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
+                style:
+                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text
               Text(
                 'instances: $instances, max: $maxIns',
-                style: textTheme.bodyLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
+                style:
+                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
           RotatedBox(
             quarterTurns: 3,
-            child: Text('Health Status',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  color: colorScheme.onPrimary
-                ),
+            child: Text(
+              'Health Status',
+              style:
+                  textTheme.titleLarge!.copyWith(color: colorScheme.onPrimary),
             ), // Text
           ), // RotatedBox
         ],

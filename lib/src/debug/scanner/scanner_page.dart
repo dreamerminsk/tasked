@@ -4,11 +4,10 @@ import 'package:get/get.dart';
 //import 'scanner_controller.dart';
 
 class ScannerPage extends StatelessWidget {
-
   const ScannerPage({
     super.key,
   });
-  
+
   @override
   Widget build(context) {
     //final ScannerController c = Get.find();
@@ -29,5 +28,4 @@ class ScannerPage extends StatelessWidget {
       ), //Container
     );
   }
-
 }

@@ -14,54 +14,54 @@ class NamedMaterialColor {
   const NamedMaterialColor({required this.name, required this.primary});
 
   NamedColor get shade50 => NamedColor(
-    name: '$name[50]',
-    color: primary[50]!,
-  );
+        name: '$name[50]',
+        color: primary[50]!,
+      );
 
   NamedColor get shade100 => NamedColor(
-    name: '$name[100]',
-    color: primary[100]!,
-  );
+        name: '$name[100]',
+        color: primary[100]!,
+      );
 
   NamedColor get shade200 => NamedColor(
-    name: '$name[200]',
-    color: primary[200]!,
-  );
+        name: '$name[200]',
+        color: primary[200]!,
+      );
 
   NamedColor get shade300 => NamedColor(
-    name: '$name[300]',
-    color: primary[300]!,
-  );
+        name: '$name[300]',
+        color: primary[300]!,
+      );
 
   NamedColor get shade400 => NamedColor(
-    name: '$name[400]',
-    color: primary[400]!,
-  );
+        name: '$name[400]',
+        color: primary[400]!,
+      );
 
   NamedColor get shade500 => NamedColor(
-    name: '$name[500]',
-    color: primary[500]!,
-  );
+        name: '$name[500]',
+        color: primary[500]!,
+      );
 
   NamedColor get shade600 => NamedColor(
-    name: '$name[600]',
-    color: primary[600]!,
-  );
+        name: '$name[600]',
+        color: primary[600]!,
+      );
 
   NamedColor get shade700 => NamedColor(
-    name: '$name[700]',
-    color: primary[700]!,
-  );
+        name: '$name[700]',
+        color: primary[700]!,
+      );
 
   NamedColor get shade800 => NamedColor(
-    name: '$name[800]',
-    color: primary[800]!,
-  );
+        name: '$name[800]',
+        color: primary[800]!,
+      );
 
   NamedColor get shade900 => NamedColor(
-    name: '$name[900]',
-    color: primary[900]!,
-  );
+        name: '$name[900]',
+        color: primary[900]!,
+      );
 }
 
 class NamedAccentColor {
@@ -71,29 +71,29 @@ class NamedAccentColor {
   const NamedAccentColor({required this.name, required this.accent});
 
   NamedColor get shade50 => NamedColor(
-    name: '$name[50]',
-    color: accent[50]!,
-  );
+        name: '$name[50]',
+        color: accent[50]!,
+      );
 
   NamedColor get shade100 => NamedColor(
-    name: '$name[100]',
-    color: accent[100]!,
-  );
+        name: '$name[100]',
+        color: accent[100]!,
+      );
 
   NamedColor get shade200 => NamedColor(
-    name: '$name[200]',
-    color: accent[200]!,
-  );
+        name: '$name[200]',
+        color: accent[200]!,
+      );
 
   NamedColor get shade400 => NamedColor(
-    name: '$name[400]',
-    color: accent[400]!,
-  );
+        name: '$name[400]',
+        color: accent[400]!,
+      );
 
   NamedColor get shade700 => NamedColor(
-    name: '$name[700]',
-    color: accent[700]!,
-  );
+        name: '$name[700]',
+        color: accent[700]!,
+      );
 }
 
 abstract final class NamedColors {
@@ -102,85 +102,53 @@ abstract final class NamedColors {
     color: Color(0x00000000),
   );
 
-  static const NamedColor black = NamedColor(
-    name: 'black',
-    color: Color(0xFF000000)
-  );
+  static const NamedColor black =
+      NamedColor(name: 'black', color: Color(0xFF000000));
 
-  static const NamedColor black87 = NamedColor(
-    name: 'black87',
-    color: Color(0xDD000000)
-  );
+  static const NamedColor black87 =
+      NamedColor(name: 'black87', color: Color(0xDD000000));
 
-  static const NamedColor black54 = NamedColor(
-    name: 'black54',
-    color: Color(0x8A000000)
-  );
+  static const NamedColor black54 =
+      NamedColor(name: 'black54', color: Color(0x8A000000));
 
-  static const NamedColor black45 = NamedColor(
-    name: 'black45',
-    color: Color(0x73000000)
-  );
+  static const NamedColor black45 =
+      NamedColor(name: 'black45', color: Color(0x73000000));
 
-  static const NamedColor black38 = NamedColor(
-    name: 'black38',
-    color: Color(0x61000000)
-  );
+  static const NamedColor black38 =
+      NamedColor(name: 'black38', color: Color(0x61000000));
 
-  static const NamedColor black26 = NamedColor(
-    name: 'black26',
-    color: Color(0x42000000)
-  );
+  static const NamedColor black26 =
+      NamedColor(name: 'black26', color: Color(0x42000000));
 
-  static const NamedColor black12 = NamedColor(
-    name: 'black12',
-    color: Color(0x1F000000)
-  );
+  static const NamedColor black12 =
+      NamedColor(name: 'black12', color: Color(0x1F000000));
 
-  static const NamedColor white = NamedColor(
-    name: 'white',
-    color: Color(0xFFFFFFFF)
-  );
+  static const NamedColor white =
+      NamedColor(name: 'white', color: Color(0xFFFFFFFF));
 
-  static const NamedColor white70 = NamedColor(
-    name: 'white70',
-    color: Color(0xB3FFFFFF)
-  );
+  static const NamedColor white70 =
+      NamedColor(name: 'white70', color: Color(0xB3FFFFFF));
 
-  static const NamedColor white60 = NamedColor(
-    name: 'white60',
-    color: Color(0x99FFFFFF)
-  );
+  static const NamedColor white60 =
+      NamedColor(name: 'white60', color: Color(0x99FFFFFF));
 
-  static const NamedColor white54 = NamedColor(
-    name: 'white54',
-    color: Color(0x8AFFFFFF)
-  );
+  static const NamedColor white54 =
+      NamedColor(name: 'white54', color: Color(0x8AFFFFFF));
 
-  static const NamedColor white38 = NamedColor(
-    name: 'white38',
-    color: Color(0x62FFFFFF)
-  );
+  static const NamedColor white38 =
+      NamedColor(name: 'white38', color: Color(0x62FFFFFF));
 
-  static const NamedColor white30 = NamedColor(
-    name: 'white30',
-    color: Color(0x4DFFFFFF)
-  );
+  static const NamedColor white30 =
+      NamedColor(name: 'white30', color: Color(0x4DFFFFFF));
 
-  static const NamedColor white24 = NamedColor(
-    name: 'white24',
-    color: Color(0x3DFFFFFF)
-  );
+  static const NamedColor white24 =
+      NamedColor(name: 'white24', color: Color(0x3DFFFFFF));
 
-  static const NamedColor white12 = NamedColor(
-    name: 'white12',
-    color: Color(0x1FFFFFFF)
-  );
+  static const NamedColor white12 =
+      NamedColor(name: 'white12', color: Color(0x1FFFFFFF));
 
-  static const NamedColor white10 = NamedColor(
-    name: 'white10',
-    color: Color(0x1AFFFFFF)
-  );
+  static const NamedColor white10 =
+      NamedColor(name: 'white10', color: Color(0x1AFFFFFF));
 
   static const NamedMaterialColor red = NamedMaterialColor(
     name: 'red',
@@ -232,7 +200,7 @@ abstract final class NamedColors {
     accent: Colors.indigoAccent,
   );
 
- static const NamedMaterialColor blue = NamedMaterialColor(
+  static const NamedMaterialColor blue = NamedMaterialColor(
     name: 'blue',
     primary: Colors.blue,
   );

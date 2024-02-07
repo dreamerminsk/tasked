@@ -1,3 +1,1 @@
-class CategoryInfoResponse {
-
-}
+class CategoryInfoResponse {}

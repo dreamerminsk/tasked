@@ -5,12 +5,11 @@ import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
 
-
 class RandomJsonFiles extends StatelessWidget {
   final List<String> jsonFiles;
 
   final RxList<String> randomFive = RxList<String>();
-  
+
   RandomJsonFiles({
     super.key,
     required this.jsonFiles,
@@ -21,29 +20,27 @@ class RandomJsonFiles extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     //final randomThree = (jsonFiles.toList()..shuffle()).take(5).toList();
-    
+
     _shuffle();
-    
+
     return Container(
       width: Get.width,
       height: 200,
       child: Row(
-        mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           ObxValue(
             (data) => _files(data, textTheme, colorScheme),
-              randomFive,
+            randomFive,
           ), // ObxValue
           GestureDetector(
             onTap: () => _shuffle(),
             child: RotatedBox(
               quarterTurns: 3,
-              child: Text('JSON Viewer',
+              child: Text(
+                'JSON Viewer',
                 style: textTheme.titleLarge!
-                  .copyWith(
-                    color: colorScheme.onPrimary
-                  ),
+                    .copyWith(color: colorScheme.onPrimary),
               ), // Text
             ), // RotatedBox
           ), // GestureDetector
@@ -66,25 +63,23 @@ class RandomJsonFiles extends StatelessWidget {
 
   Widget _files(List<String> five, TextTheme tt, ColorScheme cs) {
     return Column(
-            crossAxisAlignment:
-              CrossAxisAlignment.start,
-            mainAxisAlignment:
-              MainAxisAlignment.spaceAround,
-            children: List<Widget>.generate(5,
-              (int index) => 
-                InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.JSON, arguments: five[index],);
-                  },
-                  child: Text(
-                    five[index].split('/').last,
-                    style: tt.bodyLarge!
-                      .copyWith(
-                        color: cs.onPrimary
-                    ),
-                  ), // Text
-                ), // InkWell                 
-            ),
-          ); // Column
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: List<Widget>.generate(
+        5,
+        (int index) => InkWell(
+          onTap: () {
+            Get.toNamed(
+              Routes.JSON,
+              arguments: five[index],
+            );
+          },
+          child: Text(
+            five[index].split('/').last,
+            style: tt.bodyLarge!.copyWith(color: cs.onPrimary),
+          ), // Text
+        ), // InkWell
+      ),
+    ); // Column
   }
 }

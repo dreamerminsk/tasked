@@ -8,21 +8,20 @@ import 'package:test/test.dart';
 
 void main() {
   final file = new File('data/wiki.anime.json');
-  
-  test('wiki.anime.json is exists', ()  { 
+
+  test('wiki.anime.json is exists', () {
     expect(file.existsSync(), true);
   });
-  
+
   final jsonString = file.readAsStringSync();
-  
-  test('wiki.anime.json is readable', ()  { 
+
+  test('wiki.anime.json is readable', () {
     expect(jsonString.length, greaterThan(0));
   });
-  
+
   final jsonList = jsonDecode(jsonString);
-  
-  test('wiki.anime.json is parceable', ()  {    
+
+  test('wiki.anime.json is parceable', () {
     expect(jsonList.length, 89);
   });
-  
 }

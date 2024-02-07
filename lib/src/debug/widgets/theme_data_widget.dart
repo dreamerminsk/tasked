@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 class ThemeDataWidget extends StatelessWidget {
-  
   const ThemeDataWidget({
     super.key,
   });
@@ -19,22 +18,18 @@ class ThemeDataWidget extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.THEME); 
+          Get.toNamed(Routes.THEME);
         },
         child: Container(
           width: Get.width,
           height: 96,
           child: Column(
-            mainAxisAlignment:
-              MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'themeData',
                 style: textTheme.headlineSmall!
-                  .copyWith(
-                    color:
-                      colorScheme.onPrimary
-                  ),
+                    .copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column

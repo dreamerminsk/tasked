@@ -1,3 +1,1 @@
-class RandomResponse {
-
-}
+class RandomResponse {}

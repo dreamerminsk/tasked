@@ -5,7 +5,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 
 class DebugController extends GetxService {
-  
   final started = Rxn<DateTime>();
 
   final instances = 0.obs;
@@ -16,7 +15,10 @@ class DebugController extends GetxService {
 
   var received = 0.obs;
 
-  double get rpm => 60 * requests.value / (DateTime.now().difference(started.value ?? DateTime.now()).inSeconds);
+  double get rpm =>
+      60 *
+      requests.value /
+      (DateTime.now().difference(started.value ?? DateTime.now()).inSeconds);
 
   final lastResponse = {}.obs;
 
@@ -32,7 +34,7 @@ class DebugController extends GetxService {
   void newClose() {
     instances.value--;
   }
-  
+
   void newReq() {
     requests += 1;
   }
@@ -50,9 +52,7 @@ class DebugController extends GetxService {
   void onInit() {
     newInit();
     started.value = DateTime.now();
-    loadSamples().then(
-      (items) => samples.assignAll(items)
-    );
+    loadSamples().then((items) => samples.assignAll(items));
     super.onInit();
   }
 
@@ -76,5 +76,4 @@ class DebugController extends GetxService {
   Future<String> loadAsset() async {
     return await rootBundle.loadString('data/github.json.samples');
   }
-
 }

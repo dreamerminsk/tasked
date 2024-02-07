@@ -6,7 +6,7 @@ class ScannerBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<ScannerController>(
-        () => ScannerController(),
-      );
+      () => ScannerController(),
+    );
   }
 }

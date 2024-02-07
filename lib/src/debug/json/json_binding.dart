@@ -6,7 +6,7 @@ class JsonBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<JsonController>(
-        () => JsonController(),
-      );
+      () => JsonController(),
+    );
   }
 }

@@ -21,12 +21,9 @@ class SampleColor extends StatelessWidget {
 
     return Material(
       elevation: 2,
-      borderRadius:
-        BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
-        onTap: () => Get.to(ColorPage(
-          color: background
-        )),
+        onTap: () => Get.to(ColorPage(color: background)),
         child: Container(
           width: Get.width,
           height: 100,
@@ -36,8 +33,8 @@ class SampleColor extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.transparent,
               //border: Border.all(
-                //color: foreground,
-                //width: 2.0,
+              //color: foreground,
+              //width: 2.0,
               //), // Border
               borderRadius: BorderRadius.circular(12),
             ), // BoxDecoration
@@ -50,9 +47,8 @@ class SampleColor extends StatelessWidget {
                 ), // Divider
                 Text(
                   title,
-                  style: textTheme.titleLarge!
-                    .copyWith(
-                      color: foreground,
+                  style: textTheme.titleLarge!.copyWith(
+                    color: foreground,
                   ),
                 ), // Text
               ],

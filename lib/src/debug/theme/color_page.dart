@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'sample_object.dart';
 
 class ColorPage extends StatelessWidget {
-
   final Color color;
 
   const ColorPage({
@@ -65,5 +64,4 @@ class ColorPage extends StatelessWidget {
       ), // ListView
     );
   }
-
 }

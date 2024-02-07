@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'sample_object.dart';
 
 class CardThemePage extends StatelessWidget {
-
   final CardTheme theme;
 
   const CardThemePage({
@@ -73,5 +72,4 @@ class CardThemePage extends StatelessWidget {
       ), // ListView
     );
   }
-
 }

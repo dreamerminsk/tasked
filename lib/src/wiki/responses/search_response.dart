@@ -1,3 +1,1 @@
-class SearchResponse{
-
-}
+class SearchResponse {}

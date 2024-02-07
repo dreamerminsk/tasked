@@ -53,9 +53,8 @@ class ParentDir extends StatelessWidget {
                     child: Text(
                       title.split('/').last,
                       overflow: TextOverflow.fade,
-                      style: textTheme.titleLarge!
-                        .copyWith(
-                          color: colorScheme.onPrimary,
+                      style: textTheme.titleLarge!.copyWith(
+                        color: colorScheme.onPrimary,
                       ),
                     ), // Text
                   ), // GestureDetector

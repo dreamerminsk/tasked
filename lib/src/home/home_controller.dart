@@ -13,7 +13,8 @@ import 'entities/summary.dart';
 import '../debug/debug_controller.dart';
 
 class HomeController extends GetxController {
-  static final animeRef = 'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
+  static final animeRef =
+      'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
 
   final DebugController debug = Get.find(tag: 'debugger');
   final animeList = <Anime>[].obs;
@@ -47,22 +48,23 @@ class HomeController extends GetxController {
       value?.title = animeList[idx].title;
       value?.wiki = animeList[idx].wiki;
     });
-    final result = await fetchMap('https://en.wikipedia.org/api/rest_v1/page/summary/${animeList[idx].wiki?.title ?? ""}');
+    final result = await fetchMap(
+        'https://en.wikipedia.org/api/rest_v1/page/summary/${animeList[idx].wiki?.title ?? ""}');
     switch (result) {
       case ErrorResult e:
         this.summary.value = Summary(
-          title: animeList[idx].wiki?.title ?? '~~~',
-          description: e.error.toString()
-        );
-      case ValueResult v: {
-        this.summary.value = Summary.fromJson(v.value);
+            title: animeList[idx].wiki?.title ?? '~~~',
+            description: e.error.toString());
+      case ValueResult v:
+        {
+          this.summary.value = Summary.fromJson(v.value);
         }
       default:
         this.summary.value = Summary(
           title: animeList[idx].wiki?.title ?? '~~~',
           description: 'very strange',
         );
-      }
+    }
   }
 
   void copyToClipboard() {
@@ -76,10 +78,13 @@ class HomeController extends GetxController {
   }
 
   void refreshWikiStats(Timer timer) async {
-    final zeroes = animeList.where((a) => a.wiki?.lastUpdate == null).
-      where((a) => (a.wiki?.title?.length ?? 0) > 0).toList();
+    final zeroes = animeList
+        .where((a) => a.wiki?.lastUpdate == null)
+        .where((a) => (a.wiki?.title?.length ?? 0) > 0)
+        .toList();
     if (zeroes.length > 0) {
-      final piLink = 'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wiki?.title}&action=info';
+      final piLink =
+          'https://en.wikipedia.org/w/index.php?title=${zeroes[0].wiki?.title}&action=info';
       final text = await fetchString(piLink);
       final document = parse(text);
       final rows = document.querySelectorAll('div.mw-pvi-month');
@@ -88,12 +93,14 @@ class HomeController extends GetxController {
         zeroes[0].wiki!.mviMonth = val;
         zeroes[0].wiki!.lastUpdate = DateTime.now();
       }
-      final imgs = document.querySelectorAll('tr#mw-pageimages-info-label > td > a > img');
+      final imgs = document
+          .querySelectorAll('tr#mw-pageimages-info-label > td > a > img');
       if (imgs.length > 0) {
         String? imgLink = 'https:' + (imgs[0].attributes['src'] ?? '');
         zeroes[0].wiki!.image = imgLink;
       }
-      animeList.sort((a, b) => (b.wiki?.mviMonth ?? 0).compareTo(a.wiki?.mviMonth ?? 0));
+      animeList.sort(
+          (a, b) => (b.wiki?.mviMonth ?? 0).compareTo(a.wiki?.mviMonth ?? 0));
       animeList.refresh();
     } else {
       timer.cancel();
@@ -107,30 +114,28 @@ class HomeController extends GetxController {
       final jsonList = jsonDecode(text);
       final al = List<Anime>.from(jsonList.map((i) => Anime.fromJson(i)));
       animeList.assignAll(al);
-    } catch(e) {
+    } catch (e) {
       Get.snackbar('fetchAnime', '$e', snackPosition: SnackPosition.BOTTOM);
     }
   }
 
-  Future<Result<Map>> fetchMap(
-  String link,
- {Map<String, String>? params}) async {
+  Future<Result<Map>> fetchMap(String link,
+      {Map<String, String>? params}) async {
     try {
       debug.newReq();
       var bytes = 0;
       var ttl = 0;
-      final dio.Response<Map> response = await dio.Dio().get(
-          link, queryParameters: params,
-          onReceiveProgress: (received, total) {
-            bytes = received;
-            ttl = (total > 0) ? total : received;
-          }
-      );
+      final dio.Response<Map> response = await dio.Dio().get(link,
+          queryParameters: params, onReceiveProgress: (received, total) {
+        bytes = received;
+        ttl = (total > 0) ? total : received;
+      });
       debug.newBytes(bytes);
       debug.newRes({'time': DateTime.now(), 'total': ttl});
       return Result.value(response.data ?? {});
     } catch (e, s) {
-      Get.snackbar('HomeController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('HomeController.fetchMap', '$e',
+          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
@@ -145,5 +150,4 @@ class HomeController extends GetxController {
     }
     return '';
   }
-
 }

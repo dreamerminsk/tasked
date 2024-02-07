@@ -49,8 +49,8 @@ class AppPages {
       name: _Paths.CATEGORY,
       page: () => CategoryView(),
       binding: CategoryBinding(),
-   ),
-   GetPage(
+    ),
+    GetPage(
       name: _Paths.DEBUG,
       page: () => DebugView(),
       binding: DebugBinding(),
@@ -95,5 +95,5 @@ class AppPages {
       page: () => ScannerPage(),
       binding: ScannerBinding(),
     ),
- ];
+  ];
 }

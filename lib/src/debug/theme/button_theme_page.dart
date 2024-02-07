@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'sample_object.dart';
 
 class ButtonThemePage extends StatelessWidget {
-
   final ButtonThemeData theme;
 
   const ButtonThemePage({
@@ -86,5 +85,4 @@ class ButtonThemePage extends StatelessWidget {
       ), // ListView
     );
   }
-
 }

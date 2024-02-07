@@ -5,7 +5,6 @@ import 'sample_theme.dart';
 import 'sample_object.dart';
 
 class ThemeDataPage extends StatelessWidget {
-
   @override
   Widget build(context) {
     //final DebugController c = Get.find(tag: 'debugger');
@@ -601,17 +600,14 @@ class ThemeDataPage extends StatelessWidget {
   }
 
   Color invert(Color color) {
-  final r = 255 - color.red;
-  final g = 255 - color.green;
-  final b = 255 - color.blue;
+    final r = 255 - color.red;
+    final g = 255 - color.green;
+    final b = 255 - color.blue;
 
-  //return Color.fromARGB((color.opacity * 255).round(), r, g, b);
-  return Color.fromARGB(255, r, g, b);
+    //return Color.fromARGB((color.opacity * 255).round(), r, g, b);
+    return Color.fromARGB(255, r, g, b);
   }
-
 }
-
-
 
 class SampleColor extends StatelessWidget {
   final String title;
@@ -631,8 +627,7 @@ class SampleColor extends StatelessWidget {
 
     return Material(
       elevation: 2,
-      borderRadius:
-        BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
         height: 100,
@@ -641,16 +636,14 @@ class SampleColor extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: textTheme.titleMedium!
-                .copyWith(
-                  color: foreground,
+              style: textTheme.titleMedium!.copyWith(
+                color: foreground,
               ),
             ), // Text
             Text(
               '$background',
-              style: textTheme.bodyMedium!
-                .copyWith(
-                  color: foreground,
+              style: textTheme.bodyMedium!.copyWith(
+                color: foreground,
               ),
             ), // Text
           ],

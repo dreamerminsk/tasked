@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 class Files extends StatelessWidget {
-  
   const Files({
     super.key,
   });
@@ -19,22 +18,18 @@ class Files extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.FILES); 
+          Get.toNamed(Routes.FILES);
         },
         child: Container(
           width: Get.width,
           height: 100,
           child: Column(
-            mainAxisAlignment:
-              MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'files',
                 style: textTheme.headlineSmall!
-                  .copyWith(
-                    color:
-                      colorScheme.onPrimary
-                  ),
+                    .copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column

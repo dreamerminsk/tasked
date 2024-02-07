@@ -20,42 +20,42 @@ class DirPage extends StatelessWidget {
 
     if (entries.isEmpty) {
       final d = Directory(path);
-      d.stat().then( (value) => stat.value = value );
+      d.stat().then((value) => stat.value = value);
       d.list().map((item) => item.path).forEach((item) => entries.add(item));
     }
-    
+
     return Scaffold(
-      body: ObxValue((data) =>
-        ListView.builder(
+      body: ObxValue(
+        (data) => ListView.builder(
           itemCount: data.length + 1,
           itemBuilder: (BuildContext context, int index) {
             return index == 0
-            ? Padding(
-              padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
-              child: ParentDir(
-                title: path,
-                onTap: () => showModalBottomSheet<void>(
-                  context: context,
-                  builder: _buildSheet,
-                ),
-              ), // SampleDir
-            ) // Padding
-            : Padding(
-              padding: index.isEven
-                ? EdgeInsets.fromLTRB(0, 8, 24, 8)
-                : EdgeInsets.fromLTRB(24, 8, 0, 8),
-              child: SampleDir(
-                index: index,
-                title: data[index - 1],
-                background: colorScheme.primaryContainer,
-                foreground: colorScheme.onPrimaryContainer,
-              ), // SampleDir
-            ); // Padding
+                ? Padding(
+                    padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
+                    child: ParentDir(
+                      title: path,
+                      onTap: () => showModalBottomSheet<void>(
+                        context: context,
+                        builder: _buildSheet,
+                      ),
+                    ), // SampleDir
+                  ) // Padding
+                : Padding(
+                    padding: index.isEven
+                        ? EdgeInsets.fromLTRB(0, 8, 24, 8)
+                        : EdgeInsets.fromLTRB(24, 8, 0, 8),
+                    child: SampleDir(
+                      index: index,
+                      title: data[index - 1],
+                      background: colorScheme.primaryContainer,
+                      foreground: colorScheme.onPrimaryContainer,
+                    ), // SampleDir
+                  ); // Padding
           },
         ),
         entries,
       ),
-      );
+    );
   }
 
   Widget _buildSheet(BuildContext context) {
@@ -88,49 +88,38 @@ class DirPage extends StatelessWidget {
               DataRow(
                 cells: <DataCell>[
                   DataCell(Text('accessed')),
-                  DataCell(
-                    Text('${stat.value?.accessed}')
-                  ),
+                  DataCell(Text('${stat.value?.accessed}')),
                 ],
               ),
               DataRow(
                 cells: <DataCell>[
                   DataCell(Text('changed')),
-                  DataCell(
-                    Text('${stat.value?.changed}')
-                  ),
+                  DataCell(Text('${stat.value?.changed}')),
                 ],
               ),
               DataRow(
                 cells: <DataCell>[
                   DataCell(Text('modified')),
-                  DataCell(
-                    Text('${stat.value?.modified}')
-                  ),
+                  DataCell(Text('${stat.value?.modified}')),
                 ],
               ),
               DataRow(
                 cells: <DataCell>[
                   DataCell(Text('mode')),
                   DataCell(
-                    Text('${stat.value?.mode}, ${stat.value?.modeString()}')
-                  ),
+                      Text('${stat.value?.mode}, ${stat.value?.modeString()}')),
                 ],
               ),
               DataRow(
                 cells: <DataCell>[
                   DataCell(Text('size')),
-                  DataCell(
-                    Text('${stat.value?.size}')
-                  ),
+                  DataCell(Text('${stat.value?.size}')),
                 ],
               ),
               DataRow(
                 cells: <DataCell>[
                   DataCell(Text('type')),
-                  DataCell(
-                    Text('${stat.value?.type}')
-                  ),
+                  DataCell(Text('${stat.value?.type}')),
                 ],
               ),
             ],
@@ -139,5 +128,4 @@ class DirPage extends StatelessWidget {
       ), // Column
     );
   }
-
 }

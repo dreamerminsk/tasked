@@ -2,10 +2,7 @@ class WikiLink {
   final String prefix;
   final String title;
 
-  const WikiLink({
-    this.prefix = 'en',
-    this.title = 'Main Page'
-  });
+  const WikiLink({this.prefix = 'en', this.title = 'Main Page'});
 
   WikiLink copyWith({
     String? prefix,
@@ -27,10 +24,8 @@ class WikiLink {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
-    return other is WikiLink &&
-      other.prefix == prefix &&
-      other.title == title;
+
+    return other is WikiLink && other.prefix == prefix && other.title == title;
   }
 
   @override

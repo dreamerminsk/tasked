@@ -12,10 +12,11 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   static NamedMaterialColor seedColor = NamedColors.indigo;
   static NamedColor shadeColor = NamedColors.indigo.shade500;
-  
+
   @override
   Widget build(BuildContext context) {
-    seedColor = NamedColors.primaries[Random().nextInt(NamedColors.primaries.length)];
+    seedColor =
+        NamedColors.primaries[Random().nextInt(NamedColors.primaries.length)];
     var shades = [
       seedColor.shade50,
       seedColor.shade100,
@@ -30,19 +31,19 @@ class MyApp extends StatelessWidget {
     ];
     shades.shuffle();
     shadeColor = shades[0];
-    
+
     return GetMaterialApp(
-          title: 'kb-app',
-          theme: ThemeData(
-            useMaterial3: true,
-            //primarySwatch: Colors.indigo,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: shadeColor.color,
-            ),
-          ),
-          initialBinding: DebugBinding(),
-          initialRoute: AppPages.INITIAL,
-          getPages: AppPages.routes,
-        );
+      title: 'kb-app',
+      theme: ThemeData(
+        useMaterial3: true,
+        //primarySwatch: Colors.indigo,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: shadeColor.color,
+        ),
+      ),
+      initialBinding: DebugBinding(),
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+    );
   }
 }

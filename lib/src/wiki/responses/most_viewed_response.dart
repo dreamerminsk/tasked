@@ -1,3 +1,1 @@
-class MostViewedResponse {
-
-}
+class MostViewedResponse {}

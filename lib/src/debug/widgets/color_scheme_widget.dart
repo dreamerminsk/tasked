@@ -4,7 +4,6 @@ import 'package:kb_dart/main.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemeWidget extends StatelessWidget {
-  
   const ColorSchemeWidget({
     super.key,
   });
@@ -19,24 +18,19 @@ class ColorSchemeWidget extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.COLORSCHEME); 
+          Get.toNamed(Routes.COLORSCHEME);
         },
         child: Container(
           width: Get.width,
           height: 96,
           child: Column(
-            crossAxisAlignment:
-              CrossAxisAlignment.center,
-            mainAxisAlignment:
-              MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'colorScheme, ${MyApp.shadeColor.name}',
                 style: textTheme.headlineSmall!
-                  .copyWith(
-                    color:
-                      colorScheme.onPrimary
-                  ),
+                    .copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column

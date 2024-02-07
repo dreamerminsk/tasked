@@ -24,14 +24,16 @@ class SampleDir extends StatelessWidget {
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
-  final d = Directory(title);
-  d.stat().then( (value) => stat.value = value );
+    final d = Directory(title);
+    d.stat().then((value) => stat.value = value);
 
     return InkWell(
-      onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
+      onTap: () {
+        Get.to(DirPage(path: title), preventDuplicates: false);
+      },
       child: Material(
         elevation: 1,
-        borderRadius: index.isEven 
+        borderRadius: index.isEven
             ? BorderRadius.only(
                 topRight: Radius.circular(20),
                 bottomRight: Radius.circular(20),
@@ -48,17 +50,15 @@ class SampleDir extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.titleMedium!
-                  .copyWith(
-                    color: foreground,
+                style: textTheme.titleMedium!.copyWith(
+                  color: foreground,
                 ),
               ), // Text
-              ObxValue((data) => 
-                Text(
+              ObxValue(
+                (data) => Text(
                   'size: ${data.value?.size ?? 0}, modified: ${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
-                  style: textTheme.titleMedium!
-                    .copyWith(
-                      color: foreground,
+                  style: textTheme.titleMedium!.copyWith(
+                    color: foreground,
                   ),
                 ), // Text
                 stat,
@@ -66,15 +66,15 @@ class SampleDir extends StatelessWidget {
             ],
           ), // Column
           decoration: BoxDecoration(
-            borderRadius: index.isEven 
-            ? BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ) // BorderRadius
-            : BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ), // BorderRadius
+            borderRadius: index.isEven
+                ? BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ) // BorderRadius
+                : BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                  ), // BorderRadius
             color: background,
           ), // BoxDecoration
         ), // Container

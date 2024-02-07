@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'sample_object.dart';
 
 class TextStylePage extends StatelessWidget {
-
   final TextStyle textStyle;
 
   const TextStylePage({
@@ -200,5 +199,4 @@ class TextStylePage extends StatelessWidget {
       ), // ListView
     );
   }
-
 }

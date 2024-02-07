@@ -5,8 +5,6 @@ import 'category_controller.dart';
 class CategoryBinding implements Bindings {
   @override
   void dependencies() {
-    Get.create<CategoryController>(
-      () => CategoryController()
-    );
+    Get.create<CategoryController>(() => CategoryController());
   }
 }

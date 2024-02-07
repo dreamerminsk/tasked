@@ -1,3 +1,1 @@
-class CategoriesResponse {
-
-}
+class CategoriesResponse {}

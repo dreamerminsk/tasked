@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'sample_color.dart';
 
 class ColorSchemePage extends StatelessWidget {
-
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
@@ -113,5 +112,4 @@ class ColorSchemePage extends StatelessWidget {
       ), // ListView
     );
   }
-
 }

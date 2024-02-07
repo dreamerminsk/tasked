@@ -4,11 +4,10 @@ import 'package:get/get.dart';
 import 'json_controller.dart';
 
 class JsonViewer extends StatelessWidget {
-
   const JsonViewer({
     super.key,
   });
-  
+
   @override
   Widget build(context) {
     final JsonController c = Get.find();
@@ -24,29 +23,22 @@ class JsonViewer extends StatelessWidget {
         width: Get.width,
         height: 200,
         child: Row(
-          mainAxisAlignment:
-            MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Column(
-              crossAxisAlignment:
-                CrossAxisAlignment.start,
-              mainAxisAlignment:
-                MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Text(
                   'pos: 0',
                   style: textTheme.bodyLarge!
-                    .copyWith(
-                      color: colorScheme.onPrimary
-                    ),
+                      .copyWith(color: colorScheme.onPrimary),
                 ), // Text
                 Obx(() => Text(
-                  'length: ${c.content.value.length}',
-                  style: textTheme.bodyLarge!
-                    .copyWith(
-                      color: colorScheme.onPrimary
-                    ),
-                )), // Text
+                      'length: ${c.content.value.length}',
+                      style: textTheme.bodyLarge!
+                          .copyWith(color: colorScheme.onPrimary),
+                    )), // Text
               ],
             ), // Column
             Container(
@@ -54,11 +46,10 @@ class JsonViewer extends StatelessWidget {
               alignment: Alignment.center,
               child: RotatedBox(
                 quarterTurns: 3,
-                child: Text('JsonDocument',
+                child: Text(
+                  'JsonDocument',
                   style: textTheme.titleLarge!
-                    .copyWith(
-                      color: colorScheme.onPrimary
-                    ),
+                      .copyWith(color: colorScheme.onPrimary),
                 ), // Text
               ), // RotatedBox,
               decoration: BoxDecoration(
@@ -82,5 +73,4 @@ class JsonViewer extends StatelessWidget {
       ), //Container
     );
   }
-
 }

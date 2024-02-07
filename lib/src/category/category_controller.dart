@@ -12,7 +12,7 @@ import '../wiki/responses/category_members_response.dart';
 
 class CategoryController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
-  
+
   final category = Rxn<CategoryInfo>();
 
   final members = <CategoryMember>[].obs;
@@ -21,14 +21,11 @@ class CategoryController extends GetxController {
   void onInit() {
     debug.newInit();
     category.value = Get.arguments;
-    final link = WikiLink(
-      prefix: category.value!.lang,
-      title: category.value!.title
-    );
+    final link =
+        WikiLink(prefix: category.value!.lang, title: category.value!.title);
     fetchCategoryMembers(link).then((res) {
       _update(res);
-      fetchCategoryInfo(link).then((res) =>
-        _updateInfo(res));
+      fetchCategoryInfo(link).then((res) => _updateInfo(res));
     });
     super.onInit();
   }
@@ -51,10 +48,8 @@ class CategoryController extends GetxController {
   }
 
   void _setInfo(CategoryInfo info) {
-    category.value = category.value!.copyWith(
-      subcats: info.subcats,
-      pages: info.pages
-    );
+    category.value =
+        category.value!.copyWith(subcats: info.subcats, pages: info.pages);
     category.refresh();
   }
 
@@ -71,9 +66,9 @@ class CategoryController extends GetxController {
 
   void _setMembers(List<CategoryMember> query) {
     if (category.value!.subcats < query.length) {
-        category.value = category.value!.copyWith(
-          subcats: query.length,
-        );
+      category.value = category.value!.copyWith(
+        subcats: query.length,
+      );
     }
     category.refresh();
     members.clear();
@@ -84,80 +79,84 @@ class CategoryController extends GetxController {
     try {
       final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
       final params = {
-          'action': 'query',
-          'prop': 'categoryinfo',
-          'titles': '${link.title}',
-          'formatversion': '2',
-          'format': 'json',
+        'action': 'query',
+        'prop': 'categoryinfo',
+        'titles': '${link.title}',
+        'formatversion': '2',
+        'format': 'json',
       };
       final result = await fetchMap(url, params: params);
       switch (result) {
-      case ErrorResult e:
-        return Result.error(e.error);
-      case ValueResult v: {
-        final query = v.value['query'] as Map;
-        final pages = query['pages'] as List;
-        final cats = pages.map((item) => CategoryInfo.fromJson(item)).toList();
-        return Result.value(cats[0].copyWith(lang: link.prefix));
-        }
-      default:
+        case ErrorResult e:
+          return Result.error(e.error);
+        case ValueResult v:
+          {
+            final query = v.value['query'] as Map;
+            final pages = query['pages'] as List;
+            final cats =
+                pages.map((item) => CategoryInfo.fromJson(item)).toList();
+            return Result.value(cats[0].copyWith(lang: link.prefix));
+          }
+        default:
           return Result.error('very strange');
       }
-    } catch(e, s) {
-      Get.snackbar('CategoryController.fetchCategoryInfo', '$e', snackPosition: SnackPosition.BOTTOM);
+    } catch (e, s) {
+      Get.snackbar('CategoryController.fetchCategoryInfo', '$e',
+          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
 
-  Future<Result<CategoryMembersResponse>> fetchCategoryMembers(WikiLink link) async {
+  Future<Result<CategoryMembersResponse>> fetchCategoryMembers(
+      WikiLink link) async {
     try {
       final url = 'https://${link.prefix}.wikipedia.org/w/api.php';
       final params = {
-          'action': 'query',
-          'list': 'categorymembers',
-          'cmtitle': '${link.title}',
-          'cmtype': 'subcat',
-          'cmprop': 'ids|title|type|timestamp',
-          'cmlimit': 'max',
-          'formatversion': '2',
-          'format': 'json',
+        'action': 'query',
+        'list': 'categorymembers',
+        'cmtitle': '${link.title}',
+        'cmtype': 'subcat',
+        'cmprop': 'ids|title|type|timestamp',
+        'cmlimit': 'max',
+        'formatversion': '2',
+        'format': 'json',
       };
       final result = await fetchMap(url, params: params);
       switch (result) {
-      case ErrorResult e:
-        return Result.error(e.error);
-      case ValueResult v: {
-        final response = CategoryMembersResponse.fromJson(v.value);
-        return Result.value(response);
-        }
-      default:
+        case ErrorResult e:
+          return Result.error(e.error);
+        case ValueResult v:
+          {
+            final response = CategoryMembersResponse.fromJson(v.value);
+            return Result.value(response);
+          }
+        default:
           return Result.error('very strange');
       }
-    } catch(e, s) {
-      Get.snackbar('CategoryController.fetchCategoryMembers', '$e,\r\n$s', snackPosition: SnackPosition.BOTTOM);
+    } catch (e, s) {
+      Get.snackbar('CategoryController.fetchCategoryMembers', '$e,\r\n$s',
+          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
 
-  Future<Result<Map>> fetchMap(
-  String link,
- {Map<String, String>? params}) async {
+  Future<Result<Map>> fetchMap(String link,
+      {Map<String, String>? params}) async {
     try {
       debug.newReq();
       var bytes = 0;
       var ttl = 0;
-      final dio.Response<Map> response = await dio.Dio().get(
-          link, queryParameters: params,
-          onReceiveProgress: (received, total) {
-            bytes = received;
-            ttl = (total > 0) ? total : received;
-          }
-      );
+      final dio.Response<Map> response = await dio.Dio().get(link,
+          queryParameters: params, onReceiveProgress: (received, total) {
+        bytes = received;
+        ttl = (total > 0) ? total : received;
+      });
       debug.newBytes(bytes);
       debug.newRes({'time': DateTime.now(), 'total': ttl});
       return Result.value(response.data ?? {});
     } catch (e, s) {
-      Get.snackbar('CategoryController.fetchMap', '$e', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('CategoryController.fetchMap', '$e',
+          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
@@ -172,5 +171,4 @@ class CategoryController extends GetxController {
       return Result.error(e, s);
     }
   }
-
 }

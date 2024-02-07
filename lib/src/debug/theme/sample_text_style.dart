@@ -21,12 +21,9 @@ class SampleTextStyle extends StatelessWidget {
 
     return Material(
       elevation: 2,
-      borderRadius:
-        BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
-        onTap: () => Get.to(TextStylePage(
-          textStyle: style
-        )),
+        onTap: () => Get.to(TextStylePage(textStyle: style)),
         child: Container(
           width: Get.width,
           height: 100,
@@ -35,9 +32,8 @@ class SampleTextStyle extends StatelessWidget {
             children: <Widget>[
               Text(
                 text ?? style.runtimeType.toString(),
-                style: style
-                  .copyWith(
-                    color: colorScheme.onPrimary,
+                style: style.copyWith(
+                  color: colorScheme.onPrimary,
                 ),
               ), // Text,
             ],

@@ -19,8 +19,7 @@ class SampleObject extends StatelessWidget {
 
     return Material(
       elevation: 2,
-      borderRadius:
-        BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
         height: 120,
@@ -29,10 +28,9 @@ class SampleObject extends StatelessWidget {
           children: <Widget>[
             Text(
               '${object == null ? "null" : (object is Diagnosticable ? (object! as Diagnosticable).toStringShort() : object.toString())}',
-              style: textTheme.titleLarge!
-                .copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: colorScheme.onPrimary,
+              style: textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w700,
+                color: colorScheme.onPrimary,
               ),
             ), // Text
             Divider(
@@ -40,10 +38,9 @@ class SampleObject extends StatelessWidget {
             ), // Divider
             Text(
               title,
-              style: textTheme.titleLarge!
-                .copyWith(
-                  fontSize: textTheme.titleLarge!.fontSize! - 1,
-                  color: colorScheme.onPrimary,
+              style: textTheme.titleLarge!.copyWith(
+                fontSize: textTheme.titleLarge!.fontSize! - 1,
+                color: colorScheme.onPrimary,
               ),
             ), // Text,
           ],

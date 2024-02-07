@@ -6,7 +6,6 @@ import 'package:path_provider/path_provider.dart';
 import 'special_dir.dart';
 
 class FilesPage extends StatelessWidget {
-
   final app = ''.obs;
 
   final temp = ''.obs;
@@ -22,22 +21,16 @@ class FilesPage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     if (temp.value.isEmpty) {
-      getTemporaryDirectory().then(
-        (d) => temp.value = d.path
-      );
+      getTemporaryDirectory().then((d) => temp.value = d.path);
     }
     if (docs.value.isEmpty) {
-      getApplicationDocumentsDirectory().then(
-        (d) {
-          docs.value = d.path;
-          app.value = d.parent.path;
-        }
-      );
+      getApplicationDocumentsDirectory().then((d) {
+        docs.value = d.path;
+        app.value = d.parent.path;
+      });
     }
     if (cache.value.isEmpty) {
-      getApplicationCacheDirectory().then(
-        (d) => cache.value = d.path
-      );
+      getApplicationCacheDirectory().then((d) => cache.value = d.path);
     }
 
     return Scaffold(
@@ -92,5 +85,4 @@ class FilesPage extends StatelessWidget {
       ), // ListView
     );
   }
-
 }

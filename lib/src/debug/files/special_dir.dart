@@ -20,11 +20,12 @@ class SpecialDir extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
-      onTap: () { Get.to(DirPage(path: title), preventDuplicates: false); },
+      onTap: () {
+        Get.to(DirPage(path: title), preventDuplicates: false);
+      },
       child: Material(
         elevation: 1,
-        borderRadius:
-          BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
         child: Container(
           width: Get.width,
           height: 100,
@@ -33,17 +34,14 @@ class SpecialDir extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.titleLarge!
-                  .copyWith(
-                    color: foreground,
+                style: textTheme.titleLarge!.copyWith(
+                  color: foreground,
                 ),
               ), // Text
             ],
           ), // Column
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20)
-            ), // BorderRadius
+            borderRadius: BorderRadius.all(Radius.circular(20)), // BorderRadius
             color: background,
           ), // BoxDecoration
         ), // Container
