@@ -9,10 +9,10 @@ import 'home_chart.dart';
 //https://en.wikipedia.org/api/rest_v1/page/summary/Minsk
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
 class HomeDetailsView extends StatelessWidget {
-  final RxInt titleOpacity = RxInt(60);
+  final RxInt titleOpacity = RxInt(80);
   final RxInt toDir = RxInt(-5);
 
-  final RxInt descOpacity = RxInt(50);
+  final RxInt descOpacity = RxInt(75);
   final RxInt doDir = RxInt(-5);
 
   @override
@@ -25,17 +25,26 @@ class HomeDetailsView extends StatelessWidget {
         body: Obx(() => Stack(
               children: <Widget>[
                 CachedNetworkImage(
-                  imageUrl: (c.selected.value.wiki?.image ??
-                          c.summary.value?.originalImage.source ??
-                          '')
-                      .replaceFirst('220px', '512px'),
+                  imageUrl: (c.summary.value?.originalImage.source ??
+                          ''),
                   placeholder: (context, url) =>
-                      LoadingIndicator(indicatorType: Indicator.ballGridPulse),
-                  errorWidget: (context, url, error) => Icon(
+Container(
+  width: Get.width,
+  height: Get.height,
+  alignment: Alignment.center,
+  child: LoadingIndicator(indicatorType: Indicator.ballGridPulse),
+), // Container
+                  errorWidget: ( url, error) =>
+Container(
+  width: Get.width,
+  height: Get.height,
+  alignment: Alignment.center,
+  child: Icon(
                     Icons.error,
                     size: Get.width - 16,
-                    color: Colors.black,
+                    color: colorScheme.error,
                   ),
+), // Container
                   imageBuilder: (context, image) => Container(
                     width: Get.width,
                     //height: 512,
