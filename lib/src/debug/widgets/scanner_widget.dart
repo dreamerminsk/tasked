@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
 
-class CustomWidget extends StatelessWidget {
+class ScannerWidget extends StatelessWidget {
   
-  const CustomWidget({
+  const ScannerWidget({
     super.key,
   });
 
@@ -19,7 +19,7 @@ class CustomWidget extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.THEME); 
+          Get.toNamed(Routes.SCANNER); 
         },
         child: Container(
           width: Get.width,
@@ -29,9 +29,10 @@ class CustomWidget extends StatelessWidget {
               MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'custom',
+                'scanner',
                 style: textTheme.headlineSmall!
                   .copyWith(
+                    fontWeight: FontWeight.w700,
                     color:
                       colorScheme.onPrimaryContainer,
                   ),
