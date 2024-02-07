@@ -34,7 +34,7 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    fetchAnime().then(()=>refresh());
+    fetchAnime().whenComplete(()=>refresh());
   }
 
   @override
