@@ -7,9 +7,11 @@ class ScannerWidget extends StatelessWidget {
   final colors = RxList<Color>();
   final onColors = RxList<Color>();
   final colorIdx = RxInt(0);
+
   ScannerWidget({
     super.key,
   });
+
   void setUpColors(ColorScheme colorScheme) {
     colors.addAll([
       colorScheme.primary,
@@ -48,14 +50,18 @@ class ScannerWidget extends StatelessWidget {
     if (colors.length == 0) {
       setUpColors(colorScheme);
     }
+
     return Material(
       elevation: 2,
       borderRadius: const BorderRadius.all(Radius.circular(20)),
-      child: InkWell(
+      child: GestureDetector(
         onTap: () {
           Get.toNamed(Routes.SCANNER);
         },
-        child: Container(
+        onPanEnd: (details) {
+          colorIdx.value = (colorIdx.value+1)%colors.length;
+        },
+        child: ObxValue((data)=>Container(
           width: Get.width,
           height: 100,
           child: Column(
@@ -65,7 +71,7 @@ class ScannerWidget extends StatelessWidget {
                 'scanner',
                 style: textTheme.headlineSmall!.copyWith(
                   fontWeight: FontWeight.w500,
-                  color: colorScheme.onPrimaryContainer,
+                  color: onColors[data.value],
                 ),
               ), // Text
             ],
@@ -75,9 +81,10 @@ class ScannerWidget extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.primaryContainer,
+            color: colors[data.value],
           ), // BoxDecoration
-        ), //Container
+        ), // Container
+        colorIdx), // ObxValue
       ), // InkWell
     ); // Material
   }
