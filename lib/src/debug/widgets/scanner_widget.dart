@@ -59,32 +59,33 @@ class ScannerWidget extends StatelessWidget {
           Get.toNamed(Routes.SCANNER);
         },
         onPanEnd: (details) {
-          colorIdx.value = (colorIdx.value+1)%colors.length;
+          colorIdx.value = (colorIdx.value + 1) % colors.length;
         },
-        child: ObxValue((data)=>Container(
-          width: Get.width,
-          height: 100,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'scanner',
-                style: textTheme.headlineSmall!.copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: onColors[data.value],
-                ),
-              ), // Text
-            ],
-          ), // Column
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
-            color: colors[data.value],
-          ), // BoxDecoration
-        ), // Container
-        colorIdx), // ObxValue
+        child: ObxValue(
+            (data) => Container(
+                  width: Get.width,
+                  height: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'scanner',
+                        style: textTheme.headlineSmall!.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: onColors[data.value],
+                        ),
+                      ), // Text
+                    ],
+                  ), // Column
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ), // BorderRadius
+                    color: colors[data.value],
+                  ), // BoxDecoration
+                ), // Container
+            colorIdx), // ObxValue
       ), // InkWell
     ); // Material
   }
