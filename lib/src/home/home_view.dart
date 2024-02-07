@@ -49,7 +49,7 @@ class HomeView extends StatelessWidget {
 
   Widget _buildCard(BuildContext context, Anime item) {
     final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return Card(
       shape: RoundedRectangleBorder(
