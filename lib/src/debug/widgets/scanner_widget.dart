@@ -6,7 +6,7 @@ import '../../routes/app_pages.dart';
 class ScannerWidget extends StatelessWidget {
   final colors = RxList<Color>();
   final onColors =RxList<Color>();
-  final colorIdx = 0.obs;
+  final colorIdx = RxInt(0);
   const ScannerWidget({
     super.key,
   });
