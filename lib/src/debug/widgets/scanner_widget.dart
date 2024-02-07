@@ -62,16 +62,17 @@ class ScannerWidget extends StatelessWidget {
           colorIdx.value = (colorIdx.value + 1) % colors.length;
         },
         child: ObxValue(
-            (data) => Container(
+            (data) => AnimatedContainer(
                   width: Get.width,
                   height: 100,
+                  duration: Duration(seconds: 1),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'scanner',
-                        style: textTheme.headlineSmall!.copyWith(
-                          fontWeight: FontWeight.w500,
+                        'SCANNER',
+                        style: textTheme.headlineMedium!.copyWith(
+                          fontWeight: FontWeight.w300,
                           color: onColors[data.value],
                         ),
                       ), // Text
