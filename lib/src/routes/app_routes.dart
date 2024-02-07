@@ -15,7 +15,7 @@ abstract class Routes {
   static const THEME = _Paths.THEME;
   static const FILES = _Paths.FILES;
   static const RANDOM = _Paths.RANDOM;
-  static const CUSTOM = _Paths.CUSTOM;
+  static const SCANNER = _Paths.SCANNER;
 }
 
 abstract class _Paths {
@@ -31,5 +31,5 @@ abstract class _Paths {
   static const THEME = '/theme';
   static const FILES = '/files';
   static const RANDOM = '/watchlist/random';
-  static const CUSTOM = '/custom';
+  static const SCANNER = '/scanner';
 }
