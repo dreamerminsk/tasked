@@ -34,7 +34,7 @@ Container(
   alignment: Alignment.center,
   child: LoadingIndicator(indicatorType: Indicator.ballGridPulse),
 ), // Container
-                  errorWidget: ( url, error) =>
+                  errorWidget: ( context, url, error ) =>
 Container(
   width: Get.width,
   height: Get.height,
