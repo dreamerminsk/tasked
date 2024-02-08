@@ -23,6 +23,7 @@ class HomeDetailsView extends StatelessWidget {
 
     return Scaffold(
         body: Obx(() => Stack(
+          fit: StackFit.expand,
               children: <Widget>[
                 CachedNetworkImage(
                   imageUrl: (c.summary.value?.originalImage.source ?? ''),
