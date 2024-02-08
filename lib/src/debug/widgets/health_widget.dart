@@ -4,15 +4,11 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class HealthWidget extends StatelessWidget {
-  final DateTime started;
-  final int instances;
-  final int maxIns;
+  final Map<String, int> controllers;
 
   const HealthWidget({
     super.key,
-    required this.started,
-    required this.instances,
-    required this.maxIns,
+    required this.controllers,
   });
 
   @override
@@ -29,18 +25,7 @@ class HealthWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Text(
-                '${DateFormat.Hms().format(started)} — ${prettyDuration(DateTime.now().difference(started))}',
-                style:
-                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
-              ), // Text
-              Text(
-                'instances: $instances, max: $maxIns',
-                style:
-                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
-              ), // Text
-            ],
+            children: _buildList(context, controllers),
           ), // Column
           RotatedBox(
             quarterTurns: 3,
@@ -60,5 +45,19 @@ class HealthWidget extends StatelessWidget {
         color: colorScheme.primary,
       ), // BoxDecoration
     ); //Container
+  }
+
+  List<Widget> _buildList(BuildContext context, Map<String,int> items) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return items.map<Widget>((item)=>
+                Text(
+                '${item.key}: ${item.value}',
+                style:
+                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
+              ) 
+                    ).toList();
+
   }
 }
