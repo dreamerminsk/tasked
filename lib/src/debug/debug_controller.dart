@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class DebugController extends GetxService {
   final started = Rxn<DateTime>();
 
+  final controllers = RxMap<String, int>();
+  
   final instances = 0.obs;
 
   final maxIns = 0.obs;
