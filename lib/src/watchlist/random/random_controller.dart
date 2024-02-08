@@ -92,7 +92,7 @@ class RandomController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit();
+    debug.newInit(this.runtimeType.toString());
   }
 
   @override
@@ -103,7 +103,7 @@ class RandomController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose();
+    debug.newClose(this.runtimeType.toString());
     super.onClose();
   }
 
