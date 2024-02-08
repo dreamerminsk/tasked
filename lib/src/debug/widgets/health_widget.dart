@@ -28,7 +28,7 @@ class HealthWidget extends StatelessWidget {
             children: 
             <Widget>[
               Text(
-              '${controllers.entries.length}',
+              '${controllers}',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             )
