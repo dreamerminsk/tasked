@@ -26,10 +26,9 @@ class DebugController extends GetxService {
 
   final samples = [].obs;
 
-  void newInit() {
-    instances.value++;
-    if (instances.value > maxIns.value) {
-      maxIns.value = instances.value;
+  void newInit(String name) {
+    if (controllers.) {
+      
     }
   }
 
