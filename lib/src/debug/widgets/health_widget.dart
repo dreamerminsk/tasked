@@ -53,7 +53,7 @@ class HealthWidget extends StatelessWidget {
 
     return items.entries.take(3)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value}',
+              '${item.key.substring(0, 12)}: ${item.value}',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
