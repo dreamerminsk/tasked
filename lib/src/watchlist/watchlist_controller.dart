@@ -78,14 +78,14 @@ class WatchlistController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit();
+    debug.newInit(this.runtimeType.toString());
     links.sort((a, b) => a.title.compareTo(b.title));
     refreshWikiLinks();
   }
 
   @override
   void onClose() {
-    debug.newClose();
+    debug.newClose(this.runtimeType.toString());
     super.onClose();
   }
 

@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class DebugController extends GetxService {
   final started = Rxn<DateTime>();
 
+  final controllers = RxMap<String, int>();
+  
   final instances = 0.obs;
 
   final maxIns = 0.obs;
@@ -24,15 +26,12 @@ class DebugController extends GetxService {
 
   final samples = [].obs;
 
-  void newInit() {
-    instances.value++;
-    if (instances.value > maxIns.value) {
-      maxIns.value = instances.value;
-    }
+  void newInit(String name) {
+    controllers.update(name, (value)=>value+1, ifAbsent: ()=>1);
   }
 
-  void newClose() {
-    instances.value--;
+  void newClose(String name) {
+    controllers.update(name, (value)=>value-1, ifAbsent: ()=>0);
   }
 
   void newReq() {
@@ -50,7 +49,7 @@ class DebugController extends GetxService {
 
   @override
   void onInit() {
-    newInit();
+    newInit(this.runtimeType.toString());
     started.value = DateTime.now();
     loadSamples().then((items) => samples.assignAll(items));
     super.onInit();
@@ -63,7 +62,7 @@ class DebugController extends GetxService {
 
   @override
   void onClose() {
-    newClose();
+    newClose(this.runtimeType.toString());
     super.onClose();
   }
 
