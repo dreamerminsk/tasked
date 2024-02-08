@@ -27,13 +27,11 @@ class DebugController extends GetxService {
   final samples = [].obs;
 
   void newInit(String name) {
-    if (controllers.) {
-      
-    }
+    controllers.update(name, (value)=>value+1, ifAbsent: ()=>1);
   }
 
-  void newClose() {
-    instances.value--;
+  void newClose(String name) {
+    controllers.update(name, (value)=>value-1, ifAbsent: ()=>0);
   }
 
   void newReq() {
@@ -51,7 +49,7 @@ class DebugController extends GetxService {
 
   @override
   void onInit() {
-    newInit();
+    newInit(this.runtimeType.toString());
     started.value = DateTime.now();
     loadSamples().then((items) => samples.assignAll(items));
     super.onInit();
@@ -64,7 +62,7 @@ class DebugController extends GetxService {
 
   @override
   void onClose() {
-    newClose();
+    newClose(this.runtimeType.toString());
     super.onClose();
   }
 
