@@ -12,6 +12,7 @@ class ScannerController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    debug.newInit(this.runtimeType.toString());
   }
 
   @override
@@ -21,6 +22,7 @@ class ScannerController extends GetxController {
 
   @override
   void onClose() {
+    debug.newClose(this.runtimeType.toString());
     super.onClose();
   }
 
