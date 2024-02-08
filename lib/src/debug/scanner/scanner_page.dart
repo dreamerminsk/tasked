@@ -8,7 +8,6 @@ class ScannerPage extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
