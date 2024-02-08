@@ -21,6 +21,7 @@ class JsonController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    debug.newInit(this.runtimeType.toString());
     jsonRef.value = Get.arguments;
     load();
   }
@@ -32,6 +33,7 @@ class JsonController extends GetxController {
 
   @override
   void onClose() {
+    debug.newClose(this.runtimeType.toString());
     super.onClose();
   }
 
