@@ -8,24 +8,43 @@ class ScannerPage extends StatelessWidget {
     super.key,
   });
 
-  @override
-  Widget build(context) {
-    //final ScannerController c = Get.find();
-    //final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('SCANNER'),
-      ),
-      body: Container(
-        margin: EdgeInsets.all(8.0),
-        width: Get.width,
-        height: Get.height,
-        child: Center(
-          child: Text('NOT IMPLEMENTED'),
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('SCANNER'),
+          bottom: const TabBar(
+            tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.cloud_outlined),
+              ),
+              Tab(
+                icon: Icon(Icons.beach_access_sharp),
+              ),
+              Tab(
+                icon: Icon(Icons.brightness_5_sharp),
+              ),
+            ],
+          ),
         ),
-      ), //Container
+        body: const TabBarView(
+          children: <Widget>[
+            Center(
+              child: Text('TAB #1 ~ NOT IMPLEMENTED'),
+            ),
+            Center(
+              child: Text('TAB #2 ~ NOT IMPLEMENTED'),
+            ),
+            Center(
+              child: Text('TAB #3 ~ NOT IMPLEMENTED'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
