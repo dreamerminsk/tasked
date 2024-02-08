@@ -36,6 +36,16 @@ android {
         disable 'InvalidPackage'
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // New syntax (credit goes to ʍѳђઽ૯ท in comment)
+    kotlin {
+        jvmToolchain(17)
+    }
+
     namespace = "ch.karo.kb_dart"
 
     defaultConfig {
