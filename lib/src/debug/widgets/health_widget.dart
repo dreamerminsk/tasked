@@ -1,7 +1,7 @@
-import 'package:duration/duration.dart';
+//import 'package:duration/duration.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+//import 'package:intl/intl.dart';
 
 class HealthWidget extends StatelessWidget {
   final Map<String, int> controllers;
