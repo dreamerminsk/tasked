@@ -25,26 +25,24 @@ class HomeDetailsView extends StatelessWidget {
         body: Obx(() => Stack(
               children: <Widget>[
                 CachedNetworkImage(
-                  imageUrl: (c.summary.value?.originalImage.source ??
-                          ''),
-                  placeholder: (context, url) =>
-Container(
-  width: Get.width,
-  height: Get.height,
-  alignment: Alignment.center,
-  child: LoadingIndicator(indicatorType: Indicator.ballGridPulse),
-), // Container
-                  errorWidget: ( context, url, error ) =>
-Container(
-  width: Get.width,
-  height: Get.height,
-  alignment: Alignment.center,
-  child: Icon(
-                    Icons.error,
-                    size: Get.width - 16,
-                    color: colorScheme.error,
-                  ),
-), // Container
+                  imageUrl: (c.summary.value?.originalImage.source ?? ''),
+                  placeholder: (context, url) => Container(
+                    width: Get.width,
+                    height: Get.height,
+                    alignment: Alignment.center,
+                    child: LoadingIndicator(
+                        indicatorType: Indicator.ballGridPulse),
+                  ), // Container
+                  errorWidget: (context, url, error) => Container(
+                    width: Get.width,
+                    height: Get.height,
+                    alignment: Alignment.center,
+                    child: Icon(
+                      Icons.error,
+                      size: Get.width - 16,
+                      color: colorScheme.error,
+                    ),
+                  ), // Container
                   imageBuilder: (context, image) => Container(
                     width: Get.width,
                     //height: 512,
