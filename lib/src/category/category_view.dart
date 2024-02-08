@@ -68,8 +68,11 @@ class CategoryView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Column(
-          children: <Widget>[
+      Container(
+        decoration: BoxDecoration(
+          border: Border.all(width:1.0,color:colorScheme.onPrimary,),
+        ),
+        child:  children: <Widget>[
             Text(
               ci?.subcats.toString() ?? '∞',
               style:
@@ -81,7 +84,9 @@ class CategoryView extends StatelessWidget {
                   textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
             ),
           ],
-        ),
+        ), // Column
+      ), // Container
+
         Column(
           children: <Widget>[
             Text(
