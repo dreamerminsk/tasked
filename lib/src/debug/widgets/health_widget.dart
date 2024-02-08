@@ -52,9 +52,9 @@ class HealthWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return items.entries
-        .take(3)
+        .take(1)
         .map<Widget>((item) => Text(
-              '${item.key.substring(0, 12)}: ${item.value}',
+              '${item.key.length}: ${item.value}',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
