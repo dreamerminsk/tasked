@@ -25,14 +25,7 @@ class HealthWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: 
-            <Widget>[
-              Text(
-              '$controllers',
-              style:
-                  textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
-            )
-            ],
+            children: _buildList(context, controllers),
           ), // Column
           RotatedBox(
             quarterTurns: 3,
@@ -54,17 +47,17 @@ class HealthWidget extends StatelessWidget {
     ); //Container
   }
 
-  //List<Widget> _buildList(BuildContext context, Map<String, int> items) {
-    //final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+  List<Widget> _buildList(BuildContext context, Map<String, int> items) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    //return items.entries
-        //.take(1)
-        //.map<Widget>((item) => Text(
-              //'${item.key.length}: ${item.value}',
-              //style:
-                  //textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
-            //))
-        //.toList();
-  //}
+    return items.entries
+        .take(4)
+        .map<Widget>((item) => Text(
+              '${item.key}: ${item.value}',
+              style:
+                  textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
+            ))
+        .toList();
+  }
 }
