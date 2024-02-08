@@ -51,13 +51,12 @@ class HealthWidget extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return items.map<Widget>((item)=>
+    return items.entries.map<Widget>((item)=>
                 Text(
                 '${item.key}: ${item.value}',
                 style:
                     textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ) 
                     ).toList();
-
   }
 }
