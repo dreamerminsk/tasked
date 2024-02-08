@@ -27,7 +27,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    debug.newInit();
+    debug.newInit(this.runtimeType.toString());
     super.onInit();
   }
 
@@ -39,7 +39,7 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose();
+    debug.newClose(this.runtimeType.toString());
     super.onClose();
   }
 
