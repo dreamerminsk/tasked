@@ -26,7 +26,7 @@ class SampleColor extends StatelessWidget {
         onTap: () => Get.to(ColorPage(color: background)),
         child: Container(
           width: Get.width,
-          height: 100,
+          height: 160,
           alignment: Alignment.bottomCenter,
           child: Container(
             padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
