@@ -36,6 +36,8 @@ android {
         disable 'InvalidPackage'
     }
 
+    namespace = "ch.karo.kb_dart"
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "ch.karo.boxoffice"
