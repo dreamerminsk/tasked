@@ -72,7 +72,8 @@ class CategoryView extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(width:1.0,color:colorScheme.onPrimary,),
         ),
-        child:  children: <Widget>[
+        child:  Column(
+          children: <Widget>[
             Text(
               ci?.subcats.toString() ?? '∞',
               style:
