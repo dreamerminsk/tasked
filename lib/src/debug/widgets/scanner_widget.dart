@@ -65,6 +65,7 @@ class ScannerWidget extends StatelessWidget {
             (data) => AnimatedContainer(
                   width: Get.width,
                   height: 100,
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   duration: Duration(seconds: 1),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
