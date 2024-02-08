@@ -27,7 +27,7 @@ class DebugView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
             child: Obx(() => HealthWidget(
-                  controllers: c.controllers,
+                  controllers: Map.unmodifiable(c.controllers),
                 )),
           ), // Padding
           Padding(
