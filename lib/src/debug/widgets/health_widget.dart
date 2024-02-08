@@ -55,7 +55,7 @@ class HealthWidget extends StatelessWidget {
         .map<Widget>((item) => Text(
               '${item.key}: ${item.value}',
               style:
-                  textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
+                  textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
         .toList();
   }
