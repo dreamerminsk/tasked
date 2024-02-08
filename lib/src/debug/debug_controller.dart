@@ -28,10 +28,12 @@ class DebugController extends GetxService {
 
   void newInit(String name) {
     controllers.update(name, (value) => value + 1, ifAbsent: () => 1);
+    controllers.refresh();
   }
 
   void newClose(String name) {
     controllers.update(name, (value) => value - 1, ifAbsent: () => 0);
+    controllers.refresh();
   }
 
   void newReq() {
