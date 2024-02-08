@@ -47,16 +47,16 @@ class HealthWidget extends StatelessWidget {
     ); //Container
   }
 
-  List<Widget> _buildList(BuildContext context, Map<String,int> items) {
+  List<Widget> _buildList(BuildContext context, Map<String, int> items) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return items.entries.map<Widget>((item)=>
-                Text(
-                '${item.key}: ${item.value}',
-                style:
-                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
-              ) 
-                    ).toList();
+    return items.entries
+        .map<Widget>((item) => Text(
+              '${item.key}: ${item.value}',
+              style:
+                  textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
+            ))
+        .toList();
   }
 }

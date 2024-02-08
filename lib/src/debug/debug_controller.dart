@@ -8,7 +8,7 @@ class DebugController extends GetxService {
   final started = Rxn<DateTime>();
 
   final controllers = RxMap<String, int>();
-  
+
   final instances = 0.obs;
 
   final maxIns = 0.obs;
@@ -27,11 +27,11 @@ class DebugController extends GetxService {
   final samples = [].obs;
 
   void newInit(String name) {
-    controllers.update(name, (value)=>value+1, ifAbsent: ()=>1);
+    controllers.update(name, (value) => value + 1, ifAbsent: () => 1);
   }
 
   void newClose(String name) {
-    controllers.update(name, (value)=>value-1, ifAbsent: ()=>0);
+    controllers.update(name, (value) => value - 1, ifAbsent: () => 0);
   }
 
   void newReq() {
