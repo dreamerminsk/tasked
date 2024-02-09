@@ -52,7 +52,7 @@ class HealthWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return items.entries
-        .take(4)
+        .take(7)
         .map<Widget>((item) => Text(
               '${item.key}: ${item.value}',
               style:
