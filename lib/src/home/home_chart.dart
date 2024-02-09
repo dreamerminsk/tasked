@@ -5,6 +5,11 @@ import 'package:fl_chart/fl_chart.dart';
 import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
+
+
+final RxDouble fontSize = RxDouble(0.0);
+
+
   @override
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
@@ -38,17 +43,25 @@ class HomeChart extends StatelessWidget {
                 child: _LineChart(),
               ), // Padding
             ),
-            Expanded(
+            GestureDetector(
+onVerticalDragEnd: (details){
+if(details.primaryVelocity>0.0) {fontSize.value =fontSize.value+1.0} else{fontSize.value =fontSize.value-1.0}
+},
+              child: Expanded(
               child: Padding(
                 padding: EdgeInsets.all(4.0),
-                child: Obx(() => Text(
+                child: Obx(() => ObxValue((data)=>
+Text(
                       c.summary.value?.extract ?? '~~~~~',
                       textAlign: TextAlign.justify,
                       overflow: TextOverflow.fade,
-                      style: textTheme.bodyLarge!,
-                    )),
+                      style: textTheme.bodyLarge!.copyWith(fontSize: textTheme.bodyLarge!.fontSize!+data.value),
+                    ),fontSize
+)
+),
               ), // Padding
-            ),
+            ), // Expanded
+            ), // GestureDetector
           ],
         ), // Column
       ), // Container
