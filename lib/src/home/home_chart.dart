@@ -18,6 +18,9 @@ class HomeChart extends StatelessWidget {
         margin: EdgeInsets.all(12.0),
         padding: EdgeInsets.all(12.0),
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(24),
+          ),
           border: Border.all(
             color: colorScheme.primary,
             width: 2.0,
@@ -32,7 +35,7 @@ class HomeChart extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(4.0),
                 child: _LineChart(
-                  isShowingMainData: true,
+            
                 ),
               ), // Padding
             ),
