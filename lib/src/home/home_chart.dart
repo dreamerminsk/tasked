@@ -12,7 +12,8 @@ class HomeChart extends StatelessWidget {
     final HomeController c = Get.find();
 
     return Scaffold(
-      body: Container(
+       body: SafeArea(
+        child: Container(
         width: Get.width * 0.96,
         height: Get.height * 0.96,
         margin: EdgeInsets.all(12.0),
@@ -51,6 +52,7 @@ class HomeChart extends StatelessWidget {
           ],
         ), // Column
       ), // Container
+      ), // SafeArea
     );
   }
 }
