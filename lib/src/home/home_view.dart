@@ -120,6 +120,6 @@ class HomeView extends StatelessWidget {
               ),
             ),
           )
-        : Icon(Icons.image_not_supported, color: Colors.blueGrey, size: 96.0);
+        : Icon(Icons.broken_image, color: Theme.of(context).colorScheme.errorContainer, size: 96.0);
   }
 }
