@@ -31,9 +31,12 @@ class HomeDetailsView extends StatelessWidget {
                     width: Get.width,
                     height: Get.height,
                     alignment: Alignment.center,
-                    child: LoadingIndicator(
-                         colors:  [colorScheme.primary,colorScheme.secondary,colorScheme.tertiary,colorScheme.error], 
-                        indicatorType: Indicator.ballGridPulse),
+                    child: LoadingIndicator(colors: [
+                      colorScheme.primary,
+                      colorScheme.secondary,
+                      colorScheme.tertiary,
+                      colorScheme.error
+                    ], indicatorType: Indicator.ballGridPulse),
                   ), // Container
                   errorWidget: (context, url, error) => Container(
                     width: Get.width,

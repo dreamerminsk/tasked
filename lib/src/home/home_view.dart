@@ -104,22 +104,21 @@ class HomeView extends StatelessWidget {
         ? CachedNetworkImage(
             imageUrl: (item.wiki?.image ?? '').replaceFirst('220px', '96px'),
             placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) =>
-                Icon(Icons.broken_image, color: Theme.of(context).colorScheme.error, size: 96.0),
-            imageBuilder: (context, image) =>
-ClipRRect( 
-borderRadius: BorderRadius.circular(16),
-child: Container(
-              width: 96.00,
-              height: 150.00,
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: image,
-                  fit: BoxFit.contain,
+            errorWidget: (context, url, error) => Icon(Icons.broken_image,
+                color: Theme.of(context).colorScheme.error, size: 96.0),
+            imageBuilder: (context, image) => ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Container(
+                width: 96.00,
+                height: 150.00,
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    image: image,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),
-),
           )
         : Icon(Icons.image_not_supported, color: Colors.blueGrey, size: 96.0);
   }

@@ -5,10 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
-
-
-final RxDouble fontSize = RxDouble(0.0);
-
+  final RxDouble fontSize = RxDouble(0.0);
 
   @override
   Widget build(context) {
@@ -17,54 +14,59 @@ final RxDouble fontSize = RxDouble(0.0);
     final HomeController c = Get.find();
 
     return Scaffold(
-       body: SafeArea(
+      body: SafeArea(
         child: Container(
-        width: Get.width * 0.96,
-        height: Get.height * 0.96,
-        margin: EdgeInsets.all(12.0),
-        padding: EdgeInsets.all(12.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(24),
-          ),
-          border: Border.all(
-            color: colorScheme.primary,
-            width: 2.0,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: _LineChart(),
-              ), // Padding
+          width: Get.width * 0.96,
+          height: Get.height * 0.96,
+          margin: EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(24),
             ),
-            GestureDetector(
-onVerticalDragEnd: (details){
-if(details.primaryVelocity!>0.0) {fontSize.value =fontSize.value+1.0;} else{fontSize.value =fontSize.value-1.0;}
-},
-              child: Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Obx(() => ObxValue((data)=>
-Text(
-                      c.summary.value?.extract ?? '~~~~~',
-                      textAlign: TextAlign.justify,
-                      overflow: TextOverflow.fade,
-                      style: textTheme.bodyLarge!.copyWith(fontSize: textTheme.bodyLarge!.fontSize!+data.value),
-                    ),fontSize
-)
-),
-              ), // Padding
-            ), // Expanded
-            ), // GestureDetector
-          ],
-        ), // Column
-      ), // Container
+            border: Border.all(
+              color: colorScheme.primary,
+              width: 2.0,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: _LineChart(),
+                ), // Padding
+              ),
+              GestureDetector(
+                onVerticalDragEnd: (details) {
+                  if (details.primaryVelocity! > 0.0) {
+                    fontSize.value = fontSize.value + 1.0;
+                  } else {
+                    fontSize.value = fontSize.value - 1.0;
+                  }
+                },
+                child: Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(4.0),
+                    child: Obx(() => ObxValue(
+                        (data) => Text(
+                              c.summary.value?.extract ?? '~~~~~',
+                              textAlign: TextAlign.justify,
+                              overflow: TextOverflow.fade,
+                              style: textTheme.bodyLarge!.copyWith(
+                                  fontSize: textTheme.bodyLarge!.fontSize! +
+                                      data.value),
+                            ),
+                        fontSize)),
+                  ), // Padding
+                ), // Expanded
+              ), // GestureDetector
+            ],
+          ), // Column
+        ), // Container
       ), // SafeArea
     );
   }
