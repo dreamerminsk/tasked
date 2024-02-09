@@ -9,10 +9,10 @@ import 'home_chart.dart';
 //https://en.wikipedia.org/api/rest_v1/page/summary/Minsk
 //https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=21721040
 class HomeDetailsView extends StatelessWidget {
-  final RxInt titleOpacity = RxInt(80);
+  final RxInt titleOpacity = RxInt(100);
   final RxInt toDir = RxInt(-5);
 
-  final RxInt descOpacity = RxInt(75);
+  final RxInt descOpacity = RxInt(100);
   final RxInt doDir = RxInt(-5);
 
   @override
