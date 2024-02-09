@@ -33,7 +33,4 @@ class MediaWiki {
       print("app error data $e");
     }));
   }
-
-
-  
 }
