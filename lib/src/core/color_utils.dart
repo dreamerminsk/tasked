@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class ColorUtils {
 
 //function getContrastYIQ(hexcolor){
@@ -8,7 +10,7 @@ class ColorUtils {
 	//return (yiq >= 128) ? 'black' : 'white';
 //}
 
-  static ColorUtils.contrastColor(Color color) {
+  static Color contrastColor(Color color) {
  final yiq = (299*color.red+587*color.green+114*color.blue)/1000;
     return yiq>=128 ? Colors.black : Colors.white;
   }
