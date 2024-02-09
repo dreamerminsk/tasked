@@ -7,7 +7,7 @@ import 'media_wiki.dart';
 class MediaWikiController extends GetxService {
 final MediaWiki mediaWiki;
 
-MediaWikiController({this.mediaWiki});
+MediaWikiController({required this.mediaWiki});
 
 
 }
