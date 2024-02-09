@@ -105,7 +105,7 @@ class HomeView extends StatelessWidget {
             imageUrl: (item.wiki?.image ?? '').replaceFirst('220px', '96px'),
             placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) =>
-                Icon(Icons.error, color: Colors.red, size: 96.0),
+                Icon(Icons.broken_image, color: Theme.of(context).colorScheme.error, size: 96.0),
             imageBuilder: (context, image) =>
 ClipRRect( 
 borderRadius: BorderRadius.circular(16),
