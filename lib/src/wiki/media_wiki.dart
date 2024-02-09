@@ -1,9 +1,8 @@
 import 'dart:core';
 
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
 
-class MediaWiki extends GetxService {
+class MediaWiki {
   late Dio dio;
 
   static final MediaWiki _instance = MediaWiki._internal();
@@ -19,7 +18,7 @@ class MediaWiki extends GetxService {
         receiveTimeout: const Duration(seconds: 32),
         headers: {
           'User-Agent':
-              'KbDartBot 0/0/64 (https://github.com/dreamerminsk/kb-dart; tutmirage@gmail.com) Flutter 3/16/5',
+              'wikiedViews 0/0/131 (https://github.com/dreamerminsk/kb-dart; tutmirage@gmail.com) Flutter 3/16/9',
         },
         contentType: "application/json: charset=utf-8",
         responseType: ResponseType.json);
@@ -35,8 +34,6 @@ class MediaWiki extends GetxService {
     }));
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+
+  
 }
