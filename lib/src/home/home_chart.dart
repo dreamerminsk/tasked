@@ -42,7 +42,7 @@ class HomeChart extends StatelessWidget {
               ),
               GestureDetector(
                 onVerticalDragEnd: (details) {
-                  if (details.primaryVelocity! > 0.0) {
+                  if ((details.primaryVelocity ?? 1.0) > 0.0) {
                     fontSize.value = fontSize.value + 1.0;
                   } else {
                     fontSize.value = fontSize.value - 1.0;
