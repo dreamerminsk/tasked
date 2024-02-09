@@ -53,7 +53,7 @@ class HomeView extends StatelessWidget {
 
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Column(
@@ -106,7 +106,10 @@ class HomeView extends StatelessWidget {
             placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) =>
                 Icon(Icons.error, color: Colors.red, size: 96.0),
-            imageBuilder: (context, image) => Container(
+            imageBuilder: (context, image) =>
+ClipRRect( 
+borderRadius: BorderRadius.circular(16),
+child: Container(
               width: 96.00,
               height: 150.00,
               decoration: new BoxDecoration(
@@ -116,6 +119,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
             ),
+),
           )
         : Icon(Icons.image_not_supported, color: Colors.blueGrey, size: 96.0);
   }
