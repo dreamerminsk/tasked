@@ -17,6 +17,8 @@ class HomeChart extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final HomeController c = Get.find();
 
+    fontSize.value = textTheme.bodyLarge!.fontSize!;
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -67,6 +69,8 @@ class HomeChart extends StatelessWidget {
                   onVerticalDragEnd:(details) {
                     event.value = 'onVerticalDragEnd';
                     vV.value = details.primaryVelocity ?? 0.0;
+                    if (vV.value<0.0) {fontSize.value = fontSize.value+1;}
+                    if (vV.value>0.0){fontSize.value=fontSize.value-1;}
                   },
                   child: Padding(
                     padding: EdgeInsets.all(4.0),
