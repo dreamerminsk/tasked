@@ -40,6 +40,16 @@ class HomeChart extends StatelessWidget {
                   child: _LineChart(),
                 ), // Padding
               ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(4.0),
+                  child: ObxValue((data) => 
+                  Text( 
+                   '${fontSize.value}',style: textTheme.headlineSmall!,
+                  ),fontSize
+                  ),
+                ), // Padding
+              ),
               GestureDetector(
                 onVerticalDragEnd: (DragEndDetails details) {
                   //if ((details.primaryVelocity ?? 1.0) > 0.0) {
