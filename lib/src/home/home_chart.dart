@@ -49,38 +49,44 @@ class HomeChart extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.all(4.0),
-                  child: ObxValue((data) => 
-                  Text( 
-                   '${data.value}\r\n${fontSize.value},\r\nVh=${hV.value},\r\nVv=${vV.value}',style: textTheme.headlineSmall!,
-                  ),event
-                  ),
+                  child: ObxValue(
+                      (data) => Text(
+                            '${data.value}\r\n${fontSize.value},\r\nVh=${hV.value},\r\nVv=${vV.value}',
+                            style: textTheme.headlineSmall!,
+                          ),
+                      event),
                 ), // Padding
               ),
               Expanded(
-                child:  GestureDetector(
+                child: GestureDetector(
                   onTap: () {
-                    event.value ='onTap';
+                    event.value = 'onTap';
                     fontSize.value = fontSize.value + 1.0;
-                },
-                  onHorizontalDragEnd:(details) {
+                  },
+                  onHorizontalDragEnd: (details) {
                     event.value = 'onHorizontalDragEnd';
                     hV.value = details.primaryVelocity ?? 0.0;
                   },
-                  onVerticalDragEnd:(details) {
+                  onVerticalDragEnd: (details) {
                     event.value = 'onVerticalDragEnd';
                     vV.value = details.primaryVelocity ?? 0.0;
-                    if (vV.value<0.0) {fontSize.value = fontSize.value+1;}
-                    if (vV.value>0.0){fontSize.value=fontSize.value-1;}
+                    if (vV.value < 0.0) {
+                      fontSize.value = fontSize.value + 1;
+                    }
+                    if (vV.value > 0.0) {
+                      fontSize.value = fontSize.value - 1;
+                    }
                   },
                   child: Padding(
                     padding: EdgeInsets.all(4.0),
-                    child: Obx(() => Text(
-                              c.summary.value?.extract ?? '~~~~~',
-                              textAlign: TextAlign.justify,
-                              overflow: TextOverflow.fade,
-                              style: textTheme.bodyLarge!,
-                            ),
-                        ),
+                    child: Obx(
+                      () => Text(
+                        c.summary.value?.extract ?? '~~~~~',
+                        textAlign: TextAlign.justify,
+                        overflow: TextOverflow.fade,
+                        style: textTheme.bodyLarge!,
+                      ),
+                    ),
                   ), // Padding
                 ), // Expanded
               ), // GestureDetector

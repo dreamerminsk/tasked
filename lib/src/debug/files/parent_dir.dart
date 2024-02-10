@@ -49,17 +49,17 @@ class ParentDir extends StatelessWidget {
                     },
                   ),
                   Expanded(
-                  child: GestureDetector(
-                    onTap: () => this.onTap?.call(),
-                    child: Text(
-                      title.split('/').last,
-                      overflow: TextOverflow.fade,
-                      style: textTheme.titleLarge!.copyWith(
-                        color: colorScheme.onPrimary,
-                      ),
-                    ), // Text
-                  ), // GestureDetector
-                    ), // Expanded
+                    child: GestureDetector(
+                      onTap: () => this.onTap?.call(),
+                      child: Text(
+                        title.split('/').last,
+                        overflow: TextOverflow.fade,
+                        style: textTheme.titleLarge!.copyWith(
+                          color: colorScheme.onPrimary,
+                        ),
+                      ), // Text
+                    ), // GestureDetector
+                  ), // Expanded
                   IconButton(
                     //iconSize: 72,
                     color: colorScheme.onPrimary,
