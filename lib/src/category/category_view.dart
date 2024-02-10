@@ -69,7 +69,9 @@ class CategoryView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
+          padding: EdgeInsets.all(4.0),
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
             border: Border.all(
               width: 1.0,
               color: colorScheme.onPrimary,
