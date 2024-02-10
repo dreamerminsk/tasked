@@ -61,7 +61,7 @@ class HomeChart extends StatelessWidget {
                     fontSize.value = fontSize.value + 1.0;
                 },
                   onHorizontalDragEnd:(details) {
-                    event.value = 'onHorizontalDragEnd'l
+                    event.value = 'onHorizontalDragEnd';
                     hV.value = details.primaryVelocity ?? 0.0;
                   },
                   onVerticalDragEnd:(details) {
