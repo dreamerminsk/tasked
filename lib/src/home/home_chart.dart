@@ -41,7 +41,7 @@ class HomeChart extends StatelessWidget {
                 ), // Padding
               ),
               GestureDetector(
-                onVerticalDragEnd: (details) {
+                onVerticalDragEnd: (DragEndDetails details) {
                   //if ((details.primaryVelocity ?? 1.0) > 0.0) {
                     fontSize.value = fontSize.value + 1.0;
                   //} else {
