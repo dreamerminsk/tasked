@@ -48,7 +48,8 @@ class ParentDir extends StatelessWidget {
                       Get.back();
                     },
                   ),
-                  GestureDetector(
+                  Expanded(
+                  child: GestureDetector(
                     onTap: () => this.onTap?.call(),
                     child: Text(
                       title.split('/').last,
@@ -58,6 +59,7 @@ class ParentDir extends StatelessWidget {
                       ),
                     ), // Text
                   ), // GestureDetector
+                    ), // Expanded
                   IconButton(
                     //iconSize: 72,
                     color: colorScheme.onPrimary,
