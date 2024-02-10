@@ -37,7 +37,7 @@ class HomeChart extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.all(4.0),
-                  child: _LineChart(),
+                  child: Text('LineChart'), //_LineChart(),
                 ), // Padding
               ),
               Expanded(
