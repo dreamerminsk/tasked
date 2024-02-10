@@ -19,13 +19,13 @@ class ScannerPage extends StatelessWidget {
           bottom: const TabBar(
             tabs: <Widget>[
               Tab(
-                icon: Icon(Icons.cloud_outlined),
+                icon: Icon(Icons.article),
               ),
               Tab(
-                icon: Icon(Icons.beach_access_sharp),
+                icon: Icon(Icons.group),
               ),
               Tab(
-                icon: Icon(Icons.brightness_5_sharp),
+                icon: Icon(Icons.groups),
               ),
             ],
           ),
