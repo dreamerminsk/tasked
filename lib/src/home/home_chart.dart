@@ -6,7 +6,7 @@ import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
   final RxDouble fontSize = RxDouble(11.0);
-  final isChart = false.obs;
+  final isChart = true.obs;
 
   @override
   Widget build(context) {
