@@ -6,7 +6,7 @@ import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
   final RxDouble fontSize = RxDouble(11.0);
-  var isChart = false;
+  final isChart = false.obs;
 
   @override
   Widget build(context) {
@@ -38,7 +38,7 @@ class HomeChart extends StatelessWidget {
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.all(4.0),
-                  child: isChart ? _LineChart() : Text('LineChart'),
+                  child: isChart.value ? _LineChart() : Text('LineChart'),
                 ), // Padding
               ),
               Expanded(
