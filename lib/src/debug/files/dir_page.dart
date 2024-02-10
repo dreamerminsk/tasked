@@ -60,7 +60,7 @@ class DirPage extends StatelessWidget {
 
   Widget _buildSheet(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 500,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         //mainAxisSize: MainAxisSize.min,
