@@ -5,7 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
-  final RxDouble fontSize = RxDouble(0.0);
+  final RxDouble fontSize = RxDouble(11.0);
 
   @override
   Widget build(context) {
@@ -57,8 +57,7 @@ class HomeChart extends StatelessWidget {
                               textAlign: TextAlign.justify,
                               overflow: TextOverflow.fade,
                               style: textTheme.bodyLarge!.copyWith(
-                                  fontSize: (textTheme.bodyLarge!.fontSize ?? 8.0) +
-                                      data.value),
+                                  fontSize: data.value),
                             ),
                         fontSize)),
                   ), // Padding
