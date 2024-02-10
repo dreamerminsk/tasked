@@ -5,7 +5,10 @@ import 'package:fl_chart/fl_chart.dart';
 import 'home_controller.dart';
 
 class HomeChart extends StatelessWidget {
+  final RxString event = RxString('');
   final RxDouble fontSize = RxDouble(11.0);
+  final RxDouble hV = RxDouble(0.0);
+  final RxDouble vV = RxDouble(0.0);
   final isChart = true.obs;
 
   @override
@@ -46,16 +49,25 @@ class HomeChart extends StatelessWidget {
                   padding: EdgeInsets.all(4.0),
                   child: ObxValue((data) => 
                   Text( 
-                   '${fontSize.value}',style: textTheme.headlineSmall!,
-                  ),fontSize
+                   '${data.value}\r\n${fontSize.value},\r\nVh=${hV.value},\r\nVv=${vV.value}',style: textTheme.headlineSmall!,
+                  ),event
                   ),
                 ), // Padding
               ),
               Expanded(
                 child:  GestureDetector(
                   onTap: () {
+                    event.value ='onTap';
                     fontSize.value = fontSize.value + 1.0;
                 },
+                  onHorizontalDragEnd:(details) {
+                    event.value = 'onHorizontalDragEnd'l
+                    hV.value = details.primaryVelocity ?? 0.0;
+                  },
+                  onVerticalDragEnd:(details) {
+                    event.value = 'onVerticalDragEnd';
+                    vV.value = details.primaryVelocity ?? 0.0;
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(4.0),
                     child: Obx(() => Text(
