@@ -51,15 +51,13 @@ class HomeChart extends StatelessWidget {
                 child: Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(4.0),
-                    child: Obx(() => ObxValue(
-                        (data) => Text(
+                    child: Obx(() => Text(
                               c.summary.value?.extract ?? '~~~~~',
                               textAlign: TextAlign.justify,
                               overflow: TextOverflow.fade,
-                              style: textTheme.bodyLarge!.copyWith(
-                                  fontSize: data.value),
+                              style: textTheme.bodyLarge!,
                             ),
-                        fontSize)),
+                        ),
                   ), // Padding
                 ), // Expanded
               ), // GestureDetector
