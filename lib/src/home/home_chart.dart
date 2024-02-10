@@ -51,11 +51,11 @@ class HomeChart extends StatelessWidget {
                   ),
                 ), // Padding
               ),
-              GestureDetector(
-                onTap: () {
+              Expanded(
+                child:  GestureDetector(
+                  onTap: () {
                     fontSize.value = fontSize.value + 1.0;
                 },
-                child: Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(4.0),
                     child: Obx(() => Text(
