@@ -83,6 +83,6 @@ class SampleDir extends StatelessWidget {
   }
 
   String _format(DateTime dt) {
-    return DateFormat.yMMMMd().add_Hms().format(dt);
+    return DateFormat.yMd().add_Hms().format(dt);
   }
 }
