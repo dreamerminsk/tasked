@@ -55,12 +55,18 @@ class SampleDir extends StatelessWidget {
                 ),
               ), // Text
               ObxValue(
-                (data) => Text(
-                  'size: ${data.value?.size ?? 0}, modified: ${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
-                  style: textTheme.titleMedium!.copyWith(
-                    color: foreground,
-                  ),
-                ), // Text
+                (data) => 
+Wrap(
+children:<Widget>[
+                InputChip(
+          avatar: Icon(Icons.data_usage),
+label: Text('${data.value?.size ?? 0}',),
+                ),
+InputChip(
+          avatar: Icon(Icons.today),
+label: Text('${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',),
+                ),
+],),
                 stat,
               ), // ObxValue
             ],
