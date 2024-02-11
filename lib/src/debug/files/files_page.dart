@@ -34,6 +34,8 @@ class FilesPage extends StatelessWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(title: const Text('FILES'), actions: <Widget>[]),
+
       body: ListView(
         //padding: EdgeInsets.all(8),
         children: <Widget>[
