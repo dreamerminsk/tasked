@@ -15,7 +15,7 @@ class HomeDetailsView extends StatelessWidget {
   final RxInt descOpacity = RxInt(90);
   final RxInt doDir = RxInt(-5);
 
-  final RxInt boxFit = RxInt(1);
+  final RxInt boxFit = RxInt(2);
 
   @override
   Widget build(context) {
@@ -50,14 +50,14 @@ class HomeDetailsView extends StatelessWidget {
                       color: colorScheme.error,
                     ),
                   ), // Container
-                  imageBuilder: (context, image) => Container(
+                  imageBuilder: (context, image) => ObxValue((data)=>Container(
                     width: Get.width,
                     //height: 512,
                     alignment: Alignment.topLeft,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: image,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.values[boxFit.value],
                       ),
                       //border: Border.all(
                       //width: 3, color: Colors.red,
@@ -66,7 +66,7 @@ class HomeDetailsView extends StatelessWidget {
                       //bottom: Radius.circular(40),
                       //),
                     ),
-                  ),
+                  ), boxFit),
                 ), //CachedNetworkImage
                 Positioned(
                   top: 32,
