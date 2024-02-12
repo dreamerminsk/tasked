@@ -77,7 +77,9 @@ class HomeChart extends StatelessWidget {
                       fontSize.value = fontSize.value - 1;
                     }
                   },
-                  child: Padding(
+                  child: Container(
+                    width: Get.width * 0.90,
+          //height: Get.height * 0.96,
                     padding: EdgeInsets.all(4.0),
                     child: Obx(
                       () => ObxValue(
