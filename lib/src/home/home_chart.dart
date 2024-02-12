@@ -80,12 +80,15 @@ class HomeChart extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(4.0),
                     child: Obx(
-                      () => ObxValue((data)=>Text(
-                        c.summary.value?.extract ?? '~~~~~',
-                        textAlign: TextAlign.justify,
-                        overflow: TextOverflow.fade,
-                        style: textTheme.bodyLarge!.copyWith(fontSize: fontSize.value),
-                      ),fontSize),
+                      () => ObxValue(
+                          (data) => Text(
+                                c.summary.value?.extract ?? '~~~~~',
+                                textAlign: TextAlign.justify,
+                                overflow: TextOverflow.fade,
+                                style: textTheme.bodyLarge!
+                                    .copyWith(fontSize: fontSize.value),
+                              ),
+                          fontSize),
                     ),
                   ), // Padding
                 ), // Expanded
