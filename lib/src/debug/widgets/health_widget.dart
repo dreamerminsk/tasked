@@ -29,7 +29,7 @@ class HealthWidget extends StatelessWidget {
           ), // Column
           RotatedBox(
             quarterTurns: 3,
-            child: Padding(
+            child: Container(
               padding: EdgeInsets.fromLTRB(0, 8, 0, 4),
               child: Text(
                 'Health Status',
