@@ -82,7 +82,7 @@ class HomeDetailsView extends StatelessWidget {
                         toDir.value *= -1;
                       }
                     },
-onHorizontalDragEnd(details) {
+onHorizontalDragEnd: (details) {
 if (details.primaryVelocity != null) {
 boxFit.value = (boxFit.value +1)%BoxFit.values.length;
 }
