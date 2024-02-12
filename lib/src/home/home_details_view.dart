@@ -12,8 +12,10 @@ class HomeDetailsView extends StatelessWidget {
   final RxInt titleOpacity = RxInt(100);
   final RxInt toDir = RxInt(-5);
 
-  final RxInt descOpacity = RxInt(100);
+  final RxInt descOpacity = RxInt(90);
   final RxInt doDir = RxInt(-5);
+
+  final RxInt boxFit = RxInt(1);
 
   @override
   Widget build(context) {
@@ -80,6 +82,11 @@ class HomeDetailsView extends StatelessWidget {
                         toDir.value *= -1;
                       }
                     },
+onHorizontalDragEnd(details) {
+if (details.primaryVelocity != null) {
+boxFit.value = (boxFit.value +1)%BoxFit.values.length;
+}
+},
                     child: ObxValue(
                       (data) => Container(
                         padding: EdgeInsets.all(8.0),
@@ -102,7 +109,7 @@ class HomeDetailsView extends StatelessWidget {
                             //Expanded(
                             //child: Text(
                             Text(
-                              c.selected.value.title ?? '<~~~~~>',
+                              '${c.selected.value.title} - ${BoxFit.values[boxFit.value]}',
                               maxLines: 2,
                               overflow: TextOverflow.fade,
                               style: textTheme.headlineLarge!.copyWith(
