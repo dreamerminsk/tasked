@@ -50,23 +50,25 @@ class HomeDetailsView extends StatelessWidget {
                       color: colorScheme.error,
                     ),
                   ), // Container
-                  imageBuilder: (context, image) => ObxValue((data)=>Container(
-                    width: Get.width,
-                    //height: 512,
-                    alignment: Alignment.topLeft,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: image,
-                        fit: BoxFit.values[boxFit.value],
-                      ),
-                      //border: Border.all(
-                      //width: 3, color: Colors.red,
-                      //),
-                      //borderRadius: BorderRadius.vertical(
-                      //bottom: Radius.circular(40),
-                      //),
-                    ),
-                  ), boxFit),
+                  imageBuilder: (context, image) => ObxValue(
+                      (data) => Container(
+                            width: Get.width,
+                            //height: 512,
+                            alignment: Alignment.topLeft,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: image,
+                                fit: BoxFit.values[boxFit.value],
+                              ),
+                              //border: Border.all(
+                              //width: 3, color: Colors.red,
+                              //),
+                              //borderRadius: BorderRadius.vertical(
+                              //bottom: Radius.circular(40),
+                              //),
+                            ),
+                          ),
+                      boxFit),
                 ), //CachedNetworkImage
                 Positioned(
                   top: 32,
@@ -82,11 +84,12 @@ class HomeDetailsView extends StatelessWidget {
                         toDir.value *= -1;
                       }
                     },
-onHorizontalDragEnd: (details) {
-if (details.primaryVelocity != null) {
-boxFit.value = (boxFit.value +1)%BoxFit.values.length;
-}
-},
+                    onHorizontalDragEnd: (details) {
+                      if (details.primaryVelocity != null) {
+                        boxFit.value =
+                            (boxFit.value + 1) % BoxFit.values.length;
+                      }
+                    },
                     child: ObxValue(
                       (data) => Container(
                         padding: EdgeInsets.all(8.0),
