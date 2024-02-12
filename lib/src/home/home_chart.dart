@@ -86,7 +86,7 @@ class HomeChart extends StatelessWidget {
                                 textAlign: TextAlign.justify,
                                 overflow: TextOverflow.fade,
                                 style: textTheme.bodyLarge!
-                                    .copyWith(fontSize: fontSize.value),
+                                    .copyWith(fontSize: data.value),
                               ),
                           fontSize),
                     ),
