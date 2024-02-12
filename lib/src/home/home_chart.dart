@@ -84,11 +84,10 @@ class HomeChart extends StatelessWidget {
                     child: Obx(
                       () => ObxValue(
                           (data) => Text(
-                                c.summary.value?.extract ?? '~~~~~',
+                                '${c.summary.value?.extract} ~ ${textTheme.bodyLarge}',
                                 textAlign: TextAlign.justify,
                                 overflow: TextOverflow.fade,
-                                style: textTheme.bodyLarge!
-                                    .copyWith(fontSize: data.value),
+                                style: textTheme.bodyLarge!,
                               ),
                           fontSize),
                     ),
