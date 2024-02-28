@@ -1,5 +1,19 @@
 [
     {
+      "title": "Alexei Navalny",
+      "wiki": {
+           "title": "Alexei Navalny",
+           "mviMonth": 10000000
+        }
+    },
+    {
+      "title": "Yulia Navalnaya",
+      "wiki": {
+           "title": "Yulia Navalnaya",
+           "mviMonth": 10000000
+        }
+    },
+    {
       "title": "This Is Me...Now: A Love Story",
       "wiki": {
            "title": "This Is Me...Now: A Love Story",
@@ -38,6 +52,13 @@
       "title": "The Regime",
       "wiki": {
            "title": "The Regime (miniseries)",
+           "mviMonth": 10000000
+        }
+    },
+    {
+      "title": "Avatar: The Last Airbender",
+      "wiki": {
+           "title": "Avatar: The Last Airbender (2024 TV series)",
            "mviMonth": 10000000
         }
     },
