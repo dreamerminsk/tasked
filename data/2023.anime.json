@@ -7,27 +7,6 @@
         }
     },
     {
-      "title": "2024 Miami Open",
-      "wiki": {
-           "title": "2024 Miami Open",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "2024 Miami Open – Men's singles",
-      "wiki": {
-           "title": "2024 Miami Open – Men's singles",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "2024 Miami Open – Women's singles",
-      "wiki": {
-           "title": "2024 Miami Open – Women's singles",
-           "mviMonth": 10000000
-        }
-    },
-    {
       "title": "Isabeau Levito",
       "wiki": {
            "title": "Isabeau Levito",
@@ -77,41 +56,6 @@
         }
     },
     {
-      "title": "2024 BNP Paribas Open",
-      "wiki": {
-           "title": "2024 BNP Paribas Open",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "2024 BNP Paribas Open – Men's singles",
-      "wiki": {
-           "title": "2024 BNP Paribas Open – Men's singles",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "2024 BNP Paribas Open – Women's singles",
-      "wiki": {
-           "title": "2024 BNP Paribas Open – Women's singles",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "Christian Horner",
-      "wiki": {
-           "title": "Christian Horner",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "Ron DeSantis",
-      "wiki": {
-           "title": "Ron DeSantis",
-           "mviMonth": 10000000
-        }
-    },
-    {
       "title": "2024 World Snooker Championship",
       "wiki": {
            "title": "2024 World Snooker Championship",
@@ -136,20 +80,6 @@
       "title": "Michelle Keegan",
       "wiki": {
            "title": "Michelle Keegan",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "Alexei Navalny",
-      "wiki": {
-           "title": "Alexei Navalny",
-           "mviMonth": 10000000
-        }
-    },
-    {
-      "title": "Yulia Navalnaya",
-      "wiki": {
-           "title": "Yulia Navalnaya",
            "mviMonth": 10000000
         }
     },
@@ -224,13 +154,6 @@
         }
     },
     {
-      "title": "Fanny Ardant",
-      "wiki": {
-           "title": "Fanny Ardant",
-           "mviMonth": 1000000
-        }
-    },
-    {
       "title": "Daisy Ridley",
       "wiki": {
            "title": "Daisy Ridley",
@@ -294,13 +217,6 @@
         }
     },
     {
-      "title": "Dagmara Domińczyk",
-      "wiki": {
-           "title": "Dagmara Domińczyk",
-           "mviMonth": 1000000
-        }
-    },
-    {
       "title": "Reneé Rapp",
       "wiki": {
            "title": "Reneé Rapp",
@@ -357,13 +273,6 @@
         }
     },
     {
-      "title": "2024 Russian presidential election",
-      "wiki": {
-           "title": "2024 Russian presidential election",
-           "mviMonth": 1000000
-        }
-    },
-    {
       "title": "Donald Trump",
       "wiki": {
            "title": "Donald Trump",
@@ -374,13 +283,6 @@
       "title": "2024 United States presidential election",
       "wiki": {
            "title": "2024 United States presidential election",
-           "mviMonth": 1000000
-        }
-    },
-    {
-      "title": "Javier Milei",
-      "wiki": {
-           "title": "Javier Milei",
            "mviMonth": 1000000
         }
     },
@@ -430,27 +332,6 @@
       "title": "Lana Del Rey",
       "wiki": {
            "title": "Lana Del Rey",
-           "mviMonth": 1000000
-        }
-    },
-    {
-      "title": "2024 Welsh Open",
-      "wiki": {
-           "title": "2024 Welsh Open (snooker)",
-           "mviMonth": 1000000
-        }
-    },
-    {
-      "title": "2024 German Masters",
-      "wiki": {
-           "title": "2024 German Masters",
-           "mviMonth": 1000000
-        }
-    },
-    {
-      "title": "Deadpool 3",
-      "wiki": {
-           "title": "Deadpool 3",
            "mviMonth": 1000000
         }
     },
@@ -616,34 +497,6 @@
         }
    },
    {
-      "title": "Israel–Hamas war",
-      "wiki": {
-           "title": "Israel–Hamas war",
-           "mviMonth": 3240333
-        }
-   },
-   {
-      "title": "2023 Hamas-led attack on Israel",
-      "wiki": {
-           "title": "2023 Hamas-led attack on Israel",
-           "mviMonth": 3240333
-        }
-   },
-   {
-      "title": "2023 Israeli invasion of the Gaza Strip",
-      "wiki": {
-           "title": "2023 Israeli invasion of the Gaza Strip",
-           "mviMonth": 3240333
-        }
-   },
-   {
-      "title": "Killers of the Flower Moon",
-      "wiki": {
-           "title": "Killers of the Flower Moon (film)",
-           "mviMonth": 2008909
-        }
-   },
-   {
       "title": "Borderlands",
       "wiki": {
            "title": "Borderlands (film)",
@@ -721,20 +574,6 @@
         }
    },
    {
-      "title": "The Fall of the House of Usher",
-      "wiki": {
-           "title": "The Fall of the House of Usher (miniseries)",
-           "mviMonth": 210129
-        }
-   },
-   {
-      "title": "The Other Black Girl",
-      "wiki": {
-           "title": "The Other Black Girl (TV series)",
-           "mviMonth": 173671
-        }
-   },
-   {
       "title": "Lies of P",
       "wiki": {
            "title": "Lies of P",
@@ -749,13 +588,6 @@
         }
    },
    {
-      "title": "Gen V",
-      "wiki": {
-           "title": "Gen V",
-           "mviMonth": 551392
-        }
-   },
-   {
       "title": "Lisa Frankenstein",
       "wiki": {
            "title": "Lisa Frankenstein",
@@ -767,27 +599,6 @@
       "wiki": {
            "title": "Sha'Carri Richardson",
            "mviMonth": 50000
-        }
-   },
-   {
-      "title": "2023 British Open",
-      "wiki": {
-           "title": "2023 British Open",
-           "mviMonth": 135364
-        }
-   },
-   {
-      "title": "2023 English Open",
-      "wiki": {
-           "title": "2023 English Open (snooker)",
-           "mviMonth": 132575
-        }
-   },
-   {
-      "title": "2023 Wuhan Open",
-      "wiki": {
-           "title": "2023 Wuhan Open (snooker)",
-           "mviMonth": 13098
         }
    },
    {
@@ -854,20 +665,6 @@
         }
    },
    {
-      "title": "Shazam! Fury of the Gods",
-      "wiki": {
-           "title": "Shazam! Fury of the Gods",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "The Little Mermaid",
-      "wiki": {
-           "title": "The Little Mermaid (2023 film)",
-           "mviMonth": 1000
-        }
-   },
-   {
       "title": "Spider-Man: Across the Spider-Verse",
       "wiki": {
            "title": "Spider-Man: Across the Spider-Verse",
@@ -875,23 +672,9 @@
         }
    },
    {
-      "title": "Guy Ritchie's The Covenant",
-      "wiki": {
-           "title": "Guy Ritchie's The Covenant",
-           "mviMonth": 1000
-        }
-   },
-   {
       "title": "Masters of the Air",
       "wiki": {
            "title": "Masters of the Air",
-           "mviMonth": 1000
-        }
-   },
-   {
-      "title": "Oppenheimer",
-      "wiki": {
-           "title": "Oppenheimer (film)",
            "mviMonth": 1000
         }
    },
