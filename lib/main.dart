@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     shadeColor = shades[0];
 
     return GetMaterialApp(
-      title: 'kb-app',
+      title: 'tasked',
       theme: ThemeData(
         useMaterial3: true,
         //primarySwatch: Colors.indigo,
