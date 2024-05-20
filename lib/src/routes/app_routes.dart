@@ -8,7 +8,6 @@ abstract class Routes {
   static const WATCHLIST = _Paths.WATCHLIST;
   static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
-  static const POLITICS = _Paths.POLITICS;
   static const COLORSCHEME = _Paths.COLORSCHEME;
   static const TEXTTHEME = _Paths.TEXTTHEME;
   static const JSON = _Paths.JSON;
@@ -24,7 +23,6 @@ abstract class _Paths {
   static const WATCHLIST = '/watchlist';
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
-  static const POLITICS = '/politics';
   static const COLORSCHEME = '/colorscheme';
   static const TEXTTHEME = '/texttheme';
   static const JSON = '/json';
