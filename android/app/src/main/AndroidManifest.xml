@@ -6,7 +6,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="${applicationName}"
-        android:label="kb_dart"
+        android:label="tasked"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
