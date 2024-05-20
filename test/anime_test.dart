@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:kb_dart/src/home/entities/anime.dart';
+import 'package:tasked/src/home/entities/anime.dart';
 
 //import 'package:html/dom.dart' as dom;
 //import 'package:html/parser.dart';
