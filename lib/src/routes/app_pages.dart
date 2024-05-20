@@ -15,8 +15,6 @@ import '../debug/theme/theme_data_page.dart';
 import '../home/home_binding.dart';
 import '../home/home_details_view.dart';
 import '../home/home_view.dart';
-import '../politics/politics_binding.dart';
-import '../politics/politics_view.dart';
 import '../watchlist/random/random_binding.dart';
 import '../watchlist/random/random_page.dart';
 import '../watchlist/watchlist_binding.dart';
@@ -54,11 +52,6 @@ class AppPages {
       name: _Paths.DEBUG,
       page: () => DebugView(),
       binding: DebugBinding(),
-    ),
-    GetPage(
-      name: _Paths.POLITICS,
-      page: () => PoliticsView(),
-      binding: PoliticsBinding(),
     ),
     GetPage(
       name: _Paths.COLORSCHEME,
