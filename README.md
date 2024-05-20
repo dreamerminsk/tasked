@@ -12,3 +12,6 @@ A new Flutter application.
 
 ###
 [![dreamerminsk's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=dreamerminsk)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
+###
+![](https://komarev.com/ghpvc/?username=dreamerminsk&color=green)
