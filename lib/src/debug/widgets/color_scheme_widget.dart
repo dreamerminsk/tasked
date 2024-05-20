@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kb_dart/main.dart';
+import 'package:tasked/main.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemeWidget extends StatelessWidget {
