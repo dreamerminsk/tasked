@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 //import 'tasklist_controller.dart';
 import '../routes/app_pages.dart';
 
-class WatchlistView extends StatelessWidget {
+class TasklistView extends StatelessWidget {
   final colors = [
     Colors.black,
   ];
