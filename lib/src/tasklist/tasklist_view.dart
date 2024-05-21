@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'tasklist_controller.dart';
+//import 'tasklist_controller.dart';
 import '../routes/app_pages.dart';
 
 class WatchlistView extends StatelessWidget {
