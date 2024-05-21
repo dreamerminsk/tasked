@@ -29,7 +29,7 @@ class WatchlistView extends StatelessWidget {
           icon: Icon(Icons.casino),
           color: Theme.of(context).colorScheme.primary,
           onPressed: () {
-            Get.toNamed(Routes.RANDOM);
+            Get.toNamed(Routes.TASKLIST);
           },
         ),
         IconButton(
