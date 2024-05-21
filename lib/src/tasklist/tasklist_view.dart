@@ -11,7 +11,7 @@ class WatchlistView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final TasklistController c = Get.find();
+    //final TasklistController c = Get.find();
     this.colors[0] = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
