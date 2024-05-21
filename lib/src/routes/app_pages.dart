@@ -19,6 +19,8 @@ import '../watchlist/random/random_binding.dart';
 import '../watchlist/random/random_page.dart';
 import '../watchlist/watchlist_binding.dart';
 import '../watchlist/watchlist_view.dart';
+import '../tasklist/tasklist_binding.dart';
+import '../tasklist/tasklist_view.dart';
 
 part 'app_routes.dart';
 
@@ -42,6 +44,11 @@ class AppPages {
       name: _Paths.WATCHLIST,
       page: () => WatchlistView(),
       binding: WatchlistBinding(),
+    ),
+    GetPage(
+      name: _Paths.TASKLIST,
+      page: () => TasklistView(),
+      binding: TasklistBinding(),
     ),
     GetPage(
       name: _Paths.CATEGORY,
