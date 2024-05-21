@@ -24,13 +24,6 @@ class TasklistView extends StatelessWidget {
           },
         ),
         IconButton(
-          icon: Icon(Icons.casino),
-          color: Theme.of(context).colorScheme.primary,
-          onPressed: () {
-            Get.toNamed(Routes.RANDOM);
-          },
-        ),
-        IconButton(
           icon: Icon(Icons.query_stats),
           color: Theme.of(context).colorScheme.primary,
           onPressed: () {
@@ -41,7 +34,7 @@ class TasklistView extends StatelessWidget {
 
       body: Center(
                 child: Icon(Icons.tips_and_updates,
-                    color: Theme.of(context).colorScheme.primary, size: 160.0)),
+                    color: Theme.of(context).colorScheme.primary, size: 320.0)),
     );
   }
 }
