@@ -36,22 +36,47 @@ class TasklistView extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: Files(),
+            child: _buildTask('task 1'),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: ColorSchemeWidget(),
+            child: _buildTask('task 2'),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: TextThemeWidget(),
+            child: _buildTask('task 3'),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: ScannerWidget(),
+            child: _buildTask('task 4'),
           ), // Padding
         ],
       ), // ListView
     );
+  }
+
+  Widget _buildTask(String title) {
+    return Container(
+          width: Get.width,
+          height: 96,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                '$title',
+                style: textTheme.headlineSmall!
+                    .copyWith(color: colorScheme.onPrimary),
+              ), // Text
+            ],
+          ), // Column
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: colorScheme.primary,
+          ), // BoxDecoration
+        ); //Container
   }
 }
