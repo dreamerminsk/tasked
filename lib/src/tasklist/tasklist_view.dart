@@ -36,26 +36,26 @@ class TasklistView extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: _buildTask('task 1'),
+            child: _buildTask(context, 'task 1'),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: _buildTask('task 2'),
+            child: _buildTask(context, 'task 2'),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
-            child: _buildTask('task 3'),
+            child: _buildTask(context, 'task 3'),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
-            child: _buildTask('task 4'),
+            child: _buildTask(context, 'task 4'),
           ), // Padding
         ],
       ), // ListView
     );
   }
 
-  Widget _buildTask(String title) {
+  Widget _buildTask(BuildContext context, String title) {
     return Container(
           width: Get.width,
           height: 96,
@@ -65,8 +65,8 @@ class TasklistView extends StatelessWidget {
             children: <Widget>[
               Text(
                 '$title',
-                style: textTheme.headlineSmall!
-                    .copyWith(color: colorScheme.onPrimary),
+                style: Theme.of(context).textTheme.headlineSmall!
+                    .copyWith(color: Theme.of(context).colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
@@ -75,7 +75,7 @@ class TasklistView extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.primary,
+            color: Theme.of.(context).colorScheme.primary,
           ), // BoxDecoration
         ); //Container
   }
