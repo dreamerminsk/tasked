@@ -32,9 +32,26 @@ class TasklistView extends StatelessWidget {
         ),
       ]),
 
-      body: Center(
-                child: Icon(Icons.tips_and_updates,
-                    color: Theme.of(context).colorScheme.primary, size: 320.0)),
+      body: ListView(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
+            child: Files(),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            child: ColorSchemeWidget(),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
+            child: TextThemeWidget(),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            child: ScannerWidget(),
+          ), // Padding
+        ],
+      ), // ListView
     );
   }
 }
