@@ -75,7 +75,7 @@ class TasklistView extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: Theme.of.(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.primary,
           ), // BoxDecoration
         ); //Container
   }
