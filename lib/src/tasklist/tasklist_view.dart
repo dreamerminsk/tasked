@@ -32,7 +32,6 @@ class TasklistView extends StatelessWidget {
           },
         ),
       ]),
-
       body: Obx(
         () => c.tasks.length > 0
             ? ListView.builder(
@@ -50,13 +49,17 @@ class TasklistView extends StatelessWidget {
 
   Widget _buildPadding(BuildContext context, int index) {
     return index.isEven
-? Padding(
+        ? Padding(
             padding: EdgeInsets.fromLTRB(32, 8, 8, 8),
-            child: TaskWidget(task: c.tasks[index],),
+            child: TaskWidget(
+              task: c.tasks[index],
+            ),
           ) // Padding
-: Padding(
+        : Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 32, 8),
-            child: TaskWidget(task: c.tasks[index],),
+            child: TaskWidget(
+              task: c.tasks[index],
+            ),
           ); // Padding
   }
 }

@@ -25,9 +25,8 @@ class TaskWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             '$title',
-            style: textTheme
-                .headlineSmall!
-                .copyWith(color: colorScheme.onPrimary),
+            style:
+                textTheme.headlineSmall!.copyWith(color: colorScheme.onPrimary),
           ), // Text
         ],
       ), // Column

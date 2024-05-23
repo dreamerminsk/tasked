@@ -14,11 +14,11 @@ class TasklistController extends GetxController {
     super.onInit();
     debug.newInit(this.runtimeType.toString());
     tasks.add(new List<Task>.generate(
-      32,
-      (int index) => Task(
-            id: index,
-            title: 'task $index',
-          )));
+        32,
+        (int index) => Task(
+              id: index,
+              title: 'task $index',
+            )));
   }
 
   @override
