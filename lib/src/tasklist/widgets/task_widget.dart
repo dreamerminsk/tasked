@@ -24,7 +24,7 @@ class TaskWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            '$title',
+            '${this.task.title}',
             style:
                 textTheme.headlineSmall!.copyWith(color: colorScheme.onPrimary),
           ), // Text
