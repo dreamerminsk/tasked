@@ -18,7 +18,7 @@ class TaskWidget extends StatelessWidget {
 
     return Container(
       width: Get.width,
-      height: 96,
+      height: Get.width / 1.618,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
