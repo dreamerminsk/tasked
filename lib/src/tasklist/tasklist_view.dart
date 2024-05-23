@@ -37,10 +37,12 @@ class TasklistView extends StatelessWidget {
                 },
               ) // ListView.builder
             : Center(
-                child: Icon(Icons.tips_and_updates,
-                    color: Theme.of(context).colorScheme.primary, size: 320.0,
-), // Icon
-), // Center
+                child: Icon(
+                  Icons.tips_and_updates,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 320.0,
+                ), // Icon
+              ), // Center
       ), // Obx
     ); // Scaffold
   }
@@ -48,12 +50,12 @@ class TasklistView extends StatelessWidget {
   Widget _buildPadding(int index, TaskItem t) {
     return index.isEven
         ? TaskWidget(
-              padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
-              task: t,
-            ) // TaskWidget
+            padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
+            task: t,
+          ) // TaskWidget
         : TaskWidget(
-              padding: EdgeInsets.fromLTRB(12, 12, 32, 12),
-              task: t,
-            );
+            padding: EdgeInsets.fromLTRB(12, 12, 32, 12),
+            task: t,
+          );
   }
 }

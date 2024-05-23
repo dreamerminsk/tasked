@@ -5,8 +5,6 @@ import 'task_item.dart';
 import '../../routes/app_pages.dart';
 
 class TaskWidget extends StatelessWidget {
-  
-
   const TaskWidget({
     super.key,
     required this.task,
