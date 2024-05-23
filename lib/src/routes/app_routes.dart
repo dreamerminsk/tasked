@@ -7,6 +7,7 @@ abstract class Routes {
   static const DETAILS = _Paths.DETAILS;
   static const WATCHLIST = _Paths.WATCHLIST;
   static const TASKLIST = _Paths.TASKLIST;
+  static const TASK = _Paths.TASK;
   static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
   static const COLORSCHEME = _Paths.COLORSCHEME;
@@ -23,6 +24,7 @@ abstract class _Paths {
   static const DETAILS = '/details';
   static const WATCHLIST = '/watchlist';
   static const TASKLIST = '/tasklist';
+  static const TASK = '/task';
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
   static const COLORSCHEME = '/colorscheme';
