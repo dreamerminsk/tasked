@@ -17,7 +17,7 @@ class TaskWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return GestureDetector(
-      onTap: () {            Get.toNamed(Routes.TASK); },
+      onTap: () {            Get.toNamed(Routes.TASK,              arguments: this.task,); },
       child: Container(
       width: Get.width,
       height: Get.width / 2.0 / 1.618,
