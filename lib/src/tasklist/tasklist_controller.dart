@@ -14,13 +14,13 @@ class TasklistController extends GetxController {
     super.onInit();
     debug.newInit(this.runtimeType.toString());
     tasks.add(TaskItem(
-              id: 0,
-              title: 'wiki::snooker::events',
-            ));
+      id: 0,
+      title: 'wiki::snooker::events',
+    ));
     tasks.addAll(List<TaskItem>.generate(
         31,
         (int index) => TaskItem(
-              id: index   +   1,
+              id: index + 1,
               title: 'task $index',
             )));
   }
