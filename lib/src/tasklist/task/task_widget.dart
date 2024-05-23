@@ -5,12 +5,17 @@ import 'task_item.dart';
 import '../../routes/app_pages.dart';
 
 class TaskWidget extends StatelessWidget {
-  final TaskItem task;
+  
 
   const TaskWidget({
     super.key,
     required this.task,
+    this.padding,
   });
+
+  final TaskItem task;
+
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -33,21 +38,21 @@ class TaskWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               '${this.task.title}',
-              style: textTheme.headlineMedium!.copyWith(
+              style: textTheme.headlineLarge!.copyWith(
                 color: colorScheme.onPrimary,
                 fontWeight: FontWeight.w400,
               ),
             ), // Text
           ],
         ), // Column
-        padding: const EdgeInsets.all(16),
+        padding: this.padding ?? const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(20),
           ), // BorderRadius
           color: colorScheme.primary,
         ), // BoxDecoration
-      ), //Container
+      ), // Container
     ); // GestureDetector
   }
 }
