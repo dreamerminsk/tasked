@@ -7,14 +7,10 @@ import '../routes/app_pages.dart';
 import 'models/task.dart';
 
 class TasklistView extends StatelessWidget {
-  final colors = [
-    Colors.black,
-  ];
 
   @override
   Widget build(context) {
     final TasklistController c = Get.find();
-    this.colors[0] = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
       appBar: AppBar(title: Text("tasklist"), actions: <Widget>[
