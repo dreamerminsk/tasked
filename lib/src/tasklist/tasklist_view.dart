@@ -7,7 +7,6 @@ import 'task/task_item.dart';
 import 'task/task_widget.dart';
 
 class TasklistView extends StatelessWidget {
-
   @override
   Widget build(context) {
     final TasklistController c = Get.find();
