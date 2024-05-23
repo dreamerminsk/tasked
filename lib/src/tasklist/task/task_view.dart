@@ -9,13 +9,11 @@ class TaskView extends StatelessWidget {
 
   const TaskView({
     super.key,
-    required this.task,
   });
-
-  final Task task;
 
   @override
   Widget build(context) {
+    final Task task = Get.arguments;
 
     return Scaffold(
       appBar: AppBar(title: Text("${task.title}"), actions: <Widget>[
