@@ -18,15 +18,17 @@ class TaskWidget extends StatelessWidget {
 
     return Container(
       width: Get.width,
-      height: Get.width / 1.618,
+      height: Get.width / 2.0 / 1.618,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             '${this.task.title}',
-            style:
-                textTheme.headlineSmall!.copyWith(color: colorScheme.onPrimary),
+            style: textTheme.headlineMedium!.copyWith(
+              color: colorScheme.onPrimary,
+              fontWeight: FontWeight.w400,
+            ),
           ), // Text
         ],
       ), // Column
