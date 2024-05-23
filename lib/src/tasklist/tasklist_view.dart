@@ -37,7 +37,7 @@ class TasklistView extends StatelessWidget {
             ? ListView.builder(
                 itemCount: c.tasks.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return _buildPadding(c.tasks[index]);
+                  return _buildPadding(context, index,  c.tasks[index]);
                 },
               )
             : Center(
@@ -47,18 +47,18 @@ class TasklistView extends StatelessWidget {
     );
   }
 
-  Widget _buildPadding(BuildContext context, int index) {
+  Widget _buildPadding(BuildContext context, int index, Task t) {
     return index.isEven
         ? Padding(
             padding: EdgeInsets.fromLTRB(32, 8, 8, 8),
             child: TaskWidget(
-              task: c.tasks[index],
+              task: t,
             ),
           ) // Padding
         : Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 32, 8),
             child: TaskWidget(
-              task: c.tasks[index],
+              task: t,
             ),
           ); // Padding
   }
