@@ -21,6 +21,7 @@ import '../watchlist/watchlist_binding.dart';
 import '../watchlist/watchlist_view.dart';
 import '../tasklist/tasklist_binding.dart';
 import '../tasklist/tasklist_view.dart';
+import '../tasklist/task/task_view.dart';
 
 part 'app_routes.dart';
 
@@ -49,6 +50,11 @@ class AppPages {
       name: _Paths.TASKLIST,
       page: () => TasklistView(),
       binding: TasklistBinding(),
+    ),
+    GetPage(
+      name: _Paths.TASK,
+      page: () => TaskView(),
+      //binding: TaskBinding(),
     ),
     GetPage(
       name: _Paths.CATEGORY,
