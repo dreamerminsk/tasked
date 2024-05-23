@@ -1,12 +1,11 @@
 class Task {
-  static int _next_id = 1;
 
   final int id;
   final String title;
 
   const Task({
-    this.id = _next_id++,
-    this.title = 'task #',
+    this.id = 0,
+    this.title = 'task 0',
   });
 
   Task copyWith({
