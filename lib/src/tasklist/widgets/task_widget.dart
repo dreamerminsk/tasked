@@ -18,31 +18,36 @@ class TaskWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return GestureDetector(
-      onTap: () {            Get.toNamed(Routes.TASK,              arguments: this.task,); },
+      onTap: () {
+        Get.toNamed(
+          Routes.TASK,
+          arguments: this.task,
+        );
+      },
       child: Container(
-      width: Get.width,
-      height: Get.width / 2.0 / 1.618,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            '${this.task.title}',
-            style: textTheme.headlineMedium!.copyWith(
-              color: colorScheme.onPrimary,
-              fontWeight: FontWeight.w400,
-            ),
-          ), // Text
-        ],
-      ), // Column
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ), // BorderRadius
-        color: colorScheme.primary,
-      ), // BoxDecoration
-    ), //Container
+        width: Get.width,
+        height: Get.width / 2.0 / 1.618,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              '${this.task.title}',
+              style: textTheme.headlineMedium!.copyWith(
+                color: colorScheme.onPrimary,
+                fontWeight: FontWeight.w400,
+              ),
+            ), // Text
+          ],
+        ), // Column
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ), // BorderRadius
+          color: colorScheme.primary,
+        ), // BoxDecoration
+      ), //Container
     ); // GestureDetector
   }
 }
