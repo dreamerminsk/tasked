@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'tasklist_controller.dart';
 import 'widgets/task_widget.dart';
 import '../routes/app_pages.dart';
-import 'models/task.dart';
+import 'task/task_item.dart';
 
 class TasklistView extends StatelessWidget {
 
@@ -44,7 +44,7 @@ class TasklistView extends StatelessWidget {
     );
   }
 
-  Widget _buildPadding(BuildContext context, int index, Task t) {
+  Widget _buildPadding(BuildContext context, int index, TaskItem t) {
     return index.isEven
         ? Padding(
             padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
