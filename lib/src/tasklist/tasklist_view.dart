@@ -33,53 +33,30 @@ class TasklistView extends StatelessWidget {
         ),
       ]),
 
-      body: ListView(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.fromLTRB(32, 8, 8, 8),
-            child: TaskWidget(context, 'task 1'),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 32, 8),
-            child: _buildTask(context, 'task 2'),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.fromLTRB(32, 8, 8, 8),
-            child: _buildTask(context, 'task 3'),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 32, 8),
-            child: _buildTask(context, 'task 4'),
-          ), // Padding
-        ],
-      ), // ListView
+      body: Obx(
+        () => c.tasks.length > 0
+            ? ListView.builder(
+                itemCount: c.tasks.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return _buildPadding(c.tasks[index]);
+                },
+              )
+            : Center(
+                child: Icon(Icons.tips_and_updates,
+                    color: Theme.of(context).colorScheme.primary, size: 320.0)),
+      ),
     );
   }
 
-  Widget _buildTask(BuildContext context, String title) {
-    return Container(
-      width: Get.width,
-      height: 96,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            '$title',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: Theme.of(context).colorScheme.onPrimary),
-          ), // Text
-        ],
-      ), // Column
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ), // BorderRadius
-        color: Theme.of(context).colorScheme.primary,
-      ), // BoxDecoration
-    ); //Container
+  Widget _buildPadding(BuildContext context, int index) {
+    return index.isEven
+? Padding(
+            padding: EdgeInsets.fromLTRB(32, 8, 8, 8),
+            child: TaskWidget(task: c.tasks[index],),
+          ) // Padding
+: Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 32, 8),
+            child: TaskWidget(task: c.tasks[index],),
+          ); // Padding
   }
 }
