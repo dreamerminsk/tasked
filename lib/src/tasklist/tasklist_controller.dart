@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:get/get.dart';
 
 import '../debug/debug_controller.dart';
+import 'models/task.dart';
 
 class TasklistController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
