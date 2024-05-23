@@ -18,3 +18,6 @@ A new Flutter application.
 
 ###
 ![github-stats](https://stats.dooboo.io/api/github-stats-advanced?login=dreamerminsk)
+
+###
+![github-stats](https://stats.dooboo.io/api/github-stats?login=dreamerminsk)
