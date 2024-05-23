@@ -16,7 +16,9 @@ class TaskWidget extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
+    return GestureDetector(
+      onTap: () => ,
+      child: Container(
       width: Get.width,
       height: Get.width / 2.0 / 1.618,
       child: Column(
@@ -39,6 +41,7 @@ class TaskWidget extends StatelessWidget {
         ), // BorderRadius
         color: colorScheme.primary,
       ), // BoxDecoration
-    ); //Container
+    ), //Container
+    ); // GestureDetector
   }
 }
