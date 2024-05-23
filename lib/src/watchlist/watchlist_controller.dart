@@ -64,7 +64,7 @@ final links = <WikiLink>[
   WikiLink(prefix: 'en', title: 'Category:2024 in science'),
   WikiLink(prefix: 'en', title: 'Category:2024 in politics'),
   WikiLink(prefix: 'en', title: 'Category:2024 in sports'),
-  WikiLink(prefix: 'en', title: 'Category:2022 in aviation'),
+  WikiLink(prefix: 'en', title: 'Category:2024 in aviation'),
   WikiLink(prefix: 'en', title: 'Category:2024 in technology'),
 ];
 
