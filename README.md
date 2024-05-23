@@ -15,3 +15,6 @@ A new Flutter application.
 
 ###
 ![](https://komarev.com/ghpvc/?username=dreamerminsk&color=green)
+
+###
+![github-stats](https://stats.dooboo.io/api/github-stats-advanced?login=dreamerminsk)
