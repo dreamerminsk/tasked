@@ -7,11 +7,18 @@ import '../models/task.dart';
 
 class TaskView extends StatelessWidget {
 
+  const TaskView({
+    super.key,
+    required this.task,
+  });
+
+  final Task task;
+
   @override
   Widget build(context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text("task"), actions: <Widget>[
+      appBar: AppBar(title: Text("${task.title}"), actions: <Widget>[
         IconButton(
           icon: Icon(Icons.query_stats),
           color: Theme.of(context).colorScheme.primary,
@@ -20,18 +27,10 @@ class TaskView extends StatelessWidget {
           },
         ),
       ]),
-      body: Obx(
-        () => c.tasks.length > 0
-            ? ListView.builder(
-                itemCount: c.tasks.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildPadding(context, index, c.tasks[index]);
-                },
-              )
-            : Center(
-                child: Icon(Icons.tips_and_updates,
+      body:
+        Center(
+                child: Icon(Icons.blur_on,
                     color: Theme.of(context).colorScheme.primary, size: 320.0)),
-      ),
     );
   }
 
