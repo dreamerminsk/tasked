@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../models/task.dart';
+import '../../routes/app_pages.dart';
 
 class TaskWidget extends StatelessWidget {
   final Task task;
