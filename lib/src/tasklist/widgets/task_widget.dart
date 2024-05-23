@@ -5,6 +5,7 @@ import '../models/task.dart';
 
 class TaskWidget extends StatelessWidget {
   final Task task;
+
   const TaskWidget({
     super.key,
     required this.task,
@@ -15,7 +16,28 @@ class TaskWidget extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Material(
-    ); // Material
+    return Container(
+      width: Get.width,
+      height: 96,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            '$title',
+            style: textTheme
+                .headlineSmall!
+                .copyWith(color: colorScheme.onPrimary),
+          ), // Text
+        ],
+      ), // Column
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ), // BorderRadius
+        color: colorScheme.primary,
+      ), // BoxDecoration
+    ); //Container
   }
 }
