@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'tasklist_controller.dart';
 import 'widgets/task_widget.dart';
 import '../routes/app_pages.dart';
+import 'models/task.dart';
 
 class TasklistView extends StatelessWidget {
   final colors = [
