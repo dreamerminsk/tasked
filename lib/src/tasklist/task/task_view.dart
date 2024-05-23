@@ -9,7 +9,6 @@ class TaskView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final TaskController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(title: Text("task"), actions: <Widget>[
