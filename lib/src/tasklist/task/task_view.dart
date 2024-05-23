@@ -29,8 +29,12 @@ class TaskView extends StatelessWidget {
       ]),
       body:
         Center(
-                child: Icon(Icons.blur_on,
-                    color: Theme.of(context).colorScheme.primary, size: 320.0)),
+          child: Icon(
+            Icons.blur_on,
+            color: Theme.of(context).colorScheme.primary,
+            size: 320.0
+          ), // Icon
+), // Center
     );
   }
 
