@@ -33,29 +33,27 @@ class TasklistView extends StatelessWidget {
             ? ListView.builder(
                 itemCount: c.tasks.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return _buildPadding(context, index, c.tasks[index]);
+                  return _buildPadding(index, c.tasks[index]);
                 },
-              )
+              ) // ListView.builder
             : Center(
                 child: Icon(Icons.tips_and_updates,
-                    color: Theme.of(context).colorScheme.primary, size: 320.0)),
-      ),
-    );
+                    color: Theme.of(context).colorScheme.primary, size: 320.0,
+), // Icon
+), // Center
+      ), // Obx
+    ); // Scaffold
   }
 
-  Widget _buildPadding(BuildContext context, int index, TaskItem t) {
+  Widget _buildPadding(int index, TaskItem t) {
     return index.isEven
-        ? Padding(
-            padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
-            child: TaskWidget(
+        ? TaskWidget(
+              padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
               task: t,
-            ),
-          ) // Padding
-        : Padding(
-            padding: EdgeInsets.fromLTRB(12, 12, 32, 12),
-            child: TaskWidget(
+            ) // TaskWidget
+        : TaskWidget(
+              padding: EdgeInsets.fromLTRB(12, 12, 32, 12),
               task: t,
-            ),
-          ); // Padding
+            );
   }
 }
