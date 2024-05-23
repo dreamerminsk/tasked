@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 //import 'task_controller.dart';
 import '../../routes/app_pages.dart';
-import '../models/task.dart';
+import 'task_item.dart';
 
 class TaskView extends StatelessWidget {
   const TaskView({
@@ -12,7 +12,7 @@ class TaskView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final Task task = Get.arguments;
+    final TaskItem task = Get.arguments;
 
     return Scaffold(
       appBar: AppBar(title: Text("${task.title}"), actions: <Widget>[

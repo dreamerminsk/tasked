@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../models/task.dart';
+import 'task_item.dart';
 import '../../routes/app_pages.dart';
 
 class TaskWidget extends StatelessWidget {
-  final Task task;
+  final TaskItem task;
 
   const TaskWidget({
     super.key,

@@ -1,17 +1,17 @@
-class Task {
+class TaskItem {
   final int id;
   final String title;
 
-  const Task({
+  const TaskItem({
     this.id = 0,
     this.title = 'task 0',
   });
 
-  Task copyWith({
+  TaskItem copyWith({
     int? id,
     String? title,
   }) {
-    return Task(
+    return TaskItem(
       id: id ?? this.id,
       title: title ?? this.title,
     );
@@ -20,7 +20,7 @@ class Task {
   (int, String) _equality() => (id, title);
 
   @override
-  bool operator ==(covariant Task other) {
+  bool operator ==(covariant TaskItem other) {
     if (identical(this, other)) return true;
     return other._equality() == _equality();
   }

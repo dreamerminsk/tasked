@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'tasklist_controller.dart';
-import 'widgets/task_widget.dart';
 import '../routes/app_pages.dart';
-import 'models/task.dart';
+import 'task/task_item.dart';
+import 'task/task_widget.dart';
 
 class TasklistView extends StatelessWidget {
-  final colors = [
-    Colors.black,
-  ];
-
   @override
   Widget build(context) {
     final TasklistController c = Get.find();
-    this.colors[0] = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
       appBar: AppBar(title: Text("tasklist"), actions: <Widget>[
@@ -48,7 +43,7 @@ class TasklistView extends StatelessWidget {
     );
   }
 
-  Widget _buildPadding(BuildContext context, int index, Task t) {
+  Widget _buildPadding(BuildContext context, int index, TaskItem t) {
     return index.isEven
         ? Padding(
             padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
