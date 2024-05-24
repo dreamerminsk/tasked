@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:get/get.dart';
 
 import '../debug/debug_controller.dart';
+import '../routes/app_pages.dart';
 import 'task/task_item.dart';
 
 class TasklistController extends GetxController {
@@ -16,6 +17,7 @@ class TasklistController extends GetxController {
     tasks.add(TaskItem(
       id: 0,
       title: 'wiki::snooker::events',
+      path: Routes.SNOOKEREVENTS,
     ));
     tasks.addAll(List<TaskItem>.generate(
         31,
