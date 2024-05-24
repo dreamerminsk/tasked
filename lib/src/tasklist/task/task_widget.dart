@@ -43,7 +43,7 @@ class TaskWidget extends StatelessWidget {
             ), // Text
           ],
         ), // Column
-        padding: this.padding ?? const EdgeInsets.all(16),
+        margin: this.padding ?? const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
