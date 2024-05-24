@@ -25,8 +25,13 @@ class EventView extends StatelessWidget {
         ),
       ]),
       body: Center(
-        child: Icon(Icons.blur_on,
-            color: Theme.of(context).colorScheme.primary, size: 320.0), // Icon
+        child: IconButton(
+  iconSize: 320,
+  icon: const Icon(Icons.blur_on),
+  onPressed: () {
+    
+  },
+),
       ), // Center
     );
   }
