@@ -1,3 +1,5 @@
+import '../../../routes/app_pages.dart';
+
 class TaskItem {
   final int id;
   final String title;
@@ -6,7 +8,7 @@ class TaskItem {
   const TaskItem({
     this.id = 0,
     this.title = 'task 0',
-    this.path = '',
+    this.path = Routes.TASK,
   });
 
   TaskItem copyWith({
