@@ -22,6 +22,7 @@ import '../watchlist/watchlist_view.dart';
 import '../tasklist/tasklist_binding.dart';
 import '../tasklist/tasklist_view.dart';
 import '../tasklist/task/task_view.dart';
+import '../snooker/event_binding.dart';
 import '../snooker/event_view.dart';
 import '../snooker/player_view.dart';
 
@@ -61,7 +62,7 @@ class AppPages {
     GetPage(
       name: _Paths.SNOOKEREVENTS,
       page: () => EventView(),
-      //binding: EventBinding(),
+      binding: EventBinding(),
     ),
     GetPage(
       name: _Paths.SNOOKERPLAYERS,

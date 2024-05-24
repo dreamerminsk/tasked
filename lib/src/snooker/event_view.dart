@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//import 'task_controller.dart';
+import 'event_controller.dart';
 import '../routes/app_pages.dart';
-import '../tasklist/task/task_item.dart';
+//import '../tasklist/task/task_item.dart';
 
 class EventView extends StatelessWidget {
   const EventView({
@@ -12,18 +12,20 @@ class EventView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final TaskItem task = Get.arguments;
+    final EventController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: Text("${task.title}"), actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.query_stats),
-          color: Theme.of(context).colorScheme.primary,
-          onPressed: () {
-            Get.toNamed(Routes.DEBUG);
-          },
-        ),
-      ]),
+      appBar: AppBar(
+          title: Obx(() => Text("${c.task.value?.title}")),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.query_stats),
+              color: Theme.of(context).colorScheme.primary,
+              onPressed: () {
+                Get.toNamed(Routes.DEBUG);
+              },
+            ),
+          ]),
       body: Center(
         child: IconButton.filled(
           iconSize: 320,
