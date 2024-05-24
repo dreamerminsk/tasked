@@ -1,23 +1,27 @@
 class TaskItem {
   final int id;
   final String title;
+  final String path;
 
   const TaskItem({
     this.id = 0,
     this.title = 'task 0',
+    this.path = '',
   });
 
   TaskItem copyWith({
     int? id,
     String? title,
+    String? path,
   }) {
     return TaskItem(
       id: id ?? this.id,
       title: title ?? this.title,
+      path: path ?? this.path,
     );
   }
 
-  (int, String) _equality() => (id, title);
+  (int, String, String) _equality() => (id, title, path);
 
   @override
   bool operator ==(covariant TaskItem other) {
