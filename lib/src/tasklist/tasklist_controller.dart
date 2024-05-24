@@ -19,11 +19,16 @@ class TasklistController extends GetxController {
       title: 'snooker::events',
       path: Routes.SNOOKEREVENTS,
     ));
+tasks.add(TaskItem(
+      id: 1,
+      title: 'snooker::players',
+      path: Routes.SNOOKERPLAYERS,
+    ));
     tasks.addAll(List<TaskItem>.generate(
         31,
         (int index) => TaskItem(
-              id: index + 1,
-              title: 'task ${index + 1}',
+              id: index + 2,
+              title: 'task ${index + 2}',
             )));
   }
 
