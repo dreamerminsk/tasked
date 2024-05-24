@@ -16,7 +16,7 @@ class EventView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: obx(() => Text("${c.task.value?.title}")),
+          title: Obx(() => Text("${c.task.value?.title}")),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.query_stats),
