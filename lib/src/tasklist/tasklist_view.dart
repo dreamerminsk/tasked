@@ -50,11 +50,11 @@ class TasklistView extends StatelessWidget {
   Widget _buildPadding(int index, TaskItem t) {
     return index.isEven
         ? TaskWidget(
-            padding: EdgeInsets.fromLTRB(32, 12, 12, 12),
+            padding: EdgeInsets.fromLTRB(32, 8, 12, 8),
             task: t,
           ) // TaskWidget
         : TaskWidget(
-            padding: EdgeInsets.fromLTRB(12, 12, 32, 12),
+            padding: EdgeInsets.fromLTRB(12, 8, 32, 8),
             task: t,
           );
   }
