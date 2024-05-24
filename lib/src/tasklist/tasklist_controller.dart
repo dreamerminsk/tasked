@@ -23,7 +23,7 @@ class TasklistController extends GetxController {
         31,
         (int index) => TaskItem(
               id: index + 1,
-              title: 'task $index',
+              title: 'task ${index + 1}',
             )));
   }
 
