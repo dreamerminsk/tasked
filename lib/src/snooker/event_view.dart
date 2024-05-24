@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'event_controller.dart';
 import '../routes/app_pages.dart';
-import '../tasklist/task/task_item.dart';
+//import '../tasklist/task/task_item.dart';
 
 class EventView extends StatelessWidget {
   const EventView({
@@ -16,7 +16,7 @@ class EventView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-title: obx(() { Text("${c.task.value?.title}") }), 
+title: obx(() => Text("${c.task.value?.title}")), 
 actions: <Widget>[
         IconButton(
           icon: Icon(Icons.query_stats),
