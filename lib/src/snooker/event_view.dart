@@ -16,16 +16,16 @@ class EventView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-title: obx(() => Text("${c.task.value?.title}")), 
-actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.query_stats),
-          color: Theme.of(context).colorScheme.primary,
-          onPressed: () {
-            Get.toNamed(Routes.DEBUG);
-          },
-        ),
-      ]),
+          title: obx(() => Text("${c.task.value?.title}")),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.query_stats),
+              color: Theme.of(context).colorScheme.primary,
+              onPressed: () {
+                Get.toNamed(Routes.DEBUG);
+              },
+            ),
+          ]),
       body: Center(
         child: IconButton.filled(
           iconSize: 320,
