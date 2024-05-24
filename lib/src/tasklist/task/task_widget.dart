@@ -23,7 +23,7 @@ class TaskWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.toNamed(
-          Routes.TASK,
+          this.task.path,
           arguments: this.task,
         );
       },
