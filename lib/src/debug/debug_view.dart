@@ -25,13 +25,13 @@ class DebugView extends StatelessWidget {
         //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: Obx(() => HealthWidget(
                   controllers: Map.unmodifiable(c.controllers),
                 )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: Obx(() => NetworkStats(
                   started: c.started.value ?? DateTime.now(),
                   requests: c.requests.value,
@@ -41,29 +41,29 @@ class DebugView extends StatelessWidget {
                 )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: Obx(() => RandomJsonFiles(
                   jsonFiles: List<String>.from(c.samples),
                 )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: ThemeDataWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: Files(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: ColorSchemeWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 4, 4, 4),
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: TextThemeWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(4, 4, 20, 4),
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: ScannerWidget(),
           ), // Padding
         ],
