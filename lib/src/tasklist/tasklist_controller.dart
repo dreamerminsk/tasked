@@ -16,7 +16,7 @@ class TasklistController extends GetxController {
     debug.newInit(this.runtimeType.toString());
     tasks.add(TaskItem(
       id: 0,
-      title: 'wiki::snooker::events',
+      title: 'snooker::events',
       path: Routes.SNOOKEREVENTS,
     ));
     tasks.addAll(List<TaskItem>.generate(
