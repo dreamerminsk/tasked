@@ -26,7 +26,7 @@ class SampleTextStyle extends StatelessWidget {
         onTap: () => Get.to(TextStylePage(textStyle: style)),
         child: Container(
           width: Get.width,
-          height: 100,
+          height: Get.width / 2.0 / 1.618,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
