@@ -19,7 +19,7 @@ class TasklistController extends GetxController {
       title: 'snooker::events',
       path: Routes.SNOOKEREVENTS,
     ));
-tasks.add(TaskItem(
+    tasks.add(TaskItem(
       id: 1,
       title: 'snooker::players',
       path: Routes.SNOOKERPLAYERS,
