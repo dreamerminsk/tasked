@@ -60,7 +60,7 @@ class NetworkStats extends StatelessWidget {
           ), // RotatedBox
         ],
       ), // Row
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(20),
