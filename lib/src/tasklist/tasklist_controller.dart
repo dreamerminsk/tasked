@@ -25,7 +25,7 @@ class TasklistController extends GetxController {
       path: Routes.SNOOKERPLAYERS,
     ));
     tasks.addAll(List<TaskItem>.generate(
-        31,
+        30,
         (int index) => TaskItem(
               id: index + 2,
               title: 'task ${index + 2}',
