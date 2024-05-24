@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'task_item.dart';
-import '../../routes/app_pages.dart';
 
 class TaskWidget extends StatelessWidget {
   const TaskWidget({
@@ -23,7 +22,7 @@ class TaskWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.toNamed(
-          Routes.TASK,
+          this.task.path,
           arguments: this.task,
         );
       },
