@@ -37,7 +37,7 @@ class TaskWidget extends StatelessWidget {
               '${this.task.title}',
               style: textTheme.headlineLarge!.copyWith(
                 color: colorScheme.onPrimary,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w300,
               ),
             ), // Text
           ],
