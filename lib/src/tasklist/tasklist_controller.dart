@@ -8,27 +8,33 @@ import 'task/task_item.dart';
 
 class TasklistController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
-  final tasks = <TaskItem>[].obs;
+  final tasks = <TaskItem>[
+TaskItem(
+      id: 0,
+      title: 'snooker :: events',
+      path: Routes.SNOOKEREVENTS,
+    ),
+TaskItem(
+      id: 1,
+      title: 'snooker :: players',
+      path: Routes.SNOOKERPLAYERS,
+    ),
+TaskItem(
+      id: 2,
+      title: 'html :: viewer',
+      path: Routes.HTML,
+    ),
+].obs;
 
   @override
   void onInit() {
     super.onInit();
     debug.newInit(this.runtimeType.toString());
-    tasks.add(TaskItem(
-      id: 0,
-      title: 'snooker :: events',
-      path: Routes.SNOOKEREVENTS,
-    ));
-    tasks.add(TaskItem(
-      id: 1,
-      title: 'snooker :: players',
-      path: Routes.SNOOKERPLAYERS,
-    ));
     tasks.addAll(List<TaskItem>.generate(
-        30,
+        29,
         (int index) => TaskItem(
-              id: index + 2,
-              title: 'task ${index + 2}',
+              id: index + 3,
+              title: 'task ${index + 3}',
             )));
   }
 
