@@ -10,6 +10,7 @@ abstract class Routes {
   static const TASK = _Paths.TASK;
   static const SNOOKEREVENTS = _Paths.SNOOKEREVENTS;
   static const SNOOKERPLAYERS = _Paths.SNOOKERPLAYERS;
+  static const HTML = _Paths.HTML;
   static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
   static const COLORSCHEME = _Paths.COLORSCHEME;
@@ -29,6 +30,7 @@ abstract class _Paths {
   static const TASK = '/task';
   static const SNOOKEREVENTS = '/task/events';
   static const SNOOKERPLAYERS = '/task/players';
+  static const HTML = '/task/html';
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
   static const COLORSCHEME = '/colorscheme';
