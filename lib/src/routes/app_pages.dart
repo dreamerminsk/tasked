@@ -22,8 +22,8 @@ import '../watchlist/watchlist_view.dart';
 import '../tasklist/tasklist_binding.dart';
 import '../tasklist/tasklist_view.dart';
 import '../tasklist/task/task_view.dart';
-import '../snooker/event_binding.dart';
-import '../snooker/event_view.dart';
+import '../snooker/event/event_binding.dart';
+import '../snooker/event/event_view.dart';
 import '../snooker/player_view.dart';
 
 part 'app_routes.dart';
