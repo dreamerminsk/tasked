@@ -12,6 +12,7 @@ class SeasonsWidget extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Container(
+      key: UniqueKey(),
       width: Get.width,
       height: Get.height,
       margin: const EdgeInsets.all(8),
