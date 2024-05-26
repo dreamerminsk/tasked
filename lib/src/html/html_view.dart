@@ -41,12 +41,12 @@ class HtmlView extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               child: Center(
-              child: IconButton.filled(
-                iconSize: 320,
-                icon: const Icon(Icons.blur_on),
-                onPressed: () {},
-              ),
-            ), // Center
+                child: IconButton.filled(
+                  iconSize: 320,
+                  icon: const Icon(Icons.blur_on),
+                  onPressed: () {},
+                ),
+              ), // Center
             ), // Container
           ], // children
         ), // Column
