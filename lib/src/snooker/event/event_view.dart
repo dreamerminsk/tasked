@@ -31,6 +31,9 @@ class EventView extends StatelessWidget {
         duration: Duration(
           seconds: 5
         ),
+transitionBuilder: (Widget child, Animation<double> animation) {
+return ScaleTransition(scale: animation, child: child);
+},
         child: Obx(
           () => c.isRunning.value
               ? SeasonsWidget()
