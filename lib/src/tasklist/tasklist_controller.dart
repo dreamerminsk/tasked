@@ -9,22 +9,22 @@ import 'task/task_item.dart';
 class TasklistController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final tasks = <TaskItem>[
-TaskItem(
+    TaskItem(
       id: 0,
       title: 'snooker :: events',
       path: Routes.SNOOKEREVENTS,
     ),
-TaskItem(
+    TaskItem(
       id: 1,
       title: 'snooker :: players',
       path: Routes.SNOOKERPLAYERS,
     ),
-TaskItem(
+    TaskItem(
       id: 2,
       title: 'html :: viewer',
       path: Routes.HTML,
     ),
-].obs;
+  ].obs;
 
   @override
   void onInit() {

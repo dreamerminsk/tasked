@@ -27,17 +27,20 @@ class HtmlView extends StatelessWidget {
             ),
           ]),
       body: Column(
-children:[
-TextField(maxLines: 1,icon: Icon(Icons.add_link),), // TextField
-Center(
-        child: IconButton.filled(
-          iconSize: 320,
-          icon: const Icon(Icons.blur_on),
-          onPressed: () {},
-        ),
-      ), // Center
-], // children
-), // Column
+        children: [
+          TextField(
+            maxLines: 1,
+            icon: Icon(Icons.add_link),
+          ), // TextField
+          Center(
+            child: IconButton.filled(
+              iconSize: 320,
+              icon: const Icon(Icons.blur_on),
+              onPressed: () {},
+            ),
+          ), // Center
+        ], // children
+      ), // Column
     );
   }
 }
