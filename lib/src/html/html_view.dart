@@ -26,7 +26,9 @@ class HtmlView extends StatelessWidget {
               },
             ),
           ]),
-      body: Column(
+      body: Padding(
+padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+child: Column(
         children: [
           TextField(
             maxLines: 1,
@@ -43,6 +45,7 @@ class HtmlView extends StatelessWidget {
           ), // Center
         ], // children
       ), // Column
+), // Padding
     );
   }
 }
