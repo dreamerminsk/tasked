@@ -2,10 +2,10 @@ import 'dart:core';
 
 import 'package:get/get.dart';
 
-import '../debug/debug_controller.dart';
-import '../tasklist/task/task_item.dart';
+import '../../debug/debug_controller.dart';
+import '../../tasklist/task/task_item.dart';
 
-class EventController extends GetxController {
+class PlayerController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final task = Rxn<TaskItem>();
 

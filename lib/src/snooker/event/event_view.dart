@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'event_controller.dart';
-import '../routes/app_pages.dart';
-//import '../tasklist/task/task_item.dart';
+import '../../routes/app_pages.dart';
+//import '../../tasklist/task/task_item.dart';
 
 class EventView extends StatelessWidget {
   const EventView({

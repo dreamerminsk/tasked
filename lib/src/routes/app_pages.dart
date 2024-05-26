@@ -22,9 +22,12 @@ import '../watchlist/watchlist_view.dart';
 import '../tasklist/tasklist_binding.dart';
 import '../tasklist/tasklist_view.dart';
 import '../tasklist/task/task_view.dart';
-import '../snooker/event_binding.dart';
-import '../snooker/event_view.dart';
-import '../snooker/player_view.dart';
+import '../snooker/event/event_binding.dart';
+import '../snooker/event/event_view.dart';
+import '../snooker/player/player_binding.dart';
+import '../snooker/player/player_view.dart';
+import '../html/html_binding.dart';
+import '../html/html_view.dart';
 
 part 'app_routes.dart';
 
@@ -67,7 +70,12 @@ class AppPages {
     GetPage(
       name: _Paths.SNOOKERPLAYERS,
       page: () => PlayerView(),
-      //binding: PlayerBinding(),
+      binding: PlayerBinding(),
+    ),
+    GetPage(
+      name: _Paths.HTML,
+      page: () => HtmlView(),
+      binding: HtmlBinding(),
     ),
     GetPage(
       name: _Paths.CATEGORY,
