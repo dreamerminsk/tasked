@@ -27,7 +27,7 @@ class HtmlView extends StatelessWidget {
             ),
           ]),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
         child: Column(
           children: [
             TextField(
@@ -37,13 +37,17 @@ class HtmlView extends StatelessWidget {
               ), // InputDecoration
             ), // TextField
             SizedBox(height: 8), // SizedBox
-            Center(
-              child: IconButton.filled(
-                iconSize: 320,
-                icon: const Icon(Icons.blur_on),
-                onPressed: () {},
-              ),
-            ), // Center
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Center(
+                child: IconButton.filled(
+                  iconSize: 320,
+                  icon: const Icon(Icons.blur_on),
+                  onPressed: () {},
+                ),
+              ), // Center
+            ), // Container
           ], // children
         ), // Column
       ), // Padding
