@@ -24,10 +24,10 @@ class EventController extends GetxController {
   }
 
   void start() {
-    isRunning = true;
+    isRunning.value = true;
   }
 
   void stop() {
-    isRunning = false;
+    isRunning.value = false;
   }
 }
