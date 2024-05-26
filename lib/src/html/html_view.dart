@@ -28,7 +28,7 @@ class HtmlView extends StatelessWidget {
           ]),
       body: Column(
 children:[
-TextField(), // TextField
+TextField(maxLines: 1,icon: Icon(Icons.add_link),), // TextField
 Center(
         child: IconButton.filled(
           iconSize: 320,
