@@ -26,13 +26,18 @@ class HtmlView extends StatelessWidget {
               },
             ),
           ]),
-      body: Center(
+      body: Column(
+children:[
+TextField(), // TextField
+Center(
         child: IconButton.filled(
           iconSize: 320,
           icon: const Icon(Icons.blur_on),
           onPressed: () {},
         ),
       ), // Center
+], // children
+), // Column
     );
   }
 }
