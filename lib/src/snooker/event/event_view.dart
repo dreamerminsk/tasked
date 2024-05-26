@@ -29,12 +29,13 @@ class EventView extends StatelessWidget {
           ]),
       body: AnimatedSwitcher(
         duration: Duration(
-          seconds: 2,
+          seconds: 5
         ),
         child: Obx(
           () => c.isRunning.value
               ? SeasonsWidget()
               : Center(
+key: UniqueKey(),
                   child: IconButton.filled(
                     iconSize: 320,
                     icon: const Icon(Icons.blur_on),
