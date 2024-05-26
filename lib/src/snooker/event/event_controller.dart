@@ -8,6 +8,7 @@ import '../../tasklist/task/task_item.dart';
 class EventController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final task = Rxn<TaskItem>();
+  var isRunning = false.obs;
 
   @override
   void onInit() {
@@ -20,5 +21,13 @@ class EventController extends GetxController {
   void onClose() {
     debug.newClose(this.runtimeType.toString());
     super.onClose();
+  }
+
+  void start() {
+    isRunning.value = true;
+  }
+
+  void stop() {
+    isRunning.value = false;
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'event_controller.dart';
+import 'widgets/seasons_widget.dart';
 import '../../routes/app_pages.dart';
 //import '../../tasklist/task/task_item.dart';
 
@@ -26,13 +27,24 @@ class EventView extends StatelessWidget {
               },
             ),
           ]),
-      body: Center(
-        child: IconButton.filled(
-          iconSize: 320,
-          icon: const Icon(Icons.blur_on),
-          onPressed: () {},
+      body: AnimatedSwitcher(
+        duration: Duration(
+          seconds: 2,
         ),
-      ), // Center
+        child: Obx(
+          () => c.isRunning.value
+              ? SeasonsWidget()
+              : Center(
+                  child: IconButton.filled(
+                    iconSize: 320,
+                    icon: const Icon(Icons.blur_on),
+                    onPressed: () {
+                      c.start();
+                    },
+                  ),
+                ), // Center
+        ), // Obx
+      ), // AnimatedSwitcher
     );
   }
 }
