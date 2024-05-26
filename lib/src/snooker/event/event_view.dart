@@ -28,17 +28,15 @@ class EventView extends StatelessWidget {
             ),
           ]),
       body: AnimatedSwitcher(
-        duration: Duration(
-          seconds: 5
-        ),
-transitionBuilder: (Widget child, Animation<double> animation) {
-return ScaleTransition(scale: animation, child: child);
-},
+        duration: Duration(seconds: 5),
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          return ScaleTransition(scale: animation, child: child);
+        },
         child: Obx(
           () => c.isRunning.value
               ? SeasonsWidget()
               : Center(
-key: UniqueKey(),
+                  key: UniqueKey(),
                   child: IconButton.filled(
                     iconSize: 320,
                     icon: const Icon(Icons.blur_on),

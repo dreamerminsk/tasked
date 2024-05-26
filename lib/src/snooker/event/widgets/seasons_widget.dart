@@ -19,8 +19,10 @@ class SeasonsWidget extends StatelessWidget {
       child: ListView.builder(
         itemCount: 25,
         itemBuilder: (BuildContext context, int index) {
-          return Text('${2000 + index} in snooker',
-                        style: Theme.of(context).textTheme.bodyLarge!,); // Text
+          return Text(
+            '${2000 + index} in snooker',
+            style: Theme.of(context).textTheme.bodyLarge!,
+          ); // Text
         },
       ), // ListView
     ); // Container
