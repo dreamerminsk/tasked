@@ -32,7 +32,7 @@ class EventView extends StatelessWidget {
           seconds: 2,
         ),
         child: Obx(
-          () => c.isRunning
+          () => c.isRunning.value
               ? SeasonsWidget()
               : Center(
                   child: IconButton.filled(
