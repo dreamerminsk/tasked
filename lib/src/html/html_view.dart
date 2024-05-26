@@ -38,8 +38,8 @@ class HtmlView extends StatelessWidget {
             ), // TextField
             SizedBox(height: 8), // SizedBox
             Container(
-              width: double.infinity,
-              height: double.infinity,
+              width: Get.width,
+              height: Get.height,
               child: Center(
                 child: IconButton.filled(
                   iconSize: 320,
