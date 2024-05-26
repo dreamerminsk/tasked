@@ -12,15 +12,15 @@ class SeasonsWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Container(
-        width: Get.width,
-        height: Get.height,
-margin: const EdgeInsets.all(8),
-        child: ListView.builder(
-            itemCount: 25,
-            itemBuilder: (BuildContext context, int index) {
-              return Text('${2000 + index} year in snooker'); // Text
-            },
-          ), // ListView
-      ); // Container
+      width: Get.width,
+      height: Get.height,
+      margin: const EdgeInsets.all(8),
+      child: ListView.builder(
+        itemCount: 25,
+        itemBuilder: (BuildContext context, int index) {
+          return Text('${2000 + index} year in snooker'); // Text
+        },
+      ), // ListView
+    ); // Container
   }
 }

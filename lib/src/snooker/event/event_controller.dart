@@ -8,7 +8,7 @@ import '../../tasklist/task/task_item.dart';
 class EventController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final task = Rxn<TaskItem>();
-var isRunning = false.obs;
+  var isRunning = false.obs;
 
   @override
   void onInit() {
@@ -23,6 +23,11 @@ var isRunning = false.obs;
     super.onClose();
   }
 
-void start(){ isRunning = true;}
-void stop(){isRunning=false;}
+  void start() {
+    isRunning = true;
+  }
+
+  void stop() {
+    isRunning = false;
+  }
 }

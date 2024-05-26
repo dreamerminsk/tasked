@@ -27,26 +27,26 @@ class HtmlView extends StatelessWidget {
             ),
           ]),
       body: Padding(
-padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-child: Column(
-        children: [
-          TextField(
-            maxLines: 1,
-            decoration: InputDecoration(
-              icon: Icon(Icons.add_link),
-            ), // InputDecoration
-          ), // TextField
-                  SizedBox(height: 8), // SizedBox
-          Center(
-            child: IconButton.filled(
-              iconSize: 320,
-              icon: const Icon(Icons.blur_on),
-              onPressed: () {},
-            ),
-          ), // Center
-        ], // children
-      ), // Column
-), // Padding
+        padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+        child: Column(
+          children: [
+            TextField(
+              maxLines: 1,
+              decoration: InputDecoration(
+                icon: Icon(Icons.add_link),
+              ), // InputDecoration
+            ), // TextField
+            SizedBox(height: 8), // SizedBox
+            Center(
+              child: IconButton.filled(
+                iconSize: 320,
+                icon: const Icon(Icons.blur_on),
+                onPressed: () {},
+              ),
+            ), // Center
+          ], // children
+        ), // Column
+      ), // Padding
     );
   }
 }

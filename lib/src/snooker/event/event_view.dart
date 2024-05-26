@@ -27,18 +27,24 @@ class EventView extends StatelessWidget {
               },
             ),
           ]),
-body:AnimatedSwitcher(
-duration: Duration(seconds: 2,),
-child: Obx(
-()=>c.isRunning ? SeasonsWidget() : Center(
-        child: IconButton.filled(
-          iconSize: 320,
-          icon: const Icon(Icons.blur_on),
-          onPressed: () {c.start();},
+      body: AnimatedSwitcher(
+        duration: Duration(
+          seconds: 2,
         ),
-      ), // Center
-), // Obx
-), // AnimatedSwitcher
+        child: Obx(
+          () => c.isRunning
+              ? SeasonsWidget()
+              : Center(
+                  child: IconButton.filled(
+                    iconSize: 320,
+                    icon: const Icon(Icons.blur_on),
+                    onPressed: () {
+                      c.start();
+                    },
+                  ),
+                ), // Center
+        ), // Obx
+      ), // AnimatedSwitcher
     );
   }
 }
