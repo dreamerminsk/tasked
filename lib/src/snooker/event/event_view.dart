@@ -31,10 +31,7 @@ class EventView extends StatelessWidget {
         () => AnimatedSwitcher(
           duration: Duration(milliseconds: 5000),
           transitionBuilder: (Widget child, Animation<double> animation) {
-            return FadeTransition(
-opacity: animation, 
-child: child
-);
+            return FadeTransition(opacity: animation, child: child);
           },
           child: c.isRunning.value
               ? SeasonsWidget(key: UniqueKey())
