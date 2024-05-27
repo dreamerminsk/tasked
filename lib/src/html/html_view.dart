@@ -31,7 +31,7 @@ class HtmlView extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-controller: c.resourceController,
+              controller: c.resourceController,
               maxLines: 1,
               decoration: InputDecoration(
                 icon: Icon(Icons.add_link),
@@ -42,16 +42,18 @@ controller: c.resourceController,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Column(children: <Widget>[
-Text(
-                   'html tree',style: Theme.of(context).textTheme.bodyLarge!,
-                   ), // Text
-                  IconButton.filled(
-                  iconSize: 320,
-                  icon: const Icon(Icons.blur_on),
-                  onPressed: () {},
-                ), // IconButton
-], // children
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'html tree',
+                      style: Theme.of(context).textTheme.bodyLarge!,
+                    ), // Text
+                    IconButton.filled(
+                      iconSize: 320,
+                      icon: const Icon(Icons.blur_on),
+                      onPressed: () {},
+                    ), // IconButton
+                  ], // children
                 ), // Column
               ], // children
             ), // Row

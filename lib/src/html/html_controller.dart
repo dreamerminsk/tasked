@@ -6,10 +6,10 @@ import '../debug/debug_controller.dart';
 import '../tasklist/task/task_item.dart';
 
 class HtmlController extends GetxController {
-
   final DebugController debug = Get.find(tag: 'debugger');
 
-final resourceController = TextEditingController('https://www.rottentomatoes.com/');
+  final resourceController =
+      TextEditingController('https://www.rottentomatoes.com/');
 
   final task = Rxn<TaskItem>();
 
@@ -23,7 +23,7 @@ final resourceController = TextEditingController('https://www.rottentomatoes.com
   @override
   void onClose() {
     debug.newClose(this.runtimeType.toString());
-resourceController.dispose();
+    resourceController.dispose();
     super.onClose();
   }
 }
