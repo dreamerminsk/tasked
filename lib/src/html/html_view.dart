@@ -42,11 +42,17 @@ controller: c.resourceController,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                IconButton.filled(
+                Column(children: <Widget>[
+Text(
+                   'html tree',style: Theme.of(context).textTheme.bodyLarge!,
+                   ), // Text
+                  IconButton.filled(
                   iconSize: 320,
                   icon: const Icon(Icons.blur_on),
                   onPressed: () {},
                 ), // IconButton
+], // children
+                ), // Column
               ], // children
             ), // Row
           ], // children
