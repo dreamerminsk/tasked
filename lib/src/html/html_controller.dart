@@ -23,6 +23,7 @@ final resourceController = TextEditingController('https://www.rottentomatoes.com
   @override
   void onClose() {
     debug.newClose(this.runtimeType.toString());
+resourceController.dispose();
     super.onClose();
   }
 }
