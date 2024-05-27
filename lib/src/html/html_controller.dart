@@ -9,8 +9,9 @@ import '../tasklist/task/task_item.dart';
 class HtmlController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
 
-  final resourceController =
-      TextEditingController('https://www.rottentomatoes.com/');
+const String defaultUrl = 'https://www.rottentomatoes.com/';
+
+final resourceController = TextEditingController(text: defaultUrl);
 
   final task = Rxn<TaskItem>();
 
