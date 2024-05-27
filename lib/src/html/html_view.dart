@@ -38,17 +38,17 @@ controller: c.resourceController,
               ), // InputDecoration
             ), // TextField
             SizedBox(height: 8), // SizedBox
-            Container(
-              width: Get.width,
-              height: Get.height,
-              child: Center(
-                child: IconButton.filled(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                IconButton.filled(
                   iconSize: 320,
                   icon: const Icon(Icons.blur_on),
                   onPressed: () {},
-                ),
-              ), // Center
-            ), // Container
+                ), // IconButton
+              ], // children
+            ), // Row
           ], // children
         ), // Column
       ), // Padding
