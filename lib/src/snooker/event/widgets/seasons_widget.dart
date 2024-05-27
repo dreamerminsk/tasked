@@ -18,11 +18,16 @@ class SeasonsWidget extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       child: ListView.builder(
         itemCount: 25,
-        itemBuilder: (BuildContext context, int index) {
-          return Text(
+        itemBuilder: (BuildContext context, int index) {return Row(
+mainAxisSize: MainAxisSize.min,
+children: <Widget>[
+Expanded(child:Text(
             '${2000 + index} in snooker',
             style: Theme.of(context).textTheme.bodyLarge!,
-          ); // Text
+          ), // Text
+), // Expanded
+], // Row.children
+); // Row
         },
       ), // ListView
     ); // Container
