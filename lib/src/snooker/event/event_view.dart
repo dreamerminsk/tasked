@@ -27,13 +27,12 @@ class EventView extends StatelessWidget {
               },
             ),
           ]),
-      body: AnimatedSwitcher(
+      body: Obx(()=>AnimatedSwitcher(
         duration: Duration(seconds: 5),
         transitionBuilder: (Widget child, Animation<double> animation) {
           return ScaleTransition(scale: animation, child: child);
         },
-        child: Obx(
-          () => c.isRunning.value
+        child:c.isRunning.value
               ? SeasonsWidget()
               : Center(
                   key: UniqueKey(),
@@ -45,8 +44,8 @@ class EventView extends StatelessWidget {
                     },
                   ),
                 ), // Center
-        ), // Obx
-      ), // AnimatedSwitcher
+        ), // AnimatedSwitcher
+      ), // Obx
     );
   }
 }
