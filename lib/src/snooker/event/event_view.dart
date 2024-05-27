@@ -27,12 +27,13 @@ class EventView extends StatelessWidget {
               },
             ),
           ]),
-      body: Obx(()=>AnimatedSwitcher(
-        duration: Duration(seconds: 5),
-        transitionBuilder: (Widget child, Animation<double> animation) {
-          return ScaleTransition(scale: animation, child: child);
-        },
-        child:c.isRunning.value
+      body: Obx(
+        () => AnimatedSwitcher(
+          duration: Duration(seconds: 5),
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return ScaleTransition(scale: animation, child: child);
+          },
+          child: c.isRunning.value
               ? SeasonsWidget()
               : Center(
                   key: UniqueKey(),
