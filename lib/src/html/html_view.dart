@@ -31,6 +31,7 @@ class HtmlView extends StatelessWidget {
         child: Column(
           children: [
             TextField(
+controller: c.resourceController,
               maxLines: 1,
               decoration: InputDecoration(
                 icon: Icon(Icons.add_link),
