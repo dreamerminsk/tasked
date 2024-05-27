@@ -34,7 +34,7 @@ class EventView extends StatelessWidget {
             return ScaleTransition(scale: animation, child: child);
           },
           child: c.isRunning.value
-              ? SeasonsWidget()
+              ? SeasonsWidget(key: UniqueKey())
               : Center(
                   key: UniqueKey(),
                   child: IconButton.filled(
