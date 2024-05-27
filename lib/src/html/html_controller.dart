@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../debug/debug_controller.dart';
@@ -7,6 +8,11 @@ import '../tasklist/task/task_item.dart';
 
 class HtmlController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
+
+  static const String defaultUrl = 'https://www.rottentomatoes.com/';
+
+  final resourceController = TextEditingController(text: defaultUrl);
+
   final task = Rxn<TaskItem>();
 
   @override
@@ -19,6 +25,7 @@ class HtmlController extends GetxController {
   @override
   void onClose() {
     debug.newClose(this.runtimeType.toString());
+    resourceController.dispose();
     super.onClose();
   }
 }

@@ -1,7 +1,7 @@
 name: tasked
 description: tasked application.
 
-version: 0.4.27+155
+version: 0.4.27+156
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
