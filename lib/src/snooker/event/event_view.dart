@@ -36,7 +36,7 @@ class EventView extends StatelessWidget {
                   begin: Offset(1.0, 1.0),
                   end: Offset(0.0, 0.0),
                 ).animate(animation),
-//opacity: animation,
+                //opacity: animation,
                 child: child);
           },
           child: c.isRunning.value
