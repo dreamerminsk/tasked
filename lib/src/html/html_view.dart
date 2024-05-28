@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import 'html_controller.dart';
 import '../routes/app_pages.dart';
-//import '../tasklist/task/task_item.dart';
 
 class HtmlView extends StatelessWidget {
   const HtmlView({
