@@ -30,10 +30,21 @@ class PlayerView extends StatelessWidget {
           ]),
       body: Center(
         child: IconButton.outlined(
-          iconSize: Get.width - 2 * paddingValue,
-          icon: const Icon(Icons.blur_on),
-          onPressed: () {},
-        ),
+                      style: const ButtonStyle(
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      constraints: BoxConstraints(
+                        maxWidth: adjustedWidth,
+                        minWidth: adjustedWidth,
+                        maxHeight: adjustedWidth,
+                        minHeight: adjustedWidth,
+                      ),
+                      iconSize: adjustedWidth,
+                      icon: const Icon(Icons.blur_on),
+                      onPressed: () {
+                        c.randomUrl();
+                      },
+                    ), // IconButton
       ), // Center
     );
   }
