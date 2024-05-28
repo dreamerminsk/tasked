@@ -33,7 +33,7 @@ class EventView extends StatelessWidget {
           transitionBuilder: (Widget child, Animation<double> animation) {
             return SlideTransition(
                 position: Tween(
-                  begin: Offset(1.0, 1.0),
+                  begin: Offset(1.0, 0.0),
                   end: Offset(0.0, 0.0),
                 ).animate(animation),
                 //opacity: animation,
@@ -43,7 +43,7 @@ class EventView extends StatelessWidget {
               ? SeasonsWidget(key: UniqueKey())
               : Center(
                   key: UniqueKey(),
-                  child: IconButton.filled(
+                  child: IconButton.outlined(
                     iconSize: 320,
                     icon: const Icon(Icons.blur_on),
                     onPressed: () {
