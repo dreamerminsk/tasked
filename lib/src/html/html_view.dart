@@ -14,6 +14,8 @@ class HtmlView extends StatelessWidget {
   Widget build(context) {
     final HtmlController c = Get.find();
 
+final double adjustedWidth = Get.width - 2 * 8;
+
     return Scaffold(
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
@@ -53,8 +55,6 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       style: const ButtonStyle(
     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
   ),
-final double adjustedWidth = Get.width - 2 * 8;
-
 constraints: BoxConstraints(
   maxWidth: adjustedWidth,
   minWidth: adjustedWidth,
