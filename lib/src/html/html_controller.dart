@@ -10,8 +10,6 @@ import '../tasklist/task/task_item.dart';
 class HtmlController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
 
-  static const String defaultUrl = 'https://www.rottentomatoes.com/';
-
 static const defaultUrls = List.unmodifiable(['https://www.rottentomatoes.com/','https://en.wikipedia.org/wiki/Main_Page','https://dtf.ru/','https://www.metacritic.com/']);
 
   final resourceController = TextEditingController(text: '');
