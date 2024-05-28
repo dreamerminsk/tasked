@@ -53,7 +53,11 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       style: const ButtonStyle(
     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
   ),
-  constraints: BoxConstraints(
+final double adjustedWidth = Get.width - 2 * 8;
+
+constraints: BoxConstraints(
+  maxWidth: adjustedWidth,
+  minWidth: adjustedWidth,
     maxWidth: Get.width  - 2  *  8,
     minWidth: Get.width  - 2  *  8,
     maxHeight: Get.width  - 2  *  8,
