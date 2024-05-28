@@ -46,10 +46,19 @@ class HtmlView extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'html tree',
-                      style: Theme.of(context).textTheme.bodyLarge!,
+                      style: Theme.of(context).textTheme.headlineLarge!,
                     ), // Text
-                    IconButton.filled(
-                      iconSize: 320,
+                    IconButton.filledTonal(
+                      style: const ButtonStyle(
+    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+  ),
+  constraints: BoxConstraints(
+    maxWidth: Get.width  - 2  *  8,
+    minWidth: Get.width  - 2  *  8,
+    maxHeight: Get.width  - 2  *  8,
+    minHeight:Get.width  - 2  *  8,
+  ),
+                      iconSize: Get.width  - 2  *  8,
                       icon: const Icon(Icons.blur_on),
                       onPressed: () {},
                     ), // IconButton
