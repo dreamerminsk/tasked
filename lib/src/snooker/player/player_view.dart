@@ -16,6 +16,8 @@ class PlayerView extends StatelessWidget {
   Widget build(context) {
     final PlayerController c = Get.find();
 
+    final double adjustedWidth = Get.width - 2 * 8;
+
     return Scaffold(
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
@@ -30,10 +32,19 @@ class PlayerView extends StatelessWidget {
           ]),
       body: Center(
         child: IconButton.outlined(
-          iconSize: Get.width - 2 * paddingValue,
+          style: const ButtonStyle(
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          constraints: BoxConstraints(
+            maxWidth: adjustedWidth,
+            minWidth: adjustedWidth,
+            maxHeight: adjustedWidth,
+            minHeight: adjustedWidth,
+          ),
+          iconSize: adjustedWidth,
           icon: const Icon(Icons.blur_on),
           onPressed: () {},
-        ),
+        ), // IconButton
       ), // Center
     );
   }

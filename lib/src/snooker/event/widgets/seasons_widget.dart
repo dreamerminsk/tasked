@@ -8,7 +8,7 @@ class SeasonsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Container(
@@ -17,7 +17,7 @@ class SeasonsWidget extends StatelessWidget {
       height: Get.height,
       margin: const EdgeInsets.all(8),
       child: ListView.builder(
-        itemCount: 25,
+        itemCount: 26,
         itemBuilder: (BuildContext context, int index) {
           return Row(
             //mainAxisSize: MainAxisSize.min,
@@ -25,10 +25,12 @@ class SeasonsWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                child: Text(
-                  '${2000 + index} in snooker',
-                  style: Theme.of(context).textTheme.headlineLarge!,
-                ), // Text
+                child: Center(
+                  child: Text(
+                    '${2000 + index} in snooker',
+                    style: textTheme.headlineLarge!,
+                  ), // Text
+                ), // Center
               ), // Expanded
             ], // Row.children
           ); // Row

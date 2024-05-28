@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'html_controller.dart';
+import 'widgets/document_card.dart';
 import '../routes/app_pages.dart';
-//import '../tasklist/task/task_item.dart';
 
 class HtmlView extends StatelessWidget {
   const HtmlView({
@@ -47,11 +47,8 @@ class HtmlView extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text(
-                      'html tree',
-                      style: Theme.of(context).textTheme.headlineLarge!,
-                    ), // Text
-                    IconButton.filledTonal(
+                    DocumentCard(),
+                    IconButton.outlined(
                       style: const ButtonStyle(
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
@@ -61,7 +58,7 @@ class HtmlView extends StatelessWidget {
                         maxHeight: adjustedWidth,
                         minHeight: adjustedWidth,
                       ),
-                      iconSize: Get.width - 2 * 8,
+                      iconSize: adjustedWidth,
                       icon: const Icon(Icons.blur_on),
                       onPressed: () {
                         c.randomUrl();
