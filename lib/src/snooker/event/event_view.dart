@@ -29,9 +29,15 @@ class EventView extends StatelessWidget {
           ]),
       body: Obx(
         () => AnimatedSwitcher(
-          duration: Duration(milliseconds: 5000),
+          duration: Duration(milliseconds: 1600),
           transitionBuilder: (Widget child, Animation<double> animation) {
-            return FadeTransition(opacity: animation, child: child);
+            return SlideTransition(
+                position: Tween(
+                  begin: Offset(1.0, 1.0),
+                  end: Offset(0.0, 0.0),
+                ).animate(animation),
+                //opacity: animation,
+                child: child);
           },
           child: c.isRunning.value
               ? SeasonsWidget(key: UniqueKey())
