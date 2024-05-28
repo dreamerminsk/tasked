@@ -44,7 +44,7 @@ class PlayerView extends StatelessWidget {
                       iconSize: adjustedWidth,
                       icon: const Icon(Icons.blur_on),
                       onPressed: () {
-                        c.randomUrl();
+                        
                       },
                     ), // IconButton
       ), // Center
