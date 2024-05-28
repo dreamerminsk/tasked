@@ -43,6 +43,7 @@ class HtmlView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Column(
+mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
                       'html tree',
@@ -60,7 +61,7 @@ class HtmlView extends StatelessWidget {
   ),
                       iconSize: Get.width  - 2  *  8,
                       icon: const Icon(Icons.blur_on),
-                      onPressed: () {},
+                      onPressed: () {c.randomUrl();},
                     ), // IconButton
                   ], // children
                 ), // Column
