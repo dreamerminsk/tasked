@@ -20,12 +20,14 @@ class SeasonsWidget extends StatelessWidget {
         itemCount: 25,
         itemBuilder: (BuildContext context, int index) {
           return Row(
-            mainAxisSize: MainAxisSize.min,
+            //mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
                 child: Text(
                   '${2000 + index} in snooker',
-                  style: Theme.of(context).textTheme.bodyLarge!,
+                  style: Theme.of(context).textTheme.headlineLarge!,
                 ), // Text
               ), // Expanded
             ], // Row.children
