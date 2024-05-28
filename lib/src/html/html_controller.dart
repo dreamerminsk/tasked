@@ -12,7 +12,9 @@ class HtmlController extends GetxController {
 
   static const String defaultUrl = 'https://www.rottentomatoes.com/';
 
-  final resourceController = TextEditingController(text: defaultUrl);
+static const defaultUrls = List.unmodifiable(['https://www.rottentomatoes.com/','https://en.wikipedia.org/wiki/Main_Page','https://dtf.ru/','https://www.metacritic.com/']);
+
+  final resourceController = TextEditingController(text: '');
 
   final task = Rxn<TaskItem>();
 
@@ -29,4 +31,8 @@ class HtmlController extends GetxController {
     resourceController.dispose();
     super.onClose();
   }
+
+  void randomUrl() {
+resourceController.text = list.sample(1).single;
+}
 }
