@@ -28,7 +28,9 @@ class PlayerView extends StatelessWidget {
           ]),
       body: Center(
         child: IconButton.outlined(
-          iconSize: Get.width - 2 * 8,
+const double paddingValue = 8.0;
+...
+iconSize: Get.width - 2 * paddingValue,
           icon: const Icon(Icons.blur_on),
           onPressed: () {},
         ),
