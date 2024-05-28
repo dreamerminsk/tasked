@@ -10,6 +10,8 @@ class PlayerView extends StatelessWidget {
     super.key,
   });
 
+const double paddingValue = 8.0;
+
   @override
   Widget build(context) {
     final PlayerController c = Get.find();
@@ -28,8 +30,6 @@ class PlayerView extends StatelessWidget {
           ]),
       body: Center(
         child: IconButton.outlined(
-const double paddingValue = 8.0;
-...
 iconSize: Get.width - 2 * paddingValue,
           icon: const Icon(Icons.blur_on),
           onPressed: () {},
