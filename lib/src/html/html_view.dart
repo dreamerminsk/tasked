@@ -14,7 +14,7 @@ class HtmlView extends StatelessWidget {
   Widget build(context) {
     final HtmlController c = Get.find();
 
-final double adjustedWidth = Get.width - 2 * 8;
+    final double adjustedWidth = Get.width - 2 * 8;
 
     return Scaffold(
       appBar: AppBar(
@@ -45,7 +45,7 @@ final double adjustedWidth = Get.width - 2 * 8;
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Column(
-mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
                       'html tree',
@@ -53,17 +53,19 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     ), // Text
                     IconButton.filledTonal(
                       style: const ButtonStyle(
-    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-  ),
-constraints: BoxConstraints(
-  maxWidth: adjustedWidth,
-  minWidth: adjustedWidth,
- maxHeight: adjustedWidth,
-  minHeight: adjustedWidth,
-  ),
-                      iconSize: Get.width  - 2  *  8,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      constraints: BoxConstraints(
+                        maxWidth: adjustedWidth,
+                        minWidth: adjustedWidth,
+                        maxHeight: adjustedWidth,
+                        minHeight: adjustedWidth,
+                      ),
+                      iconSize: Get.width - 2 * 8,
                       icon: const Icon(Icons.blur_on),
-                      onPressed: () {c.randomUrl();},
+                      onPressed: () {
+                        c.randomUrl();
+                      },
                     ), // IconButton
                   ], // children
                 ), // Column

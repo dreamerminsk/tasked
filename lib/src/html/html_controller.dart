@@ -10,7 +10,12 @@ import '../tasklist/task/task_item.dart';
 class HtmlController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
 
-static final defaultUrls = List.unmodifiable(['https://www.rottentomatoes.com/','https://en.wikipedia.org/wiki/Main_Page','https://dtf.ru/','https://www.metacritic.com/']);
+  static final defaultUrls = List.unmodifiable([
+    'https://www.rottentomatoes.com/',
+    'https://en.wikipedia.org/wiki/Main_Page',
+    'https://dtf.ru/',
+    'https://www.metacritic.com/'
+  ]);
 
   final resourceController = TextEditingController(text: '');
 
@@ -31,6 +36,6 @@ static final defaultUrls = List.unmodifiable(['https://www.rottentomatoes.com/',
   }
 
   void randomUrl() {
-resourceController.text = defaultUrls.sample(1).single;
-}
+    resourceController.text = defaultUrls.sample(1).single;
+  }
 }
