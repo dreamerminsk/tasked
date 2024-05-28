@@ -32,7 +32,10 @@ class EventView extends StatelessWidget {
           duration: Duration(milliseconds: 1600),
           transitionBuilder: (Widget child, Animation<double> animation) {
             return SlideTransition(
-position: animation,
+position: Tween(
+                begin: Offset(1.0, 1.0),
+                end: Offset(0.0, 0.0),
+              ).animate(animation),
 //opacity: animation, 
 child: child
 );
