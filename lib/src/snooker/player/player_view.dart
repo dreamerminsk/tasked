@@ -16,6 +16,8 @@ class PlayerView extends StatelessWidget {
   Widget build(context) {
     final PlayerController c = Get.find();
 
+    final double adjustedWidth = Get.width - 2 * 8;
+
     return Scaffold(
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
