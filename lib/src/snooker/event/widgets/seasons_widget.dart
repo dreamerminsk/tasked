@@ -27,9 +27,9 @@ class SeasonsWidget extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Text(
-                  '${2000 + index} in snooker',
-                  style: textTheme.headlineLarge!,
-                ), // Text
+                    '${2000 + index} in snooker',
+                    style: textTheme.headlineLarge!,
+                  ), // Text
                 ), // Center
               ), // Expanded
             ], // Row.children
