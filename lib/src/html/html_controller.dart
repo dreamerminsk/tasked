@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,9 +10,14 @@ import '../tasklist/task/task_item.dart';
 class HtmlController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
 
-  static const String defaultUrl = 'https://www.rottentomatoes.com/';
+  static final defaultUrls = List.unmodifiable([
+    'https://www.rottentomatoes.com/',
+    'https://en.wikipedia.org/wiki/Main_Page',
+    'https://dtf.ru/',
+    'https://www.metacritic.com/'
+  ]);
 
-  final resourceController = TextEditingController(text: defaultUrl);
+  final resourceController = TextEditingController(text: '');
 
   final task = Rxn<TaskItem>();
 
@@ -27,5 +33,9 @@ class HtmlController extends GetxController {
     debug.newClose(this.runtimeType.toString());
     resourceController.dispose();
     super.onClose();
+  }
+
+  void randomUrl() {
+    resourceController.text = defaultUrls.sample(1).single;
   }
 }
