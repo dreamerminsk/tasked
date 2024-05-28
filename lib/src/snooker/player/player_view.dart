@@ -10,7 +10,7 @@ class PlayerView extends StatelessWidget {
     super.key,
   });
 
-const double paddingValue = 8.0;
+final double paddingValue = 8.0;
 
   @override
   Widget build(context) {
