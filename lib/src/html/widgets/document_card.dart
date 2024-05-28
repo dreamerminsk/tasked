@@ -4,10 +4,7 @@ import 'package:get/get.dart';
 class DocumentCard extends StatelessWidget {
   const DocumentCard({
     super.key,
-    this.padding,
   });
-
-  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,7 @@ class DocumentCard extends StatelessWidget {
             ), // Text
           ],
         ), // Column
-        margin: this.padding ?? const EdgeInsets.all(16),
+        //margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
