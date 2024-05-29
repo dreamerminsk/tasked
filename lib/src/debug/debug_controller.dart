@@ -4,10 +4,14 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 
+import 'models/controller_stats.dart';
+
 class DebugController extends GetxService {
   final started = Rxn<DateTime>();
 
   final controllers = RxMap<String, int>();
+
+final stats = RxMap<String, ControllerStats>();
 
   final instances = 0.obs;
 
@@ -29,6 +33,7 @@ class DebugController extends GetxService {
   void newInit(String name) {
     controllers.update(name, (value) => value + 1, ifAbsent: () => 1);
     controllers.refresh();
+stats.update(name, (value)=>value.copyWith(total: value.total+1,live:value.live+1,),ifAbsent:()=>ControllerStats(total:1,live:1,));
   }
 
   void newClose(String name) {
