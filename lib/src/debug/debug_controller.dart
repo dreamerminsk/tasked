@@ -9,13 +9,7 @@ import 'models/controller_stats.dart';
 class DebugController extends GetxService {
   final started = Rxn<DateTime>();
 
-  final controllers = RxMap<String, int>();
-
 final stats = RxMap<String, ControllerStats>();
-
-  final instances = 0.obs;
-
-  final maxIns = 0.obs;
 
   var requests = 0.obs;
 
@@ -31,14 +25,11 @@ final stats = RxMap<String, ControllerStats>();
   final samples = [].obs;
 
   void newInit(String name) {
-    controllers.update(name, (value) => value + 1, ifAbsent: () => 1);
-    controllers.refresh();
 stats.update(name, (value)=>value.copyWith(total: value.total+1,live:value.live+1,),ifAbsent:()=>ControllerStats(total:1,live:1,));
   }
 
   void newClose(String name) {
-    controllers.update(name, (value) => value - 1, ifAbsent: () => 0);
-    controllers.refresh();
+stats.update(name, (value) => value.copyWith(live: value.live-1,), ifAbsent: () => ControllerStats(total:0,live:0,));
   }
 
   void newReq() {
