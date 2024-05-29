@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:intl/intl.dart';
 
+import '../models/controller_stats.dart';
+
 class HealthWidget extends StatelessWidget {
-  final Map<String, int> controllers;
+  final Map<String, ControllerStats> stats;
 
   const HealthWidget({
     super.key,
-    required this.controllers,
+    required this.stats,
   });
 
   @override
@@ -25,7 +27,7 @@ class HealthWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: _buildList(context, controllers),
+            children: _buildList(context, stats),
           ), // Column
           RotatedBox(
             quarterTurns: 3,
@@ -50,14 +52,14 @@ class HealthWidget extends StatelessWidget {
     ); //Container
   }
 
-  List<Widget> _buildList(BuildContext context, Map<String, int> items) {
+  List<Widget> _buildList(BuildContext context, Map<String, ControllerStats> items) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return items.entries
         .take(7)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value}',
+              '${item.key}: ${item.value.live} of ${item.value.total}',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
