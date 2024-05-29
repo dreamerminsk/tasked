@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'event_controller.dart';
 import 'widgets/seasons_widget.dart';
 import '../../routes/app_pages.dart';
-//import '../../tasklist/task/task_item.dart';
 
 class EventView extends StatelessWidget {
   const EventView({
