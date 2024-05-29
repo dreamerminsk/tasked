@@ -1,10 +1,12 @@
 class ControllerStats {
   final int total;
   final int live;
+
   const ControllerStats({
     this.total = 0,
     this.live = 0,
   });
+
   ControllerStats copyWith({
     int? total,
     int? live,
