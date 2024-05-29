@@ -64,7 +64,7 @@ class AppPages {
       page: () => TaskView(),
       //binding: TaskBinding(),
     ),
-GetPage(
+    GetPage(
       name: _Paths.SNOOKERSEASONS,
       page: () => SeasonView(),
       binding: SeasonBinding(),

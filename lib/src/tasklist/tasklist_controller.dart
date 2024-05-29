@@ -9,7 +9,7 @@ import 'task/task_item.dart';
 class TasklistController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final tasks = <TaskItem>[
-TaskItem(
+    TaskItem(
       id: 0,
       title: 'snooker ::: seasons',
       path: Routes.SNOOKERSEASONS,
