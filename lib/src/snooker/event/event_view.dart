@@ -45,7 +45,16 @@ class EventView extends StatelessWidget {
               : Center(
                   key: UniqueKey(),
                   child: IconButton.outlined(
-                    iconSize: 320,
+                    style: const ButtonStyle(
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          constraints: BoxConstraints(
+            maxWidth: adjustedWidth,
+            minWidth: adjustedWidth,
+            maxHeight: adjustedWidth,
+            minHeight: adjustedWidth,
+          ),
+          iconSize: adjustedWidth,
                     icon: const Icon(Icons.blur_on),
                     onPressed: () {
                       c.start();
