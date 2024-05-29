@@ -1,10 +1,10 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'event_controller.dart';
 import 'widgets/seasons_widget.dart';
 import '../../routes/app_pages.dart';
-//import '../../tasklist/task/task_item.dart';
 
 class EventView extends StatelessWidget {
   const EventView({
@@ -14,6 +14,8 @@ class EventView extends StatelessWidget {
   @override
   Widget build(context) {
     final EventController c = Get.find();
+
+    final double adjustedWidth = Get.width - 2 * 8;
 
     return Scaffold(
       appBar: AppBar(
@@ -29,13 +31,14 @@ class EventView extends StatelessWidget {
           ]),
       body: Obx(
         () => AnimatedSwitcher(
-          duration: Duration(milliseconds: 1600),
+          duration: Duration(milliseconds: 500),
           transitionBuilder: (Widget child, Animation<double> animation) {
-            return SlideTransition(
-                position: Tween(
-                  begin: Offset(1.0, 0.0),
-                  end: Offset(0.0, 0.0),
-                ).animate(animation),
+            return FadeScaleTransition(
+                animation: animation,
+                //position: Tween(
+                //begin: Offset(1.0, 0.0),
+                //end: Offset(0.0, 0.0),
+                //).animate(animation),
                 //opacity: animation,
                 child: child);
           },
@@ -44,7 +47,16 @@ class EventView extends StatelessWidget {
               : Center(
                   key: UniqueKey(),
                   child: IconButton.outlined(
-                    iconSize: 320,
+                    style: const ButtonStyle(
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    constraints: BoxConstraints(
+                      maxWidth: adjustedWidth,
+                      minWidth: adjustedWidth,
+                      maxHeight: adjustedWidth,
+                      minHeight: adjustedWidth,
+                    ),
+                    iconSize: adjustedWidth,
                     icon: const Icon(Icons.blur_on),
                     onPressed: () {
                       c.start();
