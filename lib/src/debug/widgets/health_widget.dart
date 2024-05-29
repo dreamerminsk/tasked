@@ -52,7 +52,8 @@ class HealthWidget extends StatelessWidget {
     ); //Container
   }
 
-  List<Widget> _buildList(BuildContext context, Map<String, ControllerStats> items) {
+  List<Widget> _buildList(
+      BuildContext context, Map<String, ControllerStats> items) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 

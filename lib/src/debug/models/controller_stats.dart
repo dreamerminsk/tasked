@@ -1,8 +1,11 @@
-class ControllerStats{
-final int total;
-final int live;
-const ControllerStats({this.total =0,this.live=0,});
-ControllerInfo copyWith({
+class ControllerStats {
+  final int total;
+  final int live;
+  const ControllerStats({
+    this.total = 0,
+    this.live = 0,
+  });
+  ControllerInfo copyWith({
     int? total,
     int? live,
   }) {
@@ -11,7 +14,8 @@ ControllerInfo copyWith({
       live: live ?? this.live,
     );
   }
-(int,int) _equality() => (total, live);
+
+  (int, int) _equality() => (total, live);
 
   @override
   bool operator ==(covariant ControllerStats other) {
