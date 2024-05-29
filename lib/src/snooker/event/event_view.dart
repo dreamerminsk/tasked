@@ -15,7 +15,7 @@ class EventView extends StatelessWidget {
   Widget build(context) {
     final EventController c = Get.find();
 
-final double adjustedWidth = Get.width - 2 * 8;
+    final double adjustedWidth = Get.width - 2 * 8;
 
     return Scaffold(
       appBar: AppBar(
@@ -36,8 +36,8 @@ final double adjustedWidth = Get.width - 2 * 8;
             return FadeScaleTransition(
                 animation: animation,
                 //position: Tween(
-                  //begin: Offset(1.0, 0.0),
-                  //end: Offset(0.0, 0.0),
+                //begin: Offset(1.0, 0.0),
+                //end: Offset(0.0, 0.0),
                 //).animate(animation),
                 //opacity: animation,
                 child: child);
@@ -48,15 +48,15 @@ final double adjustedWidth = Get.width - 2 * 8;
                   key: UniqueKey(),
                   child: IconButton.outlined(
                     style: const ButtonStyle(
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-          constraints: BoxConstraints(
-            maxWidth: adjustedWidth,
-            minWidth: adjustedWidth,
-            maxHeight: adjustedWidth,
-            minHeight: adjustedWidth,
-          ),
-          iconSize: adjustedWidth,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    constraints: BoxConstraints(
+                      maxWidth: adjustedWidth,
+                      minWidth: adjustedWidth,
+                      maxHeight: adjustedWidth,
+                      minHeight: adjustedWidth,
+                    ),
+                    iconSize: adjustedWidth,
                     icon: const Icon(Icons.blur_on),
                     onPressed: () {
                       c.start();
