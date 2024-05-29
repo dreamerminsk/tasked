@@ -39,7 +39,7 @@ class HtmlView extends StatelessWidget {
                 icon: Icon(Icons.add_link),
               ), // InputDecoration
             ), // TextField
-            SizedBox(height: 8), // SizedBox
+            SizedBox(height: 16), // SizedBox
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
