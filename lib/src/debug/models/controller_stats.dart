@@ -5,7 +5,7 @@ class ControllerStats {
     this.total = 0,
     this.live = 0,
   });
-  ControllerInfo copyWith({
+  ControllerStats copyWith({
     int? total,
     int? live,
   }) {
