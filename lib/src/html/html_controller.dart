@@ -15,6 +15,7 @@ class HtmlController extends GetxController {
     'https://en.wikipedia.org/wiki/Main_Page',
     'https://dtf.ru/',
 'https://vc.ru/',
+'https://sports.ru/',
     'https://www.metacritic.com/',
     'https://habr.com/ru/articles/top/daily/',
     'https://tech.onliner.by/',
