@@ -43,10 +43,7 @@ class DebugController extends GetxService {
         (value) => value.copyWith(
               live: value.live - 1,
             ),
-        ifAbsent: () => ControllerStats(
-              total: 0,
-              live: 0,
-            ));
+        ifAbsent: () => ControllerStats());
   }
 
   void newReq() {
