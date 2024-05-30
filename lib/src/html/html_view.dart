@@ -41,13 +41,14 @@ class HtmlView extends StatelessWidget {
             ), // TextField
             SizedBox(height: 16), // SizedBox
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     DocumentCard(),
+SizedBox(height: 16), // SizedBox
                     IconButton.outlined(
                       style: const ButtonStyle(
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
