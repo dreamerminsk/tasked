@@ -48,7 +48,7 @@ class HtmlView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     DocumentCard(),
-SizedBox(height: 16), // SizedBox
+                    SizedBox(height: 16), // SizedBox
                     IconButton.outlined(
                       style: const ButtonStyle(
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,

@@ -14,8 +14,8 @@ class DocumentCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        width: Get.width-2*8.0,
-        height: (Get.width-2*8.0) / 2.0 / 1.618,
+        width: Get.width - 2 * 8.0,
+        height: (Get.width - 2 * 8.0) / 2.0 / 1.618,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
