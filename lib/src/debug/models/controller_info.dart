@@ -1,17 +1,17 @@
 class ControllerInfo {
-  final int total;
-  final int live;
+  final int id;
+  final DateTime started;
   const ControllerInfo({
-    this.total = 0,
-    this.live = 0,
+    this.id = 0,
+    this.started = DateTime.now(),
   });
   ControllerInfo copyWith({
-    int? total,
-    int? live,
+    int? id,
+    int? started,
   }) {
     return ControllerInfo(
-      total: total ?? this.total,
-      live: live ?? this.live,
+      id: id ?? this.id,
+      started: started ?? this.started,
     );
   }
 
