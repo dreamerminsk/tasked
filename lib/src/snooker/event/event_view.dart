@@ -31,7 +31,7 @@ class EventView extends StatelessWidget {
           ]),
       body: Obx(
         () => AnimatedSwitcher(
-          duration: Duration(milliseconds: 500),
+          duration: Duration(milliseconds: 320),
           transitionBuilder: (Widget child, Animation<double> animation) {
             return FadeScaleTransition(
                 animation: animation,
