@@ -15,7 +15,7 @@ class ControllerInfo {
     );
   }
 
-  (int, int) _equality() => (total, live);
+  (int, DateTime) _equality() => (id, started);
 
   @override
   bool operator ==(covariant ControllerInfo other) {
