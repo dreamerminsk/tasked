@@ -1,19 +1,25 @@
 class ControllerStats {
   final int total;
-  final int live;
+final List<ControllerInfo> _info;
 
   const ControllerStats({
     this.total = 0,
-    this.live = 0,
+    required this._info,
   });
 
-  ControllerStats copyWith({
-    int? total,
-    int? live,
-  }) {
+int get live => this._info.length;
+
+ControllerStats add() {
     return ControllerStats(
-      total: total ?? this.total,
-      live: live ?? this.live,
+      total: this.total + 1,
+      _info: [ControllerInfo(), ...this._info],
+    );
+  }
+
+ControllerStats remove() {
+    return ControllerStats(
+      total: this.total + 1,
+      _info: [ControllerInfo(), ...this._info],
     );
   }
 
