@@ -1,6 +1,6 @@
 class ControllerStats {
   final int total;
-final List<ControllerInfo> _info;
+final Map<String,ControllerInfo> _info;
 
   const ControllerStats({
     this.total = 0,
