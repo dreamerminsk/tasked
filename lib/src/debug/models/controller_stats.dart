@@ -12,14 +12,14 @@ int get live => this._info.length;
 ControllerStats add(ControllerInfo cinfo) {
     return ControllerStats(
       total: this.total + 1,
-      _info: [ControllerInfo(), ...this._info],
+      _info: {cinfo.id: cinfo, ...this._info},
     );
   }
 
 ControllerStats remove(ControllerInfo cinfo) {
     return ControllerStats(
-      total: this.total + 1,
-      _info: {cinfo.id: cinfo, ...this._info},
+      total: this.total,
+      _info:Map.from(this._info)..remove(cinfo.id),
     );
   }
 
