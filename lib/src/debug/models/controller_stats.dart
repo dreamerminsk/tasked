@@ -9,14 +9,14 @@ final Map<String,ControllerInfo> _info;
 
 int get live => this._info.length;
 
-ControllerStats add() {
+ControllerStats add(ControllerInfo cinfo) {
     return ControllerStats(
       total: this.total + 1,
       _info: [ControllerInfo(), ...this._info],
     );
   }
 
-ControllerStats remove() {
+ControllerStats remove(ControllerInfo cinfo) {
     return ControllerStats(
       total: this.total + 1,
       _info: [ControllerInfo(), ...this._info],
