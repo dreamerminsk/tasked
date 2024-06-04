@@ -19,7 +19,7 @@ ControllerStats add(ControllerInfo cinfo) {
 ControllerStats remove(ControllerInfo cinfo) {
     return ControllerStats(
       total: this.total + 1,
-      _info: [ControllerInfo(), ...this._info],
+      _info: {cinfo.id: cinfo, ...this._info},
     );
   }
 
