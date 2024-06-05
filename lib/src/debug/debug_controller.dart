@@ -24,11 +24,10 @@ class DebugController extends GetxService {
 
   final samples = [].obs;
 
-void newInit(String name, String id, DateTime started) {
-if (stats.containsKey(name)) {
-} else {
-}
-}
+  void newInit(String name, String id, DateTime started) {
+    if (stats.containsKey(name)) {
+    } else {}
+  }
 
   void newInit(String name) {
     stats.update(
