@@ -1,3 +1,5 @@
+import 'controller_info.dart';
+
 class ControllerStats {
   int _total;
   final Map<String, ControllerInfo> _info;
@@ -15,10 +17,7 @@ class ControllerStats {
   }
 
   void remove(ControllerInfo cinfo) {
-    return ControllerStats(
-      total: this.total,
-      _info: Map.from(this._info)..remove(cinfo.id),
-    );
+    this._info.remove(cinfo.id);
   }
 
   (int, int) _equality() => (total, live);
