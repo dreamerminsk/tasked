@@ -1,11 +1,11 @@
 class ControllerInfo {
-  final int id;
+  final String id;
   final DateTime started;
   final DateTime? finished;
 
   const ControllerInfo({
-    this.id = 0,
-    this.started = DateTime.now(),
+    required this.id,
+    required this.started,
     this.finished,
   });
 
@@ -21,7 +21,7 @@ class ControllerInfo {
     );
   }
 
-  (int, DateTime) _equality() => (id, started);
+  (int, DateTime, DateTime?) _equality() => (id, started,finished);
 
   @override
   bool operator ==(covariant ControllerInfo other) {
