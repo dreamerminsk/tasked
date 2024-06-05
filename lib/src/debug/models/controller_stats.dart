@@ -1,19 +1,17 @@
 class ControllerStats {
-  final int total;
+  int _total;
   final Map<String, ControllerInfo> _info;
 
   const ControllerStats({
-    this.total = 0,
+    this._total = 0,
     required this._info,
   });
 
   int get live => this._info.length;
 
   void add(ControllerInfo cinfo) {
-    return ControllerStats(
-      total: this.total + 1,
-      _info: {cinfo.id: cinfo, ...this._info},
-    );
+    this.total += 1;
+    this._info[cinfo.id] = cinfo;
   }
 
   void remove(ControllerInfo cinfo) {
