@@ -1,7 +1,7 @@
 import 'dart:core';
 
 import 'package:get/get.dart';
-import 'package:nanoid/nanoid.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../../debug/debug_controller.dart';
 import '../../tasklist/task/task_item.dart';
