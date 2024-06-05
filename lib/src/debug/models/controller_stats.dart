@@ -1,12 +1,13 @@
 import 'controller_info.dart';
 
 class ControllerStats {
-  int _total;
-  final Map<String, ControllerInfo> _info;
+
+final Map<String, ControllerInfo> _dead;
+  final Map<String, ControllerInfo> _live;
 
   const ControllerStats({
-    this._total = 0,
-    required this._info,
+    required this._dead,
+    required this._live,
   });
 
   int get live => this._info.length;
