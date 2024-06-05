@@ -2,11 +2,13 @@ class ControllerInfo {
   final int id;
   final DateTime started;
   final DateTime? finished;
+
   const ControllerInfo({
     this.id = 0,
     this.started = DateTime.now(),
     this.finished,
   });
+
   ControllerInfo copyWith({
     int? id,
     DateTime? started,
