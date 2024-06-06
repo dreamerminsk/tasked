@@ -10,7 +10,7 @@ class ControllerInfo {
   });
 
   ControllerInfo copyWith({
-    int? id,
+    String? id,
     DateTime? started,
     DateTime? finished,
   }) {
@@ -21,7 +21,7 @@ class ControllerInfo {
     );
   }
 
-  (int, DateTime, DateTime?) _equality() => (id, started,finished);
+  (String, DateTime, DateTime?) _equality() => (id, started,finished);
 
   @override
   bool operator ==(covariant ControllerInfo other) {
