@@ -2,8 +2,8 @@ import 'controller_info.dart';
 
 class ControllerStats {
 
-final Map<String, ControllerInfo> _dead;
-  final Map<String, ControllerInfo> _live;
+final Map<String, ControllerInfo> _deadInfo;
+  final Map<String, ControllerInfo> _liveInfo;
 
   const ControllerStats({
     required this._liveInfo,
