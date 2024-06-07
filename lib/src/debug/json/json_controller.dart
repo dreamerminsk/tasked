@@ -4,10 +4,13 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:async/async.dart';
 import 'package:characters/characters.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../debug_controller.dart';
 
 class JsonController extends GetxController {
+final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
   final jsonRef = ''.obs;
   final objects = 0.obs;
@@ -21,7 +24,7 @@ class JsonController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+    debug.newInit(this.runtimeType.toString(), id, started);
     jsonRef.value = Get.arguments;
     load();
   }
@@ -33,7 +36,7 @@ class JsonController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 
