@@ -26,10 +26,15 @@ class DebugController extends GetxService {
 
   void newInit(String name, String id, DateTime started) {
     if (stats.containsKey(name)) {
-    } else {}
+stats[name].add(ControllerInfo());
+    } else {
+stats[name] = ControllerStats();
+stats[name].add(ControllerInfo());
+}
   }
 
-  void newInit(String name) {
+  void newInit(String name, String id, DateTime started) {
+
     stats.update(
         name,
         (value) => value.copyWith(
