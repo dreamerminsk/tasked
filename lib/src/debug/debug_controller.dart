@@ -8,7 +8,7 @@ import 'package:nanoid2/nanoid2.dart';
 import 'models/controller_stats.dart';
 
 class DebugController extends GetxService {
-final id = nanoid();
+  final id = nanoid();
 
   final started = DateTime.now();
 
@@ -69,7 +69,7 @@ final id = nanoid();
   @override
   void onInit() {
     super.onInit();
-newInit(this.runtimeType.toString(),id,started);
+    newInit(this.runtimeType.toString(), id, started);
     dstarted.value = DateTime.now();
     loadSamples().then((items) => samples.assignAll(items));
   }
@@ -81,8 +81,8 @@ newInit(this.runtimeType.toString(),id,started);
 
   @override
   void onClose() {
-newClose(this.runtimeType.toString(),id,DateTime.now());
-super.onClose();
+    newClose(this.runtimeType.toString(), id, DateTime.now());
+    super.onClose();
   }
 
   Future<List<String>> loadSamples() async {

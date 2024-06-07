@@ -17,7 +17,7 @@ class HomeController extends GetxController {
   static final animeRef =
       'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
 
-final id = nanoid();
+  final id = nanoid();
   final started = DateTime.now();
 
   final DebugController debug = Get.find(tag: 'debugger');
@@ -32,7 +32,7 @@ final id = nanoid();
   @override
   void onInit() {
     super.onInit();
-debug.newInit(this.runtimeType.toString(),id,started);
+    debug.newInit(this.runtimeType.toString(), id, started);
   }
 
   @override
@@ -43,7 +43,7 @@ debug.newInit(this.runtimeType.toString(),id,started);
 
   @override
   void onClose() {
-debug.newClose(this.runtimeType.toString(),id,DateTime.now());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 

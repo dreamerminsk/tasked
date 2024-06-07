@@ -12,7 +12,7 @@ import '../wiki/entities/wiki_link.dart';
 import '../wiki/responses/category_members_response.dart';
 
 class CategoryController extends GetxController {
-final id = nanoid();
+  final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
@@ -23,7 +23,7 @@ final id = nanoid();
   @override
   void onInit() {
     super.onInit();
-debug.newInit(this.runtimeType.toString(),id,started);
+    debug.newInit(this.runtimeType.toString(), id, started);
     category.value = Get.arguments;
     final link =
         WikiLink(prefix: category.value!.lang, title: category.value!.title);
@@ -35,7 +35,7 @@ debug.newInit(this.runtimeType.toString(),id,started);
 
   @override
   void onClose() {
-debug.newClose(this.runtimeType.toString(),id,DateTime.now());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 
