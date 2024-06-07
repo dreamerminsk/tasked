@@ -29,8 +29,11 @@ class Mp3View extends StatelessWidget {
               },
             ),
           ]),
-      body: Center(
-        child: IconButton.outlined(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+  Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
+IconButton.outlined(
           style: const ButtonStyle(
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
@@ -44,7 +47,8 @@ class Mp3View extends StatelessWidget {
           icon: const Icon(Icons.blur_on),
           onPressed: () {},
         ), // IconButton
-      ), // Center
+], // children
+      ), // Column
     );
   }
 }
