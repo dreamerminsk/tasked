@@ -26,6 +26,8 @@ import '../snooker/season/season_binding.dart';
 import '../snooker/season/season_view.dart';
 import '../html/html_binding.dart';
 import '../html/html_view.dart';
+import '../mp3/mp3_binding.dart';
+import '../mp3/mp3_view.dart';
 
 part 'app_routes.dart';
 
@@ -74,6 +76,11 @@ class AppPages {
       name: _Paths.HTML,
       page: () => HtmlView(),
       binding: HtmlBinding(),
+    ),
+    GetPage(
+      name: _Paths.MP3,
+      page: () => Mp3View(),
+      binding: Mp3Binding(),
     ),
     GetPage(
       name: _Paths.CATEGORY,
