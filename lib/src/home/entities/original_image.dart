@@ -32,14 +32,14 @@ class OriginalImage {
     );
   }
 
-  (String, int, int) _equality() => (source, width, height);
+  (String, int, int) asTuple() => (source, width, height);
 
   @override
   bool operator ==(covariant OriginalImage other) {
     if (identical(this, other)) return true;
-    return other._equality() == _equality();
+    return other.asTuple() == asTuple();
   }
 
   @override
-  int get hashCode => _equality().hashCode;
+  int get hashCode => asTuple().hashCode;
 }
