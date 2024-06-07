@@ -16,8 +16,8 @@ int get total => _liveInfo.length+_deadInfo.length;
   }
 
   void remove(ControllerInfo cinfo) {
+_deadInfo[cinfo.id] =cinfo.copyWith(started: _liveInfo[cinfo.id].started,);
     _liveInfo.remove(cinfo.id);
-    _deadInfo[cinfo.id] =cinfo;
   }
 
   (int, int) _equality() => (total, live);
