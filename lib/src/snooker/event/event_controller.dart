@@ -22,7 +22,7 @@ class EventController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString(),id,DateTime.now());
+debug.newClose(this.runtimeType.toString(),id,DateTime.now());
     super.onClose();
   }
 
