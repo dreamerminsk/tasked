@@ -49,6 +49,7 @@ class DebugController extends GetxService {
     if (stats.containsKey(name)) {
       stats[name]!.remove(ControllerInfo(
         id: id,
+        started: started,
         finished: finished,
       ));
     } else {}
