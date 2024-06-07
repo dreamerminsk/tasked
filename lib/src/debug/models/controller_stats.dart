@@ -4,7 +4,7 @@ class ControllerStats {
   final Map<String, ControllerInfo> _deadInfo = {};
   final Map<String, ControllerInfo> _liveInfo = {};
 
-  const ControllerStats();
+  ControllerStats();
 
   int get live => _liveInfo.length;
 
