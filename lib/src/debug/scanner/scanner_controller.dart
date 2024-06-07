@@ -8,7 +8,7 @@ import 'package:nanoid2/nanoid2.dart';
 import '../debug_controller.dart';
 
 class ScannerController extends GetxController {
-final id = nanoid();
+  final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
