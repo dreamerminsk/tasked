@@ -13,7 +13,7 @@ class DebugController extends GetxService {
 
   final started = DateTime.now();
 
-  final dstarted = Rxn<DateTime>();
+  final debugStarted = Rxn<DateTime>();
 
   final stats = RxMap<String, ControllerStats>();
 
