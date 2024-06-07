@@ -38,6 +38,11 @@ class TasklistController extends GetxController {
   void onInit() {
     super.onInit();
     debug.newInit(this.runtimeType.toString(), id, started);
+  }
+
+@override
+  void onReady() {
+    super.onReady();
     tasks.addAll(List<TaskItem>.generate(
         28,
         (int index) => TaskItem(
