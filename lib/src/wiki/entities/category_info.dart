@@ -43,15 +43,15 @@ class CategoryInfo {
     );
   }
 
-  (int, String, String, int, int) _equality() =>
+  (int, String, String, int, int) asTuple() =>
       (pageid, lang, title, pages, subcats);
 
   @override
   bool operator ==(covariant CategoryInfo other) {
     if (identical(this, other)) return true;
-    return other._equality() == _equality();
+    return other.asTuple() == asTuple();
   }
 
   @override
-  int get hashCode => _equality().hashCode;
+  int get hashCode => asTuple().hashCode;
 }
