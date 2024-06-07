@@ -3,16 +3,19 @@ import 'dart:core';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:async/async.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../debug_controller.dart';
 
 class ScannerController extends GetxController {
+  final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+    debug.newInit(this.runtimeType.toString(), id, started);
   }
 
   @override
@@ -22,7 +25,7 @@ class ScannerController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 

@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../debug/debug_controller.dart';
 import '../wiki/entities/category_info.dart';
@@ -11,6 +12,8 @@ import '../wiki/entities/wiki_link.dart';
 import '../wiki/responses/category_members_response.dart';
 
 class CategoryController extends GetxController {
+  final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
   final category = Rxn<CategoryInfo>();
@@ -19,7 +22,8 @@ class CategoryController extends GetxController {
 
   @override
   void onInit() {
-    debug.newInit(this.runtimeType.toString());
+    super.onInit();
+    debug.newInit(this.runtimeType.toString(), id, started);
     category.value = Get.arguments;
     final link =
         WikiLink(prefix: category.value!.lang, title: category.value!.title);
@@ -27,12 +31,11 @@ class CategoryController extends GetxController {
       _update(res);
       fetchCategoryInfo(link).then((res) => _updateInfo(res));
     });
-    super.onInit();
   }
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 

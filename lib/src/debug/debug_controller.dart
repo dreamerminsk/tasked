@@ -3,11 +3,17 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
 
+import 'models/controller_info.dart';
 import 'models/controller_stats.dart';
 
 class DebugController extends GetxService {
-  final started = Rxn<DateTime>();
+  final id = nanoid();
+
+  final started = DateTime.now();
+
+  final debugStarted = Rxn<DateTime>();
 
   final stats = RxMap<String, ControllerStats>();
 
@@ -18,32 +24,35 @@ class DebugController extends GetxService {
   double get rpm =>
       60 *
       requests.value /
-      (DateTime.now().difference(started.value ?? DateTime.now()).inSeconds);
+      (DateTime.now().difference(debugStarted.value ?? DateTime.now()).inSeconds);
 
   final lastResponse = {}.obs;
 
   final samples = [].obs;
 
-  void newInit(String name) {
-    stats.update(
-        name,
-        (value) => value.copyWith(
-              total: value.total + 1,
-              live: value.live + 1,
-            ),
-        ifAbsent: () => ControllerStats(
-              total: 1,
-              live: 1,
-            ));
+  void newInit(String name, String id, DateTime started) {
+    if (stats.containsKey(name)) {
+      stats[name]!.add(ControllerInfo(
+        id: id,
+        started: started,
+      ));
+    } else {
+      stats[name] = ControllerStats();
+      stats[name]!.add(ControllerInfo(
+        id: id,
+        started: started,
+      ));
+    }
   }
 
-  void newClose(String name) {
-    stats.update(
-        name,
-        (value) => value.copyWith(
-              live: value.live - 1,
-            ),
-        ifAbsent: () => ControllerStats());
+  void newClose(String name, String id, DateTime finished) {
+    if (stats.containsKey(name)) {
+      stats[name]!.remove(ControllerInfo(
+        id: id,
+        started: started,
+        finished: finished,
+      ));
+    } else {}
   }
 
   void newReq() {
@@ -61,10 +70,10 @@ class DebugController extends GetxService {
 
   @override
   void onInit() {
-    newInit(this.runtimeType.toString());
-    started.value = DateTime.now();
-    loadSamples().then((items) => samples.assignAll(items));
     super.onInit();
+    newInit(this.runtimeType.toString(), id, started);
+    debugStarted.value = DateTime.now();
+    loadSamples().then((items) => samples.assignAll(items));
   }
 
   @override
@@ -74,7 +83,7 @@ class DebugController extends GetxService {
 
   @override
   void onClose() {
-    newClose(this.runtimeType.toString());
+    newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 

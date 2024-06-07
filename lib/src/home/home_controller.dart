@@ -7,6 +7,7 @@ import 'package:dio/dio.dart' as dio;
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import 'entities/anime.dart';
 import 'entities/summary.dart';
@@ -15,6 +16,9 @@ import '../debug/debug_controller.dart';
 class HomeController extends GetxController {
   static final animeRef =
       'https://raw.githubusercontent.com/dreamerminsk/kb-dart/master/data/2023.anime.json';
+
+  final id = nanoid();
+  final started = DateTime.now();
 
   final DebugController debug = Get.find(tag: 'debugger');
   final animeList = <Anime>[].obs;
@@ -27,8 +31,8 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    debug.newInit(this.runtimeType.toString());
     super.onInit();
+    debug.newInit(this.runtimeType.toString(), id, started);
   }
 
   @override
@@ -39,7 +43,7 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 

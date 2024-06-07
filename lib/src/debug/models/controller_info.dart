@@ -1,21 +1,27 @@
 class ControllerInfo {
-  final int total;
-  final int live;
+  final String id;
+  final DateTime started;
+  final DateTime? finished;
+
   const ControllerInfo({
-    this.total = 0,
-    this.live = 0,
+    required this.id,
+    required this.started,
+    this.finished,
   });
+
   ControllerInfo copyWith({
-    int? total,
-    int? live,
+    String? id,
+    DateTime? started,
+    DateTime? finished,
   }) {
     return ControllerInfo(
-      total: total ?? this.total,
-      live: live ?? this.live,
+      id: id ?? this.id,
+      started: started ?? this.started,
+      finished: finished ?? this.finished,
     );
   }
 
-  (int, int) _equality() => (total, live);
+  (String, DateTime, DateTime?) _equality() => (id, started, finished);
 
   @override
   bool operator ==(covariant ControllerInfo other) {

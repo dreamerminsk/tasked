@@ -1,9 +1,13 @@
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
+
 import 'media_wiki.dart';
 
 import '../debug/debug_controller.dart';
 
 class MediaWikiController extends GetxService {
+  final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
   final MediaWiki mediaWiki;
@@ -12,7 +16,7 @@ class MediaWikiController extends GetxService {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+    debug.newInit(this.runtimeType.toString(), id, started);
   }
 
   @override
@@ -22,7 +26,7 @@ class MediaWikiController extends GetxService {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 }

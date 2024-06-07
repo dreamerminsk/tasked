@@ -1,20 +1,24 @@
+import 'controller_info.dart';
+
 class ControllerStats {
-  final int total;
-  final int live;
+  final Map<String, ControllerInfo> _deadInfo = {};
+  final Map<String, ControllerInfo> _liveInfo = {};
 
-  const ControllerStats({
-    this.total = 0,
-    this.live = 0,
-  });
+  ControllerStats();
 
-  ControllerStats copyWith({
-    int? total,
-    int? live,
-  }) {
-    return ControllerStats(
-      total: total ?? this.total,
-      live: live ?? this.live,
+  int get live => _liveInfo.length;
+
+  int get total => _liveInfo.length + _deadInfo.length;
+
+  void add(ControllerInfo cinfo) {
+    _liveInfo[cinfo.id] = cinfo;
+  }
+
+  void remove(ControllerInfo cinfo) {
+    _deadInfo[cinfo.id] = cinfo.copyWith(
+      started: _liveInfo[cinfo.id]!.started,
     );
+    _liveInfo.remove(cinfo.id);
   }
 
   (int, int) _equality() => (total, live);

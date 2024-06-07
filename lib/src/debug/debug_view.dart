@@ -33,7 +33,7 @@ class DebugView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: Obx(() => NetworkStats(
-                  started: c.started.value ?? DateTime.now(),
+                  started: c.debugStarted.value ?? DateTime.now(),
                   requests: c.requests.value,
                   rpm: c.rpm,
                   received: c.received.value,
