@@ -3,11 +3,14 @@ import 'dart:core';
 import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../../debug/debug_controller.dart';
 import '../../wiki/entities/category_info.dart';
 
 class RandomController extends GetxController {
+final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
   final Rxn<Object> lastError = Rxn<Object>();
@@ -92,7 +95,7 @@ class RandomController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+    debug.newInit(this.runtimeType.toString(), id, started);
   }
 
   @override
@@ -103,7 +106,7 @@ class RandomController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 
