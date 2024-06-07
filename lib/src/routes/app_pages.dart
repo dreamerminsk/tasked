@@ -32,7 +32,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.WATCHLIST;
+  static const INITIAL = Routes.TASKLIST;
 
   static final routes = [
     GetPage(
