@@ -3,11 +3,16 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import 'models/controller_stats.dart';
 
 class DebugController extends GetxService {
-  final started = Rxn<DateTime>();
+final id = nanoid();
+
+  final started = DateTime.now();
+
+  final dstarted = Rxn<DateTime>();
 
   final stats = RxMap<String, ControllerStats>();
 
@@ -18,7 +23,7 @@ class DebugController extends GetxService {
   double get rpm =>
       60 *
       requests.value /
-      (DateTime.now().difference(started.value ?? DateTime.now()).inSeconds);
+      (DateTime.now().difference(dstarted.value ?? DateTime.now()).inSeconds);
 
   final lastResponse = {}.obs;
 
@@ -63,10 +68,10 @@ class DebugController extends GetxService {
 
   @override
   void onInit() {
-    newInit(this.runtimeType.toString());
-    started.value = DateTime.now();
-    loadSamples().then((items) => samples.assignAll(items));
     super.onInit();
+newInit(this.runtimeType.toString(),id,started);
+    dstarted.value = DateTime.now();
+    loadSamples().then((items) => samples.assignAll(items));
   }
 
   @override
@@ -76,8 +81,8 @@ class DebugController extends GetxService {
 
   @override
   void onClose() {
-    newClose(this.runtimeType.toString());
-    super.onClose();
+newClose(this.runtimeType.toString(),id,DateTime.now());
+super.onClose();
   }
 
   Future<List<String>> loadSamples() async {
