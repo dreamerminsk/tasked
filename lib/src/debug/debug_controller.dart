@@ -24,7 +24,9 @@ class DebugController extends GetxService {
   double get rpm =>
       60 *
       requests.value /
-      (DateTime.now().difference(debugStarted.value ?? DateTime.now()).inSeconds);
+      (DateTime.now()
+          .difference(debugStarted.value ?? DateTime.now())
+          .inSeconds);
 
   final lastResponse = {}.obs;
 
