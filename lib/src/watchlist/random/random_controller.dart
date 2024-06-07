@@ -9,7 +9,7 @@ import '../../debug/debug_controller.dart';
 import '../../wiki/entities/category_info.dart';
 
 class RandomController extends GetxController {
-final id = nanoid();
+  final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
