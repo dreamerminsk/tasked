@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.app_shortcut),
                 onPressed: () {
-                  Get.toNamed(Routes.WATCHLIST);
+                  Get.toNamed(Routes.TASKLIST);
                 },
               ),
               IconButton(
