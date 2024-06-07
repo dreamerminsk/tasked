@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 
+import 'models/controller_info.dart';
 import 'models/controller_stats.dart';
 
 class DebugController extends GetxService {
@@ -31,13 +32,13 @@ class DebugController extends GetxService {
 
   void newInit(String name, String id, DateTime started) {
     if (stats.containsKey(name)) {
-      stats[name].add(ControllerInfo(
+      stats[name]!.add(ControllerInfo(
         id: id,
         started: started,
       ));
     } else {
       stats[name] = ControllerStats();
-      stats[name].add(ControllerInfo(
+      stats[name]!.add(ControllerInfo(
         id: id,
         started: started,
       ));
@@ -46,7 +47,7 @@ class DebugController extends GetxService {
 
   void newClose(String name, String id, DateTime finished) {
     if (stats.containsKey(name)) {
-      stats[name].remove(ControllerInfo(
+      stats[name]!.remove(ControllerInfo(
         id: id,
         finished: finished,
       ));
