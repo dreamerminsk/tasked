@@ -16,7 +16,7 @@ class ControllerStats {
 
   void remove(ControllerInfo cinfo) {
     _deadInfo[cinfo.id] = cinfo.copyWith(
-      started: _liveInfo[cinfo.id].started,
+      started: _liveInfo[cinfo.id]!.started,
     );
     _liveInfo.remove(cinfo.id);
   }
