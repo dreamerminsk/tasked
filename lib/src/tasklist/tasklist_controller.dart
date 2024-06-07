@@ -1,12 +1,15 @@
 import 'dart:core';
 
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../debug/debug_controller.dart';
 import '../routes/app_pages.dart';
 import 'task/task_item.dart';
 
 class TasklistController extends GetxController {
+final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
   final tasks = <TaskItem>[
     TaskItem(
@@ -34,7 +37,7 @@ class TasklistController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+debug.newInit(this.runtimeType.toString(),id,started);
     tasks.addAll(List<TaskItem>.generate(
         28,
         (int index) => TaskItem(
@@ -45,7 +48,7 @@ class TasklistController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+debug.newClose(this.runtimeType.toString(),id,DateTime.now());
     super.onClose();
   }
 }
