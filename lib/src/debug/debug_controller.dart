@@ -24,7 +24,7 @@ class DebugController extends GetxService {
   double get rpm =>
       60 *
       requests.value /
-      (DateTime.now().difference(dstarted.value ?? DateTime.now()).inSeconds);
+      (DateTime.now().difference(debugStarted.value ?? DateTime.now()).inSeconds);
 
   final lastResponse = {}.obs;
 
@@ -72,7 +72,7 @@ class DebugController extends GetxService {
   void onInit() {
     super.onInit();
     newInit(this.runtimeType.toString(), id, started);
-    dstarted.value = DateTime.now();
+    debugStarted.value = DateTime.now();
     loadSamples().then((items) => samples.assignAll(items));
   }
 
