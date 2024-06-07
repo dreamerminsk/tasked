@@ -21,13 +21,15 @@ class WikiLink {
     );
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+ (String, String) asTuple() =>
+      (prefix, title);
 
-    return other is WikiLink && other.prefix == prefix && other.title == title;
+  @override
+  bool operator ==(covariant CategoryInfo other) {
+    if (identical(this, other)) return true;
+    return other.asTuple() == asTuple();
   }
 
   @override
-  int get hashCode => prefix.hashCode ^ title.hashCode;
+  int get hashCode => asTuple().hashCode;
 }
