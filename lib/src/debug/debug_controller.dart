@@ -26,18 +26,26 @@ class DebugController extends GetxService {
 
   void newInit(String name, String id, DateTime started) {
     if (stats.containsKey(name)) {
-stats[name].add(ControllerInfo(id: id, started: started,));
+      stats[name].add(ControllerInfo(
+        id: id,
+        started: started,
+      ));
     } else {
-stats[name] = ControllerStats();
-stats[name].add(ControllerInfo(id: id,started:started,));
-}
+      stats[name] = ControllerStats();
+      stats[name].add(ControllerInfo(
+        id: id,
+        started: started,
+      ));
+    }
   }
 
-void newClose(String name, String id, DateTime finished) {
+  void newClose(String name, String id, DateTime finished) {
     if (stats.containsKey(name)) {
-stats[name].remove(ControllerInfo(id: id, finished: finished,));
-    } else {
-}
+      stats[name].remove(ControllerInfo(
+        id: id,
+        finished: finished,
+      ));
+    } else {}
   }
 
   void newReq() {

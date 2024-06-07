@@ -21,7 +21,7 @@ class ControllerInfo {
     );
   }
 
-  (String, DateTime, DateTime?) _equality() => (id, started,finished);
+  (String, DateTime, DateTime?) _equality() => (id, started, finished);
 
   @override
   bool operator ==(covariant ControllerInfo other) {
