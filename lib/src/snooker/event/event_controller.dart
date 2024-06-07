@@ -16,13 +16,13 @@ class EventController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+    debug.newInit(this.runtimeType.toString(),id,started);
     task.value = Get.arguments;
   }
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(),id,DateTime.now());
     super.onClose();
   }
 
