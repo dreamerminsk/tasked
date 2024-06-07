@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:async/async.dart';
 import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
+import 'package:nanoid2/nanoid2.dart';
 
 import '../debug/debug_controller.dart';
 import '../wiki/entities/category_info.dart';
@@ -69,6 +70,8 @@ final links = <WikiLink>[
 ];
 
 class WatchlistController extends GetxController {
+final id = nanoid();
+  final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
   final categories = <Result<CategoryInfo>>[].obs;
@@ -78,14 +81,14 @@ class WatchlistController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString());
+debug.newInit(this.runtimeType.toString(),id,started);
     links.sort((a, b) => a.title.compareTo(b.title));
     refreshWikiLinks();
   }
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString());
+    debug.newClose(this.runtimeType.toString(),id,DateTime.now());
     super.onClose();
   }
 
