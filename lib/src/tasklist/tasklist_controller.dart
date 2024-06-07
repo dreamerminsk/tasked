@@ -14,23 +14,28 @@ class TasklistController extends GetxController {
   final tasks = <TaskItem>[
     TaskItem(
       id: 0,
-      title: 'snooker ::: seasons',
+      title: 'snooker :: seasons',
       path: Routes.SNOOKERSEASONS,
     ),
     TaskItem(
       id: 1,
-      title: 'snooker ::: events',
+      title: 'snooker :: events',
       path: Routes.SNOOKEREVENTS,
     ),
     TaskItem(
       id: 2,
-      title: 'snooker ::: players',
+      title: 'snooker :: players',
       path: Routes.SNOOKERPLAYERS,
     ),
     TaskItem(
       id: 3,
-      title: 'html ::: viewer',
+      title: 'html :: viewer',
       path: Routes.HTML,
+    ),
+TaskItem(
+      id: 4,
+      title: 'mp3 :: viewer',
+      path: Routes.MP3,
     ),
   ].obs;
 
@@ -44,10 +49,10 @@ class TasklistController extends GetxController {
   void onReady() {
     super.onReady();
     tasks.addAll(List<TaskItem>.generate(
-        28,
+        27,
         (int index) => TaskItem(
-              id: index + 4,
-              title: 'task ${index + 4}',
+              id: index + 5,
+              title: 'task ${index + 5}',
             )));
   }
 
