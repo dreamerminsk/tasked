@@ -33,13 +33,11 @@ stats[name].add(ControllerInfo(id: id,started:started,));
 }
   }
 
-  void newClose(String name) {
-    stats.update(
-        name,
-        (value) => value.copyWith(
-              live: value.live - 1,
-            ),
-        ifAbsent: () => ControllerStats());
+void newClose(String name, String id, DateTime finished) {
+    if (stats.containsKey(name)) {
+stats[name].remove(ControllerInfo(id: id, finished: finished,));
+    } else {
+}
   }
 
   void newReq() {
