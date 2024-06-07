@@ -10,7 +10,6 @@ class PlayerController extends GetxController {
 final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
-  final DebugController debug = Get.find(tag: 'debugger');
   final task = Rxn<TaskItem>();
 
   @override
