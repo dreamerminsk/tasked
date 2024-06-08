@@ -11,7 +11,7 @@ class TasklistController extends GetxController {
   final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
-  const maxTasks = 32;
+  static const maxTasks = 32;
   final tasks = <TaskItem>[
     TaskItem(
       id: 0,
