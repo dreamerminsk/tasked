@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'mp3_controller.dart';
-import '../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 
 class Mp3View extends StatelessWidget {
   const Mp3View({
