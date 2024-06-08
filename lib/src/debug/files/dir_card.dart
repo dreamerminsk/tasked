@@ -57,13 +57,13 @@ class DirCard extends StatelessWidget {
               ObxValue(
                 (data) => Wrap(
                   children: <Widget>[
-                    InputChip(
+                    Chip(
                       avatar: Icon(Icons.data_usage),
                       label: Text(
                         '${data.value?.size ?? 0}',
                       ),
                     ),
-                    InputChip(
+                    Chip(
                       avatar: Icon(Icons.today),
                       label: Text(
                         '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
