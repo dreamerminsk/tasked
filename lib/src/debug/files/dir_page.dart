@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'parent_dir.dart';
 import 'dir_card.dart';
+import 'dir_title.dart';
 
 class DirPage extends StatelessWidget {
   final path;
@@ -32,13 +32,13 @@ class DirPage extends StatelessWidget {
             return index == 0
                 ? Padding(
                     padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
-                    child: ParentDir(
+                    child: DirTitle(
                       title: path,
                       onTap: () => showModalBottomSheet<void>(
                         context: context,
                         builder: _buildSheet,
                       ),
-                    ), // SampleDir
+                    ), // DirTitle
                   ) // Padding
                 : Padding(
                     padding: index.isEven
