@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'parent_dir.dart';
-import 'sample_dir.dart';
+import 'dir_card.dart';
 
 class DirPage extends StatelessWidget {
   final path;
@@ -44,12 +44,12 @@ class DirPage extends StatelessWidget {
                     padding: index.isEven
                         ? EdgeInsets.fromLTRB(0, 8, 24, 8)
                         : EdgeInsets.fromLTRB(24, 8, 0, 8),
-                    child: SampleDir(
+                    child: DirCard(
                       index: index,
                       title: data[index - 1],
                       background: colorScheme.primaryContainer,
                       foreground: colorScheme.onPrimaryContainer,
-                    ), // SampleDir
+                    ), // DirCard
                   ); // Padding
           },
         ),
