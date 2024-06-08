@@ -50,6 +50,3 @@ class RootCard extends StatelessWidget {
   }
 
 }
-
-
-
