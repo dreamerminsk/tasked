@@ -12,7 +12,7 @@ class ControllerStats {
 
   int get total => _liveInfo.length + _deadInfo.length;
 
-  Duration elapsed() {
+  Duration getElapsedTime() {
     if (_liveInfo.isEmpty) {
       return Duration.zero;
     } else {
