@@ -24,7 +24,7 @@ class WikiLink {
   (String, String) toTuple() => (prefix, title);
 
   @override
-  bool operator ==(covariant CategoryInfo other) {
+  bool operator ==(covariant WikiLink other) {
     if (identical(this, other)) return true;
     return other.toTuple() == toTuple();
   }
