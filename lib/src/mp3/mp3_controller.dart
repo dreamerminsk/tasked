@@ -41,10 +41,10 @@ class Mp3Controller extends GetxController {
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles();
       if (result != null) {
-      mp3file.value = File(result.files.single.path!);
-    } else {
-      // User canceled the picker
-    }
+        mp3file.value = File(result.files.single.path!);
+      } else {
+        // User canceled the picker
+      }
     } catch (e) {
       // Handle the exception, e.g., show an error message
     }
