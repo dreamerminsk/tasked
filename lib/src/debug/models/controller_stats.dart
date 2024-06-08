@@ -10,6 +10,14 @@ class ControllerStats {
 
   int get total => _liveInfo.length + _deadInfo.length;
 
+  Duration elapsed() {
+if (_liveInfo.isEmpty) {
+return Duration.zero;
+} else {
+return _liveInfo.values.fold();
+}
+}
+
   void add(ControllerInfo cinfo) {
     _liveInfo[cinfo.id] = cinfo;
   }
