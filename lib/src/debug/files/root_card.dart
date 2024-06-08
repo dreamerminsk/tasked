@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'dir_page.dart';
+import 'dir_list_view.dart';
 
 class RootCard extends StatelessWidget {
   final String title;
@@ -21,7 +21,7 @@ class RootCard extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Get.to(DirPage(path: title), preventDuplicates: false);
+        Get.to(DirListView(path: title), preventDuplicates: false);
       },
       child: Material(
         elevation: 1,
