@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'special_dir.dart';
+import 'root_card.dart';
 
 class RootPathsView extends StatelessWidget {
   final app = ''.obs;
@@ -39,7 +39,7 @@ class RootPathsView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) => SpecialDir(
+              (data) => RootCard(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -50,7 +50,7 @@ class RootPathsView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) => SpecialDir(
+              (data) => RootCard(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -61,7 +61,7 @@ class RootPathsView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) => SpecialDir(
+              (data) => RootCard(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
@@ -72,7 +72,7 @@ class RootPathsView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: ObxValue(
-              (data) => SpecialDir(
+              (data) => RootCard(
                 title: data.value,
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
