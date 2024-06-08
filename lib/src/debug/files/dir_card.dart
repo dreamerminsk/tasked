@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import 'dir_page.dart';
+import 'dir_list_view.dart';
 
 class DirCard extends StatelessWidget {
   final int index;
@@ -29,7 +29,7 @@ class DirCard extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Get.to(DirPage(path: title), preventDuplicates: false);
+        Get.to(DirListView(path: title), preventDuplicates: false);
       },
       child: Material(
         elevation: 1,
