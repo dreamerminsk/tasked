@@ -1,5 +1,7 @@
 import 'dart:core';
+import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 
@@ -35,7 +37,7 @@ class Mp3Controller extends GetxController {
     super.onClose();
   }
 
-  void pickFile() {
+  void pickFile() async {
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles();
     } catch (e) {
