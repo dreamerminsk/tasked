@@ -60,7 +60,7 @@ class HealthWidget extends StatelessWidget {
     return items.entries
         .take(7)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value.live} of ${item.value.total}, ${item.value.elapsed().inMinutes} min.',
+              '${item.key}: ${item.value.live} of ${item.value.total}, ${item.value.getElapsedTime().inMinutes} min.',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
