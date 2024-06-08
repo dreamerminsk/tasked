@@ -36,7 +36,11 @@ class Mp3Controller extends GetxController {
   }
 
   void pickFile() {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles();
+    } catch (e) {
+      // Handle the exception, e.g., show an error message
+    }
 
     if (result != null) {
       mp3file.value = File(result.files.single.path!);
