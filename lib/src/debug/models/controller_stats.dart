@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'controller_info.dart';
 
 class ControllerStats {
@@ -9,6 +11,19 @@ class ControllerStats {
   int get live => _liveInfo.length;
 
   int get total => _liveInfo.length + _deadInfo.length;
+
+  Duration getElapsedTime() {
+    if (_liveInfo.isEmpty) {
+      return Duration.zero;
+    } else {
+      final now = DateTime.now();
+      final result = _liveInfo.values.fold<Duration>(
+          Duration.zero,
+          (previousValue, element) =>
+              previousValue + now.difference(element.started));
+      return result;
+    }
+  }
 
   void add(ControllerInfo cinfo) {
     _liveInfo[cinfo.id] = cinfo;
