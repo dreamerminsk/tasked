@@ -18,7 +18,7 @@ class ControllerStats {
     } else {
       final now = DateTime.now();
       final result = _liveInfo.values.fold<Duration>(Duration.zero,
-          (previousValue, element) => previousValue + now.difference(element));
+          (previousValue, element) => previousValue + now.difference(element.started));
       return result;
     }
   }
