@@ -21,8 +21,7 @@ class WikiLink {
     );
   }
 
- (String, String) asTuple() =>
-      (prefix, title);
+  (String, String) asTuple() => (prefix, title);
 
   @override
   bool operator ==(covariant CategoryInfo other) {

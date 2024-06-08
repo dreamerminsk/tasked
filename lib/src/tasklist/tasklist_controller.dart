@@ -32,7 +32,7 @@ class TasklistController extends GetxController {
       title: 'html :: viewer',
       path: Routes.HTML,
     ),
-TaskItem(
+    TaskItem(
       id: 4,
       title: 'mp3 :: viewer',
       path: Routes.MP3,
@@ -45,7 +45,7 @@ TaskItem(
     debug.newInit(this.runtimeType.toString(), id, started);
   }
 
-@override
+  @override
   void onReady() {
     super.onReady();
     tasks.addAll(List<TaskItem>.generate(

@@ -17,7 +17,7 @@ class Mp3Controller extends GetxController {
 
   final task = Rxn<TaskItem>();
 
-final mp3file = Rxn<File>();
+  final mp3file = Rxn<File>();
 
   @override
   void onInit() {
@@ -25,7 +25,7 @@ final mp3file = Rxn<File>();
     debug.newInit(this.runtimeType.toString(), id, started);
   }
 
-@override
+  @override
   void onReady() {
     super.onReady();
     task.value = Get.arguments;
@@ -38,12 +38,12 @@ final mp3file = Rxn<File>();
   }
 
   void pickFile() {
-FilePickerResult? result = await FilePicker.platform.pickFiles();
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
 
-if (result != null) {
-  mp3file.value = File(result.files.single.path!);
-} else {
-  // User canceled the picker
-}
-}
+    if (result != null) {
+      mp3file.value = File(result.files.single.path!);
+    } else {
+      // User canceled the picker
+    }
+  }
 }
