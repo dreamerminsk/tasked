@@ -27,7 +27,7 @@ class RootListCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'ROOT PATHS',
+                'ROOTS',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
