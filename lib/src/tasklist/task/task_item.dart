@@ -23,14 +23,14 @@ class TaskItem {
     );
   }
 
-  (int, String, String) _equality() => (id, title, path);
+  (int, String, String) toTuple() => (id, title, path);
 
   @override
   bool operator ==(covariant TaskItem other) {
     if (identical(this, other)) return true;
-    return other._equality() == _equality();
+    return other.toTuple() == toTuple();
   }
 
   @override
-  int get hashCode => _equality().hashCode;
+  int get hashCode => toTuple().hashCode;
 }

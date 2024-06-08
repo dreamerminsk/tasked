@@ -21,14 +21,14 @@ class ControllerStats {
     _liveInfo.remove(cinfo.id);
   }
 
-  (int, int) asTuple() => (total, live);
+  (int, int) toTuple() => (total, live);
 
   @override
   bool operator ==(covariant ControllerStats other) {
     if (identical(this, other)) return true;
-    return other.asTuple() == asTuple();
+    return other.toTuple() == toTuple();
   }
 
   @override
-  int get hashCode => asTuple().hashCode;
+  int get hashCode => toTuple().hashCode;
 }

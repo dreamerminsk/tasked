@@ -54,7 +54,7 @@ class DebugController extends GetxService {
         started: started,
         finished: finished,
       ));
-    } else {}
+    }
   }
 
   void newReq() {

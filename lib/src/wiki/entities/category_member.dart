@@ -34,14 +34,14 @@ class CategoryMember {
     );
   }
 
-  (int, String, String) _equality() => (pageid, lang, title);
+  (int, String, String) toTuple() => (pageid, lang, title);
 
   @override
   bool operator ==(covariant CategoryMember other) {
     if (identical(this, other)) return true;
-    return other._equality() == _equality();
+    return other.toTuple() == toTuple();
   }
 
   @override
-  int get hashCode => _equality().hashCode;
+  int get hashCode => toTuple().hashCode;
 }

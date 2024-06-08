@@ -21,14 +21,14 @@ class ControllerInfo {
     );
   }
 
-  (String, DateTime, DateTime?) asTuple() => (id, started, finished);
+  (String, DateTime, DateTime?) toTuple() => (id, started, finished);
 
   @override
   bool operator ==(covariant ControllerInfo other) {
     if (identical(this, other)) return true;
-    return other.asTuple() == asTuple();
+    return other.toTuple() == toTuple();
   }
 
   @override
-  int get hashCode => asTuple().hashCode;
+  int get hashCode => toTuple().hashCode;
 }
