@@ -4,7 +4,7 @@ import '../category/category_binding.dart';
 import '../category/category_view.dart';
 import '../debug/debug_binding.dart';
 import '../debug/debug_view.dart';
-import '../debug/files/files_page.dart';
+import '../debug/files/root_paths_view.dart';
 import '../debug/theme/color_scheme_page.dart';
 import '../debug/theme/text_theme_page.dart';
 import '../debug/json/json_viewer.dart';
@@ -114,7 +114,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FILES,
-      page: () => FilesPage(),
+      page: () => RootPathsView(),
       //binding: JsonBinding(),
     ),
     GetPage(

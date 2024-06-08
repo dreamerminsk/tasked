@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
 
-class Files extends StatelessWidget {
-  const Files({
+class RootPathsWidget extends StatelessWidget {
+  const RootPathsWidget({
     super.key,
   });
 
@@ -27,7 +27,7 @@ class Files extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'files',
+                'ROOT PATHS',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text

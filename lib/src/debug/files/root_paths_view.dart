@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
-//import '../debug_controller.dart';
 import 'special_dir.dart';
 
-class FilesPage extends StatelessWidget {
+class RootPathsView extends StatelessWidget {
   final app = ''.obs;
 
   final temp = ''.obs;
@@ -16,8 +15,6 @@ class FilesPage extends StatelessWidget {
 
   @override
   Widget build(context) {
-    //final DebugController c = Get.find(tag: 'debugger');
-    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     if (temp.value.isEmpty) {
