@@ -48,5 +48,4 @@ class RootCard extends StatelessWidget {
       ), // Material
     );
   }
-
 }

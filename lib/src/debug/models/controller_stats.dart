@@ -13,15 +13,15 @@ class ControllerStats {
   int get total => _liveInfo.length + _deadInfo.length;
 
   Duration elapsed() {
-if (_liveInfo.isEmpty) {
-return Duration.zero;
-} else {
-final now = DateTime.now();
-final result = _liveInfo.values.fold<Duration>(
-    Duration.zero, (previousValue, element) => previousValue + now.difference(element));
-return result;
-}
-}
+    if (_liveInfo.isEmpty) {
+      return Duration.zero;
+    } else {
+      final now = DateTime.now();
+      final result = _liveInfo.values.fold<Duration>(Duration.zero,
+          (previousValue, element) => previousValue + now.difference(element));
+      return result;
+    }
+  }
 
   void add(ControllerInfo cinfo) {
     _liveInfo[cinfo.id] = cinfo;
