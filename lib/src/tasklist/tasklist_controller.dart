@@ -11,6 +11,7 @@ class TasklistController extends GetxController {
   final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
+  const maxTasks = 32;
   final tasks = <TaskItem>[
     TaskItem(
       id: 0,
@@ -49,10 +50,10 @@ class TasklistController extends GetxController {
   void onReady() {
     super.onReady();
     tasks.addAll(List<TaskItem>.generate(
-        27,
+        maxTasks - tasks.length,
         (int index) => TaskItem(
-              id: index + 5,
-              title: 'task ${index + 5}',
+              id: index + tasks.length,
+              title: 'task ${index + tasks.length}',
             )));
   }
 
