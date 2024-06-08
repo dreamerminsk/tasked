@@ -9,21 +9,21 @@ import 'dir_list_view.dart';
 class DirCard extends StatelessWidget {
   final int index;
   final String title;
-  final Color background;
-  final Color foreground;
+  final Color? background;
+  final Color? foreground;
   final Rxn<FileStat> stat = Rxn<FileStat>();
 
   DirCard({
     required this.index,
     required this.title,
-    required this.background,
-    required this.foreground,
+    this.background,
+    this.foreground,
   });
 
   @override
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
     final d = Directory(title);
     d.stat().then((value) => stat.value = value);
 
@@ -51,7 +51,7 @@ class DirCard extends StatelessWidget {
               Text(
                 title.split('/').last,
                 style: textTheme.titleMedium!.copyWith(
-                  color: foreground,
+                  color: foreground ?? colorScheme.onPrimary,
                 ),
               ), // Text
               ObxValue(
@@ -85,7 +85,7 @@ class DirCard extends StatelessWidget {
                     topLeft: Radius.circular(20),
                     bottomLeft: Radius.circular(20),
                   ), // BorderRadius
-            color: background,
+            color: background ?? colorScheme.primary,
           ), // BoxDecoration
         ), // Container
       ), // Material
