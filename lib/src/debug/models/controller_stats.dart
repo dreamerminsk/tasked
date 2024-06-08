@@ -14,7 +14,10 @@ class ControllerStats {
 if (_liveInfo.isEmpty) {
 return Duration.zero;
 } else {
-return _liveInfo.values.fold();
+final now = DateTime.now();
+final result = _liveInfo.values.fold<Duration>(
+    Duration.zero, (previousValue, element) => previousValue + now.difference(element));
+return result;
 }
 }
 
