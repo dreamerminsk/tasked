@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
 
-class RootPathsWidget extends StatelessWidget {
-  const RootPathsWidget({
+class RootListCard extends StatelessWidget {
+  const RootListCard({
     super.key,
   });
 
@@ -27,7 +27,7 @@ class RootPathsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'ROOT PATHS',
+                'ROOTS',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text

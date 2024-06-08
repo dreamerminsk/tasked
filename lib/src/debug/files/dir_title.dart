@@ -3,13 +3,11 @@ import 'package:get/get.dart';
 
 import '../../routes/app_pages.dart';
 
-//import 'dir_page.dart';
-
-class ParentDir extends StatelessWidget {
+class DirTitle extends StatelessWidget {
   final String title;
   final VoidCallback? onTap;
 
-  const ParentDir({
+  const DirTitle({
     super.key,
     required this.title,
     this.onTap,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'debug_controller.dart';
-import 'files/root_paths_widget.dart';
+import 'files/root_list_card.dart';
 import 'widgets/color_scheme_widget.dart';
 import 'widgets/scanner_widget.dart';
 import 'widgets/health_widget.dart';
@@ -52,7 +52,7 @@ class DebugView extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
-            child: RootPathsWidget(),
+            child: RootListCard(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),

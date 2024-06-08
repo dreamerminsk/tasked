@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import 'dir_page.dart';
+import 'dir_list_view.dart';
 
-class SampleDir extends StatelessWidget {
+class DirCard extends StatelessWidget {
   final int index;
   final String title;
   final Color background;
   final Color foreground;
   final Rxn<FileStat> stat = Rxn<FileStat>();
 
-  SampleDir({
+  DirCard({
     required this.index,
     required this.title,
     required this.background,
@@ -29,7 +29,7 @@ class SampleDir extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Get.to(DirPage(path: title), preventDuplicates: false);
+        Get.to(DirListView(path: title), preventDuplicates: false);
       },
       child: Material(
         elevation: 1,

@@ -3,15 +3,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'parent_dir.dart';
-import 'sample_dir.dart';
+import 'dir_card.dart';
+import 'dir_title.dart';
 
-class DirPage extends StatelessWidget {
+class DirListView extends StatelessWidget {
   final path;
   final Rxn<FileStat> stat = Rxn<FileStat>();
   final RxList entries = RxList();
 
-  DirPage({super.key, required this.path});
+  DirListView({super.key, required this.path});
 
   @override
   Widget build(context) {
@@ -32,24 +32,24 @@ class DirPage extends StatelessWidget {
             return index == 0
                 ? Padding(
                     padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
-                    child: ParentDir(
+                    child: DirTitle(
                       title: path,
                       onTap: () => showModalBottomSheet<void>(
                         context: context,
                         builder: _buildSheet,
                       ),
-                    ), // SampleDir
+                    ), // DirTitle
                   ) // Padding
                 : Padding(
                     padding: index.isEven
                         ? EdgeInsets.fromLTRB(0, 8, 24, 8)
                         : EdgeInsets.fromLTRB(24, 8, 0, 8),
-                    child: SampleDir(
+                    child: DirCard(
                       index: index,
                       title: data[index - 1],
                       background: colorScheme.primaryContainer,
                       foreground: colorScheme.onPrimaryContainer,
-                    ), // SampleDir
+                    ), // DirCard
                   ); // Padding
           },
         ),
