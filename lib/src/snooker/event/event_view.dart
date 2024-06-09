@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'event_controller.dart';
 import 'widgets/seasons_widget.dart';
 import '../../routes/app_pages.dart';
+import '../../core/widgets/icon_buttons.dart';
 
 class EventView extends StatelessWidget {
   const EventView({
@@ -21,13 +22,9 @@ class EventView extends StatelessWidget {
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.query_stats),
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: () {
-                Get.toNamed(Routes.DEBUG);
-              },
-            ),
+            DebugIconButton(
+route: Routes.DEBUG,
+), // DebugIconButton
           ]),
       body: Obx(
         () => AnimatedSwitcher(
