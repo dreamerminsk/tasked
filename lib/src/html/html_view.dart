@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'html_controller.dart';
 import 'widgets/document_card.dart';
 import '../routes/app_pages.dart';
+import '../core/widgets/icon_buttons.dart';
 
 class HtmlView extends StatelessWidget {
   const HtmlView({
@@ -20,13 +21,9 @@ class HtmlView extends StatelessWidget {
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.query_stats),
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: () {
-                Get.toNamed(Routes.DEBUG);
-              },
-            ),
+            DebugIconButton(
+route: Routes.DEBUG,
+), // DebugIconButton
           ]),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
