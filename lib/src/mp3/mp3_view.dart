@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'mp3_controller.dart';
 import '../routes/app_pages.dart';
-import '../core/widgets/icon_widgets.dart';
+import '../core/widgets/icon_buttons.dart';
 
 class Mp3View extends StatelessWidget {
   const Mp3View({
