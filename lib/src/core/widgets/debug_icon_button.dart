@@ -8,10 +8,29 @@ class DebugIconButton extends StatelessWidget {
     super.key,
     this.color,
     required this.route,
-  });
+  }):_variant = IconButtonVariant.standard;
+
+const DebugIconButton.filled({
+    super.key,
+    this.color,
+    required this.route,
+  }):_variant = IconButtonVariant.filled;
+
+const DebugIconButton.filledTonal({
+    super.key,
+    this.color,
+    required this.route,
+  }):_variant = IconButtonVariant.filledTonal;
+
+const DebugIconButton.outlined({
+    super.key,
+    this.color,
+    required this.route,
+  }):_variant = IconButtonVariant.outlined;
 
   final Color? color;
   final String route;
+  final  IconButtonVariant _variant;
 
   @override
   Widget build(BuildContext context) {
