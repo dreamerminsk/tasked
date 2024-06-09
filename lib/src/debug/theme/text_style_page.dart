@@ -44,13 +44,6 @@ class TextStylePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'debugLabel',
-              object: textStyle.debugLabel,
-            ), // SampleObject
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleObject(
               title: 'decoration',
               object: textStyle.decoration,
             ), // SampleObject
@@ -137,13 +130,6 @@ class TextStylePage extends StatelessWidget {
             child: SampleObject(
               title: 'height',
               object: textStyle.height,
-            ), // SampleObject
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleObject(
-              title: 'inherit',
-              object: textStyle.inherit,
             ), // SampleObject
           ), // Padding
           Padding(
