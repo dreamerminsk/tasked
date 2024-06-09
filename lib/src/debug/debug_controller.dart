@@ -2,7 +2,7 @@ import 'dart:core';
 import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide InstanceInfo;
 import 'package:nanoid2/nanoid2.dart';
 
 import 'models/instances.dart';
