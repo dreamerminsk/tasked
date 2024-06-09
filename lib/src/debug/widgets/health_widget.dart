@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../models/instances.dart';
 
 class HealthWidget extends StatelessWidget {
-  final Map<String, ControllerStats> stats;
+  final Map<String, InstanceStats> stats;
 
   const HealthWidget({
     super.key,
@@ -53,7 +53,7 @@ class HealthWidget extends StatelessWidget {
   }
 
   List<Widget> _buildList(
-      BuildContext context, Map<String, ControllerStats> items) {
+      BuildContext context, Map<String, InstanceStats> items) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
