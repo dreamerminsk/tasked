@@ -18,8 +18,8 @@ class TaskView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("${task.title}"), actions: <Widget>[
         DebugIconButton(
-route: Routes.DEBUG,
-), // DebugIconButton
+          route: Routes.DEBUG,
+        ), // DebugIconButton
       ]),
       body: Center(
         child: Icon(Icons.blur_on,

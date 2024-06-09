@@ -25,8 +25,8 @@ class HomeView extends StatelessWidget {
                 },
               ),
               DebugIconButton(
-route: Routes.DEBUG,
-), // DebugIconButton
+                route: Routes.DEBUG,
+              ), // DebugIconButton
             ]),
         body: Obx(() => c.animeList.length > 0
             ? ListView.builder(

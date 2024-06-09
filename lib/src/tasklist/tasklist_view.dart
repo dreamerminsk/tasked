@@ -22,8 +22,8 @@ class TasklistView extends StatelessWidget {
           },
         ),
         DebugIconButton(
-route: Routes.DEBUG,
-), // DebugIconButton
+          route: Routes.DEBUG,
+        ), // DebugIconButton
       ]),
       body: Obx(
         () => c.tasks.length > 0

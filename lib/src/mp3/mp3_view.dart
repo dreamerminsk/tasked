@@ -24,8 +24,8 @@ class Mp3View extends StatelessWidget {
           title: Obx(() => Text("${c.task.value?.title}")),
           actions: <Widget>[
             DebugIconButton(
-route: Routes.DEBUG,
-), // DebugIconButton
+              route: Routes.DEBUG,
+            ), // DebugIconButton
           ]),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

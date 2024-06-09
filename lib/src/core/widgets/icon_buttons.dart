@@ -8,63 +8,63 @@ class DebugIconButton extends StatelessWidget {
     super.key,
     this.color,
     required this.route,
-  }):_variant = IconButtonVariant.standard;
+  }) : _variant = IconButtonVariant.standard;
 
-const DebugIconButton.filled({
+  const DebugIconButton.filled({
     super.key,
     this.color,
     required this.route,
-  }):_variant = IconButtonVariant.filled;
+  }) : _variant = IconButtonVariant.filled;
 
-const DebugIconButton.filledTonal({
+  const DebugIconButton.filledTonal({
     super.key,
     this.color,
     required this.route,
-  }):_variant = IconButtonVariant.filledTonal;
+  }) : _variant = IconButtonVariant.filledTonal;
 
-const DebugIconButton.outlined({
+  const DebugIconButton.outlined({
     super.key,
     this.color,
     required this.route,
-  }):_variant = IconButtonVariant.outlined;
+  }) : _variant = IconButtonVariant.outlined;
 
   final Color? color;
   final String route;
-  final  IconButtonVariant _variant;
+  final IconButtonVariant _variant;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
     return switch (variant) {
-      IconButtonVariant.filled      => IconButton.filled(
-      icon: const Icon(Icons.query_stats),
-      color: color ?? colorScheme.primary,
-      onPressed: () {
-        Get.toNamed(route);
-      }, // onPressed
-    ), // IconButton
+      IconButtonVariant.filled => IconButton.filled(
+          icon: const Icon(Icons.query_stats),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            Get.toNamed(route);
+          }, // onPressed
+        ), // IconButton
       IconButtonVariant.filledTonal => IconButton.filledTonal(
-      icon: const Icon(Icons.query_stats),
-      color: color ?? colorScheme.primary,
-      onPressed: () {
-        Get.toNamed(route);
-      }, // onPressed
-    ), // IconButton
-      IconButtonVariant.outlined    => IconButton.outlined(
-      icon: const Icon(Icons.query_stats),
-      color: color ?? colorScheme.primary,
-      onPressed: () {
-        Get.toNamed(route);
-      }, // onPressed
-    ), // IconButton
-      IconButtonVariant.standard    => IconButton(
-      icon: const Icon(Icons.query_stats),
-      color: color ?? colorScheme.primary,
-      onPressed: () {
-        Get.toNamed(route);
-      }, // onPressed
-    ), // IconButton
+          icon: const Icon(Icons.query_stats),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            Get.toNamed(route);
+          }, // onPressed
+        ), // IconButton
+      IconButtonVariant.outlined => IconButton.outlined(
+          icon: const Icon(Icons.query_stats),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            Get.toNamed(route);
+          }, // onPressed
+        ), // IconButton
+      IconButtonVariant.standard => IconButton(
+          icon: const Icon(Icons.query_stats),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            Get.toNamed(route);
+          }, // onPressed
+        ), // IconButton
     };
   }
 }
