@@ -22,6 +22,6 @@ final colorScheme = Theme.of(context).colorScheme;
           onPressed: () {
             Get.toNamed(route);
           }, // onPressed
-        ), // IconButton
+        ); // IconButton
   }
 }
