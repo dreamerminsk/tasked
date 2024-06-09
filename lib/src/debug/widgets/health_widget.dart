@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:intl/intl.dart';
 
-import '../models/controller_stats.dart';
+import '../models/instances.dart';
 
 class HealthWidget extends StatelessWidget {
-  final Map<String, ControllerStats> stats;
+  final Map<String, InstanceStats> stats;
 
   const HealthWidget({
     super.key,
@@ -53,14 +53,14 @@ class HealthWidget extends StatelessWidget {
   }
 
   List<Widget> _buildList(
-      BuildContext context, Map<String, ControllerStats> items) {
+      BuildContext context, Map<String, InstanceStats> items) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return items.entries
         .take(7)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value.live} of ${item.value.total}, ${item.value.getElapsedTime().inMinutes} min.',
+              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${item.value.getElapsedTime().inMinutes} min.',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
