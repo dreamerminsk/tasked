@@ -29,8 +29,8 @@ class TextThemeWidget extends StatelessWidget {
             children: <Widget>[
               Text(
                 'textTheme',
-                style: textTheme.headlineSmall!
-                    .copyWith(color: colorScheme.onPrimary),
+                style: textTheme.headlineMedium!
+                    .copyWith(fontWeight: FontWeight.w300,,color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
