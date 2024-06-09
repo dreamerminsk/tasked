@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'player_controller.dart';
 import '../../routes/app_pages.dart';
-//import '../../tasklist/task/task_item.dart';
+import '../../core/widgets/icon_buttons.dart';
 
 class PlayerView extends StatelessWidget {
   const PlayerView({
@@ -22,13 +22,9 @@ class PlayerView extends StatelessWidget {
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.query_stats),
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: () {
-                Get.toNamed(Routes.DEBUG);
-              },
-            ),
+            DebugIconButton(
+route: Routes.DEBUG,
+), // DebugIconButton
           ]),
       body: Center(
         child: IconButton.outlined(
