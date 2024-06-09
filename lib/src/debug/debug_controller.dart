@@ -14,7 +14,7 @@ class DebugController extends GetxService {
 
   final debugStarted = Rxn<DateTime>();
 
-  final stats = RxMap<String, InstanceStats>();
+  final instanceStats = RxMap<String, InstanceStats>();
 
   var requests = 0.obs;
 
