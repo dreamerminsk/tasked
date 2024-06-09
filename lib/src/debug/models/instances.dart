@@ -38,21 +38,23 @@ class InstanceInfo {
 
 
 class InstanceStats {
-  final Map<String, InstanceInfo> _deadInfo = {};
-  final Map<String, InstanceInfo> _liveInfo = {};
+final Map<String, InstanceInfo> _active = {};
+  final Map<String, InstanceInfo> _completed = {};
 
   InstanceStats();
 
-  int get live => _liveInfo.length;
+  int get activeCount => _active.length;
 
-  int get total => _liveInfo.length + _deadInfo.length;
+int get completedCount => _completed.length;
+
+  int get totalCount => _active.length + _completed.length;
 
   Duration getElapsedTime() {
-    if (_liveInfo.isEmpty) {
+    if (_active.isEmpty) {
       return Duration.zero;
     } else {
       final now = DateTime.now();
-      final result = _liveInfo.values.fold<Duration>(
+      final result = _active.values.fold<Duration>(
           Duration.zero,
           (previousValue, element) =>
               previousValue + now.difference(element.started));
@@ -60,18 +62,18 @@ class InstanceStats {
     }
   }
 
-  void add(InstanceInfo cinfo) {
-    _liveInfo[cinfo.id] = cinfo;
+  void add(InstanceInfo instance) {
+    _active[instance.id] = instance;
   }
 
-  void remove(InstanceInfo cinfo) {
-    _deadInfo[cinfo.id] = cinfo.copyWith(
-      started: _liveInfo[cinfo.id]!.started,
+  void remove(InstanceInfo instance) {
+    _completed[instance.id] = instance.copyWith(
+      started: _active[instance.id]!.started,
     );
-    _liveInfo.remove(cinfo.id);
+    _active.remove(instance.id);
   }
 
-  (int, int) toTuple() => (total, live);
+  (int, int) toTuple() => (activeCount, completedCount);
 
   @override
   bool operator ==(covariant InstanceStats other) {
