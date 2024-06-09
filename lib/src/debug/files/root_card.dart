@@ -5,19 +5,19 @@ import 'dir_list_view.dart';
 
 class RootCard extends StatelessWidget {
   final String title;
-  final Color background;
-  final Color foreground;
+  final Color? background;
+  final Color? foreground;
 
   const RootCard({
     required this.title,
-    required this.background,
-    required this.foreground,
+    this.background,
+    this.foreground,
   });
 
   @override
   Widget build(context) {
     final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
       onTap: () {
@@ -35,14 +35,14 @@ class RootCard extends StatelessWidget {
               Text(
                 title.split('/').last,
                 style: textTheme.titleLarge!.copyWith(
-                  color: foreground,
+                  color: foreground ?? colorScheme.onPrimary,
                 ),
               ), // Text
             ],
           ), // Column
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)), // BorderRadius
-            color: background,
+            color: background ?? colorScheme.primary,
           ), // BoxDecoration
         ), // Container
       ), // Material
