@@ -32,7 +32,7 @@ class HealthWidget extends StatelessWidget {
           RotatedBox(
             quarterTurns: 3,
             child: Container(
-              padding: EdgeInsets.fromLTRB(0, 8, 0, 4),
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: Text(
                 'Health Status',
                 style: textTheme.titleLarge!
