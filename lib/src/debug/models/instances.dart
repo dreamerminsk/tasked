@@ -35,17 +35,15 @@ class InstanceInfo {
   int get hashCode => toTuple().hashCode;
 }
 
-
-
 class InstanceStats {
-final Map<String, InstanceInfo> _active = {};
+  final Map<String, InstanceInfo> _active = {};
   final Map<String, InstanceInfo> _completed = {};
 
   InstanceStats();
 
   int get activeCount => _active.length;
 
-int get completedCount => _completed.length;
+  int get completedCount => _completed.length;
 
   int get totalCount => _active.length + _completed.length;
 
@@ -84,4 +82,3 @@ int get completedCount => _completed.length;
   @override
   int get hashCode => toTuple().hashCode;
 }
-
