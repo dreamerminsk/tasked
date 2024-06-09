@@ -36,7 +36,7 @@ class DebugIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return switch (variant) {
+    return switch (_variant) {
       IconButtonVariant.filled => IconButton.filled(
           icon: const Icon(Icons.query_stats),
           color: color ?? colorScheme.primary,
