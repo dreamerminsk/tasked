@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import 'home_controller.dart';
 import 'entities/anime.dart';
+import '../core/widgets/icon_buttons.dart';
 import '../routes/app_pages.dart';
 
 class HomeView extends StatelessWidget {
@@ -23,12 +24,9 @@ class HomeView extends StatelessWidget {
                   Get.toNamed(Routes.TASKLIST);
                 },
               ),
-              IconButton(
-                icon: Icon(Icons.query_stats),
-                onPressed: () {
-                  Get.toNamed(Routes.DEBUG);
-                },
-              ),
+              DebugIconButton(
+route: Routes.DEBUG,
+), // DebugIconButton
             ]),
         body: Obx(() => c.animeList.length > 0
             ? ListView.builder(
