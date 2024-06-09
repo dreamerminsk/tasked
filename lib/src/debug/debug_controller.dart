@@ -32,14 +32,14 @@ class DebugController extends GetxService {
   final samples = [].obs;
 
   void newInit(String name, String id, DateTime started) {
-    if (stats.containsKey(name)) {
-      stats[name]!.add(InstanceInfo(
+    if (instanceStats.containsKey(name)) {
+      instanceStats[name]!.add(InstanceInfo(
         id: id,
         started: started,
       ));
     } else {
-      stats[name] = InstanceStats();
-      stats[name]!.add(InstanceInfo(
+      instanceStats[name] = InstanceStats();
+      instanceStats[name]!.add(InstanceInfo(
         id: id,
         started: started,
       ));
@@ -47,8 +47,8 @@ class DebugController extends GetxService {
   }
 
   void newClose(String name, String id, DateTime finished) {
-    if (stats.containsKey(name)) {
-      stats[name]!.remove(InstanceInfo(
+    if (instanceStats.containsKey(name)) {
+      instanceStats[name]!.remove(InstanceInfo(
         id: id,
         started: started,
         finished: finished,
