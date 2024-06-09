@@ -5,6 +5,7 @@ import 'tasklist_controller.dart';
 import '../routes/app_pages.dart';
 import 'task/task_item.dart';
 import 'task/task_widget.dart';
+import '../core/widgets/icon_buttons.dart';
 
 class TasklistView extends StatelessWidget {
   @override
@@ -20,13 +21,9 @@ class TasklistView extends StatelessWidget {
             Get.toNamed(Routes.HOME);
           },
         ),
-        IconButton(
-          icon: Icon(Icons.query_stats),
-          color: Theme.of(context).colorScheme.primary,
-          onPressed: () {
-            Get.toNamed(Routes.DEBUG);
-          },
-        ),
+        DebugIconButton(
+          route: Routes.DEBUG,
+        ), // DebugIconButton
       ]),
       body: Obx(
         () => c.tasks.length > 0

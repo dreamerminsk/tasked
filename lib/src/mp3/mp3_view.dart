@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'mp3_controller.dart';
 import '../routes/app_pages.dart';
+import '../core/widgets/icon_buttons.dart';
 
 class Mp3View extends StatelessWidget {
   const Mp3View({
@@ -22,13 +23,9 @@ class Mp3View extends StatelessWidget {
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.query_stats),
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: () {
-                Get.toNamed(Routes.DEBUG);
-              },
-            ),
+            DebugIconButton(
+              route: Routes.DEBUG,
+            ), // DebugIconButton
           ]),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
