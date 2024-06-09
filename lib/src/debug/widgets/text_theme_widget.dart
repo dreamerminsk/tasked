@@ -30,7 +30,7 @@ class TextThemeWidget extends StatelessWidget {
               Text(
                 'textTheme',
                 style: textTheme.headlineMedium!
-                    .copyWith(fontWeight: FontWeight.w300,,color: colorScheme.onPrimary),
+                    .copyWith(fontWeight: FontWeight.w300,color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
