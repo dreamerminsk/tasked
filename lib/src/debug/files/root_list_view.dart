@@ -13,6 +13,8 @@ class RootListView extends StatelessWidget {
 
   final cache = ''.obs;
 
+  final roots = RxSet<String>();
+
   @override
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
