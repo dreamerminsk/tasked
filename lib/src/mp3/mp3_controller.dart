@@ -43,10 +43,10 @@ class Mp3Controller extends GetxController {
       if (result != null) {
         mp3file.value = File(result.files.single.path!);
       } else {
-        // User canceled the picker
+        Get.snackbar('mp3::pickFile', 'FilePicker cancelled...', snackPosition: SnackPosition.BOTTOM);
       }
     } catch (e) {
-      // Handle the exception, e.g., show an error message
+      Get.snackbar('mp3::pickFile', '$e', snackPosition: SnackPosition.BOTTOM);
     }
   }
 }
