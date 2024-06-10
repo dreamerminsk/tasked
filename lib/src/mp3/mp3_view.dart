@@ -31,7 +31,10 @@ class Mp3View extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
-          IconButton.outlined(
+          Expanded( 
+child: Align(
+alignment: Alignment.center,
+child: IconButton.outlined(
             style: const ButtonStyle(
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
@@ -43,8 +46,10 @@ class Mp3View extends StatelessWidget {
             ),
             iconSize: adjustedWidth,
             icon: const Icon(Icons.blur_on),
-            onPressed: () {},
+            onPressed: () {c.pickFile();},
           ), // IconButton
+), // Align
+), // Expanded
         ], // children
       ), // Column
     );
