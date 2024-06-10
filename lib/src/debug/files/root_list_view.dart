@@ -11,72 +11,80 @@ class RootListView extends StatelessWidget {
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-      getTemporaryDirectory().then((d) {
-        roots.add(d.path);
-      }).catchError((e) {
-Get.snackbar('getTemporaryDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
+    getTemporaryDirectory().then((d) {
+      roots.add(d.path);
+    }).catchError((e) {
+      Get.snackbar('getTemporaryDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
 
-      getApplicationSupportDirectory().then((d) {
+    getApplicationSupportDirectory().then((d) {
+      roots.add(d.path);
+      roots.add(d.parent.path);
+    }).catchError((e) {
+      Get.snackbar('getApplicationSupportDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
+    getLibraryDirectory().then((d) {
+      roots.add(d.path);
+    }).catchError((e) {
+      Get.snackbar('getLibraryDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
+    getApplicationDocumentsDirectory().then((d) {
+      roots.add(d.path);
+      roots.add(d.parent.path);
+    }).catchError((e) {
+      Get.snackbar('getApplicationDocumentsDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
+    getApplicationCacheDirectory().then((d) {
+      roots.add(d.path);
+      roots.add(d.parent.path);
+    }).catchError((e) {
+      Get.snackbar('getApplicationCacheDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
+    getExternalStorageDirectory().then((d) {
+      if (d != null) {
         roots.add(d.path);
         roots.add(d.parent.path);
-      }).catchError((e) {
-Get.snackbar('getApplicationSupportDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
+      }
+    }).catchError((e) {
+      Get.snackbar('getExternalStorageDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
 
-      getLibraryDirectory().then((d) {
+    getExternalCacheDirectories().then((ds) {
+      if (ds != null) {
+        roots.addAll(ds.map<String>((item) => item.path));
+      }
+    }).catchError((e) {
+      Get.snackbar('getExternalCacheDirectories', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
+    getExternalStorageDirectories().then((ds) {
+      if (ds != null) {
+        roots.addAll(ds.map<String>((item) => item.path));
+      }
+    }).catchError((e) {
+      Get.snackbar('getExternalStorageDirectories', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
+    getDownloadsDirectory().then((d) {
+      if (d != null) {
         roots.add(d.path);
-      }).catchError((e) {
-Get.snackbar('getLibraryDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
-
-      getApplicationDocumentsDirectory().then((d) {
-        roots.add(d.path);
-        roots.add(d.parent.path);
-      }).catchError((e) {
-Get.snackbar('getApplicationDocumentsDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
-
-      getApplicationCacheDirectory().then((d) {
-        roots.add(d.path);
-        roots.add(d.parent.path);
-      }).catchError((e) {
-Get.snackbar('getApplicationCacheDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
-
-      getExternalStorageDirectory().then((d) {
-if (d!= null){
-        roots.add(d.path);
-roots.add(d.parent.path);
-}
-      }).catchError((e) {
-Get.snackbar('getExternalStorageDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
-
-      getExternalCacheDirectories().then((ds) {
-        if (ds != null) {
-          roots.addAll(ds.map<String>((item)=>item.path));
-        }
-      }).catchError((e) {
-Get.snackbar('getExternalCacheDirectories','$e',snackPosition: SnackPosition.BOTTOM);
-});
-
-      getExternalStorageDirectories().then((ds) {
-        if (ds != null) {
-         roots.addAll(ds.map<String>((item)=>item.path));
-        }
-      }).catchError((e) {
-Get.snackbar('getExternalStorageDirectories','$e',snackPosition: SnackPosition.BOTTOM);
-});
-
-      getDownloadsDirectory().then((d) {
-if (d!= null){
-        roots.add(d.path);
-}
-      }).catchError((e) {
-Get.snackbar('getDownloadsDirectory','$e',snackPosition: SnackPosition.BOTTOM);
-});
-    
+      }
+    }).catchError((e) {
+      Get.snackbar('getDownloadsDirectory', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
 
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
