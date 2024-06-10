@@ -64,9 +64,9 @@ class ScannerWidget extends StatelessWidget {
         child: ObxValue(
             (data) => AnimatedContainer(
                   width: Get.width,
-                  height: 100,
+                  height: Get.width / 2 / 1.618,
                   curve: Curves.fastEaseInToSlowEaseOut,
-                  duration: Duration(seconds: 1),
+                  duration: Duration(seconds: 2),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
