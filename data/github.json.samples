@@ -8,6 +8,7 @@ https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/jso
 https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/coffeelint.json
 https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/cloudbuild.json
 https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/golangci-lint.json
+https://golangci-lint.run/jsonschema/golangci.jsonschema.json
 https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pubspec.json
 https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/tslint.json
 https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/api/json/catalog.json
