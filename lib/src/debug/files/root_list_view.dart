@@ -11,51 +11,56 @@ class RootListView extends StatelessWidget {
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    if (roots.isEmpty) {
+      final items = Set<String>();
+
       getTemporaryDirectory().then((d) {
-        roots.add(d.path);
+        items.add(d.path);
       });
 
       getApplicationSupportDirectory().then((d) {
-        roots.add(d.path);
-        roots.add(d.parent.path);
+        items.add(d.path);
+        items.add(d.parent.path);
       });
 
       getLibraryDirectory().then((d) {
-        roots.add(d.path);
+        items.add(d.path);
       });
 
       getApplicationDocumentsDirectory().then((d) {
-        roots.add(d.path);
-        roots.add(d.parent.path);
+        items.add(d.path);
+        items.add(d.parent.path);
       });
 
       getApplicationCacheDirectory().then((d) {
-        roots.add(d.path);
-        roots.add(d.parent.path);
+        items.add(d.path);
+        items.add(d.parent.path);
       });
 
       getExternalStorageDirectory().then((d) {
-        roots.add(d?.path);
-        roots.add(d?.parent.path);
+if (d!= null){
+        items.add(d!.path);
+items.add(d?.parent.path);
+}
       });
 
       getExternalCacheDirectories().then((ds) {
         if (ds != null) {
-          roots.addAll(ds);
+          items.addAll(ds.map<String>((item)=>item.path));
         }
       });
 
       getExternalStorageDirectories().then((ds) {
         if (ds != null) {
-          roots.addAll(ds);
+         items.addAll(ds.map<String>((item)=>item.path));
         }
       });
 
       getDownloadsDirectory().then((d) {
-        roots.add(d?.path);
+if (d!= null){
+        items.add(d!.path);
+}
       });
-    }
+    
 
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
