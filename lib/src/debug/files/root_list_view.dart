@@ -13,51 +13,69 @@ class RootListView extends StatelessWidget {
 
       getTemporaryDirectory().then((d) {
         roots.add(d.path);
-      });
+      }).catchError(e) {
+Get.snackbar('getTemporaryDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getApplicationSupportDirectory().then((d) {
         roots.add(d.path);
         roots.add(d.parent.path);
-      });
+      }).catchError(e) {
+Get.snackbar('getApplicationSupportDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getLibraryDirectory().then((d) {
         roots.add(d.path);
-      });
+      }).catchError(e) {
+Get.snackbar('getLibraryDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getApplicationDocumentsDirectory().then((d) {
         roots.add(d.path);
         roots.add(d.parent.path);
-      });
+      }).catchError(e) {
+Get.snackbar('getApplicationDocumentsDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getApplicationCacheDirectory().then((d) {
         roots.add(d.path);
         roots.add(d.parent.path);
-      });
+      }).catchError(e) {
+Get.snackbar('getApplicationCacheDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getExternalStorageDirectory().then((d) {
 if (d!= null){
         roots.add(d.path);
 roots.add(d.parent.path);
 }
-      });
+      }).catchError(e) {
+Get.snackbar('getExternalStorageDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getExternalCacheDirectories().then((ds) {
         if (ds != null) {
           roots.addAll(ds.map<String>((item)=>item.path));
         }
-      });
+      }).catchError(e) {
+Get.snackbar('getExternalCacheDirectories','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getExternalStorageDirectories().then((ds) {
         if (ds != null) {
          roots.addAll(ds.map<String>((item)=>item.path));
         }
-      });
+      }).catchError(e) {
+Get.snackbar('getExternalStorageDirectories','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
 
       getDownloadsDirectory().then((d) {
 if (d!= null){
         roots.add(d.path);
 }
-      });
+      }).catchError(e) {
+Get.snackbar('getDownloadsDirectory','$e',snackbarPosition: SnackbarPosition.BOTTOM);
+};
     
 
     return Scaffold(
