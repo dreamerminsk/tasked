@@ -61,55 +61,21 @@ getDownloadsDirectory().then((d) {
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
 
-      body: ListView(
-        //padding: EdgeInsets.all(8),
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) => RootCard(
-                title: data.value,
+body: ObxValue(
+              (data) => ListView.separated(
+    padding: const EdgeInsets.all(8),
+    itemCount: data.length,
+    itemBuilder: (BuildContext context, int index) {
+      return RootCard(
+                title: data[index],
                 background: colorScheme.primary,
                 foreground: colorScheme.onPrimary,
-              ), // RootCard
-              app,
-            ),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) => RootCard(
-                title: data.value,
-                background: colorScheme.primary,
-                foreground: colorScheme.onPrimary,
-              ), // RootCard
-              temp,
-            ),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) => RootCard(
-                title: data.value,
-                background: colorScheme.primary,
-                foreground: colorScheme.onPrimary,
-              ), // RootCard
-              docs,
-            ),
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: ObxValue(
-              (data) => RootCard(
-                title: data.value,
-                background: colorScheme.primary,
-                foreground: colorScheme.onPrimary,
-              ), // RootCard
-              cache,
-            ),
-          ), // Padding
-        ],
-      ), // ListView
+              ); // RootCard
+    },
+    separatorBuilder: (BuildContext context, int index) => const Divider(),
+  ), // ListView.separated
+              roots,
+            ), // ObxValue
     );
   }
 }
