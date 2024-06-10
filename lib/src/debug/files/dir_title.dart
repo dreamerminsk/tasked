@@ -51,7 +51,7 @@ class DirTitle extends StatelessWidget {
                       onTap: () => this.onTap?.call(),
                       child: Align(
 alignment: Alignment.center,
-child: child: Text(
+child: Text(
                         title.split('/').last,
                         overflow: TextOverflow.fade,
                         style: textTheme.titleLarge!.copyWith(
