@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'root_card.dart';
 
 class RootListView extends StatelessWidget {
-  final roots = RxSet<String>();
+  final roots = RxList<String>();
 
   @override
   Widget build(context) {
@@ -38,8 +38,8 @@ class RootListView extends StatelessWidget {
 
       getExternalStorageDirectory().then((d) {
 if (d!= null){
-        items.add(d!.path);
-items.add(d?.parent.path);
+        items.add(d.path);
+items.add(d.parent.path);
 }
       });
 
@@ -57,7 +57,7 @@ items.add(d?.parent.path);
 
       getDownloadsDirectory().then((d) {
 if (d!= null){
-        items.add(d!.path);
+        items.add(d.path);
 }
       });
     
