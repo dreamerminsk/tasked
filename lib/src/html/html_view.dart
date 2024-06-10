@@ -42,26 +42,30 @@ class HtmlView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     DocumentCard(),
                     SizedBox(height: 16), // SizedBox
-                    IconButton.outlined(
-                      style: const ButtonStyle(
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      constraints: BoxConstraints(
-                        maxWidth: adjustedWidth,
-                        minWidth: adjustedWidth,
-                        maxHeight: adjustedWidth,
-                        minHeight: adjustedWidth,
-                      ),
-                      iconSize: adjustedWidth,
-                      icon: const Icon(Icons.blur_on),
-                      onPressed: () {
-                        c.randomUrl();
-                      },
-                    ), // IconButton
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: IconButton.outlined(
+                          style: const ButtonStyle(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          constraints: BoxConstraints(
+                            maxWidth: adjustedWidth,
+                            minWidth: adjustedWidth,
+                            maxHeight: adjustedWidth,
+                            minHeight: adjustedWidth,
+                          ),
+                          iconSize: adjustedWidth,
+                          icon: const Icon(Icons.blur_on),
+                          onPressed: () {
+                            c.randomUrl();
+                          },
+                        ), // IconButton.outlined
+                      ), // Align
+                    ), // Expanded
                   ], // children
                 ), // Column
               ], // children

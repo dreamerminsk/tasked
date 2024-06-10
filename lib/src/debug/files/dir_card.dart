@@ -50,24 +50,20 @@ class DirCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.titleMedium!.copyWith(
+                style: textTheme.titleLarge!.copyWith(
                   color: foreground ?? colorScheme.onPrimary,
                 ),
               ), // Text
               ObxValue(
                 (data) => Wrap(
                   children: <Widget>[
-                    Chip(
-                      avatar: Icon(Icons.data_usage),
-                      label: Text(
-                        '${data.value?.size ?? 0}',
-                      ),
+                    Icon(Icons.data_usage),
+                    Text(
+                      '${data.value?.size ?? 0}',
                     ),
-                    Chip(
-                      avatar: Icon(Icons.today),
-                      label: Text(
-                        '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
-                      ),
+                    Icon(Icons.today),
+                    Text(
+                      '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
                     ),
                   ],
                 ),
