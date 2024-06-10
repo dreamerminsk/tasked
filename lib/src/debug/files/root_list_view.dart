@@ -5,59 +5,57 @@ import 'package:path_provider/path_provider.dart';
 import 'root_card.dart';
 
 class RootListView extends StatelessWidget {
-  final roots = RxList<String>();
+  final roots = RxSet<String>();
 
   @override
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-      final items = Set<String>();
-
       getTemporaryDirectory().then((d) {
-        items.add(d.path);
+        roots.add(d.path);
       });
 
       getApplicationSupportDirectory().then((d) {
-        items.add(d.path);
-        items.add(d.parent.path);
+        roots.add(d.path);
+        roots.add(d.parent.path);
       });
 
       getLibraryDirectory().then((d) {
-        items.add(d.path);
+        roots.add(d.path);
       });
 
       getApplicationDocumentsDirectory().then((d) {
-        items.add(d.path);
-        items.add(d.parent.path);
+        roots.add(d.path);
+        roots.add(d.parent.path);
       });
 
       getApplicationCacheDirectory().then((d) {
-        items.add(d.path);
-        items.add(d.parent.path);
+        roots.add(d.path);
+        roots.add(d.parent.path);
       });
 
       getExternalStorageDirectory().then((d) {
 if (d!= null){
-        items.add(d.path);
+        roots.add(d.path);
 items.add(d.parent.path);
 }
       });
 
       getExternalCacheDirectories().then((ds) {
         if (ds != null) {
-          items.addAll(ds.map<String>((item)=>item.path));
+          roots.addAll(ds.map<String>((item)=>item.path));
         }
       });
 
       getExternalStorageDirectories().then((ds) {
         if (ds != null) {
-         items.addAll(ds.map<String>((item)=>item.path));
+         roots.addAll(ds.map<String>((item)=>item.path));
         }
       });
 
       getDownloadsDirectory().then((d) {
 if (d!= null){
-        items.add(d.path);
+        roots.add(d.path);
 }
       });
     
@@ -71,7 +69,7 @@ if (d!= null){
           itemCount: data.length,
           itemBuilder: (BuildContext context, int index) {
             return RootCard(
-              title: data[index],
+              title: data.elementAt(index),
               background: colorScheme.primary,
               foreground: colorScheme.onPrimary,
             ); // RootCard
