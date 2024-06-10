@@ -49,13 +49,16 @@ class DirTitle extends StatelessWidget {
                   Expanded(
                     child: GestureDetector(
                       onTap: () => this.onTap?.call(),
-                      child: Text(
+                      child: Align(
+alignment: Alignment.center,
+child: child: Text(
                         title.split('/').last,
                         overflow: TextOverflow.fade,
                         style: textTheme.titleLarge!.copyWith(
                           color: colorScheme.onPrimary,
                         ),
                       ), // Text
+), // Align
                     ), // GestureDetector
                   ), // Expanded
                   IconButton(
