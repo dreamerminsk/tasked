@@ -31,7 +31,7 @@ class SampleTextStyle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                text ?? title ?? style.runtimeType.toString(),
+                text ?? title, // ?? style.runtimeType.toString(),
                 style: style.copyWith(
                   color: colorScheme.onPrimary,
                 ),
