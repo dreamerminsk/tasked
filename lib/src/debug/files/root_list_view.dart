@@ -37,7 +37,7 @@ class RootListView extends StatelessWidget {
       getExternalStorageDirectory().then((d) {
 if (d!= null){
         roots.add(d.path);
-items.add(d.parent.path);
+roots.add(d.parent.path);
 }
       });
 
