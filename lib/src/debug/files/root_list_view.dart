@@ -15,7 +15,6 @@ class RootListView extends StatelessWidget {
 if (roots.isEmpty) {
 getTemporaryDirectory().then((d) {
         roots.add(d.path);
-        roots.add(d.parent.path);
       });
 
 getApplicationSupportDirectory().then((d) {
@@ -25,7 +24,6 @@ getApplicationSupportDirectory().then((d) {
 
 getLibraryDirectory().then((d) {
         roots.add(d.path);
-        roots.add(d.parent.path);
       });
 
 getApplicationDocumentsDirectory().then((d) {
@@ -38,31 +36,27 @@ getApplicationCacheDirectory().then((d) {
         roots.add(d.parent.path);
       });
 
-
-
-
-     
-   
-
-      final Directory? result = await getExternalStorageDirectory();
-      final List<Directory>? result = await getExternalCacheDirectories();
-      final List<Directory>? result = await getExternalStorageDirectories();
-      final Directory? result = await getDownloadsDirectory();
-
-}
-
-    if (temp.value.isEmpty) {
-      getTemporaryDirectory().then((d) => temp.value = d.path);
-    }
-    if (docs.value.isEmpty) {
-      getApplicationDocumentsDirectory().then((d) {
-        docs.value = d.path;
-        app.value = d.parent.path;
+getExternalStorageDirectory().then((d) {
+        roots.add(d?.path);
+        roots.add(d?.parent.path);
       });
-    }
-    if (cache.value.isEmpty) {
-      getApplicationCacheDirectory().then((d) => cache.value = d.path);
-    }
+
+getExternalCacheDirectories().then((ds) {
+if (ds!= null) {
+roots.addAll(ds);
+}
+      });
+
+getExternalStorageDirectories().then((ds) {
+if (ds!= null) {
+roots.addAll(ds);
+}
+      });
+
+getDownloadsDirectory().then((d) {
+        roots.add(d?.path);
+      });
+}
 
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
