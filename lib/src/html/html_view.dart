@@ -42,11 +42,13 @@ class HtmlView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     DocumentCard(),
                     SizedBox(height: 16), // SizedBox
-                    IconButton.outlined(
+                    Expanded(
+                       child: Align(
+    alignment: Alignment.center,
+    child: IconButton.outlined(
                       style: const ButtonStyle(
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
@@ -61,7 +63,9 @@ class HtmlView extends StatelessWidget {
                       onPressed: () {
                         c.randomUrl();
                       },
-                    ), // IconButton
+                    ), // IconButton.outlined
+                     ), // Align
+                    ), // Expanded
                   ], // children
                 ), // Column
               ], // children
