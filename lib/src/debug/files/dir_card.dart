@@ -59,12 +59,12 @@ class DirCard extends StatelessWidget {
                   children: <Widget>[
                     Icon(Icons.data_usage),
                     Text(
-                        '${data.value?.size ?? 0}',
-                      ),
-                  Icon(Icons.today),
-                  Text(
-                        '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
-                      ),
+                      '${data.value?.size ?? 0}',
+                    ),
+                    Icon(Icons.today),
+                    Text(
+                      '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
+                    ),
                   ],
                 ),
                 stat,

@@ -50,15 +50,15 @@ class DirTitle extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () => this.onTap?.call(),
                       child: Align(
-alignment: Alignment.center,
-child: Text(
-                        title.split('/').last,
-                        overflow: TextOverflow.fade,
-                        style: textTheme.titleLarge!.copyWith(
-                          color: colorScheme.onPrimary,
-                        ),
-                      ), // Text
-), // Align
+                        alignment: Alignment.center,
+                        child: Text(
+                          title.split('/').last,
+                          overflow: TextOverflow.fade,
+                          style: textTheme.titleLarge!.copyWith(
+                            color: colorScheme.onPrimary,
+                          ),
+                        ), // Text
+                      ), // Align
                     ), // GestureDetector
                   ), // Expanded
                   IconButton(
