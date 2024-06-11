@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:intl/intl.dart';
 
-//import '../models/instances.dart';
+import '../models/instances.dart';
 import '../debug_controller.dart';
 
 class HealthWidget extends StatelessWidget {
@@ -28,7 +28,9 @@ final DebugController c= Get.find(tag: 'debugger');
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: _buildList(context, c),
+            children: Obx(()=>
+_buildList(context, c.updateTick,c.instanceStats),
+),
           ), // Column
           RotatedBox(
             quarterTurns: 3,
@@ -54,19 +56,28 @@ final DebugController c= Get.find(tag: 'debugger');
   }
 
   List<Widget> _buildList(
-      BuildContext context, DebugController c) {
+      BuildContext context, RxInt tick, Map<String, InstanceStats> stats) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-c.updated();
-
-    return c.instanceStats.entries
+    return stats.entries
         .take(7)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${item.value.getElapsedTime().inMinutes} min.',
+              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${item.value.getElapsedTime().inMinutes} min., $tick',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
         .toList();
   }
+
+String _time(Duration d) {
+String timeString = '';
+if (d.inSeconds < 60) {
+timeString = '${d.inSeconds} sec.';
+} else if (d.inMinutes < 60) {
+timeString = '${d.inMinutes} min.';
+} else {
+timeString = '${d.inHours} hrs.';
+}
+}
 }
