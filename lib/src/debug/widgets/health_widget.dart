@@ -7,14 +7,15 @@ import '../models/instances.dart';
 import '../debug_controller.dart';
 
 class HealthWidget extends StatelessWidget {
-  final DebugController debug = Get.find(tag: 'debugger');
-
+  
   const HealthWidget({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+final DebugController c= Get.find(tag: 'debugger');
+
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
