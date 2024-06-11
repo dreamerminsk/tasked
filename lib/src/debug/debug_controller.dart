@@ -16,9 +16,9 @@ class DebugController extends GetxService {
 
   final instanceStats = RxMap<String, InstanceStats>();
 
-final needUpdate = true.obs;
+var needUpdate = true.obs;
 
-Timer? _timer;
+RestartableTimer? _timer;
 
   var requests = 0.obs;
 
@@ -62,7 +62,11 @@ timer.dispose();
 void _needUpdateChange(bool event) {
 if(event){
 } else{
-_timer=Timer(Duration(seconds: 16),()=>needUpdate=true);
+if(_timer!=null){
+_timer.reset();
+} else {
+_timer=RestartableTimer(Duration(seconds: 16),()=>needUpdate=true);
+}
 }
 }
 
