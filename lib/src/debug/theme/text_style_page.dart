@@ -14,10 +14,19 @@ class TextStylePage extends StatelessWidget {
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      body: ListView(
+body: Column(
+children: <Widget>[
+Placeholder(
+fallbackWidth: Get.width-2*8.0,
+fallbackHeight: (Get.width-2*8.0)/1.618,
+color:colorScheme.primary,
+), // Placeholder
+SizedBox(height:8.0,), // SizedBox
+Expanded(
+child:ListView(
         //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
@@ -79,20 +88,6 @@ class TextStylePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'fontFamilyFallback',
-              object: textStyle.fontFamilyFallback,
-            ), // SampleObject
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleObject(
-              title: 'fontFeatures',
-              object: textStyle.fontFeatures,
-            ), // SampleObject
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleObject(
               title: 'fontSize',
               object: textStyle.fontSize,
             ), // SampleObject
@@ -102,13 +97,6 @@ class TextStylePage extends StatelessWidget {
             child: SampleObject(
               title: 'fontStyle',
               object: textStyle.fontStyle,
-            ), // SampleObject
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleObject(
-              title: 'fontVariations',
-              object: textStyle.fontVariations,
             ), // SampleObject
           ), // Padding
           Padding(
@@ -183,6 +171,9 @@ class TextStylePage extends StatelessWidget {
           ), // Padding
         ],
       ), // ListView
+), // Expanded
+],
+), // Column
     );
   }
 }
