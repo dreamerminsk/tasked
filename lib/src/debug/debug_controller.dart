@@ -70,6 +70,10 @@ _timer=RestartableTimer(Duration(seconds: 16),()=>needUpdate=true);
 }
 }
 
+void updated() {
+needUpdated= false;
+}
+
 void newInit(String name, String id, DateTime started) {
     if (instanceStats.containsKey(name)) {
       instanceStats[name]!.add(InstanceInfo(
