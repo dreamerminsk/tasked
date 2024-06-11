@@ -37,39 +37,29 @@ class HtmlView extends StatelessWidget {
               ), // InputDecoration
             ), // TextField
             SizedBox(height: 16), // SizedBox
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    DocumentCard(),
-                    SizedBox(height: 16), // SizedBox
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: IconButton.outlined(
-                          style: const ButtonStyle(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          constraints: BoxConstraints(
-                            maxWidth: adjustedWidth,
-                            minWidth: adjustedWidth,
-                            maxHeight: adjustedWidth,
-                            minHeight: adjustedWidth,
-                          ),
-                          iconSize: adjustedWidth,
-                          icon: const Icon(Icons.blur_on),
-                          onPressed: () {
-                            c.randomUrl();
-                          },
-                        ), // IconButton.outlined
-                      ), // Align
-                    ), // Expanded
-                  ], // children
-                ), // Column
-              ], // children
-            ), // Row
+            DocumentCard(),
+            SizedBox(height: 16), // SizedBox
+            Expanded(
+              child: Align(
+                alignment: Alignment.center,
+                child: IconButton.outlined(
+                  style: const ButtonStyle(
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  constraints: BoxConstraints(
+                    maxWidth: adjustedWidth,
+                    minWidth: adjustedWidth,
+                    maxHeight: adjustedWidth,
+                    minHeight: adjustedWidth,
+                  ),
+                  iconSize: adjustedWidth,
+                  icon: const Icon(Icons.blur_on),
+                  onPressed: () {
+                    c.randomUrl();
+                  },
+                ), // IconButton.outlined
+              ), // Align
+            ), // Expanded
           ], // children
         ), // Column
       ), // Padding
