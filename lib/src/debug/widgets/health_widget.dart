@@ -28,14 +28,7 @@ final DebugController c= Get.find(tag: 'debugger');
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: Obx(() {
-              if (c.needUpdate) {
-                c.updated();
-                return _buildList(context, c.instanceStats);
-              } else {
-                return _buildList(context, c.instanceStats);
-              }
-            }), // Obx
+            children: _buildList(context, c),
           ), // Column
           RotatedBox(
             quarterTurns: 3,
@@ -61,11 +54,11 @@ final DebugController c= Get.find(tag: 'debugger');
   }
 
   List<Widget> _buildList(
-      BuildContext context, Map<String, InstanceStats> items) {
+      BuildContext context, DebugController c) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return items.entries
+    return c.instanceStats.entries
         .take(7)
         .map<Widget>((item) => Text(
               '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${item.value.getElapsedTime().inMinutes} min.',
