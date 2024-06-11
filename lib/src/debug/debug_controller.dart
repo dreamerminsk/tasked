@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:core';
 import 'dart:convert';
 
@@ -53,8 +54,8 @@ class DebugController extends GetxService {
   void onClose() {
     newClose(this.runtimeType.toString(), id, DateTime.now());
     if (_timer != null) {
-      timer.cancel();
-      timer.dispose();
+      _timer.cancel();
+      _timer.dispose();
     }
     super.onClose();
   }
@@ -72,7 +73,7 @@ class DebugController extends GetxService {
   }
 
   void updated() {
-    needUpdated = false;
+    needUpdate = false;
   }
 
   void newInit(String name, String id, DateTime started) {
