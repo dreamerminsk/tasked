@@ -55,7 +55,6 @@ class DebugController extends GetxService {
     newClose(this.runtimeType.toString(), id, DateTime.now());
     if (_timer != null) {
       _timer?.cancel();
-      _timer?.dispose();
     }
     super.onClose();
   }
