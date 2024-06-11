@@ -4,17 +4,17 @@ import 'package:get/get.dart';
 //import 'package:intl/intl.dart';
 
 import '../models/instances.dart';
+import '../debug_controller.dart';
 
 class HealthWidget extends StatelessWidget {
-  final Map<String, InstanceStats> stats;
-
   const HealthWidget({
     super.key,
-    required this.stats,
   });
 
   @override
   Widget build(BuildContext context) {
+    final DebugController c = Get.find(tag: 'debugger');
+
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -24,11 +24,13 @@ class HealthWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: _buildList(context, stats),
-          ), // Column
+          Obx(
+            () => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _buildList(context, c.updateTick, c.instanceStats),
+            ), // Column
+          ), //Obx
           RotatedBox(
             quarterTurns: 3,
             child: Container(
@@ -53,17 +55,29 @@ class HealthWidget extends StatelessWidget {
   }
 
   List<Widget> _buildList(
-      BuildContext context, Map<String, InstanceStats> items) {
+      BuildContext context, RxInt tick, Map<String, InstanceStats> stats) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return items.entries
+    return stats.entries
         .take(7)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${item.value.getElapsedTime().inMinutes} min.',
+              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${_time(item.value.getElapsedTime())}, $tick',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
         .toList();
+  }
+
+  String _time(Duration d) {
+    String timeString = '';
+    if (d.inSeconds < 60) {
+      timeString = '${d.inSeconds} s';
+    } else if (d.inMinutes < 60) {
+      timeString = '${d.inMinutes} min';
+    } else {
+      timeString = '${d.inHours} hr';
+    }
+    return timeString;
   }
 }

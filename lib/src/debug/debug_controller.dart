@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:convert';
 
+import 'package:async/async.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart' hide InstanceInfo;
 import 'package:nanoid2/nanoid2.dart';
@@ -16,6 +17,10 @@ class DebugController extends GetxService {
 
   final instanceStats = RxMap<String, InstanceStats>();
 
+  var _updateTick = 0.obs;
+
+  RestartableTimer? _timer;
+
   var requests = 0.obs;
 
   var received = 0.obs;
@@ -30,6 +35,53 @@ class DebugController extends GetxService {
   final lastResponse = {}.obs;
 
   final samples = [].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    newInit(this.runtimeType.toString(), id, started);
+    debugStarted.value = DateTime.now();
+
+    loadSamples().then((items) => samples.assignAll(items));
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    newClose(this.runtimeType.toString(), id, DateTime.now());
+    if (_timer != null) {
+      _timer?.cancel();
+    }
+    super.onClose();
+  }
+
+  RxInt get updateTick {
+    if (_timer == null) {
+      start();
+    } else if (!_timer!.isActive) {
+      start();
+    }
+    return _updateTick;
+  }
+
+  void start() {
+    if (_timer != null) {
+      _timer?.reset();
+    } else {
+      _timer =
+          RestartableTimer(Duration(seconds: 16), () => updateTick.value += 1);
+    }
+  }
+
+  void stop() {
+    if (_timer != null) {
+      _timer?.cancel();
+    }
+  }
 
   void newInit(String name, String id, DateTime started) {
     if (instanceStats.containsKey(name)) {
@@ -67,25 +119,6 @@ class DebugController extends GetxService {
 
   void newBytes(int bytes) {
     received.value += bytes;
-  }
-
-  @override
-  void onInit() {
-    super.onInit();
-    newInit(this.runtimeType.toString(), id, started);
-    debugStarted.value = DateTime.now();
-    loadSamples().then((items) => samples.assignAll(items));
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    newClose(this.runtimeType.toString(), id, DateTime.now());
-    super.onClose();
   }
 
   Future<List<String>> loadSamples() async {

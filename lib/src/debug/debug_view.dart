@@ -26,9 +26,7 @@ class DebugView extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
-            child: Obx(() => HealthWidget(
-                  stats: Map.unmodifiable(c.instanceStats),
-                )),
+            child: HealthWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
