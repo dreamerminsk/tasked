@@ -22,22 +22,22 @@ class SampleObject extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
-        height:Get.width /1.618,
+        height: Get.width / 1.618,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-Expanded(
-child: Align(
-alignment: Alignment.center,
-child: Text(
-              '${object == null ? "null" : (object is Diagnosticable ? (object! as Diagnosticable).toStringShort() : object.toString())}',
-              style: textTheme.titleLarge!.copyWith(
-                fontWeight: FontWeight.w700,
-                color: colorScheme.onPrimary,
-              ),
-            ), // Text
-), // Align
-), // Expanded
+            Expanded(
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  '${object == null ? "null" : (object is Diagnosticable ? (object! as Diagnosticable).toStringShort() : object.toString())}',
+                  style: textTheme.titleLarge!.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: colorScheme.onPrimary,
+                  ),
+                ), // Text
+              ), // Align
+            ), // Expanded
             Divider(
               color: colorScheme.onPrimary,
             ), // Divider

@@ -24,8 +24,7 @@ class TextStylePage extends StatelessWidget {
             fallbackHeight: (Get.width - 2 * 8.0) / 1.618,
             color: colorScheme.primary,
           ), // Placeholder
-          Divider(
-          ), // Divider
+          Divider(), // Divider
           Expanded(
             child: ListView(
               //padding: EdgeInsets.all(8),
