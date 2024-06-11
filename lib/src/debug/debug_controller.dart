@@ -16,9 +16,9 @@ class DebugController extends GetxService {
 
   final instanceStats = RxMap<String, InstanceStats>();
 
-var needUpdate = true.obs;
+  var needUpdate = true.obs;
 
-RestartableTimer? _timer;
+  RestartableTimer? _timer;
 
   var requests = 0.obs;
 
@@ -40,7 +40,7 @@ RestartableTimer? _timer;
     super.onInit();
     newInit(this.runtimeType.toString(), id, started);
     debugStarted.value = DateTime.now();
-ever(needUpdate, _needUpdateChange);
+    ever(needUpdate, _needUpdateChange);
     loadSamples().then((items) => samples.assignAll(items));
   }
 
@@ -52,29 +52,30 @@ ever(needUpdate, _needUpdateChange);
   @override
   void onClose() {
     newClose(this.runtimeType.toString(), id, DateTime.now());
-if(_timer!=null){
-timer.cancel();
-timer.dispose();
-}
+    if (_timer != null) {
+      timer.cancel();
+      timer.dispose();
+    }
     super.onClose();
   }
 
-void _needUpdateChange(bool event) {
-if(event){
-} else{
-if(_timer!=null){
-_timer.reset();
-} else {
-_timer=RestartableTimer(Duration(seconds: 16),()=>needUpdate=true);
-}
-}
-}
+  void _needUpdateChange(bool event) {
+    if (event) {
+    } else {
+      if (_timer != null) {
+        _timer.reset();
+      } else {
+        _timer =
+            RestartableTimer(Duration(seconds: 16), () => needUpdate = true);
+      }
+    }
+  }
 
-void updated() {
-needUpdated= false;
-}
+  void updated() {
+    needUpdated = false;
+  }
 
-void newInit(String name, String id, DateTime started) {
+  void newInit(String name, String id, DateTime started) {
     if (instanceStats.containsKey(name)) {
       instanceStats[name]!.add(InstanceInfo(
         id: id,

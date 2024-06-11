@@ -27,15 +27,14 @@ class HealthWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: Obx((){
-if (c.needUpdate){
-c.updated();
-return _buildList(context, c.instanceStats);
-} else {
-return _buildList(context, c.instanceStats);
-}
-}
-), // Obx
+            children: Obx(() {
+              if (c.needUpdate) {
+                c.updated();
+                return _buildList(context, c.instanceStats);
+              } else {
+                return _buildList(context, c.instanceStats);
+              }
+            }), // Obx
           ), // Column
           RotatedBox(
             quarterTurns: 3,
