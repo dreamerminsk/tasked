@@ -9,14 +9,14 @@ class ColorSchemePage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-appBar: AppBar(
-    title: Text('colorScheme'),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        bottom: Radius.circular(20),
+      appBar: AppBar(
+        title: Text('colorScheme'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
+        ),
       ),
-    ),
-  ),
       body: ListView(
         //padding: EdgeInsets.all(8),
         children: <Widget>[
