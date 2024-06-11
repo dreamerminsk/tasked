@@ -73,11 +73,11 @@ _buildList(context, c.updateTick,c.instanceStats),
 String _time(Duration d) {
 String timeString = '';
 if (d.inSeconds < 60) {
-timeString = '${d.inSeconds} sec.';
+timeString = '${d.inSeconds} s';
 } else if (d.inMinutes < 60) {
-timeString = '${d.inMinutes} min.';
+timeString = '${d.inMinutes} min';
 } else {
-timeString = '${d.inHours} hrs.';
+timeString = '${d.inHours} hr';
 }
 }
 }
