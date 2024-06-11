@@ -16,6 +16,10 @@ class DebugController extends GetxService {
 
   final instanceStats = RxMap<String, InstanceStats>();
 
+final needUpdate = true.obs;
+
+Timer? _timer;
+
   var requests = 0.obs;
 
   var received = 0.obs;
@@ -31,7 +35,38 @@ class DebugController extends GetxService {
 
   final samples = [].obs;
 
-  void newInit(String name, String id, DateTime started) {
+  @override
+  void onInit() {
+    super.onInit();
+    newInit(this.runtimeType.toString(), id, started);
+    debugStarted.value = DateTime.now();
+ever(needUpdate, _needUpdateChange);
+    loadSamples().then((items) => samples.assignAll(items));
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    newClose(this.runtimeType.toString(), id, DateTime.now());
+if(_timer!=null){
+timer.cancel();
+timer.dispose();
+}
+    super.onClose();
+  }
+
+void _needUpdateChange(bool event) {
+if(event){
+} else{
+_timer=Timer(Duration(seconds: 16),()=>needUpdate=true);
+}
+}
+
+void newInit(String name, String id, DateTime started) {
     if (instanceStats.containsKey(name)) {
       instanceStats[name]!.add(InstanceInfo(
         id: id,
@@ -67,25 +102,6 @@ class DebugController extends GetxService {
 
   void newBytes(int bytes) {
     received.value += bytes;
-  }
-
-  @override
-  void onInit() {
-    super.onInit();
-    newInit(this.runtimeType.toString(), id, started);
-    debugStarted.value = DateTime.now();
-    loadSamples().then((items) => samples.assignAll(items));
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    newClose(this.runtimeType.toString(), id, DateTime.now());
-    super.onClose();
   }
 
   Future<List<String>> loadSamples() async {
