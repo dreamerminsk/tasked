@@ -54,8 +54,8 @@ class DebugController extends GetxService {
   void onClose() {
     newClose(this.runtimeType.toString(), id, DateTime.now());
     if (_timer != null) {
-      _timer.cancel();
-      _timer.dispose();
+      _timer?.cancel();
+      _timer?.dispose();
     }
     super.onClose();
   }
@@ -64,7 +64,7 @@ class DebugController extends GetxService {
     if (event) {
     } else {
       if (_timer != null) {
-        _timer.reset();
+        _timer?.reset();
       } else {
         _timer =
             RestartableTimer(Duration(seconds: 16), () => needUpdate.value = true);
