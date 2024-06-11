@@ -7,14 +7,13 @@ import '../models/instances.dart';
 import '../debug_controller.dart';
 
 class HealthWidget extends StatelessWidget {
-  
   const HealthWidget({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-final DebugController c= Get.find(tag: 'debugger');
+    final DebugController c = Get.find(tag: 'debugger');
 
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
@@ -24,14 +23,14 @@ final DebugController c= Get.find(tag: 'debugger');
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[Obx(()=>
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: 
-_buildList(context, c.updateTick,c.instanceStats),
-          ), // Column
-), //Obx
+        children: <Widget>[
+          Obx(
+            () => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _buildList(context, c.updateTick, c.instanceStats),
+            ), // Column
+          ), //Obx
           RotatedBox(
             quarterTurns: 3,
             child: Container(
@@ -70,15 +69,15 @@ _buildList(context, c.updateTick,c.instanceStats),
         .toList();
   }
 
-String _time(Duration d) {
-String timeString = '';
-if (d.inSeconds < 60) {
-timeString = '${d.inSeconds} s';
-} else if (d.inMinutes < 60) {
-timeString = '${d.inMinutes} min';
-} else {
-timeString = '${d.inHours} hr';
-}
-return timeString;
-}
+  String _time(Duration d) {
+    String timeString = '';
+    if (d.inSeconds < 60) {
+      timeString = '${d.inSeconds} s';
+    } else if (d.inMinutes < 60) {
+      timeString = '${d.inMinutes} min';
+    } else {
+      timeString = '${d.inHours} hr';
+    }
+    return timeString;
+  }
 }

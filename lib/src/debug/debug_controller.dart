@@ -41,7 +41,7 @@ class DebugController extends GetxService {
     super.onInit();
     newInit(this.runtimeType.toString(), id, started);
     debugStarted.value = DateTime.now();
-    
+
     loadSamples().then((items) => samples.assignAll(items));
   }
 
@@ -59,22 +59,22 @@ class DebugController extends GetxService {
     super.onClose();
   }
 
-RxInt get updateTick {
-if (_timer == null) {
-start();
-}else if (!_timer!.isActive){
-start();
-}
-return _updateTick;
-}
+  RxInt get updateTick {
+    if (_timer == null) {
+      start();
+    } else if (!_timer!.isActive) {
+      start();
+    }
+    return _updateTick;
+  }
 
   void start() {
-      if (_timer != null) {
-        _timer?.reset();
-      } else {
-        _timer =
-            RestartableTimer(Duration(seconds: 16), () => updateTick.value +=1);
-      }
+    if (_timer != null) {
+      _timer?.reset();
+    } else {
+      _timer =
+          RestartableTimer(Duration(seconds: 16), () => updateTick.value += 1);
+    }
   }
 
   void stop() {
