@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:intl/intl.dart';
 
-import '../models/instances.dart';
+//import '../models/instances.dart';
 import '../debug_controller.dart';
 
 class HealthWidget extends StatelessWidget {
@@ -57,6 +57,8 @@ final DebugController c= Get.find(tag: 'debugger');
       BuildContext context, DebugController c) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+
+c.updated();
 
     return c.instanceStats.entries
         .take(7)
