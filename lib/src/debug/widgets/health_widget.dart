@@ -24,14 +24,14 @@ final DebugController c= Get.find(tag: 'debugger');
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
+        children: <Widget>[Obx(()=>
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: Obx(()=>
+            children: 
 _buildList(context, c.updateTick,c.instanceStats),
-),
           ), // Column
+), //Obx
           RotatedBox(
             quarterTurns: 3,
             child: Container(
@@ -63,7 +63,7 @@ _buildList(context, c.updateTick,c.instanceStats),
     return stats.entries
         .take(7)
         .map<Widget>((item) => Text(
-              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${item.value.getElapsedTime().inMinutes} min., $tick',
+              '${item.key}: ${item.value.activeCount} of ${item.value.totalCount}, ${_time(item.value.getElapsedTime())}, $tick',
               style:
                   textTheme.bodyMedium!.copyWith(color: colorScheme.onPrimary),
             ))
@@ -79,5 +79,6 @@ timeString = '${d.inMinutes} min';
 } else {
 timeString = '${d.inHours} hr';
 }
+return timeString;
 }
 }
