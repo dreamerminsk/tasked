@@ -37,13 +37,7 @@ class HtmlView extends StatelessWidget {
               ), // InputDecoration
             ), // TextField
             SizedBox(height: 16), // SizedBox
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    DocumentCard(),
+DocumentCard(),
                     SizedBox(height: 16), // SizedBox
                     Expanded(
                       child: Align(
@@ -66,10 +60,6 @@ class HtmlView extends StatelessWidget {
                         ), // IconButton.outlined
                       ), // Align
                     ), // Expanded
-                  ], // children
-                ), // Column
-              ], // children
-            ), // Row
           ], // children
         ), // Column
       ), // Padding
