@@ -60,7 +60,11 @@ class DebugController extends GetxService {
   }
 
 RxInt get updateTick {
-if ((_timer == null) || (!_timer?.isActive ?? true) ) {start();}
+if (_timer == null) {
+start();
+}else if (!timer.isActive){
+start();
+}
 return _updateTick;
 }
 
