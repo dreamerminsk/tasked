@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 //import 'package:intl/intl.dart';
 
 import '../models/instances.dart';
+import '../debug_controller.dart';
 
 class HealthWidget extends StatelessWidget {
-  final Map<String, InstanceStats> stats;
+  final DebugController debug = Get.find(tag: 'debugger');
 
   const HealthWidget({
     super.key,
-    required this.stats,
   });
 
   @override
@@ -27,7 +27,15 @@ class HealthWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: _buildList(context, stats),
+            children: Obx((){
+if (c.needUpdate){
+c.updated();
+return _buildList(context, c.instanceStats);
+} else {
+return _buildList(context, c.instanceStats);
+}
+}
+), // Obx
           ), // Column
           RotatedBox(
             quarterTurns: 3,
