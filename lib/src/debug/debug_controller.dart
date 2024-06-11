@@ -17,7 +17,7 @@ class DebugController extends GetxService {
 
   final instanceStats = RxMap<String, InstanceStats>();
 
-  var needUpdate = true.obs;
+  var _updateTick = 0.obs;
 
   RestartableTimer? _timer;
 
@@ -41,7 +41,7 @@ class DebugController extends GetxService {
     super.onInit();
     newInit(this.runtimeType.toString(), id, started);
     debugStarted.value = DateTime.now();
-    ever(needUpdate, _needUpdateChange);
+    
     loadSamples().then((items) => samples.assignAll(items));
   }
 
@@ -59,20 +59,24 @@ class DebugController extends GetxService {
     super.onClose();
   }
 
-  void _needUpdateChange(bool event) {
-    if (event) {
-    } else {
+RxInt get updateTick {
+if ((_timer == null) || (!_timer?.isActive) ) {start();}
+return _updateTick;
+}
+
+  void start() {
       if (_timer != null) {
         _timer?.reset();
       } else {
         _timer =
-            RestartableTimer(Duration(seconds: 16), () => needUpdate.value = true);
+            RestartableTimer(Duration(seconds: 16), () => updateTic.value +=1);
       }
-    }
   }
 
-  void updated() {
-    needUpdate.value = false;
+  void stop() {
+    if (_timer != null) {
+      _timer?.cancel();
+    }
   }
 
   void newInit(String name, String id, DateTime started) {
