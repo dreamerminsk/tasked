@@ -60,7 +60,7 @@ class DebugController extends GetxService {
   }
 
 RxInt get updateTick {
-if ((_timer == null) || (!_timer?.isActive) ) {start();}
+if ((_timer == null) || (!_timer?.isActive ?? true) ) {start();}
 return _updateTick;
 }
 
@@ -69,7 +69,7 @@ return _updateTick;
         _timer?.reset();
       } else {
         _timer =
-            RestartableTimer(Duration(seconds: 16), () => updateTic.value +=1);
+            RestartableTimer(Duration(seconds: 16), () => updateTick.value +=1);
       }
   }
 
