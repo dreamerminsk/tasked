@@ -1,7 +1,7 @@
-import 'dart:async';
 import 'dart:core';
 import 'dart:convert';
 
+import 'package:async/async.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:get/get.dart' hide InstanceInfo;
 import 'package:nanoid2/nanoid2.dart';
@@ -67,13 +67,13 @@ class DebugController extends GetxService {
         _timer.reset();
       } else {
         _timer =
-            RestartableTimer(Duration(seconds: 16), () => needUpdate = true);
+            RestartableTimer(Duration(seconds: 16), () => needUpdate.value = true);
       }
     }
   }
 
   void updated() {
-    needUpdate = false;
+    needUpdate.value = false;
   }
 
   void newInit(String name, String id, DateTime started) {
