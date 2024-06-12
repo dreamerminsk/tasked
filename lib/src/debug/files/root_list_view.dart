@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'root_card.dart';
 
 class RootListView extends StatelessWidget {
-  final roots = Rx<SplayTreeSet<String>>();
+  final roots = Rx<SplayTreeSet<String>>(SplayTreeSet<String>());
 
   @override
   Widget build(context) {
