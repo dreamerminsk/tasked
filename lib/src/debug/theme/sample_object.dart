@@ -22,6 +22,7 @@ class SampleObject extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
+        // Halving the height for better aspect ratio
         height: Get.width / 1.618 / 2,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
