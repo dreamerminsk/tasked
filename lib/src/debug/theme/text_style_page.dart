@@ -15,7 +15,8 @@ class TextStylePage extends StatelessWidget {
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-final padding = MediaQuery.of(context).padding
+final padding = MediaQuery.of(context).padding;
+
     return Scaffold(
       body: Column(
         children: <Widget>[
