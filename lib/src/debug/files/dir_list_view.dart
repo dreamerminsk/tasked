@@ -67,11 +67,12 @@ class DirListView extends StatelessWidget {
         //mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           DataTable(
+            headingRowHeight: 0,
             columns: const <DataColumn>[
               DataColumn(
                 label: Expanded(
                   child: Text(
-                    'Name',
+                    '',
                     style: TextStyle(fontStyle: FontStyle.italic),
                   ),
                 ),
@@ -79,7 +80,7 @@ class DirListView extends StatelessWidget {
               DataColumn(
                 label: Expanded(
                   child: Text(
-                    'Value',
+                    '',
                     style: TextStyle(fontStyle: FontStyle.italic),
                   ),
                 ),
