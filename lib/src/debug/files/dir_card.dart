@@ -60,7 +60,7 @@ class DirCard extends StatelessWidget {
                     Text(
                       '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
                     ),
-Text(
+                    Text(
                       '${data.value?.size ?? 0}',
                     ),
                   ],
