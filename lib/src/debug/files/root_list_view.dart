@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
@@ -5,45 +7,45 @@ import 'package:path_provider/path_provider.dart';
 import 'root_card.dart';
 
 class RootListView extends StatelessWidget {
-  final roots = RxSet<String>();
+  final roots = Rx<SplayTreeSet<String>>(SplayTreeSet<String>());
 
   @override
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
 
     getTemporaryDirectory().then((d) {
-      roots.add(d.path);
+      roots.value.add(d.path);
     }).catchError((e) {
       Get.snackbar('getTemporaryDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
     getApplicationSupportDirectory().then((d) {
-      roots.add(d.path);
-      roots.add(d.parent.path);
+      roots.value.add(d.path);
+      roots.value.add(d.parent.path);
     }).catchError((e) {
       Get.snackbar('getApplicationSupportDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
     getLibraryDirectory().then((d) {
-      roots.add(d.path);
+      roots.value.add(d.path);
     }).catchError((e) {
       Get.snackbar('getLibraryDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
     getApplicationDocumentsDirectory().then((d) {
-      roots.add(d.path);
-      roots.add(d.parent.path);
+      roots.value.add(d.path);
+      roots.value.add(d.parent.path);
     }).catchError((e) {
       Get.snackbar('getApplicationDocumentsDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
     getApplicationCacheDirectory().then((d) {
-      roots.add(d.path);
-      roots.add(d.parent.path);
+      roots.value.add(d.path);
+      roots.value.add(d.parent.path);
     }).catchError((e) {
       Get.snackbar('getApplicationCacheDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -51,8 +53,8 @@ class RootListView extends StatelessWidget {
 
     getExternalStorageDirectory().then((d) {
       if (d != null) {
-        roots.add(d.path);
-        roots.add(d.parent.path);
+        roots.value.add(d.path);
+        roots.value.add(d.parent.path);
       }
     }).catchError((e) {
       Get.snackbar('getExternalStorageDirectory', '$e',
@@ -61,7 +63,7 @@ class RootListView extends StatelessWidget {
 
     getExternalCacheDirectories().then((ds) {
       if (ds != null) {
-        roots.addAll(ds.map<String>((item) => item.path));
+        roots.value.addAll(ds.map<String>((item) => item.path));
       }
     }).catchError((e) {
       Get.snackbar('getExternalCacheDirectories', '$e',
@@ -70,7 +72,7 @@ class RootListView extends StatelessWidget {
 
     getExternalStorageDirectories().then((ds) {
       if (ds != null) {
-        roots.addAll(ds.map<String>((item) => item.path));
+        roots.value.addAll(ds.map<String>((item) => item.path));
       }
     }).catchError((e) {
       Get.snackbar('getExternalStorageDirectories', '$e',
@@ -79,7 +81,7 @@ class RootListView extends StatelessWidget {
 
     getDownloadsDirectory().then((d) {
       if (d != null) {
-        roots.add(d.path);
+        roots.value.add(d.path);
       }
     }).catchError((e) {
       Get.snackbar('getDownloadsDirectory', '$e',
@@ -92,10 +94,10 @@ class RootListView extends StatelessWidget {
       body: ObxValue(
         (data) => ListView.separated(
           padding: const EdgeInsets.all(8),
-          itemCount: data.length,
+          itemCount: data.value.length,
           itemBuilder: (BuildContext context, int index) {
             return RootCard(
-              title: data.elementAt(index),
+              title: data.value.elementAt(index),
               background: colorScheme.primary,
               foreground: colorScheme.onPrimary,
             ); // RootCard
