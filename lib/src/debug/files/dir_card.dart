@@ -57,13 +57,11 @@ class DirCard extends StatelessWidget {
               ObxValue(
                 (data) => Wrap(
                   children: <Widget>[
-                    Icon(Icons.data_usage),
-                    Text(
-                      '${data.value?.size ?? 0}',
-                    ),
-                    Icon(Icons.today),
                     Text(
                       '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
+                    ),
+Text(
+                      '${data.value?.size ?? 0}',
                     ),
                   ],
                 ),
