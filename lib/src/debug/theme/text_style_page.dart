@@ -15,15 +15,18 @@ class TextStylePage extends StatelessWidget {
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-
+final padding = MediaQuery.of(context).padding
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Placeholder(
+          Padding(
+padding: EdgeInsets.fromLTRB(8,padding.top,8,0),
+child: Placeholder(
             fallbackWidth: Get.width - 2 * 8.0,
             fallbackHeight: (Get.width - 2 * 8.0) / 1.618,
             color: colorScheme.primary,
           ), // Placeholder
+), // Padding
           Divider(), // Divider
           Expanded(
             child: MediaQuery.removePadding(
