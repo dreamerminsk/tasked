@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
@@ -5,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'root_card.dart';
 
 class RootListView extends StatelessWidget {
-  final roots = RxSet<String>();
+  final roots = Rx<SplayTreeSet<String>>();
 
   @override
   Widget build(context) {
