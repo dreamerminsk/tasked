@@ -21,7 +21,7 @@ class TextStylePage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(8, padding.top, 8, 0),
+            padding: EdgeInsets.fromLTRB(8, safeAreaPadding.top, 8, 0),
             child: Placeholder(
               fallbackWidth: Get.width - 2 * 8.0,
               fallbackHeight: (Get.width - 2 * 8.0) / 1.618,
