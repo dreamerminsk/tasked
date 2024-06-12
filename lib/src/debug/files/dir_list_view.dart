@@ -61,7 +61,7 @@ class DirListView extends StatelessWidget {
   Widget _buildSheet(BuildContext context) {
     return SizedBox(
       width: Get.width,
-      height: Get.height * 0.4,
+      height: Get.height * 0.5,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         //mainAxisSize: MainAxisSize.min,
