@@ -26,7 +26,10 @@ class TextStylePage extends StatelessWidget {
           ), // Placeholder
           Divider(), // Divider
           Expanded(
-            child: ListView(
+            child: MediaQuery.removePadding(
+  context: context,
+  removeTop: true,
+  child: ListView(
               //padding: EdgeInsets.all(8),
               children: <Widget>[
                 Padding(
@@ -171,6 +174,7 @@ class TextStylePage extends StatelessWidget {
                 ), // Padding
               ],
             ), // ListView
+), // MediaQuery.removePadding
           ), // Expanded
         ],
       ), // Column
