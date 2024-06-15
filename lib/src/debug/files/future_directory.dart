@@ -1,0 +1,1 @@
+class FutureDirectory extends StatelessWidget {}
