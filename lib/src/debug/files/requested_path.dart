@@ -11,6 +11,16 @@ class RequestedPath extends StatelessWidget {
     return FutureBuilder(
       future: _request,
       builder: (ctx, snapshot) {
+        switch(snapshot.connectionState) {
+      case ConnectionState.none:
+      case ConnectionState.waiting:
+      case ConnectionState.active:
+        width = 0;
+        break;
+      case ConnectionState.done:
+        width = 500;
+        break;
+    }
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
             return Center(
