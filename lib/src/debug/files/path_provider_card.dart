@@ -13,6 +13,9 @@ class PathProviderCard extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
+    final cardWidth = Get.width-2*8.0;
+    final cardHeight = cardWidth*1.618/3;
+
     return Material(
       elevation: 2,
       borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -21,13 +24,13 @@ class PathProviderCard extends StatelessWidget {
           Get.toNamed(Routes.PATHS);
         },
         child: Container(
-          width: Get.width,
-          height: 96,
+          width: cardWidth,
+          height: cardHeight,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'path_provider',
+                'path_provider: $cardWidth x $cardHeight',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
