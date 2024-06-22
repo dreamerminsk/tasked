@@ -26,9 +26,27 @@ color = colorScheme.primary;
             data = snapshot.data as Directory;
           }
         }
-        return Center(
-          child: CircularProgressIndicator(),
-        );
+        return Container(
+          width: cardWidth,
+          height: cardHeight,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'path_provider: $cardWidth x $cardHeight',
+                style: textTheme.headlineSmall!
+                    .copyWith(color: colorScheme.onPrimary),
+              ), // Text
+            ],
+          ), // Column
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: colorScheme.primary,
+          ), // BoxDecoration
+        ); //Container
       },
     );
   }
