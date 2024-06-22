@@ -30,7 +30,7 @@ class PathProviderCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'path_provider: ${cardWidth.toInt()} x ${cardHeight.toInt()}',
+                'path_provider 2.1.3: ${cardWidth.toInt()} x ${cardHeight.toInt()}',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
