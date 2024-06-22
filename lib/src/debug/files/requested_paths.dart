@@ -1,37 +1,62 @@
 class RequestedPaths extends StatelessWidget {
   RequestedPaths({
     super.key,
+    required this._name,
     required this._request,
   });
 
-  Future<List<Directory>?> _request;
+  final _name;
+  final Future<List<Directory>?> _request;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+     final textTheme = Theme.of(context).textTheme;
+
     return FutureBuilder(
       future: _request,
       builder: (ctx, snapshot) {
+        color = colorScheme.surfaceVariant;
+        onColor = colorScheme.onSurfaceVariant;
+        Directory? data;
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
-            return Center(
-              child: Text(
-                '${snapshot.error} occurred',
-                style: TextStyle(fontSize: 18),
-              ),
-            );
+            color = colorScheme.error;
+            onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
-            final data = snapshot.data as Directory;
-            return Center(
-              child: Text(
-                '$data',
-                style: TextStyle(fontSize: 18),
-              ),
-            );
+            data = snapshot.data as Directory?;
+            if (data == null) {
+              color = colorScheme.primaryContainer;
+            onColor = colorScheme.onPrimaryContainer;
+            } else {
+              color = colorScheme.primary;
+            onColor = colorScheme.onPrimary;
+            }
           }
         }
-        return Center(
-          child: CircularProgressIndicator(),
-        );
+
+        return AnimatedContainer(
+          width: Get.width-2*8.0,
+          height: (Get.width-2*8.0) / 1.618 / 2.0,
+          duration: Duration(seconds: 4.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                '$_name',
+                style: textTheme.headlineSmall!
+                    .copyWith(color: onColor),
+              ), // Text
+            ],
+          ), // Column
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: color,
+          ), // BoxDecoration
+        ); //Container
       },
     );
   }
