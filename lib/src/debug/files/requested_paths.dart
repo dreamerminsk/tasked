@@ -21,8 +21,8 @@ class RequestedPaths extends StatelessWidget {
     return FutureBuilder(
       future: request,
       builder: (ctx, snapshot) {
-        color = colorScheme.surfaceVariant;
-        onColor = colorScheme.onSurfaceVariant;
+        var color = colorScheme.surfaceVariant;
+        var onColor = colorScheme.onSurfaceVariant;
         Directory? data;
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
