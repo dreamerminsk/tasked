@@ -1,4 +1,4 @@
-import ' dart:io';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +29,7 @@ class RequestedPaths extends StatelessWidget {
             color = colorScheme.error;
             onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
-            data = snapshot.data as Directory?;
+            data = snapshot.data;
             if (data == null) {
               color = colorScheme.primaryContainer;
               onColor = colorScheme.onPrimaryContainer;
@@ -43,7 +43,7 @@ class RequestedPaths extends StatelessWidget {
         return AnimatedContainer(
           width: Get.width - 2 * 8.0,
           height: (Get.width - 2 * 8.0) / 1.618 / 2.0,
-          duration: Duration(seconds: 4.0),
+          duration: Duration(seconds: 4),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
