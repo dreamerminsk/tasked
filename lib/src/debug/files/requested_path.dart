@@ -29,7 +29,7 @@ class RequestedPath extends StatelessWidget {
             color = colorScheme.error;
             onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
-            data = snapshot.data as Directory?;
+            data = snapshot.data;
             if (data == null) {
               color = colorScheme.primaryContainer;
               onColor = colorScheme.onPrimaryContainer;
