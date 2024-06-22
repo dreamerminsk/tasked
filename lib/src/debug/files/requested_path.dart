@@ -8,21 +8,21 @@ class RequestedPath extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return FutureBuilder(
       future: _request,
       builder: (ctx, snapshot) {
         color = colorScheme.surfaceVariant;
-         onColor = colorScheme.onSurfaceVariant;
-         Directory? data;
+        onColor = colorScheme.onSurfaceVariant;
+        Directory? data;
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
             color = colorScheme.error;
-         onColor = colorScheme.onError;
+            onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
-color = colorScheme.primary;
-         onColor = colorScheme.onPrimary;
+            color = colorScheme.primary;
+            onColor = colorScheme.onPrimary;
             data = snapshot.data as Directory;
           }
         }

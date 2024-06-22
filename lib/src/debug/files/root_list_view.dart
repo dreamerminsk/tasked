@@ -15,7 +15,7 @@ class RootListView extends StatelessWidget {
 
     getTemporaryDirectory().then((d) {
       roots.value.add(d.path);
-roots.refresh();
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getTemporaryDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -24,7 +24,7 @@ roots.refresh();
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
-roots.refresh();
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getApplicationSupportDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -32,7 +32,7 @@ roots.refresh();
 
     getLibraryDirectory().then((d) {
       roots.value.add(d.path);
-roots.refresh();
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getLibraryDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -41,7 +41,7 @@ roots.refresh();
     getApplicationDocumentsDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
-roots.refresh();
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getApplicationDocumentsDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -50,7 +50,7 @@ roots.refresh();
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
-roots.refresh();
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getApplicationCacheDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -60,7 +60,7 @@ roots.refresh();
       if (d != null) {
         roots.value.add(d.path);
         roots.value.add(d.parent.path);
-roots.refresh();
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getExternalStorageDirectory', '$e',
@@ -70,7 +70,7 @@ roots.refresh();
     getExternalCacheDirectories().then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
-roots.refresh();
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getExternalCacheDirectories', '$e',
@@ -80,7 +80,7 @@ roots.refresh();
     getExternalStorageDirectories().then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
-roots.refresh();
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getExternalStorageDirectories', '$e',
@@ -90,7 +90,7 @@ roots.refresh();
     getDownloadsDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
-roots.refresh();
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getDownloadsDirectory', '$e',

@@ -13,8 +13,8 @@ class PathProviderCard extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    final cardWidth = Get.width-2*8.0;
-    final cardHeight = cardWidth*1.618/3;
+    final cardWidth = Get.width - 2 * 8.0;
+    final cardHeight = cardWidth * 1.618 / 3;
 
     return Material(
       elevation: 2,
