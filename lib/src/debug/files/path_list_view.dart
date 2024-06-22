@@ -15,42 +15,69 @@ class PathListView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(8),
         children: <Widget>[
-          RequestedPath(
-            name: 'getTemporaryDirectory()',
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            child: RequestedPath(
+            name: 'getTemporaryDirectory',
             request: getTemporaryDirectory(),
           ), // RequestedPath
-          RequestedPath(
-            name: 'getApplicationSupportDirectory()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            child: RequestedPath(
+            name: 'getApplicationSupportDirectory',
             request: getApplicationSupportDirectory(),
           ), // RequestedPath
-          RequestedPath(
-            name: 'getLibraryDirectory()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            child: RequestedPath(
+            name: 'getLibraryDirectory',
             request: getLibraryDirectory(),
           ), // RequestedPath
-          RequestedPath(
-            name: 'getApplicationDocumentsDirectory()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            child: RequestedPath(
+            name: 'getApplicationDocumentsDirectory',
             request: getApplicationDocumentsDirectory(),
           ), // RequestedPath
-          RequestedPath(
-            name: 'getApplicationCacheDirectory()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            child: RequestedPath(
+            name: 'getApplicationCacheDirectory',
             request: getApplicationCacheDirectory(),
           ), // RequestedPath
-          RequestedPath(
-            name: 'getExternalStorageDirectory()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            child: RequestedPath(
+            name: 'getExternalStorageDirectory',
             request: getExternalStorageDirectory(),
           ), // RequestedPath
-          RequestedPaths(
-            name: 'getExternalCacheDirectories()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            child: RequestedPaths(
+            name: 'getExternalCacheDirectories',
             request: getExternalCacheDirectories(),
           ), // RequestedPaths
-          RequestedPaths(
-            name: 'getExternalStorageDirectories()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            child: RequestedPaths(
+            name: 'getExternalStorageDirectories',
             request: getExternalStorageDirectories(),
           ), // RequestedPaths
-          RequestedPath(
-            name: 'getDownloadsDirectory()',
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            child: RequestedPath(
+            name: 'getDownloadsDirectory',
             request: getDownloadsDirectory(),
           ), // RequestedPath
+          ), // Padding
         ],
       ), // ListView
     );
