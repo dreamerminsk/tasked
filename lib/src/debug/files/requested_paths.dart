@@ -1,15 +1,17 @@
+import ' dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RequestedPaths extends StatelessWidget {
   RequestedPaths({
     super.key,
-    required this._name,
-    required this._request,
+    required this.name,
+    required this.request,
   });
 
-  final String _name;
-  final Future<List<Directory>?> _request;
+  final String name;
+  final Future<List<Directory>?> request;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class RequestedPaths extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return FutureBuilder(
-      future: _request,
+      future: request,
       builder: (ctx, snapshot) {
         color = colorScheme.surfaceVariant;
         onColor = colorScheme.onSurfaceVariant;
@@ -46,7 +48,7 @@ class RequestedPaths extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                '$_name',
+                '$name',
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
               ), // Text
             ],
