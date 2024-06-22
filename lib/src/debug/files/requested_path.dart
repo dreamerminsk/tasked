@@ -8,35 +8,22 @@ class RequestedPath extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+final colorScheme = Theme.of(context).colorScheme
+
     return FutureBuilder(
       future: _request,
       builder: (ctx, snapshot) {
-        switch(snapshot.connectionState) {
-      case ConnectionState.none:
-      case ConnectionState.waiting:
-      case ConnectionState.active:
-        width = 0;
-        break;
-      case ConnectionState.done:
-        width = 500;
-        break;
-    }
+        color = colorScheme.surfaceVariant;
+         onColor = colorScheme.onSurfaceVariant;
+         Directory? data;
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
-            return Center(
-              child: Text(
-                '${snapshot.error} occurred',
-                style: TextStyle(fontSize: 18),
-              ),
-            );
+            color = colorScheme.error;
+         onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
-            final data = snapshot.data as Directory;
-            return Center(
-              child: Text(
-                '$data',
-                style: TextStyle(fontSize: 18),
-              ),
-            );
+color = colorScheme.primary;
+         onColor = colorScheme.onPrimary;
+            data = snapshot.data as Directory;
           }
         }
         return Center(
