@@ -15,6 +15,7 @@ class RootListView extends StatelessWidget {
 
     getTemporaryDirectory().then((d) {
       roots.value.add(d.path);
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getTemporaryDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -23,6 +24,7 @@ class RootListView extends StatelessWidget {
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getApplicationSupportDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -30,6 +32,7 @@ class RootListView extends StatelessWidget {
 
     getLibraryDirectory().then((d) {
       roots.value.add(d.path);
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getLibraryDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -38,6 +41,7 @@ class RootListView extends StatelessWidget {
     getApplicationDocumentsDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getApplicationDocumentsDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -46,6 +50,7 @@ class RootListView extends StatelessWidget {
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
+      roots.refresh();
     }).catchError((e) {
       Get.snackbar('getApplicationCacheDirectory', '$e',
           snackPosition: SnackPosition.BOTTOM);
@@ -55,6 +60,7 @@ class RootListView extends StatelessWidget {
       if (d != null) {
         roots.value.add(d.path);
         roots.value.add(d.parent.path);
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getExternalStorageDirectory', '$e',
@@ -64,6 +70,7 @@ class RootListView extends StatelessWidget {
     getExternalCacheDirectories().then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getExternalCacheDirectories', '$e',
@@ -73,6 +80,7 @@ class RootListView extends StatelessWidget {
     getExternalStorageDirectories().then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getExternalStorageDirectories', '$e',
@@ -82,6 +90,7 @@ class RootListView extends StatelessWidget {
     getDownloadsDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
+        roots.refresh();
       }
     }).catchError((e) {
       Get.snackbar('getDownloadsDirectory', '$e',

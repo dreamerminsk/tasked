@@ -19,6 +19,7 @@ abstract class Routes {
   static const JSON = _Paths.JSON;
   static const THEME = _Paths.THEME;
   static const FILES = _Paths.FILES;
+  static const PATHS = _Paths.PATHS;
   static const SCANNER = _Paths.SCANNER;
 }
 
@@ -39,5 +40,6 @@ abstract class _Paths {
   static const JSON = '/json';
   static const THEME = '/theme';
   static const FILES = '/files';
+  static const PATHS = '/paths';
   static const SCANNER = '/scanner';
 }

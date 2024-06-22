@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'debug_controller.dart';
 import 'files/root_list_card.dart';
+import 'files/path_provider_card.dart';
 import 'widgets/color_scheme_widget.dart';
 import 'widgets/scanner_widget.dart';
 import 'widgets/health_widget.dart';
@@ -54,14 +55,18 @@ class DebugView extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
-            child: ColorSchemeWidget(),
+            child: PathProviderCard(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
-            child: TextThemeWidget(),
+            child: ColorSchemeWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            child: TextThemeWidget(),
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: ScannerWidget(),
           ), // Padding
         ],

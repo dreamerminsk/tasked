@@ -5,6 +5,7 @@ import '../category/category_view.dart';
 import '../debug/debug_binding.dart';
 import '../debug/debug_view.dart';
 import '../debug/files/root_list_view.dart';
+import '../debug/files/path_list_view.dart';
 import '../debug/theme/color_scheme_page.dart';
 import '../debug/theme/text_theme_page.dart';
 import '../debug/json/json_viewer.dart';
@@ -115,6 +116,11 @@ class AppPages {
     GetPage(
       name: _Paths.FILES,
       page: () => RootListView(),
+      //binding: JsonBinding(),
+    ),
+    GetPage(
+      name: _Paths.PATHS,
+      page: () => PathListView(),
       //binding: JsonBinding(),
     ),
     GetPage(
