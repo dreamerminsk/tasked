@@ -23,7 +23,7 @@ class RequestedPaths extends StatelessWidget {
       builder: (ctx, snapshot) {
         var color = colorScheme.surfaceVariant;
         var onColor = colorScheme.onSurfaceVariant;
-        Directory? data;
+        List<Directory?>? data;
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
             color = colorScheme.error;
