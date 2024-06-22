@@ -18,63 +18,63 @@ class PathListView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
-            name: 'getTemporaryDirectory',
+            name: 'TemporaryDirectory',
             request: getTemporaryDirectory(),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
-            name: 'getApplicationSupportDirectory',
+            name: 'ApplicationSupportDirectory',
             request: getApplicationSupportDirectory(),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
-            name: 'getLibraryDirectory',
+            name: 'LibraryDirectory',
             request: getLibraryDirectory(),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
-            name: 'getApplicationDocumentsDirectory',
+            name: 'ApplicationDocumentsDirectory',
             request: getApplicationDocumentsDirectory(),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
-            name: 'getApplicationCacheDirectory',
+            name: 'ApplicationCacheDirectory',
             request: getApplicationCacheDirectory(),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
-            name: 'getExternalStorageDirectory',
+            name: 'ExternalStorageDirectory',
             request: getExternalStorageDirectory(),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPaths(
-            name: 'getExternalCacheDirectories',
+            name: 'ExternalCacheDirectories',
             request: getExternalCacheDirectories(),
           ), // RequestedPaths
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPaths(
-            name: 'getExternalStorageDirectories',
+            name: 'ExternalStorageDirectories',
             request: getExternalStorageDirectories(),
           ), // RequestedPaths
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
-            name: 'getDownloadsDirectory',
+            name: 'DownloadsDirectory',
             request: getDownloadsDirectory(),
           ), // RequestedPath
           ), // Padding
