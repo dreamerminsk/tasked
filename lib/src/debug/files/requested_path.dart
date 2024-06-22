@@ -43,7 +43,7 @@ class RequestedPath extends StatelessWidget {
         return AnimatedContainer(
           width: Get.width - 2 * 8.0,
           height: (Get.width - 2 * 8.0) / 1.618 / 2.0,
-          duration: Duration(seconds: 4.0),
+          duration: Duration(seconds: 4),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
