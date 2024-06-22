@@ -8,7 +8,7 @@ import 'requested_paths.dart';
 class PathListView extends StatelessWidget {
   @override
   Widget build(context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(title: const Text('path_provider'), actions: <Widget>[]),
