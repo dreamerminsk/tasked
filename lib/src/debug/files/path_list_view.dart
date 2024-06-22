@@ -11,7 +11,7 @@ class PathListView extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
+      appBar: AppBar(title: const Text('path_provider'), actions: <Widget>[]),
 
       body: ListView(
         padding: const EdgeInsets.all(8),
