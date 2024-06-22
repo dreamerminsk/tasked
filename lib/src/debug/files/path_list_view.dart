@@ -46,6 +46,7 @@ RequestedPath(name:'getApplicationDocumentsDirectory()', request:getApplicationD
 RequestedPath(name:'getApplicationCacheDirectory()', request:getApplicationCacheDirectory(),), // RequestedPath
 RequestedPath(name:'getExternalStorageDirectory()', request:getExternalStorageDirectory(),), // RequestedPath
 RequestedPaths(name:'getExternalCacheDirectories()', request:getExternalCacheDirectories(),), // RequestedPaths
+RequestedPaths(name:'getExternalStorageDirectories()', request:getExternalStorageDirectories(),), // RequestedPaths
 ],
 ), // ListView
     );
