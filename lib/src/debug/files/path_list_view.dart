@@ -13,15 +13,6 @@ class PathListView extends StatelessWidget {
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    getApplicationDocumentsDirectory().then((d) {
-      roots.value.add(d.path);
-      roots.value.add(d.parent.path);
-      roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getApplicationDocumentsDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
@@ -81,6 +72,7 @@ children: <Widget>[
 RequestedPath(name:'getTemporaryDirectory()', request:getTemporaryDirectory(),), // RequestedPath
 RequestedPath(name:'getApplicationSupportDirectory()', request:getApplicationSupportDirectory(),), // RequestedPath
 RequestedPath(name:'getLibraryDirectory()', request:getLibraryDirectory(),), // RequestedPath
+RequestedPath(name:'getApplicationDocumentsDirectory()', request:getApplicationDocumentsDirectory(),), // RequestedPath
 ],
 ), // ListView
     );
