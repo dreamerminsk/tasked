@@ -8,7 +8,7 @@ class RequestedPath extends StatelessWidget {
     required this._request,
   });
 
-  final _name;
+  final String _name;
   final Future<Directory?> _request;
 
   @override
