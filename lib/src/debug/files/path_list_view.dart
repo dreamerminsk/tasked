@@ -13,14 +13,6 @@ class PathListView extends StatelessWidget {
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    getTemporaryDirectory().then((d) {
-      roots.value.add(d.path);
-      roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getTemporaryDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
