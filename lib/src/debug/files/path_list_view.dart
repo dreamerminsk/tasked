@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -19,63 +21,63 @@ class PathListView extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
             name: 'TemporaryDirectory',
-            request: getTemporaryDirectory(),
+            request: Future.delayed(const Duration(seconds: 1), getTemporaryDirectory()),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
             name: 'ApplicationSupportDirectory',
-            request: getApplicationSupportDirectory(),
+            request: Future.delayed(const Duration(seconds: 2), getApplicationSupportDirectory()),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
             name: 'LibraryDirectory',
-            request: getLibraryDirectory(),
+            request: Future.delayed(const Duration(seconds: 3), getLibraryDirectory()),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
             name: 'ApplicationDocumentsDirectory',
-            request: getApplicationDocumentsDirectory(),
+            request: Future.delayed(const Duration(seconds: 4), getApplicationDocumentsDirectory()),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
             name: 'ApplicationCacheDirectory',
-            request: getApplicationCacheDirectory(),
+            request: Future.delayed(const Duration(seconds:5), getApplicationCacheDirectory()),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
             name: 'ExternalStorageDirectory',
-            request: getExternalStorageDirectory(),
+            request: Future.delayed(const Duration(seconds:6), getExternalStorageDirectory()),
           ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPaths(
             name: 'ExternalCacheDirectories',
-            request: getExternalCacheDirectories(),
+            request: Future.delayed(const Duration(seconds:7),getExternalCacheDirectories()),
           ), // RequestedPaths
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPaths(
             name: 'ExternalStorageDirectories',
-            request: getExternalStorageDirectories(),
+            request: Future.delayed(const Duration(seconds:8), getExternalStorageDirectories()),
           ), // RequestedPaths
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
             name: 'DownloadsDirectory',
-            request: getDownloadsDirectory(),
+            request: Future.delayed(const Duration(seconds:9), getDownloadsDirectory()),
           ), // RequestedPath
           ), // Padding
         ],
