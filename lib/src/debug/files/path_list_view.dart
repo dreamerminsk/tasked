@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
@@ -12,16 +10,6 @@ class PathListView extends StatelessWidget {
   @override
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
-
-    getDownloadsDirectory().then((d) {
-      if (d != null) {
-        roots.value.add(d.path);
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar('getDownloadsDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
 
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
@@ -37,6 +25,7 @@ RequestedPath(name:'getApplicationCacheDirectory()', request:getApplicationCache
 RequestedPath(name:'getExternalStorageDirectory()', request:getExternalStorageDirectory(),), // RequestedPath
 RequestedPaths(name:'getExternalCacheDirectories()', request:getExternalCacheDirectories(),), // RequestedPaths
 RequestedPaths(name:'getExternalStorageDirectories()', request:getExternalStorageDirectories(),), // RequestedPaths
+RequestedPath(name:'getDownloadsDirectory()', request:getDownloadsDirectory(),), // RequestedPath
 ],
 ), // ListView
     );
