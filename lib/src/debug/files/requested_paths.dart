@@ -14,7 +14,7 @@ class RequestedPaths extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-     final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return FutureBuilder(
       future: _request,
@@ -30,25 +30,24 @@ class RequestedPaths extends StatelessWidget {
             data = snapshot.data as Directory?;
             if (data == null) {
               color = colorScheme.primaryContainer;
-            onColor = colorScheme.onPrimaryContainer;
+              onColor = colorScheme.onPrimaryContainer;
             } else {
               color = colorScheme.primary;
-            onColor = colorScheme.onPrimary;
+              onColor = colorScheme.onPrimary;
             }
           }
         }
 
         return AnimatedContainer(
-          width: Get.width-2*8.0,
-          height: (Get.width-2*8.0) / 1.618 / 2.0,
+          width: Get.width - 2 * 8.0,
+          height: (Get.width - 2 * 8.0) / 1.618 / 2.0,
           duration: Duration(seconds: 4.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 '$_name',
-                style: textTheme.headlineSmall!
-                    .copyWith(color: onColor),
+                style: textTheme.headlineSmall!.copyWith(color: onColor),
               ), // Text
             ],
           ), // Column
