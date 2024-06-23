@@ -1,4 +1,3 @@
-import 'dart:core';
 import 'dart:convert';
 
 import 'package:async/async.dart';
@@ -10,124 +9,86 @@ import 'models/instances.dart';
 
 class DebugController extends GetxService {
   final id = nanoid();
-
   final started = DateTime.now();
-
   final debugStarted = Rxn<DateTime>();
-
   final instanceStats = RxMap<String, InstanceStats>();
+  final requests = 0.obs;
+  final received = 0.obs;
+  final lastResponse = <String, dynamic>{}.obs;
+  final samples = <String>[].obs;
 
   var _updateTick = 0.obs;
-
   RestartableTimer? _timer;
-
-  var requests = 0.obs;
-
-  var received = 0.obs;
 
   double get rpm =>
       60 *
       requests.value /
-      (DateTime.now()
-          .difference(debugStarted.value ?? DateTime.now())
-          .inSeconds);
-
-  final lastResponse = {}.obs;
-
-  final samples = [].obs;
+      (DateTime.now().difference(debugStarted.value ?? DateTime.now()).inSeconds);
 
   @override
   void onInit() {
     super.onInit();
-    newInit(this.runtimeType.toString(), id, started);
+    _logInit();
     debugStarted.value = DateTime.now();
-
-    loadSamples().then((items) => samples.assignAll(items));
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
+    _loadSamples();
   }
 
   @override
   void onClose() {
-    newClose(this.runtimeType.toString(), id, DateTime.now());
-    if (_timer != null) {
-      _timer?.cancel();
-    }
+    _logClose();
+    _timer?.cancel();
     super.onClose();
   }
 
   RxInt get updateTick {
-    if (_timer == null) {
-      start();
-    } else if (!_timer!.isActive) {
-      start();
-    }
+    _startTimerIfNeeded();
     return _updateTick;
   }
 
-  void start() {
-    if (_timer != null) {
-      _timer?.reset();
-    } else {
-      _timer =
-          RestartableTimer(Duration(seconds: 16), () => updateTick.value += 1);
+  void _startTimerIfNeeded() {
+    if (_timer == null || !_timer!.isActive) {
+      _startTimer();
     }
+  }
+
+  void _startTimer() {
+    _timer = RestartableTimer(Duration(seconds: 16), () => _updateTick.value += 1);
   }
 
   void stop() {
-    if (_timer != null) {
-      _timer?.cancel();
-    }
+    _timer?.cancel();
   }
 
-  void newInit(String name, String id, DateTime started) {
+  void _logInit() {
+    final name = runtimeType.toString();
     if (instanceStats.containsKey(name)) {
-      instanceStats[name]!.add(InstanceInfo(
-        id: id,
-        started: started,
-      ));
+      instanceStats[name]!.add(InstanceInfo(id: id, started: started));
     } else {
-      instanceStats[name] = InstanceStats();
-      instanceStats[name]!.add(InstanceInfo(
-        id: id,
-        started: started,
-      ));
+      instanceStats[name] = InstanceStats()..add(InstanceInfo(id: id, started: started));
     }
   }
 
-  void newClose(String name, String id, DateTime finished) {
-    if (instanceStats.containsKey(name)) {
-      instanceStats[name]!.remove(InstanceInfo(
-        id: id,
-        started: started,
-        finished: finished,
-      ));
-    }
+  void _logClose() {
+    final name = runtimeType.toString();
+    instanceStats[name]?.remove(InstanceInfo(id: id, started: started, finished: DateTime.now()));
   }
 
-  void newReq() {
-    requests += 1;
-  }
+  void newReq() => requests.value += 1;
 
-  void newRes(Map res) {
-    lastResponse.clear();
-    lastResponse.addAll(res);
+  void newRes(Map<String, dynamic> res) {
+    lastResponse.assignAll(res);
   }
 
   void newBytes(int bytes) {
     received.value += bytes;
   }
 
-  Future<List<String>> loadSamples() async {
-    final asset = await loadAsset();
-    final ls = LineSplitter();
-    return ls.convert(asset).toList();
+  Future<void> _loadSamples() async {
+    final asset = await _loadAsset();
+    samples.assignAll(LineSplitter().convert(asset));
   }
 
-  Future<String> loadAsset() async {
+  Future<String> _loadAsset() async {
     return await rootBundle.loadString('data/github.json.samples');
   }
 }
