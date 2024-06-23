@@ -21,40 +21,33 @@ class RequestedPath extends StatelessWidget {
     return FutureBuilder<Directory?>(
       future: request,
       builder: (context, snapshot) {
-        Color color;
-        Color onColor;
+        final isDone = snapshot.connectionState == ConnectionState.done;
+        final hasError = isDone && snapshot.hasError;
+        final hasData = isDone && snapshot.hasData && snapshot.data != null;
+        
+        final color = hasError
+            ? colorScheme.error
+            : hasData
+                ? colorScheme.primary
+                : isDone
+                    ? colorScheme.primaryContainer
+                    : colorScheme.surfaceVariant;
 
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) {
-            color = colorScheme.error;
-            onColor = colorScheme.onError;
-          } else if (snapshot.hasData) {
-            final data = snapshot.data;
-            if (data == null) {
-              color = colorScheme.primaryContainer;
-              onColor = colorScheme.onPrimaryContainer;
-            } else {
-              color = colorScheme.primary;
-              onColor = colorScheme.onPrimary;
-            }
-          } else {
-            color = colorScheme.surfaceVariant;
-            onColor = colorScheme.onSurfaceVariant;
-          }
-        } else {
-          color = colorScheme.surfaceVariant;
-          onColor = colorScheme.onSurfaceVariant;
-        }
+        final onColor = hasError
+            ? colorScheme.onError
+            : hasData
+                ? colorScheme.onPrimary
+                : isDone
+                    ? colorScheme.onPrimaryContainer
+                    : colorScheme.onSurfaceVariant;
 
         return AnimatedContainer(
-          width: Get.width - 2 * 8.0,
-          height: (Get.width - 2 * 8.0) / 1.618 / 2.0,
+          width: Get.width - 16.0,
+          height: (Get.width - 16.0) / 1.618 / 2.0,
           duration: const Duration(seconds: 4),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ),
+            borderRadius: BorderRadius.circular(20),
             color: color,
           ),
           child: Column(
@@ -62,12 +55,12 @@ class RequestedPath extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: textTheme.headlineSmall!.copyWith(color: onColor),
+                style: textTheme.headlineSmall?.copyWith(color: onColor),
               ),
-              if (snapshot.hasData && snapshot.data != null)
+              if (hasData)
                 Text(
                   snapshot.data!.path.split('/').last,
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
+                  style: textTheme.bodyLarge?.copyWith(color: onColor),
                 ),
             ],
           ),
