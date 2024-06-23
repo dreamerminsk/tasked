@@ -54,9 +54,9 @@ class RequestedPath extends StatelessWidget {
               Visibility(
                 visible: data != null,
                 child: Text(
-                "${data!.path.split('/').last}",
-                style: textTheme.bodyLarge!.copyWith(color: onColor),
-              ), // Text
+                  "${data!.path.split('/').last}",
+                  style: textTheme.bodyLarge!.copyWith(color: onColor),
+                ), // Text
               ), // Visibility
             ],
           ), // Column

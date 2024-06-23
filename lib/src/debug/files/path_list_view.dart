@@ -22,8 +22,8 @@ class PathListView extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPath(
               name: 'ApplicationCacheDirectory',
-              request: Future.delayed(
-                  const Duration(seconds: 1), ()=>getApplicationCacheDirectory()),
+              request: Future.delayed(const Duration(seconds: 1),
+                  () => getApplicationCacheDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -31,15 +31,15 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'ApplicationDocumentsDirectory',
               request: Future.delayed(const Duration(seconds: 2),
-                  ()=>getApplicationDocumentsDirectory()),
+                  () => getApplicationDocumentsDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
               name: 'ApplicationSupportDirectory',
-              request: Future.delayed(
-                  const Duration(seconds: 3), ()=>getApplicationSupportDirectory()),
+              request: Future.delayed(const Duration(seconds: 3),
+                  () => getApplicationSupportDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -47,31 +47,31 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'DownloadsDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 4), ()=>getDownloadsDirectory()),
+                  const Duration(seconds: 4), () => getDownloadsDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
             child: RequestedPaths(
               name: 'ExternalCacheDirectories',
-              request: Future.delayed(
-                  const Duration(seconds: 5), ()=>getExternalCacheDirectories()),
+              request: Future.delayed(const Duration(seconds: 5),
+                  () => getExternalCacheDirectories()),
             ), // RequestedPaths
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPaths(
               name: 'ExternalStorageDirectories',
-              request: Future.delayed(
-                  const Duration(seconds: 6), ()=>getExternalStorageDirectories()),
+              request: Future.delayed(const Duration(seconds: 6),
+                  () => getExternalStorageDirectories()),
             ), // RequestedPaths
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: RequestedPath(
               name: 'ExternalStorageDirectory',
-              request: Future.delayed(
-                  const Duration(seconds: 7), ()=>getExternalStorageDirectory()),
+              request: Future.delayed(const Duration(seconds: 7),
+                  () => getExternalStorageDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -79,7 +79,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'LibraryDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 8), ()=>getLibraryDirectory()),
+                  const Duration(seconds: 8), () => getLibraryDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -87,9 +87,9 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'TemporaryDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 9), ()=>getTemporaryDirectory()),
+                  const Duration(seconds: 9), () => getTemporaryDirectory()),
             ), // RequestedPath
-          ), // Padding       
+          ), // Padding
         ],
       ), // ListView
     );
