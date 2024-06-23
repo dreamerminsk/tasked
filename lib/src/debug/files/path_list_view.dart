@@ -23,7 +23,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'ApplicationCacheDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 1), getApplicationCacheDirectory()),
+                  const Duration(seconds: 1), ()=>getApplicationCacheDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
