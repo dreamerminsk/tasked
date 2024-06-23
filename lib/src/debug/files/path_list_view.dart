@@ -16,10 +16,10 @@ class PathListView extends StatelessWidget {
           AppBar(title: const Text('path_provider 2.1.3'), actions: <Widget>[]),
 
       body: ListView(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: RequestedPath(
               name: 'ApplicationCacheDirectory',
               request: Future.delayed(const Duration(seconds: 1),
@@ -27,7 +27,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPath
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(8, 8, 24, 8),
             child: RequestedPath(
               name: 'ApplicationDocumentsDirectory',
               request: Future.delayed(const Duration(seconds: 2),
@@ -35,7 +35,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPath
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: RequestedPath(
               name: 'ApplicationSupportDirectory',
               request: Future.delayed(const Duration(seconds: 3),
@@ -43,7 +43,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPath
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(8, 8, 24, 8),
             child: RequestedPath(
               name: 'DownloadsDirectory',
               request: Future.delayed(
@@ -51,7 +51,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPath
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: RequestedPaths(
               name: 'ExternalCacheDirectories',
               request: Future.delayed(const Duration(seconds: 5),
@@ -59,7 +59,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPaths
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(8, 8, 24, 8),
             child: RequestedPaths(
               name: 'ExternalStorageDirectories',
               request: Future.delayed(const Duration(seconds: 6),
@@ -67,7 +67,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPaths
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: RequestedPath(
               name: 'ExternalStorageDirectory',
               request: Future.delayed(const Duration(seconds: 7),
@@ -75,7 +75,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPath
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(8, 8, 24, 8),
             child: RequestedPath(
               name: 'LibraryDirectory',
               request: Future.delayed(
@@ -83,7 +83,7 @@ class PathListView extends StatelessWidget {
             ), // RequestedPath
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: RequestedPath(
               name: 'TemporaryDirectory',
               request: Future.delayed(
