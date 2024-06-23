@@ -178,7 +178,7 @@ class TextStylePage extends StatelessWidget {
                   ), // Padding
                 ],
               ), // ListView
-            // Removing top padding to align content with design specifications
+              // Removing top padding to align content with design specifications
             ), // MediaQuery.removePadding
           ), // Expanded
         ],
