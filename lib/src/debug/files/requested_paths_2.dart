@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RequestedPaths2 extends StatelessWidget {
-  const RequestedPaths({
+  const RequestedPaths2({
     super.key,
     required this.name,
     required this.request,
