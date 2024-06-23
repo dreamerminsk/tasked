@@ -31,7 +31,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'ApplicationDocumentsDirectory',
               request: Future.delayed(const Duration(seconds: 2),
-                  getApplicationDocumentsDirectory()),
+                  ()=>getApplicationDocumentsDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -39,7 +39,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'ApplicationSupportDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 3), getApplicationSupportDirectory()),
+                  const Duration(seconds: 3), ()=>getApplicationSupportDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -47,7 +47,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'DownloadsDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 4), getDownloadsDirectory()),
+                  const Duration(seconds: 4), ()=>getDownloadsDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -55,7 +55,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPaths(
               name: 'ExternalCacheDirectories',
               request: Future.delayed(
-                  const Duration(seconds: 5), getExternalCacheDirectories()),
+                  const Duration(seconds: 5), ()=>getExternalCacheDirectories()),
             ), // RequestedPaths
           ), // Padding
           Padding(
@@ -63,7 +63,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPaths(
               name: 'ExternalStorageDirectories',
               request: Future.delayed(
-                  const Duration(seconds: 6), getExternalStorageDirectories()),
+                  const Duration(seconds: 6), ()=>getExternalStorageDirectories()),
             ), // RequestedPaths
           ), // Padding
           Padding(
@@ -71,7 +71,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'ExternalStorageDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 7), getExternalStorageDirectory()),
+                  const Duration(seconds: 7), ()=>getExternalStorageDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -79,7 +79,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'LibraryDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 8), getLibraryDirectory()),
+                  const Duration(seconds: 8), ()=>getLibraryDirectory()),
             ), // RequestedPath
           ), // Padding
           Padding(
@@ -87,7 +87,7 @@ class PathListView extends StatelessWidget {
             child: RequestedPath(
               name: 'TemporaryDirectory',
               request: Future.delayed(
-                  const Duration(seconds: 9), getTemporaryDirectory()),
+                  const Duration(seconds: 9), ()=>getTemporaryDirectory()),
             ), // RequestedPath
           ), // Padding       
         ],
