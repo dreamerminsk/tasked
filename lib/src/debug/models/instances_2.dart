@@ -23,7 +23,8 @@ class InstanceInfo {
     );
   }
 
-  Tuple3<String, DateTime, DateTime?> toTuple() => Tuple3(id, started, finished);
+  Tuple3<String, DateTime, DateTime?> toTuple() =>
+      Tuple3(id, started, finished);
 
   @override
   bool operator ==(Object other) =>

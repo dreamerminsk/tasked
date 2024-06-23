@@ -31,7 +31,8 @@ class HealthWidget extends StatelessWidget {
             quarterTurns: 3,
             child: Text(
               'Health Status',
-              style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimary),
+              style:
+                  textTheme.titleLarge?.copyWith(color: colorScheme.onPrimary),
             ),
           ),
         ],
@@ -63,7 +64,8 @@ class InstanceInfoList extends StatelessWidget {
               totalCount: entry.value.totalCount,
               elapsedTime: entry.value.getElapsedTime(),
               tick: tick,
-              textStyle: textTheme.bodyMedium?.copyWith(color: colorScheme.onPrimary),
+              textStyle:
+                  textTheme.bodyMedium?.copyWith(color: colorScheme.onPrimary),
             ),
           )
           .toList(),
