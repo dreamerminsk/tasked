@@ -13,50 +13,63 @@ class SampleObject extends StatelessWidget {
   });
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 2,
-      borderRadius: BorderRadius.all(Radius.circular(20)),
+      elevation: 4,
+      borderRadius: BorderRadius.circular(20),
       child: Container(
-        width: Get.width,
-        height: Get.width / 1.618,
+        width: double.infinity,
+        height: Get.width / 1.618, // Golden ratio height
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: colorScheme.primary,
+        ),
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              child: Align(
-                alignment: Alignment.center,
+              child: Center(
                 child: Text(
-                  '${object == null ? "null" : (object is Diagnosticable ? (object! as Diagnosticable).toStringShort() : object.toString())}',
+                  _objectToString(object),
                   style: textTheme.titleLarge!.copyWith(
                     fontWeight: FontWeight.w700,
                     color: colorScheme.onPrimary,
                   ),
-                ), // Text
-              ), // Align
-            ), // Expanded
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
             Divider(
               color: colorScheme.onPrimary,
-            ), // Divider
+              thickness: 1.5,
+            ),
+            const SizedBox(height: 8),
             Text(
               title,
               style: textTheme.titleLarge!.copyWith(
                 fontSize: textTheme.titleLarge!.fontSize! - 1,
                 color: colorScheme.onPrimary,
               ),
-            ), // Text,
+              textAlign: TextAlign.center,
+            ),
           ],
-        ), // Column
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.primary,
-        ), // BoxDecoration
-      ), // Container
-    ); // Material
+        ),
+      ),
+    );
+  }
+
+  String _objectToString(Object? object) {
+    if (object == null) {
+      return "null";
+    }
+    if (object is Diagnosticable) {
+      return (object as Diagnosticable).toStringShort();
+    }
+    return object.toString();
   }
 }
