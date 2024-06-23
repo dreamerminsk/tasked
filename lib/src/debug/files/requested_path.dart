@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RequestedPath extends StatelessWidget {
-  RequestedPath({
+  const RequestedPath({
     super.key,
     required this.name,
     required this.request,
@@ -18,18 +18,18 @@ class RequestedPath extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    return FutureBuilder(
+    return FutureBuilder<Directory?>(
       future: request,
-      builder: (ctx, snapshot) {
-        var color = colorScheme.surfaceVariant;
-        var onColor = colorScheme.onSurfaceVariant;
-        Directory? data;
+      builder: (context, snapshot) {
+        Color color;
+        Color onColor;
+
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
             color = colorScheme.error;
             onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
-            data = snapshot.data;
+            final data = snapshot.data;
             if (data == null) {
               color = colorScheme.primaryContainer;
               onColor = colorScheme.onPrimaryContainer;
@@ -37,37 +37,41 @@ class RequestedPath extends StatelessWidget {
               color = colorScheme.primary;
               onColor = colorScheme.onPrimary;
             }
+          } else {
+            color = colorScheme.surfaceVariant;
+            onColor = colorScheme.onSurfaceVariant;
           }
+        } else {
+          color = colorScheme.surfaceVariant;
+          onColor = colorScheme.onSurfaceVariant;
         }
 
         return AnimatedContainer(
           width: Get.width - 2 * 8.0,
           height: (Get.width - 2 * 8.0) / 1.618 / 2.0,
-          duration: Duration(seconds: 4),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                '$name',
-                style: textTheme.headlineSmall!.copyWith(color: onColor),
-              ), // Text
-              Visibility(
-                visible: data != null,
-                child: Text(
-                "${data!.path.split('/').last}",
-                style: textTheme.bodyLarge!.copyWith(color: onColor),
-              ), // Text
-              ), // Visibility
-            ],
-          ), // Column
+          duration: const Duration(seconds: 4),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
-            ), // BorderRadius
+            ),
             color: color,
-          ), // BoxDecoration
-        ); //Container
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                name,
+                style: textTheme.headlineSmall!.copyWith(color: onColor),
+              ),
+              if (snapshot.hasData && snapshot.data != null)
+                Text(
+                  snapshot.data!.path.split('/').last,
+                  style: textTheme.bodyLarge!.copyWith(color: onColor),
+                ),
+            ],
+          ),
+        );
       },
     );
   }
