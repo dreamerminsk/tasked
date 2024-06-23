@@ -30,10 +30,7 @@ class RequestedPaths extends StatelessWidget {
             onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
             data = snapshot.data;
-            if (data == null) {
-              color = colorScheme.primaryContainer;
-              onColor = colorScheme.onPrimaryContainer;
-            } else if (data?.isEmpty ?? true) {
+            if (data?.isEmpty ?? true) {
               color = colorScheme.primaryContainer;
               onColor = colorScheme.onPrimaryContainer;
             } else {
