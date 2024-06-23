@@ -30,7 +30,7 @@ class RequestedPaths extends StatelessWidget {
             onColor = colorScheme.onError;
           } else if (snapshot.hasData) {
             data = snapshot.data;
-            if (data == null) {
+            if (data?.isEmpty ?? true) {
               color = colorScheme.primaryContainer;
               onColor = colorScheme.onPrimaryContainer;
             } else {
@@ -51,6 +51,13 @@ class RequestedPaths extends StatelessWidget {
                 '$name',
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
               ), // Text
+              Visibility(
+                visible: data != null,
+                child: Text(
+                "${data!.length} item(s)",
+                style: textTheme.bodyLarge!.copyWith(color: onColor),
+              ), // Text
+              ), // Visibility
             ],
           ), // Column
           padding: const EdgeInsets.all(16),

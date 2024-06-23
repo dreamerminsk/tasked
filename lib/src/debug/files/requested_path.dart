@@ -51,6 +51,13 @@ class RequestedPath extends StatelessWidget {
                 '$name',
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
               ), // Text
+              Visibility(
+                visible: data != null,
+                child: Text(
+                "${data!.path.split('/').last}",
+                style: textTheme.bodyLarge!.copyWith(color: onColor),
+              ), // Text
+              ), // Visibility
             ],
           ), // Column
           padding: const EdgeInsets.all(16),
