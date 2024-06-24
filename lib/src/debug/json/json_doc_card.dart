@@ -4,68 +4,61 @@ import 'package:get/get.dart';
 import 'json_controller.dart';
 
 class JsonDocCard extends StatelessWidget {
-  const JsonDocCard({
-    super.key,
-  });
+  const JsonDocCard({super.key});
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final JsonController c = Get.find();
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Container(
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       width: Get.width,
       height: 200,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: colorScheme.primary,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'pos: 0',
-                style:
-                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
-              ), // Text
+                style: textTheme.bodyLarge?.copyWith(color: colorScheme.onPrimary),
+              ),
               Obx(() => Text(
-                    'length: ${c.content.value.length}',
-                    style: textTheme.bodyLarge!
-                        .copyWith(color: colorScheme.onPrimary),
-                  )), // Text
+                'length: ${c.content.value.length}',
+                style: textTheme.bodyLarge?.copyWith(color: colorScheme.onPrimary),
+              )),
             ],
-          ), // Column
+          ),
           Container(
             height: 200,
             alignment: Alignment.center,
-            child: RotatedBox(
-              quarterTurns: 3,
-              child: Text(
-                'JsonDocument',
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimary),
-              ), // Text
-            ), // RotatedBox,
             decoration: BoxDecoration(
               border: Border(
                 left: BorderSide(
                   color: colorScheme.onPrimary,
                   width: 1,
-                ), // BorderSide
-              ), // Border
-            ), // BoxDecoration
-          ), // Container
+                ),
+              ),
+            ),
+            child: RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                'JsonDocument',
+                style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimary),
+              ),
+            ),
+          ),
         ],
-      ), // Row
-      padding: const EdgeInsets.fromLTRB(16.0, 0.0, 8.0, 0.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ), // BorderRadius
-        color: colorScheme.primary,
-      ), // BoxDecoration
-    ); //Container
+      ),
+    );
   }
 }
