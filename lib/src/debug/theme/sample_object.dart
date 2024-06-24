@@ -74,7 +74,7 @@ class SampleObject extends StatelessWidget {
       return "null";
     }
     if (object is Diagnosticable) {
-      return (object as Diagnosticable).toStringShort();
+      return object.toStringShort();
     }
     return object.toString();
   }
