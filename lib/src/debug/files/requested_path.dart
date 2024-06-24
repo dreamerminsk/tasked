@@ -60,6 +60,14 @@ child: Text(
 style: textTheme.headlineSmall?.copyWith(color: onColor),
 duration: const Duration(seconds: 4,),
 ), // AnimatedDefaultTextStyle
+if (hasError)
+            AnimatedDefaultTextStyle(
+child: Text(
+                snapshot.error!.runtimeType.toString(),
+              ),
+style: textTheme.bodyLarge?.copyWith(color: onColor),
+duration: const Duration(seconds: 4,),
+), // AnimatedDefaultTextStyle
 if (hasData)
             AnimatedDefaultTextStyle(
 child: Text(
