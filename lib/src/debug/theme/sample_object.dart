@@ -21,7 +21,6 @@ class SampleObject extends StatelessWidget {
       elevation: 4,
       borderRadius: BorderRadius.circular(20),
       child: Container(
-
         width: double.infinity,
         height: Get.width / 1.618, // Golden ratio height
         decoration: BoxDecoration(
@@ -29,10 +28,6 @@ class SampleObject extends StatelessWidget {
           color: colorScheme.primary,
         ),
         padding: const EdgeInsets.all(16),
-
-     
-
-      
 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

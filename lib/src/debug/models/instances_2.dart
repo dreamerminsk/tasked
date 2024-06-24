@@ -23,8 +23,7 @@ class InstanceInfo {
     );
   }
 
-  (String, DateTime, DateTime?) toTuple() =>
-      (id, started, finished);
+  (String, DateTime, DateTime?) toTuple() => (id, started, finished);
 
   @override
   bool operator ==(Object other) =>

@@ -57,7 +57,6 @@ class RequestedPaths extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-
                 name,
                 style: textTheme.headlineSmall?.copyWith(color: onColor),
               ),
@@ -66,18 +65,6 @@ class RequestedPaths extends StatelessWidget {
                   "${snapshot.data!.length} item(s)",
                   style: textTheme.bodyLarge?.copyWith(color: onColor),
                 ),
-
-            
-             
-   
-    
-           
-       
-             
-        
-       
-        
-
             ],
           ),
         );

@@ -54,7 +54,6 @@ class RequestedPath extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-
                 name,
                 style: textTheme.headlineSmall?.copyWith(color: onColor),
               ),
@@ -63,18 +62,6 @@ class RequestedPath extends StatelessWidget {
                   snapshot.data!.path.split('/').last,
                   style: textTheme.bodyLarge?.copyWith(color: onColor),
                 ),
-
-        
-   
-   
-    
-     
-       
-        
-       
-         
-         
-
             ],
           ),
         );

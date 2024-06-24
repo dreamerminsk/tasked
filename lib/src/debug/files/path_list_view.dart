@@ -75,7 +75,6 @@ class PathListView extends StatelessWidget {
           final padding = EdgeInsets.fromLTRB(
               index.isEven ? 24 : 8, 8, index.isEven ? 8 : 24, 8);
 
-
           return Padding(
             padding: padding,
             child: path['isList']
@@ -84,13 +83,6 @@ class PathListView extends StatelessWidget {
           );
         },
       ),
-
- 
-    
-      
-            
-          
-
     );
   }
 }
