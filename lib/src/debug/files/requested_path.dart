@@ -1,17 +1,16 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RequestedPath extends StatelessWidget {
+  final String name;
+  final Future<Directory?> request;
+
   const RequestedPath({
     super.key,
     required this.name,
     required this.request,
   });
-
-  final String name;
-  final Future<Directory?> request;
 
   @override
   Widget build(BuildContext context) {
@@ -54,28 +53,22 @@ class RequestedPath extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AnimatedDefaultTextStyle(
-child: Text(
-                name,
+                child: Text(name),
+                style: textTheme.headlineSmall?.copyWith(color: onColor),
+                duration: const Duration(seconds: 4),
               ),
-style: textTheme.headlineSmall?.copyWith(color: onColor),
-duration: const Duration(seconds: 4,),
-), // AnimatedDefaultTextStyle
-if (hasError)
-            AnimatedDefaultTextStyle(
-child: Text(
-                snapshot.error!.runtimeType.toString(),
-              ),
-style: textTheme.bodyLarge?.copyWith(color: onColor),
-duration: const Duration(seconds: 4,),
-), // AnimatedDefaultTextStyle
-if (hasData)
-            AnimatedDefaultTextStyle(
-child: Text(
-                snapshot.data!.path.split('/').last,
-              ),
-style: textTheme.bodyLarge?.copyWith(color: onColor),
-duration: const Duration(seconds: 4,),
-), // AnimatedDefaultTextStyle
+              if (hasError)
+                AnimatedDefaultTextStyle(
+                  child: Text(snapshot.error!.runtimeType.toString()),
+                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                  duration: const Duration(seconds: 4),
+                ),
+              if (hasData)
+                AnimatedDefaultTextStyle(
+                  child: Text(snapshot.data!.path.split('/').last),
+                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                  duration: const Duration(seconds: 4),
+                ),
             ],
           ),
         );
