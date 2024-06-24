@@ -28,14 +28,14 @@ class DebugController extends GetxService {
   @override
   void onInit() {
     super.onInit();
-    _logInit();
+    logInit();
     debugStarted.value = DateTime.now();
     _loadSamples();
   }
 
   @override
   void onClose() {
-    _logClose();
+    logClose();
     _timer?.cancel();
     super.onClose();
   }
@@ -59,7 +59,7 @@ class DebugController extends GetxService {
     _timer?.cancel();
   }
 
-  void _logInit() {
+  void logInit() {
     final name = runtimeType.toString();
     if (instanceStats.containsKey(name)) {
       instanceStats[name]!.add(InstanceInfo(id: id, started: started));
@@ -68,7 +68,7 @@ class DebugController extends GetxService {
     }
   }
 
-  void _logClose() {
+  void logClose() {
     final name = runtimeType.toString();
     instanceStats[name]?.remove(InstanceInfo(id: id, started: started, finished: DateTime.now()));
   }
