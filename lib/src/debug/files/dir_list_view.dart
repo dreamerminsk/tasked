@@ -108,7 +108,8 @@ class DirListView extends StatelessWidget {
               DataRow(
                 cells: [
                   DataCell(Text('Mode')),
-                  DataCell(Text('${stat.value?.mode}, ${stat.value?.modeString()}')),
+                  DataCell(
+                      Text('${stat.value?.mode}, ${stat.value?.modeString()}')),
                 ],
               ),
               DataRow(

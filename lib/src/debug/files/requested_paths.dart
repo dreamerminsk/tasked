@@ -23,7 +23,10 @@ class RequestedPaths extends StatelessWidget {
       builder: (context, snapshot) {
         final isDone = snapshot.connectionState == ConnectionState.done;
         final hasError = isDone && snapshot.hasError;
-        final hasData = isDone && snapshot.hasData && snapshot.data != null && snapshot.data!.isNotEmpty;
+        final hasData = isDone &&
+            snapshot.hasData &&
+            snapshot.data != null &&
+            snapshot.data!.isNotEmpty;
 
         final color = hasError
             ? colorScheme.error

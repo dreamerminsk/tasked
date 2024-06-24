@@ -11,47 +11,56 @@ class PathListView extends StatelessWidget {
     final List<Map<String, dynamic>> paths = [
       {
         'name': 'ApplicationCacheDirectory',
-        'request': Future.delayed(const Duration(seconds: 1), () => getApplicationCacheDirectory()),
+        'request': Future.delayed(
+            const Duration(seconds: 1), () => getApplicationCacheDirectory()),
         'isList': false
       },
       {
         'name': 'ApplicationDocumentsDirectory',
-        'request': Future.delayed(const Duration(seconds: 2), () => getApplicationDocumentsDirectory()),
+        'request': Future.delayed(const Duration(seconds: 2),
+            () => getApplicationDocumentsDirectory()),
         'isList': false
       },
       {
         'name': 'ApplicationSupportDirectory',
-        'request': Future.delayed(const Duration(seconds: 3), () => getApplicationSupportDirectory()),
+        'request': Future.delayed(
+            const Duration(seconds: 3), () => getApplicationSupportDirectory()),
         'isList': false
       },
       {
         'name': 'DownloadsDirectory',
-        'request': Future.delayed(const Duration(seconds: 4), () => getDownloadsDirectory()),
+        'request': Future.delayed(
+            const Duration(seconds: 4), () => getDownloadsDirectory()),
         'isList': false
       },
       {
         'name': 'ExternalCacheDirectories',
-        'request': Future.delayed(const Duration(seconds: 5), () => getExternalCacheDirectories()),
+        'request': Future.delayed(
+            const Duration(seconds: 5), () => getExternalCacheDirectories()),
         'isList': true
       },
       {
         'name': 'ExternalStorageDirectories',
-        'request': Future.delayed(const Duration(seconds: 6), () => getExternalStorageDirectories()),
+        'request': Future.delayed(
+            const Duration(seconds: 6), () => getExternalStorageDirectories()),
         'isList': true
       },
       {
         'name': 'ExternalStorageDirectory',
-        'request': Future.delayed(const Duration(seconds: 7), () => getExternalStorageDirectory()),
+        'request': Future.delayed(
+            const Duration(seconds: 7), () => getExternalStorageDirectory()),
         'isList': false
       },
       {
         'name': 'LibraryDirectory',
-        'request': Future.delayed(const Duration(seconds: 8), () => getLibraryDirectory()),
+        'request': Future.delayed(
+            const Duration(seconds: 8), () => getLibraryDirectory()),
         'isList': false
       },
       {
         'name': 'TemporaryDirectory',
-        'request': Future.delayed(const Duration(seconds: 9), () => getTemporaryDirectory()),
+        'request': Future.delayed(
+            const Duration(seconds: 9), () => getTemporaryDirectory()),
         'isList': false
       },
     ];
@@ -63,7 +72,8 @@ class PathListView extends StatelessWidget {
         itemCount: paths.length,
         itemBuilder: (context, index) {
           final path = paths[index];
-          final padding = EdgeInsets.fromLTRB(index.isEven ? 24 : 8, 8, index.isEven ? 8 : 24, 8);
+          final padding = EdgeInsets.fromLTRB(
+              index.isEven ? 24 : 8, 8, index.isEven ? 8 : 24, 8);
 
           return Padding(
             padding: padding,

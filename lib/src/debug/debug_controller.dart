@@ -23,7 +23,9 @@ class DebugController extends GetxService {
   double get rpm =>
       60 *
       requests.value /
-      (DateTime.now().difference(debugStarted.value ?? DateTime.now()).inSeconds);
+      (DateTime.now()
+          .difference(debugStarted.value ?? DateTime.now())
+          .inSeconds);
 
   @override
   void onInit() {
@@ -52,7 +54,8 @@ class DebugController extends GetxService {
   }
 
   void _startTimer() {
-    _timer = RestartableTimer(Duration(seconds: 16), () => _updateTick.value += 1);
+    _timer =
+        RestartableTimer(Duration(seconds: 16), () => _updateTick.value += 1);
   }
 
   void stop() {
@@ -64,13 +67,15 @@ class DebugController extends GetxService {
     if (instanceStats.containsKey(name)) {
       instanceStats[name]!.add(InstanceInfo(id: id, started: started));
     } else {
-      instanceStats[name] = InstanceStats()..add(InstanceInfo(id: id, started: started));
+      instanceStats[name] = InstanceStats()
+        ..add(InstanceInfo(id: id, started: started));
     }
   }
 
   void logClose() {
     final name = runtimeType.toString();
-    instanceStats[name]?.remove(InstanceInfo(id: id, started: started, finished: DateTime.now()));
+    instanceStats[name]?.remove(
+        InstanceInfo(id: id, started: started, finished: DateTime.now()));
   }
 
   void newReq() => requests.value += 1;
