@@ -7,54 +7,55 @@ import 'dir_card.dart';
 import 'dir_title.dart';
 
 class DirListView extends StatelessWidget {
-  final path;
+  final String path;
   final Rxn<FileStat> stat = Rxn<FileStat>();
-  final RxList entries = RxList();
+  final RxList<String> entries = RxList<String>();
 
   DirListView({super.key, required this.path});
 
   @override
-  Widget build(context) {
-    //final textTheme = Theme.of(context).textTheme;
+  Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
     if (entries.isEmpty) {
-      final d = Directory(path);
-      d.stat().then((value) => stat.value = value);
-      d.list().map((item) => item.path).forEach((item) => entries.add(item));
+      final directory = Directory(path);
+      directory.stat().then((value) => stat.value = value);
+      directory.list().map((item) => item.path).toList().then((items) {
+        entries.addAll(items);
+      });
     }
 
     return Scaffold(
-      body: ObxValue(
-        (data) => ListView.builder(
-          itemCount: data.length + 1,
-          itemBuilder: (BuildContext context, int index) {
-            return index == 0
-                ? Padding(
-                    padding: EdgeInsets.fromLTRB(4, 0, 4, 16),
-                    child: DirTitle(
-                      title: path,
-                      onTap: () => showModalBottomSheet<void>(
-                        context: context,
-                        builder: _buildSheet,
+      body: Obx(() => ListView.builder(
+            itemCount: entries.length + 1,
+            itemBuilder: (BuildContext context, int index) {
+              return index == 0
+                  ? Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 0, 4, 16),
+                      child: DirTitle(
+                        title: path,
+                        onTap: () => showModalBottomSheet<void>(
+                          context: context,
+                          builder: _buildSheet,
+                        ),
                       ),
-                    ), // DirTitle
-                  ) // Padding
-                : Padding(
-                    padding: index.isEven
-                        ? EdgeInsets.fromLTRB(0, 8, 24, 8)
-                        : EdgeInsets.fromLTRB(24, 8, 0, 8),
-                    child: DirCard(
-                      index: index,
-                      title: data[index - 1],
-                      background: colorScheme.primaryContainer,
-                      foreground: colorScheme.onPrimaryContainer,
-                    ), // DirCard
-                  ); // Padding
-          },
-        ),
-        entries,
-      ),
+                    )
+                  : Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        index.isEven ? 0 : 24,
+                        8,
+                        index.isEven ? 24 : 0,
+                        8,
+                      ),
+                      child: DirCard(
+                        index: index,
+                        title: entries[index - 1],
+                        background: colorScheme.primaryContainer,
+                        foreground: colorScheme.onPrimaryContainer,
+                      ),
+                    );
+            },
+          )),
     );
   }
 
@@ -64,8 +65,7 @@ class DirListView extends StatelessWidget {
       height: Get.height * 0.5,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        //mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+        children: [
           DataTable(
             headingRowHeight: 0,
             columns: const <DataColumn>[
@@ -86,48 +86,48 @@ class DirListView extends StatelessWidget {
                 ),
               ),
             ],
-            rows: <DataRow>[
+            rows: [
               DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('accessed')),
+                cells: [
+                  DataCell(Text('Accessed')),
                   DataCell(Text('${stat.value?.accessed}')),
                 ],
               ),
               DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('changed')),
+                cells: [
+                  DataCell(Text('Changed')),
                   DataCell(Text('${stat.value?.changed}')),
                 ],
               ),
               DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('modified')),
+                cells: [
+                  DataCell(Text('Modified')),
                   DataCell(Text('${stat.value?.modified}')),
                 ],
               ),
               DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('mode')),
+                cells: [
+                  DataCell(Text('Mode')),
                   DataCell(
                       Text('${stat.value?.mode}, ${stat.value?.modeString()}')),
                 ],
               ),
               DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('size')),
+                cells: [
+                  DataCell(Text('Size')),
                   DataCell(Text('${stat.value?.size}')),
                 ],
               ),
               DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('type')),
+                cells: [
+                  DataCell(Text('Type')),
                   DataCell(Text('${stat.value?.type}')),
                 ],
               ),
             ],
-          ), // DataTable
+          ),
         ],
-      ), // Column
+      ),
     );
   }
 }

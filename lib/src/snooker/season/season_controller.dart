@@ -15,13 +15,13 @@ class SeasonController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString(), id, started);
+    debug.logInit(this.runtimeType.toString(), id, started);
     task.value = Get.arguments;
   }
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
+    debug.logClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 }

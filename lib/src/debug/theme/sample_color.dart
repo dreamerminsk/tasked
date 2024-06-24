@@ -15,53 +15,54 @@ class SampleColor extends StatelessWidget {
   });
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    //final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () => Get.to(ColorPage(color: background)),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
         child: Container(
-          width: Get.width,
+          width: double.infinity,
           height: 160,
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              //border: Border.all(
-              //color: foreground,
-              //width: 2.0,
-              //), // Border
-              borderRadius: BorderRadius.circular(12),
-            ), // BoxDecoration
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Divider(
-                  color: foreground,
-                ), // Divider
-                Text(
-                  title,
-                  style: textTheme.titleLarge!.copyWith(
-                    color: foreground,
-                  ),
-                ), // Text
-              ],
-            ), // Column
-          ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
             color: background,
-          ), // BoxDecoration
-        ), // Container
-      ), // InkWell
-    ); // Material
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: foreground.withOpacity(0.75),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Divider(
+                    color: foreground,
+                    thickness: 1.5,
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    title,
+                    style: textTheme.titleLarge!.copyWith(
+                      color: foreground,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

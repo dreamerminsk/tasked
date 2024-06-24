@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RequestedPaths extends StatelessWidget {
-  RequestedPaths({
+  const RequestedPaths({
     super.key,
     required this.name,
     required this.request,
@@ -18,56 +18,69 @@ class RequestedPaths extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    return FutureBuilder(
+    return FutureBuilder<List<Directory>?>(
       future: request,
-      builder: (ctx, snapshot) {
-        var color = colorScheme.surfaceVariant;
-        var onColor = colorScheme.onSurfaceVariant;
-        List<Directory?>? data;
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) {
-            color = colorScheme.error;
-            onColor = colorScheme.onError;
-          } else if (snapshot.hasData) {
-            data = snapshot.data;
-            if (data?.isEmpty ?? true) {
-              color = colorScheme.primaryContainer;
-              onColor = colorScheme.onPrimaryContainer;
-            } else {
-              color = colorScheme.primary;
-              onColor = colorScheme.onPrimary;
-            }
-          }
-        }
+      builder: (context, snapshot) {
+        final isDone = snapshot.connectionState == ConnectionState.done;
+        final hasError = isDone && snapshot.hasError;
+        final hasData = isDone &&
+            snapshot.hasData &&
+            snapshot.data != null &&
+            snapshot.data!.isNotEmpty;
+
+        final color = hasError
+            ? colorScheme.error
+            : hasData
+                ? colorScheme.primary
+                : isDone
+                    ? colorScheme.primaryContainer
+                    : colorScheme.surfaceVariant;
+
+        final onColor = hasError
+            ? colorScheme.onError
+            : hasData
+                ? colorScheme.onPrimary
+                : isDone
+                    ? colorScheme.onPrimaryContainer
+                    : colorScheme.onSurfaceVariant;
 
         return AnimatedContainer(
-          width: Get.width - 2 * 8.0,
-          height: (Get.width - 2 * 8.0) / 1.618 / 2.0,
-          duration: Duration(seconds: 4),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                '$name',
-                style: textTheme.headlineSmall!.copyWith(color: onColor),
-              ), // Text
-              Visibility(
-                visible: data != null,
-                child: Text(
-                  "${data!.length} item(s)",
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
-                ), // Text
-              ), // Visibility
-            ],
-          ), // Column
+          width: Get.width - 16.0,
+          height: (Get.width - 16.0) / 1.618 / 2.0,
+          duration: const Duration(seconds: 4),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
+            borderRadius: BorderRadius.circular(20),
             color: color,
-          ), // BoxDecoration
-        ); //Container
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+
+                name,
+                style: textTheme.headlineSmall?.copyWith(color: onColor),
+              ),
+              if (isDone && snapshot.hasData)
+                Text(
+                  "${snapshot.data!.length} item(s)",
+                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                ),
+
+            
+             
+   
+    
+           
+       
+             
+        
+       
+        
+
+            ],
+          ),
+        );
       },
     );
   }
