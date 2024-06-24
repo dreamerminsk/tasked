@@ -21,7 +21,7 @@ class TasklistController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(runtimeType.toString(), id, started);
+    debug.logInit(runtimeType.toString(), id, started);
   }
 
   @override
@@ -32,7 +32,7 @@ class TasklistController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(runtimeType.toString(), id, DateTime.now());
+    debug.logClose(runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 
