@@ -53,15 +53,21 @@ class RequestedPath extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              AnimatedDefaultTextStyle(
+child: Text(
                 name,
-                style: textTheme.headlineSmall?.copyWith(color: onColor),
               ),
-              if (hasData)
-                Text(
-                  snapshot.data!.path.split('/').last,
-                  style: textTheme.bodyLarge?.copyWith(color: onColor),
-                ),
+style: textTheme.headlineSmall?.copyWith(color: onColor),
+duration: const Duration(seconds: 4,),
+), // AnimatedDefaultTextStyle
+if (hasData)
+            AnimatedDefaultTextStyle(
+child: Text(
+                snapshot.data!.path.split('/').last,
+              ),
+style: textTheme.bodyLarge?.copyWith(color: onColor),
+duration: const Duration(seconds: 4,),
+), // AnimatedDefaultTextStyle
             ],
           ),
         );
