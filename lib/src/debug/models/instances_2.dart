@@ -23,8 +23,8 @@ class InstanceInfo {
     );
   }
 
-  Tuple3<String, DateTime, DateTime?> toTuple() =>
-      Tuple3(id, started, finished);
+  (String, DateTime, DateTime?) toTuple() =>
+      (id, started, finished);
 
   @override
   bool operator ==(Object other) =>
@@ -68,7 +68,7 @@ class InstanceStats {
     _active.remove(instance.id);
   }
 
-  Tuple2<int, int> toTuple() => Tuple2(activeCount, completedCount);
+  (int, int) toTuple() => (activeCount, completedCount);
 
   @override
   bool operator ==(Object other) =>
