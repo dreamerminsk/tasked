@@ -30,14 +30,14 @@ class DebugController extends GetxService {
   @override
   void onInit() {
     super.onInit();
-    logInit();
+    logInit(runtimeType.toString(),id,started);
     debugStarted.value = DateTime.now();
     _loadSamples();
   }
 
   @override
   void onClose() {
-    logClose();
+    logClose(runtimeType.toString(),id,DateTime.now());
     _timer?.cancel();
     super.onClose();
   }
