@@ -74,9 +74,11 @@ class HealthWidget extends StatelessWidget {
     if (d.inSeconds < 60) {
       timeString = '${d.inSeconds} s';
     } else if (d.inMinutes < 60) {
-      timeString = '${d.inMinutes} min';
+      final s = d.inSeconds - Duration.secondsPerMinute * d.inMinutes;
+      timeString = '${d.inMinutes} min $s s';
     } else {
-      timeString = '${d.inHours} hr';
+      final m = d.inMinutes - Duration.minutesPerHour * d.inHours;
+      timeString = '${d.inHours} hr $m min';
     }
     return timeString;
   }
