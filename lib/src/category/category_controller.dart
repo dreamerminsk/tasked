@@ -23,7 +23,7 @@ class CategoryController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    debug.newInit(this.runtimeType.toString(), id, started);
+    debug.logInit(this.runtimeType.toString(), id, started);
     category.value = Get.arguments;
     final link =
         WikiLink(prefix: category.value!.lang, title: category.value!.title);
@@ -35,7 +35,7 @@ class CategoryController extends GetxController {
 
   @override
   void onClose() {
-    debug.newClose(this.runtimeType.toString(), id, DateTime.now());
+    debug.logClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 
