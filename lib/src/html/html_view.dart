@@ -25,44 +25,7 @@ class HtmlView extends StatelessWidget {
               route: Routes.DEBUG,
             ), // DebugIconButton
           ]),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-        child: Column(
-          children: [
-            TextField(
-              controller: c.resourceController,
-              maxLines: 1,
-              decoration: InputDecoration(
-                icon: Icon(Icons.add_link),
-              ), // InputDecoration
-            ), // TextField
-            SizedBox(height: 16), // SizedBox
-            DocumentCard(),
-            SizedBox(height: 16), // SizedBox
-            Expanded(
-              child: Align(
-                alignment: Alignment.center,
-                child: IconButton.outlined(
-                  style: const ButtonStyle(
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-                  constraints: BoxConstraints(
-                    maxWidth: adjustedWidth,
-                    minWidth: adjustedWidth,
-                    maxHeight: adjustedWidth,
-                    minHeight: adjustedWidth,
-                  ),
-                  iconSize: adjustedWidth,
-                  icon: const Icon(Icons.blur_on),
-                  onPressed: () {
-                    c.randomUrl();
-                  },
-                ), // IconButton.outlined
-              ), // Align
-            ), // Expanded
-          ], // children
-        ), // Column
-      ), // Padding
+      body: ListView.builder(), // ListView
     );
   }
 }
