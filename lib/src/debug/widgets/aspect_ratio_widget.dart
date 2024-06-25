@@ -19,7 +19,7 @@ class AspectRatioWidget extends StatelessWidget {
       borderRadius: const BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.to(Routes.PATHS);
+          //Get.to(Routes.PATHS);
         },
         child: Container(
           width: cardWidth,
