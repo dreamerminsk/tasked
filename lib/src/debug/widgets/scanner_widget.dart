@@ -29,9 +29,8 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.primaryFixedDim,
       colorScheme.secondaryFixedDim,
       colorScheme.tertiaryFixedDim,
-      colorScheme.background,
       colorScheme.surface,
-      colorScheme.surfaceVariant,
+      colorScheme.surfaceDim,
       colorScheme.inverseSurface,
     ]);
     onColors.addAll([
@@ -49,9 +48,8 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.onPrimaryFixedVariant,
       colorScheme.onSecondaryFixedVariant,
       colorScheme.onTertiaryFixedVariant,
-      colorScheme.onBackground,
       colorScheme.onSurface,
-      colorScheme.onSurfaceVariant,
+      colorScheme.onSurface,
       colorScheme.onInverseSurface,
     ]);
     colorNames.addAll([
@@ -69,9 +67,8 @@ class ScannerWidget extends StatelessWidget {
       'primaryFixedDim',
       'secondaryFixedDim',
       'tertiaryFixedDim',
-      'background',
       'surface',
-      'surfaceVariant',
+      'surfaceDim',
       'inverseSurface',
     ]);
   }
