@@ -7,7 +7,7 @@ import 'package:html/parser.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final file = new File('data/index.html');
+  final file = new File('data/html/index.html');
 
   test('index.html is exists', () {
     expect(file.existsSync(), true);
