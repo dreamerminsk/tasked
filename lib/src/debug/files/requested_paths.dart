@@ -59,13 +59,13 @@ class RequestedPaths extends StatelessWidget {
               if (hasError)
                 AnimatedDefaultTextStyle(
                   child: Text(snapshot.error!.runtimeType.toString()), // Text
-                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                  style: textTheme.bodyLarge!.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ), // AnimatedDefaultTextStyle
               if (hasData)
                 AnimatedDefaultTextStyle(
                   child: Text(_toShortString(snapshot.data!)), // Text
-                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                  style: textTheme.bodyLarge!.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ), // AnimatedDefaultTextStyle
             ],
