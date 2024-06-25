@@ -26,9 +26,10 @@ class TaskWidget extends StatelessWidget {
           arguments: this.task,
         );
       },
-      child: Container(
+      child: AspectRatio(
+          aspectRatio: 2*1.618,
+           child: Container(
         width: Get.width,
-        height: Get.width / 2.0 / 1.618,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,6 +51,7 @@ class TaskWidget extends StatelessWidget {
           color: colorScheme.primary,
         ), // BoxDecoration
       ), // Container
+      ), // AspectRatio
     ); // GestureDetector
   }
 }
