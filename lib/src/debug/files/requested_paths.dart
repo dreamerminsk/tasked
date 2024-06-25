@@ -64,7 +64,7 @@ class RequestedPaths extends StatelessWidget {
                 ), // AnimatedDefaultTextStyle
               if (hasData)
                 AnimatedDefaultTextStyle(
-                  child: Text(snapshot.data!.path.split('/').last), // Text
+                  child: Text(_toShortString(snapshot.data!)), // Text
                   style: textTheme.bodyLarge?.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ),  // AnimatedDefaultTextStyle
@@ -76,10 +76,8 @@ class RequestedPaths extends StatelessWidget {
   }
 
 String _toShortString(List<Directory> list) {
-if (list.isEmpty) return '';
-String result = list[0].path.split('/').last;
-if (list.length> 1) result += ',';
-return result;
+  if (list.isEmpty) return '';
+  return list.first.path.split('/').last + (list.length > 1 ? ',' : '');
 }
 
 }
