@@ -14,7 +14,7 @@ class ColorSchemeWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
@@ -28,8 +28,13 @@ class ColorSchemeWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'colorScheme, ${MyApp.shadeColor.name}, ${MyApp.variant.toString()}',
+                'colorScheme',
                 style: textTheme.headlineSmall!
+                    .copyWith(color: colorScheme.onPrimary),
+              ), // Text
+              Text(
+                '${MyApp.shadeColor.name}, ${MyApp.variant.toString()}',
+                style: textTheme.bodyLarge!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
