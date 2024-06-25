@@ -54,19 +54,19 @@ class RequestedPath extends StatelessWidget {
             children: [
               AnimatedDefaultTextStyle(
                 child: Text(name),
-                style: textTheme.headlineSmall?.copyWith(color: onColor),
+                style: textTheme.headlineSmall!.copyWith(color: onColor),
                 duration: const Duration(seconds: 4),
               ),
               if (hasError)
                 AnimatedDefaultTextStyle(
                   child: Text(snapshot.error!.runtimeType.toString()),
-                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                  style: textTheme.bodyLarge!.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ),
               if (hasData)
                 AnimatedDefaultTextStyle(
                   child: Text(snapshot.data!.path.split('/').last),
-                  style: textTheme.bodyLarge?.copyWith(color: onColor),
+                  style: textTheme.bodyLarge!.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ),
             ],
