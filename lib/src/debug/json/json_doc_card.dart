@@ -30,12 +30,14 @@ class JsonDocCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 'pos: 0',
-                style: textTheme.bodyLarge?.copyWith(color: colorScheme.onPrimary),
+                style:
+                    textTheme.bodyLarge?.copyWith(color: colorScheme.onPrimary),
               ),
               Obx(() => Text(
-                'length: ${c.content.value.length}',
-                style: textTheme.bodyLarge?.copyWith(color: colorScheme.onPrimary),
-              )),
+                    'length: ${c.content.value.length}',
+                    style: textTheme.bodyLarge
+                        ?.copyWith(color: colorScheme.onPrimary),
+                  )),
             ],
           ),
           Container(
@@ -53,7 +55,8 @@ class JsonDocCard extends StatelessWidget {
               quarterTurns: 3,
               child: Text(
                 'JsonDocument',
-                style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimary),
+                style: textTheme.titleLarge
+                    ?.copyWith(color: colorScheme.onPrimary),
               ),
             ),
           ),

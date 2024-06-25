@@ -67,17 +67,16 @@ class RequestedPaths extends StatelessWidget {
                   child: Text(_toShortString(snapshot.data!)), // Text
                   style: textTheme.bodyLarge?.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
-                ),  // AnimatedDefaultTextStyle
+                ), // AnimatedDefaultTextStyle
             ],
           ), // Column
-        );  // AnimatedContainer
+        ); // AnimatedContainer
       },
     );
   }
 
-String _toShortString(List<Directory> list) {
-  if (list.isEmpty) return '';
-  return list.first.path.split('/').last + (list.length > 1 ? ',' : '');
-}
-
+  String _toShortString(List<Directory> list) {
+    if (list.isEmpty) return '';
+    return list.first.path.split('/').last + (list.length > 1 ? ',' : '');
+  }
 }

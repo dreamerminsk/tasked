@@ -72,8 +72,8 @@ class DebugController extends GetxService {
   }
 
   void logClose(String name, String id, DateTime finished) {
-    instanceStats[name]?.remove(
-        InstanceInfo(id: id, started: started, finished: finished));
+    instanceStats[name]
+        ?.remove(InstanceInfo(id: id, started: started, finished: finished));
   }
 
   void newReq() => requests.value += 1;
