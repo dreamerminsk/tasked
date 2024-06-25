@@ -23,6 +23,7 @@ class JsonDocCard extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,12 +32,12 @@ class JsonDocCard extends StatelessWidget {
               Text(
                 'pos: 0',
                 style:
-                    textTheme.bodyLarge?.copyWith(color: colorScheme.onPrimary),
+                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ),
               Obx(() => Text(
                     'length: ${c.content.value.length}',
                     style: textTheme.bodyLarge
-                        ?.copyWith(color: colorScheme.onPrimary),
+                        !.copyWith(color: colorScheme.onPrimary),
                   )),
             ],
           ),
@@ -47,7 +48,7 @@ class JsonDocCard extends StatelessWidget {
               border: Border(
                 left: BorderSide(
                   color: colorScheme.onPrimary,
-                  width: 1,
+                  width: 2,
                 ),
               ),
             ),
@@ -56,7 +57,7 @@ class JsonDocCard extends StatelessWidget {
               child: Text(
                 'JsonDocument',
                 style: textTheme.titleLarge
-                    ?.copyWith(color: colorScheme.onPrimary),
+                    !.copyWith(color: colorScheme.onPrimary),
               ),
             ),
           ),

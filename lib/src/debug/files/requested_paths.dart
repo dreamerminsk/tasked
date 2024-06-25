@@ -56,6 +56,11 @@ class RequestedPaths extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              AnimatedDefaultTextStyle(
+                child: Text(name),
+                style: textTheme.headlineSmall!.copyWith(color: onColor),
+                duration: const Duration(seconds: 4),
+              ),
               if (hasError)
                 AnimatedDefaultTextStyle(
                   child: Text(snapshot.error!.runtimeType.toString()), // Text
