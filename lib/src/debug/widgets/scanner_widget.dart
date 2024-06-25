@@ -32,7 +32,7 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.background,
       colorScheme.surface,
       colorScheme.surfaceVariant,
-      colorScheme.inverseSurface
+      colorScheme.inverseSurface,
     ]);
     onColors.addAll([
       colorScheme.onPrimary,
@@ -52,7 +52,27 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.onBackground,
       colorScheme.onSurface,
       colorScheme.onSurfaceVariant,
-      colorScheme.onInverseSurface
+      colorScheme.onInverseSurface,
+    ]);
+    colorNames.addAll([
+      'primary',
+      'secondary',
+      'tertiary',
+      'error',
+      'primaryContainer',
+      'secondaryContainer',
+      'tertiaryContainer',
+      'errorContainer',
+      'primaryFixed',
+      'secondaryFixed',
+      'tertiaryFixed',
+      'primaryFixedDim',
+      'secondaryFixedDim',
+      'tertiaryFixedDim',
+      'background',
+      'surface',
+      'surfaceVariant',
+      'inverseSurface',
     ]);
   }
 
@@ -91,7 +111,7 @@ class ScannerWidget extends StatelessWidget {
                         ),
                       ), // Text
                       Text(
-                        'SCANNER',
+                        colorNames[data.value],
                         style: textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w300,
                           color: onColors[data.value],
