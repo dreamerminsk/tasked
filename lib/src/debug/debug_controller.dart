@@ -63,7 +63,6 @@ class DebugController extends GetxService {
   }
 
   void logInit(String name, String id, DateTime started) {
-    final name = runtimeType.toString();
     if (instanceStats.containsKey(name)) {
       instanceStats[name]!.add(InstanceInfo(id: id, started: started));
     } else {
@@ -73,9 +72,8 @@ class DebugController extends GetxService {
   }
 
   void logClose(String name, String id, DateTime finished) {
-    final name = runtimeType.toString();
-    instanceStats[name]?.remove(
-        InstanceInfo(id: id, started: started, finished: DateTime.now()));
+    instanceStats[name]
+        ?.remove(InstanceInfo(id: id, started: started, finished: finished));
   }
 
   void newReq() => requests.value += 1;

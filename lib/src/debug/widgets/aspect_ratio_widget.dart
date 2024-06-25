@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../routes/app_pages.dart';
-
-class PathProviderCard extends StatelessWidget {
-  const PathProviderCard({
+class AspectRatioWidget extends StatelessWidget {
+  const AspectRatioWidget({
     super.key,
   });
 
@@ -14,14 +12,14 @@ class PathProviderCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     final cardWidth = Get.width - 2 * 8.0;
-    final cardHeight = cardWidth / 1.618 / 3;
+    final cardHeight = cardWidth / 1.618 / 2;
 
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: const BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.PATHS);
+          //Get.to(Routes.PATHS);
         },
         child: Container(
           width: cardWidth,
@@ -30,7 +28,7 @@ class PathProviderCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'path_provider 2.1.3',
+                'aspect_ratio',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
