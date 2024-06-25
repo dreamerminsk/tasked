@@ -135,14 +135,6 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
-              title: 'background',
-              background: colorScheme.background,
-              foreground: colorScheme.onBackground,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
               title: 'surface',
               background: colorScheme.surface,
               foreground: colorScheme.onSurface,
@@ -151,9 +143,9 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
-              title: 'surfaceVariant',
-              background: colorScheme.surfaceVariant,
-              foreground: colorScheme.onSurfaceVariant,
+              title: 'surfaceDim',
+              background: colorScheme.surfaceDim,
+              foreground: colorScheme.onSurface,
             ), // ColorContainer
           ), // Padding
           Padding(
