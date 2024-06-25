@@ -15,8 +15,6 @@ class HtmlView extends StatelessWidget {
   Widget build(context) {
     final HtmlController c = Get.find();
 
-    final double adjustedWidth = Get.width - 2 * 8;
-
     return Scaffold(
       appBar: AppBar(
           title: Obx(() => Text("${c.task.value?.title}")),
@@ -28,7 +26,10 @@ class HtmlView extends StatelessWidget {
       body: ListView.builder(
                 itemCount: c.defaultUrls.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return DocumentCard(location: c.defaultUrls[index]);
+return Padding(
+    padding:EdgeInsets.all(8),
+    child:DocumentCard(location: c.defaultUrls[index]), // DocumentCard
+); // Padding
                 },
               ) // ListView.builder
     );
