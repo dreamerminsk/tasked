@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
     ];
     shades.shuffle();
     shadeColor = shades[0];
-    variant = DynamicSchemeVariant.values[
-        Random().nextInt(DynamicSchemeVariant.values.length)];
+    variant = DynamicSchemeVariant
+        .values[Random().nextInt(DynamicSchemeVariant.values.length)];
 
     return GetMaterialApp(
       title: 'tasked',

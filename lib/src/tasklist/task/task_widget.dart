@@ -27,30 +27,30 @@ class TaskWidget extends StatelessWidget {
         );
       },
       child: AspectRatio(
-          aspectRatio: 2*1.618,
-           child: Container(
-        width: Get.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '${this.task.title}',
-              style: textTheme.headlineLarge!.copyWith(
-                color: colorScheme.onPrimary,
-                fontWeight: FontWeight.w300,
-              ),
-            ), // Text
-          ],
-        ), // Column
-        margin: this.padding ?? const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.primary,
-        ), // BoxDecoration
-      ), // Container
+        aspectRatio: 2 * 1.618,
+        child: Container(
+          width: Get.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                '${this.task.title}',
+                style: textTheme.headlineLarge!.copyWith(
+                  color: colorScheme.onPrimary,
+                  fontWeight: FontWeight.w300,
+                ),
+              ), // Text
+            ],
+          ), // Column
+          margin: this.padding ?? const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            ), // BorderRadius
+            color: colorScheme.primary,
+          ), // BoxDecoration
+        ), // Container
       ), // AspectRatio
     ); // GestureDetector
   }

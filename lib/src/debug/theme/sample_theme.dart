@@ -57,9 +57,7 @@ class SampleTheme extends StatelessWidget {
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: theme == null
-                ? colorScheme.surfaceDim
-                : colorScheme.primary,
+            color: theme == null ? colorScheme.surfaceDim : colorScheme.primary,
           ), // BoxDecoration
         ), //Container
       ), // InkWell
