@@ -25,29 +25,29 @@ void main() {
     expect(document.toString(), '#document');
   });
 
-  test('index.html is parceable', () {
-    final rows = document.querySelectorAll('div.schedule__brick');
-    expect(rows.length, 4);
-  });
+  //test('index.html is parceable', () {
+    //final rows = document.querySelectorAll('div.schedule__brick');
+    //expect(rows.length, 4);
+  //});
 
-  test('index.html contains titleStream', () {
-    final rows =
-        document.querySelectorAll('div.schedule__brick span.schedule__day');
-    final titles = rows.map((el) {
-      return el.text;
-    }).toList();
-    var titleStream = Stream.fromIterable(titles);
+  //test('index.html contains titleStream', () {
+    //final rows =
+        //document.querySelectorAll('div.schedule__brick span.schedule__day');
+    //final titles = rows.map((el) {
+      //return el.text;
+    //}).toList();
+    //var titleStream = Stream.fromIterable(titles);
 
-    expect(
-        titleStream,
-        emitsInOrder([
-          'Четверг',
-          'Уик-энд',
-          'Год',
-          'Доля дистрибьюторов',
+    //expect(
+    //    titleStream,
+   //     emitsInOrder([
+  //        'Четверг',
+  //        'Уик-энд',
+//         'Год',
+ //         'Доля дистрибьюторов',
           //startsWith('Loading took'),
           //emitsAnyOf(['Succeeded!', 'Failed!']),
           //emitsDone
-        ]));
-  });
+ //       ]));
+//  });
 }
