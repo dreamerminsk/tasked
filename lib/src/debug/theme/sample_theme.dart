@@ -46,7 +46,7 @@ class SampleTheme extends StatelessWidget {
                 title,
                 style: textTheme.headlineSmall!.copyWith(
                   color: theme == null
-                      ? colorScheme.onSurfaceVariant
+                      ? colorScheme.onSurface
                       : colorScheme.onPrimary,
                 ),
               ), // Text
@@ -58,7 +58,7 @@ class SampleTheme extends StatelessWidget {
               Radius.circular(20),
             ), // BorderRadius
             color: theme == null
-                ? colorScheme.surfaceVariant
+                ? colorScheme.surfaceDim
                 : colorScheme.primary,
           ), // BoxDecoration
         ), //Container

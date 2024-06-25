@@ -12,6 +12,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   static NamedMaterialColor seedColor = NamedColors.indigo;
   static NamedColor shadeColor = NamedColors.indigo.shade500;
+  static DynamicSchemeVariant variant = DynamicSchemeVariant.fidelity;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
     ];
     shades.shuffle();
     shadeColor = shades[0];
+    variant = DynamicSchemeVariant.values[
+        Random().nextInt(DynamicSchemeVariant.values.length)];
 
     return GetMaterialApp(
       title: 'tasked',
@@ -39,6 +42,7 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.indigo,
         colorScheme: ColorScheme.fromSeed(
           seedColor: shadeColor.color,
+          dynamicSchemeVariant: variant,
         ),
       ),
       initialBinding: DebugBinding(),

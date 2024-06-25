@@ -44,12 +44,12 @@ class RequestedPaths2 extends StatelessWidget {
                   onColor = colorScheme.onPrimary;
                 }
               } else {
-                color = colorScheme.surfaceVariant;
-                onColor = colorScheme.onSurfaceVariant;
+                color = colorScheme.surfaceDim;
+                onColor = colorScheme.onSurface;
               }
             } else {
-              color = colorScheme.surfaceVariant;
-              onColor = colorScheme.onSurfaceVariant;
+              color = colorScheme.surfaceDim;
+              onColor = colorScheme.onSurface;
             }
 
             return AnimatedContainer(

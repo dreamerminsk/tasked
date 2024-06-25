@@ -23,14 +23,13 @@ class DebugView extends StatelessWidget {
       appBar: AppBar(title: const Text('DEBUG'), actions: <Widget>[]),
 
       body: ListView(
-        //padding: EdgeInsets.all(8),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: HealthWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: Obx(() => NetworkStats(
                   started: c.debugStarted.value ?? DateTime.now(),
                   requests: c.requests.value,
@@ -40,33 +39,33 @@ class DebugView extends StatelessWidget {
                 )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(8, 8, 24, 8),
             child: Obx(() => RandomJsonFiles(
                   jsonFiles: List<String>.from(c.samples),
                 )),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: ThemeDataWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: RootListCard(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: PathProviderCard(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(8, 8, 24, 8),
             child: ColorSchemeWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 20, 8),
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: TextThemeWidget(),
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+            padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
             child: ScannerWidget(),
           ), // Padding
         ],

@@ -39,6 +39,22 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'primaryFixed',
+              background: colorScheme.primaryFixed,
+              foreground: colorScheme.onPrimaryFixed,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'primaryFixedDim',
+              background: colorScheme.primaryFixedDim,
+              foreground: colorScheme.onPrimaryFixedVariant,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'secondary',
               background: colorScheme.secondary,
               foreground: colorScheme.onSecondary,
@@ -50,6 +66,22 @@ class ColorSchemePage extends StatelessWidget {
               title: 'secondaryContainer',
               background: colorScheme.secondaryContainer,
               foreground: colorScheme.onSecondaryContainer,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'secondaryFixed',
+              background: colorScheme.secondaryFixed,
+              foreground: colorScheme.onSecondaryFixed,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'secondaryFixedDim',
+              background: colorScheme.secondaryFixedDim,
+              foreground: colorScheme.onSecondaryFixedVariant,
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -71,6 +103,22 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'tertiaryFixed',
+              background: colorScheme.tertiaryFixed,
+              foreground: colorScheme.onTertiaryFixed,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'tertiaryFixedDim',
+              background: colorScheme.tertiaryFixedDim,
+              foreground: colorScheme.onTertiaryFixedVariant,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
@@ -87,14 +135,6 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
-              title: 'background',
-              background: colorScheme.background,
-              foreground: colorScheme.onBackground,
-            ), // ColorContainer
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleColor(
               title: 'surface',
               background: colorScheme.surface,
               foreground: colorScheme.onSurface,
@@ -103,9 +143,9 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
-              title: 'surfaceVariant',
-              background: colorScheme.surfaceVariant,
-              foreground: colorScheme.onSurfaceVariant,
+              title: 'surfaceDim',
+              background: colorScheme.surfaceDim,
+              foreground: colorScheme.onSurface,
             ), // ColorContainer
           ), // Padding
           Padding(

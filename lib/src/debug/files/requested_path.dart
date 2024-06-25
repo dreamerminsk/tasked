@@ -30,7 +30,7 @@ class RequestedPath extends StatelessWidget {
                 ? colorScheme.primary
                 : isDone
                     ? colorScheme.primaryContainer
-                    : colorScheme.surfaceVariant;
+                    : colorScheme.surfaceDim;
 
         final onColor = hasError
             ? colorScheme.onError
@@ -38,7 +38,7 @@ class RequestedPath extends StatelessWidget {
                 ? colorScheme.onPrimary
                 : isDone
                     ? colorScheme.onPrimaryContainer
-                    : colorScheme.onSurfaceVariant;
+                    : colorScheme.onSurface;
 
         return AnimatedContainer(
           width: Get.width - 16.0,

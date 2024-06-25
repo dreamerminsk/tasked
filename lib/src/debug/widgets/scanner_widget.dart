@@ -5,6 +5,7 @@ import '../../routes/app_pages.dart';
 
 class ScannerWidget extends StatelessWidget {
   final colors = RxList<Color>();
+  final colorNames = RxList<String>();
   final onColors = RxList<Color>();
   final colorIdx = RxInt(0);
 
@@ -22,10 +23,15 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.secondaryContainer,
       colorScheme.tertiaryContainer,
       colorScheme.errorContainer,
-      colorScheme.background,
+      colorScheme.primaryFixed,
+      colorScheme.secondaryFixed,
+      colorScheme.tertiaryFixed,
+      colorScheme.primaryFixedDim,
+      colorScheme.secondaryFixedDim,
+      colorScheme.tertiaryFixedDim,
       colorScheme.surface,
-      colorScheme.surfaceVariant,
-      colorScheme.inverseSurface
+      colorScheme.surfaceDim,
+      colorScheme.inverseSurface,
     ]);
     onColors.addAll([
       colorScheme.onPrimary,
@@ -36,10 +42,34 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.onSecondaryContainer,
       colorScheme.onTertiaryContainer,
       colorScheme.onErrorContainer,
-      colorScheme.onBackground,
+      colorScheme.onPrimaryFixed,
+      colorScheme.onSecondaryFixed,
+      colorScheme.onTertiaryFixed,
+      colorScheme.onPrimaryFixedVariant,
+      colorScheme.onSecondaryFixedVariant,
+      colorScheme.onTertiaryFixedVariant,
       colorScheme.onSurface,
-      colorScheme.onSurfaceVariant,
-      colorScheme.onInverseSurface
+      colorScheme.onSurface,
+      colorScheme.onInverseSurface,
+    ]);
+    colorNames.addAll([
+      'primary',
+      'secondary',
+      'tertiary',
+      'error',
+      'primaryContainer',
+      'secondaryContainer',
+      'tertiaryContainer',
+      'errorContainer',
+      'primaryFixed',
+      'secondaryFixed',
+      'tertiaryFixed',
+      'primaryFixedDim',
+      'secondaryFixedDim',
+      'tertiaryFixedDim',
+      'surface',
+      'surfaceDim',
+      'inverseSurface',
     ]);
   }
 
@@ -64,7 +94,7 @@ class ScannerWidget extends StatelessWidget {
         child: ObxValue(
             (data) => AnimatedContainer(
                   width: Get.width,
-                  height: Get.width / 2 / 1.618,
+                  height: 2 * Get.width / 5 / 1.618,
                   curve: Curves.fastEaseInToSlowEaseOut,
                   duration: Duration(seconds: 2),
                   child: Column(
@@ -73,6 +103,13 @@ class ScannerWidget extends StatelessWidget {
                       Text(
                         'SCANNER',
                         style: textTheme.headlineMedium!.copyWith(
+                          fontWeight: FontWeight.w300,
+                          color: onColors[data.value],
+                        ),
+                      ), // Text
+                      Text(
+                        colorNames[data.value],
+                        style: textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w300,
                           color: onColors[data.value],
                         ),
