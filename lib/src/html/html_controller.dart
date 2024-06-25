@@ -15,13 +15,13 @@ class HtmlController extends GetxController {
 
   static final defaultUrls = List.unmodifiable([
     'https://www.rottentomatoes.com/',
-    'https://en.wikipedia.org/wiki/Main_Page',
+    'https://en.wikipedia.org/',
     'https://dtf.ru/',
     'https://vc.ru/',
     'https://sports.ru/',
     'https://www.championat.com/',
     'https://www.metacritic.com/',
-    'https://habr.com/ru/articles/top/daily/',
+    'https://habr.com/',
     'https://tech.onliner.by/',
   ]);
 
