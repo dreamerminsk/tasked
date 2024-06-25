@@ -27,7 +27,7 @@ class HtmlView extends StatelessWidget {
           itemCount: c.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child:
                   DocumentCard(location: c.defaultUrls[index]), // DocumentCard
             ); // Padding
