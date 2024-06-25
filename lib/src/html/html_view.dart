@@ -26,9 +26,9 @@ class HtmlView extends StatelessWidget {
             ), // DebugIconButton
           ]),
       body: ListView.builder(
-                itemCount: c.defaultUrl.length,
+                itemCount: c.defaultUrls.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return _buildPadding(index, c.tasks[index]);
+                  return DocumentCard(location: c.defaultUrls[index]);
                 },
               ) // ListView.builder
     );
