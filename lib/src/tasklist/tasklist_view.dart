@@ -51,7 +51,7 @@ class TasklistView extends StatelessWidget {
 
     return TaskWidget(
       padding: const EdgeInsets.fromLTRB(
-          8, 8, 8, 8),
+          leftPadding.toDouble(), 8, rightPadding.toDouble(), 8),
       task: t,
     );
   }
