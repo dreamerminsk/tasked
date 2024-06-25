@@ -47,6 +47,14 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'primaryFixedDim',
+              background: colorScheme.primaryFixedDim,
+              foreground: colorScheme.onPrimaryFixedVariant,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'secondary',
               background: colorScheme.secondary,
               foreground: colorScheme.onSecondary,
