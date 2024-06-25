@@ -28,7 +28,7 @@ class ColorSchemeWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'colorScheme, ${MyApp.shadeColor.name}',
+                'colorScheme, ${MyApp.shadeColor.name}, ${MyApp.variant.toString()}',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
