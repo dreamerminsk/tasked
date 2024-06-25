@@ -5,6 +5,7 @@ import '../../routes/app_pages.dart';
 
 class ScannerWidget extends StatelessWidget {
   final colors = RxList<Color>();
+  final colorNames = RxList<String>();
   final onColors = RxList<Color>();
   final colorIdx = RxInt(0);
 
@@ -22,6 +23,12 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.secondaryContainer,
       colorScheme.tertiaryContainer,
       colorScheme.errorContainer,
+      colorScheme.primaryFixed,
+      colorScheme.secondaryFixed,
+      colorScheme.tertiaryFixed,
+      colorScheme.primaryFixedDim,
+      colorScheme.secondaryFixedDim,
+      colorScheme.tertiaryFixedDim,
       colorScheme.background,
       colorScheme.surface,
       colorScheme.surfaceVariant,
@@ -36,6 +43,12 @@ class ScannerWidget extends StatelessWidget {
       colorScheme.onSecondaryContainer,
       colorScheme.onTertiaryContainer,
       colorScheme.onErrorContainer,
+      colorScheme.onPrimaryFixed,
+      colorScheme.onSecondaryFixed,
+      colorScheme.onTertiaryFixed,
+      colorScheme.onPrimaryFixedVariant,
+      colorScheme.onSecondaryFixedVariant,
+      colorScheme.onTertiaryFixedVariant,
       colorScheme.onBackground,
       colorScheme.onSurface,
       colorScheme.onSurfaceVariant,
@@ -64,7 +77,7 @@ class ScannerWidget extends StatelessWidget {
         child: ObxValue(
             (data) => AnimatedContainer(
                   width: Get.width,
-                  height: Get.width / 2 / 1.618,
+                  height: 2*Get.width / 5 / 1.618,
                   curve: Curves.fastEaseInToSlowEaseOut,
                   duration: Duration(seconds: 2),
                   child: Column(
@@ -73,6 +86,13 @@ class ScannerWidget extends StatelessWidget {
                       Text(
                         'SCANNER',
                         style: textTheme.headlineMedium!.copyWith(
+                          fontWeight: FontWeight.w300,
+                          color: onColors[data.value],
+                        ),
+                      ), // Text
+                      Text(
+                        'SCANNER',
+                        style: textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w300,
                           color: onColors[data.value],
                         ),
