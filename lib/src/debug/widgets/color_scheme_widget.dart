@@ -34,8 +34,8 @@ class ColorSchemeWidget extends StatelessWidget {
               ), // Text
               Text(
                 '${MyApp.shadeColor.name}, ${MyApp.variant.toString()}',
-                style: textTheme.bodyLarge!
-                    .copyWith(color: colorScheme.onPrimary),
+                style:
+                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
