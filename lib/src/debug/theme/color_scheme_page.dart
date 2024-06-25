@@ -103,6 +103,22 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'tertiaryFixed',
+              background: colorScheme.tertiaryFixed,
+              foreground: colorScheme.onTertiaryFixed,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'tertiaryFixedDim',
+              background: colorScheme.tertiaryFixedDim,
+              foreground: colorScheme.onTertiaryFixedVariant,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'error',
               background: colorScheme.error,
               foreground: colorScheme.onError,
