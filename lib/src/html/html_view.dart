@@ -16,22 +16,23 @@ class HtmlView extends StatelessWidget {
     final HtmlController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(
-          title: Obx(() => Text("${c.task.value?.title}")),
-          actions: <Widget>[
-            DebugIconButton(
-              route: Routes.DEBUG,
-            ), // DebugIconButton
-          ]),
-      body: ListView.builder(
-                itemCount: c.defaultUrls.length,
-                itemBuilder: (BuildContext context, int index) {
-return Padding(
-    padding:EdgeInsets.all(8),
-    child:DocumentCard(location: c.defaultUrls[index]), // DocumentCard
-); // Padding
-                },
-              ) // ListView.builder
-    );
+        appBar: AppBar(
+            title: Obx(() => Text("${c.task.value?.title}")),
+            actions: <Widget>[
+              DebugIconButton(
+                route: Routes.DEBUG,
+              ), // DebugIconButton
+            ]),
+        body: ListView.builder(
+          itemCount: c.defaultUrls.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.all(8),
+              child:
+                  DocumentCard(location: c.defaultUrls[index]), // DocumentCard
+            ); // Padding
+          },
+        ) // ListView.builder
+        );
   }
 }

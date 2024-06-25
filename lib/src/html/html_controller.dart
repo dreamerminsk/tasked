@@ -13,7 +13,7 @@ class HtmlController extends GetxController {
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
- final defaultUrls = [
+  final defaultUrls = [
     'https://www.rottentomatoes.com/',
     'https://en.wikipedia.org/',
     'https://dtf.ru/',
