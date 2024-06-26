@@ -22,7 +22,7 @@ class DocumentCard extends StatelessWidget {
         Radius.circular(20),
       ), // BorderRadius
       child: AspectRatio(
-        aspectRatio: 2 * 1.618,
+        aspectRatio: 3 * 1.618,
         child: Container(
           width: Get.width - 2 * 8.0,
           child: Column(
