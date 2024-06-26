@@ -66,7 +66,7 @@ class RequestedPath extends StatelessWidget {
               if (hasData)
                 AnimatedDefaultTextStyle(
                   child: Text(snapshot.data!.path.split('/').last),
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
+                  style: textTheme.titleLarge!.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ),
             ],
