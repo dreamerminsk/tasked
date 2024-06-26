@@ -25,19 +25,19 @@ class RequestedPath extends StatelessWidget {
         final hasData = isDone && snapshot.hasData && snapshot.data != null;
 
         final color = hasError
-            ? colorScheme.error
+            ? colorScheme.errorContainer
             : hasData
-                ? colorScheme.primary
+                ? colorScheme.primaryFixed
                 : isDone
-                    ? colorScheme.primaryContainer
+                    ? colorScheme.secondaryFixed
                     : colorScheme.surfaceDim;
 
         final onColor = hasError
-            ? colorScheme.onError
+            ? colorScheme.onErrorContainer
             : hasData
-                ? colorScheme.onPrimary
+                ? colorScheme.onPrimaryFixed
                 : isDone
-                    ? colorScheme.onPrimaryContainer
+                    ? colorScheme.onSecondaryFixed
                     : colorScheme.onSurface;
 
         return AnimatedContainer(
