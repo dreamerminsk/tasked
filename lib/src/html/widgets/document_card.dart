@@ -32,7 +32,7 @@ class DocumentCard extends StatelessWidget {
               Text(
                 '${uri?.host}',
                 style: textTheme.headlineLarge!.copyWith(
-                  color: colorScheme.onPrimary,
+                  color: colorScheme.onPrimaryFixed,
                   fontWeight: FontWeight.w300,
                 ),
               ), // Text
@@ -42,7 +42,7 @@ class DocumentCard extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.primary,
+            color: colorScheme.primaryFixed,
           ), // BoxDecoration
         ), // Container
       ), // AspectRatio
