@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,7 +42,7 @@ class SampleFontWeight extends StatelessWidget {
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_back_ios_rounded),
                       onPressed: () {
-                        Get.back();
+                        
                       },
                     ),
                     Expanded(
@@ -63,7 +62,7 @@ class SampleFontWeight extends StatelessWidget {
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_forward_ios_rounded),
                       onPressed: () {
-                        Get.toNamed(Routes.DEBUG);
+                        
                       },
                     ),
                   ],
