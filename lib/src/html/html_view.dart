@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'html_controller.dart';
-import 'widgets/document_card.dart';
+import 'widgets/source_item.dart';
 import '../routes/app_pages.dart';
 import '../core/widgets/icon_buttons.dart';
 
@@ -28,8 +28,7 @@ class HtmlView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.all(8),
-              child:
-                  DocumentCard(location: c.defaultUrls[index]), // DocumentCard
+              child: SourceItem(location: c.defaultUrls[index]), // SourceItem
             ); // Padding
           },
         ) // ListView.builder

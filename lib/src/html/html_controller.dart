@@ -14,15 +14,18 @@ class HtmlController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
 
   final defaultUrls = [
-    'https://www.rottentomatoes.com/',
+    'https://rottentomatoes.com/',
     'https://en.wikipedia.org/',
     'https://dtf.ru/',
     'https://vc.ru/',
     'https://sports.ru/',
-    'https://www.championat.com/',
-    'https://www.metacritic.com/',
+    'https://championat.com/',
+    'https://metacritic.com/',
     'https://habr.com/',
     'https://tech.onliner.by/',
+    'data/html/index.html',
+    'data/html/kb.html',
+    'data/html/html5example.html',
   ].obs;
 
   final resourceController = TextEditingController(text: '');
