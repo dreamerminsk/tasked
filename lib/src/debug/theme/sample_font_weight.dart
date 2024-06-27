@@ -36,38 +36,38 @@ class SampleFontWeight extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(
-                    //iconSize: 72,
-                    color: colorScheme.onPrimary,
-                    icon: const Icon(Icons.arrow_back_ios_rounded),
-                    onPressed: () {
-                      Get.back();
-                    },
-                  ),
-                  Expanded(
-                    child: Align(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      //iconSize: 72,
+                      color: colorScheme.onPrimary,
+                      icon: const Icon(Icons.arrow_back_ios_rounded),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                    Expanded(
+                      child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                  _objectToString(object),
-                  style: textTheme.titleLarge!.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: colorScheme.onPrimary,
-                  ),
-                ),
+                          _objectToString(object),
+                          style: textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: colorScheme.onPrimary,
+                          ),
+                        ),
                       ), // Align
-                  ), // Expanded
-                  IconButton(
-                    //iconSize: 72,
-                    color: colorScheme.onPrimary,
-                    icon: const Icon(Icons.arrow_forward_ios_rounded),
-                    onPressed: () {
-                      Get.toNamed(Routes.DEBUG);
-                    },
-                  ),
-                ],
-              ), // Row
+                    ), // Expanded
+                    IconButton(
+                      //iconSize: 72,
+                      color: colorScheme.onPrimary,
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
+                      onPressed: () {
+                        Get.toNamed(Routes.DEBUG);
+                      },
+                    ),
+                  ],
+                ), // Row
               ),
             ),
             const SizedBox(height: 8),
