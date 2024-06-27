@@ -33,15 +33,41 @@ class SampleFontWeight extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              child: Center(
-                child: Text(
+              child: Align(
+                alignment: Alignment.center,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                    //iconSize: 72,
+                    color: colorScheme.onPrimary,
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Get.back();
+                    },
+                  ),
+                  Expanded(
+                    child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
                   _objectToString(object),
                   style: textTheme.titleLarge!.copyWith(
                     fontWeight: FontWeight.w700,
                     color: colorScheme.onPrimary,
                   ),
-                  textAlign: TextAlign.center,
                 ),
+                      ), // Align
+                  ), // Expanded
+                  IconButton(
+                    //iconSize: 72,
+                    color: colorScheme.onPrimary,
+                    icon: const Icon(Icons.query_stats),
+                    onPressed: () {
+                      Get.toNamed(Routes.DEBUG);
+                    },
+                  ),
+                ],
+              ), // Row
               ),
             ),
             const SizedBox(height: 8),
