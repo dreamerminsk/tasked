@@ -28,8 +28,7 @@ class HtmlView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.all(8),
-              child:
-                  SourceItem(location: c.defaultUrls[index]), // SourceItem
+              child: SourceItem(location: c.defaultUrls[index]), // SourceItem
             ); // Padding
           },
         ) // ListView.builder

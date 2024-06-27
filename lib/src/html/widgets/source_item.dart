@@ -31,34 +31,36 @@ class SourceItem extends StatelessWidget {
             children: <Widget>[
               Container(
                 width: Get.width - 2 * 8.0,
-                child: Text('Source', 
-style: textTheme.titleLarge!.copyWith(
-                  color: colorScheme.onPrimaryFixed,
+                child: Text(
+                  'Source',
+                  style: textTheme.titleLarge!.copyWith(
+                    color: colorScheme.onPrimaryFixed,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-textAlign: TextAlign.center,),
                 decoration: BoxDecoration(
-   color: colorScheme.primaryFixed,
-borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(20),
-            ), // BorderRadius
-    border: Border(
-      bottom: BorderSide(
-        color: colorScheme.onPrimaryFixed,
-        width: 1.5,
-      ), // BorderSide
-    ), // Border
-    ), // BoxDecoration
+                  color: colorScheme.primaryFixed,
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(20),
+                  ), // BorderRadius
+                  border: Border(
+                    bottom: BorderSide(
+                      color: colorScheme.onPrimaryFixed,
+                      width: 1.5,
+                    ), // BorderSide
+                  ), // Border
+                ), // BoxDecoration
               ), // Container
               Expanded(
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                '${uri?.host}',
-                style: textTheme.headlineLarge!.copyWith(
-                  color: colorScheme.onPrimaryFixed,
-                  fontWeight: FontWeight.w300,
-                ),
-              ), // Text
+                    '${uri?.host}',
+                    style: textTheme.headlineLarge!.copyWith(
+                      color: colorScheme.onPrimaryFixed,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ), // Text
                 ), // Align
               ), // Expanded
             ],

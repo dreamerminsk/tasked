@@ -23,9 +23,9 @@ class HtmlController extends GetxController {
     'https://metacritic.com/',
     'https://habr.com/',
     'https://tech.onliner.by/',
-'data/html/index.html',
-'data/html/kb.html',
-'data/html/html5example.html',
+    'data/html/index.html',
+    'data/html/kb.html',
+    'data/html/html5example.html',
   ].obs;
 
   final resourceController = TextEditingController(text: '');
