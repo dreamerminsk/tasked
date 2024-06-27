@@ -45,8 +45,9 @@ borderRadius: const BorderRadius.vertical(
       bottom: BorderSide(
         color: colorScheme.onPrimaryFixed,
         width: 1.5,
-      ),
-    ),
+      ), // BorderSide
+    ), // Border
+    ), // BoxDecoration
               ), // Container
               Expanded(
                 child: Align(
