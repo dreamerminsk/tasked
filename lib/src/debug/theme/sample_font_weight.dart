@@ -41,7 +41,7 @@ class SampleFontWeight extends StatelessWidget {
                   IconButton(
                     //iconSize: 72,
                     color: colorScheme.onPrimary,
-                    icon: const Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back_ios_rounded),
                     onPressed: () {
                       Get.back();
                     },
@@ -61,7 +61,7 @@ class SampleFontWeight extends StatelessWidget {
                   IconButton(
                     //iconSize: 72,
                     color: colorScheme.onPrimary,
-                    icon: const Icon(Icons.query_stats),
+                    icon: const Icon(Icons.arrow_forward_ios_rounded),
                     onPressed: () {
                       Get.toNamed(Routes.DEBUG);
                     },
