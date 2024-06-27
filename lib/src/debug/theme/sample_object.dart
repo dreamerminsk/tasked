@@ -22,7 +22,7 @@ class SampleObject extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Container(
         width: double.infinity,
-        height: Get.width / 1.618, // Golden ratio height
+        height: Get.width / 2 / 1.618, // Golden ratio height
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: colorScheme.primary,
