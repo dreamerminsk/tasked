@@ -26,16 +26,40 @@ class SourceItem extends StatelessWidget {
         child: Container(
           width: Get.width - 2 * 8.0,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text(
+              Container(
+                width: Get.width - 2 * 8.0,
+                child: Text('Source', 
+style: textTheme.titleLarge!.copyWith(
+                  color: colorScheme.onPrimaryFixed,
+                ),
+textAlign: TextAlign.center,),
+                decoration: BoxDecoration(
+   color: colorScheme.primaryFixed,
+borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(20),
+            ), // BorderRadius
+    border: Border(
+      bottom: BorderSide(
+        color: colorScheme.onPrimaryFixed,
+        width: 1.5,
+      ),
+    ),
+              ), // Container
+              Expanded(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
                 '${uri?.host}',
                 style: textTheme.headlineLarge!.copyWith(
                   color: colorScheme.onPrimaryFixed,
                   fontWeight: FontWeight.w300,
                 ),
               ), // Text
+                ), // Align
+              ), // Expanded
             ],
           ), // Column
           decoration: BoxDecoration(
