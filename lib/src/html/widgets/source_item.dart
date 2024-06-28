@@ -32,7 +32,7 @@ class SourceItem extends StatelessWidget {
               Container(
                 width: Get.width - 2 * 8.0,
                 child: Text(
-                  'Source',
+                  uri?.host == null ? 'LocalSource' : 'WebSource',
                   style: textTheme.titleLarge!.copyWith(
                     color: colorScheme.onPrimaryFixed,
                   ),
@@ -46,7 +46,7 @@ class SourceItem extends StatelessWidget {
                   border: Border(
                     bottom: BorderSide(
                       color: colorScheme.onPrimaryFixed,
-                      width: 1.5,
+                      width: 2.0,
                     ), // BorderSide
                   ), // Border
                 ), // BoxDecoration
@@ -69,6 +69,7 @@ class SourceItem extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
+            border: const Border.all(color: colorScheme.primary, width: 2.0,), // Border
             color: colorScheme.primaryFixed,
           ), // BoxDecoration
         ), // Container
