@@ -33,7 +33,7 @@ class ColorSchemeWidget extends StatelessWidget {
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
               Text(
-                '${MyApp.shadeColor.name}, ${MyApp.variant.toString()}',
+                '${MyApp.shadeColor.name}, ${MyApp.variant.toString().split(".").last}',
                 style:
                     textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text
