@@ -22,7 +22,7 @@ class SourceItem extends StatelessWidget {
         Radius.circular(20),
       ), // BorderRadius
       child: AspectRatio(
-        aspectRatio: 3 * 1.618,
+        aspectRatio: 2 * 1.618,
         child: Container(
           width: Get.width - 2 * 8.0,
           child: Column(
@@ -31,6 +31,7 @@ class SourceItem extends StatelessWidget {
             children: <Widget>[
               Container(
                 width: Get.width - 2 * 8.0,
+                padding: const EdgeInsets.all(4.0),
                 child: Text(
                   uri?.host == null ? 'LocalSource' : 'WebSource',
                   style: textTheme.titleLarge!.copyWith(
