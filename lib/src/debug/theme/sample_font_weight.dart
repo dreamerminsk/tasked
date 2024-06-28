@@ -69,12 +69,12 @@ class SampleFontWeight extends StatelessWidget {
                 ), // Row
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             Divider(
               color: colorScheme.onPrimary,
               thickness: 1.5,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             Text(
               title,
               style: textTheme.titleLarge!.copyWith(
@@ -93,6 +93,6 @@ class SampleFontWeight extends StatelessWidget {
     if (object == null) {
       return "null";
     }
-    return object.toString();
+    return object.toString().split('.').last;
   }
 }
