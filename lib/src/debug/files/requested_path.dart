@@ -43,7 +43,7 @@ class RequestedPath extends StatelessWidget {
         return AnimatedContainer(
           width: Get.width - 16.0,
           height: (Get.width - 16.0) / 1.618 / 2.0,
-          duration: const Duration(seconds: 4),
+          duration: const Duration(milliseconds: 500),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -55,18 +55,18 @@ class RequestedPath extends StatelessWidget {
               AnimatedDefaultTextStyle(
                 child: Text(name),
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
-                duration: const Duration(seconds: 4),
+                duration: const Duration(milliseconds: 500),
               ),
               if (hasError)
                 AnimatedDefaultTextStyle(
                   child: Text(snapshot.error!.runtimeType.toString()),
                   style: textTheme.bodyLarge!.copyWith(color: onColor),
-                  duration: const Duration(seconds: 4),
+                  duration: const Duration(milliseconds: 500),
                 ),
                 AnimatedScale(
                   child: Text(hasData ? snapshot.data!.path.split('/').last : '', style: textTheme.titleLarge!.copyWith(color: onColor),),
                   scale: hasData ? 1.0 : 0.0,
-                  duration: const Duration(seconds: 4),
+                  duration: const Duration(milliseconds: 500),
                 ),
             ],
           ),
