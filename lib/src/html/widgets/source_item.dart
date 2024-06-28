@@ -55,7 +55,7 @@ class SourceItem extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    '${uri?.host}',
+                    '${uri?.host ?? location.split("/").last}',
                     style: textTheme.headlineLarge!.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
