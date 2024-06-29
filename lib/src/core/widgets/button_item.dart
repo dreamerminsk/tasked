@@ -8,6 +8,7 @@ class ButtonItem extends StatelessWidget {
   });
 
 final Color? color;
+final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ final Color? color;
               Text(
                 'aspect_ratio',
                 style: textTheme.headlineSmall!
-                    .copyWith(color: colorScheme.onPrimary),
+                    .copyWith(color: textColor ??  colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
