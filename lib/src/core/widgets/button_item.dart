@@ -4,7 +4,10 @@ import 'package:get/get.dart';
 class ButtonItem extends StatelessWidget {
   const ButtonItem({
     super.key,
+    this.color,
   });
+
+final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class ButtonItem extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ), // BorderRadius
-            color: colorScheme.primary,
+            color: this.color ?? colorScheme.primary,
           ), // BoxDecoration
         ), //Container
       ), // InkWell
