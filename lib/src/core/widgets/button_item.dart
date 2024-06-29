@@ -4,9 +4,12 @@ import 'package:get/get.dart';
 class ButtonItem extends StatelessWidget {
   const ButtonItem({
     super.key,
+    required this.title,
     this.color,
+    this.textColor,
   });
 
+final Widget title;
 final Color? color;
 final Color? textColor;
 
@@ -36,6 +39,7 @@ final decoration = BoxDecoration(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              title,
               Text(
                 'aspect_ratio',
                 style: textTheme.headlineSmall!
