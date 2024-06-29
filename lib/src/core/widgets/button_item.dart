@@ -25,6 +25,11 @@ final decoration = BoxDecoration(
             borderRadius: const BorderRadius.circular(20),
             color: this.color ?? colorScheme.primary,
           );
+final titleText = AnimatedDefaultTextStyle(
+style: textTheme.headlineSmall!
+                    .copyWith(color: textColor ??  colorScheme.onPrimary),
+child: text?? SizedBox(),
+);
 
     return Material(
       elevation: 4,
@@ -39,12 +44,8 @@ final decoration = BoxDecoration(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              title,
               Text(
-                'aspect_ratio',
-                style: textTheme.headlineSmall!
-                    .copyWith(color: textColor ??  colorScheme.onPrimary),
-              ), // Text
+                titleText,
             ],
           ), // Column
           padding: const EdgeInsets.all(16),
