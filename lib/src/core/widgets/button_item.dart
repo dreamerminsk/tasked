@@ -18,6 +18,11 @@ final Color? textColor;
     final cardWidth = Get.width - 2 * 8.0;
     final cardHeight = cardWidth / 1.618 / 2;
 
+final decoration = BoxDecoration(
+            borderRadius: const BorderRadius.circular(20),
+            color: this.color ?? colorScheme.primary,
+          );
+
     return Material(
       elevation: 4,
       borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -39,12 +44,7 @@ final Color? textColor;
             ],
           ), // Column
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
-            color: this.color ?? colorScheme.primary,
-          ), // BoxDecoration
+          decoration: decoration,
         ), //Container
       ), // InkWell
     ); // Material
