@@ -44,7 +44,6 @@ child: text?? SizedBox(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
                 titleText,
             ],
           ), // Column
