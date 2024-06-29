@@ -9,9 +9,9 @@ class ButtonItem extends StatelessWidget {
     this.textColor,
   });
 
-final Widget title;
-final Color? color;
-final Color? textColor;
+  final Widget title;
+  final Color? color;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +21,15 @@ final Color? textColor;
     final cardWidth = Get.width - 2 * 8.0;
     final cardHeight = cardWidth / 1.618 / 2;
 
-final decoration = BoxDecoration(
-            borderRadius: const BorderRadius.circular(20),
-            color: this.color ?? colorScheme.primary,
-          );
-final titleText = AnimatedDefaultTextStyle(
-style: textTheme.headlineSmall!
-                    .copyWith(color: textColor ??  colorScheme.onPrimary),
-child: text?? SizedBox(),
-);
+    final decoration = BoxDecoration(
+      borderRadius: const BorderRadius.circular(20),
+      color: this.color ?? colorScheme.primary,
+    );
+    final titleText = AnimatedDefaultTextStyle(
+      style: textTheme.headlineSmall!
+          .copyWith(color: textColor ?? colorScheme.onPrimary),
+      child: text ?? SizedBox(),
+    );
 
     return Material(
       elevation: 4,
@@ -44,7 +44,7 @@ child: text?? SizedBox(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-                titleText,
+              titleText,
             ],
           ), // Column
           padding: const EdgeInsets.all(16),

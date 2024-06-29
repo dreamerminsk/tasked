@@ -41,9 +41,7 @@ class SampleFontWeight extends StatelessWidget {
                       //iconSize: 72,
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_back_ios_rounded),
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () {},
                     ),
                     Expanded(
                       child: Align(
@@ -61,9 +59,7 @@ class SampleFontWeight extends StatelessWidget {
                       //iconSize: 72,
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_forward_ios_rounded),
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () {},
                     ),
                   ],
                 ), // Row
