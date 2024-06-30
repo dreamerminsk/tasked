@@ -68,80 +68,43 @@ class Mp3Controller extends GetxController {
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
-    List<Directory> directories = [];
+    final List<Future<Directory?>> futures = [
+      _getDirectory(getApplicationCacheDirectory(), 'getApplicationCacheDirectory'),
+      _getDirectory(getApplicationDocumentsDirectory(), 'getApplicationDocumentsDirectory'),
+      _getDirectory(getApplicationSupportDirectory(), 'getApplicationSupportDirectory'),
+      _getDirectory(getDownloadsDirectory(), 'getDownloadsDirectory'),
+      _getDirectories(getExternalCacheDirectories(), 'getExternalCacheDirectories'),
+      _getDirectories(getExternalStorageDirectories(), 'getExternalStorageDirectories'),
+      _getDirectory(getExternalStorageDirectory(), 'getExternalStorageDirectory'),
+      _getDirectory(getLibraryDirectory(), 'getLibraryDirectory'),
+      _getDirectory(getTemporaryDirectory(), 'getTemporaryDirectory'),
+    ];
 
-getApplicationCacheDirectory().then((d) {
-      directories.add(d);
-    }).catchError((e) {
-      Get.snackbar('getApplicationCacheDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    final List<Directory?> directories = await Future.wait(futures);
 
-getApplicationDocumentsDirectory().then((d) {
-      directories.add(d);
-    }).catchError((e) {
-      Get.snackbar('getApplicationDocumentsDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    return directories.whereType<Directory>().toList();
+  }
 
-getApplicationSupportDirectory().then((d) {
-      directories.add(d);
-    }).catchError((e) {
-      Get.snackbar('getApplicationSupportDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-getDownloadsDirectory().then((d) {
-      if (d != null) {
-      directories.add(d);
+  Future<Directory?> _getDirectory(Future<Directory?> future, String name) async {
+    try {
+      final directory = await future;
+      return directory;
+    } catch (e) {
+      Get.snackbar(name, '$e', snackPosition: SnackPosition.BOTTOM);
+      return null;
     }
-    }).catchError((e) {
-      Get.snackbar('getDownloadsDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+  }
 
-getExternalCacheDirectories().then((ds) {
-      if (ds != null) {
-      directories.addAll(ds);
+  Future<Directory?> _getDirectories(Future<List<Directory>?> future, String name) async {
+    try {
+      final directories = await future;
+      if (directories != null && directories.isNotEmpty) {
+        return directories.first;
+      }
+    } catch (e) {
+      Get.snackbar(name, '$e', snackPosition: SnackPosition.BOTTOM);
     }
-    }).catchError((e) {
-      Get.snackbar('getExternalCacheDirectories', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-getExternalStorageDirectories().then((ds) {
-      if (ds != null) {
-      directories.addAll(ds);
-    }
-    }).catchError((e) {
-      Get.snackbar('getExternalCacheDirectories', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-getExternalStorageDirectory().then((d) {
-      if (d != null) {
-      directories.add(d);
-    }
-    }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-getLibraryDirectory().then((d) {
-      directories.add(d);
-    }).catchError((e) {
-      Get.snackbar('getLibraryDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-getTemporaryDirectory().then((d) {
-      directories.add(d);
-    }).catchError((e) {
-      Get.snackbar('getTemporaryDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    return directories;
+    return null;
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
