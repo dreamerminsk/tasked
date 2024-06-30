@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 
 class SourceItem extends StatelessWidget {
   const SourceItem({
-    Key? key,
+    super.key,
     required this.location,
-  }) : super(key: key);
+    this.onTap,
+  });
 
   final String location;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class SourceItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        // Add your onTap functionality here
+        onTap?.call();
       },
       borderRadius: const BorderRadius.circular(20),
       child: AspectRatio(
