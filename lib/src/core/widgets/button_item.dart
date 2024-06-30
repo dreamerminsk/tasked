@@ -35,7 +35,7 @@ class ButtonItem extends StatelessWidget {
     );
 
     final subtitleText = AnimatedDefaultTextStyle(
-      style: textTheme.headlineSmall!
+      style: textTheme.bodyLarge!
           .copyWith(color: textColor ?? colorScheme.onPrimary),
       child: subtitleText ?? SizedBox(),
     );
