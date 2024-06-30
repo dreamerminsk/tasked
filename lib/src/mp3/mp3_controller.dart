@@ -19,6 +19,8 @@ class Mp3Controller extends GetxController {
 
   final mp3file = Rxn<File>();
 
+  final mp3Files = <File>[].obs;
+
   @override
   void onInit() {
     super.onInit();
