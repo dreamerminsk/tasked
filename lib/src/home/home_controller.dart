@@ -47,17 +47,17 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void select(int idx) async {
+  void select(Anime animeItem) async {
     selected.update((value) {
-      value?.title = animeList[idx].title;
-      value?.wiki = animeList[idx].wiki;
+      value?.title = animeItem.title;
+      value?.wiki = animeItem.wiki;
     });
     final result = await fetchMap(
-        'https://en.wikipedia.org/api/rest_v1/page/summary/${animeList[idx].wiki?.title ?? ""}');
+        'https://en.wikipedia.org/api/rest_v1/page/summary/${animeItem.wiki?.title ?? ""}');
     switch (result) {
       case ErrorResult e:
         this.summary.value = Summary(
-            title: animeList[idx].wiki?.title ?? '~~~',
+            title: animeItem.wiki?.title ?? '~~~',
             description: e.error.toString());
       case ValueResult v:
         {
@@ -65,7 +65,7 @@ class HomeController extends GetxController {
         }
       default:
         this.summary.value = Summary(
-          title: animeList[idx].wiki?.title ?? '~~~',
+          title: animeItem.wiki?.title ?? '~~~',
           description: 'very strange',
         );
     }

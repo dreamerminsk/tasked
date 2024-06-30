@@ -25,19 +25,19 @@ class RequestedPath extends StatelessWidget {
         final hasData = isDone && snapshot.hasData && snapshot.data != null;
 
         final color = hasError
-            ? colorScheme.error
+            ? colorScheme.errorContainer
             : hasData
-                ? colorScheme.primary
+                ? colorScheme.primaryFixed
                 : isDone
-                    ? colorScheme.primaryContainer
+                    ? colorScheme.secondaryFixed
                     : colorScheme.surfaceDim;
 
         final onColor = hasError
-            ? colorScheme.onError
+            ? colorScheme.onErrorContainer
             : hasData
-                ? colorScheme.onPrimary
+                ? colorScheme.onPrimaryFixed
                 : isDone
-                    ? colorScheme.onPrimaryContainer
+                    ? colorScheme.onSecondaryFixed
                     : colorScheme.onSurface;
 
         return AnimatedContainer(
@@ -63,10 +63,9 @@ class RequestedPath extends StatelessWidget {
                   style: textTheme.bodyLarge!.copyWith(color: onColor),
                   duration: const Duration(seconds: 4),
                 ),
-              if (hasData)
-                AnimatedDefaultTextStyle(
-                  child: Text(snapshot.data!.path.split('/').last),
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
+                AnimatedScale(
+                  child: Text(hasData ? snapshot.data!.path.split('/').last : '', style: textTheme.titleLarge!.copyWith(color: onColor),),
+                  scale: hasData ? 1.0 : 0.0,
                   duration: const Duration(seconds: 4),
                 ),
             ],

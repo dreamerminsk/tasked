@@ -1,12 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SampleObject extends StatelessWidget {
+class SampleFontWeight extends StatelessWidget {
   final String title;
   final Object? object;
 
-  const SampleObject({
+  const SampleFontWeight({
     super.key,
     required this.title,
     required this.object,
@@ -33,15 +32,41 @@ class SampleObject extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              child: Center(
-                child: Text(
-                  _objectToString(object),
-                  style: textTheme.titleLarge!.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: colorScheme.onPrimary,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+              child: Align(
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      //iconSize: 72,
+                      color: colorScheme.onPrimary,
+                      icon: const Icon(Icons.arrow_back_ios_rounded),
+                      onPressed: () {
+                        
+                      },
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          _objectToString(object),
+                          style: textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: colorScheme.onPrimary,
+                          ),
+                        ),
+                      ), // Align
+                    ), // Expanded
+                    IconButton(
+                      //iconSize: 72,
+                      color: colorScheme.onPrimary,
+                      icon: const Icon(Icons.arrow_forward_ios_rounded),
+                      onPressed: () {
+                        
+                      },
+                    ),
+                  ],
+                ), // Row
               ),
             ),
             const SizedBox(height: 8),
@@ -67,9 +92,6 @@ class SampleObject extends StatelessWidget {
   String _objectToString(Object? object) {
     if (object == null) {
       return "null";
-    }
-    if (object is Diagnosticable) {
-      return object.toString();
     }
     return object.toString();
   }
