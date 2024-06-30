@@ -33,6 +33,7 @@ class Mp3Controller extends GetxController {
   void onReady() {
     super.onReady();
     task.value = Get.arguments;
+    searchForMp3Files();
   }
 
   @override
