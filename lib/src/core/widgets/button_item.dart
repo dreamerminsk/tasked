@@ -24,20 +24,22 @@ class ButtonItem extends StatelessWidget {
     final cardHeight = cardWidth / 1.618 / 2;
 
     final decoration = BoxDecoration(
-      borderRadius: const BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(20),
       color: this.color ?? colorScheme.primary,
     );
 
     final titleText = AnimatedDefaultTextStyle(
       style: textTheme.headlineSmall!
           .copyWith(color: textColor ?? colorScheme.onPrimary),
+      duration: Duration(milliseconds: 500),
       child: text ?? SizedBox(),
     );
 
     final subtitleText = AnimatedDefaultTextStyle(
       style: textTheme.bodyLarge!
           .copyWith(color: textColor ?? colorScheme.onPrimary),
-      child: subtitleText ?? SizedBox(),
+      duration: Duration(milliseconds: 500),
+      child: subtitle ?? SizedBox(),
     );
 
     return Material(
