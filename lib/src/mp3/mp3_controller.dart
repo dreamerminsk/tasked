@@ -146,7 +146,7 @@ getTemporaryDirectory().then((d) {
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
     List<File> mp3Files = [];
-    final List<FileSystemEntity> entities = await  directory.list(recursive: true);
+    final List<FileSystemEntity> entities = await  directory.list(recursive: true).toList();
 
     for (var entity in entities) {
       if (entity is File && p.extension(entity.path).toLowerCase() == '.mp3') {
