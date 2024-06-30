@@ -32,7 +32,7 @@ class ButtonItem extends StatelessWidget {
       style: textTheme.headlineSmall!
           .copyWith(color: textColor ?? colorScheme.onPrimary),
       duration: Duration(milliseconds: 500),
-      child: text ?? SizedBox(),
+      child: title ?? SizedBox(),
     );
 
     final subtitleText = AnimatedDefaultTextStyle(
