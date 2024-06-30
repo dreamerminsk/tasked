@@ -50,4 +50,8 @@ class HtmlController extends GetxController {
   void randomUrl() {
     resourceController.text = defaultUrls.sample(1).single;
   }
+
+    Future<String> _loadAsset(String assetKey) async {
+    return await rootBundle.loadString(assetKey);
+  }
 }
