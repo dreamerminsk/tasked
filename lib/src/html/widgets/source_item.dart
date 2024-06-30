@@ -46,7 +46,7 @@ class SourceItem extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  uri?.host == null ? 'LocalSource' : 'WebSource',
+                  uri?.host.isEmpty ? 'LocalSource' : 'WebSource',
                   style: textTheme.titleLarge
                       ?.copyWith(color: colorScheme.onPrimaryFixed),
                   textAlign: TextAlign.center,
@@ -55,7 +55,7 @@ class SourceItem extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Text(
-                    uri?.host ?? location.split("/").last,
+                    uri?.host.isEmpty ? location.split("/").last : uri?.host,
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
