@@ -45,9 +45,9 @@ class TasklistView extends StatelessWidget {
   }
 
   Widget _buildPadding(int index, TaskItem t) {
-    final m = index % 5;
-    final leftPadding = 32.0 - 5 * m;
-    final rightPadding = 12.0 + 5 * m;
+    final m = index % 3;
+    final leftPadding = 32.0 - 10 * m;
+    final rightPadding = 12.0 + 10 * m;
 
     return TaskWidget(
       padding: EdgeInsets.fromLTRB(leftPadding, 8, rightPadding, 8),
