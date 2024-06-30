@@ -35,7 +35,7 @@ class HomeView extends StatelessWidget {
                   return _buildCard(context, item);
                 },
               )
-            : const Center(child: Text('No items')),
+            : const Center(child: Text('No bookmarks available')),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.refresh),
