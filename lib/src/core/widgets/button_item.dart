@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 class ButtonItem extends StatelessWidget {
   const ButtonItem({
     super.key,
-    required this.title,
+    this.title,
+    this.subtitle,
     this.color,
     this.textColor,
   });
 
-  final Widget title;
+  final Widget? title;
+  final Widget? subtitle;
   final Color? color;
   final Color? textColor;
 
@@ -25,10 +27,17 @@ class ButtonItem extends StatelessWidget {
       borderRadius: const BorderRadius.circular(20),
       color: this.color ?? colorScheme.primary,
     );
+
     final titleText = AnimatedDefaultTextStyle(
       style: textTheme.headlineSmall!
           .copyWith(color: textColor ?? colorScheme.onPrimary),
       child: text ?? SizedBox(),
+    );
+
+    final subtitleText = AnimatedDefaultTextStyle(
+      style: textTheme.headlineSmall!
+          .copyWith(color: textColor ?? colorScheme.onPrimary),
+      child: subtitleText ?? SizedBox(),
     );
 
     return Material(
@@ -45,6 +54,7 @@ class ButtonItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               titleText,
+              subtitleText,
             ],
           ), // Column
           padding: const EdgeInsets.all(16),
