@@ -54,13 +54,50 @@ class Mp3Controller extends GetxController {
 Future<List<Directory>> _getDirectoriesToSearch() async {
     List<Directory> directories = [];
 
+final appCache = await getApplicationCacheDirectory();
+if (appCache!= null) {
+directories.add(appCache);
+}
+
+final appDocs = await getApplicationDocumentsDirectory();
+if (appDocs!= null) {
+directories.add(appDocs);
+}
+
+final appSupport = await getApplicationSupportDirectory();
+if (appSupport!= null) {
+directories.add(appSupport);
+}
+
+final downloads = await getDownloadsDirectory();
+if (downloads!= null) {
+directories.add(downloads);
+}
+
+final cache = await getExternalCacheDirectories();
+if (cache!= null) {
+directories.addAll(cache);
+}
+
+final storage = await getExternalStorageDirectories();
+if (storage!= null) {
+directories.addAll(storage);
+}
+
     final externalDir = await getExternalStorageDirectory();
     if (externalDir != null) {
       directories.add(externalDir);
     }
 
-    final appsDir = await getApplicationDocumentsDirectory();
-    directories.add(appsDir);
+final libDir = await getLibraryDirectory();
+    if (libDir != null) {
+      directories.add(libDir);
+    }
+
+final tempDir = await getTemporaryDirectory();
+    if (tempDir != null) {
+      directories.add(tempDir);
+    }
 
     return directories;
   }
