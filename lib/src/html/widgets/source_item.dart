@@ -20,15 +20,15 @@ class SourceItem extends StatelessWidget {
       onTap: () {
         // Add your onTap functionality here
       },
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: const BorderRadius.circular(20),
       child: AspectRatio(
         aspectRatio: 2 * 1.618,
         child: Container(
           width: Get.width - 16.0,
           decoration: BoxDecoration(
             color: colorScheme.primaryFixed,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: colorScheme.primary, width: 2.0),
+            borderRadius: const BorderRadius.circular(20),
+            border: Border.all(color: colorScheme.primary, width: 3.0),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,18 +37,18 @@ class SourceItem extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
-                  color: colorScheme.primaryFixed,
+                  color: colorScheme.primaryFixedDim,
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
                     bottom: BorderSide(
-                        color: colorScheme.onPrimaryFixed, width: 2.0),
+                        color: colorScheme.primary, width: 3.0),
                   ),
                 ),
                 child: Text(
                   uri?.host.isEmpty ? 'LocalSource' : 'WebSource',
                   style: textTheme.titleLarge
-                      ?.copyWith(color: colorScheme.onPrimaryFixed),
+                      ?.copyWith(color: colorScheme.onPrimaryFixedDim),
                   textAlign: TextAlign.center,
                 ),
               ),
