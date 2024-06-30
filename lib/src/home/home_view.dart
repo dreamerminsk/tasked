@@ -99,7 +99,11 @@ class HomeView extends StatelessWidget {
     return item.wiki?.image != null
         ? CachedNetworkImage(
             imageUrl: (item.wiki?.image ?? '').replaceFirst('220px', '96px'),
-            placeholder: (_, __) => const CircularProgressIndicator(),
+            placeholder: (_, __) => const SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(),
+            ),
             errorWidget: (_, __, ___)
                 => Icon(Icons.broken_image, color: Theme.of(context).colorScheme.error, size: 96.0),
             imageBuilder: (context, image) => ClipRRect(
