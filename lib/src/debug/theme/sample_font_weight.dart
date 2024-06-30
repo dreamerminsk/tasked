@@ -41,9 +41,7 @@ class SampleFontWeight extends StatelessWidget {
                       //iconSize: 72,
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_back_ios_rounded),
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () {},
                     ),
                     Expanded(
                       child: Align(
@@ -61,20 +59,18 @@ class SampleFontWeight extends StatelessWidget {
                       //iconSize: 72,
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_forward_ios_rounded),
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () {},
                     ),
                   ],
                 ), // Row
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             Divider(
               color: colorScheme.onPrimary,
               thickness: 1.5,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             Text(
               title,
               style: textTheme.titleLarge!.copyWith(
@@ -93,6 +89,6 @@ class SampleFontWeight extends StatelessWidget {
     if (object == null) {
       return "null";
     }
-    return object.toString();
+    return object.toString().split('.').last;
   }
 }

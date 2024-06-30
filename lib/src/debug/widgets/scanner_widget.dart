@@ -9,9 +9,7 @@ class ScannerWidget extends StatelessWidget {
   final onColors = RxList<Color>();
   final colorIdx = RxInt(0);
 
-  ScannerWidget({
-    super.key,
-  });
+  ScannerWidget({super.key});
 
   void setUpColors(ColorScheme colorScheme) {
     colors.addAll([
@@ -77,55 +75,52 @@ class ScannerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    if (colors.length == 0) {
+
+    if (colors.isEmpty) {
       setUpColors(colorScheme);
     }
 
     return Material(
       elevation: 2,
-      borderRadius: const BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.circular(20),
       child: GestureDetector(
-        onTap: () {
-          Get.toNamed(Routes.SCANNER);
-        },
+        onTap: () => Get.toNamed(Routes.SCANNER),
         onPanEnd: (details) {
           colorIdx.value = (colorIdx.value + 1) % colors.length;
         },
-        child: ObxValue(
-            (data) => AnimatedContainer(
-                  width: Get.width,
-                  height: 2 * Get.width / 5 / 1.618,
-                  curve: Curves.fastEaseInToSlowEaseOut,
-                  duration: Duration(seconds: 2),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'SCANNER',
-                        style: textTheme.headlineMedium!.copyWith(
-                          fontWeight: FontWeight.w300,
-                          color: onColors[data.value],
-                        ),
-                      ), // Text
-                      Text(
-                        colorNames[data.value],
-                        style: textTheme.bodyLarge!.copyWith(
-                          fontWeight: FontWeight.w300,
-                          color: onColors[data.value],
-                        ),
-                      ), // Text
-                    ],
-                  ), // Column
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20),
-                    ), // BorderRadius
-                    color: colors[data.value],
-                  ), // BoxDecoration
-                ), // Container
-            colorIdx), // ObxValue
-      ), // InkWell
-    ); // Material
+        child: Obx(
+          () => AnimatedContainer(
+            width: Get.width,
+            height: 2 * Get.width / 5 / 1.618,
+            curve: Curves.fastEaseInToSlowEaseOut,
+            duration: Duration(seconds: 2),
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: colors[colorIdx.value],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'SCANNER',
+                  style: textTheme.headlineMedium!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    color: onColors[colorIdx.value],
+                  ),
+                ),
+                Text(
+                  colorNames[colorIdx.value],
+                  style: textTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    color: onColors[colorIdx.value],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
