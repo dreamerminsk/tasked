@@ -71,19 +71,13 @@ class Mp3Controller extends GetxController {
     List<Directory> directories = [];
 
     final appCache = await getApplicationCacheDirectory();
-    if (appCache != null) {
       directories.add(appCache);
-    }
 
     final appDocs = await getApplicationDocumentsDirectory();
-    if (appDocs != null) {
       directories.add(appDocs);
-    }
 
     final appSupport = await getApplicationSupportDirectory();
-    if (appSupport != null) {
       directories.add(appSupport);
-    }
 
     final downloads = await getDownloadsDirectory();
     if (downloads != null) {
@@ -106,14 +100,10 @@ class Mp3Controller extends GetxController {
     }
 
     final libDir = await getLibraryDirectory();
-    if (libDir != null) {
       directories.add(libDir);
-    }
 
     final tempDir = await getTemporaryDirectory();
-    if (tempDir != null) {
       directories.add(tempDir);
-    }
 
     return directories;
   }
