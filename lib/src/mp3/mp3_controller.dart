@@ -51,6 +51,17 @@ class Mp3Controller extends GetxController {
     }
   }
 
+Future<void> searchForMp3Files() async {
+    List<Directory> directories = await _getDirectoriesToSearch();
+    List<File> foundFiles = [];
+
+    for (var dir in directories) {
+      foundFiles.addAll(await _searchDirectoryForMp3Files(dir));
+    }
+
+    mp3Files.value = foundFiles;
+  }
+
 Future<List<Directory>> _getDirectoriesToSearch() async {
     List<Directory> directories = [];
 
