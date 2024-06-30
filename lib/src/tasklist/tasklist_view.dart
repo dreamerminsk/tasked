@@ -53,8 +53,13 @@ Widget _buildPadding(int index, TaskItem task) {
     double rightPadding = rightPaddings[modIndex];
 
     return TaskWidget(
+
+   
+  
+
       padding: EdgeInsets.fromLTRB(leftPadding, 8.0, rightPadding, 8.0),
       task: task,
+
     );
   }
 
