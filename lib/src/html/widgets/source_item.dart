@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 class SourceItem extends StatelessWidget {
   const SourceItem({
-    super.key,
+    Key? key,
     required this.location,
-  });
+  }) : super(key: key);
 
   final String location;
 
@@ -17,62 +17,54 @@ class SourceItem extends StatelessWidget {
     final uri = Uri.tryParse(location);
 
     return InkWell(
-      onTap: () {},
-      borderRadius: const BorderRadius.all(
-        Radius.circular(20),
-      ), // BorderRadius
+      onTap: () {
+        // Add your onTap functionality here
+      },
+      borderRadius: BorderRadius.circular(20),
       child: AspectRatio(
-        aspectRatio: 3 * 1.618,
+        aspectRatio: 2 * 1.618,
         child: Container(
-          width: Get.width - 2 * 8.0,
+          width: Get.width - 16.0,
+          decoration: BoxDecoration(
+            color: colorScheme.primaryFixed,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: colorScheme.primary, width: 2.0),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                width: Get.width - 2 * 8.0,
-                child: Text(
-                  'Source',
-                  style: textTheme.titleLarge!.copyWith(
-                    color: colorScheme.onPrimaryFixed,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                width: double.infinity,
+                padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
                   color: colorScheme.primaryFixed,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(20),
-                  ), // BorderRadius
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
-                    bottom: BorderSide(
-                      color: colorScheme.onPrimaryFixed,
-                      width: 1.5,
-                    ), // BorderSide
-                  ), // Border
-                ), // BoxDecoration
-              ), // Container
+                    bottom: BorderSide(color: colorScheme.onPrimaryFixed, width: 2.0),
+                  ),
+                ),
+                child: Text(
+                  uri?.host == null ? 'LocalSource' : 'WebSource',
+                  style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimaryFixed),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               Expanded(
-                child: Align(
-                  alignment: Alignment.center,
+                child: Center(
                   child: Text(
-                    '${uri?.host}',
-                    style: textTheme.headlineLarge!.copyWith(
+                    uri?.host ?? location.split("/").last,
+                    style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
                     ),
-                  ), // Text
-                ), // Align
-              ), // Expanded
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
             ],
-          ), // Column
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
-            color: colorScheme.primaryFixed,
-          ), // BoxDecoration
-        ), // Container
-      ), // AspectRatio
-    ); // InkWell
+          ),
+        ),
+      ),
+    );
   }
 }
