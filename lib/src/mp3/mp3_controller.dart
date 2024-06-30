@@ -56,7 +56,7 @@ class Mp3Controller extends GetxController {
     }
   }
 
-Future<void> searchForMp3Files() async {
+  Future<void> searchForMp3Files() async {
     List<Directory> directories = await _getDirectoriesToSearch();
     List<File> foundFiles = [];
 
@@ -67,50 +67,50 @@ Future<void> searchForMp3Files() async {
     mp3Files.value = foundFiles;
   }
 
-Future<List<Directory>> _getDirectoriesToSearch() async {
+  Future<List<Directory>> _getDirectoriesToSearch() async {
     List<Directory> directories = [];
 
-final appCache = await getApplicationCacheDirectory();
-if (appCache!= null) {
-directories.add(appCache);
-}
+    final appCache = await getApplicationCacheDirectory();
+    if (appCache != null) {
+      directories.add(appCache);
+    }
 
-final appDocs = await getApplicationDocumentsDirectory();
-if (appDocs!= null) {
-directories.add(appDocs);
-}
+    final appDocs = await getApplicationDocumentsDirectory();
+    if (appDocs != null) {
+      directories.add(appDocs);
+    }
 
-final appSupport = await getApplicationSupportDirectory();
-if (appSupport!= null) {
-directories.add(appSupport);
-}
+    final appSupport = await getApplicationSupportDirectory();
+    if (appSupport != null) {
+      directories.add(appSupport);
+    }
 
-final downloads = await getDownloadsDirectory();
-if (downloads!= null) {
-directories.add(downloads);
-}
+    final downloads = await getDownloadsDirectory();
+    if (downloads != null) {
+      directories.add(downloads);
+    }
 
-final cache = await getExternalCacheDirectories();
-if (cache!= null) {
-directories.addAll(cache);
-}
+    final cache = await getExternalCacheDirectories();
+    if (cache != null) {
+      directories.addAll(cache);
+    }
 
-final storage = await getExternalStorageDirectories();
-if (storage!= null) {
-directories.addAll(storage);
-}
+    final storage = await getExternalStorageDirectories();
+    if (storage != null) {
+      directories.addAll(storage);
+    }
 
     final externalDir = await getExternalStorageDirectory();
     if (externalDir != null) {
       directories.add(externalDir);
     }
 
-final libDir = await getLibraryDirectory();
+    final libDir = await getLibraryDirectory();
     if (libDir != null) {
       directories.add(libDir);
     }
 
-final tempDir = await getTemporaryDirectory();
+    final tempDir = await getTemporaryDirectory();
     if (tempDir != null) {
       directories.add(tempDir);
     }
@@ -118,7 +118,7 @@ final tempDir = await getTemporaryDirectory();
     return directories;
   }
 
-Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
+  Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
     List<File> mp3Files = [];
     final List<FileSystemEntity> entities = directory.listSync(recursive: true);
 

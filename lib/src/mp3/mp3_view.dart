@@ -19,7 +19,7 @@ class Mp3View extends StatelessWidget {
     const double padding = 8.0;
     final double adjustedWidth = Get.width - 2 * padding;
 
-  final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -36,12 +36,18 @@ class Mp3View extends StatelessWidget {
             width: adjustedWidth,
             height: adjustedWidth / 1.618 / 2,
             decoration: BoxDecoration(
-             color: colorScheme.secondaryFixed,
-             border: Border(
-               top: BorderSide(color: colorScheme.primary, width: 2.0,), // BorderSide
-                bottom: BorderSide(color: colorScheme.primary, width: 2.0,), // BorderSide
-             ), // Border
-             ), // BoxDecoration
+              color: colorScheme.secondaryFixed,
+              border: Border(
+                top: BorderSide(
+                  color: colorScheme.primary,
+                  width: 2.0,
+                ), // BorderSide
+                bottom: BorderSide(
+                  color: colorScheme.primary,
+                  width: 2.0,
+                ), // BorderSide
+              ), // Border
+            ), // BoxDecoration
           ), // Container
           Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
           Expanded(
