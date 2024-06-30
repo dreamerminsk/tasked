@@ -50,4 +50,18 @@ class Mp3Controller extends GetxController {
       Get.snackbar('mp3::pickFile', '$e', snackPosition: SnackPosition.BOTTOM);
     }
   }
+
+Future<List<Directory>> _getDirectoriesToSearch() async {
+    List<Directory> directories = [];
+
+    final externalDir = await getExternalStorageDirectory();
+    if (externalDir != null) {
+      directories.add(externalDir);
+    }
+
+    final appsDir = await getApplicationDocumentsDirectory();
+    directories.add(appsDir);
+
+    return directories;
+  }
 }
