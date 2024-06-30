@@ -101,4 +101,17 @@ final tempDir = await getTemporaryDirectory();
 
     return directories;
   }
+
+Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
+    List<File> mp3Files = [];
+    final List<FileSystemEntity> entities = directory.listSync(recursive: true);
+
+    for (var entity in entities) {
+      if (entity is File && p.extension(entity.path).toLowerCase() == '.mp3') {
+        mp3Files.add(entity);
+      }
+    }
+
+    return mp3Files;
+  }
 }
