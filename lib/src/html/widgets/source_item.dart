@@ -38,14 +38,17 @@ class SourceItem extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
                   color: colorScheme.primaryFixed,
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
-                    bottom: BorderSide(color: colorScheme.onPrimaryFixed, width: 2.0),
+                    bottom: BorderSide(
+                        color: colorScheme.onPrimaryFixed, width: 2.0),
                   ),
                 ),
                 child: Text(
                   uri?.host == null ? 'LocalSource' : 'WebSource',
-                  style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimaryFixed),
+                  style: textTheme.titleLarge
+                      ?.copyWith(color: colorScheme.onPrimaryFixed),
                   textAlign: TextAlign.center,
                 ),
               ),
