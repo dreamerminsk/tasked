@@ -69,13 +69,19 @@ class Mp3Controller extends GetxController {
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
     final List<Future<Directory?>> futures = [
-      _getDirectory(getApplicationCacheDirectory(), 'getApplicationCacheDirectory'),
-      _getDirectory(getApplicationDocumentsDirectory(), 'getApplicationDocumentsDirectory'),
-      _getDirectory(getApplicationSupportDirectory(), 'getApplicationSupportDirectory'),
+      _getDirectory(
+          getApplicationCacheDirectory(), 'getApplicationCacheDirectory'),
+      _getDirectory(getApplicationDocumentsDirectory(),
+          'getApplicationDocumentsDirectory'),
+      _getDirectory(
+          getApplicationSupportDirectory(), 'getApplicationSupportDirectory'),
       _getDirectory(getDownloadsDirectory(), 'getDownloadsDirectory'),
-      _getDirectories(getExternalCacheDirectories(), 'getExternalCacheDirectories'),
-      _getDirectories(getExternalStorageDirectories(), 'getExternalStorageDirectories'),
-      _getDirectory(getExternalStorageDirectory(), 'getExternalStorageDirectory'),
+      _getDirectories(
+          getExternalCacheDirectories(), 'getExternalCacheDirectories'),
+      _getDirectories(
+          getExternalStorageDirectories(), 'getExternalStorageDirectories'),
+      _getDirectory(
+          getExternalStorageDirectory(), 'getExternalStorageDirectory'),
       _getDirectory(getLibraryDirectory(), 'getLibraryDirectory'),
       _getDirectory(getTemporaryDirectory(), 'getTemporaryDirectory'),
     ];
@@ -85,7 +91,8 @@ class Mp3Controller extends GetxController {
     return directories.whereType<Directory>().toList();
   }
 
-  Future<Directory?> _getDirectory(Future<Directory?> future, String name) async {
+  Future<Directory?> _getDirectory(
+      Future<Directory?> future, String name) async {
     try {
       final directory = await future;
       return directory;
@@ -95,7 +102,8 @@ class Mp3Controller extends GetxController {
     }
   }
 
-  Future<Directory?> _getDirectories(Future<List<Directory>?> future, String name) async {
+  Future<Directory?> _getDirectories(
+      Future<List<Directory>?> future, String name) async {
     try {
       final directories = await future;
       if (directories != null && directories.isNotEmpty) {
@@ -109,7 +117,8 @@ class Mp3Controller extends GetxController {
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
     List<File> mp3Files = [];
-    final List<FileSystemEntity> entities = await  directory.list(recursive: true).toList();
+    final List<FileSystemEntity> entities =
+        await directory.list(recursive: true).toList();
 
     for (var entity in entities) {
       if (entity is File && p.extension(entity.path).toLowerCase() == '.mp3') {

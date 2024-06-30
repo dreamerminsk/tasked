@@ -100,12 +100,12 @@ class HomeView extends StatelessWidget {
         ? CachedNetworkImage(
             imageUrl: (item.wiki?.image ?? '').replaceFirst('220px', '96px'),
             placeholder: (_, __) => const SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: CircularProgressIndicator(),
+              width: 50.0,
+              height: 50.0,
+              child: CircularProgressIndicator(),
             ),
-            errorWidget: (_, __, ___)
-                => Icon(Icons.broken_image, color: Theme.of(context).colorScheme.error, size: 96.0),
+            errorWidget: (_, __, ___) => Icon(Icons.broken_image,
+                color: Theme.of(context).colorScheme.error, size: 96.0),
             imageBuilder: (context, image) => ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: SizedBox(
@@ -115,6 +115,7 @@ class HomeView extends StatelessWidget {
               ),
             ),
           )
-        : Icon(Icons.broken_image, color: Theme.of(context).colorScheme.errorContainer, size: 96.0);
+        : Icon(Icons.broken_image,
+            color: Theme.of(context).colorScheme.errorContainer, size: 96.0);
   }
 }

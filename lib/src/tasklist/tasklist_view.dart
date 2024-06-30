@@ -44,7 +44,7 @@ class TasklistView extends StatelessWidget {
     ); // Scaffold
   }
 
-Widget _buildPadding(int index, TaskItem task) {
+  Widget _buildPadding(int index, TaskItem task) {
     const leftPaddings = [32.0, 22.0, 12.0, 22.0];
     const rightPaddings = [12.0, 22.0, 32.0, 22.0];
 
@@ -53,14 +53,8 @@ Widget _buildPadding(int index, TaskItem task) {
     double rightPadding = rightPaddings[modIndex];
 
     return TaskWidget(
-
-   
-  
-
       padding: EdgeInsets.fromLTRB(leftPadding, 8.0, rightPadding, 8.0),
       task: task,
-
     );
   }
-
 }

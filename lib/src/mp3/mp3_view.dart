@@ -48,7 +48,7 @@ class Mp3View extends StatelessWidget {
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
-            child: Obx(()=>Text(c.mp3Files.length.toString())),
+            child: Obx(() => Text(c.mp3Files.length.toString())),
           ), // Container
           Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
           Expanded(
