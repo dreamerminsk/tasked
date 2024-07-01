@@ -49,13 +49,18 @@ if (index > 0) { value.value = FontWeight.values[index-1]; } else { value.value 
                     Expanded(
                       child: Align(
                         alignment: Alignment.center,
-                        child: Text(
-                          _objectToString(object),
+                        child: ValueListenableBuilder(
+valueListenable: value,
+builder: (BuildContext context, FontWeight? value, Widget? child) {
+return Text(
+                          _objectToString(value.value),
                           style: textTheme.titleLarge!.copyWith(
                             fontWeight: FontWeight.w700,
                             color: colorScheme.onPrimary,
                           ),
                         ),
+},
+),
                       ), // Align
                     ), // Expanded
                     IconButton(
