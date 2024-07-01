@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
-  final ValueNotifier<FontWeight?> fontWeight;
+  final FontWeight? fontWeight;
 
   const SampleFontWeight({
     super.key,
