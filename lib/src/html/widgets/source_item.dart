@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 
 class SourceItem extends StatelessWidget {
   const SourceItem({
-    Key? key,
+    super.key,
     required this.location,
-  }) : super(key: key);
+    this.onTap,
+  });
 
   final String location;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class SourceItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        // Add your onTap functionality here
+        onTap?.call();
       },
       borderRadius: BorderRadius.circular(20),
       child: AspectRatio(
@@ -28,7 +30,7 @@ class SourceItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: colorScheme.primaryFixed,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: colorScheme.primary, width: 2.0),
+            border: Border.all(color: colorScheme.primary, width: 3.0),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,25 +39,23 @@ class SourceItem extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
-                  color: colorScheme.primaryFixed,
+                  color: colorScheme.primaryFixedDim,
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
-                    bottom: BorderSide(
-                        color: colorScheme.onPrimaryFixed, width: 2.0),
+                    bottom: BorderSide(color: colorScheme.primary, width: 3.0),
                   ),
                 ),
                 child: Text(
-                  uri?.host == null ? 'LocalSource' : 'WebSource',
-                  style: textTheme.titleLarge
-                      ?.copyWith(color: colorScheme.onPrimaryFixed),
-                  textAlign: TextAlign.center,
-                ),
+  (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
+  style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimaryFixedVariant),
+  textAlign: TextAlign.center,
+),
               ),
               Expanded(
                 child: Center(
                   child: Text(
-                    uri?.host ?? location.split("/").last,
+                    (uri?.host.isEmpty ?? true) ? location.split("/").last : (uri?.host ?? '.'),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,

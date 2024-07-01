@@ -23,13 +23,12 @@ class TextStylePage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(8, safeAreaPadding.top, 8, 0),
-            child: Placeholder(
-              fallbackWidth: Get.width - 2 * 8.0,
-              fallbackHeight: (Get.width - 2 * 8.0) / 1.618,
-              color: colorScheme.primary,
-            ), // Placeholder
+            child: _buildSampleText(context),
           ), // Padding
-          Divider(), // Divider
+          Divider(
+            color: colorScheme.primary,
+            thickness: 1.5,
+          ), // Divider
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
@@ -110,8 +109,7 @@ class TextStylePage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleFontWeight(
-                      title: 'fontWeight',
-                      object: textStyle.fontWeight,
+                      fontWeight: textStyle.fontWeight,
                     ), // SampleFontWeight
                   ), // Padding
                   Padding(
@@ -185,5 +183,36 @@ class TextStylePage extends StatelessWidget {
         ],
       ), // Column
     );
+  }
+
+  Widget _buildSampleText(BuildContext context) {
+    //final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Material(
+      elevation: 4,
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+      child: Container(
+        width: Get.width,
+        height: Get.width / 1.618,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Carolina\r\nChureyno',
+              style: textStyle.copyWith(
+                color: colorScheme.onSurface,
+              ),
+            ), // Text,
+          ],
+        ), // Column
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ), // BorderRadius
+          color: colorScheme.surface,
+        ), // BoxDecoration
+      ), // Container
+    ); // Material
   }
 }

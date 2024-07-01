@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
+//import 'package:flutter/services.dart' show rootBundle;
 
 import '../debug/debug_controller.dart';
 import '../tasklist/task/task_item.dart';
@@ -49,4 +50,8 @@ class HtmlController extends GetxController {
   void randomUrl() {
     resourceController.text = defaultUrls.sample(1).single;
   }
+
+  //Future<String> _loadAsset(String assetKey) async {
+    //return await rootBundle.loadString(assetKey);
+  //}
 }
