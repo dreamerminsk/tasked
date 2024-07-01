@@ -25,7 +25,7 @@ class TextStylePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(8, safeAreaPadding.top, 8, 0),
             child: _buildSampleText(context),
           ), // Padding
-          Divider(), // Divider
+          Divider(color: colorScheme.primary,thickness:1.5,), // Divider
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
