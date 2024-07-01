@@ -31,7 +31,7 @@ class HtmlView extends StatelessWidget {
               child: Obx(() => SourceItem(
                         location: c.defaultUrls[index],
                         length: c.defaultUrls[index] == c.currentUrl
-                            ? c.currentDoc.length
+                            ? c.currentDoc.value.length
                             : null,
                         onTap: () {
                           c.load(index);
