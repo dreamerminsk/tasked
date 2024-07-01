@@ -51,7 +51,7 @@ class HtmlController extends GetxController {
     resourceController.text = defaultUrls.sample(1).single;
   }
 
-  Future<String> _loadAsset(String assetKey) async {
-    return await rootBundle.loadString(assetKey);
-  }
+  //Future<String> _loadAsset(String assetKey) async {
+    //return await rootBundle.loadString(assetKey);
+  //}
 }
