@@ -47,16 +47,15 @@ class SourceItem extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  uri?.host.isEmpty ? 'LocalSource' : 'WebSource',
-                  style: textTheme.titleLarge
-                      ?.copyWith(color: colorScheme.onPrimaryFixedDim),
-                  textAlign: TextAlign.center,
-                ),
+  (uri?.host?.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
+  style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimaryFixedVariant),
+  textAlign: TextAlign.center,
+),
               ),
               Expanded(
                 child: Center(
                   child: Text(
-                    uri?.host.isEmpty ? location.split("/").last : uri?.host,
+                    (uri?.host?.isEmpty ?? true) ? location.split("/").last : uri?.host,
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
