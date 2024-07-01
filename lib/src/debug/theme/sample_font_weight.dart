@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SampleFontWeight extends StatelessWidget {
-  final String title;
+  static const className = 'fontWeight';
   final ValueNotifier<FontWeight?> fontWeight;
 
   const SampleFontWeight({
     super.key,
-    required this.title,
     required this.fontWeight,
   });
 
@@ -72,7 +71,7 @@ class SampleFontWeight extends StatelessWidget {
             ),
             const SizedBox(height: 0),
             Text(
-              title,
+              className,
               style: textTheme.titleLarge!.copyWith(
                 fontSize: textTheme.titleLarge!.fontSize! - 1,
                 color: colorScheme.onPrimary,
