@@ -70,12 +70,12 @@ class SampleFontWeight extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             Divider(
               color: colorScheme.onPrimary,
               thickness: 1.5,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             Text(
               className,
               style: textStyle.copyWith(
