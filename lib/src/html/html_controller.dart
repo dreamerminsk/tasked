@@ -56,11 +56,11 @@ class HtmlController extends GetxController {
   }
 
   Future<void> load(int index) async {
-currentUrl.value = defaultUrls[index];
-if (!currentUrl.startsWith('http')) {
-currentDoc.value = await  _loadAsset(currentUrl.value);
-}
-}
+    currentUrl.value = defaultUrls[index];
+    if (!currentUrl.startsWith('http')) {
+      currentDoc.value = await _loadAsset(currentUrl.value);
+    }
+  }
 
   Future<String> _loadAsset(String assetKey) async {
     return await rootBundle.loadString(assetKey);
