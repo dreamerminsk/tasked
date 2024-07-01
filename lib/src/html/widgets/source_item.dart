@@ -47,7 +47,7 @@ class SourceItem extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-  (uri?.host?.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
+  (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
   style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimaryFixedVariant),
   textAlign: TextAlign.center,
 ),
@@ -55,7 +55,7 @@ class SourceItem extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Text(
-                    (uri?.host?.isEmpty ?? true) ? location.split("/").last : uri?.host,
+                    (uri?.host?.isEmpty ?? true) ? location.split("/").last : (uri?.host ?? '.'),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
