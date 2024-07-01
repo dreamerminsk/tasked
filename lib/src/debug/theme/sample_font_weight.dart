@@ -58,7 +58,7 @@ return Text(
                             fontWeight: FontWeight.w700,
                             color: colorScheme.onPrimary,
                           ),
-                        ),
+                        );
 },
 ),
                       ), // Align
