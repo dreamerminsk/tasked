@@ -25,7 +25,10 @@ class TextStylePage extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(8, safeAreaPadding.top, 8, 0),
             child: _buildSampleText(context),
           ), // Padding
-          Divider(color: colorScheme.primary,thickness:1.5,), // Divider
+          Divider(
+            color: colorScheme.primary,
+            thickness: 1.5,
+          ), // Divider
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
@@ -182,33 +185,31 @@ class TextStylePage extends StatelessWidget {
     );
   }
 
-
-
-Widget _buildSampleText(BuildContext context) {
-return Material(
+  Widget _buildSampleText(BuildContext context) {
+    return Material(
       elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
-        child: Container(
-          width: Get.width,
-          height: Get.width / 2.0 / 1.618,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Carolina\r\nChureyno',
-                style: textStyle.copyWith(
-                  color: colorScheme.onSurface,
-                ),
-              ), // Text,
-            ],
-          ), // Column
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ), // BorderRadius
-            color: colorScheme.surface,
-          ), // BoxDecoration
-        ), // Container
+      child: Container(
+        width: Get.width,
+        height: Get.width / 2.0 / 1.618,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Carolina\r\nChureyno',
+              style: textStyle.copyWith(
+                color: colorScheme.onSurface,
+              ),
+            ), // Text,
+          ],
+        ), // Column
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ), // BorderRadius
+          color: colorScheme.surface,
+        ), // BoxDecoration
+      ), // Container
     ); // Material
-}
+  }
 }
