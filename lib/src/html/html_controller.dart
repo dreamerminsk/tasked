@@ -29,6 +29,10 @@ class HtmlController extends GetxController {
     'data/html/html5example.html',
   ].obs;
 
+  var currentUrl = ''.obs;
+
+  var currentDoc = ''.obs;
+
   final resourceController = TextEditingController(text: '');
 
   final task = Rxn<TaskItem>();
@@ -50,6 +54,13 @@ class HtmlController extends GetxController {
   void randomUrl() {
     resourceController.text = defaultUrls.sample(1).single;
   }
+
+  Future<void> load(int index) async {
+currentUrl.value = defaultUrls[index];
+if (!currentUrl.startsWith('http')) {
+currentDoc.value = await  _loadAsset(currentUrl.value);
+}
+}
 
   Future<String> _loadAsset(String assetKey) async {
     return await rootBundle.loadString(assetKey);
