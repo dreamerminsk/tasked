@@ -186,7 +186,7 @@ class TextStylePage extends StatelessWidget {
   }
 
   Widget _buildSampleText(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
