@@ -41,7 +41,10 @@ late final ValueNotifier<FontWeight?> value;
                       //iconSize: 72,
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_back_ios_rounded),
-                      onPressed: () {},
+                      onPressed: () {
+final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
+if (index > 0) { value.value = FontWeight.values[index-1]; } else { value.value = FontWeight.values[FontWeight.values.length-1];}
+},
                     ),
                     Expanded(
                       child: Align(
@@ -59,7 +62,10 @@ late final ValueNotifier<FontWeight?> value;
                       //iconSize: 72,
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_forward_ios_rounded),
-                      onPressed: () {},
+                      onPressed: () {
+final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
+value.value = FontWeight.values[(index+1)%FontWeight.values.length];
+},
                     ),
                   ],
                 ), // Row
