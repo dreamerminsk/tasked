@@ -186,12 +186,15 @@ class TextStylePage extends StatelessWidget {
   }
 
   Widget _buildSampleText(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Material(
       elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
         width: Get.width,
-        height: Get.width / 2.0 / 1.618,
+        height: Get.width / 1.618,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
