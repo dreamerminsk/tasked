@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class SampleFontWeight extends StatelessWidget {
   final String title;
-  final Object? object;
+  final FontWeight? object;
 
   const SampleFontWeight({
     super.key,
@@ -65,12 +65,12 @@ class SampleFontWeight extends StatelessWidget {
                 ), // Row
               ),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 0),
             Divider(
               color: colorScheme.onPrimary,
               thickness: 1.5,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 0),
             Text(
               title,
               style: textTheme.titleLarge!.copyWith(
@@ -85,7 +85,7 @@ class SampleFontWeight extends StatelessWidget {
     );
   }
 
-  String _objectToString(Object? object) {
+  String _objectToString(FontWeight? object) {
     if (object == null) {
       return "null";
     }
