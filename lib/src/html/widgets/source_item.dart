@@ -22,14 +22,14 @@ class SourceItem extends StatelessWidget {
       onTap: () {
         onTap?.call();
       },
-      borderRadius: const BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(20),
       child: AspectRatio(
         aspectRatio: 2 * 1.618,
         child: Container(
           width: Get.width - 16.0,
           decoration: BoxDecoration(
             color: colorScheme.primaryFixed,
-            borderRadius: const BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(color: colorScheme.primary, width: 3.0),
           ),
           child: Column(
