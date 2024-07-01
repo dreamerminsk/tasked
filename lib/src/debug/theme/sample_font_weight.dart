@@ -102,11 +102,11 @@ class SampleFontWeight extends StatelessWidget {
   }
 
   //void _changeFontWeight(int direction) {
-    //final currentIndex =
-        //FontWeight.values.indexOf(value.value ?? FontWeight.w100);
-    //final newIndex = (currentIndex + direction) % FontWeight.values.length;
-    //value.value = FontWeight
-        //.values[newIndex < 0 ? FontWeight.values.length - 1 : newIndex];
+  //final currentIndex =
+  //FontWeight.values.indexOf(value.value ?? FontWeight.w100);
+  //final newIndex = (currentIndex + direction) % FontWeight.values.length;
+  //value.value = FontWeight
+  //.values[newIndex < 0 ? FontWeight.values.length - 1 : newIndex];
   //}
 
   void _decrementFontWeight() {
