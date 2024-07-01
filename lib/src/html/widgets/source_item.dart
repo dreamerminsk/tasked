@@ -22,14 +22,14 @@ class SourceItem extends StatelessWidget {
       onTap: () {
         onTap?.call();
       },
-      borderRadius: const BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(20),
       child: AspectRatio(
         aspectRatio: 2 * 1.618,
         child: Container(
           width: Get.width - 16.0,
           decoration: BoxDecoration(
             color: colorScheme.primaryFixed,
-            borderRadius: const BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20),
             border: Border.all(color: colorScheme.primary, width: 3.0),
           ),
           child: Column(
@@ -43,21 +43,19 @@ class SourceItem extends StatelessWidget {
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
-                    bottom: BorderSide(
-                        color: colorScheme.primary, width: 3.0),
+                    bottom: BorderSide(color: colorScheme.primary, width: 3.0),
                   ),
                 ),
                 child: Text(
-                  uri?.host.isEmpty ? 'LocalSource' : 'WebSource',
-                  style: textTheme.titleLarge
-                      ?.copyWith(color: colorScheme.onPrimaryFixedDim),
-                  textAlign: TextAlign.center,
-                ),
+  (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
+  style: textTheme.titleLarge?.copyWith(color: colorScheme.onPrimaryFixedVariant),
+  textAlign: TextAlign.center,
+),
               ),
               Expanded(
                 child: Center(
                   child: Text(
-                    uri?.host.isEmpty ? location.split("/").last : uri?.host,
+                    (uri?.host.isEmpty ?? true) ? location.split("/").last : (uri?.host ?? '.'),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
