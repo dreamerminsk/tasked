@@ -4,17 +4,23 @@ import 'package:get/get.dart';
 class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
   final FontWeight? fontWeight;
-  late final ValueNotifier<FontWeight?> value;
+  final ValueNotifier<FontWeight?> value;
 
-  const SampleFontWeight({
-    super.key,
+  SampleFontWeight({
+    Key? key,
     required this.fontWeight,
-  }) : value = ValueNotifier<FontWeight?>(fontWeight);
+  })  : value = ValueNotifier<FontWeight?>(fontWeight),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+
+    final textStyle = textTheme.titleLarge!.copyWith(
+      fontWeight: FontWeight.w700,
+      color: colorScheme.onPrimary,
+    );
 
     return Material(
       elevation: 4,
@@ -27,7 +33,6 @@ class SampleFontWeight extends StatelessWidget {
           color: colorScheme.primary,
         ),
         padding: const EdgeInsets.all(16),
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -37,65 +42,44 @@ class SampleFontWeight extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    IconButton(
-                      //iconSize: 72,
+                    _buildIconButton(
+                      icon: Icons.arrow_back_ios_rounded,
+                      onPressed: _decrementFontWeight,
                       color: colorScheme.onPrimary,
-                      icon: const Icon(Icons.arrow_back_ios_rounded),
-                      onPressed: () {
-                        final index = FontWeight.values
-                            .indexOf(value.value ?? FontWeight.w100);
-                        if (index > 0) {
-                          value.value = FontWeight.values[index - 1];
-                        } else {
-                          value.value =
-                              FontWeight.values[FontWeight.values.length - 1];
-                        }
-                      },
                     ),
                     Expanded(
                       child: Align(
                         alignment: Alignment.center,
-                        child: ValueListenableBuilder(
+                        child: ValueListenableBuilder<FontWeight?>(
                           valueListenable: value,
-                          builder: (BuildContext context, FontWeight? value,
-                              Widget? child) {
+                          builder: (context, value, child) {
                             return Text(
-                              _objectToString(value.value),
-                              style: textTheme.titleLarge!.copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: colorScheme.onPrimary,
-                              ),
+                              _objectToString(value),
+                              style: textStyle,
                             );
                           },
                         ),
-                      ), // Align
-                    ), // Expanded
-                    IconButton(
-                      //iconSize: 72,
+                      ),
+                    ),
+                    _buildIconButton(
+                      icon: Icons.arrow_forward_ios_rounded,
+                      onPressed: _incrementFontWeight,
                       color: colorScheme.onPrimary,
-                      icon: const Icon(Icons.arrow_forward_ios_rounded),
-                      onPressed: () {
-                        final index = FontWeight.values
-                            .indexOf(value.value ?? FontWeight.w100);
-                        value.value = FontWeight
-                            .values[(index + 1) % FontWeight.values.length];
-                      },
                     ),
                   ],
-                ), // Row
+                ),
               ),
             ),
-            const SizedBox(height: 0),
+            const SizedBox(height: 8),
             Divider(
               color: colorScheme.onPrimary,
               thickness: 1.5,
             ),
-            const SizedBox(height: 0),
+            const SizedBox(height: 8),
             Text(
               className,
-              style: textTheme.titleLarge!.copyWith(
+              style: textStyle.copyWith(
                 fontSize: textTheme.titleLarge!.fontSize! - 1,
-                color: colorScheme.onPrimary,
               ),
               textAlign: TextAlign.center,
             ),
@@ -103,6 +87,32 @@ class SampleFontWeight extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+    required Color color,
+  }) {
+    return IconButton(
+      icon: Icon(icon),
+      color: color,
+      onPressed: onPressed,
+    );
+  }
+
+  void _decrementFontWeight() {
+    final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
+    if (index > 0) {
+      value.value = FontWeight.values[index - 1];
+    } else {
+      value.value = FontWeight.values.last;
+    }
+  }
+
+  void _incrementFontWeight() {
+    final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
+    value.value = FontWeight.values[(index + 1) % FontWeight.values.length];
   }
 
   String _objectToString(FontWeight? object) {
