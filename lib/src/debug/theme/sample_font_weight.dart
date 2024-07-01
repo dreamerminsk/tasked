@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
   final FontWeight? fontWeight;
-late final ValueNotifier<FontWeight?> value;
+  late final ValueNotifier<FontWeight?> value;
 
   const SampleFontWeight({
     super.key,
     required this.fontWeight,
-  }) : value=ValueNotifier<FontWeight?>(fontWeight);
+  }) : value = ValueNotifier<FontWeight?>(fontWeight);
 
   @override
   Widget build(BuildContext context) {
@@ -42,25 +42,32 @@ late final ValueNotifier<FontWeight?> value;
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_back_ios_rounded),
                       onPressed: () {
-final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
-if (index > 0) { value.value = FontWeight.values[index-1]; } else { value.value = FontWeight.values[FontWeight.values.length-1];}
-},
+                        final index = FontWeight.values
+                            .indexOf(value.value ?? FontWeight.w100);
+                        if (index > 0) {
+                          value.value = FontWeight.values[index - 1];
+                        } else {
+                          value.value =
+                              FontWeight.values[FontWeight.values.length - 1];
+                        }
+                      },
                     ),
                     Expanded(
                       child: Align(
                         alignment: Alignment.center,
                         child: ValueListenableBuilder(
-valueListenable: value,
-builder: (BuildContext context, FontWeight? value, Widget? child) {
-return Text(
-                          _objectToString(value.value),
-                          style: textTheme.titleLarge!.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: colorScheme.onPrimary,
-                          ),
-                        );
-},
-),
+                          valueListenable: value,
+                          builder: (BuildContext context, FontWeight? value,
+                              Widget? child) {
+                            return Text(
+                              _objectToString(value.value),
+                              style: textTheme.titleLarge!.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color: colorScheme.onPrimary,
+                              ),
+                            );
+                          },
+                        ),
                       ), // Align
                     ), // Expanded
                     IconButton(
@@ -68,9 +75,11 @@ return Text(
                       color: colorScheme.onPrimary,
                       icon: const Icon(Icons.arrow_forward_ios_rounded),
                       onPressed: () {
-final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
-value.value = FontWeight.values[(index+1)%FontWeight.values.length];
-},
+                        final index = FontWeight.values
+                            .indexOf(value.value ?? FontWeight.w100);
+                        value.value = FontWeight
+                            .values[(index + 1) % FontWeight.values.length];
+                      },
                     ),
                   ],
                 ), // Row

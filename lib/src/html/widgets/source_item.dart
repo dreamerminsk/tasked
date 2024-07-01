@@ -43,8 +43,7 @@ class SourceItem extends StatelessWidget {
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
-                    bottom: BorderSide(
-                        color: colorScheme.primary, width: 3.0),
+                    bottom: BorderSide(color: colorScheme.primary, width: 3.0),
                   ),
                 ),
                 child: Text(
