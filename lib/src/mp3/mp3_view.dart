@@ -85,7 +85,7 @@ class Mp3View extends StatelessWidget {
           ), // Obx
         ], // children
       ), // Column
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         icon: const Icon(Icons.add),
         label: Text('Add'),
         onPressed: c.pickFile,
