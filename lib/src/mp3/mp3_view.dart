@@ -51,6 +51,23 @@ class Mp3View extends StatelessWidget {
             child: Obx(() => Text(c.mp3Files.length.toString())),
           ), // Container
           Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
+Obx(
+        () {
+          if (c.mp3Files.isEmpty) {
+            return Center(child: Text('No MP3 files found.'));
+          } else {
+            return ListView.builder(
+              itemCount: c.mp3Files.length,
+              itemBuilder: (context, index) {
+                final file = c.mp3Files[index];
+                return ListTile(
+                  title: Text(file.path.split('/').last),
+                );
+              },
+            );
+          }
+        },
+      ),
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton(
