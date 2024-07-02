@@ -73,7 +73,7 @@ class RequestedPaths extends StatelessWidget {
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                scale: (hasData || hasError) ? 1.0 : 0.0,
+                scale: (hasData || hasError) ? 1.0 : 0.1,
                 duration: const Duration(milliseconds: 500),
               ),
             ],
