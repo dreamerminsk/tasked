@@ -47,7 +47,9 @@ class RequestedPath extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            border: hasError ? Border.all(color: colorScheme.error, width: 4.0): null,
+            border: hasError
+                ? Border.all(color: colorScheme.error, width: 4.0)
+                : null,
             color: color,
           ),
           child: Column(
