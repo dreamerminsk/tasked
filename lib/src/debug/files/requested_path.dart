@@ -43,10 +43,11 @@ class RequestedPath extends StatelessWidget {
         return AnimatedContainer(
           width: Get.width - 16.0,
           height: (Get.width - 16.0) / 1.618 / 2.0,
-          duration: const Duration(seconds: 4),
+          duration: const Duration(milliseconds: 500),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
+            border: hasError ? Border.all(color: colorScheme.error, width: 4.0): null,
             color: color,
           ),
           child: Column(
@@ -55,21 +56,22 @@ class RequestedPath extends StatelessWidget {
               AnimatedDefaultTextStyle(
                 child: Text(name),
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
-                duration: const Duration(seconds: 4),
+                duration: const Duration(milliseconds: 500),
               ),
-              if (hasError)
-                AnimatedDefaultTextStyle(
-                  child: Text(snapshot.error!.runtimeType.toString()),
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
-                  duration: const Duration(seconds: 4),
-                ),
               AnimatedScale(
                 child: Text(
-                  hasData ? snapshot.data!.path.split('/').last : '',
-                  style: textTheme.titleLarge!.copyWith(color: onColor),
+                  hasData
+                      ? snapshot.data!.path.split('/').last
+                      : (hasError
+                          ? snapshot.error!.runtimeType.toString()
+                          : ''),
+                  style: textTheme.titleLarge!.copyWith(
+                    color: onColor,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
-                scale: hasData ? 1.0 : 0.0,
-                duration: const Duration(seconds: 4),
+                scale: (hasData || hasError) ? 1.0 : 0.1,
+                duration: const Duration(milliseconds: 500),
               ),
             ],
           ),

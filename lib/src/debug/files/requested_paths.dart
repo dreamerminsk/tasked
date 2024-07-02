@@ -47,7 +47,7 @@ class RequestedPaths extends StatelessWidget {
         return AnimatedContainer(
           width: Get.width - 16.0,
           height: (Get.width - 16.0) / 1.618 / 2.0,
-          duration: const Duration(seconds: 4),
+          duration: const Duration(milliseconds: 500),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -59,20 +59,23 @@ class RequestedPaths extends StatelessWidget {
               AnimatedDefaultTextStyle(
                 child: Text(name),
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
-                duration: const Duration(seconds: 4),
+                duration: const Duration(milliseconds: 500),
               ),
-              if (hasError)
-                AnimatedDefaultTextStyle(
-                  child: Text(snapshot.error!.runtimeType.toString()), // Text
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
-                  duration: const Duration(seconds: 4),
-                ), // AnimatedDefaultTextStyle
-              if (hasData)
-                AnimatedDefaultTextStyle(
-                  child: Text(_toShortString(snapshot.data!)), // Text
-                  style: textTheme.titleLarge!.copyWith(color: onColor),
-                  duration: const Duration(seconds: 4),
-                ), // AnimatedDefaultTextStyle
+              AnimatedScale(
+                child: Text(
+                  hasData
+                      ? _toShortString(snapshot.data!)
+                      : (hasError
+                          ? snapshot.error!.runtimeType.toString()
+                          : ''),
+                  style: textTheme.titleLarge!.copyWith(
+                    color: onColor,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+                scale: (hasData || hasError) ? 1.0 : 0.1,
+                duration: const Duration(milliseconds: 500),
+              ),
             ],
           ), // Column
         ); // AnimatedContainer
