@@ -16,9 +16,9 @@ class Mp3View extends StatelessWidget {
   Widget build(context) {
     final Mp3Controller c = Get.find();
 
-    const double padding = 8.0;
-    final double adjustedWidth = Get.width - 2 * padding;
-
+    //const double padding = 8.0;
+    //final double adjustedWidth = Get.width - 2 * padding;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
