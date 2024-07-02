@@ -60,7 +60,7 @@ class RequestedPath extends StatelessWidget {
               AnimatedScale(
                 child: Text(
                   hasData ? snapshot.data!.path.split('/').last : (hasError ? snapshot.error!.runtimeType.toString() : ''),
-                  style: textTheme.titleLarge!.copyWith(color: onColor),
+                  style: textTheme.titleLarge!.copyWith(color: onColor, style: FontStyle.italic,),
                 ),
                 scale: (hasData || hasError)? 1.0 : 0.0,
                 duration: const Duration(seconds: 4),
