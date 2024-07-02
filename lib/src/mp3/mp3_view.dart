@@ -55,9 +55,18 @@ class Mp3View extends StatelessWidget {
 Obx(
         () {
           if (c.mp3Files.isEmpty) {
-            return Center(child: Text('No MP3 files found.'));
+            return Expanded(
+            child: Align(
+alignment: Alignment.center,
+child: Center(child: Text('No MP3 files found.')),
+   ),
+          );
           } else {
-            return ListView.builder(
+            return Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: ListView.builder(
               itemCount: c.mp3Files.length,
               itemBuilder: (context, index) {
                 final file = c.mp3Files[index];
@@ -65,10 +74,12 @@ Obx(
                   title: Text(file.path.split('/').last),
                 );
               },
-            );
+            ),
+            ),
+          );
           }
         },
-      ),
+      ), // Obx
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton(
