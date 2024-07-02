@@ -35,8 +35,10 @@ class Mp3View extends StatelessWidget {
           Container(
             width: Get.width,
             height: Get.width / 1.618 / 2,
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: colorScheme.secondaryFixed,
+              color: colorScheme.primaryFixed,
               border: Border(
                 top: BorderSide(
                   color: colorScheme.primary,
@@ -48,9 +50,8 @@ class Mp3View extends StatelessWidget {
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
-            child: Obx(() => Text(c.mp3Files.length.toString())),
+            child: Obx(() => Text(c.mp3Files.length.toString(), style: textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimaryFixed,))),
           ), // Container
-          Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
 Obx(
         () {
           if (c.mp3Files.isEmpty) {
