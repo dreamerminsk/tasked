@@ -64,7 +64,16 @@ class Mp3Controller extends GetxController {
       foundFiles.addAll(await _searchDirectoryForMp3Files(dir));
     }
 
-    mp3Files.value = foundFiles;
+    var uniqueFiles = Set.from(mp3Files);
+    for (var f in foundFiles) {
+      if (!uniqueFiles.contains(f)) {
+        mp3Files.add(f);
+        uniqueFiles.add(f);
+      }
+      if (mp3Files.indexOf(f) == -1) {
+        mp3Files.add(f);
+      }
+    }
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {

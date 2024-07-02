@@ -16,9 +16,9 @@ class Mp3View extends StatelessWidget {
   Widget build(context) {
     final Mp3Controller c = Get.find();
 
-    const double padding = 8.0;
-    final double adjustedWidth = Get.width - 2 * padding;
-
+    //const double padding = 8.0;
+    //final double adjustedWidth = Get.width - 2 * padding;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -33,10 +33,12 @@ class Mp3View extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            width: adjustedWidth,
-            height: adjustedWidth / 1.618 / 2,
+            width: Get.width,
+            height: Get.width / 1.618 / 2,
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: colorScheme.secondaryFixed,
+              color: colorScheme.primaryFixed,
               border: Border(
                 top: BorderSide(
                   color: colorScheme.primary,
@@ -48,32 +50,46 @@ class Mp3View extends StatelessWidget {
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
-            child: Obx(() => Text(c.mp3Files.length.toString())),
+            child: Obx(() => Text(c.mp3Files.length.toString(),
+                style: textTheme.bodyLarge!.copyWith(
+                  color: colorScheme.onPrimaryFixed,
+                ))),
           ), // Container
-          Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
-          Expanded(
-            child: Align(
-              alignment: Alignment.center,
-              child: IconButton.outlined(
-                style: const ButtonStyle(
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                constraints: BoxConstraints(
-                  maxWidth: adjustedWidth,
-                  minWidth: adjustedWidth,
-                  maxHeight: adjustedWidth,
-                  minHeight: adjustedWidth,
-                ),
-                iconSize: adjustedWidth,
-                icon: const Icon(Icons.blur_on),
-                onPressed: () {
-                  c.pickFile();
-                },
-              ), // IconButton
-            ), // Align
-          ), // Expanded
+          Obx(
+            () {
+              if (c.mp3Files.isEmpty) {
+                return Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Center(child: Text('No MP3 files found.')),
+                  ),
+                );
+              } else {
+                return Expanded(
+                  child: MediaQuery.removePadding(
+                    context: context,
+                    removeTop: true,
+                    child: ListView.builder(
+                      itemCount: c.mp3Files.length,
+                      itemBuilder: (context, index) {
+                        final file = c.mp3Files[index];
+                        return ListTile(
+                          title: Text(file.path.split('/').last),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              }
+            },
+          ), // Obx
         ], // children
       ), // Column
+      floatingActionButton: FloatingActionButton.extended(
+        icon: const Icon(Icons.add),
+        label: Text('Add'),
+        onPressed: c.pickFile,
+      ),
     );
   }
 }
