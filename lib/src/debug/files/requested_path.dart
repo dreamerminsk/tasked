@@ -57,15 +57,9 @@ class RequestedPath extends StatelessWidget {
                 style: textTheme.headlineSmall!.copyWith(color: onColor),
                 duration: const Duration(seconds: 4),
               ),
-              if (hasError)
-                AnimatedDefaultTextStyle(
-                  child: Text(snapshot.error!.runtimeType.toString()),
-                  style: textTheme.bodyLarge!.copyWith(color: onColor),
-                  duration: const Duration(seconds: 4),
-                ),
               AnimatedScale(
                 child: Text(
-                  hasData ? snapshot.data!.path.split('/').last : '',
+                  hasData ? snapshot.data!.path.split('/').last : (hasError ? snapshot.error!.runtimeType.toString() : ''),
                   style: textTheme.titleLarge!.copyWith(color: onColor),
                 ),
                 scale: hasData ? 1.0 : 0.0,
