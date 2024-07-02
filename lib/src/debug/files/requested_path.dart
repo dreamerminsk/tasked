@@ -62,7 +62,7 @@ class RequestedPath extends StatelessWidget {
                   hasData ? snapshot.data!.path.split('/').last : (hasError ? snapshot.error!.runtimeType.toString() : ''),
                   style: textTheme.titleLarge!.copyWith(color: onColor),
                 ),
-                scale: hasData ? 1.0 : 0.0,
+                scale: (hasData || hasError)? 1.0 : 0.0,
                 duration: const Duration(seconds: 4),
               ),
             ],
