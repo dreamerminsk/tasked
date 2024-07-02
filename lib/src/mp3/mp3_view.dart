@@ -51,31 +51,10 @@ class Mp3View extends StatelessWidget {
             child: Obx(() => Text(c.mp3Files.length.toString())),
           ), // Container
           Obx(() => Text('${c.mp3file.value?.toString()}')), // Obx
-          Expanded(
-            child: Align(
-              alignment: Alignment.center,
-              child: IconButton.outlined(
-                style: const ButtonStyle(
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                constraints: BoxConstraints(
-                  maxWidth: adjustedWidth,
-                  minWidth: adjustedWidth,
-                  maxHeight: adjustedWidth,
-                  minHeight: adjustedWidth,
-                ),
-                iconSize: adjustedWidth,
-                icon: const Icon(Icons.blur_on),
-                onPressed: () {
-                  c.pickFile();
-                },
-              ), // IconButton
-            ), // Align
-          ), // Expanded
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton(
-        icon: const Icon(Icons.refresh),
+        icon: const Icon(Icons.add),
         label: Text('Add'),
         onPressed: c.pickFile,
       ),
