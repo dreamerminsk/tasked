@@ -67,7 +67,7 @@ class RequestedPath extends StatelessWidget {
                           : ''),
                   style: textTheme.titleLarge!.copyWith(
                     color: onColor,
-                    style: FontStyle.italic,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
                 scale: (hasData || hasError) ? 1.0 : 0.0,
