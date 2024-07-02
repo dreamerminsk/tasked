@@ -33,8 +33,8 @@ class Mp3View extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            width: adjustedWidth,
-            height: adjustedWidth / 1.618 / 2,
+            width: Get.width,
+            height: Get.width / 1.618 / 2,
             decoration: BoxDecoration(
               color: colorScheme.secondaryFixed,
               border: Border(
