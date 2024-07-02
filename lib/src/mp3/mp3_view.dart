@@ -74,8 +74,11 @@ class Mp3View extends StatelessWidget {
           ), // Expanded
         ], // children
       ), // Column
-floatingActionButton: floatingActionButton(
-),
+      floatingActionButton: FloatingActionButton(
+        icon: const Icon(Icons.refresh),
+        label: Text('Add'),
+        onPressed: c.pickFile,
+      ),
     );
   }
 }
