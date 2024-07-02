@@ -50,36 +50,39 @@ class Mp3View extends StatelessWidget {
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
-            child: Obx(() => Text(c.mp3Files.length.toString(), style: textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimaryFixed,))),
+            child: Obx(() => Text(c.mp3Files.length.toString(),
+                style: textTheme.bodyLarge!.copyWith(
+                  color: colorScheme.onPrimaryFixed,
+                ))),
           ), // Container
-Obx(
-        () {
-          if (c.mp3Files.isEmpty) {
-            return Expanded(
-            child: Align(
-alignment: Alignment.center,
-child: Center(child: Text('No MP3 files found.')),
-   ),
-          );
-          } else {
-            return Expanded(
-            child: MediaQuery.removePadding(
-              context: context,
-              removeTop: true,
-              child: ListView.builder(
-              itemCount: c.mp3Files.length,
-              itemBuilder: (context, index) {
-                final file = c.mp3Files[index];
-                return ListTile(
-                  title: Text(file.path.split('/').last),
+          Obx(
+            () {
+              if (c.mp3Files.isEmpty) {
+                return Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Center(child: Text('No MP3 files found.')),
+                  ),
                 );
-              },
-            ),
-            ),
-          );
-          }
-        },
-      ), // Obx
+              } else {
+                return Expanded(
+                  child: MediaQuery.removePadding(
+                    context: context,
+                    removeTop: true,
+                    child: ListView.builder(
+                      itemCount: c.mp3Files.length,
+                      itemBuilder: (context, index) {
+                        final file = c.mp3Files[index];
+                        return ListTile(
+                          title: Text(file.path.split('/').last),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              }
+            },
+          ), // Obx
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton(
