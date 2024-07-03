@@ -5,7 +5,7 @@ class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
     required this.location,
-    this.isActive,
+    required this.isActive,
     this.onTap,
   });
 
