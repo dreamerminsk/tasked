@@ -127,6 +127,6 @@ class SampleFontWeight extends StatelessWidget {
     if (object == null) {
       return "null";
     }
-    return object.toString().split('.').last;
+    return object.index.toString() + ', ' + object.value.toString() + ', '  +object.toString().split('.').last;
   }
 }
