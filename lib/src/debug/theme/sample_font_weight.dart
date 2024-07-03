@@ -9,7 +9,7 @@ class SampleFontWeight extends StatelessWidget {
   SampleFontWeight({
     Key? key,
     required this.fontWeight,
-  })  : _weight = ValueNotifier<FontWeight?>(fontWeight),
+  })  : _fontWeightNotifier = ValueNotifier<FontWeight?>(fontWeight),
         super(key: key);
 
   @override
@@ -51,7 +51,7 @@ class SampleFontWeight extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.center,
                         child: ValueListenableBuilder<FontWeight?>(
-                          valueListenable: _weight,
+                          valueListenable: _fontWeightNotifier,
                           builder: (context, value, child) {
                             return Text(
                               _objectToString(value),
@@ -110,17 +110,17 @@ class SampleFontWeight extends StatelessWidget {
   //}
 
   void _decrementFontWeight() {
-    final index = FontWeight.values.indexOf(_weight.value ?? FontWeight.w100);
+    final index = FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
     if (index > 0) {
-      _weight.value = FontWeight.values[index - 1];
+      _fontWeightNotifier.value = FontWeight.values[index - 1];
     } else {
-      _weight.value = FontWeight.values.last;
+      _fontWeightNotifier.value = FontWeight.values.last;
     }
   }
 
   void _incrementFontWeight() {
-    final index = FontWeight.values.indexOf(_weight.value ?? FontWeight.w100);
-    _weight.value = FontWeight.values[(index + 1) % FontWeight.values.length];
+    final index = FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
+    _fontWeightNotifier.value = FontWeight.values[(index + 1) % FontWeight.values.length];
   }
 
   String _objectToString(FontWeight? object) {
