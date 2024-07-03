@@ -30,9 +30,10 @@ class HtmlView extends StatelessWidget {
           itemCount: controller.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
             final String url = controller.defaultUrls[index];
-            final int length = url == controller.currentUrl.value
+            final isActive = url == controller.currentUrl.value;
+            final int? length = isActive
                 ? controller.currentDoc.value.length
-                : -1;
+                : null;
 
             return Padding(
               padding: const EdgeInsets.all(8),
