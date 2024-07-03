@@ -47,6 +47,7 @@ class Mp3Controller extends GetxController {
       FilePickerResult? result = await FilePicker.platform.pickFiles();
       if (result != null) {
         mp3file.value = File(result.files.single.path!);
+        await searchForMp3Files();
       } else {
         Get.snackbar('mp3::pickFile', 'FilePicker cancelled...',
             snackPosition: SnackPosition.BOTTOM);
