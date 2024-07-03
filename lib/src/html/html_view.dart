@@ -31,15 +31,12 @@ class HtmlView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final String url = controller.defaultUrls[index];
             final isActive = url == controller.currentUrl.value;
-            final int? length = isActive
-                ? controller.currentDoc.value.length
-                : null;
 
             return Padding(
               padding: const EdgeInsets.all(8),
               child: SourceItem(
                 location: url,
-                length: length,
+                isActive: isActive,
                 onTap: () {
                   controller.load(index);
                 },
