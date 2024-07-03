@@ -70,9 +70,6 @@ class Mp3Controller extends GetxController {
         mp3Files.add(f);
         uniqueFiles.add(f);
       }
-      if (mp3Files.indexOf(f) == -1) {
-        mp3Files.add(f);
-      }
     }
   }
 
