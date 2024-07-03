@@ -5,11 +5,13 @@ class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
     required this.location,
+    this.isActive,
     this.length,
     this.onTap,
   });
 
   final String location;
+  final bool isActive;
   final int? length;
   final VoidCallback? onTap;
 
