@@ -7,41 +7,46 @@ import '../routes/app_pages.dart';
 import '../core/widgets/icon_buttons.dart';
 
 class HtmlView extends StatelessWidget {
-  const HtmlView({
-    super.key,
-  });
+  const HtmlView({Key? key}) : super(key: key);
 
   @override
-  Widget build(context) {
-    final HtmlController c = Get.find();
+  Widget build(BuildContext context) {
+    final HtmlController controller = Get.find();
 
     return Scaffold(
-        appBar: AppBar(
-            title: Obx(() => Text("${c.task.value?.title}")),
-            actions: <Widget>[
-              DebugIconButton(
-                route: Routes.DEBUG,
-              ), // DebugIconButton
-            ]),
-        body: ListView.builder(
-          itemCount: c.defaultUrls.length,
+      appBar: AppBar(
+        title: Obx(() => Text(controller.task.value?.title ?? '')),
+        actions: <Widget>[
+          DebugIconButton(
+            route: Routes.DEBUG,
+          ),
+        ],
+      ),
+      body: Obx(() {
+        if (controller.defaultUrls.isEmpty) {
+          return Center(child: Text('No sources available'));
+        }
+        return ListView.builder(
+          itemCount: controller.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
-            final url = c.defaultUrls[index];
+            final String url = controller.defaultUrls[index];
+            final int length = url == controller.currentUrl
+                ? controller.currentDoc.value.length
+                : -1;
+
             return Padding(
               padding: const EdgeInsets.all(8),
-              child: Obx(() => SourceItem(
-                        location: url,
-                        length: url == c.currentUrl
-                            ? c.currentDoc.value.length
-                            : -1,
-                        onTap: () {
-                          c.load(index);
-                        },
-                      ) // SourceItem
-                  ), // Obx
-            ); // Padding
+              child: SourceItem(
+                location: url,
+                length: length,
+                onTap: () {
+                  controller.load(index);
+                },
+              ),
+            );
           },
-        ) // ListView.builder
         );
+      }),
+    );
   }
 }
