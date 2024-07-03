@@ -76,8 +76,8 @@ class Mp3View extends StatelessWidget {
                         return ListTile(
                           title: Text(
                             file.path.split('/').last,
-                            subtitle: Text(file.parent.path),
                           ),
+                          subtitle: Text(file.parent.path),
                         );
                       },
                     ),
