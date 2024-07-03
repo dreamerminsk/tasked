@@ -110,7 +110,8 @@ class SampleFontWeight extends StatelessWidget {
   //}
 
   void _decrementFontWeight() {
-    final index = FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
+    final index =
+        FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
     if (index > 0) {
       _fontWeightNotifier.value = FontWeight.values[index - 1];
     } else {
@@ -119,8 +120,10 @@ class SampleFontWeight extends StatelessWidget {
   }
 
   void _incrementFontWeight() {
-    final index = FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
-    _fontWeightNotifier.value = FontWeight.values[(index + 1) % FontWeight.values.length];
+    final index =
+        FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
+    _fontWeightNotifier.value =
+        FontWeight.values[(index + 1) % FontWeight.values.length];
   }
 
   String _objectToString(FontWeight? object) {
