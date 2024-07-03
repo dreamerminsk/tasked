@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
   final FontWeight? fontWeight;
-  final ValueNotifier<FontWeight?> value;
+  final ValueNotifier<FontWeight?> _weight;
 
   SampleFontWeight({
     Key? key,
     required this.fontWeight,
-  })  : value = ValueNotifier<FontWeight?>(fontWeight),
+  })  : _weight = ValueNotifier<FontWeight?>(fontWeight),
         super(key: key);
 
   @override
@@ -51,7 +51,7 @@ class SampleFontWeight extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.center,
                         child: ValueListenableBuilder<FontWeight?>(
-                          valueListenable: value,
+                          valueListenable: _weight,
                           builder: (context, value, child) {
                             return Text(
                               _objectToString(value),
