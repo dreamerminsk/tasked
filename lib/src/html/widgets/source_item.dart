@@ -43,7 +43,7 @@ class SourceItem extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
-                  color: colorScheme.primaryFixedDim,
+                  color: isActive ? colorScheme.primary : colorScheme.primaryFixedDim,
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
@@ -53,7 +53,7 @@ class SourceItem extends StatelessWidget {
                 child: Text(
                   (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
                   style: textTheme.titleLarge
-                      ?.copyWith(color: colorScheme.onPrimaryFixedVariant),
+                      ?.copyWith(color: isActive ? colorScheme.onPrimary : colorScheme.onPrimaryFixedVariant),
                   textAlign: TextAlign.center,
                 ),
               ),
