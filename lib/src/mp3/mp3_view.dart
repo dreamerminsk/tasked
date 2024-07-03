@@ -74,7 +74,8 @@ class Mp3View extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final file = c.mp3Files[index];
                         return ListTile(
-                          title: Text(file.path.split('/').last),
+                          title: Text(file.path.split('/').last,
+subtitle: Text(file.parent.path),),
                         );
                       },
                     ),
