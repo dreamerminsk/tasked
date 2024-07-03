@@ -59,9 +59,7 @@ class SourceItem extends StatelessWidget {
                 child: Center(
                   child: Text(
                     (uri?.host.isEmpty ?? true)
-                        ? (location.split("/").last +
-                            ': ' +
-                            (length?.toString() ?? ''))
+                        ? (location.split("/").last)
                         : (uri?.host ?? '.'),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
