@@ -5,12 +5,12 @@ class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
     required this.location,
-    this.length,
+    required this.isActive,
     this.onTap,
   });
 
   final String location;
-  final int? length;
+  final bool isActive;
   final VoidCallback? onTap;
 
   @override
@@ -41,7 +41,9 @@ class SourceItem extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
-                  color: colorScheme.primaryFixedDim,
+                  color: isActive
+                      ? colorScheme.primary
+                      : colorScheme.primaryFixedDim,
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20)),
                   border: Border(
@@ -50,8 +52,10 @@ class SourceItem extends StatelessWidget {
                 ),
                 child: Text(
                   (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
-                  style: textTheme.titleLarge
-                      ?.copyWith(color: colorScheme.onPrimaryFixedVariant),
+                  style: textTheme.titleLarge?.copyWith(
+                      color: isActive
+                          ? colorScheme.onPrimary
+                          : colorScheme.onPrimaryFixedVariant),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -59,9 +63,7 @@ class SourceItem extends StatelessWidget {
                 child: Center(
                   child: Text(
                     (uri?.host.isEmpty ?? true)
-                        ? (location.split("/").last +
-                            ': ' +
-                            (length?.toString() ?? ''))
+                        ? (location.split("/").last)
                         : (uri?.host ?? '.'),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,

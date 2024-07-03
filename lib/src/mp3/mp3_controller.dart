@@ -47,6 +47,7 @@ class Mp3Controller extends GetxController {
       FilePickerResult? result = await FilePicker.platform.pickFiles();
       if (result != null) {
         mp3file.value = File(result.files.single.path!);
+        await searchForMp3Files();
       } else {
         Get.snackbar('mp3::pickFile', 'FilePicker cancelled...',
             snackPosition: SnackPosition.BOTTOM);
@@ -69,9 +70,6 @@ class Mp3Controller extends GetxController {
       if (!uniqueFiles.contains(f)) {
         mp3Files.add(f);
         uniqueFiles.add(f);
-      }
-      if (mp3Files.indexOf(f) == -1) {
-        mp3Files.add(f);
       }
     }
   }

@@ -59,6 +59,9 @@ class HtmlController extends GetxController {
     currentUrl.value = defaultUrls[index];
     if (!currentUrl.startsWith('http')) {
       currentDoc.value = await _loadAsset(currentUrl.value);
+      Get.snackbar('Load Complete',
+          'Loaded content from ${currentUrl.value} with ${currentDoc.value.length} characters',
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
 

@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
   final FontWeight? fontWeight;
-  final ValueNotifier<FontWeight?> value;
+  final ValueNotifier<FontWeight?> _fontWeightNotifier;
 
   SampleFontWeight({
     Key? key,
     required this.fontWeight,
-  })  : value = ValueNotifier<FontWeight?>(fontWeight),
+  })  : _fontWeightNotifier = ValueNotifier<FontWeight?>(fontWeight),
         super(key: key);
 
   @override
@@ -51,7 +51,7 @@ class SampleFontWeight extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.center,
                         child: ValueListenableBuilder<FontWeight?>(
-                          valueListenable: value,
+                          valueListenable: _fontWeightNotifier,
                           builder: (context, value, child) {
                             return Text(
                               _objectToString(value),
@@ -110,23 +110,30 @@ class SampleFontWeight extends StatelessWidget {
   //}
 
   void _decrementFontWeight() {
-    final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
+    final index = FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
     if (index > 0) {
-      value.value = FontWeight.values[index - 1];
+      _fontWeightNotifier.value = FontWeight.values[index - 1];
     } else {
-      value.value = FontWeight.values.last;
+      _fontWeightNotifier.value = FontWeight.values.last;
     }
   }
 
   void _incrementFontWeight() {
-    final index = FontWeight.values.indexOf(value.value ?? FontWeight.w100);
-    value.value = FontWeight.values[(index + 1) % FontWeight.values.length];
+    final index = FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
+    _fontWeightNotifier.value = FontWeight.values[(index + 1) % FontWeight.values.length];
   }
 
   String _objectToString(FontWeight? object) {
     if (object == null) {
       return "null";
     }
-    return object.toString().split('.').last;
+    final name = object.toString().contains('.')
+        ? object.toString().split('.').last
+        : '.w${object.value}';
+    return object.index.toString() +
+        ', ' +
+        object.value.toString() +
+        ', ' +
+        name;
   }
 }
