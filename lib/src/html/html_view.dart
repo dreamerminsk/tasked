@@ -26,13 +26,14 @@ class HtmlView extends StatelessWidget {
         body: ListView.builder(
           itemCount: c.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
+            final url = c.defaultUrls[index];
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Obx(() => SourceItem(
-                        location: c.defaultUrls[index],
-                        length: c.defaultUrls[index] == c.currentUrl
+                        location: url,
+                        length: url == c.currentUrl
                             ? c.currentDoc.value.length
-                            : null,
+                            : -1,
                         onTap: () {
                           c.load(index);
                         },
