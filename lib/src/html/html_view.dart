@@ -15,7 +15,7 @@ class HtmlView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Obx(() => Text(controller.task.value?.title ?? '')),
+        title: Obx(() => Text((controller.task.value?.title ?? '')+ ' > ' + controller.currentUrl.value)),
         actions: <Widget>[
           DebugIconButton(
             route: Routes.DEBUG,
