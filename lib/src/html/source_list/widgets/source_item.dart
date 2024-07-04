@@ -45,7 +45,7 @@ class SourceItem extends StatelessWidget {
                       ? colorScheme.primary
                       : colorScheme.primaryFixedDim,
                   borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(20)),
+                      const BorderRadius.vertical(top: Radius.circular(20.0-3.0)),
                   border: Border(
                     bottom: BorderSide(color: colorScheme.primary, width: 3.0),
                   ),
