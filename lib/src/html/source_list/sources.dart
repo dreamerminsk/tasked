@@ -1,9 +1,23 @@
 abstract class Source {
 
+factory Source.web(String location) => 
+
 }
 
-class WebSource extends Source {}
+class WebSource implements Source {
+WebSource(required this.location);
 
-class LocalSource extends Source {}
+final String location;
+}
 
-class AssetSource extends Source {}
+class LocalSource implements Source {
+LocalSource(required this.location);
+
+final String location;
+}
+
+class AssetSource implements Source {
+AssetSource(required this.location);
+
+final String location;
+}
