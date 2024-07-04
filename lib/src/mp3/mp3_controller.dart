@@ -123,16 +123,16 @@ class Mp3Controller extends GetxController {
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
-    List<File> mp3Files = [];
+    List<File> files = [];
     final List<FileSystemEntity> entities =
         await directory.list(recursive: true).toList();
 
     for (var entity in entities) {
       if (entity is File && p.extension(entity.path).toLowerCase() == '.mp3') {
-        mp3Files.add(entity);
+        files.add(entity);
       }
     }
 
-    return mp3Files;
+    return files;
   }
 }
