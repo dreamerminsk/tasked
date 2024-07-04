@@ -57,7 +57,7 @@ class HtmlController extends GetxController {
 
   Future<void> load(int index) async {
     currentUrl.value = defaultUrls[index];
-    if (!currentUrl.startsWith('http')) {
+    if (!currentUrl.value.startsWith('http')) {
       currentDoc.value = await _loadAsset(currentUrl.value);
       Get.snackbar('Load Complete',
           'Loaded content from ${currentUrl.value} with ${currentDoc.value.length} characters',
