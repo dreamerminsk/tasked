@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import 'source_list_controller.dart';
 import 'widgets/source_item.dart';
-import '../routes/app_pages.dart';
-import '../core/widgets/icon_buttons.dart';
+import '../../routes/app_pages.dart';
+import '../../core/widgets/icon_buttons.dart';
 
 class SourceListView extends StatelessWidget {
   const SourceListView({Key? key}) : super(key: key);
