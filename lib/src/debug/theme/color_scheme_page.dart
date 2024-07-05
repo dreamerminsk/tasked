@@ -25,6 +25,15 @@ final isShowInfo = ValueNotifier<bool>(false);
       body: ListView(
         //padding: EdgeInsets.all(8),
         children: <Widget>[
+          ValueListenableBuilder<bool>(
+                          valueListenable: isShowInfo,
+                          builder: (context, value, child) {
+                            return Text(
+                              _objectToString(value),
+                              style: textStyle,
+                            );
+                          },
+                        ),
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
