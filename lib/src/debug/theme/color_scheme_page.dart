@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'sample_color.dart';
 
 class ColorSchemePage extends StatelessWidget {
-final isShowInfo = ValueNotifier<bool>(false);
+  final isShowInfo = ValueNotifier<bool>(false);
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-            appBar: AppBar(title: Text('colorScheme'), actions: <Widget>[
+      appBar: AppBar(title: Text('colorScheme'), actions: <Widget>[
         IconButton(
           icon: Icon(Icons.info_outline_rounded),
           color: Theme.of(context).colorScheme.primary,
@@ -26,33 +26,33 @@ final isShowInfo = ValueNotifier<bool>(false);
         //padding: EdgeInsets.all(8),
         children: <Widget>[
           ValueListenableBuilder<bool>(
-                          valueListenable: isShowInfo,
-                          builder: (context, value, child) {
-                            return           Container(
-            width: Get.width,
-            height: Get.width / 1.618 / 2,
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: colorScheme.primaryFixed,
-              border: Border(
-                top: BorderSide(
-                  color: colorScheme.primary,
-                  width: 2.0,
-                ), // BorderSide
-                bottom: BorderSide(
-                  color: colorScheme.primary,
-                  width: 2.0,
-                ), // BorderSide
-              ), // Border
-            ), // BoxDecoration
-            child: Obx(() => Text(c.mp3Files.length.toString(),
-                style: textTheme.bodyLarge!.copyWith(
-                  color: colorScheme.onPrimaryFixed,
-                ))),
-          ); // Container
-                          },
-                        ),
+            valueListenable: isShowInfo,
+            builder: (context, value, child) {
+              return Container(
+                width: Get.width,
+                height: Get.width / 1.618 / 2,
+                padding: EdgeInsets.all(16.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: colorScheme.primaryFixed,
+                  border: Border(
+                    top: BorderSide(
+                      color: colorScheme.primary,
+                      width: 2.0,
+                    ), // BorderSide
+                    bottom: BorderSide(
+                      color: colorScheme.primary,
+                      width: 2.0,
+                    ), // BorderSide
+                  ), // Border
+                ), // BoxDecoration
+                child: Obx(() => Text(c.mp3Files.length.toString(),
+                    style: textTheme.bodyLarge!.copyWith(
+                      color: colorScheme.onPrimaryFixed,
+                    ))),
+              ); // Container
+            },
+          ),
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
