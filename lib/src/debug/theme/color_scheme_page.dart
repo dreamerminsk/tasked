@@ -28,10 +28,29 @@ final isShowInfo = ValueNotifier<bool>(false);
           ValueListenableBuilder<bool>(
                           valueListenable: isShowInfo,
                           builder: (context, value, child) {
-                            return Text(
-                              _objectToString(value),
-                              style: textStyle,
-                            );
+                            return           Container(
+            width: Get.width,
+            height: Get.width / 1.618 / 2,
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: colorScheme.primaryFixed,
+              border: Border(
+                top: BorderSide(
+                  color: colorScheme.primary,
+                  width: 2.0,
+                ), // BorderSide
+                bottom: BorderSide(
+                  color: colorScheme.primary,
+                  width: 2.0,
+                ), // BorderSide
+              ), // Border
+            ), // BoxDecoration
+            child: Obx(() => Text(c.mp3Files.length.toString(),
+                style: textTheme.bodyLarge!.copyWith(
+                  color: colorScheme.onPrimaryFixed,
+                ))),
+          ); // Container
                           },
                         ),
           Padding(
