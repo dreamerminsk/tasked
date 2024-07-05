@@ -9,14 +9,18 @@ class ColorSchemePage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('colorScheme'),
-        //shape: RoundedRectangleBorder(
-          //borderRadius: BorderRadius.vertical(
-            //bottom: Radius.circular(20),
-          //),
-        //),
-      ),
+            appBar: AppBar(title: Text('colorScheme'), actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.info),
+          color: Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            
+          },
+        ),
+        DebugIconButton(
+          route: Routes.DEBUG,
+        ), // DebugIconButton
+      ]),
       body: ListView(
         //padding: EdgeInsets.all(8),
         children: <Widget>[
