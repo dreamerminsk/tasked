@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'sample_color.dart';
 
 class ColorSchemePage extends StatelessWidget {
+final isShowInfo = ValueNotifier<bool>(false);
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
@@ -14,7 +15,7 @@ class ColorSchemePage extends StatelessWidget {
           icon: Icon(Icons.info_outline_rounded),
           color: Theme.of(context).colorScheme.primary,
           onPressed: () {
-            
+            isShowInfo.value = !isShowInfo.value;
           },
         ),
         DebugIconButton(
