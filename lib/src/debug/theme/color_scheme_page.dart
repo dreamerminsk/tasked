@@ -11,7 +11,7 @@ class ColorSchemePage extends StatelessWidget {
     return Scaffold(
             appBar: AppBar(title: Text('colorScheme'), actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.info),
+          icon: Icon(Icons.info_outline_rounded),
           color: Theme.of(context).colorScheme.primary,
           onPressed: () {
             
