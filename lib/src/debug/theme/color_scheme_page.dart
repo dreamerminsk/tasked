@@ -44,18 +44,17 @@ class ColorSchemePage extends StatelessWidget {
                   border: Border(
                     top: BorderSide(
                       color: colorScheme.primary,
-                      width: 2.0,
+                      width: 1.0,
                     ), // BorderSide
                     bottom: BorderSide(
                       color: colorScheme.primary,
-                      width: 2.0,
+                      width: 1.0,
                     ), // BorderSide
                   ), // Border
                 ), // BoxDecoration
-                child: Obx(() => Text(c.mp3Files.length.toString(),
-                    style: textTheme.bodyLarge!.copyWith(
-                      color: colorScheme.onPrimaryFixed,
-                    ))),
+                child: Column(
+      children: [],
+), // Column
               ); // Container
             },
           ),
