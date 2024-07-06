@@ -224,6 +224,14 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'surfaceContainerHighest',
+              background: colorScheme.surfaceContainerHighest,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'inverseSurface',
               background: colorScheme.inverseSurface,
               foreground: colorScheme.onInverseSurface,
