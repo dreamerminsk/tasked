@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasked/main.dart';
 
 import 'sample_color.dart';
 
@@ -12,7 +13,7 @@ class ColorSchemePage extends StatelessWidget {
 
   @override
   Widget build(context) {
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -53,7 +54,10 @@ class ColorSchemePage extends StatelessWidget {
                   ), // Border
                 ), // BoxDecoration
                 child: Column(
-      children: [],
+      children: [
+               Text( '${MyApp.shadeColor.name},style:textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed,),),
+Text(${MyApp.variant.toString().split(".").last}',style:textTheme.titleLarge!.copyWith(color:colorScheme.onPrimaryFixed,),),
+],
 ), // Column
               ); // Container
             },
