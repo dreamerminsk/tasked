@@ -54,11 +54,21 @@ class ColorSchemePage extends StatelessWidget {
                   ), // Border
                 ), // BoxDecoration
                 child: Column(
-      children: [
-               Text( '${MyApp.shadeColor.name}',style:textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed,),),
-Text('${MyApp.variant.toString().split(".").last}',style:textTheme.titleLarge!.copyWith(color:colorScheme.onPrimaryFixed,),),
-],
-), // Column
+                  children: [
+                    Text(
+                      '${MyApp.shadeColor.name}',
+                      style: textTheme.titleLarge!.copyWith(
+                        color: colorScheme.onPrimaryFixed,
+                      ),
+                    ),
+                    Text(
+                      '${MyApp.variant.toString().split(".").last}',
+                      style: textTheme.titleLarge!.copyWith(
+                        color: colorScheme.onPrimaryFixed,
+                      ),
+                    ),
+                  ],
+                ), // Column
               ); // Container
             },
           ),
