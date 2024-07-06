@@ -260,6 +260,14 @@ static Color contrastColor(Color color) {
               foreground: colorScheme.onInverseSurface,
             ), // ColorContainer
           ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'inversePrimary',
+              background: colorScheme.inversePrimary,
+              foreground: colorScheme.primary,
+            ), // ColorContainer
+          ), // Padding
         ],
       ), // ListView
     );
