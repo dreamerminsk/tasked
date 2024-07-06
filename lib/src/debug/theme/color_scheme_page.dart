@@ -247,6 +247,14 @@ static Color contrastColor(Color color) {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'outlineVariant',
+              background: colorScheme.outlineVariant,
+              foreground: contrastColor(colorScheme.outlineVariant),
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'inverseSurface',
               background: colorScheme.inverseSurface,
               foreground: colorScheme.onInverseSurface,
