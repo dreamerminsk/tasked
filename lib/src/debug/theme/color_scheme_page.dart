@@ -276,6 +276,14 @@ static Color contrastColor(Color color) {
               foreground: contrastColor(colorScheme.shadow),
             ), // ColorContainer
           ), // Padding
+           Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'scrim',
+              background: colorScheme.scrim,
+              foreground: contrastColor(colorScheme.scrim),
+            ), // ColorContainer
+          ), // Padding
         ],
       ), // ListView
     );
