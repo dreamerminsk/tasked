@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'sample_color.dart';
 
 class ColorSchemePage extends StatelessWidget {
+
   final isShowInfo = ValueNotifier<bool>(false);
+
+static Color contrastColor(Color color) {
+    final Brightness brightness = ThemeData.estimateBrightnessForColor(color);
+    return brightness == Brightness.dark ? Colors.white : Colors.black;
+}
+
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
