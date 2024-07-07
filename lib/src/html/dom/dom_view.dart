@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'dom_controller.dart';
-//import '../routes/app_pages.dart';
+import '../../routes/app_pages.dart';
 import '../../core/widgets/icon_buttons.dart';
 
 class DomView extends StatelessWidget {
