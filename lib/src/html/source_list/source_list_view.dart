@@ -30,7 +30,7 @@ class SourceListView extends StatelessWidget {
         return ListView.builder(
           itemCount: controller.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
-            final String source = controller.defaultUrls[index];
+            final source = controller.defaultUrls[index];
 
             return Padding(
               padding: const EdgeInsets.all(8),
