@@ -30,7 +30,7 @@ class SourceListController extends GetxController {
     Source.asset('data/html/html5example.html'),
   ].obs;
 
-  var currentUrl = ''.obs;
+  var currentUrl = 0.obs;
 
   var currentDoc = ''.obs;
 
@@ -57,11 +57,11 @@ class SourceListController extends GetxController {
   }
 
   Future<void> load(int index) async {
-    currentUrl.value = defaultUrls[index];
-    if (!currentUrl.value.startsWith('http')) {
-      currentDoc.value = await _loadAsset(currentUrl.value);
+    currentUrl.value = index;
+    if (defaultUrls[currentUrl.value] is AssetSource) {
+      currentDoc.value = await _loadAsset(defaultUrls[currentUrl.value]);
       Get.snackbar('Load Complete',
-          'Loaded content from ${currentUrl.value} with ${currentDoc.value.length} characters',
+          'Loaded content from ${defaultUrls[currentUrl.value]} with ${currentDoc.value.length} characters',
           snackPosition: SnackPosition.BOTTOM);
     }
   }
