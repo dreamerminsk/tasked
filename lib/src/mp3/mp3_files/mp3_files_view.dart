@@ -42,11 +42,11 @@ class Mp3FilesView extends StatelessWidget {
               border: Border(
                 top: BorderSide(
                   color: colorScheme.primary,
-                  width: 2.0,
+                  width: 1.0,
                 ), // BorderSide
                 bottom: BorderSide(
                   color: colorScheme.primary,
-                  width: 2.0,
+                  width: 1.0,
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
@@ -73,12 +73,14 @@ class Mp3FilesView extends StatelessWidget {
                       itemCount: c.mp3Files.length,
                       itemBuilder: (context, index) {
                         final file = c.mp3Files[index];
-                        return ListTile(
+                        return Card(
+                          child: ListTile(
                           title: Text(
                             file.path.split('/').last,
                           ),
                           subtitle: Text(file.parent.path),
-                        );
+                        ),
+                        ); // Card
                       },
                     ),
                   ),
