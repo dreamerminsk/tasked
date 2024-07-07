@@ -1,7 +1,6 @@
 import 'dart:core';
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 import 'package:path/path.dart' as p;
