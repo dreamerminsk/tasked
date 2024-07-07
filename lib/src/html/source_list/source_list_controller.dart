@@ -15,18 +15,18 @@ class SourceListController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
 
   final defaultUrls = [
-    'https://rottentomatoes.com/',
-    'https://en.wikipedia.org/',
-    'https://dtf.ru/',
-    'https://vc.ru/',
-    'https://sports.ru/',
-    'https://championat.com/',
-    'https://metacritic.com/',
-    'https://habr.com/',
-    'https://tech.onliner.by/',
-    'data/html/index.html',
-    'data/html/kb.html',
-    'data/html/html5example.html',
+    Source.web('https://rottentomatoes.com/'),
+    Source.web('https://en.wikipedia.org/'),
+    Source.web('https://dtf.ru/'),
+    Source.web('https://vc.ru/'),
+    Source.web('https://sports.ru/'),
+    Source.web('https://championat.com/'),
+    Source.web'https://metacritic.com/'),
+   Source.web( 'https://habr.com/'),
+    Source.web('https://tech.onliner.by/'),
+    Source.asset('data/html/index.html'),
+    Source.asset('data/html/kb.html'),
+    Source.asset('data/html/html5example.html'),
   ].obs;
 
   var currentUrl = ''.obs;
