@@ -5,7 +5,7 @@ import 'package:tasked/main.dart';
 import 'sample_color.dart';
 import '../../core/widgets/icon_buttons.dart';
 import '../../core/color_utils.dart';
-import '../routes/app_pages.dart';
+import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
