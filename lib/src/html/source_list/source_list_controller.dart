@@ -59,7 +59,7 @@ class SourceListController extends GetxController {
   Future<void> load(int index) async {
     currentUrl.value = index;
     if (defaultUrls[currentUrl.value] is AssetSource) {
-      currentDoc.value = await _loadAsset(defaultUrls[currentUrl.value]);
+      currentDoc.value = await _loadAsset(defaultUrls[currentUrl.value].toString());
       Get.snackbar('Load Complete',
           'Loaded content from ${defaultUrls[currentUrl.value]} with ${currentDoc.value.length} characters',
           snackPosition: SnackPosition.BOTTOM);
