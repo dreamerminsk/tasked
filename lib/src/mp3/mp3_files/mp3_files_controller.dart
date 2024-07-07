@@ -65,11 +65,11 @@ class Mp3FilesController extends GetxController {
       foundFiles.addAll(await _searchDirectoryForMp3Files(dir));
     }
 
-    var uniqueFiles = Set.from(mp3Files);
+    var uniqueFiles = Set.from(mp3Files.map((f)=>f.path));
     for (var f in foundFiles) {
-      if (!uniqueFiles.contains(f)) {
+      if (!uniqueFiles.contains(f.path)) {
         mp3Files.add(f);
-        uniqueFiles.add(f);
+        uniqueFiles.add(f.path);
       }
     }
   }
