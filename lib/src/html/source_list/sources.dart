@@ -5,13 +5,18 @@ abstract class Source {
 }
 
 class WebSource implements Source {
-  WebSource({required this.location});
+  WebSource({required this.location}): uri = Uri.tryParse(location);
 
   final String location;
+  final Uri uri;
 
   String toString() {
-return location;
-}
+    return location;
+  }
+
+  String toShortString() {
+    return uri?.host ?? location;
+  }
 }
 
 class LocalSource implements Source {
@@ -19,9 +24,13 @@ class LocalSource implements Source {
 
   final String location;
 
-String toString() {
-return location;
-}
+  String toString() {
+    return location;
+  }
+
+  String toShortString() {
+    return location.split('/').last;
+  }
 }
 
 class AssetSource implements Source {
@@ -29,7 +38,12 @@ class AssetSource implements Source {
 
   final String location;
 
-String toString() {
-return location;
-}
+  String toString() {
+    return location;
+  }
+
+  String toShortString() {
+    return location.split('/').last;
+  }
+
 }
