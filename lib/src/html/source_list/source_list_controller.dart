@@ -53,7 +53,7 @@ class SourceListController extends GetxController {
   }
 
   void randomUrl() {
-    resourceController.text = defaultUrls.sample(1).single;
+    resourceController.text = defaultUrls.sample(1).single.toString();
   }
 
   Future<void> load(int index) async {
