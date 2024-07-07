@@ -55,7 +55,7 @@ class ColorSchemePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      '${MyApp.shadeColor.name}',
+                      MyApp.shadeColor.name,
                       style: textTheme.titleLarge!.copyWith(
                         color: colorScheme.onPrimaryFixed,
                       ),
