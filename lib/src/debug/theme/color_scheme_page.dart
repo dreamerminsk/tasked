@@ -199,7 +199,15 @@ class ColorSchemePage extends StatelessWidget {
               foreground: colorScheme.onSurface,
             ), // ColorContainer
           ), // Padding
-          Padding(
+Widget buildPadding(Widget child) {
+  return Padding(
+    padding: EdgeInsets.all(8),
+    child: child,
+  );
+}
+
+// Usage
+buildPadding(SampleColor()),
             padding: EdgeInsets.all(8),
             child: SampleColor(
               title: 'surfaceBright',
