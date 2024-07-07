@@ -30,14 +30,12 @@ class SourceListView extends StatelessWidget {
         return ListView.builder(
           itemCount: controller.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
-            final String url = controller.defaultUrls[index];
-            final isActive = url == controller.currentUrl.value;
+            final String source = controller.defaultUrls[index];
 
             return Padding(
               padding: const EdgeInsets.all(8),
               child: SourceItem(
-                location: url,
-                isActive: isActive,
+                location: source,
                 onTap: () {
                   controller.load(index);
                 },
