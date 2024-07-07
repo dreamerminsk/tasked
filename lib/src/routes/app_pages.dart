@@ -25,10 +25,17 @@ import '../snooker/player/player_binding.dart';
 import '../snooker/player/player_view.dart';
 import '../snooker/season/season_binding.dart';
 import '../snooker/season/season_view.dart';
-import '../html/html_binding.dart';
-import '../html/html_view.dart';
+
+
+
 import '../mp3/mp3_files/mp3_files_binding.dart';
 import '../mp3/mp3_files/mp3_files_view.dart';
+
+import '../html/source_list/source_list_binding.dart';
+import '../html/source_list/source_list_view.dart';
+
+
+
 
 part 'app_routes.dart';
 
@@ -74,9 +81,9 @@ class AppPages {
       binding: PlayerBinding(),
     ),
     GetPage(
-      name: _Paths.HTML,
-      page: () => HtmlView(),
-      binding: HtmlBinding(),
+      name: _Paths.HTML_SOURCELIST,
+      page: () => SourceListView(),
+      binding: SourceListBinding(),
     ),
     GetPage(
       name: _Paths.MP3_FILES,

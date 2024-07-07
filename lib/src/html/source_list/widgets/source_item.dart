@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../sources.dart';
+
 class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
     required this.location,
-    required this.isActive,
     this.onTap,
   });
 
-  final String location;
-  final bool isActive;
+  final Source location;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-
-    final uri = Uri.tryParse(location);
 
     return InkWell(
       onTap: () {
@@ -41,30 +39,24 @@ class SourceItem extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
-                  color: isActive
-                      ? colorScheme.primary
-                      : colorScheme.primaryFixedDim,
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(20)),
+                  color: colorScheme.primaryFixedDim,
+                  borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(20.0 - 3.0)),
                   border: Border(
                     bottom: BorderSide(color: colorScheme.primary, width: 3.0),
                   ),
                 ),
                 child: Text(
-                  (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
-                  style: textTheme.titleLarge?.copyWith(
-                      color: isActive
-                          ? colorScheme.onPrimary
-                          : colorScheme.onPrimaryFixedVariant),
+                  location.runtimeType.toString(),
+                  style: textTheme.titleLarge
+                      ?.copyWith(color: colorScheme.onPrimaryFixedVariant),
                   textAlign: TextAlign.center,
                 ),
               ),
               Expanded(
                 child: Center(
                   child: Text(
-                    (uri?.host.isEmpty ?? true)
-                        ? (location.split("/").last)
-                        : (uri?.host ?? '.'),
+                    location.toShortString(),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
