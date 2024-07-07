@@ -60,7 +60,8 @@ class ColorSchemePage extends StatelessWidget {
                         color: colorScheme.onPrimaryFixed,
                       ),
                     ),
-                    Text(MyApp.variant.toString().split(".").last,
+                    Text(
+                      MyApp.variant.toString().split(".").last,
                       style: textTheme.titleLarge!.copyWith(
                         color: colorScheme.onPrimaryFixed,
                       ),
@@ -259,7 +260,8 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'outlineVariant',
               background: colorScheme.outlineVariant,
-              foreground: ColorUtils.contrastThemeColor(colorScheme.outlineVariant),
+              foreground:
+                  ColorUtils.contrastThemeColor(colorScheme.outlineVariant),
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -299,7 +301,8 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'surfaceTint',
               background: colorScheme.surfaceTint,
-              foreground: ColorUtils.contrastThemeColor(colorScheme.surfaceTint),
+              foreground:
+                  ColorUtils.contrastThemeColor(colorScheme.surfaceTint),
             ), // ColorContainer
           ), // Padding
         ],

@@ -14,7 +14,7 @@ class ColorUtils {
     return yiq >= 128 ? Colors.black : Colors.white;
   }
 
-    static Color contrastThemeColor(Color color) {
+  static Color contrastThemeColor(Color color) {
     final Brightness brightness = ThemeData.estimateBrightnessForColor(color);
     return brightness == Brightness.dark ? Colors.white : Colors.black;
   }
