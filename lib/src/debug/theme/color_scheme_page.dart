@@ -4,15 +4,11 @@ import 'package:tasked/main.dart';
 
 import 'sample_color.dart';
 import '../../core/widgets/icon_buttons.dart';
+import '../../core/color_utils.dart';
 import '../../routes/app_routes.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
-
-  static Color contrastColor(Color color) {
-    final Brightness brightness = ThemeData.estimateBrightnessForColor(color);
-    return brightness == Brightness.dark ? Colors.white : Colors.black;
-  }
 
   @override
   Widget build(context) {
@@ -256,7 +252,7 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'outline',
               background: colorScheme.outline,
-              foreground: contrastColor(colorScheme.outline),
+              foreground: ColorUtils.contrastThemeColor(colorScheme.outline),
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -264,7 +260,7 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'outlineVariant',
               background: colorScheme.outlineVariant,
-              foreground: contrastColor(colorScheme.outlineVariant),
+              foreground: ColorUtils.contrastThemeColor(colorScheme.outlineVariant),
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -288,7 +284,7 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'shadow',
               background: colorScheme.shadow,
-              foreground: contrastColor(colorScheme.shadow),
+              foreground: ColorUtils.contrastThemeColor(colorScheme.shadow),
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -296,7 +292,7 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'scrim',
               background: colorScheme.scrim,
-              foreground: contrastColor(colorScheme.scrim),
+              foreground: ColorUtils.contrastThemeColor(colorScheme.scrim),
             ), // ColorContainer
           ), // Padding
           Padding(
@@ -304,7 +300,7 @@ class ColorSchemePage extends StatelessWidget {
             child: SampleColor(
               title: 'surfaceTint',
               background: colorScheme.surfaceTint,
-              foreground: contrastColor(colorScheme.surfaceTint),
+              foreground: ColorUtils.contrastThemeColor(colorScheme.surfaceTint),
             ), // ColorContainer
           ), // Padding
         ],
