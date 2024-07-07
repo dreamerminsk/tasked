@@ -6,30 +6,31 @@ import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-import '../debug/debug_controller.dart';
-import '../tasklist/task/task_item.dart';
+import '../../debug/debug_controller.dart';
+import '../../tasklist/task/task_item.dart';
+import 'sources.dart';
 
-class HtmlController extends GetxController {
+class SourceListController extends GetxController {
   final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
   final defaultUrls = [
-    'https://rottentomatoes.com/',
-    'https://en.wikipedia.org/',
-    'https://dtf.ru/',
-    'https://vc.ru/',
-    'https://sports.ru/',
-    'https://championat.com/',
-    'https://metacritic.com/',
-    'https://habr.com/',
-    'https://tech.onliner.by/',
-    'data/html/index.html',
-    'data/html/kb.html',
-    'data/html/html5example.html',
+    Source.web('https://rottentomatoes.com/'),
+    Source.web('https://en.wikipedia.org/'),
+    Source.web('https://dtf.ru/'),
+    Source.web('https://vc.ru/'),
+    Source.web('https://sports.ru/'),
+    Source.web('https://championat.com/'),
+    Source.web('https://metacritic.com/'),
+    Source.web('https://habr.com/'),
+    Source.web('https://tech.onliner.by/'),
+    Source.asset('data/html/index.html'),
+    Source.asset('data/html/kb.html'),
+    Source.asset('data/html/html5example.html'),
   ].obs;
 
-  var currentUrl = ''.obs;
+  var currentUrl = 0.obs;
 
   var currentDoc = ''.obs;
 
@@ -52,15 +53,15 @@ class HtmlController extends GetxController {
   }
 
   void randomUrl() {
-    resourceController.text = defaultUrls.sample(1).single;
+    resourceController.text = defaultUrls.sample(1).single.toString();
   }
 
   Future<void> load(int index) async {
-    currentUrl.value = defaultUrls[index];
-    if (!currentUrl.startsWith('http')) {
-      currentDoc.value = await _loadAsset(currentUrl.value);
+    currentUrl.value = index;
+    if (defaultUrls[currentUrl.value] is AssetSource) {
+      currentDoc.value = await _loadAsset(defaultUrls[currentUrl.value].toString());
       Get.snackbar('Load Complete',
-          'Loaded content from ${currentUrl.value} with ${currentDoc.value.length} characters',
+          'Loaded content from ${defaultUrls[currentUrl.value]} with ${currentDoc.value.length} characters',
           snackPosition: SnackPosition.BOTTOM);
     }
   }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'html_controller.dart';
+import 'source_list_controller.dart';
 import 'widgets/source_item.dart';
-import '../routes/app_pages.dart';
-import '../core/widgets/icon_buttons.dart';
+import '../../routes/app_pages.dart';
+import '../../core/widgets/icon_buttons.dart';
 
-class HtmlView extends StatelessWidget {
-  const HtmlView({Key? key}) : super(key: key);
+class SourceListView extends StatelessWidget {
+  const SourceListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final HtmlController controller = Get.find();
+    final SourceListController controller = Get.find();
 
     return Scaffold(
       appBar: AppBar(
@@ -30,14 +30,12 @@ class HtmlView extends StatelessWidget {
         return ListView.builder(
           itemCount: controller.defaultUrls.length,
           itemBuilder: (BuildContext context, int index) {
-            final String url = controller.defaultUrls[index];
-            final isActive = url == controller.currentUrl.value;
+            final source = controller.defaultUrls[index];
 
             return Padding(
               padding: const EdgeInsets.all(8),
               child: SourceItem(
-                location: url,
-                isActive: isActive,
+                location: source,
                 onTap: () {
                   controller.load(index);
                 },
