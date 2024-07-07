@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'mp3_file_controller.dart';
-import '../routes/app_pages.dart';
-import '../core/widgets/icon_buttons.dart';
+import '../../routes/app_pages.dart';
+import '../../core/widgets/icon_buttons.dart';
 
 class Mp3FileView extends StatelessWidget {
   const Mp3FileView({
