@@ -49,18 +49,3 @@ class AssetSource implements Source {
     return location.split('/').last;
   }
 }
-
-void main() {
-  Source webSource = Source.web('https://example.com/path/to/resource');
-  Source localSource = Source.local('/path/to/local/file');
-  Source assetSource = Source.asset('assets/images/logo.png');
-
-  print('WebSource: ${webSource.toString()}');
-  print('WebSource Short: ${webSource.toShortString()}');
-
-  print('LocalSource: ${localSource.toString()}');
-  print('LocalSource Short: ${localSource.toShortString()}');
-
-  print('AssetSource: ${assetSource.toString()}');
-  print('AssetSource Short: ${assetSource.toShortString()}');
-}
