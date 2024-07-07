@@ -60,8 +60,7 @@ class ColorSchemePage extends StatelessWidget {
                         color: colorScheme.onPrimaryFixed,
                       ),
                     ),
-                    Text(
-                      '${MyApp.variant.toString().split(".").last}',
+                    Text(MyApp.variant.toString().split(".").last,
                       style: textTheme.titleLarge!.copyWith(
                         color: colorScheme.onPrimaryFixed,
                       ),
