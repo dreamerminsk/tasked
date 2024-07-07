@@ -22,7 +22,7 @@ class SourceListController extends GetxController {
     Source.web('https://vc.ru/'),
     Source.web('https://sports.ru/'),
     Source.web('https://championat.com/'),
-    Source.web'https://metacritic.com/'),
+    Source.web('https://metacritic.com/'),
    Source.web( 'https://habr.com/'),
     Source.web('https://tech.onliner.by/'),
     Source.asset('data/html/index.html'),
