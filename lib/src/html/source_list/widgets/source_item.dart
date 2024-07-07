@@ -9,7 +9,7 @@ class SourceItem extends StatelessWidget {
     this.onTap,
   });
 
-  final String location;
+  final Source location;
   final bool isActive;
   final VoidCallback? onTap;
 
@@ -51,7 +51,7 @@ class SourceItem extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  (uri?.host.isEmpty ?? true) ? 'LocalSource' : 'WebSource',
+                  location.runtimeType.toString(),
                   style: textTheme.titleLarge?.copyWith(
                       color: isActive
                           ? colorScheme.onPrimary
@@ -62,9 +62,7 @@ class SourceItem extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Text(
-                    (uri?.host.isEmpty ?? true)
-                        ? (location.split("/").last)
-                        : (uri?.host ?? '.'),
+                    location.toShortString(),
                     style: textTheme.headlineLarge?.copyWith(
                       color: colorScheme.onPrimaryFixed,
                       fontWeight: FontWeight.w300,
