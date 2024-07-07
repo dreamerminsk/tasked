@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'mp3_controller.dart';
-import '../routes/app_pages.dart';
-import '../core/widgets/icon_buttons.dart';
+import 'mp3_files_controller.dart';
+import '../../routes/app_pages.dart';
+import '../../core/widgets/icon_buttons.dart';
 
-class Mp3View extends StatelessWidget {
-  const Mp3View({
+class Mp3FilesView extends StatelessWidget {
+  const Mp3FilesView({
     super.key,
   });
 
@@ -14,7 +14,7 @@ class Mp3View extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final Mp3Controller c = Get.find();
+    final Mp3FilesController c = Get.find();
 
     //const double padding = 8.0;
     //final double adjustedWidth = Get.width - 2 * padding;
@@ -42,11 +42,11 @@ class Mp3View extends StatelessWidget {
               border: Border(
                 top: BorderSide(
                   color: colorScheme.primary,
-                  width: 2.0,
+                  width: 1.0,
                 ), // BorderSide
                 bottom: BorderSide(
                   color: colorScheme.primary,
-                  width: 2.0,
+                  width: 1.0,
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
@@ -73,12 +73,14 @@ class Mp3View extends StatelessWidget {
                       itemCount: c.mp3Files.length,
                       itemBuilder: (context, index) {
                         final file = c.mp3Files[index];
-                        return ListTile(
-                          title: Text(
-                            file.path.split('/').last,
+                        return Card(
+                          child: ListTile(
+                            title: Text(
+                              file.path.split('/').last,
+                            ),
+                            subtitle: Text(file.parent.path),
                           ),
-                          subtitle: Text(file.parent.path),
-                        );
+                        ); // Card
                       },
                     ),
                   ),
@@ -89,7 +91,7 @@ class Mp3View extends StatelessWidget {
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton.extended(
-        icon: const Icon(Icons.add),
+        icon: const Icon(Icons.audiotrack_outlined),
         label: Text('Add'),
         onPressed: c.pickFile,
       ),

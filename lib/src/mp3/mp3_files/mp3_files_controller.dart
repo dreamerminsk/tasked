@@ -7,10 +7,10 @@ import 'package:nanoid2/nanoid2.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-import '../debug/debug_controller.dart';
-import '../tasklist/task/task_item.dart';
+import '../../debug/debug_controller.dart';
+import '../../tasklist/task/task_item.dart';
 
-class Mp3Controller extends GetxController {
+class Mp3FilesController extends GetxController {
   final id = nanoid();
 
   final started = DateTime.now();
@@ -65,11 +65,11 @@ class Mp3Controller extends GetxController {
       foundFiles.addAll(await _searchDirectoryForMp3Files(dir));
     }
 
-    var uniqueFiles = Set.from(mp3Files);
+    var uniqueFiles = Set.from(mp3Files.map((f) => f.path));
     for (var f in foundFiles) {
-      if (!uniqueFiles.contains(f)) {
+      if (!uniqueFiles.contains(f.path)) {
         mp3Files.add(f);
-        uniqueFiles.add(f);
+        uniqueFiles.add(f.path);
       }
     }
   }
@@ -123,16 +123,16 @@ class Mp3Controller extends GetxController {
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
-    List<File> mp3Files = [];
+    List<File> files = [];
     final List<FileSystemEntity> entities =
         await directory.list(recursive: true).toList();
 
     for (var entity in entities) {
       if (entity is File && p.extension(entity.path).toLowerCase() == '.mp3') {
-        mp3Files.add(entity);
+        files.add(entity);
       }
     }
 
-    return mp3Files;
+    return files;
   }
 }

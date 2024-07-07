@@ -10,8 +10,13 @@ abstract class Routes {
   static const SNOOKEREVENTS = _Paths.SNOOKEREVENTS;
   static const SNOOKERPLAYERS = _Paths.SNOOKERPLAYERS;
   static const SNOOKERSEASONS = _Paths.SNOOKERSEASONS;
+
+  
+  static const MP3_FILES = _Paths.MP3_FILES;
+
   static const HTML_SOURCELIST = _Paths.HTML_SOURCELIST;
-  static const MP3 = _Paths.MP3;
+  
+
   static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
   static const COLORSCHEME = _Paths.COLORSCHEME;
@@ -31,9 +36,14 @@ abstract class _Paths {
   static const SNOOKEREVENTS = '/task/events';
   static const SNOOKERPLAYERS = '/task/players';
   static const SNOOKERSEASONS = '/task/seasons';
+
+  
+  static const MP3_FILES = '/task/mp3/files';
+
   static const HTML_SOURCELIST = '/task/html/sourcelist';
   //static const HTML_DOM = '/task/html/dom';
-  static const MP3 = '/task/mp3';
+  
+
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
   static const COLORSCHEME = '/colorscheme';
