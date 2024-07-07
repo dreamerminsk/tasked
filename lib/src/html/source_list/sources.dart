@@ -2,7 +2,7 @@ abstract class Source {
   factory Source.web(String location) => WebSource(location: location);
   factory Source.local(String location) => LocalSource(location: location);
   factory Source.asset(String location) => AssetSource(location: location);
-    String toShortString();
+  String toShortString();
 }
 
 class WebSource implements Source {

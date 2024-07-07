@@ -30,6 +30,6 @@ class DomController extends GetxController {
   }
 
   //Future<String> _loadAsset(String assetKey) async {
-    //return await rootBundle.loadString(assetKey);
+  //return await rootBundle.loadString(assetKey);
   //}
 }
