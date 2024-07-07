@@ -5,20 +5,16 @@ class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
     required this.location,
-    required this.isActive,
     this.onTap,
   });
 
   final Source location;
-  final bool isActive;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-
-    final uri = Uri.tryParse(location);
 
     return InkWell(
       onTap: () {
@@ -41,9 +37,7 @@ class SourceItem extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
-                  color: isActive
-                      ? colorScheme.primary
-                      : colorScheme.primaryFixedDim,
+                  color: colorScheme.primaryFixedDim,
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(20.0-3.0)),
                   border: Border(
@@ -53,9 +47,7 @@ class SourceItem extends StatelessWidget {
                 child: Text(
                   location.runtimeType.toString(),
                   style: textTheme.titleLarge?.copyWith(
-                      color: isActive
-                          ? colorScheme.onPrimary
-                          : colorScheme.onPrimaryFixedVariant),
+                      color: colorScheme.onPrimaryFixedVariant),
                   textAlign: TextAlign.center,
                 ),
               ),
