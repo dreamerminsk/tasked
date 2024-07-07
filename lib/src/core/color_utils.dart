@@ -13,4 +13,9 @@ class ColorUtils {
     final yiq = (299 * color.red + 587 * color.green + 114 * color.blue) / 1000;
     return yiq >= 128 ? Colors.black : Colors.white;
   }
+
+    static Color contrastThemeColor(Color color) {
+    final Brightness brightness = ThemeData.estimateBrightnessForColor(color);
+    return brightness == Brightness.dark ? Colors.white : Colors.black;
+  }
 }
