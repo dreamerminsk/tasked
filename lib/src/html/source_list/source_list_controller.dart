@@ -8,6 +8,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../../debug/debug_controller.dart';
 import '../../tasklist/task/task_item.dart';
+import 'sources.dart';
 
 class SourceListController extends GetxController {
   final id = nanoid();
