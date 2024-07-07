@@ -15,7 +15,7 @@ class TasklistController extends GetxController {
     TaskItem(id: 1, title: 'snooker :: events', path: Routes.SNOOKEREVENTS),
     TaskItem(id: 2, title: 'snooker :: players', path: Routes.SNOOKERPLAYERS),
     TaskItem(id: 3, title: 'html :: viewer', path: Routes.HTML),
-    TaskItem(id: 4, title: 'mp3 :: viewer', path: Routes.MP3),
+    TaskItem(id: 4, title: 'mp3 :: viewer', path: Routes.MP3_FILES),
   ].obs;
 
   @override
