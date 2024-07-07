@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-import '../debug/debug_controller.dart';
-import '../tasklist/task/task_item.dart';
+import '../../debug/debug_controller.dart';
+import '../../tasklist/task/task_item.dart';
 
 class DomController extends GetxController {
   final id = nanoid();
