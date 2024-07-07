@@ -1,25 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tasked/main.dart';
 
 import 'sample_color.dart';
+import '../../core/widgets/icon_buttons.dart';
+import '../../core/color_utils.dart';
+import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
+  final isShowInfo = ValueNotifier<bool>(false);
+
   @override
   Widget build(context) {
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('colorScheme'),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
-          ),
+      appBar: AppBar(title: Text('colorScheme'), actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.info_outline_rounded),
+          color: Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            isShowInfo.value = !isShowInfo.value;
+          },
         ),
-      ),
+        DebugIconButton(
+          route: Routes.DEBUG,
+        ), // DebugIconButton
+      ]),
       body: ListView(
         //padding: EdgeInsets.all(8),
         children: <Widget>[
+          ValueListenableBuilder<bool>(
+            valueListenable: isShowInfo,
+            builder: (context, value, child) {
+              return Container(
+                width: Get.width,
+                height: Get.width / 1.618 / 2,
+                padding: EdgeInsets.all(16.0),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: colorScheme.primaryFixed,
+                  border: Border(
+                    top: BorderSide(
+                      color: colorScheme.primary,
+                      width: 1.0,
+                    ), // BorderSide
+                    bottom: BorderSide(
+                      color: colorScheme.primary,
+                      width: 1.0,
+                    ), // BorderSide
+                  ), // Border
+                ), // BoxDecoration
+                child: Column(
+                  children: [
+                    Text(
+                      MyApp.shadeColor.name,
+                      style: textTheme.titleLarge!.copyWith(
+                        color: colorScheme.onPrimaryFixed,
+                      ),
+                    ),
+                    Text(MyApp.variant.toString().split(".").last,
+                      style: textTheme.titleLarge!.copyWith(
+                        color: colorScheme.onPrimaryFixed,
+                      ),
+                    ),
+                  ],
+                ), // Column
+              ); // Container
+            },
+          ),
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
@@ -151,9 +201,105 @@ class ColorSchemePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleColor(
+              title: 'surfaceBright',
+              background: colorScheme.surfaceBright,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'surfaceContainerLowest',
+              background: colorScheme.surfaceContainerLowest,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'surfaceContainerLow',
+              background: colorScheme.surfaceContainerLow,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'surfaceContainer',
+              background: colorScheme.surfaceContainer,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'surfaceContainerHigh',
+              background: colorScheme.surfaceContainerHigh,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'surfaceContainerHighest',
+              background: colorScheme.surfaceContainerHighest,
+              foreground: colorScheme.onSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'outline',
+              background: colorScheme.outline,
+              foreground: ColorUtils.contrastThemeColor(colorScheme.outline),
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'outlineVariant',
+              background: colorScheme.outlineVariant,
+              foreground: ColorUtils.contrastThemeColor(colorScheme.outlineVariant),
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
               title: 'inverseSurface',
               background: colorScheme.inverseSurface,
               foreground: colorScheme.onInverseSurface,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'inversePrimary',
+              background: colorScheme.inversePrimary,
+              foreground: colorScheme.primary,
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'shadow',
+              background: colorScheme.shadow,
+              foreground: ColorUtils.contrastThemeColor(colorScheme.shadow),
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'scrim',
+              background: colorScheme.scrim,
+              foreground: ColorUtils.contrastThemeColor(colorScheme.scrim),
+            ), // ColorContainer
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColor(
+              title: 'surfaceTint',
+              background: colorScheme.surfaceTint,
+              foreground: ColorUtils.contrastThemeColor(colorScheme.surfaceTint),
             ), // ColorContainer
           ), // Padding
         ],
