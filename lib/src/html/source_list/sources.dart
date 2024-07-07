@@ -2,6 +2,7 @@ abstract class Source {
   factory Source.web(String location) => WebSource(location: location);
   factory Source.local(String location) => LocalSource(location: location);
   factory Source.asset(String location) => AssetSource(location: location);
+    String toShortString();
 }
 
 class WebSource implements Source {
@@ -15,6 +16,7 @@ class WebSource implements Source {
     return location;
   }
 
+  @override
   String toShortString() {
     return uri?.host ?? location;
   }
@@ -40,6 +42,7 @@ class LocalSource implements Source {
     return location;
   }
 
+  @override
   String toShortString() {
     return location.split('/').last;
   }
@@ -65,6 +68,7 @@ class AssetSource implements Source {
     return location;
   }
 
+  @override
   String toShortString() {
     return location.split('/').last;
   }
