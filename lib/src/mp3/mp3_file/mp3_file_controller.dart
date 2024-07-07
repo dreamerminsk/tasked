@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../../debug/debug_controller.dart';
 import '../../tasklist/task/task_item.dart';
