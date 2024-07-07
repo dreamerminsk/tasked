@@ -14,27 +14,6 @@ class DomController extends GetxController {
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
 
-  final defaultUrls = [
-    'https://rottentomatoes.com/',
-    'https://en.wikipedia.org/',
-    'https://dtf.ru/',
-    'https://vc.ru/',
-    'https://sports.ru/',
-    'https://championat.com/',
-    'https://metacritic.com/',
-    'https://habr.com/',
-    'https://tech.onliner.by/',
-    'data/html/index.html',
-    'data/html/kb.html',
-    'data/html/html5example.html',
-  ].obs;
-
-  var currentUrl = ''.obs;
-
-  var currentDoc = ''.obs;
-
-  final resourceController = TextEditingController(text: '');
-
   final task = Rxn<TaskItem>();
 
   @override
@@ -47,22 +26,7 @@ class DomController extends GetxController {
   @override
   void onClose() {
     debug.logClose(this.runtimeType.toString(), id, DateTime.now());
-    resourceController.dispose();
     super.onClose();
-  }
-
-  void randomUrl() {
-    resourceController.text = defaultUrls.sample(1).single;
-  }
-
-  Future<void> load(int index) async {
-    currentUrl.value = defaultUrls[index];
-    if (!currentUrl.value.startsWith('http')) {
-      currentDoc.value = await _loadAsset(currentUrl.value);
-      Get.snackbar('Load Complete',
-          'Loaded content from ${currentUrl.value} with ${currentDoc.value.length} characters',
-          snackPosition: SnackPosition.BOTTOM);
-    }
   }
 
   Future<String> _loadAsset(String assetKey) async {
