@@ -6,7 +6,7 @@ import '../../routes/app_pages.dart';
 import '../../core/widgets/icon_buttons.dart';
 
 class Mp3FilesView extends StatelessWidget {
-  const Mp3View({
+  const Mp3FilesView({
     super.key,
   });
 
