@@ -18,6 +18,16 @@ class WebSource implements Source {
   String toShortString() {
     return uri?.host ?? location;
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! WebSource) return false;
+    return location == other.location;
+  }
+
+  @override
+  int get hashCode => location.hashCode;
 }
 
 class LocalSource implements Source {
@@ -33,6 +43,16 @@ class LocalSource implements Source {
   String toShortString() {
     return location.split('/').last;
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! LocalSource) return false;
+    return location == other.location;
+  }
+
+  @override
+  int get hashCode => location.hashCode;
 }
 
 class AssetSource implements Source {
@@ -48,4 +68,14 @@ class AssetSource implements Source {
   String toShortString() {
     return location.split('/').last;
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AssetSource) return false;
+    return location == other.location;
+  }
+
+  @override
+  int get hashCode => location.hashCode;
 }
