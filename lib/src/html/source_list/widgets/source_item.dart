@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../sources.dart';
+
 class SourceItem extends StatelessWidget {
   const SourceItem({
     super.key,
