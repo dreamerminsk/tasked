@@ -38,16 +38,16 @@ class SourceItem extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
                   color: colorScheme.primaryFixedDim,
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(20.0-3.0)),
+                  borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(20.0 - 3.0)),
                   border: Border(
                     bottom: BorderSide(color: colorScheme.primary, width: 3.0),
                   ),
                 ),
                 child: Text(
                   location.runtimeType.toString(),
-                  style: textTheme.titleLarge?.copyWith(
-                      color: colorScheme.onPrimaryFixedVariant),
+                  style: textTheme.titleLarge
+                      ?.copyWith(color: colorScheme.onPrimaryFixedVariant),
                   textAlign: TextAlign.center,
                 ),
               ),

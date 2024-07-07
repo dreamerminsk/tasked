@@ -26,7 +26,6 @@ class DomView extends StatelessWidget {
         return ListView.builder(
           itemCount: 32,
           itemBuilder: (BuildContext context, int index) {
-
             return Padding(
               padding: const EdgeInsets.all(8),
               child: Card(
