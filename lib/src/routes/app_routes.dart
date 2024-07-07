@@ -31,7 +31,8 @@ abstract class _Paths {
   static const SNOOKEREVENTS = '/task/events';
   static const SNOOKERPLAYERS = '/task/players';
   static const SNOOKERSEASONS = '/task/seasons';
-  static const HTML = '/task/html';
+  static const HTML_SOURCELIST = '/task/html/sourcelist';
+  static const HTML_DOM = '/task/html/dom';
   static const MP3 = '/task/mp3';
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
