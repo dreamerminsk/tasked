@@ -22,17 +22,14 @@ class Mp3FileView extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(
-          title: Text('Mp3FileView'),
-          actions: <Widget>[
-            DebugIconButton(
-              route: Routes.DEBUG,
-            ), // DebugIconButton
-          ]),
+      appBar: AppBar(title: Text('Mp3FileView'), actions: <Widget>[
+        DebugIconButton(
+          route: Routes.DEBUG,
+        ), // DebugIconButton
+      ]),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-        ], // children
+        children: <Widget>[], // children
       ), // Column
     );
   }

@@ -75,11 +75,11 @@ class Mp3FilesView extends StatelessWidget {
                         final file = c.mp3Files[index];
                         return Card(
                           child: ListTile(
-                          title: Text(
-                            file.path.split('/').last,
+                            title: Text(
+                              file.path.split('/').last,
+                            ),
+                            subtitle: Text(file.parent.path),
                           ),
-                          subtitle: Text(file.parent.path),
-                        ),
                         ); // Card
                       },
                     ),

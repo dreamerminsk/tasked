@@ -38,5 +38,4 @@ class Mp3FileController extends GetxController {
     debug.logClose(this.runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
-
 }
