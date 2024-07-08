@@ -51,10 +51,12 @@ class TasklistView extends StatelessWidget {
     int modIndex = index % 4;
     double leftPadding = leftPaddings[modIndex];
     double rightPadding = rightPaddings[modIndex];
-
-    return TaskWidget(
+    
+    return Padding(
       padding: EdgeInsets.fromLTRB(leftPadding, 8.0, rightPadding, 8.0),
+      child: TaskWidget(
       task: task,
+    ),
     );
   }
 }
