@@ -62,7 +62,7 @@ class SourceListController extends GetxController {
 
     if (source is AssetSource) {
       try {
-        currentDoc.value = await _loadAsset(source.path);
+        currentDoc.value = await _loadAsset(source.toString());
         Get.snackbar(
           'Load Complete',
           'Loaded content from ${source.toString()} with ${currentDoc.value.length} characters',
