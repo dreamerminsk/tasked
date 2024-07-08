@@ -45,8 +45,8 @@ class TasklistView extends StatelessWidget {
   }
 
   Widget _buildPadding(int index, TaskItem task) {
-    const leftPaddings = [32.0, 22.0, 12.0, 22.0];
-    const rightPaddings = [12.0, 22.0, 32.0, 22.0];
+    const leftPaddings = [32.0, 20.0, 8.0, 20.0];
+    const rightPaddings = [8.0, 20.0, 32.0, 20.0];
 
     int modIndex = index % 4;
     double leftPadding = leftPaddings[modIndex];
