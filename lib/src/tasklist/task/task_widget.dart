@@ -7,12 +7,9 @@ class TaskWidget extends StatelessWidget {
   const TaskWidget({
     super.key,
     required this.task,
-    this.padding,
   });
 
   final TaskItem task;
-
-  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,7 @@ class TaskWidget extends StatelessWidget {
         );
       },
       child: AspectRatio(
-        aspectRatio: 2 * 1.618,
+        aspectRatio: 3 * 1.618,
         child: Container(
           width: Get.width,
           child: Column(
@@ -43,7 +40,6 @@ class TaskWidget extends StatelessWidget {
               ), // Text
             ],
           ), // Column
-          margin: this.padding ?? const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(
               Radius.circular(20),

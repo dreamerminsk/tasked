@@ -55,7 +55,12 @@ class ColorSchemePage extends StatelessWidget {
             ),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              Text(
+                MyApp.seedColor.name,
+                style: textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed),
+              ),
               Text(
                 MyApp.shadeColor.name,
                 style: textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed),
