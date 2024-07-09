@@ -11,8 +11,6 @@ class TaskWidget extends StatelessWidget {
 
   final TaskItem task;
 
-  final EdgeInsetsGeometry? padding;
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
