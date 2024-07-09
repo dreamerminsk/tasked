@@ -75,6 +75,7 @@ class Mp3FilesView extends StatelessWidget {
                         final file = c.mp3Files[index];
                         return Card(
                           child: ListTile(
+                            leading: Icon(Icons.audiotrack_outlined),
                             title: Text(
                               file.path.split('/').last,
                             ),
@@ -91,7 +92,7 @@ class Mp3FilesView extends StatelessWidget {
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton.extended(
-        icon: const Icon(Icons.audiotrack_outlined),
+        icon: const Icon(Icons.playlist_add),
         label: Text('Add'),
         onPressed: c.pickFile,
       ),
