@@ -14,8 +14,6 @@ class Mp3FileController extends GetxController {
 
   final DebugController debug = Get.find(tag: 'debugger');
 
-  final task = Rxn<TaskItem>();
-
   final mp3file = Rxn<File>();
 
   @override
@@ -27,7 +25,7 @@ class Mp3FileController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    task.value = Get.arguments;
+    mp3file.value = Get.arguments;
   }
 
   @override
