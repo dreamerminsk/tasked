@@ -73,15 +73,9 @@ class Mp3FilesView extends StatelessWidget {
                       itemCount: c.mp3Files.length,
                       itemBuilder: (context, index) {
                         final file = c.mp3Files[index];
-                        return Card(
-                          child: ListTile(
-                            leading: Icon(Icons.audiotrack_outlined),
-                            title: Text(
-                              file.path.split('/').last,
-                            ),
-                            subtitle: Text(file.parent.path),
-                          ),
-                        ); // Card
+                        return _Mp3CardItem(
+                      mp3File: file,
+                        ); // _Mp3CardItem
                       },
                     ),
                   ),
@@ -98,4 +92,25 @@ class Mp3FilesView extends StatelessWidget {
       ),
     );
   }
+}
+
+class _Mp3CardItem extends StatelessWidget {
+
+_Mp3CardItem({super.key, required this.mp3File});
+
+final File mp3File;
+
+  @override
+  Widget build(context) {
+    return Card(
+                          child: ListTile(
+                            leading: Icon(Icons.audiotrack_outlined),
+                            title: Text(
+                              mp3File.path.split('/').last,
+                            ),
+                            subtitle: Text(mp3File.parent.path),
+                          ),
+                        ); // Card
+  }
+
 }
