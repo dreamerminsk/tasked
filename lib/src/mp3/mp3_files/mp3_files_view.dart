@@ -93,7 +93,7 @@ class Mp3FilesView extends StatelessWidget {
       ), // Column
       floatingActionButton: FloatingActionButton.extended(
         icon: const Icon(Icons.playlist_add),
-        label: Text('Add'),
+        label: Text('Add mp3'),
         onPressed: c.pickFile,
       ),
     );
