@@ -74,7 +74,7 @@ class Mp3FilesView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final file = c.mp3Files[index];
                         return _Mp3CardItem(
-                      mp3File: file,
+                          mp3File: file,
                         ); // _Mp3CardItem
                       },
                     ),
@@ -95,22 +95,20 @@ class Mp3FilesView extends StatelessWidget {
 }
 
 class _Mp3CardItem extends StatelessWidget {
+  _Mp3CardItem({super.key, required this.mp3File});
 
-_Mp3CardItem({super.key, required this.mp3File});
-
-final File mp3File;
+  final File mp3File;
 
   @override
   Widget build(context) {
     return Card(
-                          child: ListTile(
-                            leading: Icon(Icons.audiotrack_outlined),
-                            title: Text(
-                              mp3File.path.split('/').last,
-                            ),
-                            subtitle: Text(mp3File.parent.path),
-                          ),
-                        ); // Card
+      child: ListTile(
+        leading: Icon(Icons.audiotrack_outlined),
+        title: Text(
+          mp3File.path.split('/').last,
+        ),
+        subtitle: Text(mp3File.parent.path),
+      ),
+    ); // Card
   }
-
 }
