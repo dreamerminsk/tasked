@@ -1,6 +1,58 @@
 abstract class Id3Tag{}
 
-class Id3v1Tag extends Id3Tag {}
+class Id3v1Tag extends Id3Tag {
+  final String title;
+  final String artist;
+  final String album;
+  final String year;
+  final String comment;
+  final int genre; // Genre is usually stored as an index
+
+  Id3v1Tag({
+    required this.title,
+    required this.artist,
+    required this.album,
+    required this.year,
+    required this.comment,
+    required this.genre,
+  });
+
+  factory Id3v1Tag.parse(List<int> bytes) {
+    if (bytes.length != 128) {
+      throw FormatException('Invalid ID3v1 tag length');
+    }
+
+    final identifier = String.fromCharCodes(bytes.sublist(0, 3));
+    if (identifier != 'TAG') {
+      throw FormatException('Invalid ID3v1 tag identifier');
+    }
+
+    final title = _parseString(bytes.sublist(3, 33));
+    final artist = _parseString(bytes.sublist(33, 63));
+    final album = _parseString(bytes.sublist(63, 93));
+    final year = _parseString(bytes.sublist(93, 97));
+    final comment = _parseString(bytes.sublist(97, 127));
+    final genre = bytes[127];
+
+    return Id3v1Tag(
+      title: title,
+      artist: artist,
+      album: album,
+      year: year,
+      comment: comment,
+      genre: genre,
+    );
+  }
+
+  static String _parseString(List<int> bytes) {
+    return String.fromCharCodes(bytes).trim();
+  }
+
+  @override
+  String toString() {
+    return 'Id3v1Tag(title: $title, artist: $artist, album: $album, year: $year, comment: $comment, genre: $genre)';
+  }
+}
 
 abstract class Id3v2Tag extends Id3Tag {}
 
