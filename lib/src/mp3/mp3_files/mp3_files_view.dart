@@ -34,7 +34,7 @@ class Mp3FilesView extends StatelessWidget {
         children: <Widget>[
           Container(
             width: Get.width,
-            height: Get.width / 1.618 / 2,
+            height: Get.width / 1.618 / 3,
             padding: EdgeInsets.all(16.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
