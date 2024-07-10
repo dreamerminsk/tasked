@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 
-//import 'mp3_file_controller.dart';
+import 'mp3_file_controller.dart';
 import '../../routes/app_pages.dart';
 import '../../core/widgets/icon_buttons.dart';
 
@@ -14,7 +14,7 @@ class Mp3FileView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    //final Mp3FileController c = Get.find();
+    final Mp3FileController c = Get.find();
 
     //const double padding = 8.0;
     //final double adjustedWidth = Get.width - 2 * padding;
@@ -22,7 +22,7 @@ class Mp3FileView extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Mp3FileView'), actions: <Widget>[
+      appBar: AppBar(title: Text('Mp3FileView: ${mp3file.value.path.split("/").last}'), actions: <Widget>[
         DebugIconButton(
           route: Routes.DEBUG,
         ), // DebugIconButton
