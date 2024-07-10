@@ -101,7 +101,9 @@ class _Mp3CardItem extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Card(
+    return InkWell(
+      onTap: () =>,
+      child: Card(
       child: ListTile(
         leading: Icon(Icons.audiotrack_outlined),
         title: Text(
@@ -109,6 +111,7 @@ class _Mp3CardItem extends StatelessWidget {
         ),
         subtitle: Text(mp3File.parent.path),
       ),
-    ); // Card
+    ), // Card
+    ); // InkWell
   }
 }
