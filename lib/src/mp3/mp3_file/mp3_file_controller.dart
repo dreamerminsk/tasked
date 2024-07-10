@@ -7,6 +7,8 @@ import 'package:nanoid2/nanoid2.dart';
 import '../../debug/debug_controller.dart';
 import '../../tasklist/task/task_item.dart';
 
+import 'models/id3_tags.dart';
+
 class Mp3FileController extends GetxController {
   final id = nanoid();
 
@@ -30,8 +32,10 @@ class Mp3FileController extends GetxController {
     mp3file.value = Get.arguments;
     _raf = await mp3File.value.open();
     final headerBuf = List<int>.filled(10, 0);
-    _raf.readInto(headerBuf);
-    
+    headerBufLength = await _raf.readInto(headerBuf);
+    if (headerBufLength > 9) {
+      Id3v2TagHeader.parse(headerBuf);
+    }
   }
 
   @override
