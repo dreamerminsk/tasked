@@ -16,6 +16,8 @@ class Mp3FileController extends GetxController {
 
   final mp3file = Rxn<File>();
 
+  RandomAccessFile _raf;
+
   @override
   void onInit() {
     super.onInit();
@@ -26,11 +28,16 @@ class Mp3FileController extends GetxController {
   void onReady() {
     super.onReady();
     mp3file.value = Get.arguments;
+    _raf = await mp3File.value.open();
+    final headerBuf = List<int>.filled(10, 0);
+    _raf.readInto(headerBuf);
+    
   }
 
   @override
   void onClose() {
     debug.logClose(this.runtimeType.toString(), id, DateTime.now());
+    if (_raf != null) {_raf.close();}
     super.onClose();
   }
 }
