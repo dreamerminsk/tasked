@@ -62,14 +62,14 @@ class Id3v2_3Tag extends Id3v2Tag {}
 
 class Id3v2_4Tag extends Id3v2Tag {}
 
-class Id3Header {
+class Id3v2TagHeader {
   final String identifier; // Typically "ID3"
   final int versionMajor; // Major version number
   final int versionMinor; // Minor version number
   final int flags; // Flags byte
   final int size; // Size of the tag excluding the header
 
-  Id3Header({
+  Id3v2TagHeader({
     required this.identifier,
     required this.versionMajor,
     required this.versionMinor,
@@ -77,7 +77,7 @@ class Id3Header {
     required this.size,
   });
 
-  factory Id3Header.parse(List<int> bytes) {
+  factory Id3v2TagHeader.parse(List<int> bytes) {
     if (bytes.length < 10) {
       throw FormatException('Invalid header length');
     }
@@ -92,7 +92,7 @@ class Id3Header {
     final flags = bytes[5];
     final size = _syncsafeToInt(bytes.sublist(6, 10));
 
-    return Id3Header(
+    return Id3v2TagHeader(
       identifier: identifier,
       versionMajor: versionMajor,
       versionMinor: versionMinor,
@@ -111,6 +111,6 @@ class Id3Header {
 
   @override
   String toString() {
-    return 'Id3Header(identifier: $identifier, version: $versionMajor.$versionMinor, flags: $flags, size: $size)';
+    return 'Id3v2TagHeader(identifier: $identifier, version: $versionMajor.$versionMinor, flags: $flags, size: $size)';
   }
 }
