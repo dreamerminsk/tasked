@@ -31,9 +31,9 @@ class Mp3FileController extends GetxController {
   void onReady() async {
     super.onReady();
     mp3file.value = Get.arguments;
-    _raf = await mp3file.value.open();
+    _raf = await mp3file.value?.open();
     final headerBuf = List<int>.filled(10, 0);
-    final headerBufLength = await _raf.readInto(headerBuf);
+    final headerBufLength = await _raf?.readInto(headerBuf);
     if (headerBufLength > 9) {
       String identifier = String.fromCharCodes(headerBuf.sublist(0, 3));
       if (identifier == 'ID3') {
@@ -46,7 +46,7 @@ class Mp3FileController extends GetxController {
   void onClose() {
     debug.logClose(this.runtimeType.toString(), id, DateTime.now());
     if (_raf != null) {
-      _raf.close();
+      _raf?.close();
     }
     super.onClose();
   }
