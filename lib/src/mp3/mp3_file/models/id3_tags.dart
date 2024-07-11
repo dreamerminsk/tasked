@@ -1,4 +1,4 @@
-abstract class Id3Tag{}
+abstract class Id3Tag {}
 
 class Id3v1Tag extends Id3Tag {
   final String title;

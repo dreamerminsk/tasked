@@ -102,16 +102,19 @@ class _Mp3CardItem extends StatelessWidget {
   @override
   Widget build(context) {
     return InkWell(
-      onTap: () =>             Get.toNamed(Routes.MP3_FILE, arguments: mp3File,),
-      child: Card(
-      child: ListTile(
-        leading: Icon(Icons.audiotrack_outlined),
-        title: Text(
-          mp3File.path.split('/').last,
-        ),
-        subtitle: Text(mp3File.parent.path),
+      onTap: () => Get.toNamed(
+        Routes.MP3_FILE,
+        arguments: mp3File,
       ),
-    ), // Card
+      child: Card(
+        child: ListTile(
+          leading: Icon(Icons.audiotrack_outlined),
+          title: Text(
+            mp3File.path.split('/').last,
+          ),
+          subtitle: Text(mp3File.parent.path),
+        ),
+      ), // Card
     ); // InkWell
   }
 }

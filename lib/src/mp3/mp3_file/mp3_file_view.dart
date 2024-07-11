@@ -22,26 +22,29 @@ class Mp3FileView extends StatelessWidget {
     //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Mp3FileView: ${mp3file.value.path.split("/").last}'), actions: <Widget>[
-        DebugIconButton(
-          route: Routes.DEBUG,
-        ), // DebugIconButton
-      ]),
+      appBar: AppBar(
+          title: Text('Mp3FileView: ${mp3file.value.path.split("/").last}'),
+          actions: <Widget>[
+            DebugIconButton(
+              route: Routes.DEBUG,
+            ), // DebugIconButton
+          ]),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Obx(()=>
-c.header == null 
-? Card(
-title:Text(c.mp3file.value?.path.split('/').last),
-subtitle:Text('pos: 0, size: ${c.mp3file.value?.lengthSync()}') ,
-)
-: Card(
-title: Text(c.header.runtimeType.toString()),
-subtitle:Text('pos: 0, size: ${10+c.header.value?.size}') ,
-) // Card
-), // Obx
-], // children
+          Obx(() => c.header == null
+                  ? Card(
+                      title: Text(c.mp3file.value?.path.split('/').last),
+                      subtitle: Text(
+                          'pos: 0, size: ${c.mp3file.value?.lengthSync()}'),
+                    )
+                  : Card(
+                      title: Text(c.header.runtimeType.toString()),
+                      subtitle:
+                          Text('pos: 0, size: ${10 + c.header.value?.size}'),
+                    ) // Card
+              ), // Obx
+        ], // children
       ), // Column
     );
   }
