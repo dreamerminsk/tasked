@@ -69,7 +69,7 @@ class Id3v2TagHeader {
   final int flags; // Flags byte
   final int size; // Size of the tag excluding the header
 
-const int MIN_HEADER_LENGTH = 10;
+static const int MIN_HEADER_LENGTH = 10;
 
   Id3v2TagHeader({
     required this.identifier,
@@ -81,11 +81,9 @@ const int MIN_HEADER_LENGTH = 10;
 
 
 factory Id3v2TagHeader.parse(List<int> bytes) {
-  if (bytes.length < MIN_HEADER_LENGTH) {
+  if (bytes.length < Id3v2TagHeader.MIN_HEADER_LENGTH) {
     throw FormatException('Invalid header length');
   }
-      throw FormatException('Invalid header length');
-    }
 
     final identifier = String.fromCharCodes(bytes.sublist(0, 3));
     if (identifier != 'ID3') {
