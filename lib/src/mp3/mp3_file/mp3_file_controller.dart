@@ -17,7 +17,7 @@ class Mp3FileController extends GetxController {
 
   final mp3file = Rxn<File>();
 
-  RandomAccessFile _raf;
+  RandomAccessFile? _raf;
 
   final header = Rxn<Id3v2TagHeader>();
 
