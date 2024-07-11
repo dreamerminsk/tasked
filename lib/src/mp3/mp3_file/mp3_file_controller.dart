@@ -36,8 +36,10 @@ class Mp3FileController extends GetxController {
     final headerBuf = List<int>.filled(10, 0);
     headerBufLength = await _raf.readInto(headerBuf);
     if (headerBufLength > 9) {
-
+    String identifier = String.fromCharCodes(headerBuf.sublist(0, 3));
+      if (identifier=='ID3') {
       header.value = Id3v2TagHeader.parse(headerBuf);
+}
     }
   }
 
