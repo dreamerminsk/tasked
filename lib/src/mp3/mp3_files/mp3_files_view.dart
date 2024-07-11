@@ -97,7 +97,7 @@ class Mp3FilesView extends StatelessWidget {
 }
 
 class _Mp3CardItem extends StatelessWidget {
-  _Mp3CardItem({super.key, required this.mp3File});
+  _Mp3CardItem({required this.mp3File});
 
   final File mp3File;
 
