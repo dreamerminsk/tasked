@@ -34,8 +34,10 @@ class Mp3FileView extends StatelessWidget {
 c.header == null 
 ?SizedBox(height: 0,)
 : Card(
-title: Text(),),
-),
+title: Text(c.header.runtimeType.toString()),
+subtitle:Text('pos: 0, size: ${10+c.header.size}') ,
+) // Card
+), // Obx
 ], // children
       ), // Column
     );
