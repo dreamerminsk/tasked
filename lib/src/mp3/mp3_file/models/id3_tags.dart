@@ -78,7 +78,12 @@ class Id3v2TagHeader {
   });
 
   factory Id3v2TagHeader.parse(List<int> bytes) {
-    if (bytes.length < 10) {
+const int MIN_HEADER_LENGTH = 10;
+
+factory Id3v2TagHeader.parse(List<int> bytes) {
+  if (bytes.length < MIN_HEADER_LENGTH) {
+    throw FormatException('Invalid header length');
+  }
       throw FormatException('Invalid header length');
     }
 
