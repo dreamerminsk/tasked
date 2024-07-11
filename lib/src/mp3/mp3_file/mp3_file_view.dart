@@ -32,10 +32,13 @@ class Mp3FileView extends StatelessWidget {
         children: <Widget>[
           Obx(()=>
 c.header == null 
-?SizedBox(height: 0,)
+? Card(
+title:Text(c.mp3file.value?.path.split('/').last),
+subtitle:Text('pos: 0, size: ${c.mp3file.value?.lengthSync()}') ,
+)
 : Card(
 title: Text(c.header.runtimeType.toString()),
-subtitle:Text('pos: 0, size: ${10+c.header.size}') ,
+subtitle:Text('pos: 0, size: ${10+c.header.value?.size}') ,
 ) // Card
 ), // Obx
 ], // children
