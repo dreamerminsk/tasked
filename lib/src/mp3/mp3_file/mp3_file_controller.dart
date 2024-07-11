@@ -20,6 +20,8 @@ class Mp3FileController extends GetxController {
 
   RandomAccessFile _raf;
 
+ final header = Rxn<Id3v2TagHeader>();
+
   @override
   void onInit() {
     super.onInit();
@@ -34,7 +36,8 @@ class Mp3FileController extends GetxController {
     final headerBuf = List<int>.filled(10, 0);
     headerBufLength = await _raf.readInto(headerBuf);
     if (headerBufLength > 9) {
-      Id3v2TagHeader.parse(headerBuf);
+
+      header.value = Id3v2TagHeader.parse(headerBuf);
     }
   }
 
