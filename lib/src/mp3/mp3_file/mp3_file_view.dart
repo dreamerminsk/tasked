@@ -41,7 +41,7 @@ class Mp3FileView extends StatelessWidget {
                   : ListTile(
                       title: Text(c.header.runtimeType.toString()),
                       subtitle:
-                          Text('pos: 0, size: ${10 + c.header.value?.size ?? 0}'),
+                          Text('pos: 0, size: ${10 + (c.header.value?.size ?? 0)}'),
                     ) // Card
               ), // Obx
         ], // children
