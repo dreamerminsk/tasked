@@ -111,6 +111,7 @@ factory Id3v2TagHeader.parse(List<int> bytes) {
     if (bytes.length != 4) {
       throw FormatException('Sync-safe integer must be 4 bytes long');
     }
+    // Combine the 4 bytes into a single integer using sync-safe bitwise operations
     return (bytes[0] << 21) | (bytes[1] << 14) | (bytes[2] << 7) | bytes[3];
   }
 
