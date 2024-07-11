@@ -33,7 +33,7 @@ class Mp3FileController extends GetxController {
     mp3file.value = Get.arguments;
     _raf = await mp3file.value?.open();
     final headerBuf = List<int>.filled(10, 0);
-    final headerBufLength = await _raf?.readInto(headerBuf);
+    final headerBufLength = await _raf?.readInto(headerBuf) ?? 0;
     if (headerBufLength > 9) {
       String identifier = String.fromCharCodes(headerBuf.sublist(0, 3));
       if (identifier == 'ID3') {
