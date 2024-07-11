@@ -23,7 +23,7 @@ class Mp3FileView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Text('Mp3FileView: ${mp3file.value.path.split("/").last}'),
+          title: Text('Mp3FileView: ${c.mp3file.value.path.split("/").last}'),
           actions: <Widget>[
             DebugIconButton(
               route: Routes.DEBUG,
