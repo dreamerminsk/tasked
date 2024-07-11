@@ -33,12 +33,12 @@ class Mp3FileView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Obx(() => c.header == null
-                  ? Card(
+                  ? ListTile(
                       title: Text(c.mp3file.value?.path.split('/').last),
                       subtitle: Text(
                           'pos: 0, size: ${c.mp3file.value?.lengthSync()}'),
                     )
-                  : Card(
+                  : ListTile(
                       title: Text(c.header.runtimeType.toString()),
                       subtitle:
                           Text('pos: 0, size: ${10 + c.header.value?.size}'),
