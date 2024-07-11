@@ -38,7 +38,8 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoContainer(BuildContext context, TextTheme textTheme, ColorScheme colorScheme) {
+  Widget _buildInfoContainer(
+      BuildContext context, TextTheme textTheme, ColorScheme colorScheme) {
     return ValueListenableBuilder<bool>(
       valueListenable: isShowInfo,
       builder: (context, value, child) {
@@ -59,15 +60,18 @@ class ColorSchemePage extends StatelessWidget {
             children: [
               Text(
                 MyApp.seedColor.name,
-                style: textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed),
+                style: textTheme.titleLarge!
+                    .copyWith(color: colorScheme.onPrimaryFixed),
               ),
               Text(
                 MyApp.shadeColor.name,
-                style: textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed),
+                style: textTheme.titleLarge!
+                    .copyWith(color: colorScheme.onPrimaryFixed),
               ),
               Text(
                 MyApp.variant.toString().split(".").last,
-                style: textTheme.titleLarge!.copyWith(color: colorScheme.onPrimaryFixed),
+                style: textTheme.titleLarge!
+                    .copyWith(color: colorScheme.onPrimaryFixed),
               ),
             ],
           ),
@@ -78,35 +82,151 @@ class ColorSchemePage extends StatelessWidget {
 
   List<Widget> _buildColorSamples(ColorScheme colorScheme) {
     final colorSamples = <Map<String, dynamic>>[
-      {'title': 'primary', 'background': colorScheme.primary, 'foreground': colorScheme.onPrimary},
-      {'title': 'primaryContainer', 'background': colorScheme.primaryContainer, 'foreground': colorScheme.onPrimaryContainer},
-      {'title': 'primaryFixed', 'background': colorScheme.primaryFixed, 'foreground': colorScheme.onPrimaryFixed},
-      {'title': 'primaryFixedDim', 'background': colorScheme.primaryFixedDim, 'foreground': colorScheme.onPrimaryFixedVariant},
-      {'title': 'secondary', 'background': colorScheme.secondary, 'foreground': colorScheme.onSecondary},
-      {'title': 'secondaryContainer', 'background': colorScheme.secondaryContainer, 'foreground': colorScheme.onSecondaryContainer},
-      {'title': 'secondaryFixed', 'background': colorScheme.secondaryFixed, 'foreground': colorScheme.onSecondaryFixed},
-      {'title': 'secondaryFixedDim', 'background': colorScheme.secondaryFixedDim, 'foreground': colorScheme.onSecondaryFixedVariant},
-      {'title': 'tertiary', 'background': colorScheme.tertiary, 'foreground': colorScheme.onTertiary},
-      {'title': 'tertiaryContainer', 'background': colorScheme.tertiaryContainer, 'foreground': colorScheme.onTertiaryContainer},
-      {'title': 'tertiaryFixed', 'background': colorScheme.tertiaryFixed, 'foreground': colorScheme.onTertiaryFixed},
-      {'title': 'tertiaryFixedDim', 'background': colorScheme.tertiaryFixedDim, 'foreground': colorScheme.onTertiaryFixedVariant},
-      {'title': 'error', 'background': colorScheme.error, 'foreground': colorScheme.onError},
-      {'title': 'errorContainer', 'background': colorScheme.errorContainer, 'foreground': colorScheme.onErrorContainer},
-      {'title': 'surface', 'background': colorScheme.surface, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceDim', 'background': colorScheme.surfaceDim, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceBright', 'background': colorScheme.surfaceBright, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceContainerLowest', 'background': colorScheme.surfaceContainerLowest, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceContainerLow', 'background': colorScheme.surfaceContainerLow, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceContainer', 'background': colorScheme.surfaceContainer, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceContainerHigh', 'background': colorScheme.surfaceContainerHigh, 'foreground': colorScheme.onSurface},
-      {'title': 'surfaceContainerHighest', 'background': colorScheme.surfaceContainerHighest, 'foreground': colorScheme.onSurface},
-      {'title': 'outline', 'background': colorScheme.outline, 'foreground': ColorUtils.contrastThemeColor(colorScheme.outline)},
-      {'title': 'outlineVariant', 'background': colorScheme.outlineVariant, 'foreground': ColorUtils.contrastThemeColor(colorScheme.outlineVariant)},
-      {'title': 'inverseSurface', 'background': colorScheme.inverseSurface, 'foreground': colorScheme.onInverseSurface},
-      {'title': 'inversePrimary', 'background': colorScheme.inversePrimary, 'foreground': colorScheme.primary},
-      {'title': 'shadow', 'background': colorScheme.shadow, 'foreground': ColorUtils.contrastThemeColor(colorScheme.shadow)},
-      {'title': 'scrim', 'background': colorScheme.scrim, 'foreground': ColorUtils.contrastThemeColor(colorScheme.scrim)},
-      {'title': 'surfaceTint', 'background': colorScheme.surfaceTint, 'foreground': ColorUtils.contrastThemeColor(colorScheme.surfaceTint)},
+      {
+        'title': 'primary',
+        'background': colorScheme.primary,
+        'foreground': colorScheme.onPrimary
+      },
+      {
+        'title': 'primaryContainer',
+        'background': colorScheme.primaryContainer,
+        'foreground': colorScheme.onPrimaryContainer
+      },
+      {
+        'title': 'primaryFixed',
+        'background': colorScheme.primaryFixed,
+        'foreground': colorScheme.onPrimaryFixed
+      },
+      {
+        'title': 'primaryFixedDim',
+        'background': colorScheme.primaryFixedDim,
+        'foreground': colorScheme.onPrimaryFixedVariant
+      },
+      {
+        'title': 'secondary',
+        'background': colorScheme.secondary,
+        'foreground': colorScheme.onSecondary
+      },
+      {
+        'title': 'secondaryContainer',
+        'background': colorScheme.secondaryContainer,
+        'foreground': colorScheme.onSecondaryContainer
+      },
+      {
+        'title': 'secondaryFixed',
+        'background': colorScheme.secondaryFixed,
+        'foreground': colorScheme.onSecondaryFixed
+      },
+      {
+        'title': 'secondaryFixedDim',
+        'background': colorScheme.secondaryFixedDim,
+        'foreground': colorScheme.onSecondaryFixedVariant
+      },
+      {
+        'title': 'tertiary',
+        'background': colorScheme.tertiary,
+        'foreground': colorScheme.onTertiary
+      },
+      {
+        'title': 'tertiaryContainer',
+        'background': colorScheme.tertiaryContainer,
+        'foreground': colorScheme.onTertiaryContainer
+      },
+      {
+        'title': 'tertiaryFixed',
+        'background': colorScheme.tertiaryFixed,
+        'foreground': colorScheme.onTertiaryFixed
+      },
+      {
+        'title': 'tertiaryFixedDim',
+        'background': colorScheme.tertiaryFixedDim,
+        'foreground': colorScheme.onTertiaryFixedVariant
+      },
+      {
+        'title': 'error',
+        'background': colorScheme.error,
+        'foreground': colorScheme.onError
+      },
+      {
+        'title': 'errorContainer',
+        'background': colorScheme.errorContainer,
+        'foreground': colorScheme.onErrorContainer
+      },
+      {
+        'title': 'surface',
+        'background': colorScheme.surface,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceDim',
+        'background': colorScheme.surfaceDim,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceBright',
+        'background': colorScheme.surfaceBright,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceContainerLowest',
+        'background': colorScheme.surfaceContainerLowest,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceContainerLow',
+        'background': colorScheme.surfaceContainerLow,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceContainer',
+        'background': colorScheme.surfaceContainer,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceContainerHigh',
+        'background': colorScheme.surfaceContainerHigh,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'surfaceContainerHighest',
+        'background': colorScheme.surfaceContainerHighest,
+        'foreground': colorScheme.onSurface
+      },
+      {
+        'title': 'outline',
+        'background': colorScheme.outline,
+        'foreground': ColorUtils.contrastThemeColor(colorScheme.outline)
+      },
+      {
+        'title': 'outlineVariant',
+        'background': colorScheme.outlineVariant,
+        'foreground': ColorUtils.contrastThemeColor(colorScheme.outlineVariant)
+      },
+      {
+        'title': 'inverseSurface',
+        'background': colorScheme.inverseSurface,
+        'foreground': colorScheme.onInverseSurface
+      },
+      {
+        'title': 'inversePrimary',
+        'background': colorScheme.inversePrimary,
+        'foreground': colorScheme.primary
+      },
+      {
+        'title': 'shadow',
+        'background': colorScheme.shadow,
+        'foreground': ColorUtils.contrastThemeColor(colorScheme.shadow)
+      },
+      {
+        'title': 'scrim',
+        'background': colorScheme.scrim,
+        'foreground': ColorUtils.contrastThemeColor(colorScheme.scrim)
+      },
+      {
+        'title': 'surfaceTint',
+        'background': colorScheme.surfaceTint,
+        'foreground': ColorUtils.contrastThemeColor(colorScheme.surfaceTint)
+      },
     ];
 
     return colorSamples.map((sample) {

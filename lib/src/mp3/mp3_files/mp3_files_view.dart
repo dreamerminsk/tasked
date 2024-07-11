@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,7 +36,7 @@ class Mp3FilesView extends StatelessWidget {
         children: <Widget>[
           Container(
             width: Get.width,
-            height: Get.width / 1.618 / 2,
+            height: Get.width / 1.618 / 3,
             padding: EdgeInsets.all(16.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -73,14 +75,9 @@ class Mp3FilesView extends StatelessWidget {
                       itemCount: c.mp3Files.length,
                       itemBuilder: (context, index) {
                         final file = c.mp3Files[index];
-                        return Card(
-                          child: ListTile(
-                            title: Text(
-                              file.path.split('/').last,
-                            ),
-                            subtitle: Text(file.parent.path),
-                          ),
-                        ); // Card
+                        return _Mp3CardItem(
+                          mp3File: file,
+                        ); // _Mp3CardItem
                       },
                     ),
                   ),
@@ -91,10 +88,35 @@ class Mp3FilesView extends StatelessWidget {
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton.extended(
-        icon: const Icon(Icons.audiotrack_outlined),
-        label: Text('Add'),
+        icon: const Icon(Icons.playlist_add),
+        label: Text('Add mp3'),
         onPressed: c.pickFile,
       ),
     );
+  }
+}
+
+class _Mp3CardItem extends StatelessWidget {
+  _Mp3CardItem({required this.mp3File});
+
+  final File mp3File;
+
+  @override
+  Widget build(context) {
+    return InkWell(
+      onTap: () => Get.toNamed(
+        Routes.MP3_FILE,
+        arguments: mp3File,
+      ),
+      child: Card(
+        child: ListTile(
+          leading: Icon(Icons.audiotrack_outlined),
+          title: Text(
+            mp3File.path.split('/').last,
+          ),
+          subtitle: Text(mp3File.parent.path),
+        ),
+      ), // Card
+    ); // InkWell
   }
 }

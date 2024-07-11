@@ -12,6 +12,7 @@ abstract class Routes {
   static const SNOOKERSEASONS = _Paths.SNOOKERSEASONS;
 
   static const MP3_FILES = _Paths.MP3_FILES;
+  static const MP3_FILE = _Paths.MP3_FILE;
 
   static const HTML_SOURCELIST = _Paths.HTML_SOURCELIST;
 
@@ -36,6 +37,7 @@ abstract class _Paths {
   static const SNOOKERSEASONS = '/task/seasons';
 
   static const MP3_FILES = '/task/mp3/files';
+  static const MP3_FILE = '/task/mp3/file';
 
   static const HTML_SOURCELIST = '/task/html/sourcelist';
   //static const HTML_DOM = '/task/html/dom';

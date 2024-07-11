@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 
 import '../../debug/debug_controller.dart';
-import '../../tasklist/task/task_item.dart';
+
+import 'models/id3_tags.dart';
 
 class Mp3FileController extends GetxController {
   final id = nanoid();
@@ -14,9 +15,11 @@ class Mp3FileController extends GetxController {
 
   final DebugController debug = Get.find(tag: 'debugger');
 
-  final task = Rxn<TaskItem>();
-
   final mp3file = Rxn<File>();
+
+  RandomAccessFile? _raf;
+
+  final header = Rxn<Id3v2TagHeader>();
 
   @override
   void onInit() {
@@ -25,14 +28,26 @@ class Mp3FileController extends GetxController {
   }
 
   @override
-  void onReady() {
+  void onReady() async {
     super.onReady();
-    task.value = Get.arguments;
+    mp3file.value = Get.arguments;
+    _raf = await mp3file.value?.open();
+    final headerBuf = List<int>.filled(10, 0);
+    final headerBufLength = await _raf?.readInto(headerBuf) ?? 0;
+    if (headerBufLength > 9) {
+      String identifier = String.fromCharCodes(headerBuf.sublist(0, 3));
+      if (identifier == 'ID3') {
+        header.value = Id3v2TagHeader.parse(headerBuf);
+      }
+    }
   }
 
   @override
   void onClose() {
     debug.logClose(this.runtimeType.toString(), id, DateTime.now());
+    if (_raf != null) {
+      _raf?.close();
+    }
     super.onClose();
   }
 }
