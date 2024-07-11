@@ -69,6 +69,8 @@ class Id3v2TagHeader {
   final int flags; // Flags byte
   final int size; // Size of the tag excluding the header
 
+const int MIN_HEADER_LENGTH = 10;
+
   Id3v2TagHeader({
     required this.identifier,
     required this.versionMajor,
@@ -77,8 +79,6 @@ class Id3v2TagHeader {
     required this.size,
   });
 
-  factory Id3v2TagHeader.parse(List<int> bytes) {
-const int MIN_HEADER_LENGTH = 10;
 
 factory Id3v2TagHeader.parse(List<int> bytes) {
   if (bytes.length < MIN_HEADER_LENGTH) {
