@@ -34,9 +34,9 @@ class Mp3FileView extends StatelessWidget {
         children: <Widget>[
           Obx(() => c.header.value == null
                   ? ListTile(
-                      title: Text(c.mp3file.value?.path.split('/').last),
+                      title: Text(c.mp3file.value?.path.split('/').last ?? '~^~'),
                       subtitle: Text(
-                          'pos: 0, size: ${c.mp3file.value?.lengthSync()}'),
+                          'pos: 0, size: ${c.mp3file.value?.lengthSync() ?? 0}'),
                     )
                   : ListTile(
                       title: Text(c.header.runtimeType.toString()),
