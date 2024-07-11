@@ -29,7 +29,14 @@ class Mp3FileView extends StatelessWidget {
       ]),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[], // children
+        children: <Widget>[
+          Obx(()=>
+c.header == null 
+?SizedBox(height: 0,)
+: Card(
+title: Text(),),
+),
+], // children
       ), // Column
     );
   }
