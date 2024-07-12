@@ -21,12 +21,6 @@ class SampleFontWeight extends StatelessWidget {
         textStyleNotifier.value.copyWith(fontWeight: fontWeightNotifier.value);
   }
 
-@override
-void dispose() {
-fontWeightNotifier.dispose();
-super.dispose();
-}
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
