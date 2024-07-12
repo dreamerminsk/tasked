@@ -11,8 +11,8 @@ class SampleFontWeight extends StatelessWidget {
   SampleFontWeight({
     super.key,
     required this.textStyleNotifier,
-  }) : fontWeightNotifier =
-            ValueNotifier<FontWeight>(textStyleNotifier.value.fontWeight ?? FontWeight.w400) {
+  }) : fontWeightNotifier = ValueNotifier<FontWeight>(
+            textStyleNotifier.value.fontWeight ?? FontWeight.w400) {
     textStyleNotifier.addListener(_updateTextStyle);
   }
 
@@ -119,8 +119,7 @@ class SampleFontWeight extends StatelessWidget {
   //}
 
   void _decrementFontWeight() {
-    final index =
-        FontWeight.values.indexOf(fontWeightNotifier.value);
+    final index = FontWeight.values.indexOf(fontWeightNotifier.value);
     if (index > 0) {
       fontWeightNotifier.value = FontWeight.values[index - 1];
     } else {
@@ -129,8 +128,7 @@ class SampleFontWeight extends StatelessWidget {
   }
 
   void _incrementFontWeight() {
-    final index =
-        FontWeight.values.indexOf(fontWeightNotifier.value);
+    final index = FontWeight.values.indexOf(fontWeightNotifier.value);
     fontWeightNotifier.value =
         FontWeight.values[(index + 1) % FontWeight.values.length];
   }
