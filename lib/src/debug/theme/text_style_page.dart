@@ -189,7 +189,10 @@ class TextStylePage extends StatelessWidget {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return Material(
+    return ValueListenableBuilder<TextStyle>(
+valueListenable: textStyleNotifier,
+builder: (context, value, child) {
+return Material(
       elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: Container(
@@ -200,7 +203,7 @@ class TextStylePage extends StatelessWidget {
           children: <Widget>[
             Text(
               'Carolina\r\nChureyno',
-              style: textStyle.copyWith(
+              style: textStyleNotifier.value.copyWith(
                 color: colorScheme.onSurface,
               ),
             ), // Text,
@@ -214,5 +217,7 @@ class TextStylePage extends StatelessWidget {
         ), // BoxDecoration
       ), // Container
     ); // Material
+},
+);
   }
 }
