@@ -3,14 +3,23 @@ import 'package:get/get.dart';
 
 class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
-  final FontWeight? fontWeight;
-  final ValueNotifier<FontWeight?> _fontWeightNotifier;
+
+  final ValueNotifier<TextStyle> textStyleNotifier;
+
+  final ValueNotifier<FontWeight> fontWeightNotifier;
 
   SampleFontWeight({
-    Key? key,
-    required this.fontWeight,
-  })  : _fontWeightNotifier = ValueNotifier<FontWeight?>(fontWeight),
-        super(key: key);
+    super.key,
+    required this.textStyleNotifier,
+  }) : fontWeightNotifier =
+            ValueNotifier<FontWeight>(textStyleNotifier.value.fontWeight ?? FontWeight.w400) {
+    textStyleNotifier.addListener(_updateTextStyle);
+  }
+
+  void _updateTextStyle() {
+    textStyleNotifier.value =
+        textStyleNotifier.value.copyWith(fontWeight: fontWeightNotifier.value);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +59,8 @@ class SampleFontWeight extends StatelessWidget {
                     Expanded(
                       child: Align(
                         alignment: Alignment.center,
-                        child: ValueListenableBuilder<FontWeight?>(
-                          valueListenable: _fontWeightNotifier,
+                        child: ValueListenableBuilder<FontWeight>(
+                          valueListenable: fontWeightNotifier,
                           builder: (context, value, child) {
                             return Text(
                               _objectToString(value),
@@ -111,25 +120,22 @@ class SampleFontWeight extends StatelessWidget {
 
   void _decrementFontWeight() {
     final index =
-        FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
+        FontWeight.values.indexOf(fontWeightNotifier.value);
     if (index > 0) {
-      _fontWeightNotifier.value = FontWeight.values[index - 1];
+      fontWeightNotifier.value = FontWeight.values[index - 1];
     } else {
-      _fontWeightNotifier.value = FontWeight.values.last;
+      fontWeightNotifier.value = FontWeight.values.last;
     }
   }
 
   void _incrementFontWeight() {
     final index =
-        FontWeight.values.indexOf(_fontWeightNotifier.value ?? FontWeight.w100);
-    _fontWeightNotifier.value =
+        FontWeight.values.indexOf(fontWeightNotifier.value);
+    fontWeightNotifier.value =
         FontWeight.values[(index + 1) % FontWeight.values.length];
   }
 
-  String _objectToString(FontWeight? object) {
-    if (object == null) {
-      return "null";
-    }
+  String _objectToString(FontWeight object) {
     final name = object.toString().contains('.')
         ? object.toString().split('.').last
         : '.w${object.value}';
