@@ -12,7 +12,7 @@ class SampleFontWeight extends StatelessWidget {
     super.key,
     required this.textStyleNotifier,
   }) : fontWeightNotifier =
-            ValueNotifier<FontWeight>(textStyleNotifier.value.fontWeight) {
+            ValueNotifier<FontWeight>(textStyleNotifier.value.fontWeight ?? FontWeight.w400) {
     textStyleNotifier.addListener(_updateTextStyle);
   }
 
