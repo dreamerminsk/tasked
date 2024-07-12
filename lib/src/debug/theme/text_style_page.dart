@@ -10,7 +10,7 @@ class TextStylePage extends StatelessWidget {
   const TextStylePage({
     super.key,
     required TextStyle textStyle,
-  }):textStyleNotifier=ValueNotifier<TextStyle>(textStyle);
+  }) : textStyleNotifier = ValueNotifier<TextStyle>(textStyle);
 
   @override
   Widget build(context) {
@@ -190,34 +190,34 @@ class TextStylePage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return ValueListenableBuilder<TextStyle>(
-valueListenable: textStyleNotifier,
-builder: (context, value, child) {
-return Material(
-      elevation: 4,
-      borderRadius: BorderRadius.all(Radius.circular(20)),
-      child: Container(
-        width: Get.width,
-        height: Get.width / 1.618,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Carolina\r\nChureyno',
-              style: textStyleNotifier.value.copyWith(
-                color: colorScheme.onSurface,
-              ),
-            ), // Text,
-          ],
-        ), // Column
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.surface,
-        ), // BoxDecoration
-      ), // Container
-    ); // Material
-},
-);
+      valueListenable: textStyleNotifier,
+      builder: (context, value, child) {
+        return Material(
+          elevation: 4,
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          child: Container(
+            width: Get.width,
+            height: Get.width / 1.618,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Carolina\r\nChureyno',
+                  style: textStyleNotifier.value.copyWith(
+                    color: colorScheme.onSurface,
+                  ),
+                ), // Text,
+              ],
+            ), // Column
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ), // BorderRadius
+              color: colorScheme.surface,
+            ), // BoxDecoration
+          ), // Container
+        ); // Material
+      },
+    );
   }
 }

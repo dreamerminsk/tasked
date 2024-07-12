@@ -5,19 +5,21 @@ class SampleFontWeight extends StatelessWidget {
   static const className = 'fontWeight';
 
   final ValueNotifier<TextStyle> textStyleNotifier;
-  
+
   final ValueNotifier<FontWeight> fontWeightNotifier;
 
   SampleFontWeight({
     super.key,
     required this.textStyleNotifier,
-  })  : fontWeightNotifier = ValueNotifier<FontWeight>(textStyleNotifier.value.fontWeight) {
-textStyleNotifier.addListener(_updateTextStyle);
-}
+  }) : fontWeightNotifier =
+            ValueNotifier<FontWeight>(textStyleNotifier.value.fontWeight) {
+    textStyleNotifier.addListener(_updateTextStyle);
+  }
 
-void _updateTextStyle() {
-textStyleNotifier.value=textStyleNotifier.value.copyWith(fontWeight: fontWeightNotifier.value);
-}
+  void _updateTextStyle() {
+    textStyleNotifier.value =
+        textStyleNotifier.value.copyWith(fontWeight: fontWeightNotifier.value);
+  }
 
   @override
   Widget build(BuildContext context) {
