@@ -5,12 +5,12 @@ import 'sample_object.dart';
 import 'sample_font_weight.dart';
 
 class TextStylePage extends StatelessWidget {
-  final TextStyle textStyle;
+  final ValueNotifier<TextStyle> textStyleNotifier;
 
   const TextStylePage({
     super.key,
-    required this.textStyle,
-  });
+    required TextStyle textStyle,
+  }):textStyleNotifier=ValueNotifier<TextStyle>(textStyle);
 
   @override
   Widget build(context) {
@@ -40,139 +40,139 @@ class TextStylePage extends StatelessWidget {
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'background',
-                      object: textStyle.background,
+                      object: textStyleNotifier.value.background,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'backgroundColor',
-                      object: textStyle.backgroundColor,
+                      object: textStyleNotifier.value.backgroundColor,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'color',
-                      object: textStyle.color,
+                      object: textStyleNotifier.value.color,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'decoration',
-                      object: textStyle.decoration,
+                      object: textStyleNotifier.value.decoration,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'decorationColor',
-                      object: textStyle.decorationColor,
+                      object: textStyleNotifier.value.decorationColor,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'decorationStyle',
-                      object: textStyle.decorationStyle,
+                      object: textStyleNotifier.value.decorationStyle,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'decorationThickness',
-                      object: textStyle.decorationThickness,
+                      object: textStyleNotifier.value.decorationThickness,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'fontFamily',
-                      object: textStyle.fontFamily,
+                      object: textStyleNotifier.value.fontFamily,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'fontSize',
-                      object: textStyle.fontSize,
+                      object: textStyleNotifier.value.fontSize,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'fontStyle',
-                      object: textStyle.fontStyle,
+                      object: textStyleNotifier.value.fontStyle,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleFontWeight(
-                      fontWeight: textStyle.fontWeight,
+                      fontWeight: textStyleNotifier.value.fontWeight,
                     ), // SampleFontWeight
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'foreground',
-                      object: textStyle.foreground,
+                      object: textStyleNotifier.value.foreground,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'height',
-                      object: textStyle.height,
+                      object: textStyleNotifier.value.height,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'leadingDistribution',
-                      object: textStyle.leadingDistribution,
+                      object: textStyleNotifier.value.leadingDistribution,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'letterSpacing',
-                      object: textStyle.letterSpacing,
+                      object: textStyleNotifier.value.letterSpacing,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'locale',
-                      object: textStyle.locale,
+                      object: textStyleNotifier.value.locale,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'overflow',
-                      object: textStyle.overflow,
+                      object: textStyleNotifier.value.overflow,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'shadows',
-                      object: textStyle.shadows,
+                      object: textStyleNotifier.value.shadows,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'textBaseline',
-                      object: textStyle.textBaseline,
+                      object: textStyleNotifier.value.textBaseline,
                     ), // SampleObject
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleObject(
                       title: 'wordSpacing',
-                      object: textStyle.wordSpacing,
+                      object: textStyleNotifier.value.wordSpacing,
                     ), // SampleObject
                   ), // Padding
                 ],
