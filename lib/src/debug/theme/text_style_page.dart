@@ -7,7 +7,7 @@ import 'sample_font_weight.dart';
 class TextStylePage extends StatelessWidget {
   final ValueNotifier<TextStyle> textStyleNotifier;
 
-  const TextStylePage({
+  TextStylePage({
     super.key,
     required TextStyle textStyle,
   }) : textStyleNotifier = ValueNotifier<TextStyle>(textStyle);
