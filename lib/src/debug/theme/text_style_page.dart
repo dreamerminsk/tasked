@@ -109,7 +109,7 @@ class TextStylePage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: SampleFontWeight(
-                      fontWeight: textStyleNotifier.value.fontWeight,
+                      textStyleNotifier: textStyleNotifier,
                     ), // SampleFontWeight
                   ), // Padding
                   Padding(
