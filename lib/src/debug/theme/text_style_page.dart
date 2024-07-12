@@ -12,6 +12,12 @@ class TextStylePage extends StatelessWidget {
     required TextStyle textStyle,
   }) : textStyleNotifier = ValueNotifier<TextStyle>(textStyle);
 
+@override
+void dispose() {
+textStyleNotifier.dispose();
+super.dispose();
+}
+
   @override
   Widget build(context) {
     //final textTheme = Theme.of(context).textTheme;
