@@ -47,4 +47,7 @@ flutter:
   assets:
     - data/github.json.samples
     - data/Watchlist.Cats.json
+    - data/html/index.html
+    - data/html/kb.html
+    - data/html/html5example.html
 
