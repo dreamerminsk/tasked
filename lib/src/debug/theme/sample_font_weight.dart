@@ -120,7 +120,7 @@ class SampleFontWeight extends StatelessWidget {
 
   void _decrementFontWeight() {
     final index =
-        FontWeight.values.indexOf(fontWeightNotifier.value ?? FontWeight.w100);
+        FontWeight.values.indexOf(fontWeightNotifier.value);
     if (index > 0) {
       fontWeightNotifier.value = FontWeight.values[index - 1];
     } else {
@@ -130,7 +130,7 @@ class SampleFontWeight extends StatelessWidget {
 
   void _incrementFontWeight() {
     final index =
-        FontWeight.values.indexOf(fontWeightNotifier.value ?? FontWeight.w100);
+        FontWeight.values.indexOf(fontWeightNotifier.value);
     fontWeightNotifier.value =
         FontWeight.values[(index + 1) % FontWeight.values.length];
   }
