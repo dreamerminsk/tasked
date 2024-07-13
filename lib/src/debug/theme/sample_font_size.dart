@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SampleFontWeight extends StatelessWidget {
-  static const className = 'fontWeight';
+class SampleFontSize extends StatelessWidget {
+  static const className = 'fontSize';
 
   final ValueNotifier<TextStyle> textStyleNotifier;
 
-  final ValueNotifier<FontWeight> fontWeightNotifier;
+  final ValueNotifier<double> fontSizeNotifier;
 
-  SampleFontWeight({
+  SampleFontSize({
     super.key,
     required this.textStyleNotifier,
-  }) : fontWeightNotifier = ValueNotifier<FontWeight>(
-            textStyleNotifier.value.fontWeight ?? FontWeight.w400) {
-    fontWeightNotifier.addListener(_updateTextStyle);
+  }) : fontSizeNotifier =
+            ValueNotifier<double>(textStyleNotifier.value.fontSize ?? 16.0) {
+    fontSizeNotifier.addListener(_updateTextStyle);
   }
 
   void _updateTextStyle() {
     textStyleNotifier.value =
-        textStyleNotifier.value.copyWith(fontWeight: fontWeightNotifier.value);
+        textStyleNotifier.value.copyWith(fontSize: fontSizeNotifier.value);
   }
 
   @override
@@ -53,17 +53,17 @@ class SampleFontWeight extends StatelessWidget {
                   children: <Widget>[
                     _buildIconButton(
                       icon: Icons.arrow_back_ios_rounded,
-                      onPressed: _decrementFontWeight,
+                      onPressed: _decrementFontSize,
                       color: colorScheme.onPrimary,
                     ),
                     Expanded(
                       child: Align(
                         alignment: Alignment.center,
-                        child: ValueListenableBuilder<FontWeight>(
-                          valueListenable: fontWeightNotifier,
+                        child: ValueListenableBuilder<double>(
+                          valueListenable: fontSizeNotifier,
                           builder: (context, value, child) {
                             return Text(
-                              _objectToString(value),
+                              '$value',
                               style: textStyle,
                             );
                           },
@@ -72,7 +72,7 @@ class SampleFontWeight extends StatelessWidget {
                     ),
                     _buildIconButton(
                       icon: Icons.arrow_forward_ios_rounded,
-                      onPressed: _incrementFontWeight,
+                      onPressed: _incrementFontSize,
                       color: colorScheme.onPrimary,
                     ),
                   ],
@@ -118,25 +118,15 @@ class SampleFontWeight extends StatelessWidget {
   //.values[newIndex < 0 ? FontWeight.values.length - 1 : newIndex];
   //}
 
-  void _decrementFontWeight() {
-    final index = FontWeight.values.indexOf(fontWeightNotifier.value);
-    if (index > 0) {
-      fontWeightNotifier.value = FontWeight.values[index - 1];
-    } else {
-      fontWeightNotifier.value = FontWeight.values.last;
+  void _decrementFontSize() {
+    final fontSize = fontSizeNotifier.value;
+    if (fontSize > 0) {
+      fontSizeNotifier.value = fontSize - 1;
     }
   }
 
-  void _incrementFontWeight() {
-    final index = FontWeight.values.indexOf(fontWeightNotifier.value);
-    fontWeightNotifier.value =
-        FontWeight.values[(index + 1) % FontWeight.values.length];
-  }
-
-  String _objectToString(FontWeight object) {
-    final name = object.toString().contains('.')
-        ? object.toString().split('.').last
-        : '.w${object.value}';
-    return name;
+  void _incrementFontSize() {
+    final fontSize = fontSizeNotifier.value;
+    fontSizeNotifier.value = fontSize + 1;
   }
 }
