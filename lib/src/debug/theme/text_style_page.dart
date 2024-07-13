@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'sample_object.dart';
+import 'sample_font_size.dart';
 import 'sample_font_weight.dart';
 
 class TextStylePage extends StatelessWidget {
@@ -94,10 +95,9 @@ class TextStylePage extends StatelessWidget {
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
-                    child: SampleObject(
-                      title: 'fontSize',
-                      object: textStyleNotifier.value.fontSize,
-                    ), // SampleObject
+                    child: SampleFontSize(
+                      textStyleNotifier: textStyleNotifier,
+                    ), // SampleFontSize
                   ), // Padding
                   Padding(
                     padding: EdgeInsets.all(8),
