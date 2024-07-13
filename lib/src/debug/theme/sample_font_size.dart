@@ -119,7 +119,7 @@ class SampleFontSize extends StatelessWidget {
   //}
 
   void _decrementFontSize() {
-    final fontSize = fontWeightNotifier.value;
+    final fontSize = fontSizeNotifier.value;
     if (fontSize > 0) {
       fontSizeNotifier.value = fontSize - 1;
     }
