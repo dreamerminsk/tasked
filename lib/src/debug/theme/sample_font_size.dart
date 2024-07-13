@@ -11,8 +11,8 @@ class SampleFontSize extends StatelessWidget {
   SampleFontSize({
     super.key,
     required this.textStyleNotifier,
-  }) : fontSizeNotifier = ValueNotifier<double>(
-            textStyleNotifier.value.fontSize ?? 16.0) {
+  }) : fontSizeNotifier =
+            ValueNotifier<double>(textStyleNotifier.value.fontSize ?? 16.0) {
     fontSizeNotifier.addListener(_updateTextStyle);
   }
 
@@ -119,7 +119,7 @@ class SampleFontSize extends StatelessWidget {
   //}
 
   void _decrementFontSize() {
-    final fontSize =fontWeightNotifier.value;
+    final fontSize = fontWeightNotifier.value;
     if (fontSize > 0) {
       fontSizeNotifier.value = fontSize - 1;
     }
@@ -127,6 +127,6 @@ class SampleFontSize extends StatelessWidget {
 
   void _incrementFontSize() {
     final fontSize = fontSizeNotifier.value;
-    fontSizeNotifier.value =fontSize + 1;
+    fontSizeNotifier.value = fontSize + 1;
   }
 }
