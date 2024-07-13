@@ -193,8 +193,7 @@ class TextStylePage extends StatelessWidget {
       valueListenable: textStyleNotifier,
       builder: (context, value, child) {
         return Material(
-          elevation: 4,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          elevation: 0,
           child: Container(
             width: Get.width,
             height: Get.width / 1.618,
@@ -210,9 +209,6 @@ class TextStylePage extends StatelessWidget {
               ],
             ), // Column
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(20),
-              ), // BorderRadius
               color: colorScheme.surface,
             ), // BoxDecoration
           ), // Container
