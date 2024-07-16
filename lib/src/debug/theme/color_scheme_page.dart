@@ -112,6 +112,18 @@ return Row(
                 );
 }
 
+  Widget _buildIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+    required Color color,
+  }) {
+    return IconButton(
+      icon: Icon(icon),
+      color: color,
+      onPressed: onPressed,
+    );
+  }
+
   List<Widget> _buildColorSamples(ColorScheme colorScheme) {
     final colorSamples = <Map<String, dynamic>>[
       {
