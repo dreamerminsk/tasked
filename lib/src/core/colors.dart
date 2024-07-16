@@ -62,6 +62,10 @@ class NamedMaterialColor {
         name: '$name[900]',
         color: primary[900]!,
       );
+
+  static const List<NamedColor> shadess = <NamedColor>[
+shade50,
+];
 }
 
 class NamedAccentColor {
