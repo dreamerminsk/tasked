@@ -63,8 +63,17 @@ class NamedMaterialColor {
         color: primary[900]!,
       );
 
-  static const List<NamedColor> shadess = <NamedColor>[
+  final List<NamedColor> shades = <NamedColor>[
 shade50,
+      shade100,
+      shade200,
+      shade300,
+      shade400,
+      shade500,
+      shade600,
+      shade700,
+      shade800,
+      shade900,
 ];
 }
 
@@ -98,6 +107,14 @@ class NamedAccentColor {
         name: '$name[700]',
         color: accent[700]!,
       );
+
+final List<NamedColor> shades = <NamedColor>[
+shade50,
+      shade100,
+      shade200,
+      shade400,
+      shade700,
+];
 }
 
 abstract final class NamedColors {
