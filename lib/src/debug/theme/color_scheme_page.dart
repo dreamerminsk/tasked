@@ -80,6 +80,38 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
+Widget _buildChooser() {
+return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _buildIconButton(
+                      icon: Icons.arrow_back_ios_rounded,
+                      onPressed: _decrementFontWeight,
+                      color: colorScheme.onPrimary,
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: ValueListenableBuilder<FontWeight>(
+                          valueListenable: fontWeightNotifier,
+                          builder: (context, value, child) {
+                            return Text(
+                              _objectToString(value),
+                              style: textStyle,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    _buildIconButton(
+                      icon: Icons.arrow_forward_ios_rounded,
+                      onPressed: _incrementFontWeight,
+                      color: colorScheme.onPrimary,
+                    ),
+                  ],
+                );
+}
+
   List<Widget> _buildColorSamples(ColorScheme colorScheme) {
     final colorSamples = <Map<String, dynamic>>[
       {
