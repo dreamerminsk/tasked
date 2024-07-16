@@ -64,17 +64,17 @@ class NamedMaterialColor {
       );
 
   final List<NamedColor> shades = <NamedColor>[
-shade50,
-      shade100,
-      shade200,
-      shade300,
-      shade400,
-      shade500,
-      shade600,
-      shade700,
-      shade800,
-      shade900,
-];
+    shade50,
+    shade100,
+    shade200,
+    shade300,
+    shade400,
+    shade500,
+    shade600,
+    shade700,
+    shade800,
+    shade900,
+  ];
 }
 
 class NamedAccentColor {
@@ -108,13 +108,13 @@ class NamedAccentColor {
         color: accent[700]!,
       );
 
-final List<NamedColor> shades = <NamedColor>[
-shade50,
-      shade100,
-      shade200,
-      shade400,
-      shade700,
-];
+  final List<NamedColor> shades = <NamedColor>[
+    shade50,
+    shade100,
+    shade200,
+    shade400,
+    shade700,
+  ];
 }
 
 abstract final class NamedColors {
