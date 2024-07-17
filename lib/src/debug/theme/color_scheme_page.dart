@@ -3,15 +3,16 @@ import 'package:get/get.dart';
 import 'package:tasked/main.dart';
 
 import 'sample_color.dart';
+import 'src/core/colors.dart';
 import '../../core/widgets/icon_buttons.dart';
 import '../../core/color_utils.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
-final seedColor = ValueNotifier<NamedMaterialColor>();
-final shadeColor = ValueNotifier<NamedColor>();
-final variant= ValueNotifier<DynamicSchemeVariant>();
+final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
+final shadeColor = ValueNotifier<NamedColor>(MyApp.shadeColor);
+final variant= ValueNotifier<DynamicSchemeVariant>(MyApp.variant);
 
   @override
   Widget build(BuildContext context) {
