@@ -9,6 +9,9 @@ import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
+final seedColor = ValueNotifier<NamedMaterialColor>();
+final shadeColor = ValueNotifier<NamedColor>();
+final variant= ValueNotifier<DynamicSchemeVariant>();
 
   @override
   Widget build(BuildContext context) {
