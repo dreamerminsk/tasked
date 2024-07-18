@@ -71,6 +71,9 @@ _variantIdx = DynamicSchemeVariant.values().indexOf(MyApp.variant);
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              _buildChooser(NamedColors.primaries(), seedColor),
+_buildChooser(seedColor.shades(), shadeColor),
+_buildChooser(DynamicSchemeVariant.values(), variant),
               Text(
                 MyApp.seedColor.name,
                 style: textTheme.titleLarge!
