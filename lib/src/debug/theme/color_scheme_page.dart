@@ -96,7 +96,7 @@ _buildChooser(DynamicSchemeVariant.values(), variant),
     );
   }
 
-  Widget _buildChooser() {
+  Widget _buildChooser(List<Object> values, ValueNotifier<Object> notifier, int idx) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -108,8 +108,8 @@ _buildChooser(DynamicSchemeVariant.values(), variant),
         Expanded(
           child: Align(
             alignment: Alignment.center,
-            child: ValueListenableBuilder<FontWeight>(
-              valueListenable: fontWeightNotifier,
+            child: ValueListenableBuilder<Object>(
+              valueListenable: notifier,
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
