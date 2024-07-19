@@ -1,3 +1,4 @@
+import 'color_utils.dart';
 import 'properties.dart';
 
 
@@ -151,8 +152,8 @@ onTertiaryContainer),
 onError),
 (errorContainer,
 onErrorContainer),
-(outline, ___),
-(outlineVariant, ___),
+(outline, ColorUtils.contrastThemeColor(outline)),
+(outlineVariant, ColorUtils.contrastThemeColor(outlineVariant)),
 (surface,onSurface),
 (surfaceDim,onSurfaceVariant),
 (surfaceBright,onSurfaceVariant),
@@ -164,9 +165,9 @@ onErrorContainer),
 (inverseSurface,
 onInverseSurface),
 (inversePrimary, primary),
-(shadow, ___),
-(scrim, ___),
-(surfaceTint, ___),
+(shadow, ColorUtils.contrastThemeColor(shadow)),
+(scrim, ColorUtils.contrastThemeColor(scrim)),
+(surfaceTint, ColorUtils.contrastThemeColor(surfaceTint)),
 ];
 
 }
