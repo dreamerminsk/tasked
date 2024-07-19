@@ -81,9 +81,9 @@ class ColorSchemePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildChooser(NamedColors.primaries(), seedColor),
-              _buildChooser(seedColor.value.shades(), shadeColor),
-              _buildChooser(DynamicSchemeVariant.values(), variant),
+              _buildChooser(() => NamedColors.primaries(), seedColor),
+              _buildChooser(() => seedColor.value.shades(), shadeColor),
+              _buildChooser(() => DynamicSchemeVariant.values(), variant),
             ],
           ),
         );
@@ -91,7 +91,7 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  Widget _buildChooser(List<Object> values, ValueNotifier<Object> notifier,
+  Widget _buildChooser(List<Object> Function() values, ValueNotifier<Object> notifier,
       ValueNotifier<int> idx) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
