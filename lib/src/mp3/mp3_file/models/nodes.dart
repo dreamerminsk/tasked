@@ -1,9 +1,7 @@
 abstract interface class Node {
+  List<Node> childNodes();
 
-List<Node> childNodes();
+  String nodeName();
 
-String nodeName();
-
-Node parentNode();
-
+  Node parentNode();
 }
