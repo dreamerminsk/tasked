@@ -10,28 +10,28 @@ import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
-final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
-final shadeColor = ValueNotifier<NamedColor>(MyApp.shadeColor);
-final variant= ValueNotifier<DynamicSchemeVariant>(MyApp.variant);
-int _seedIdx = ValueNotifier<int>(0);
-int _shadeIdx = ValueNotifier<int>(0);
-int _variantIdx = ValueNotifier<int>(0);
+  final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
+  final shadeColor = ValueNotifier<NamedColor>(MyApp.shadeColor);
+  final variant = ValueNotifier<DynamicSchemeVariant>(MyApp.variant);
+  int _seedIdx = ValueNotifier<int>(0);
+  int _shadeIdx = ValueNotifier<int>(0);
+  int _variantIdx = ValueNotifier<int>(0);
 
-ColorSchemePage({super.key}) {
-_seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
-_shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
-_variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
-_seedIdx.addListener((){
-seedColor.value = NamedColors.primaries()[_seedIdx.value];
-shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
-});
-_shadeIdx.addListener((){
-shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
-});
-_variantIdx.addListener((){
-variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
-});
-}
+  ColorSchemePage({super.key}) {
+    _seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
+    _shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
+    _variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
+    _seedIdx.addListener(() {
+      seedColor.value = NamedColors.primaries()[_seedIdx.value];
+      shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
+    });
+    _shadeIdx.addListener(() {
+      shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
+    });
+    _variantIdx.addListener(() {
+      variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +82,8 @@ variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildChooser(NamedColors.primaries(), seedColor),
-_buildChooser(seedColor.value.shades(), shadeColor),
-_buildChooser(DynamicSchemeVariant.values(), variant),
+              _buildChooser(seedColor.value.shades(), shadeColor),
+              _buildChooser(DynamicSchemeVariant.values(), variant),
             ],
           ),
         );
@@ -91,15 +91,16 @@ _buildChooser(DynamicSchemeVariant.values(), variant),
     );
   }
 
-  Widget _buildChooser(List<Object> values, ValueNotifier<Object> notifier, ValueNotifier<int> idx) {
+  Widget _buildChooser(List<Object> values, ValueNotifier<Object> notifier,
+      ValueNotifier<int> idx) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _buildIconButton(
           icon: Icons.arrow_back_ios_rounded,
           onPressed: () {
-idx.value > 0 ? idx.value-- : idx.value = values.length;
-},
+            idx.value > 0 ? idx.value-- : idx.value = values.length;
+          },
           color: colorScheme.onPrimary,
         ),
         Expanded(
@@ -119,8 +120,8 @@ idx.value > 0 ? idx.value-- : idx.value = values.length;
         _buildIconButton(
           icon: Icons.arrow_forward_ios_rounded,
           onPressed: () {
-idx.value = (idx.value + 1) % values.length;
-},
+            idx.value = (idx.value + 1) % values.length;
+          },
           color: colorScheme.onPrimary,
         ),
       ],
