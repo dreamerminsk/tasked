@@ -63,7 +63,7 @@ class NamedMaterialColor {
         color: primary[900]!,
       );
 
-  final List<NamedColor> shades = <NamedColor>[
+  final List<NamedColor> shades = const <NamedColor>[
     shade50,
     shade100,
     shade200,
