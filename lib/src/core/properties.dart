@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart' hide ColorProperty;
+
 class NamedProperty<T> {
   NamedProperty(this.name, this.value);
 
