@@ -99,7 +99,9 @@ final textTheme = Theme.of(context).textTheme;
 
   Widget _buildChooser(
       BuildContext context, List<Object> Function() values, ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
-    final textStyle = TextStyle(color: colorScheme.onPrimaryFixed);
+final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -118,7 +120,8 @@ final textTheme = Theme.of(context).textTheme;
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
-                  style: textStyle,
+                                  style: textTheme.titleLarge!
+                    .copyWith(color: colorScheme.onPrimaryFixed),
                 );
               },
             ),
