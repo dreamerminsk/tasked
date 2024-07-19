@@ -54,6 +54,18 @@ ColorProperty get onErrorContainer => ColorProperty('onErrorContainer', colorSch
 ColorProperty get outline => ColorProperty('outline', colorScheme.outline);
 ColorProperty get outlineVariant => ColorProperty('outlineVariant', colorScheme.outlineVariant);
 
+ColorProperty get surface => ColorProperty('surface', colorScheme.surface);
+ColorProperty get surfaceDim => ColorProperty('surfaceDim', colorScheme.surfaceDim);
+
+ColorProperty get surfaceBright => ColorProperty('surfaceBright', colorScheme.surfaceBright);
+ColorProperty get surfaceContainerLowest => ColorProperty('surfaceContainerLowest', colorScheme.surfaceContainerLowest);
+
+ColorProperty get surfaceContainerLow => ColorProperty('surfaceContainerLow', colorScheme.surfaceContainerLow);
+ColorProperty get surfaceContainer => ColorProperty('surfaceContainer', colorScheme.surfaceContainer);
+
+ColorProperty get surfaceContainerHigh => ColorProperty('surfaceContainerHigh', colorScheme.surfaceContainerHigh);
+ColorProperty get surfaceContainerHighest => ColorProperty('surfaceContainerHighest', colorScheme.surfaceContainerHighest);
+
 List<ColorProperty> get  values => <ColorProperty>[
 primary,
 onPrimary,
@@ -85,6 +97,14 @@ errorContainer,
 onErrorContainer,
 outline,
 outlineVariant,
+surface,
+surfaceDim,
+surfaceBright,
+surfaceContainerLowest,
+surfaceContainerLow,
+surfaceContainer,
+surfaceContainerHigh,
+surfaceContainerHighest,
 ];
 
 
@@ -97,17 +117,10 @@ outlineVariant,
    
 
    
-    
 
+ 
+   
 
-      surface: surface ?? Color(MaterialDynamicColors.surface.getArgb(scheme)),
-      surfaceDim: surfaceDim ?? Color(MaterialDynamicColors.surfaceDim.getArgb(scheme)),
-      surfaceBright: surfaceBright ?? Color(MaterialDynamicColors.surfaceBright.getArgb(scheme)),
-      surfaceContainerLowest: surfaceContainerLowest ?? Color(MaterialDynamicColors.surfaceContainerLowest.getArgb(scheme)),
-      surfaceContainerLow: surfaceContainerLow ?? Color(MaterialDynamicColors.surfaceContainerLow.getArgb(scheme)),
-      surfaceContainer: surfaceContainer ?? Color(MaterialDynamicColors.surfaceContainer.getArgb(scheme)),
-      surfaceContainerHigh: surfaceContainerHigh ?? Color(MaterialDynamicColors.surfaceContainerHigh.getArgb(scheme)),
-      surfaceContainerHighest: surfaceContainerHighest ?? Color(MaterialDynamicColors.surfaceContainerHighest.getArgb(scheme)),
       onSurface: onSurface ?? Color(MaterialDynamicColors.onSurface.getArgb(scheme)),
       onSurfaceVariant: onSurfaceVariant ?? Color(MaterialDynamicColors.onSurfaceVariant.getArgb(scheme)),
       inverseSurface: inverseSurface ?? Color(MaterialDynamicColors.inverseSurface.getArgb(scheme)),
@@ -116,10 +129,3 @@ outlineVariant,
       shadow: shadow ?? Color(MaterialDynamicColors.shadow.getArgb(scheme)),
       scrim: scrim ?? Color(MaterialDynamicColors.scrim.getArgb(scheme)),
       surfaceTint: surfaceTint ?? Color(MaterialDynamicColors.primary.getArgb(scheme)),
-      brightness: brightness,
-      // DEPRECATED (newest deprecations at the bottom)
-      background: background ?? Color(MaterialDynamicColors.background.getArgb(scheme)),
-      onBackground: onBackground ?? Color(MaterialDynamicColors.onBackground.getArgb(scheme)),
-      surfaceVariant: surfaceVariant ?? Color(MaterialDynamicColors.surfaceVariant.getArgb(scheme)),
-    );
-  }
