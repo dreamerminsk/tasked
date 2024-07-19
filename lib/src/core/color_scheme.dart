@@ -51,6 +51,9 @@ ColorProperty get onError => ColorProperty('onError', colorScheme.onError);
 ColorProperty get errorContainer => ColorProperty('errorContainer', colorScheme.errorContainer);
 ColorProperty get onErrorContainer => ColorProperty('onErrorContainer', colorScheme.onErrorContainer);
 
+ColorProperty get outline => ColorProperty('outline', colorScheme.outline);
+ColorProperty get outlineVariant => ColorProperty('outlineVariant', colorScheme.outlineVariant);
+
 List<ColorProperty> get  values => <ColorProperty>[
 primary,
 onPrimary,
@@ -80,6 +83,8 @@ error,
 onError,
 errorContainer,
 onErrorContainer,
+outline,
+outlineVariant,
 ];
 
 
@@ -95,16 +100,6 @@ onErrorContainer,
     
 
 
-
-   
- 
- 
-    
- 
- 
-  
-      outline: outline ?? Color(MaterialDynamicColors.outline.getArgb(scheme)),
-      outlineVariant: outlineVariant ?? Color(MaterialDynamicColors.outlineVariant.getArgb(scheme)),
       surface: surface ?? Color(MaterialDynamicColors.surface.getArgb(scheme)),
       surfaceDim: surfaceDim ?? Color(MaterialDynamicColors.surfaceDim.getArgb(scheme)),
       surfaceBright: surfaceBright ?? Color(MaterialDynamicColors.surfaceBright.getArgb(scheme)),
