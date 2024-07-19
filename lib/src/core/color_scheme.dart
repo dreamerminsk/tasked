@@ -92,49 +92,6 @@ class NamedColorScheme {
        _onBackground = onBackground,
        _surfaceVariant = surfaceVariant;
 
-  /// Generate a [ColorScheme] derived from the given `seedColor`.
-  ///
-  /// Using the `seedColor` as a starting point, a set of tonal palettes are
-  /// constructed. By default, the tonal palettes are based on the Material 3
-  /// Color system and provide all of the [ColorScheme] colors. These colors are
-  /// designed to work well together and meet contrast requirements for
-  /// accessibility.
-  ///
-  /// If any of the optional color parameters are non-null they will be
-  /// used in place of the generated colors for that field in the resulting
-  /// color scheme. This allows apps to override specific colors for their
-  /// needs.
-  ///
-  /// Given the nature of the algorithm, the `seedColor` may not wind up as
-  /// one of the ColorScheme colors.
-  ///
-  /// The `dynamicSchemeVariant` parameter creates different types of
-  /// [DynamicScheme]s, which are used to generate different styles of [ColorScheme]s.
-  /// By default, `dynamicSchemeVariant` is set to `tonalSpot`. A [ColorScheme]
-  /// constructed by `dynamicSchemeVariant.tonalSpot` has pastel palettes and
-  /// won't be too "colorful" even if the `seedColor` has a high chroma value.
-  /// If the resulting color scheme is too dark, consider setting `dynamicSchemeVariant`
-  /// to [DynamicSchemeVariant.fidelity], whose palettes match the seed color.
-  ///
-  /// The `contrastLevel` parameter indicates the contrast level between color
-  /// pairs, such as [primary] and [onPrimary]. 0.0 is the default (normal);
-  /// -1.0 is the lowest; 1.0 is the highest. From Material Design guideline, the
-  /// medium and high contrast correspond to 0.5 and 1.0 respectively.
-  ///
-  /// {@tool dartpad}
-  /// This sample shows how to use [ColorScheme.fromSeed] to create dynamic
-  /// color schemes with different [DynamicSchemeVariant]s and different
-  /// contrast level.
-  ///
-  /// ** See code in examples/api/lib/material/color_scheme/color_scheme.0.dart **
-  /// {@end-tool}
-  ///
-  /// See also:
-  ///
-  ///  * <https://m3.material.io/styles/color/the-color-system/color-roles>, the
-  ///    Material 3 Color system specification.
-  ///  * <https://pub.dev/packages/material_color_utilities>, the package
-  ///    used to generate the tonal palettes needed for the scheme.
   factory ColorScheme.fromSeed({
     required Color seedColor,
     Brightness brightness = Brightness.light,
