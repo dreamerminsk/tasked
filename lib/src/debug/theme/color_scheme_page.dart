@@ -21,6 +21,9 @@ ColorSchemePage({super.key}) {
 _seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
 _shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
 _variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
+_seedIdx.addListener((){seedColor.value = NamedColors.primaries()[_seedIdx.value];});
+_shadeIdx.addListener((){shadeColor.value = seedColor.value.shades()[_shadeIdx.value];});
+_variantIdx.addListener((){variant.value = DynamicSchemeVariant.values()[_variantIdx.value];});
 }
 
   @override
@@ -72,7 +75,7 @@ _variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildChooser(NamedColors.primaries(), seedColor),
-_buildChooser(seedColor.shades(), shadeColor),
+_buildChooser(seedColor.value.shades(), shadeColor),
 _buildChooser(DynamicSchemeVariant.values(), variant),
               Text(
                 MyApp.seedColor.name,
