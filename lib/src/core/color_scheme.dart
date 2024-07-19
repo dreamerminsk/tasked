@@ -15,6 +15,11 @@ return NamedColorScheme(colorScheme: colorScheme);
 ColorProperty get primary => ColorProperty('primary', colorScheme.primary);
 ColorProperty get onPrimary => ColorProperty('onPrimary', colorScheme.onPrimary);
 
+List<ColorProperty> get  values => <ColorProperty>[
+primary,
+onPrimary,
+];
+
     return ColorScheme(
       primary: primary ?? Color(MaterialDynamicColors.primary.getArgb(scheme)),
       onPrimary: onPrimary ?? Color(MaterialDynamicColors.onPrimary.getArgb(scheme)),
