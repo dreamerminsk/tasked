@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ColorProperty;
 
 import 'color_utils.dart';
 import 'properties.dart';
