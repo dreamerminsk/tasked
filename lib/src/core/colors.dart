@@ -436,15 +436,3 @@ class NamedColorScheme {
     Color? inversePrimary,
     Color? surfaceTint,
 }
-
-class NamedProperty<T> {
-
-
-
-}
-
-class ColorProperty extends NamedProperty<Color> {
-  ColorProperty(
-    super.name,
-    super.value);
-}
