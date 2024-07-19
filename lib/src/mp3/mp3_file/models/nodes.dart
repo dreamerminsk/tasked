@@ -4,4 +4,6 @@ List<Node> childNodes();
 
 String nodeName();
 
+Node parentNode();
+
 }
