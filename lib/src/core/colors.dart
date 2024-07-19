@@ -437,28 +437,14 @@ class NamedColorScheme {
     Color? surfaceTint,
 }
 
-class ColorProperty extends DiagnosticsProperty<Color> {
-  /// Create a diagnostics property for [Color].
-  ColorProperty(
-    String super.name,
-    super.value, {
-    super.showName,
-    super.defaultValue,
-    super.style,
-    super.level,
-  });
+class NamedProperty<T> {
 
-  @override
-  Map<String, Object?> toJsonMap(DiagnosticsSerializationDelegate delegate) {
-    final Map<String, Object?> json = super.toJsonMap(delegate);
-    if (value != null) {
-      json['valueProperties'] = <String, Object>{
-        'red': value!.red,
-        'green': value!.green,
-        'blue': value!.blue,
-        'alpha': value!.alpha,
-      };
-    }
-    return json;
-  }
+
+
+}
+
+class ColorProperty extends NamedProperty<Color> {
+  ColorProperty(
+    super.name,
+    super.value);
 }
