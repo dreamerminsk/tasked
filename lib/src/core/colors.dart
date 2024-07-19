@@ -11,7 +11,7 @@ class NamedMaterialColor {
   final String name;
   final MaterialColor primary;
 
-  NamedMaterialColor({required this.name, required this.primary});
+  const NamedMaterialColor({required this.name, required this.primary});
 
   NamedColor get shade50 => NamedColor(
         name: '$name[50]',
