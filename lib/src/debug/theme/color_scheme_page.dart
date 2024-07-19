@@ -21,9 +21,16 @@ ColorSchemePage({super.key}) {
 _seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
 _shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
 _variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
-_seedIdx.addListener((){seedColor.value = NamedColors.primaries()[_seedIdx.value];});
-_shadeIdx.addListener((){shadeColor.value = seedColor.value.shades()[_shadeIdx.value];});
-_variantIdx.addListener((){variant.value = DynamicSchemeVariant.values()[_variantIdx.value];});
+_seedIdx.addListener((){
+seedColor.value = NamedColors.primaries()[_seedIdx.value];
+shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
+});
+_shadeIdx.addListener((){
+shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
+});
+_variantIdx.addListener((){
+variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
+});
 }
 
   @override
