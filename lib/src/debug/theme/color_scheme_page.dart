@@ -99,7 +99,7 @@ class ColorSchemePage extends StatelessWidget {
         _buildIconButton(
           icon: Icons.arrow_back_ios_rounded,
           onPressed: () {
-            idx.value > 0 ? idx.value-- : idx.value = values.length;
+            idx.value > 0 ? idx.value-- : idx.value = values().length;
           },
           color: colorScheme.onPrimary,
         ),
@@ -120,7 +120,7 @@ class ColorSchemePage extends StatelessWidget {
         _buildIconButton(
           icon: Icons.arrow_forward_ios_rounded,
           onPressed: () {
-            idx.value = (idx.value + 1) % values.length;
+            idx.value = (idx.value + 1) % values().length;
           },
           color: colorScheme.onPrimary,
         ),
