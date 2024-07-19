@@ -18,9 +18,9 @@ int _shadeIdx = ValueNotifier<int>(0);
 int _variantIdx = ValueNotifier<int>(0);
 
 ColorSchemePage({super.key}) {
-_seedIdx = NamedColors.primaries().indexOf(MyApp.seedColor);
-_shadeIdx = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
-_variantIdx = DynamicSchemeVariant.values().indexOf(MyApp.variant);
+_seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
+_shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
+_variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
 }
 
   @override
