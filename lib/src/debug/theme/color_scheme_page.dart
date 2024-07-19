@@ -57,15 +57,18 @@ class ColorSchemePage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          _buildInfoContainer(context, textTheme, colorScheme),
-          ..._buildColorSamples(colorScheme),
+          _buildInfoContainer(context),
+          ..._buildColorSamples(context),
         ],
       ),
     );
   }
 
   Widget _buildInfoContainer(
-      BuildContext context, TextTheme textTheme, ColorScheme colorScheme) {
+      BuildContext context) {
+final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return ValueListenableBuilder<bool>(
       valueListenable: isShowInfo,
       builder: (context, value, child) {
@@ -84,9 +87,9 @@ class ColorSchemePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildChooser(() => NamedColors.primaries(), seedColor, _seedIdx, colorScheme),
-              _buildChooser(() => seedColor.value.shades(), shadeColor, _shadeIdx, colorScheme),
-              _buildChooser(() => DynamicSchemeVariant.values(), variant, _variantIdx, colorScheme),
+              _buildChooser(context, () => NamedColors.primaries(), seedColor, _seedIdx),
+              _buildChooser(context, () => seedColor.value.shades(), shadeColor, _shadeIdx),
+              _buildChooser(context, () => DynamicSchemeVariant.values(), variant, _variantIdx),
             ],
           ),
         );
@@ -95,23 +98,23 @@ class ColorSchemePage extends StatelessWidget {
   }
 
   Widget _buildChooser(
-      List<Object> Function() values, ValueNotifier<Object> notifier, ValueNotifier<int> idx, ColorScheme colorScheme) {
-    final textStyle = TextStyle(color: colorScheme.onPrimary);
+      BuildContext context, List<Object> Function() values, ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
+    final textStyle = TextStyle(color: colorScheme.onPrimaryFixed);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _buildIconButton(
           icon: Icons.arrow_back_ios_rounded,
           onPressed: () {
-            idx.value > 0 ? idx.value-- : idx.value = values().length - 1;
+            idxNotifier.value > 0 ? idxNotifier.value-- : idxNotifier.value = values().length - 1;
           },
-          color: colorScheme.onPrimary,
+          color: colorScheme.onPrimaryFixed,
         ),
         Expanded(
           child: Align(
             alignment: Alignment.center,
             child: ValueListenableBuilder<Object>(
-              valueListenable: notifier,
+              valueListenable: valueNotifier,
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
@@ -124,9 +127,9 @@ class ColorSchemePage extends StatelessWidget {
         _buildIconButton(
           icon: Icons.arrow_forward_ios_rounded,
           onPressed: () {
-            idx.value = (idx.value + 1) % values().length;
+            idxNotifier.value = (idxNotifier.value + 1) % values().length;
           },
-          color: colorScheme.onPrimary,
+          color: colorScheme.onPrimaryFixed,
         ),
       ],
     );
@@ -144,7 +147,9 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildColorSamples(ColorScheme colorScheme) {
+  List<Widget> _buildColorSamples(BuildContext context) {
+final colorScheme = Theme.of(context).colorScheme;
+
     final colorSamples = <Map<String, dynamic>>[
       {
         'title': 'primary',
