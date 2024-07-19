@@ -108,7 +108,7 @@ class NamedAccentColor {
         color: accent[700]!,
       );
 
-  final List<NamedColor> shades = <NamedColor>[
+  List<NamedColor> get shades => [
     shade50,
     shade100,
     shade200,
