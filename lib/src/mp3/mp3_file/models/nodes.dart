@@ -1,4 +1,4 @@
-abstract class Node {
+abstract interface class Node {
 
 
 
