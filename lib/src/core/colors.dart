@@ -11,7 +11,7 @@ class NamedMaterialColor {
   final String name;
   final MaterialColor primary;
 
-  const NamedMaterialColor({required this.name, required this.primary});
+  NamedMaterialColor({required this.name, required this.primary});
 
   NamedColor get shade50 => NamedColor(
         name: '$name[50]',
@@ -63,7 +63,7 @@ class NamedMaterialColor {
         color: primary[900]!,
       );
 
-  final List<NamedColor> shades = const <NamedColor>[
+  final List<NamedColor> shades = <NamedColor>[
     shade50,
     shade100,
     shade200,
