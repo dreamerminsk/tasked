@@ -12,6 +12,8 @@ final colorScheme = Theme.of(context).colorScheme;
 return NamedColorScheme(colorScheme: colorScheme);
 }
 
+ColorProperty get primary => ColorProperty();
+
     return ColorScheme(
       primary: primary ?? Color(MaterialDynamicColors.primary.getArgb(scheme)),
       onPrimary: onPrimary ?? Color(MaterialDynamicColors.onPrimary.getArgb(scheme)),
