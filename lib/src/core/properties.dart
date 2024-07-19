@@ -1,8 +1,8 @@
 class NamedProperty<T> {
-NamedProperty(required this.name,this.value);
+NamedProperty(this.name,this.value);
 
 final String name;
-final T? value
+final T? value;
 }
 
 class ColorProperty extends NamedProperty<Color> {
