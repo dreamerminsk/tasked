@@ -13,21 +13,24 @@ class ColorSchemePage extends StatelessWidget {
   final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
   final shadeColor = ValueNotifier<NamedColor>(MyApp.shadeColor);
   final variant = ValueNotifier<DynamicSchemeVariant>(MyApp.variant);
-  int _seedIdx = ValueNotifier<int>(0);
-  int _shadeIdx = ValueNotifier<int>(0);
-  int _variantIdx = ValueNotifier<int>(0);
+  final _seedIdx = ValueNotifier<int>(0);
+  final _shadeIdx = ValueNotifier<int>(0);
+  final _variantIdx = ValueNotifier<int>(0);
 
   ColorSchemePage({super.key}) {
     _seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
     _shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
     _variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
+
     _seedIdx.addListener(() {
       seedColor.value = NamedColors.primaries()[_seedIdx.value];
       shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
     });
+
     _shadeIdx.addListener(() {
       shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
     });
+
     _variantIdx.addListener(() {
       variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
     });
@@ -81,9 +84,9 @@ class ColorSchemePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildChooser(() => NamedColors.primaries(), seedColor),
-              _buildChooser(() => seedColor.value.shades(), shadeColor),
-              _buildChooser(() => DynamicSchemeVariant.values(), variant),
+              _buildChooser(() => NamedColors.primaries(), seedColor, _seedIdx, colorScheme),
+              _buildChooser(() => seedColor.value.shades(), shadeColor, _shadeIdx, colorScheme),
+              _buildChooser(() => DynamicSchemeVariant.values(), variant, _variantIdx, colorScheme),
             ],
           ),
         );
@@ -91,15 +94,16 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  Widget _buildChooser(List<Object> Function() values, ValueNotifier<Object> notifier,
-      ValueNotifier<int> idx) {
+  Widget _buildChooser(
+      List<Object> Function() values, ValueNotifier<Object> notifier, ValueNotifier<int> idx, ColorScheme colorScheme) {
+    final textStyle = TextStyle(color: colorScheme.onPrimary);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _buildIconButton(
           icon: Icons.arrow_back_ios_rounded,
           onPressed: () {
-            idx.value > 0 ? idx.value-- : idx.value = values().length;
+            idx.value > 0 ? idx.value-- : idx.value = values().length - 1;
           },
           color: colorScheme.onPrimary,
         ),
@@ -299,5 +303,16 @@ class ColorSchemePage extends StatelessWidget {
         ),
       );
     }).toList();
+  }
+
+  String _objectToString(Object obj) {
+    if (obj is NamedMaterialColor) {
+      return obj.name;
+    } else if (obj is NamedColor) {
+      return obj.name;
+    } else if (obj is DynamicSchemeVariant) {
+      return obj.toString().split('.').last;
+    }
+    return obj.toString();
   }
 }
