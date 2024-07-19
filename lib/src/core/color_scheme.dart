@@ -72,6 +72,12 @@ ColorProperty get onSurfaceVariant => ColorProperty('onSurfaceVariant', colorSch
 ColorProperty get inverseSurface => ColorProperty('inverseSurface', colorScheme.inverseSurface);
 ColorProperty get onInverseSurface => ColorProperty('onInverseSurface', colorScheme.onInverseSurface);
 
+ColorProperty get inversePrimary => ColorProperty('inversePrimary', colorScheme.inversePrimary);
+ColorProperty get shadow => ColorProperty('shadow', colorScheme.shadow);
+
+ColorProperty get scrim => ColorProperty('scrim', colorScheme.scrim);
+ColorProperty get surfaceTint => ColorProperty('surfaceTint', colorScheme.surfaceTint);
+
 List<ColorProperty> get  values => <ColorProperty>[
 primary,
 onPrimary,
@@ -115,26 +121,10 @@ onSurface,
 onSurfaceVariant,
 inverseSurface,
 onInverseSurface,
+inversePrimary,
+shadow,
+scrim,
+surfaceTint,
 ];
 
-
-
-   
-  
-     
-   
- 
-   
-
-   
-
- 
-   
-
-
-  
-  
-      inversePrimary: inversePrimary ?? Color(MaterialDynamicColors.inversePrimary.getArgb(scheme)),
-      shadow: shadow ?? Color(MaterialDynamicColors.shadow.getArgb(scheme)),
-      scrim: scrim ?? Color(MaterialDynamicColors.scrim.getArgb(scheme)),
-      surfaceTint: surfaceTint ?? Color(MaterialDynamicColors.primary.getArgb(scheme)),
+}
