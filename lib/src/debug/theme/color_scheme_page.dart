@@ -38,7 +38,7 @@ class ColorSchemePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -65,7 +65,7 @@ class ColorSchemePage extends StatelessWidget {
   }
 
   Widget _buildInfoContainer(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return ValueListenableBuilder<bool>(
