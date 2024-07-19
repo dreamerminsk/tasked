@@ -84,21 +84,6 @@ variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
               _buildChooser(NamedColors.primaries(), seedColor),
 _buildChooser(seedColor.value.shades(), shadeColor),
 _buildChooser(DynamicSchemeVariant.values(), variant),
-              Text(
-                MyApp.seedColor.name,
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
-              ),
-              Text(
-                MyApp.shadeColor.name,
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
-              ),
-              Text(
-                MyApp.variant.toString().split(".").last,
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
-              ),
             ],
           ),
         );
