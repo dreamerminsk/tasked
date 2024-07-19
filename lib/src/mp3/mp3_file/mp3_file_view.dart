@@ -23,8 +23,8 @@ class Mp3FileView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-              'Mp3FileView: ${c.mp3file.value?.path.split("/").last ?? "~^~"}'),
+          title: Obx(() => Text(
+              'Mp3FileView: ${c.mp3file.value?.path.split("/").last ?? "~^~"}')),
           actions: <Widget>[
             DebugIconButton(
               route: Routes.DEBUG,
@@ -34,16 +34,22 @@ class Mp3FileView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Obx(() => c.header.value == null
-                  ? ListTile(
-                      title:
-                          Text(c.mp3file.value?.path.split('/').last ?? '~^~'),
-                      subtitle: Text(
-                          'pos: 0, size: ${c.mp3file.value?.lengthSync() ?? 0}'),
-                    )
-                  : ListTile(
-                      title: Text(c.header.runtimeType.toString()),
-                      subtitle: Text(
-                          'pos: 0, size: ${10 + (c.header.value?.size ?? 0)}'),
+                  ? Card(
+                      child: ListTile(
+                        title: Text(
+                            c.mp3file.value?.path.split('/').last ?? '~^~'),
+                        subtitle: Text(
+                            'pos: 0, size: ${c.mp3file.value?.lengthSync() ?? 0}'),
+                        isThreeLine: true,
+                      ), // ListTile
+                    ) // Card
+                  : Card(
+                      child: ListTile(
+                        title: Text(c.header.value.runtimeType.toString()),
+                        subtitle: Text(
+                            '${c.header.value}, pos: 0, size: ${10 + (c.header.value?.size ?? 0)}'),
+                        isThreeLine: true,
+                      ), // ListTile
                     ) // Card
               ), // Obx
         ], // children
