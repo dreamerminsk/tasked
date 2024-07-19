@@ -91,13 +91,15 @@ _buildChooser(DynamicSchemeVariant.values(), variant),
     );
   }
 
-  Widget _buildChooser(List<Object> values, ValueNotifier<Object> notifier, int idx) {
+  Widget _buildChooser(List<Object> values, ValueNotifier<Object> notifier, ValueNotifier<int> idx) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _buildIconButton(
           icon: Icons.arrow_back_ios_rounded,
-          onPressed: _decrementFontWeight,
+          onPressed: () {
+idx.value > 0 ? idx.value-- : idx.value = values.length;
+},
           color: colorScheme.onPrimary,
         ),
         Expanded(
@@ -116,7 +118,9 @@ _buildChooser(DynamicSchemeVariant.values(), variant),
         ),
         _buildIconButton(
           icon: Icons.arrow_forward_ios_rounded,
-          onPressed: _incrementFontWeight,
+          onPressed: () {
+idx.value = (idx.value + 1) % values.length;
+},
           color: colorScheme.onPrimary,
         ),
       ],
