@@ -64,9 +64,8 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoContainer(
-      BuildContext context) {
-final textTheme = Theme.of(context).textTheme;
+  Widget _buildInfoContainer(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return ValueListenableBuilder<bool>(
@@ -87,9 +86,12 @@ final textTheme = Theme.of(context).textTheme;
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildChooser(context, () => NamedColors.primaries(), seedColor, _seedIdx),
-              _buildChooser(context, () => seedColor.value.shades(), shadeColor, _shadeIdx),
-              _buildChooser(context, () => DynamicSchemeVariant.values(), variant, _variantIdx),
+              _buildChooser(
+                  context, () => NamedColors.primaries(), seedColor, _seedIdx),
+              _buildChooser(context, () => seedColor.value.shades(), shadeColor,
+                  _shadeIdx),
+              _buildChooser(context, () => DynamicSchemeVariant.values(),
+                  variant, _variantIdx),
             ],
           ),
         );
@@ -97,9 +99,9 @@ final textTheme = Theme.of(context).textTheme;
     );
   }
 
-  Widget _buildChooser(
-      BuildContext context, List<Object> Function() values, ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
-final textTheme = Theme.of(context).textTheme;
+  Widget _buildChooser(BuildContext context, List<Object> Function() values,
+      ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Row(
@@ -108,7 +110,9 @@ final textTheme = Theme.of(context).textTheme;
         _buildIconButton(
           icon: Icons.arrow_back_ios_rounded,
           onPressed: () {
-            idxNotifier.value > 0 ? idxNotifier.value-- : idxNotifier.value = values().length - 1;
+            idxNotifier.value > 0
+                ? idxNotifier.value--
+                : idxNotifier.value = values().length - 1;
           },
           color: colorScheme.onPrimaryFixed,
         ),
@@ -120,8 +124,8 @@ final textTheme = Theme.of(context).textTheme;
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
-                                  style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
+                  style: textTheme.titleLarge!
+                      .copyWith(color: colorScheme.onPrimaryFixed),
                 );
               },
             ),
@@ -151,7 +155,7 @@ final textTheme = Theme.of(context).textTheme;
   }
 
   List<Widget> _buildColorSamples(BuildContext context) {
-final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     final colorSamples = <Map<String, dynamic>>[
       {

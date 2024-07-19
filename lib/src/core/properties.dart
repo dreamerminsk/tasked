@@ -1,12 +1,10 @@
 class NamedProperty<T> {
-NamedProperty(this.name,this.value);
+  NamedProperty(this.name, this.value);
 
-final String name;
-final T? value;
+  final String name;
+  final T? value;
 }
 
 class ColorProperty extends NamedProperty<Color> {
-  ColorProperty(
-    super.name,
-    super.value);
+  ColorProperty(super.name, super.value);
 }
