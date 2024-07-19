@@ -23,6 +23,9 @@ ColorProperty get primaryFixedDim => ColorProperty('primaryFixedDim', colorSchem
 ColorProperty get onPrimaryFixed => ColorProperty('onPrimaryFixed', colorScheme.onPrimaryFixed);
 ColorProperty get onPrimaryFixedVariant => ColorProperty('onPrimaryFixedVariant', colorScheme.onPrimaryFixedVariant);
 
+ColorProperty get secondary => ColorProperty('secondary', colorScheme.secondary);
+ColorProperty get onSecondary => ColorProperty('onSecondary', colorScheme.onSecondary);
+
 
 List<ColorProperty> get  values => <ColorProperty>[
 primary,
@@ -33,6 +36,8 @@ primaryFixed,
 primaryFixedDim,
 onPrimaryFixed,
 onPrimaryFixedVariant,
+secondary,
+onSecondary,
 ];
 
     return ColorScheme(
@@ -42,8 +47,7 @@ onPrimaryFixedVariant,
  
 
    
-      secondary: secondary ?? Color(MaterialDynamicColors.secondary.getArgb(scheme)),
-      onSecondary: onSecondary ?? Color(MaterialDynamicColors.onSecondary.getArgb(scheme)),
+  
       secondaryContainer: secondaryContainer ?? Color(MaterialDynamicColors.secondaryContainer.getArgb(scheme)),
       onSecondaryContainer: onSecondaryContainer ?? Color(MaterialDynamicColors.onSecondaryContainer.getArgb(scheme)),
       secondaryFixed: secondaryFixed ?? Color(MaterialDynamicColors.secondaryFixed.getArgb(scheme)),
