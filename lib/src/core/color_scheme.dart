@@ -48,6 +48,9 @@ ColorProperty get onTertiaryFixedVariant => ColorProperty('onTertiaryFixedVarian
 ColorProperty get error => ColorProperty('error', colorScheme.error);
 ColorProperty get onError => ColorProperty('onError', colorScheme.onError);
 
+ColorProperty get errorContainer => ColorProperty('errorContainer', colorScheme.errorContainer);
+ColorProperty get onErrorContainer => ColorProperty('onErrorContainer', colorScheme.onErrorContainer);
+
 List<ColorProperty> get  values => <ColorProperty>[
 primary,
 onPrimary,
@@ -75,6 +78,8 @@ onTertiaryFixed,
 onTertiaryFixedVariant,
 error,
 onError,
+errorContainer,
+onErrorContainer,
 ];
 
 
@@ -96,8 +101,8 @@ onError,
  
     
  
-      errorContainer: errorContainer ?? Color(MaterialDynamicColors.errorContainer.getArgb(scheme)),
-      onErrorContainer: onErrorContainer ?? Color(MaterialDynamicColors.onErrorContainer.getArgb(scheme)),
+ 
+  
       outline: outline ?? Color(MaterialDynamicColors.outline.getArgb(scheme)),
       outlineVariant: outlineVariant ?? Color(MaterialDynamicColors.outlineVariant.getArgb(scheme)),
       surface: surface ?? Color(MaterialDynamicColors.surface.getArgb(scheme)),
