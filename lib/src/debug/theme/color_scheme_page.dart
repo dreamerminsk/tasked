@@ -3,16 +3,42 @@ import 'package:get/get.dart';
 import 'package:tasked/main.dart';
 
 import 'sample_color.dart';
+import '../../core/colors.dart';
 import '../../core/widgets/icon_buttons.dart';
 import '../../core/color_utils.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
+  final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
+  final shadeColor = ValueNotifier<NamedColor>(MyApp.shadeColor);
+  final variant = ValueNotifier<DynamicSchemeVariant>(MyApp.variant);
+  final _seedIdx = ValueNotifier<int>(0);
+  final _shadeIdx = ValueNotifier<int>(0);
+  final _variantIdx = ValueNotifier<int>(0);
+
+  ColorSchemePage({super.key}) {
+    _seedIdx.value = NamedColors.primaries.indexOf(MyApp.seedColor);
+    _shadeIdx.value = MyApp.seedColor.shades.indexOf(MyApp.shadeColor);
+    _variantIdx.value = DynamicSchemeVariant.values.indexOf(MyApp.variant);
+
+    _seedIdx.addListener(() {
+      seedColor.value = NamedColors.primaries[_seedIdx.value];
+      shadeColor.value = seedColor.value.shades[_shadeIdx.value];
+    });
+
+    _shadeIdx.addListener(() {
+      shadeColor.value = seedColor.value.shades[_shadeIdx.value];
+    });
+
+    _variantIdx.addListener(() {
+      variant.value = DynamicSchemeVariant.values[_variantIdx.value];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
@@ -31,15 +57,17 @@ class ColorSchemePage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          _buildInfoContainer(context, textTheme, colorScheme),
-          ..._buildColorSamples(colorScheme),
+          _buildInfoContainer(context),
+          ..._buildColorSamples(context),
         ],
       ),
     );
   }
 
-  Widget _buildInfoContainer(
-      BuildContext context, TextTheme textTheme, ColorScheme colorScheme) {
+  Widget _buildInfoContainer(BuildContext context) {
+    //final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return ValueListenableBuilder<bool>(
       valueListenable: isShowInfo,
       builder: (context, value, child) {
@@ -58,21 +86,12 @@ class ColorSchemePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                MyApp.seedColor.name,
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
-              ),
-              Text(
-                MyApp.shadeColor.name,
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
-              ),
-              Text(
-                MyApp.variant.toString().split(".").last,
-                style: textTheme.titleLarge!
-                    .copyWith(color: colorScheme.onPrimaryFixed),
-              ),
+              _buildChooser(
+                  context, () => NamedColors.primaries, seedColor, _seedIdx),
+              _buildChooser(context, () => seedColor.value.shades, shadeColor,
+                  _shadeIdx),
+              _buildChooser(context, () => DynamicSchemeVariant.values,
+                  variant, _variantIdx),
             ],
           ),
         );
@@ -80,7 +99,64 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildColorSamples(ColorScheme colorScheme) {
+  Widget _buildChooser(BuildContext context, List<Object> Function() values,
+      ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        _buildIconButton(
+          icon: Icons.arrow_back_ios_rounded,
+          onPressed: () {
+            idxNotifier.value > 0
+                ? idxNotifier.value--
+                : idxNotifier.value = values().length - 1;
+          },
+          color: colorScheme.onPrimaryFixed,
+        ),
+        Expanded(
+          child: Align(
+            alignment: Alignment.center,
+            child: ValueListenableBuilder<Object>(
+              valueListenable: valueNotifier,
+              builder: (context, value, child) {
+                return Text(
+                  _objectToString(value),
+                  style: textTheme.titleLarge!
+                      .copyWith(color: colorScheme.onPrimaryFixed),
+                );
+              },
+            ),
+          ),
+        ),
+        _buildIconButton(
+          icon: Icons.arrow_forward_ios_rounded,
+          onPressed: () {
+            idxNotifier.value = (idxNotifier.value + 1) % values().length;
+          },
+          color: colorScheme.onPrimaryFixed,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+    required Color color,
+  }) {
+    return IconButton(
+      icon: Icon(icon),
+      color: color,
+      onPressed: onPressed,
+    );
+  }
+
+  List<Widget> _buildColorSamples(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     final colorSamples = <Map<String, dynamic>>[
       {
         'title': 'primary',
@@ -239,5 +315,16 @@ class ColorSchemePage extends StatelessWidget {
         ),
       );
     }).toList();
+  }
+
+  String _objectToString(Object obj) {
+    if (obj is NamedMaterialColor) {
+      return obj.name;
+    } else if (obj is NamedColor) {
+      return obj.name;
+    } else if (obj is DynamicSchemeVariant) {
+      return obj.toString().split('.').last;
+    }
+    return obj.toString();
   }
 }

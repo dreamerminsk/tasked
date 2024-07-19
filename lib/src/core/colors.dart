@@ -62,6 +62,19 @@ class NamedMaterialColor {
         name: '$name[900]',
         color: primary[900]!,
       );
+
+  List<NamedColor> get shades => [
+    shade50,
+    shade100,
+    shade200,
+    shade300,
+    shade400,
+    shade500,
+    shade600,
+    shade700,
+    shade800,
+    shade900,
+  ];
 }
 
 class NamedAccentColor {
@@ -94,6 +107,14 @@ class NamedAccentColor {
         name: '$name[700]',
         color: accent[700]!,
       );
+
+  List<NamedColor> get shades => [
+    shade50,
+    shade100,
+    shade200,
+    shade400,
+    shade700,
+  ];
 }
 
 abstract final class NamedColors {

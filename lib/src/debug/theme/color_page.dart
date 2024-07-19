@@ -28,8 +28,8 @@ class ColorPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'blue',
-              object: color.blue,
+              title: 'red',
+              object: color.red,
             ), // SampleObject
           ), // Padding
           Padding(
@@ -42,15 +42,8 @@ class ColorPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(
-              title: 'opacity',
-              object: color.opacity,
-            ), // SampleObject
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleObject(
-              title: 'red',
-              object: color.red,
+              title: 'blue',
+              object: color.blue,
             ), // SampleObject
           ), // Padding
           Padding(
