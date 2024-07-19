@@ -18,21 +18,21 @@ class ColorSchemePage extends StatelessWidget {
   final _variantIdx = ValueNotifier<int>(0);
 
   ColorSchemePage({super.key}) {
-    _seedIdx.value = NamedColors.primaries().indexOf(MyApp.seedColor);
-    _shadeIdx.value = MyApp.seedColor.shades().indexOf(MyApp.shadeColor);
-    _variantIdx.value = DynamicSchemeVariant.values().indexOf(MyApp.variant);
+    _seedIdx.value = NamedColors.primaries.indexOf(MyApp.seedColor);
+    _shadeIdx.value = MyApp.seedColor.shades.indexOf(MyApp.shadeColor);
+    _variantIdx.value = DynamicSchemeVariant.values.indexOf(MyApp.variant);
 
     _seedIdx.addListener(() {
-      seedColor.value = NamedColors.primaries()[_seedIdx.value];
-      shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
+      seedColor.value = NamedColors.primaries[_seedIdx.value];
+      shadeColor.value = seedColor.value.shades[_shadeIdx.value];
     });
 
     _shadeIdx.addListener(() {
-      shadeColor.value = seedColor.value.shades()[_shadeIdx.value];
+      shadeColor.value = seedColor.value.shades[_shadeIdx.value];
     });
 
     _variantIdx.addListener(() {
-      variant.value = DynamicSchemeVariant.values()[_variantIdx.value];
+      variant.value = DynamicSchemeVariant.values[_variantIdx.value];
     });
   }
 
@@ -87,10 +87,10 @@ class ColorSchemePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildChooser(
-                  context, () => NamedColors.primaries(), seedColor, _seedIdx),
-              _buildChooser(context, () => seedColor.value.shades(), shadeColor,
+                  context, () => NamedColors.primaries, seedColor, _seedIdx),
+              _buildChooser(context, () => seedColor.value.shades, shadeColor,
                   _shadeIdx),
-              _buildChooser(context, () => DynamicSchemeVariant.values(),
+              _buildChooser(context, () => DynamicSchemeVariant.values,
                   variant, _variantIdx),
             ],
           ),
