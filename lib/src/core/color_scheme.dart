@@ -6,6 +6,13 @@ const NamedColorScheme({required this.colorScheme});
 
 final ColorScheme colorScheme;
 
+
+factory NamedColorScheme.of(BuildContext context) {
+final colorScheme = Theme.of(context).colorScheme;
+return NamedColorScheme(colorScheme: colorScheme);
+}
+
+
   factory ColorScheme.fromSeed({
     required Color seedColor,
     Brightness brightness = Brightness.light,
