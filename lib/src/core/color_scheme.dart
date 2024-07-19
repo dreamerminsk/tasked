@@ -184,12 +184,12 @@ class NamedColorScheme {
         (errorContainer, onErrorContainer),
         (
           outline,
-          ColorProperty('~onOutline~', ColorUtils.contrastThemeColor(outline))
+          ColorProperty('~onOutline~', ColorUtils.contrastThemeColor(colorScheme.outline))
         ),
         (
           outlineVariant,
           ColorProperty('~onOutlineVariant~',
-              ColorUtils.contrastThemeColor(outlineVariant))
+              ColorUtils.contrastThemeColor(colorScheme.outlineVariant))
         ),
         (surface, onSurface),
         (surfaceDim, onSurfaceVariant),
@@ -203,16 +203,16 @@ class NamedColorScheme {
         (inversePrimary, primary),
         (
           shadow,
-          ColorProperty('~onShadow~', ColorUtils.contrastThemeColor(shadow))
+          ColorProperty('~onShadow~', ColorUtils.contrastThemeColor(colorScheme.shadow))
         ),
         (
           scrim,
-          ColorProperty('~onScrim~', ColorUtils.contrastThemeColor(scrim))
+          ColorProperty('~onScrim~', ColorUtils.contrastThemeColor(colorScheme.scrim))
         ),
         (
           surfaceTint,
           ColorProperty(
-              '~onSurfaceTint~', ColorUtils.contrastThemeColor(surfaceTint))
+              '~onSurfaceTint~', ColorUtils.contrastThemeColor(colorScheme.surfaceTint))
         ),
       ];
 }
