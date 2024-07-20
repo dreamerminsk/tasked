@@ -5,6 +5,18 @@ class NamedColor {
   final Color color;
 
   const NamedColor({required this.name, required this.color});
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is NamedColor &&
+        other.name == name &&
+        other.color == color;
+  }
+
+  @override
+  int get hashCode => name.hashCode ^ color.hashCode;
 }
 
 class NamedMaterialColor {
