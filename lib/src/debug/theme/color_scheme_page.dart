@@ -73,7 +73,7 @@ class ColorSchemePage extends StatelessWidget {
       builder: (context, value, child) {
         return Container(
           width: Get.width,
-          height: Get.width / 1.618 / 2,
+          height: 3 * Get.width / 1.618 / 4,
           padding: EdgeInsets.all(16.0),
           alignment: Alignment.center,
           decoration: BoxDecoration(
