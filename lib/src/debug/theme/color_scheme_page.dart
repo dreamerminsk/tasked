@@ -84,7 +84,7 @@ class ColorSchemePage extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildChooser(
                   context, () => NamedColors.primaries, seedColor, _seedIdx),
@@ -124,7 +124,7 @@ class ColorSchemePage extends StatelessWidget {
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
-                  style: textTheme.titleLarge!
+                  style: textTheme.bodyLarge!
                       .copyWith(color: colorScheme.onPrimaryFixed),
                 );
               },
