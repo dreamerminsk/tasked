@@ -10,7 +10,7 @@ class SampleFontColor extends StatelessWidget {
     super.key,
     color,
   }) : fontColorNotifier = ValueNotifier<Color>(
-            color ?? NamedColors.black) {
+            color ?? Colors.black) {
     
   }
 
