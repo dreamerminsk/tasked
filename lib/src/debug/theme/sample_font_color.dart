@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 class SampleFontColor extends StatelessWidget {
   static const className = 'fontColor';
 
-  final ValueNotifier<FontWeight> fontWeightNotifier;
+  final ValueNotifier<FontWeight> fontColorNotifier;
 
   SampleFontColor({
     super.key,
-    required this.color,
-  }) : fontWeightNotifier = ValueNotifier<FontWeight>(
-            textStyleNotifier.value.fontWeight ?? FontWeight.w400) {
+    color,
+  }) : fontColorNotifier = ValueNotifier<Color>(
+            color ?? NamedColors.black) {
     
   }
 
