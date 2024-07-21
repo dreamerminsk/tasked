@@ -19,60 +19,68 @@ class NamedColor {
   int get hashCode => name.hashCode ^ color.hashCode;
 }
 
-class NamedMaterialColor {
-  final String name;
-  final MaterialColor primary;
+class NamedColorSwatch {
 
-  const NamedMaterialColor({required this.name, required this.primary});
+final String name;
+
+final ColorSwatch<int> colorSwatch;
+
+const NamedColorSwatch(required this.name, required this.colorSwatch);
+
+}
+
+class NamedMaterialColor extends NamedColorSwatch {
+
+  const NamedMaterialColor({super.name, super.colorSwatch});
 
   NamedColor get shade50 => NamedColor(
         name: '$name[50]',
-        color: primary[50]!,
+        color: colorSwatch[50]!,
       );
 
   NamedColor get shade100 => NamedColor(
         name: '$name[100]',
-        color: primary[100]!,
+        color: colorSwatch[100]!,
       );
 
   NamedColor get shade200 => NamedColor(
         name: '$name[200]',
-        color: primary[200]!,
+        color: colorSwatch[200]!,
       );
 
   NamedColor get shade300 => NamedColor(
         name: '$name[300]',
-        color: primary[300]!,
+        color: colorSwatch[300]!,
       );
 
   NamedColor get shade400 => NamedColor(
         name: '$name[400]',
-        color: primary[400]!,
+        color: colorSwatch[400]!,
       );
 
   NamedColor get shade500 => NamedColor(
         name: '$name[500]',
-        color: primary[500]!,
+        color: colorSwatch[500]!,
       );
 
   NamedColor get shade600 => NamedColor(
         name: '$name[600]',
-        color: primary[600]!,
+        color: colorSwatch[600]!,
       );
 
   NamedColor get shade700 => NamedColor(
         name: '$name[700]',
-        color: primary[700]!,
+        color: colorSwatch[700]!,
       );
 
   NamedColor get shade800 => NamedColor(
         name: '$name[800]',
-        color: primary[800]!,
+        color: colorSwatch[800]!,
       );
 
   NamedColor get shade900 => NamedColor(
         name: '$name[900]',
-        color: primary[900]!,
+        color: colorSwatch[900]!,
       );
 
   List<NamedColor> get shades => [
@@ -89,35 +97,33 @@ class NamedMaterialColor {
   ];
 }
 
-class NamedAccentColor {
-  final String name;
-  final MaterialAccentColor accent;
+class NamedAccentColor extends NamedColorSwatch {
 
-  const NamedAccentColor({required this.name, required this.accent});
+  const NamedAccentColor({super.name, super.colorSwatch});
 
   NamedColor get shade50 => NamedColor(
         name: '$name[50]',
-        color: accent[50]!,
+        color: colorSwatch[50]!,
       );
 
   NamedColor get shade100 => NamedColor(
         name: '$name[100]',
-        color: accent[100]!,
+        color: colorSwatch[100]!,
       );
 
   NamedColor get shade200 => NamedColor(
         name: '$name[200]',
-        color: accent[200]!,
+        color: colorSwatch[200]!,
       );
 
   NamedColor get shade400 => NamedColor(
         name: '$name[400]',
-        color: accent[400]!,
+        color: colorSwatch[400]!,
       );
 
   NamedColor get shade700 => NamedColor(
         name: '$name[700]',
-        color: accent[700]!,
+        color: colorSwatch[700]!,
       );
 
   List<NamedColor> get shades => [
@@ -399,23 +405,39 @@ abstract final class NamedColors {
     deepOrangeAccent,
   ];
 
-  static const List<NamedMaterialColor> primariesAndAccents = <NamedMaterialColor>[
+  static const List<NamedColorSwatch> primariesAndAccents = <NamedColorSwatch>[
     red,
+redAccent
     pink,
+pinkAccent
     purple,
+purpleAccent
     deepPurple,
+deepPurpleAccent
     indigo,
+indigoAccent
     blue,
+blueAccent
     lightBlue,
+lightBlueAccent
     cyan,
+cyanAccent
     teal,
+tealAccent
     green,
+greenAccent
     lightGreen,
+lightGreenAccent
     lime,
+limeAccent
     yellow,
+yellowAccent
     amber,
+amberAccent
     orange,
+orangeAccent
     deepOrange,
+deepOrangeAccent
     brown,
     grey,
     blueGrey,
