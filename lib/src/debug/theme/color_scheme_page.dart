@@ -16,6 +16,7 @@ class ColorSchemePage extends StatelessWidget {
   final _seedIdx = ValueNotifier<int>(0);
   final _shadeIdx = ValueNotifier<int>(0);
   final _variantIdx = ValueNotifier<int>(0);
+  final colorSchemeN = ValueNotifier<ColorScheme>();
 
   ColorSchemePage({super.key}) {
     _seedIdx.value = NamedColors.primaries.indexOf(MyApp.seedColor);
