@@ -9,10 +9,7 @@ class SampleFontColor extends StatelessWidget {
   SampleFontColor({
     super.key,
     color,
-  }) : fontColorNotifier = ValueNotifier<Color>(
-            color ?? Colors.black) {
-    
-  }
+  }) : fontColorNotifier = ValueNotifier<Color>(color ?? Colors.black) {}
 
   @override
   Widget build(BuildContext context) {

@@ -10,9 +10,7 @@ class NamedColor {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is NamedColor &&
-        other.name == name &&
-        other.color == color;
+    return other is NamedColor && other.name == name && other.color == color;
   }
 
   @override
@@ -20,17 +18,14 @@ class NamedColor {
 }
 
 class NamedColorSwatch {
+  final String name;
 
-final String name;
+  final ColorSwatch<int> colorSwatch;
 
-final ColorSwatch<int> colorSwatch;
-
-const NamedColorSwatch({required this.name, required this.colorSwatch});
-
+  const NamedColorSwatch({required this.name, required this.colorSwatch});
 }
 
 class NamedMaterialColor extends NamedColorSwatch {
-
   const NamedMaterialColor({super.name, super.colorSwatch});
 
   NamedColor get shade50 => NamedColor(
@@ -84,21 +79,20 @@ class NamedMaterialColor extends NamedColorSwatch {
       );
 
   List<NamedColor> get shades => [
-    shade50,
-    shade100,
-    shade200,
-    shade300,
-    shade400,
-    shade500,
-    shade600,
-    shade700,
-    shade800,
-    shade900,
-  ];
+        shade50,
+        shade100,
+        shade200,
+        shade300,
+        shade400,
+        shade500,
+        shade600,
+        shade700,
+        shade800,
+        shade900,
+      ];
 }
 
 class NamedAccentColor extends NamedColorSwatch {
-
   const NamedAccentColor({super.name, super.colorSwatch});
 
   NamedColor get shade50 => NamedColor(
@@ -127,12 +121,12 @@ class NamedAccentColor extends NamedColorSwatch {
       );
 
   List<NamedColor> get shades => [
-    shade50,
-    shade100,
-    shade200,
-    shade400,
-    shade700,
-  ];
+        shade50,
+        shade100,
+        shade200,
+        shade400,
+        shade700,
+      ];
 }
 
 abstract final class NamedColors {
@@ -407,37 +401,37 @@ abstract final class NamedColors {
 
   static const List<NamedColorSwatch> primariesAndAccents = <NamedColorSwatch>[
     red,
-redAccent,
+    redAccent,
     pink,
-pinkAccent,
+    pinkAccent,
     purple,
-purpleAccent,
+    purpleAccent,
     deepPurple,
-deepPurpleAccent,
+    deepPurpleAccent,
     indigo,
-indigoAccent,
+    indigoAccent,
     blue,
-blueAccent,
+    blueAccent,
     lightBlue,
-lightBlueAccent,
+    lightBlueAccent,
     cyan,
-cyanAccent,
+    cyanAccent,
     teal,
-tealAccent,
+    tealAccent,
     green,
-greenAccent,
+    greenAccent,
     lightGreen,
-lightGreenAccent,
+    lightGreenAccent,
     lime,
-limeAccent,
+    limeAccent,
     yellow,
-yellowAccent,
+    yellowAccent,
     amber,
-amberAccent,
+    amberAccent,
     orange,
-orangeAccent,
+    orangeAccent,
     deepOrange,
-deepOrangeAccent,
+    deepOrangeAccent,
     brown,
     grey,
     blueGrey,

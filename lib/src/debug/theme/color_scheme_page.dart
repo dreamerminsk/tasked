@@ -16,20 +16,22 @@ class ColorSchemePage extends StatelessWidget {
   final _seedIdx = ValueNotifier<int>(0);
   final _shadeIdx = ValueNotifier<int>(0);
   final _variantIdx = ValueNotifier<int>(0);
-  final colorSchemeN = ValueNotifier<ColorScheme>(
-ColorScheme.fromSeed(seedColor: shadeColor.value.color, dynamicSchemeVariant: variant.value,));
+  final colorSchemeN = ValueNotifier<ColorScheme>(ColorScheme.fromSeed(
+    seedColor: shadeColor.value.color,
+    dynamicSchemeVariant: variant.value,
+  ));
 
   ColorSchemePage({super.key}) {
     _seedIdx.value = NamedColors.primaries.indexOf(MyApp.seedColor);
     _shadeIdx.value = MyApp.seedColor.shades.indexOf(MyApp.shadeColor);
     _variantIdx.value = DynamicSchemeVariant.values.indexOf(MyApp.variant);
-if ( _shadeIdx.value == -1) {
-final shades = MyApp.seedColor.shades.map((shade) => shade.name).toList();
-_shadeIdx.value = shades.indexOf(MyApp.shadeColor.name);
-if (_shadeIdx.value == -1) {
-_shadeIdx.value = 6;
-}
-}
+    if (_shadeIdx.value == -1) {
+      final shades = MyApp.seedColor.shades.map((shade) => shade.name).toList();
+      _shadeIdx.value = shades.indexOf(MyApp.shadeColor.name);
+      if (_shadeIdx.value == -1) {
+        _shadeIdx.value = 6;
+      }
+    }
 
     _seedIdx.addListener(() {
       seedColor.value = NamedColors.primaries[_seedIdx.value];
@@ -40,16 +42,22 @@ _shadeIdx.value = 6;
       shadeColor.value = seedColor.value.shades[_shadeIdx.value];
     });
 
-shadeColor.addListener(() {
-     colorSchemeN.value = ColorScheme.fromSeed(seedColor: shadeColor.value.color, dynamicSchemeVariant: variant.value,);
+    shadeColor.addListener(() {
+      colorSchemeN.value = ColorScheme.fromSeed(
+        seedColor: shadeColor.value.color,
+        dynamicSchemeVariant: variant.value,
+      );
     });
 
     _variantIdx.addListener(() {
       variant.value = DynamicSchemeVariant.values[_variantIdx.value];
     });
 
-variant.addListener(() {
-      colorSchemeN.value = ColorScheme.fromSeed(seedColor: shadeColor.value.color, dynamicSchemeVariant: variant.value,);
+    variant.addListener(() {
+      colorSchemeN.value = ColorScheme.fromSeed(
+        seedColor: shadeColor.value.color,
+        dynamicSchemeVariant: variant.value,
+      );
     });
   }
 
@@ -72,17 +80,17 @@ variant.addListener(() {
           DebugIconButton(route: Routes.DEBUG),
         ],
       ),
-body: ValueListenableBuilder<ColorScheme>(
-valueListenable: colorSchemeN,
-builder: (context, value, _) {
-return ListView(
-        children: <Widget>[
-          _buildInfoContainer(context, value),
-          ..._buildColorSamples(context),
-        ],
-      );
-},
-),
+      body: ValueListenableBuilder<ColorScheme>(
+        valueListenable: colorSchemeN,
+        builder: (context, value, _) {
+          return ListView(
+            children: <Widget>[
+              _buildInfoContainer(context, value),
+              ..._buildColorSamples(context),
+            ],
+          );
+        },
+      ),
     );
   }
 
@@ -110,10 +118,10 @@ return ListView(
             children: [
               _buildChooser(
                   context, () => NamedColors.primaries, seedColor, _seedIdx),
-              _buildChooser(context, () => seedColor.value.shades, shadeColor,
-                  _shadeIdx),
-              _buildChooser(context, () => DynamicSchemeVariant.values,
-                  variant, _variantIdx),
+              _buildChooser(
+                  context, () => seedColor.value.shades, shadeColor, _shadeIdx),
+              _buildChooser(context, () => DynamicSchemeVariant.values, variant,
+                  _variantIdx),
             ],
           ),
         );
@@ -176,7 +184,8 @@ return ListView(
     );
   }
 
-  List<Widget> _buildColorSamples(BuildContext context, ColorScheme colorScheme) {
+  List<Widget> _buildColorSamples(
+      BuildContext context, ColorScheme colorScheme) {
     //final colorScheme = Theme.of(context).colorScheme;
 
     final colorSamples = <Map<String, dynamic>>[
