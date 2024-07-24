@@ -25,7 +25,7 @@ final String name;
 
 final ColorSwatch<int> colorSwatch;
 
-const NamedColorSwatch(required this.name, required this.colorSwatch);
+const NamedColorSwatch({required this.name, required this.colorSwatch});
 
 }
 
