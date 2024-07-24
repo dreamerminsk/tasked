@@ -72,18 +72,23 @@ variant.addListener(() {
           DebugIconButton(route: Routes.DEBUG),
         ],
       ),
-      body: ListView(
+body: ValueListenableBuilder<ColorScheme>(
+valueListenable: colorSchemeN,
+builder: (context, value, _) {
+return ListView(
         children: <Widget>[
-          _buildInfoContainer(context),
+          _buildInfoContainer(context, value),
           ..._buildColorSamples(context),
         ],
       ),
+},
+),
     );
   }
 
-  Widget _buildInfoContainer(BuildContext context) {
+  Widget _buildInfoContainer(BuildContext context, ColorScheme colorScheme) {
     //final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return ValueListenableBuilder<bool>(
       valueListenable: isShowInfo,
@@ -119,7 +124,7 @@ variant.addListener(() {
   Widget _buildChooser(BuildContext context, List<Object> Function() values,
       ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
     final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = colorSchemeN.value;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,8 +176,8 @@ variant.addListener(() {
     );
   }
 
-  List<Widget> _buildColorSamples(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+  List<Widget> _buildColorSamples(BuildContext context, ColorScheme colorScheme) {
+    //final colorScheme = Theme.of(context).colorScheme;
 
     final colorSamples = <Map<String, dynamic>>[
       {
