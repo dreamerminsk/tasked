@@ -80,7 +80,7 @@ return ListView(
           _buildInfoContainer(context, value),
           ..._buildColorSamples(context),
         ],
-      ),
+      );
 },
 ),
     );
