@@ -40,8 +40,16 @@ _shadeIdx.value = 6;
       shadeColor.value = seedColor.value.shades[_shadeIdx.value];
     });
 
+shadeColor.addListener(() {
+     colorSchemeN.value = ColorScheme.fromSeed(seedColor: shadeColor.value.color, dynamicSchemeVariant: variant.value,);
+    });
+
     _variantIdx.addListener(() {
       variant.value = DynamicSchemeVariant.values[_variantIdx.value];
+    });
+
+variant.addListener(() {
+      colorSchemeN.value = ColorScheme.fromSeed(seedColor: shadeColor.value.color, dynamicSchemeVariant: variant.value,);
     });
   }
 
