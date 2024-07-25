@@ -23,7 +23,7 @@ class SampleColorAlpha extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: colorScheme.primaryContainer,
-      ),
+      ), // BoxDecoration
       padding: EdgeInsets.all(8.0),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -41,9 +41,9 @@ class SampleColorAlpha extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: colorScheme.primary,
-              ),
-            ),
-          ),
+              ), // BoxDecoration
+            ), // Container
+          ), // AspectRatio
           Container(
             alignment: Alignment.center,
             child: Text('$alpha',
@@ -52,10 +52,10 @@ class SampleColorAlpha extends StatelessWidget {
                     .headlineSmall!
                     .copyWith(color: colorScheme.onPrimaryContainer)),
             color: Colors.transparent,
-          ),
+          ), // Container
         ],
       ), // Row
-    );
+    ); // Container
 
     return Material(
       elevation: 4,
