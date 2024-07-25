@@ -5,7 +5,7 @@ import '../../core/color_utils.dart';
 
 class SampleColorGreen extends StatelessWidget {
   final String title;
-  final int red;
+  final int green;
 
   const SampleColorGreen({
     Key? key,
