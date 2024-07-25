@@ -6,7 +6,7 @@ class SampleColorAlpha extends StatelessWidget {
   final String title;
   final int alpha;
 
-  const SampleObject({
+  const SampleColorAlpha({
     super.key,
     required this.title,
     required this.alpha,
