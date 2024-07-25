@@ -4,12 +4,10 @@ import 'package:get/get.dart';
 import '../../core/color_utils.dart';
 
 class SampleColorRed extends StatelessWidget {
-  final String title;
   final int red;
 
   const SampleColorRed({
     Key? key,
-    required this.title,
     required this.red,
   }) : super(key: key);
 
