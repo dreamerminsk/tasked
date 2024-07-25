@@ -26,7 +26,7 @@ class NamedColorSwatch {
 }
 
 class NamedMaterialColor extends NamedColorSwatch {
-  const NamedMaterialColor({super.name, super.colorSwatch});
+  const NamedMaterialColor({required super.name, required super.colorSwatch});
 
   NamedColor get shade50 => NamedColor(
         name: '$name[50]',
@@ -93,7 +93,7 @@ class NamedMaterialColor extends NamedColorSwatch {
 }
 
 class NamedAccentColor extends NamedColorSwatch {
-  const NamedAccentColor({super.name, super.colorSwatch});
+  const NamedAccentColor({required super.name, required super.colorSwatch});
 
   NamedColor get shade50 => NamedColor(
         name: '$name[50]',
@@ -185,177 +185,177 @@ abstract final class NamedColors {
 
   static const NamedMaterialColor red = NamedMaterialColor(
     name: 'red',
-    primary: Colors.red,
+    colorSwatch: Colors.red,
   );
 
   static const NamedAccentColor redAccent = NamedAccentColor(
     name: 'redAccent',
-    accent: Colors.redAccent,
+    colorSwatch: Colors.redAccent,
   );
 
   static const NamedMaterialColor pink = NamedMaterialColor(
     name: 'pink',
-    primary: Colors.pink,
+    colorSwatch: Colors.pink,
   );
 
   static const NamedAccentColor pinkAccent = NamedAccentColor(
     name: 'pinkAccent',
-    accent: Colors.pinkAccent,
+    colorSwatch: Colors.pinkAccent,
   );
 
   static const NamedMaterialColor purple = NamedMaterialColor(
     name: 'purple',
-    primary: Colors.purple,
+    colorSwatch: Colors.purple,
   );
 
   static const NamedAccentColor purpleAccent = NamedAccentColor(
     name: 'purpleAccent',
-    accent: Colors.purpleAccent,
+    colorSwatch: Colors.purpleAccent,
   );
 
   static const NamedMaterialColor deepPurple = NamedMaterialColor(
     name: 'deepPurple',
-    primary: Colors.deepPurple,
+    colorSwatch: Colors.deepPurple,
   );
 
   static const NamedAccentColor deepPurpleAccent = NamedAccentColor(
     name: 'deepPurpleAccent',
-    accent: Colors.deepPurpleAccent,
+    colorSwatch: Colors.deepPurpleAccent,
   );
 
   static const NamedMaterialColor indigo = NamedMaterialColor(
     name: 'indigo',
-    primary: Colors.indigo,
+    colorSwatch: Colors.indigo,
   );
 
   static const NamedAccentColor indigoAccent = NamedAccentColor(
     name: 'indigoAccent',
-    accent: Colors.indigoAccent,
+    colorSwatch: Colors.indigoAccent,
   );
 
   static const NamedMaterialColor blue = NamedMaterialColor(
     name: 'blue',
-    primary: Colors.blue,
+    colorSwatch: Colors.blue,
   );
 
   static const NamedAccentColor blueAccent = NamedAccentColor(
     name: 'blueAccent',
-    accent: Colors.blueAccent,
+    colorSwatch: Colors.blueAccent,
   );
 
   static const NamedMaterialColor lightBlue = NamedMaterialColor(
     name: 'lightBlue',
-    primary: Colors.lightBlue,
+    colorSwatch: Colors.lightBlue,
   );
 
   static const NamedAccentColor lightBlueAccent = NamedAccentColor(
     name: 'lightBlueAccent',
-    accent: Colors.lightBlueAccent,
+    colorSwatch: Colors.lightBlueAccent,
   );
 
   static const NamedMaterialColor cyan = NamedMaterialColor(
     name: 'cyan',
-    primary: Colors.cyan,
+    colorSwatch: Colors.cyan,
   );
 
   static const NamedAccentColor cyanAccent = NamedAccentColor(
     name: 'cyanAccent',
-    accent: Colors.cyanAccent,
+    colorSwatch: Colors.cyanAccent,
   );
 
   static const NamedMaterialColor teal = NamedMaterialColor(
     name: 'teal',
-    primary: Colors.teal,
+    colorSwatch: Colors.teal,
   );
 
   static const NamedAccentColor tealAccent = NamedAccentColor(
     name: 'tealAccent',
-    accent: Colors.tealAccent,
+    colorSwatch: Colors.tealAccent,
   );
 
   static const NamedMaterialColor green = NamedMaterialColor(
     name: 'green',
-    primary: Colors.green,
+    colorSwatch: Colors.green,
   );
 
   static const NamedAccentColor greenAccent = NamedAccentColor(
     name: 'greenAccent',
-    accent: Colors.greenAccent,
+    colorSwatch: Colors.greenAccent,
   );
 
   static const NamedMaterialColor lightGreen = NamedMaterialColor(
     name: 'lightGreen',
-    primary: Colors.lightGreen,
+    colorSwatch: Colors.lightGreen,
   );
 
   static const NamedAccentColor lightGreenAccent = NamedAccentColor(
     name: 'lightGreenAccent',
-    accent: Colors.lightGreenAccent,
+    colorSwatch: Colors.lightGreenAccent,
   );
 
   static const NamedMaterialColor lime = NamedMaterialColor(
     name: 'lime',
-    primary: Colors.lime,
+    colorSwatch: Colors.lime,
   );
 
   static const NamedAccentColor limeAccent = NamedAccentColor(
     name: 'limeAccent',
-    accent: Colors.limeAccent,
+    colorSwatch: Colors.limeAccent,
   );
 
   static const NamedMaterialColor yellow = NamedMaterialColor(
     name: 'yellow',
-    primary: Colors.yellow,
+    colorSwatch: Colors.yellow,
   );
 
   static const NamedAccentColor yellowAccent = NamedAccentColor(
     name: 'yellowAccent',
-    accent: Colors.yellowAccent,
+    colorSwatch: Colors.yellowAccent,
   );
 
   static const NamedMaterialColor amber = NamedMaterialColor(
     name: 'amber',
-    primary: Colors.amber,
+    colorSwatch: Colors.amber,
   );
 
   static const NamedAccentColor amberAccent = NamedAccentColor(
     name: 'amberAccent',
-    accent: Colors.amberAccent,
+    colorSwatch: Colors.amberAccent,
   );
 
   static const NamedMaterialColor orange = NamedMaterialColor(
     name: 'orange',
-    primary: Colors.orange,
+    colorSwatch: Colors.orange,
   );
 
   static const NamedAccentColor orangeAccent = NamedAccentColor(
     name: 'orangeAccent',
-    accent: Colors.orangeAccent,
+    colorSwatch: Colors.orangeAccent,
   );
 
   static const NamedMaterialColor deepOrange = NamedMaterialColor(
     name: 'deepOrange',
-    primary: Colors.deepOrange,
+    colorSwatch: Colors.deepOrange,
   );
 
   static const NamedAccentColor deepOrangeAccent = NamedAccentColor(
     name: 'deepOrangeAccent',
-    accent: Colors.deepOrangeAccent,
+    colorSwatch: Colors.deepOrangeAccent,
   );
 
   static const NamedMaterialColor brown = NamedMaterialColor(
     name: 'brown',
-    primary: Colors.brown,
+    colorSwatch: Colors.brown,
   );
 
   static const NamedMaterialColor grey = NamedMaterialColor(
     name: 'grey',
-    primary: Colors.grey,
+    colorSwatch: Colors.grey,
   );
 
   static const NamedMaterialColor blueGrey = NamedMaterialColor(
     name: 'blueGrey',
-    primary: Colors.blueGrey,
+    colorSwatch: Colors.blueGrey,
   );
 
   static const List<NamedMaterialColor> primaries = <NamedMaterialColor>[
