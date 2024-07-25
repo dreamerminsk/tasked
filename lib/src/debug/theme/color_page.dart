@@ -5,6 +5,7 @@ import 'sample_color_alpha.dart';
 import 'sample_color_red.dart';
 import 'sample_color_green.dart';
 import 'sample_color_blue.dart';
+import 'sample_color_value.dart';
 
 class ColorPage extends StatelessWidget {
   final Color color;
@@ -45,6 +46,12 @@ class ColorPage extends StatelessWidget {
             child: SampleColorBlue(
               blue: color.blue,
             ), // SampleColorBlue
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColorValue(
+              value: color,
+            ), // SampleColorValue
           ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
