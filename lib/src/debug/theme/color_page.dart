@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'sample_object.dart';
+import 'sample_color_alpha.dart';
+import 'sample_color_red.dart';
+import 'sample_color_green.dart';
+import 'sample_color_blue.dart';
+import 'sample_color_value.dart';
 
 class ColorPage extends StatelessWidget {
   final Color color;
@@ -18,6 +23,36 @@ class ColorPage extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColorAlpha(
+              alpha: color.alpha,
+            ), // SampleColorAlpha
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColorRed(
+              red: color.red,
+            ), // SampleColorRed
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColorGreen(
+              green: color.green,
+            ), // SampleColorGreen
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColorBlue(
+              blue: color.blue,
+            ), // SampleColorBlue
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: SampleColorValue(
+              value: color,
+            ), // SampleColorValue
+          ), // Padding
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleObject(

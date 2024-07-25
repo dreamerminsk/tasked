@@ -16,11 +16,22 @@ class ColorSchemePage extends StatelessWidget {
   final _seedIdx = ValueNotifier<int>(0);
   final _shadeIdx = ValueNotifier<int>(0);
   final _variantIdx = ValueNotifier<int>(0);
+  final colorSchemeN = ValueNotifier<ColorScheme>(ColorScheme.fromSeed(
+    seedColor: MyApp.shadeColor.color,
+    dynamicSchemeVariant: MyApp.variant,
+  ));
 
   ColorSchemePage({super.key}) {
     _seedIdx.value = NamedColors.primaries.indexOf(MyApp.seedColor);
     _shadeIdx.value = MyApp.seedColor.shades.indexOf(MyApp.shadeColor);
     _variantIdx.value = DynamicSchemeVariant.values.indexOf(MyApp.variant);
+    if (_shadeIdx.value == -1) {
+      final shades = MyApp.seedColor.shades.map((shade) => shade.name).toList();
+      _shadeIdx.value = shades.indexOf(MyApp.shadeColor.name);
+      if (_shadeIdx.value == -1) {
+        _shadeIdx.value = 6;
+      }
+    }
 
     _seedIdx.addListener(() {
       seedColor.value = NamedColors.primaries[_seedIdx.value];
@@ -31,8 +42,22 @@ class ColorSchemePage extends StatelessWidget {
       shadeColor.value = seedColor.value.shades[_shadeIdx.value];
     });
 
+    shadeColor.addListener(() {
+      colorSchemeN.value = ColorScheme.fromSeed(
+        seedColor: shadeColor.value.color,
+        dynamicSchemeVariant: variant.value,
+      );
+    });
+
     _variantIdx.addListener(() {
       variant.value = DynamicSchemeVariant.values[_variantIdx.value];
+    });
+
+    variant.addListener(() {
+      colorSchemeN.value = ColorScheme.fromSeed(
+        seedColor: shadeColor.value.color,
+        dynamicSchemeVariant: variant.value,
+      );
     });
   }
 
@@ -55,25 +80,30 @@ class ColorSchemePage extends StatelessWidget {
           DebugIconButton(route: Routes.DEBUG),
         ],
       ),
-      body: ListView(
-        children: <Widget>[
-          _buildInfoContainer(context),
-          ..._buildColorSamples(context),
-        ],
+      body: ValueListenableBuilder<ColorScheme>(
+        valueListenable: colorSchemeN,
+        builder: (context, value, _) {
+          return ListView(
+            children: <Widget>[
+              _buildInfoContainer(context, value),
+              ..._buildColorSamples(context, value),
+            ],
+          );
+        },
       ),
     );
   }
 
-  Widget _buildInfoContainer(BuildContext context) {
+  Widget _buildInfoContainer(BuildContext context, ColorScheme colorScheme) {
     //final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return ValueListenableBuilder<bool>(
       valueListenable: isShowInfo,
       builder: (context, value, child) {
         return Container(
           width: Get.width,
-          height: Get.width / 1.618 / 2,
+          height: 3 * Get.width / 1.618 / 4,
           padding: EdgeInsets.all(16.0),
           alignment: Alignment.center,
           decoration: BoxDecoration(
@@ -84,14 +114,14 @@ class ColorSchemePage extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildChooser(
                   context, () => NamedColors.primaries, seedColor, _seedIdx),
-              _buildChooser(context, () => seedColor.value.shades, shadeColor,
-                  _shadeIdx),
-              _buildChooser(context, () => DynamicSchemeVariant.values,
-                  variant, _variantIdx),
+              _buildChooser(
+                  context, () => seedColor.value.shades, shadeColor, _shadeIdx),
+              _buildChooser(context, () => DynamicSchemeVariant.values, variant,
+                  _variantIdx),
             ],
           ),
         );
@@ -102,7 +132,7 @@ class ColorSchemePage extends StatelessWidget {
   Widget _buildChooser(BuildContext context, List<Object> Function() values,
       ValueNotifier<Object> valueNotifier, ValueNotifier<int> idxNotifier) {
     final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = colorSchemeN.value;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +154,7 @@ class ColorSchemePage extends StatelessWidget {
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
-                  style: textTheme.titleLarge!
+                  style: textTheme.bodyLarge!
                       .copyWith(color: colorScheme.onPrimaryFixed),
                 );
               },
@@ -154,8 +184,9 @@ class ColorSchemePage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildColorSamples(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+  List<Widget> _buildColorSamples(
+      BuildContext context, ColorScheme colorScheme) {
+    //final colorScheme = Theme.of(context).colorScheme;
 
     final colorSamples = <Map<String, dynamic>>[
       {
