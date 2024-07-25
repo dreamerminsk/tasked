@@ -24,6 +24,12 @@ class ColorPage extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8),
+            child: SampleColorAlpha(
+              alpha: color.alpha,
+            ), // SampleColorAlpha
+          ), // Padding
+          Padding(
+            padding: EdgeInsets.all(8),
             child: SampleObject(
               title: 'alpha',
               object: color.alpha,
