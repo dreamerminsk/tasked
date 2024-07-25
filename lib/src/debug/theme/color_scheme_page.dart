@@ -86,7 +86,7 @@ class ColorSchemePage extends StatelessWidget {
           return ListView(
             children: <Widget>[
               _buildInfoContainer(context, value),
-              ..._buildColorSamples(context),
+              ..._buildColorSamples(context, value),
             ],
           );
         },
