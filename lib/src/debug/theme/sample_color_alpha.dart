@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SampleColorAlpha extends StatelessWidget {
-  final String title;
   final int alpha;
 
   const SampleColorAlpha({
     super.key,
-    required this.title,
     required this.alpha,
   });
 
