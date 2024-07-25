@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/color_utils.dart';
+
 class SampleColorRed extends StatelessWidget {
   final String title;
   final int red;
@@ -50,7 +52,7 @@ class SampleColorRed extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall!
-                    .copyWith(color: colorScheme.onPrimaryContainer)),
+                    .copyWith(color:ColorUtils.contrastThemeColor(Color.fromARGB(255, red, 0, 0)))),
             color: Colors.transparent,
           ), // Container
         ],
