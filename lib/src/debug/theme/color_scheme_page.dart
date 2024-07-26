@@ -154,7 +154,7 @@ class ColorSchemePage extends StatelessWidget {
               builder: (context, value, child) {
                 return Text(
                   _objectToString(value),
-                  style: textTheme.bodyLarge!
+                  style: textTheme.titleLarge!
                       .copyWith(color: colorScheme.onPrimaryFixed),
                 );
               },
