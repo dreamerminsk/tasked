@@ -69,7 +69,7 @@ class SampleColorGreen extends StatelessWidget {
         '$green',
         style: Theme.of(context)
             .textTheme
-            .headlineSmall!
+            .displayLarge!
             .copyWith(color: ColorUtils.contrastThemeColor(containerColor)),
       ),
     );
