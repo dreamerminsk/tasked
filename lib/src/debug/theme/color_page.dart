@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'sample_object.dart';
 import 'sample_color_alpha.dart';
 import 'sample_color_red.dart';
 import 'sample_color_green.dart';
