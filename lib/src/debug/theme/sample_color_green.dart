@@ -66,10 +66,10 @@ class SampleColorGreen extends StatelessWidget {
       alignment: Alignment.center,
       color: Colors.transparent,
       child: Text(
-        '$green',
+        '#${green.toRadixString(16).padLeft(2,'0').toUpperCase()}',
         style: Theme.of(context)
             .textTheme
-            .displayLarge!
+            .headlineLarge!
             .copyWith(color: ColorUtils.contrastThemeColor(containerColor)),
       ),
     );
