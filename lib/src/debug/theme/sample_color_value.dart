@@ -69,7 +69,7 @@ class SampleColorValue extends StatelessWidget {
         '#${value.toRadixString(16).padLeft(8,'0').toUpperCase()}',
         style: Theme.of(context)
             .textTheme
-            .displayLarge!
+            .headlineLarge!
             .copyWith(color: ColorUtils.contrastThemeColor(containerColor)),
       ),
     );
