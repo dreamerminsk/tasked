@@ -43,7 +43,8 @@ class SampleColorAlpha extends StatelessWidget {
           ), // AspectRatio
           Container(
             alignment: Alignment.center,
-            child: Text('$alpha',
+            child: Text(
+        '#${alpha.toRadixString(16).padLeft(2,'0').toUpperCase()}',
                 style: Theme.of(context)
                     .textTheme
                     .headlineLarge!
