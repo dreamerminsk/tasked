@@ -46,7 +46,7 @@ class SampleColorAlpha extends StatelessWidget {
             child: Text('$alpha',
                 style: Theme.of(context)
                     .textTheme
-                    .displayLarge!
+                    .headlineLarge!
                     .copyWith(color: colorScheme.onPrimaryContainer)),
             color: Colors.transparent,
           ), // Container
