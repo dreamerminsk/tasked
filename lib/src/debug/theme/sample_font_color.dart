@@ -6,9 +6,12 @@ class SampleFontColor extends StatelessWidget {
 
   final ValueNotifier<FontWeight> fontWeightNotifier;
 
+final ValueChanged<Color>? onChanged;
+
   SampleFontColor({
     super.key,
     required this.initialColor,
+    this.onChanged,
   }) {
     fontWeightNotifier.addListener(_updateTextStyle);
   }
