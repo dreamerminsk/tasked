@@ -132,3 +132,21 @@ class SampleFontColor extends StatelessWidget {
     return name;
   }
 }
+
+class ColorNotifier extends ChangeNotifier{
+
+ColorNotifier(Color color): _color = color;
+
+Color _color;
+
+Color get color => _color;
+
+void next() {
+
+notifyListeners();
+}
+
+void prev() {}
+
+notifyListeners();
+}
