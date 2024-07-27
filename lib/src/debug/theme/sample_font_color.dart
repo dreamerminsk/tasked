@@ -135,9 +135,9 @@ class SampleFontColor extends StatelessWidget {
 
 class ColorNotifier extends ChangeNotifier{
 
-ColorNotifier(Color color): _color = color;
+final _colors = <NamedColor>[];
 
-Color _color;
+int _colorIdx;
 
 Color get color => _color;
 
