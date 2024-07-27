@@ -4,16 +4,16 @@ import 'package:get/get.dart';
 class SampleFontColor extends StatelessWidget {
   static const className = 'fontColor';
 
-  final ValueNotifier<FontWeight> fontWeightNotifier;
+  final ColorNotifier fontColorNotifier;
 
-final ValueChanged<Color>? onChanged;
+final ValueChanged<NamedColor>? onChanged;
 
   SampleFontColor({
     super.key,
-    required this.initialColor,
+    //required this.initialColor,
     this.onChanged,
   }) {
-    fontWeightNotifier.addListener(_updateTextStyle);
+    fontColorNotifier = ColorNotifier();
   }
 
   @override
@@ -74,12 +74,10 @@ final ValueChanged<Color>? onChanged;
                 ),
               ),
             ),
-            const SizedBox(height: 4),
             Divider(
               color: colorScheme.onPrimary,
               thickness: 1.5,
             ),
-            const SizedBox(height: 4),
             Text(
               className,
               style: textStyle.copyWith(
