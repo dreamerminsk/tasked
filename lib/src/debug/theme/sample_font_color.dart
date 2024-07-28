@@ -103,35 +103,6 @@ final ValueChanged<NamedColor>? onChanged;
     );
   }
 
-  //void _changeFontWeight(int direction) {
-  //final currentIndex =
-  //FontWeight.values.indexOf(value.value ?? FontWeight.w100);
-  //final newIndex = (currentIndex + direction) % FontWeight.values.length;
-  //value.value = FontWeight
-  //.values[newIndex < 0 ? FontWeight.values.length - 1 : newIndex];
-  //}
-
-  void _decrementFontWeight() {
-    final index = FontWeight.values.indexOf(fontWeightNotifier.value);
-    if (index > 0) {
-      fontWeightNotifier.value = FontWeight.values[index - 1];
-    } else {
-      fontWeightNotifier.value = FontWeight.values.last;
-    }
-  }
-
-  void _incrementFontWeight() {
-    final index = FontWeight.values.indexOf(fontWeightNotifier.value);
-    fontWeightNotifier.value =
-        FontWeight.values[(index + 1) % FontWeight.values.length];
-  }
-
-  String _objectToString(FontWeight object) {
-    final name = object.toString().contains('.')
-        ? object.toString().split('.').last
-        : '.w${object.value}';
-    return name;
-  }
 }
 
 class ColorNotifier extends ChangeNotifier{
