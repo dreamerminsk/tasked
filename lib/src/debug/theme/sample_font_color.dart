@@ -138,16 +138,17 @@ class ColorNotifier extends ChangeNotifier{
 
 final _colors = <NamedColor>[];
 
-int _colorIdx;
+int _colorIdx = 0;
 
-Color get color => _color;
+Color get color => _colors[_colorIdx];
 
 void next() {
-
+_colorIdx = (_colorIdx + 1) % _colors.length;
 notifyListeners();
 }
 
-void prev() {}
-
+void prev() {
+_colorIdx = (_colorIdx - 1 + _colors.length) % _colors.length;
 notifyListeners();
+}
 }
