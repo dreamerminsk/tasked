@@ -36,7 +36,7 @@ final ValueChanged<NamedColor>? onChanged;
           borderRadius: BorderRadius.circular(20),
           color: colorScheme.primary,
         ),
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -74,21 +74,18 @@ final ValueChanged<NamedColor>? onChanged;
                 ),
               ),
             ),
-            Divider(
-              color: colorScheme.onPrimary,
-              thickness: 1.5,
-            ),
+            
             Text(
               className,
               style: textStyle.copyWith(
                 fontSize: textTheme.titleLarge!.fontSize! - 1,
               ),
               textAlign: TextAlign.center,
-            ),
+            ), // Text
           ],
-        ),
-      ),
-    );
+        ), // Column
+      ),  // Container
+    ); // Material
   }
 
   Widget _buildIconButton({
