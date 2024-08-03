@@ -124,6 +124,7 @@ class Mp3FilesController extends GetxController {
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
+    message.value='${directory.path}';
     List<File> files = [];
     final List<FileSystemEntity> entities =
         await directory.list(recursive: true).toList();
