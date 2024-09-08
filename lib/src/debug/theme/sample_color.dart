@@ -24,7 +24,8 @@ class SampleColor extends StatelessWidget {
       child: InkWell(
         onTap: () => Get.to(ColorPage(color: background)),
         borderRadius: BorderRadius.all(Radius.circular(20)),
-        child: Container(
+        child: AnimatedContainer(
+    duration: const Duration(seconds: 1,),
           width: double.infinity,
           height: 160,
           decoration: BoxDecoration(
