@@ -101,7 +101,8 @@ class ColorSchemePage extends StatelessWidget {
     return ValueListenableBuilder<bool>(
       valueListenable: isShowInfo,
       builder: (context, value, child) {
-        return Container(
+        return AnimatedContainer(
+          duration: const Duration(seconds: 1,),
           width: Get.width,
           height: 3 * Get.width / 1.618 / 4,
           padding: EdgeInsets.all(16.0),
