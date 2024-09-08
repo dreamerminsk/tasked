@@ -16,8 +16,9 @@ class SampleColorValue extends StatelessWidget {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    final containerHeight = Get.width / 2 / 1.618; 
-    final containerColor = Color.fromARGB(255, value.red, value.green, value.blue);
+    final containerHeight = Get.width / 2 / 1.618;
+    final containerColor =
+        Color.fromARGB(255, value.red, value.green, value.blue);
 
     return Material(
       elevation: 4,
@@ -66,7 +67,7 @@ class SampleColorValue extends StatelessWidget {
       alignment: Alignment.center,
       color: Colors.transparent,
       child: Text(
-        '#${value.value.toRadixString(16).padLeft(8,'0').toUpperCase()}',
+        '#${value.value.toRadixString(16).padLeft(8, '0').toUpperCase()}',
         style: Theme.of(context)
             .textTheme
             .headlineLarge!

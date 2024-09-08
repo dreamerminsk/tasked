@@ -47,7 +47,7 @@ class ColorPage extends StatelessWidget {
             ), // SampleColorBlue
           ), // Padding
           Padding(
-            padding: EdgeInsets.fromLTRB(8,12,8,8),
+            padding: EdgeInsets.fromLTRB(8, 12, 8, 8),
             child: SampleColorValue(
               value: color,
             ), // SampleColorValue

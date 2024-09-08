@@ -23,7 +23,7 @@ class Mp3FilesController extends GetxController {
 
   final mp3Files = <File>[].obs;
 
-  final message= Rxn<String>();
+  final message = Rxn<String>();
 
   @override
   void onInit() {
@@ -51,10 +51,10 @@ class Mp3FilesController extends GetxController {
         mp3file.value = File(result.files.single.path!);
         await searchForMp3Files();
       } else {
-        message.value  = 'FilePicker cancelled...';
+        message.value = 'FilePicker cancelled...';
       }
     } catch (e) {
-      message.value='$e';
+      message.value = '$e';
     }
   }
 
@@ -105,7 +105,7 @@ class Mp3FilesController extends GetxController {
       final directory = await future;
       return directory;
     } catch (e) {
-      message.value='$e';
+      message.value = '$e';
       return null;
     }
   }
@@ -118,13 +118,13 @@ class Mp3FilesController extends GetxController {
         return directories.first;
       }
     } catch (e) {
-     message.value='$e';
+      message.value = '$e';
     }
     return null;
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
-    message.value='${directory.path}';
+    message.value = '${directory.path}';
     List<File> files = [];
     final List<FileSystemEntity> entities =
         await directory.list(recursive: true).toList();

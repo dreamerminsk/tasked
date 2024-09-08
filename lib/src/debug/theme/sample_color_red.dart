@@ -16,7 +16,7 @@ class SampleColorRed extends StatelessWidget {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
-    final containerHeight = Get.width / 2 / 1.618; 
+    final containerHeight = Get.width / 2 / 1.618;
     final containerColor = Color.fromARGB(255, red, 0, 0);
 
     return Material(
@@ -66,7 +66,7 @@ class SampleColorRed extends StatelessWidget {
       alignment: Alignment.center,
       color: Colors.transparent,
       child: Text(
-        '#${red.toRadixString(16).padLeft(2,'0').toUpperCase()}',
+        '#${red.toRadixString(16).padLeft(2, '0').toUpperCase()}',
         style: Theme.of(context)
             .textTheme
             .headlineLarge!
