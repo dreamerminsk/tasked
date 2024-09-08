@@ -44,7 +44,7 @@ class SampleColorAlpha extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: Text(
-        '#${alpha.toRadixString(16).padLeft(2,'0').toUpperCase()}',
+                '#${alpha.toRadixString(16).padLeft(2, '0').toUpperCase()}',
                 style: Theme.of(context)
                     .textTheme
                     .headlineLarge!
