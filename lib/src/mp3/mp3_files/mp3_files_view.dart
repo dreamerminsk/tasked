@@ -52,7 +52,7 @@ class Mp3FilesView extends StatelessWidget {
                 ), // BorderSide
               ), // Border
             ), // BoxDecoration
-            child: Obx(() => Text(c.message?.value ?? '',
+            child: Obx(() => Text(c.message.value ?? '',
                 style: textTheme.bodyLarge!.copyWith(
                   color: colorScheme.onPrimaryFixed,
                 ))),
