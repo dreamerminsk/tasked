@@ -110,7 +110,7 @@ class ColorSchemePage extends StatelessWidget {
           padding: EdgeInsets.all(16.0),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: colorScheme.primaryFixed,
+            color: colorScheme.secondaryFixed,
             border: Border(
               top: BorderSide(color: colorScheme.primary, width: 1.0),
               bottom: BorderSide(color: colorScheme.primary, width: 1.0),
