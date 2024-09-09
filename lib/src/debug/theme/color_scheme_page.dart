@@ -147,7 +147,7 @@ class ColorSchemePage extends StatelessWidget {
                 ? idxNotifier.value--
                 : idxNotifier.value = values().length - 1;
           },
-          color: colorScheme.onPrimaryFixed,
+          color: colorScheme.onSecondaryFixed,
         ),
         Expanded(
           child: Align(
