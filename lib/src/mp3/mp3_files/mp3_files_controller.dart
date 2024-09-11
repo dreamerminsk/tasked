@@ -53,10 +53,10 @@ final limiter = RateLimiter();
         mp3file.value = File(result.files.single.path!);
         await searchForMp3Files();
       } else {
-        message.value = 'FilePicker cancelled...';
+        (limiter.doAction(() {message.value = 'FilePicker cancelled...';})).then((f) => f());
       }
     } catch (e) {
-      message.value = '$e';
+      (limiter.doAction(() {message.value = '$e';})).then((f) => f());
     }
   }
 
@@ -107,7 +107,7 @@ final limiter = RateLimiter();
       final directory = await future;
       return directory;
     } catch (e) {
-      message.value = '$e';
+       (limiter.doAction(() {message.value = '$e';})).then((f) => f());
       return null;
     }
   }
@@ -126,6 +126,7 @@ final limiter = RateLimiter();
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
+ (limiter.doAction(() {message.value =  '${directory.path}';})).then((f) => f());
     message.value = '${directory.path}';
     List<File> files = [];
     final List<FileSystemEntity> entities =
