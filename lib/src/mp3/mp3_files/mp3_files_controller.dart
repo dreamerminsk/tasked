@@ -23,6 +23,8 @@ class Mp3FilesController extends GetxController {
 
   final mp3Files = <File>[].obs;
 
+final limiter = RateLimiter();
+
   final message = Rxn<String>();
 
   @override
