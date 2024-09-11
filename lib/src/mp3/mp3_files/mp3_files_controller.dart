@@ -138,3 +138,22 @@ class Mp3FilesController extends GetxController {
     return files;
   }
 }
+
+
+
+class RateLimiter {
+  late int waitTimeMilliseconds = 250;
+  DateTime lastActionTime = DateTime.now();
+
+  Future<Function> doAction(Function f) async {
+    while (true) {
+      if (DateTime.now().isAfter(lastActionTime.add(Duration(milliseconds: waitTimeMilliseconds)))) {
+        break;
+      } else {
+        await Future.delayed(const Duration(milliseconds: 100));
+      }
+    }
+    lastActionTime = DateTime.now();
+    return f;
+  }
+}
