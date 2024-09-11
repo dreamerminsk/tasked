@@ -23,7 +23,7 @@ class Mp3FilesController extends GetxController {
 
   final mp3Files = <File>[].obs;
 
-final limiter = RateLimiter();
+  final limiter = RateLimiter();
 
   final message = Rxn<String>();
 
@@ -53,10 +53,14 @@ final limiter = RateLimiter();
         mp3file.value = File(result.files.single.path!);
         await searchForMp3Files();
       } else {
-        (limiter.doAction(() {message.value = 'FilePicker cancelled...';})).then((f) => f());
+        (limiter.doAction(() {
+          message.value = 'FilePicker cancelled...';
+        })).then((f) => f());
       }
     } catch (e) {
-      (limiter.doAction(() {message.value = '$e';})).then((f) => f());
+      (limiter.doAction(() {
+        message.value = '$e';
+      })).then((f) => f());
     }
   }
 
@@ -107,7 +111,9 @@ final limiter = RateLimiter();
       final directory = await future;
       return directory;
     } catch (e) {
-       (limiter.doAction(() {message.value = '$e';})).then((f) => f());
+      (limiter.doAction(() {
+        message.value = '$e';
+      })).then((f) => f());
       return null;
     }
   }
@@ -126,7 +132,9 @@ final limiter = RateLimiter();
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
- (limiter.doAction(() {message.value =  '${directory.path}';})).then((f) => f());
+    (limiter.doAction(() {
+      message.value = '${directory.path}';
+    })).then((f) => f());
     message.value = '${directory.path}';
     List<File> files = [];
     final List<FileSystemEntity> entities =
@@ -142,15 +150,14 @@ final limiter = RateLimiter();
   }
 }
 
-
-
 class RateLimiter {
   late int waitTimeMilliseconds = 250;
   DateTime lastActionTime = DateTime.now();
 
   Future<Function> doAction(Function f) async {
     while (true) {
-      if (DateTime.now().isAfter(lastActionTime.add(Duration(milliseconds: waitTimeMilliseconds)))) {
+      if (DateTime.now().isAfter(
+          lastActionTime.add(Duration(milliseconds: waitTimeMilliseconds)))) {
         break;
       } else {
         await Future.delayed(const Duration(milliseconds: 100));
