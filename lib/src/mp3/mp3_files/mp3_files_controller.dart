@@ -53,6 +53,7 @@ class Mp3FilesController extends GetxController {
 
   Future<void> searchForMp3Files() async {
     final directories = await _getDirectoriesToSearch();
+_updateMessage('directories = ${directories.length}');
     final foundFiles = await Future.wait(directories.map(_searchDirectoryForMp3Files));
     final uniquePaths = mp3Files.map((f) => f.path).toSet();
 
