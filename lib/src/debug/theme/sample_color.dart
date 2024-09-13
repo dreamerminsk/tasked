@@ -26,7 +26,7 @@ class SampleColor extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(20)),
         child: AnimatedContainer(
           duration: const Duration(
-            seconds: 1,
+            milliseconds: 500,
           ),
           width: double.infinity,
           height: 160,
@@ -39,7 +39,7 @@ class SampleColor extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: background,
+                color: Colors.transparent,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
