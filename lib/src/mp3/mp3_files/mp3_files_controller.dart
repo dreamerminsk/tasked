@@ -53,9 +53,10 @@ class Mp3FilesController extends GetxController {
 
   Future<void> searchForMp3Files() async {
     final directories = await _getDirectoriesToSearch();
-_updateMessage('directories = ${directories.length}');
-    final foundFiles = await Future.wait(directories.map(_searchDirectoryForMp3Files));
-_updateMessage('foundFiles = ${foundFiles.length}');
+    _updateMessage('directories = ${directories.length}');
+    final foundFiles =
+        await Future.wait(directories.map(_searchDirectoryForMp3Files));
+    _updateMessage('foundFiles = ${foundFiles.length}');
     final uniquePaths = mp3Files.map((f) => f.path).toSet();
 
     for (var files in foundFiles) {
@@ -65,7 +66,7 @@ _updateMessage('foundFiles = ${foundFiles.length}');
         }
       }
     }
-_updateMessage('mp3Files = ${mp3Files.length}');
+    _updateMessage('mp3Files = ${mp3Files.length}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
@@ -106,7 +107,10 @@ _updateMessage('mp3Files = ${mp3Files.length}');
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
     _updateMessage('Searching in ${directory.path}');
     final entities = await directory.list(recursive: true).toList();
-    return entities.whereType<File>().where((file) => p.extension(file.path).toLowerCase() == '.mp3').toList();
+    return entities
+        .whereType<File>()
+        .where((file) => p.extension(file.path).toLowerCase() == '.mp3')
+        .toList();
   }
 
   void _updateMessage(String msg) {
@@ -121,7 +125,8 @@ class RateLimiter {
   DateTime lastActionTime = DateTime.now();
 
   Future<void> doAction(Function action) async {
-    while (DateTime.now().isBefore(lastActionTime.add(Duration(milliseconds: waitTimeMilliseconds)))) {
+    while (DateTime.now().isBefore(
+        lastActionTime.add(Duration(milliseconds: waitTimeMilliseconds)))) {
       await Future.delayed(const Duration(milliseconds: 100));
     }
     lastActionTime = DateTime.now();
