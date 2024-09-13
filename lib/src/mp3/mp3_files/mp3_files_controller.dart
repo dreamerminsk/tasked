@@ -65,6 +65,7 @@ _updateMessage('foundFiles = ${foundFiles.length}');
         }
       }
     }
+_updateMessage('mp3Files = ${mp3Files.length}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
