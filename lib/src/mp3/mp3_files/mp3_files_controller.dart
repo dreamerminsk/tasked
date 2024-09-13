@@ -1,34 +1,27 @@
 import 'dart:core';
 import 'dart:io';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
-
 import '../../debug/debug_controller.dart';
 import '../../tasklist/task/task_item.dart';
 
 class Mp3FilesController extends GetxController {
   final id = nanoid();
-
   final started = DateTime.now();
-
   final DebugController debug = Get.find(tag: 'debugger');
-
   final task = Rxn<TaskItem>();
-
   final mp3file = Rxn<File>();
-
   final mp3Files = <File>[].obs;
-
+  final limiter = RateLimiter();
   final message = Rxn<String>();
 
   @override
   void onInit() {
     super.onInit();
-    debug.logInit(this.runtimeType.toString(), id, started);
+    debug.logInit(runtimeType.toString(), id, started);
   }
 
   @override
@@ -40,101 +33,103 @@ class Mp3FilesController extends GetxController {
 
   @override
   void onClose() {
-    debug.logClose(this.runtimeType.toString(), id, DateTime.now());
+    debug.logClose(runtimeType.toString(), id, DateTime.now());
     super.onClose();
   }
 
-  void pickFile() async {
+  Future<void> pickFile() async {
     try {
-      FilePickerResult? result = await FilePicker.platform.pickFiles();
+      final result = await FilePicker.platform.pickFiles();
       if (result != null) {
         mp3file.value = File(result.files.single.path!);
         await searchForMp3Files();
       } else {
-        message.value = 'FilePicker cancelled...';
+        _updateMessage('FilePicker cancelled...');
       }
     } catch (e) {
-      message.value = '$e';
+      _updateMessage('$e');
     }
   }
 
   Future<void> searchForMp3Files() async {
-    List<Directory> directories = await _getDirectoriesToSearch();
-    List<File> foundFiles = [];
+    final directories = await _getDirectoriesToSearch();
+    _updateMessage('directories = ${directories.length}');
+    final foundFiles =
+        await Future.wait(directories.map(_searchDirectoryForMp3Files));
+    _updateMessage('foundFiles = ${foundFiles.length}');
+    final uniquePaths = mp3Files.map((f) => f.path).toSet();
 
-    for (var dir in directories) {
-      foundFiles.addAll(await _searchDirectoryForMp3Files(dir));
-    }
-
-    var uniqueFiles = Set.from(mp3Files.map((f) => f.path));
-    for (var f in foundFiles) {
-      if (!uniqueFiles.contains(f.path)) {
-        mp3Files.add(f);
-        uniqueFiles.add(f.path);
+    for (var files in foundFiles) {
+      for (var file in files) {
+        if (uniquePaths.add(file.path)) {
+          mp3Files.add(file);
+        }
       }
     }
+    _updateMessage('mp3Files = ${mp3Files.length}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
-    final List<Future<Directory?>> futures = [
-      _getDirectory(
-          getApplicationCacheDirectory(), 'getApplicationCacheDirectory'),
-      _getDirectory(getApplicationDocumentsDirectory(),
-          'getApplicationDocumentsDirectory'),
-      _getDirectory(
-          getApplicationSupportDirectory(), 'getApplicationSupportDirectory'),
-      _getDirectory(getDownloadsDirectory(), 'getDownloadsDirectory'),
-      _getDirectories(
-          getExternalCacheDirectories(), 'getExternalCacheDirectories'),
-      _getDirectories(
-          getExternalStorageDirectories(), 'getExternalStorageDirectories'),
-      _getDirectory(
-          getExternalStorageDirectory(), 'getExternalStorageDirectory'),
-      _getDirectory(getLibraryDirectory(), 'getLibraryDirectory'),
-      _getDirectory(getTemporaryDirectory(), 'getTemporaryDirectory'),
+    final futures = [
+      _getDirectory(getApplicationCacheDirectory()),
+      _getDirectory(getApplicationDocumentsDirectory()),
+      _getDirectory(getApplicationSupportDirectory()),
+      _getDirectory(getDownloadsDirectory()),
+      _getFirstDirectory(getExternalCacheDirectories()),
+      _getFirstDirectory(getExternalStorageDirectories()),
+      _getDirectory(getExternalStorageDirectory()),
+      _getDirectory(getLibraryDirectory()),
+      _getDirectory(getTemporaryDirectory()),
     ];
-
-    final List<Directory?> directories = await Future.wait(futures);
-
+    final directories = await Future.wait(futures);
     return directories.whereType<Directory>().toList();
   }
 
-  Future<Directory?> _getDirectory(
-      Future<Directory?> future, String name) async {
+  Future<Directory?> _getDirectory(Future<Directory?> future) async {
     try {
-      final directory = await future;
-      return directory;
+      return await future;
     } catch (e) {
-      message.value = '$e';
+      _updateMessage('$e');
       return null;
     }
   }
 
-  Future<Directory?> _getDirectories(
-      Future<List<Directory>?> future, String name) async {
+  Future<Directory?> _getFirstDirectory(Future<List<Directory>?> future) async {
     try {
       final directories = await future;
-      if (directories != null && directories.isNotEmpty) {
-        return directories.first;
-      }
+      return directories?.isNotEmpty == true ? directories?.first : null;
     } catch (e) {
-      message.value = '$e';
+      _updateMessage('$e');
+      return null;
     }
-    return null;
   }
 
   Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
-    message.value = '${directory.path}';
-    List<File> files = [];
-    final List<FileSystemEntity> entities =
-        await directory.list(recursive: true).toList();
+    _updateMessage('Searching in ${directory.path}');
+    final entities = await directory.list(recursive: true).toList();
+    return entities
+        .whereType<File>()
+        .where((file) => p.extension(file.path).toLowerCase() == '.mp3')
+        .toList();
+  }
 
-    for (var entity in entities) {
-      if (entity is File && p.extension(entity.path).toLowerCase() == '.mp3') {
-        files.add(entity);
-      }
+  void _updateMessage(String msg) {
+    limiter.doAction(() {
+      message.value = msg;
+    });
+  }
+}
+
+class RateLimiter {
+  final int waitTimeMilliseconds = 250;
+  DateTime lastActionTime = DateTime.now();
+
+  Future<void> doAction(Function action) async {
+    while (DateTime.now().isBefore(
+        lastActionTime.add(Duration(milliseconds: waitTimeMilliseconds)))) {
+      await Future.delayed(const Duration(milliseconds: 100));
     }
-
-    return files;
+    lastActionTime = DateTime.now();
+    action();
   }
 }
