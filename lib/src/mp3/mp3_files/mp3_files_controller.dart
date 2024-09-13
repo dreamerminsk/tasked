@@ -97,7 +97,7 @@ class Mp3FilesController extends GetxController {
   Future<Directory?> _getFirstDirectory(Future<List<Directory>?> future) async {
     try {
       final directories = await future;
-      return directories?.isNotEmpty == true ? directories.first : null;
+      return directories?.isNotEmpty == true ? directories?.first : null;
     } catch (e) {
       _updateMessage('$e');
       return null;
