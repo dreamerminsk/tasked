@@ -121,7 +121,7 @@ class Mp3FilesController extends GetxController {
 }
 
 class RateLimiter {
-  final int waitTimeMilliseconds = 250;
+  final int waitTimeMilliseconds = 500;
   DateTime lastActionTime = DateTime.now();
 
   Future<void> doAction(Function action) async {
