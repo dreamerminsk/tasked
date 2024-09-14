@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'mp3_files_controller.dart';
 import '../../routes/app_pages.dart';
 import '../../core/widgets/icon_buttons.dart';
+import '../../core/string_utils.dart';
 
 class Mp3FilesView extends StatelessWidget {
   const Mp3FilesView({
@@ -112,7 +113,7 @@ class _Mp3CardItem extends StatelessWidget {
         child: ListTile(
           leading: Icon(Icons.audiotrack_outlined),
           title: Text(
-            mp3File.path.split('/').last,
+            "${mp3File.path.split('/').last} - ${StringUtils.formatBytes(mp3File.lengthSync())}",
           ),
           subtitle: Text(mp3File.parent.path),
         ),
