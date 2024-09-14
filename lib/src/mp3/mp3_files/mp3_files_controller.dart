@@ -15,7 +15,7 @@ class Mp3FilesController extends GetxController {
   final task = Rxn<TaskItem>();
   final mp3file = Rxn<File>();
   final mp3Files = <File>[].obs;
-  mp3Bytes = 0.obs;
+  var mp3Bytes = 0.obs;
   final limiter = RateLimiter();
   final message = Rxn<String>();
 
