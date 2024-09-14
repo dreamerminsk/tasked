@@ -63,7 +63,7 @@ class Mp3FilesController extends GetxController {
       for (var file in files) {
         if (uniquePaths.add(file.path)) {
           mp3Files.add(file);
-         mp3Bytes.value += file.lengthSync();
+          mp3Bytes.value += file.lengthSync();
         }
       }
     }
