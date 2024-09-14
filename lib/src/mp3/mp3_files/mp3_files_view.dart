@@ -113,7 +113,7 @@ class _Mp3CardItem extends StatelessWidget {
         child: ListTile(
           leading: Icon(Icons.audiotrack_outlined),
           title: Text(
-            "${mp3File.path.split('/').last} - ${StringUtils.formatBytes(mp3File.lengthSync())}",
+            "${mp3File.path.split('/').last} - ${StringUtils.formatBytes(mp3File.lengthSync(), 1)}",
           ),
           subtitle: Text(mp3File.parent.path),
         ),
