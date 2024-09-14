@@ -15,6 +15,7 @@ class Mp3FilesController extends GetxController {
   final task = Rxn<TaskItem>();
   final mp3file = Rxn<File>();
   final mp3Files = <File>[].obs;
+  mp3Bytes = 0.obs;
   final limiter = RateLimiter();
   final message = Rxn<String>();
 
@@ -56,7 +57,6 @@ class Mp3FilesController extends GetxController {
     _updateMessage('directories = ${directories.length}');
     final foundFiles =
         await Future.wait(directories.map(_searchDirectoryForMp3Files));
-    _updateMessage('foundFiles = ${foundFiles.length}');
     final uniquePaths = mp3Files.map((f) => f.path).toSet();
 
     for (var files in foundFiles) {
