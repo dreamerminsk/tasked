@@ -77,7 +77,7 @@ class CodeFilesView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final file = c.codeFiles[index];
                         return CodeCardItem(
-                          mp3File: file,
+                         codeFile: file,
                         ); // CodeCardItem
                       },
                     ),
@@ -111,7 +111,7 @@ class CodeCardItem extends StatelessWidget {
       ),
       child: Card(
         child: ListTile(
-          leading: Icon(Icons.audiotrack_outlined),
+          leading: Icon(Icons.source_outlined),
           title: Text(
             "${codeFile.path.split('/').last} - ${StringUtils.formatBytes(codeFile.lengthSync(), 1)}",
           ),
