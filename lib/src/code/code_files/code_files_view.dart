@@ -89,7 +89,7 @@ class CodeFilesView extends StatelessWidget {
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton.extended(
-        icon: const Icon(Icons.playlist_add),
+        icon: const Icon(Icons.loupe_rounded),
         label: Text('Add code file'),
         onPressed: c.pickFile,
       ),
