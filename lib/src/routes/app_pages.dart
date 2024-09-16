@@ -31,6 +31,11 @@ import '../mp3/mp3_files/mp3_files_view.dart';
 import '../mp3/mp3_file/mp3_file_binding.dart';
 import '../mp3/mp3_file/mp3_file_view.dart';
 
+import '../dex/dex_files/dex_files_binding.dart';
+import '../dex/dex_files/dex_files_view.dart';
+import '../dex/dex_file/dex_file_binding.dart';
+import '../dex/dex_file/dex_file_view.dart';
+
 import '../html/source_list/source_list_binding.dart';
 import '../html/source_list/source_list_view.dart';
 
@@ -91,6 +96,16 @@ class AppPages {
       name: _Paths.MP3_FILE,
       page: () => Mp3FileView(),
       binding: Mp3FileBinding(),
+    ),
+    GetPage(
+      name: _Paths.DEX_FILES,
+      page: () => DexFilesView(),
+      binding: DexFilesBinding(),
+    ),
+    GetPage(
+      name: _Paths.DEX_FILE,
+      page: () => DexFileView(),
+      binding: DexFileBinding(),
     ),
     GetPage(
       name: _Paths.CATEGORY,
