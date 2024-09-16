@@ -26,10 +26,10 @@ import '../snooker/player/player_view.dart';
 import '../snooker/season/season_binding.dart';
 import '../snooker/season/season_view.dart';
 
-import '../mp3/mp3_files/mp3_files_binding.dart';
-import '../mp3/mp3_files/mp3_files_view.dart';
-import '../mp3/mp3_file/mp3_file_binding.dart';
-import '../mp3/mp3_file/mp3_file_view.dart';
+import '../audio/audio_files/audio_files_binding.dart';
+import '../audio/audio_files/audio_files_view.dart';
+import '../audio/mp3_file/mp3_file_binding.dart';
+import '../audio/mp3_file/mp3_file_view.dart';
 
 import '../dex/dex_files/dex_files_binding.dart';
 import '../dex/dex_files/dex_files_view.dart';
@@ -88,9 +88,9 @@ class AppPages {
       binding: SourceListBinding(),
     ),
     GetPage(
-      name: _Paths.MP3_FILES,
-      page: () => Mp3FilesView(),
-      binding: Mp3FilesBinding(),
+      name: _Paths.AUDIO_FILES,
+      page: () => AudioFilesView(),
+      binding: AudioFilesBinding(),
     ),
     GetPage(
       name: _Paths.MP3_FILE,
