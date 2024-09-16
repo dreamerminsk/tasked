@@ -11,7 +11,7 @@ abstract class Routes {
   static const SNOOKERPLAYERS = _Paths.SNOOKERPLAYERS;
   static const SNOOKERSEASONS = _Paths.SNOOKERSEASONS;
 
-  static const MP3_FILES = _Paths.MP3_FILES;
+  static const AUDIO_FILES = _Paths.AUDIO_FILES;
   static const MP3_FILE = _Paths.MP3_FILE;
 
   static const DEX_FILES = _Paths.DEX_FILES;
@@ -39,8 +39,8 @@ abstract class _Paths {
   static const SNOOKERPLAYERS = '/task/players';
   static const SNOOKERSEASONS = '/task/seasons';
 
-  static const MP3_FILES = '/task/mp3/files';
-  static const MP3_FILE = '/task/mp3/file';
+  static const AUDIO_FILES = '/task/audio/files';
+  static const MP3_FILE = '/task/audio/mp3file';
 
   static const DEX_FILES = '/task/dex/files';
   static const DEX_FILE = '/task/dex/file';
