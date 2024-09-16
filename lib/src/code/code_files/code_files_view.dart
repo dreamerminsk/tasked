@@ -111,7 +111,8 @@ class CodeCardItem extends StatelessWidget {
       ),
       child: Card(
         child: ListTile(
-          leading: Icon(Icons.source_outlined),
+          leading: Icon(Icons.space_dashboard_rounded),
+          //leading: Icon(Icons.source_outlined),
           title: Text(
             "${codeFile.path.split('/').last} - ${StringUtils.formatBytes(codeFile.lengthSync(), 1)}",
           ),
