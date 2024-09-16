@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'audii_files_controller.dart';
+import 'audio_files_controller.dart';
 
 class AudiiFilesBinding implements Bindings {
   @override
