@@ -14,7 +14,7 @@ abstract class Routes {
   static const AUDIO_FILES = _Paths.AUDIO_FILES;
   static const MP3_FILE = _Paths.MP3_FILE;
 
-  static const DEX_FILES = _Paths.DEX_FILES;
+  static const CODE_FILES = _Paths.CODE_FILES;
   static const DEX_FILE = _Paths.DEX_FILE;
 
   static const HTML_SOURCELIST = _Paths.HTML_SOURCELIST;
@@ -42,8 +42,8 @@ abstract class _Paths {
   static const AUDIO_FILES = '/task/audio/files';
   static const MP3_FILE = '/task/audio/mp3file';
 
-  static const DEX_FILES = '/task/dex/files';
-  static const DEX_FILE = '/task/dex/file';
+  static const CODE_FILES = '/task/code/files';
+  static const DEX_FILE = '/task/code/dexfile';
 
   static const HTML_SOURCELIST = '/task/html/sourcelist';
   //static const HTML_DOM = '/task/html/dom';
