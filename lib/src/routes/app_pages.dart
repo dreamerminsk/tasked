@@ -31,10 +31,10 @@ import '../audio/audio_files/audio_files_view.dart';
 import '../audio/mp3_file/mp3_file_binding.dart';
 import '../audio/mp3_file/mp3_file_view.dart';
 
-import '../dex/dex_files/dex_files_binding.dart';
-import '../dex/dex_files/dex_files_view.dart';
-import '../dex/dex_file/dex_file_binding.dart';
-import '../dex/dex_file/dex_file_view.dart';
+import '../code/code_files/code_files_binding.dart';
+import '../code/code_files/code_files_view.dart';
+import '../code/dex_file/dex_file_binding.dart';
+import '../code/dex_file/dex_file_view.dart';
 
 import '../html/source_list/source_list_binding.dart';
 import '../html/source_list/source_list_view.dart';
@@ -98,9 +98,9 @@ class AppPages {
       binding: Mp3FileBinding(),
     ),
     GetPage(
-      name: _Paths.DEX_FILES,
-      page: () => DexFilesView(),
-      binding: DexFilesBinding(),
+      name: _Paths.CODE_FILES,
+      page: () => CodeFilesView(),
+      binding: CodeFilesBinding(),
     ),
     GetPage(
       name: _Paths.DEX_FILE,
