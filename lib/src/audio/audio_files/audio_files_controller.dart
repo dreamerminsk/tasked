@@ -67,7 +67,7 @@ class AudioFilesController extends GetxController {
         }
       }
     }
-    _updateMessage('audioFiles = ${audioFiles.length}');
+    _updateMessage('audioFiles : ${audioFiles.length}\r\naudioSize : ${audioSize}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
