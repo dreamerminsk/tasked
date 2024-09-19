@@ -66,7 +66,7 @@ class PathListView extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('path_provider 2.1.3')),
+      appBar: AppBar(title: const Text('path_provider 2.1.4')),
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 8),
         itemCount: paths.length,
