@@ -111,7 +111,7 @@ class AudioFilesController extends GetxController {
     final entities = await directory.list(recursive: true).toList();
     return entities
         .whereType<File>()
-        .where((file) => p.extension(file.path).toLowerCase() == '.mp3')
+        .where((file) => p.extension(file.path).toLowerCase() == '.mp3' || p.extension(file.path).toLowerCase() == '.flac')
         .toList();
   }
 
