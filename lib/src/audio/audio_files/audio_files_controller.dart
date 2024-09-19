@@ -14,7 +14,7 @@ class AudioFilesController extends GetxController {
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
   final task = Rxn<TaskItem>();
-  final audiiFile = Rxn<File>();
+  final audioFile = Rxn<File>();
   final audioFiles = <File>[].obs;
   var audioBytes = 0.obs;
   final limiter = RateLimiter();
