@@ -43,7 +43,7 @@ class AudioFilesController extends GetxController {
     try {
       final result = await FilePicker.platform.pickFiles();
       if (result != null) {
-        audiiFile.value = File(result.files.single.path!);
+        audioFile.value = File(result.files.single.path!);
         await searchForAudioFiles();
       } else {
         _updateMessage('FilePicker cancelled...');
