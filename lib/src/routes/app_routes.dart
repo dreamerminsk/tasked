@@ -22,6 +22,7 @@ abstract class Routes {
   static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
   static const COLORSCHEME = _Paths.COLORSCHEME;
+  static const COLORSCHEME2 = _Paths.COLORSCHEME2;
   static const TEXTTHEME = _Paths.TEXTTHEME;
   static const JSON = _Paths.JSON;
   static const THEME = _Paths.THEME;
@@ -51,6 +52,7 @@ abstract class _Paths {
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
   static const COLORSCHEME = '/colorscheme';
+  static const COLORSCHEME2 = '/newcolorscheme';
   static const TEXTTHEME = '/texttheme';
   static const JSON = '/json';
   static const THEME = '/theme';
