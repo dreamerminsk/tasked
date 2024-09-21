@@ -46,7 +46,7 @@ class DebugView extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-            child: ThemeDataWidget(),
+            child: NewColorSchemeWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(24, 8, 8, 8),
