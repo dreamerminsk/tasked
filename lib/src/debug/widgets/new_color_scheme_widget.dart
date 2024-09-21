@@ -18,7 +18,7 @@ class NewColorSchemeWidget extends StatelessWidget {
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.COLORSCHEME);
+          Get.toNamed(Routes.COLORSCHEME2);
         },
         child: Container(
           width: Get.width,
