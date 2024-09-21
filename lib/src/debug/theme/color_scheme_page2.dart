@@ -17,7 +17,25 @@ class ColorSchemePage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  //final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('colorScheme 2.0'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.info_outline_rounded),
+            color: colorScheme.primary,
+            onPressed: () {
+              
+            },
+          ),
+          DebugIconButton(route: Routes.DEBUG),
+        ],
+      ),
+      body: ,
+    );
   }
 
 }
