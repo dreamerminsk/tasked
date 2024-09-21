@@ -34,9 +34,34 @@ class ColorSchemePage2 extends StatelessWidget {
           DebugIconButton(route: Routes.DEBUG),
         ],
       ),
-      body: ,
+      body: _buildInfoContainer(context),
     );
   }
+
+    Widget _buildInfoContainer(BuildContext context) {
+       final colorScheme = Theme.of(context).colorScheme;
+
+       return AnimatedContainer(
+         duration: const Duration(
+            seconds: 1,
+          ),
+          width: Get.width,
+          height: 3 * Get.width / 1.618 / 4,
+          padding: EdgeInsets.all(16.0),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: colorScheme.secondaryFixed,
+            border: Border(
+              top: BorderSide(color: colorScheme.primary, width: 1.0),
+              bottom: BorderSide(color: colorScheme.primary, width: 1.0),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[_buildChooser(context),],
+          ),
+       );
+    }
 
 }
 
