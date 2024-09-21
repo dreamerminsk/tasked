@@ -8,6 +8,20 @@ import '../../core/widgets/icon_buttons.dart';
 import '../../core/color_utils.dart';
 import '../../routes/app_pages.dart';
 
+
+
+class ColorSchemePage2 extends StatelessWidget {
+  ColorSchemePage2({super.key}) {
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+  }
+
+}
+
 class ColorSchemePage2 extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
   final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
