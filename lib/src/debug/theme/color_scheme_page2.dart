@@ -70,7 +70,28 @@ final textTheme = Theme.of(context).textTheme;
     return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+    IconButton(
+      icon: Icon(),
+      color: color,
+      onPressed: onPressed,
+    ),
+    IconButton(
+      icon: Icon(icon),
+      color: color,
+      onPressed: onPressed,
+    ),
 
+
+IconButton(
+      icon: Icon(icon),
+      color: color,
+      onPressed: onPressed,
+    ),
+IconButton(
+      icon: Icon(icon),
+      color: color,
+      onPressed: onPressed,
+    ),
 ],
     );
 }
