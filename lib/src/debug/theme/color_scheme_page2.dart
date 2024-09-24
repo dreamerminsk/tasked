@@ -63,6 +63,15 @@ class ColorSchemePage2 extends StatelessWidget {
        );
     }
 
+Widget _buildChooser(BuildContext context) {
+final textTheme = Theme.of(context).textTheme;
+    final colorScheme = colorSchemeN.value;
+
+    return Row(
+
+    );
+}
+
 }
 
 class ColorSchemePage2 extends StatelessWidget {
