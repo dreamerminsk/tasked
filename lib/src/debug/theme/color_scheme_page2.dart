@@ -68,7 +68,10 @@ final textTheme = Theme.of(context).textTheme;
     final colorScheme = colorSchemeN.value;
 
     return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
 
+],
     );
 }
 
