@@ -71,24 +71,24 @@ final textTheme = Theme.of(context).textTheme;
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
     IconButton(
-      icon: Icon(),
+      icon: Icon(Icons.color_lens),
       color: color,
       onPressed: onPressed,
     ),
     IconButton(
-      icon: Icon(icon),
+      icon: Icon(Icons.color_lens),
       color: color,
       onPressed: onPressed,
     ),
 
 
 IconButton(
-      icon: Icon(icon),
+      icon: Icon(Icons.color_lens),
       color: color,
       onPressed: onPressed,
     ),
 IconButton(
-      icon: Icon(icon),
+      icon: Icon(Icons.color_lens),
       color: color,
       onPressed: onPressed,
     ),
