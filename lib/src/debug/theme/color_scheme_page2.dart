@@ -89,11 +89,9 @@ AnimatedContainer(
           alignment: Alignment.center,
                        decoration: BoxDecoration(
                 color: Colors.orange,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
+                          borderRadius: BorderRadius.circular(10),
               ),
+              child: Text('orange'),
 ),
 
 
