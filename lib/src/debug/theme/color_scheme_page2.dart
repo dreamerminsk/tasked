@@ -72,25 +72,25 @@ final textTheme = Theme.of(context).textTheme;
       children: <Widget>[
     IconButton(
       icon: Icon(Icons.color_lens),
-      color: color,
-      onPressed: onPressed,
+      color: Colors.yellow,
+      onPressed: (){},
     ),
     IconButton(
       icon: Icon(Icons.color_lens),
-      color: color,
-      onPressed: onPressed,
+      color: Colors.orange.shade300,
+      onPressed: (){},
     ),
 
 
 IconButton(
       icon: Icon(Icons.color_lens),
-      color: color,
-      onPressed: onPressed,
+      color: Colors.orange.shade700,
+      onPressed: (){},
     ),
 IconButton(
       icon: Icon(Icons.color_lens),
-      color: color,
-      onPressed: onPressed,
+      color: Colors.brown,
+      onPressed: (){},
     ),
 ],
     );
