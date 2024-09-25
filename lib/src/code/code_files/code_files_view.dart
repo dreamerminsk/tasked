@@ -77,7 +77,7 @@ class CodeFilesView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final file = c.codeFiles[index];
                         return CodeCardItem(
-                         codeFile: file,
+                          codeFile: file,
                         ); // CodeCardItem
                       },
                     ),

@@ -68,7 +68,8 @@ class AudioFilesController extends GetxController {
         }
       }
     }
-    _updateMessage('audioFiles : ${audioFiles.length}\r\naudioSize : ${StringUtils.formatBytes(audioBytes, 1)}');
+    _updateMessage(
+        'audioFiles : ${audioFiles.length}\r\naudioSize : ${StringUtils.formatBytes(audioBytes, 1)}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
@@ -111,7 +112,9 @@ class AudioFilesController extends GetxController {
     final entities = await directory.list(recursive: true).toList();
     return entities
         .whereType<File>()
-        .where((file) => p.extension(file.path).toLowerCase() == '.mp3' || p.extension(file.path).toLowerCase() == '.flac')
+        .where((file) =>
+            p.extension(file.path).toLowerCase() == '.mp3' ||
+            p.extension(file.path).toLowerCase() == '.flac')
         .toList();
   }
 
