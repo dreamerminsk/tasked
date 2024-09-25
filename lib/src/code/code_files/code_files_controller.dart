@@ -79,6 +79,7 @@ class CodeFilesController extends GetxController {
       _getDirectory(getDownloadsDirectory()),
       _getFirstDirectory(getExternalCacheDirectories()),
       _getFirstDirectory(getExternalStorageDirectories()),
+_getFirstDirectory(getExternalStorageDirectories(StorageDirectory.downloads)),
       _getDirectory(getExternalStorageDirectory()),
       _getDirectory(getLibraryDirectory()),
       _getDirectory(getTemporaryDirectory()),
