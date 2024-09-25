@@ -85,7 +85,8 @@ AnimatedContainer(
          duration: const Duration(
             seconds: 1,
           ),
-         
+         padding: EdgeInsets.all(8.0),
+          alignment: Alignment.center,
 ),
 
 
