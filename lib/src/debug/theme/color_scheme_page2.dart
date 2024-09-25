@@ -81,6 +81,13 @@ final textTheme = Theme.of(context).textTheme;
       onPressed: (){},
     ),
 
+AnimatedContainer(
+         duration: const Duration(
+            seconds: 1,
+          ),
+         
+),
+
 
 IconButton(
       icon: Icon(Icons.color_lens),
