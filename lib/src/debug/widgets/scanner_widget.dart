@@ -88,7 +88,9 @@ class ScannerWidget extends StatelessWidget {
         onTap: () => Get.toNamed(Routes.SCANNER),
         onPanEnd: (details) {
           colorIdx.value = (colorIdx.value + 1) % colors.length;
-          onColorIdx.value = (onColorIdx.value + 1) % colors.length;
+          Future.delayed(Duration(milliseconds: 1000), () {
+  onColorIdx.value = (onColorIdx.value + 1) % colors.length;
+});
         },
         child: Obx(
           () => AnimatedContainer(
