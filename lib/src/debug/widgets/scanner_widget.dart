@@ -86,11 +86,19 @@ class ScannerWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: GestureDetector(
         onTap: () => Get.toNamed(Routes.SCANNER),
-        onPanEnd: (details) {
-          colorIdx.value = (colorIdx.value + 1) % colors.length;
+        onHorizontalDragEnd: (details) {
+          if(details.primaryVelocity == null) return;
+          if(details.primaryVelocity! < 0) {
+            colorIdx.value = (colorIdx.value + colors.length - 1) % colors.length;
+          Future.delayed(Duration(milliseconds: 1000), () {
+  onColorIdx.value = (onColorIdx.value + colors.length - 1) % colors.length;
+});
+          }  else  {
+            colorIdx.value = (colorIdx.value + 1) % colors.length;
           Future.delayed(Duration(milliseconds: 1000), () {
   onColorIdx.value = (onColorIdx.value + 1) % colors.length;
 });
+          }
         },
         child: Obx(
           () => AnimatedContainer(
