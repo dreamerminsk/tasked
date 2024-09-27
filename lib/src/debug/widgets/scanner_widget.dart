@@ -8,6 +8,7 @@ class ScannerWidget extends StatelessWidget {
   final colorNames = RxList<String>();
   final onColors = RxList<Color>();
   final colorIdx = RxInt(0);
+  final onColorIdx = RxInt(0);
 
   ScannerWidget({super.key});
 
@@ -87,13 +88,14 @@ class ScannerWidget extends StatelessWidget {
         onTap: () => Get.toNamed(Routes.SCANNER),
         onPanEnd: (details) {
           colorIdx.value = (colorIdx.value + 1) % colors.length;
+          onColorIdx.value = (onColorIdx.value + 1) % colors.length;
         },
         child: Obx(
           () => AnimatedContainer(
             width: Get.width,
             height: 2 * Get.width / 5 / 1.618,
             curve: Curves.fastEaseInToSlowEaseOut,
-            duration: Duration(seconds: 2),
+            duration: Duration(seconds: 1),
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -106,14 +108,14 @@ class ScannerWidget extends StatelessWidget {
                   'SCANNER',
                   style: textTheme.headlineMedium!.copyWith(
                     fontWeight: FontWeight.w300,
-                    color: onColors[colorIdx.value],
+                    color: onColors[onColorIdx.value],
                   ),
                 ),
                 Text(
                   colorNames[colorIdx.value],
                   style: textTheme.bodyLarge!.copyWith(
                     fontWeight: FontWeight.w300,
-                    color: onColors[colorIdx.value],
+                    color: onColors[onColorIdx.value],
                   ),
                 ),
               ],
