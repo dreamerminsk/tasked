@@ -35,8 +35,15 @@ class DexFileView extends StatelessWidget {
         children: <Widget>[
                       Card(
              child: ListTile(
-                title: Text('DEX HEADER'),
-                subtitle: Text('pos: 0, size: 4'),
+                title: Text('HEADER'),
+                subtitle: Text('pos: 0, size: 0'),
+                isThreeLine: true,
+             ), // ListTile
+          ), // Card
+                    Card(
+             child: ListTile(
+                title: Text('STRING_IDS'),
+                subtitle: Text('pos: 0, size: 0'),
                 isThreeLine: true,
              ), // ListTile
           ), // Card
