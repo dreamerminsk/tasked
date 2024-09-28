@@ -106,10 +106,19 @@ class AudioCardItem extends StatelessWidget {
   @override
   Widget build(context) {
     return InkWell(
-      onTap: () => Get.toNamed(
+      onTap: () {
+                     if (p.extension(file.path).toLowerCase() == '.mp3') {
+Get.toNamed(
         Routes.MP3_FILE,
         arguments: audioFile,
-      ),
+      );
+} else if (p.extension(file.path).toLowerCase() == '.flac') {
+Get.toNamed(
+        Routes.FLAC_FILE,
+        arguments: audioFile,
+      );
+}
+      },
       child: Card(
         child: ListTile(
           leading: Icon(Icons.audiotrack_outlined),
