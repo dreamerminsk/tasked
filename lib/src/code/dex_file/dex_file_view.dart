@@ -33,25 +33,7 @@ class DexFileView extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Obx(() => c.header.value == null
-                  ? Card(
-                      child: ListTile(
-                        title: Text(
-                            c.dexfile.value?.path.split('/').last ?? '~^~'),
-                        subtitle: Text(
-                            'pos: 0, size: ${c.dexfile.value?.lengthSync() ?? 0}'),
-                        isThreeLine: true,
-                      ), // ListTile
-                    ) // Card
-                  : Card(
-                      child: ListTile(
-                        title: Text(c.header.value.runtimeType.toString()),
-                        subtitle: Text(
-                            '${c.header.value}, pos: 0, size: ${10 + (c.header.value?.size ?? 0)}'),
-                        isThreeLine: true,
-                      ), // ListTile
-                    ) // Card
-              ), // Obx
+          
         ], // children
       ), // Column
     );
