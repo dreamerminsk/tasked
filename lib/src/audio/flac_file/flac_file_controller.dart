@@ -26,7 +26,7 @@ class FlacFileController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    mp3file.value = Get.arguments;
+    flacFile.value = Get.arguments;
     _raf = await flacFile.value?.open();
   }
 
