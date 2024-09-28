@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tasked/main.dart';
 
-import 'sample_color.dart';
-import '../../core/colors.dart';
+//import 'sample_color.dart';
+//import '../../core/colors.dart';
 import '../../core/widgets/icon_buttons.dart';
-import '../../core/color_utils.dart';
+//import '../../core/color_utils.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemePage2 extends StatelessWidget {
@@ -60,8 +60,8 @@ class ColorSchemePage2 extends StatelessWidget {
   }
 
   Widget _buildChooser(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = colorSchemeN.value;
+    //final textTheme = Theme.of(context).textTheme;
+    //final colorScheme = colorSchemeN.value;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
