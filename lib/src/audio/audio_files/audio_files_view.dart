@@ -108,17 +108,17 @@ class AudioCardItem extends StatelessWidget {
   Widget build(context) {
     return InkWell(
       onTap: () {
-                     if (p.extension(file.path).toLowerCase() == '.mp3') {
-Get.toNamed(
-        Routes.MP3_FILE,
-        arguments: audioFile,
-      );
-} else if (p.extension(file.path).toLowerCase() == '.flac') {
-Get.toNamed(
-        Routes.FLAC_FILE,
-        arguments: audioFile,
-      );
-}
+        if (p.extension(file.path).toLowerCase() == '.mp3') {
+          Get.toNamed(
+            Routes.MP3_FILE,
+            arguments: audioFile,
+          );
+        } else if (p.extension(file.path).toLowerCase() == '.flac') {
+          Get.toNamed(
+            Routes.FLAC_FILE,
+            arguments: audioFile,
+          );
+        }
       },
       child: Card(
         child: ListTile(

@@ -18,8 +18,8 @@ class FlacFileView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Obx(() => Text(
-              '${c.flacFile.value?.path.split("/").last ?? "~^~"}')),
+          title: Obx(
+              () => Text('${c.flacFile.value?.path.split("/").last ?? "~^~"}')),
           actions: <Widget>[
             DebugIconButton(
               route: Routes.DEBUG,
@@ -29,25 +29,25 @@ class FlacFileView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Card(
-             child: ListTile(
-                title: Text('FLAC stream marker'),
-                subtitle: Text('pos: 0, size: 4'),
-                isThreeLine: true,
-             ), // ListTile
+            child: ListTile(
+              title: Text('FLAC stream marker'),
+              subtitle: Text('pos: 0, size: 4'),
+              isThreeLine: true,
+            ), // ListTile
           ), // Card
           Card(
-             child: ListTile(
-                title: Text('STREAMINFO'),
-                subtitle: Text('pos: 4, size: 34'),
-                isThreeLine: true,
-             ), // ListTile
+            child: ListTile(
+              title: Text('STREAMINFO'),
+              subtitle: Text('pos: 4, size: 34'),
+              isThreeLine: true,
+            ), // ListTile
           ), // Card
           Card(
-             child: ListTile(
-                title: Text('BINARY'),
-                subtitle: Text('pos: 38, size: ???'),
-                isThreeLine: true,
-             ), // ListTile
+            child: ListTile(
+              title: Text('BINARY'),
+              subtitle: Text('pos: 38, size: ???'),
+              isThreeLine: true,
+            ), // ListTile
           ), // Card
         ], // children
       ), // Column

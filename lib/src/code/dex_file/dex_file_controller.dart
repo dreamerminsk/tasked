@@ -19,8 +19,6 @@ class DexFileController extends GetxController {
 
   RandomAccessFile? _raf;
 
- 
-
   @override
   void onInit() {
     super.onInit();
