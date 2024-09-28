@@ -68,7 +68,7 @@ class CodeFilesController extends GetxController {
       }
     }
     _updateMessage(
-        'codeFiles : ${codeFiles.length}\r\ncodeSize : ${StringUtils.formatBytes(codeBytes, 1)}');
+        'codeFiles : ${codeFiles.length}\r\ncodeSize : ${StringUtils.formatBytes(codeBytes.value, 1)}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
