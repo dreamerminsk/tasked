@@ -44,10 +44,10 @@ class ColorSchemePage2 extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: colorScheme.secondaryFixed,
+        color: colorScheme.surface,
         border: Border(
-          top: BorderSide(color: colorScheme.primary, width: 1.0),
-          bottom: BorderSide(color: colorScheme.primary, width: 1.0),
+          top: BorderSide(color: colorScheme.primary, width: 2.0),
+          bottom: BorderSide(color: colorScheme.primary, width: 2.0),
         ),
       ),
       child: Column(
@@ -84,7 +84,7 @@ class ColorSchemePage2 extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: Colors.orange,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Text('orange'),
         ),
