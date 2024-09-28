@@ -30,7 +30,7 @@ class FlacFileView extends StatelessWidget {
         children: <Widget>[
           Card(
              child: ListTile(
-                title: Text('fLaC stream marker'),
+                title: Text('FLAC stream marker'),
                 subtitle: Text('pos: 0, size: 4'),
                 isThreeLine: true,
              ), // ListTile
