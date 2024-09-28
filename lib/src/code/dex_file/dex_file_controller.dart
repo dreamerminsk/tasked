@@ -29,7 +29,7 @@ class DexFileController extends GetxController {
   void onReady() async {
     super.onReady();
     dexFile.value = Get.arguments;
-    _raf = await dexfile.value?.open();
+    _raf = await dexFile.value?.open();
   }
 
   @override
