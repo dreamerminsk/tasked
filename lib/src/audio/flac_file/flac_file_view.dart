@@ -42,6 +42,13 @@ class FlacFileView extends StatelessWidget {
                 isThreeLine: true,
              ), // ListTile
           ), // Card
+          Card(
+             child: ListTile(
+                title: Text('BINARY'),
+                subtitle: Text('pos: 38, size: ???'),
+                isThreeLine: true,
+             ), // ListTile
+          ), // Card
         ], // children
       ), // Column
     );
