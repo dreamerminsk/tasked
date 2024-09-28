@@ -33,7 +33,13 @@ class DexFileView extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          
+                      Card(
+             child: ListTile(
+                title: Text('DEX HEADER'),
+                subtitle: Text('pos: 0, size: 4'),
+                isThreeLine: true,
+             ), // ListTile
+          ), // Card
         ], // children
       ), // Column
     );
