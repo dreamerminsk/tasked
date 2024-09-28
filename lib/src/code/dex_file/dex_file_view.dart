@@ -75,6 +75,13 @@ Card(
                 isThreeLine: true,
              ), // ListTile
           ), // Card
+          Card(
+             child: ListTile(
+                title: Text('CLASS_DEFS'),
+                subtitle: Text('pos: 0, size: 0'),
+                isThreeLine: true,
+             ), // ListTile
+          ), // Card
         ], // children
       ), // Column
     );
