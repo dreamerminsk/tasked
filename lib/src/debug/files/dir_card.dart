@@ -56,6 +56,7 @@ class DirCard extends StatelessWidget {
               ), // Text
               ObxValue(
                 (data) => Wrap(
+                  spacing: 8.0,
                   children: <Widget>[
                     Text(
                       '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
