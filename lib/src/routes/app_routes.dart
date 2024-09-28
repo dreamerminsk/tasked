@@ -11,14 +11,19 @@ abstract class Routes {
   static const SNOOKERPLAYERS = _Paths.SNOOKERPLAYERS;
   static const SNOOKERSEASONS = _Paths.SNOOKERSEASONS;
 
-  static const MP3_FILES = _Paths.MP3_FILES;
+  static const AUDIO_FILES = _Paths.AUDIO_FILES;
   static const MP3_FILE = _Paths.MP3_FILE;
+  static const FLAC_FILE = _Paths.FLAC_FILE;
+
+  static const CODE_FILES = _Paths.CODE_FILES;
+  static const DEX_FILE = _Paths.DEX_FILE;
 
   static const HTML_SOURCELIST = _Paths.HTML_SOURCELIST;
 
   static const CATEGORY = _Paths.CATEGORY;
   static const DEBUG = _Paths.DEBUG;
   static const COLORSCHEME = _Paths.COLORSCHEME;
+  static const COLORSCHEME2 = _Paths.COLORSCHEME2;
   static const TEXTTHEME = _Paths.TEXTTHEME;
   static const JSON = _Paths.JSON;
   static const THEME = _Paths.THEME;
@@ -36,8 +41,12 @@ abstract class _Paths {
   static const SNOOKERPLAYERS = '/task/players';
   static const SNOOKERSEASONS = '/task/seasons';
 
-  static const MP3_FILES = '/task/mp3/files';
-  static const MP3_FILE = '/task/mp3/file';
+  static const AUDIO_FILES = '/task/audio/files';
+  static const MP3_FILE = '/task/audio/mp3file';
+  static const FLAC_FILE = '/task/audio/flacfile';
+
+  static const CODE_FILES = '/task/code/files';
+  static const DEX_FILE = '/task/code/dexfile';
 
   static const HTML_SOURCELIST = '/task/html/sourcelist';
   //static const HTML_DOM = '/task/html/dom';
@@ -45,6 +54,7 @@ abstract class _Paths {
   static const CATEGORY = '/category';
   static const DEBUG = '/debug';
   static const COLORSCHEME = '/colorscheme';
+  static const COLORSCHEME2 = '/newcolorscheme';
   static const TEXTTHEME = '/texttheme';
   static const JSON = '/json';
   static const THEME = '/theme';

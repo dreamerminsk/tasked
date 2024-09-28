@@ -5,16 +5,18 @@ import 'package:get/get.dart';
 import 'package:nanoid2/nanoid2.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import '../../core/string_utils.dart';
 import '../../debug/debug_controller.dart';
 import '../../tasklist/task/task_item.dart';
 
-class Mp3FilesController extends GetxController {
+class CodeFilesController extends GetxController {
   final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
   final task = Rxn<TaskItem>();
-  final mp3file = Rxn<File>();
-  final mp3Files = <File>[].obs;
+  final codeFile = Rxn<File>();
+  final codeFiles = <File>[].obs;
+  var codeBytes = 0.obs;
   final limiter = RateLimiter();
   final message = Rxn<String>();
 
@@ -28,7 +30,7 @@ class Mp3FilesController extends GetxController {
   void onReady() {
     super.onReady();
     task.value = Get.arguments;
-    searchForMp3Files();
+    searchForCodeFiles();
   }
 
   @override
@@ -41,8 +43,8 @@ class Mp3FilesController extends GetxController {
     try {
       final result = await FilePicker.platform.pickFiles();
       if (result != null) {
-        mp3file.value = File(result.files.single.path!);
-        await searchForMp3Files();
+        codeFile.value = File(result.files.single.path!);
+        await searchForCodeFiles();
       } else {
         _updateMessage('FilePicker cancelled...');
       }
@@ -51,22 +53,22 @@ class Mp3FilesController extends GetxController {
     }
   }
 
-  Future<void> searchForMp3Files() async {
+  Future<void> searchForCodeFiles() async {
     final directories = await _getDirectoriesToSearch();
-    _updateMessage('directories = ${directories.length}');
     final foundFiles =
-        await Future.wait(directories.map(_searchDirectoryForMp3Files));
-    _updateMessage('foundFiles = ${foundFiles.length}');
-    final uniquePaths = mp3Files.map((f) => f.path).toSet();
+        await Future.wait(directories.map(_searchDirectoryForCodeFiles));
+    final uniquePaths = codeFiles.map((f) => f.path).toSet();
 
     for (var files in foundFiles) {
       for (var file in files) {
         if (uniquePaths.add(file.path)) {
-          mp3Files.add(file);
+          codeFiles.add(file);
+          codeBytes.value += file.lengthSync();
         }
       }
     }
-    _updateMessage('mp3Files = ${mp3Files.length}');
+    _updateMessage(
+        'codeFiles : ${codeFiles.length}\r\ncodeSize : ${StringUtils.formatBytes(codeBytes.value, 1)}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
@@ -77,6 +79,8 @@ class Mp3FilesController extends GetxController {
       _getDirectory(getDownloadsDirectory()),
       _getFirstDirectory(getExternalCacheDirectories()),
       _getFirstDirectory(getExternalStorageDirectories()),
+      _getFirstDirectory(
+          getExternalStorageDirectories(type: StorageDirectory.downloads)),
       _getDirectory(getExternalStorageDirectory()),
       _getDirectory(getLibraryDirectory()),
       _getDirectory(getTemporaryDirectory()),
@@ -104,12 +108,12 @@ class Mp3FilesController extends GetxController {
     }
   }
 
-  Future<List<File>> _searchDirectoryForMp3Files(Directory directory) async {
+  Future<List<File>> _searchDirectoryForCodeFiles(Directory directory) async {
     _updateMessage('Searching in ${directory.path}');
     final entities = await directory.list(recursive: true).toList();
     return entities
         .whereType<File>()
-        .where((file) => p.extension(file.path).toLowerCase() == '.mp3')
+        .where((file) => p.extension(file.path).toLowerCase() == '.dex')
         .toList();
   }
 
@@ -121,7 +125,7 @@ class Mp3FilesController extends GetxController {
 }
 
 class RateLimiter {
-  final int waitTimeMilliseconds = 250;
+  final int waitTimeMilliseconds = 500;
   DateTime lastActionTime = DateTime.now();
 
   Future<void> doAction(Function action) async {

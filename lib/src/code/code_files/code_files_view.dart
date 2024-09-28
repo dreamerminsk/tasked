@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'mp3_files_controller.dart';
+import 'code_files_controller.dart';
 import '../../routes/app_pages.dart';
 import '../../core/widgets/icon_buttons.dart';
+import '../../core/string_utils.dart';
 
-class Mp3FilesView extends StatelessWidget {
-  const Mp3FilesView({
+class CodeFilesView extends StatelessWidget {
+  const CodeFilesView({
     super.key,
   });
 
@@ -16,7 +17,7 @@ class Mp3FilesView extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final Mp3FilesController c = Get.find();
+    final CodeFilesController c = Get.find();
 
     //const double padding = 8.0;
     //final double adjustedWidth = Get.width - 2 * padding;
@@ -59,11 +60,11 @@ class Mp3FilesView extends StatelessWidget {
           ), // Container
           Obx(
             () {
-              if (c.mp3Files.isEmpty) {
+              if (c.codeFiles.isEmpty) {
                 return Expanded(
                   child: Align(
                     alignment: Alignment.center,
-                    child: Center(child: Text('No MP3 files found.')),
+                    child: Center(child: Text('No code files found.')),
                   ),
                 );
               } else {
@@ -72,12 +73,12 @@ class Mp3FilesView extends StatelessWidget {
                     context: context,
                     removeTop: true,
                     child: ListView.builder(
-                      itemCount: c.mp3Files.length,
+                      itemCount: c.codeFiles.length,
                       itemBuilder: (context, index) {
-                        final file = c.mp3Files[index];
-                        return _Mp3CardItem(
-                          mp3File: file,
-                        ); // _Mp3CardItem
+                        final file = c.codeFiles[index];
+                        return CodeCardItem(
+                          codeFile: file,
+                        ); // CodeCardItem
                       },
                     ),
                   ),
@@ -88,33 +89,34 @@ class Mp3FilesView extends StatelessWidget {
         ], // children
       ), // Column
       floatingActionButton: FloatingActionButton.extended(
-        icon: const Icon(Icons.playlist_add),
-        label: Text('Add mp3'),
+        icon: const Icon(Icons.loupe_rounded),
+        label: Text('Add code file'),
         onPressed: c.pickFile,
       ),
     );
   }
 }
 
-class _Mp3CardItem extends StatelessWidget {
-  _Mp3CardItem({required this.mp3File});
+class CodeCardItem extends StatelessWidget {
+  CodeCardItem({required this.codeFile});
 
-  final File mp3File;
+  final File codeFile;
 
   @override
   Widget build(context) {
     return InkWell(
       onTap: () => Get.toNamed(
-        Routes.MP3_FILE,
-        arguments: mp3File,
+        Routes.DEX_FILE,
+        arguments: codeFile,
       ),
       child: Card(
         child: ListTile(
-          leading: Icon(Icons.audiotrack_outlined),
+          leading: Icon(Icons.space_dashboard_rounded),
+          //leading: Icon(Icons.source_outlined),
           title: Text(
-            mp3File.path.split('/').last,
+            "${codeFile.path.split('/').last} - ${StringUtils.formatBytes(codeFile.lengthSync(), 1)}",
           ),
-          subtitle: Text(mp3File.parent.path),
+          subtitle: Text(codeFile.parent.path),
         ),
       ), // Card
     ); // InkWell

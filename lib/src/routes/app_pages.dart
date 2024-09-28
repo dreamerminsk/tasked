@@ -7,12 +7,12 @@ import '../debug/debug_view.dart';
 import '../debug/files/root_list_view.dart';
 import '../debug/files/path_list_view.dart';
 import '../debug/theme/color_scheme_page.dart';
+import '../debug/theme/color_scheme_page2.dart';
 import '../debug/theme/text_theme_page.dart';
 import '../debug/json/json_viewer.dart';
 import '../debug/json/json_binding.dart';
 import '../debug/scanner/scanner_page.dart';
 import '../debug/scanner/scanner_binding.dart';
-import '../debug/theme/theme_data_page.dart';
 import '../home/home_binding.dart';
 import '../home/home_details_view.dart';
 import '../home/home_view.dart';
@@ -26,10 +26,17 @@ import '../snooker/player/player_view.dart';
 import '../snooker/season/season_binding.dart';
 import '../snooker/season/season_view.dart';
 
-import '../mp3/mp3_files/mp3_files_binding.dart';
-import '../mp3/mp3_files/mp3_files_view.dart';
-import '../mp3/mp3_file/mp3_file_binding.dart';
-import '../mp3/mp3_file/mp3_file_view.dart';
+import '../audio/audio_files/audio_files_binding.dart';
+import '../audio/audio_files/audio_files_view.dart';
+import '../audio/mp3_file/mp3_file_binding.dart';
+import '../audio/mp3_file/mp3_file_view.dart';
+import '../audio/flac_file/flac_file_binding.dart';
+import '../audio/flac_file/flac_file_view.dart';
+
+import '../code/code_files/code_files_binding.dart';
+import '../code/code_files/code_files_view.dart';
+import '../code/dex_file/dex_file_binding.dart';
+import '../code/dex_file/dex_file_view.dart';
 
 import '../html/source_list/source_list_binding.dart';
 import '../html/source_list/source_list_view.dart';
@@ -83,14 +90,29 @@ class AppPages {
       binding: SourceListBinding(),
     ),
     GetPage(
-      name: _Paths.MP3_FILES,
-      page: () => Mp3FilesView(),
-      binding: Mp3FilesBinding(),
+      name: _Paths.AUDIO_FILES,
+      page: () => AudioFilesView(),
+      binding: AudioFilesBinding(),
     ),
     GetPage(
       name: _Paths.MP3_FILE,
       page: () => Mp3FileView(),
       binding: Mp3FileBinding(),
+    ),
+    GetPage(
+      name: _Paths.FLAC_FILE,
+      page: () => FlacFileView(),
+      binding: FlacFileBinding(),
+    ),
+    GetPage(
+      name: _Paths.CODE_FILES,
+      page: () => CodeFilesView(),
+      binding: CodeFilesBinding(),
+    ),
+    GetPage(
+      name: _Paths.DEX_FILE,
+      page: () => DexFileView(),
+      binding: DexFileBinding(),
     ),
     GetPage(
       name: _Paths.CATEGORY,
@@ -108,6 +130,11 @@ class AppPages {
       //binding: ColorSchemeBinding(),
     ),
     GetPage(
+      name: _Paths.COLORSCHEME2,
+      page: () => ColorSchemePage2(),
+      //binding: ColorSchemeBinding2(),
+    ),
+    GetPage(
       name: _Paths.TEXTTHEME,
       page: () => TextThemePage(),
       //binding: ColorSchemeBinding(),
@@ -116,11 +143,6 @@ class AppPages {
       name: _Paths.JSON,
       page: () => JsonViewer(),
       binding: JsonBinding(),
-    ),
-    GetPage(
-      name: _Paths.THEME,
-      page: () => ThemeDataPage(),
-      //binding: JsonBinding(),
     ),
     GetPage(
       name: _Paths.FILES,

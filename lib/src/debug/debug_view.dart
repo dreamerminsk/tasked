@@ -10,7 +10,7 @@ import 'widgets/health_widget.dart';
 import 'widgets/network_stats.dart';
 import 'widgets/random_json_files.dart';
 import 'widgets/text_theme_widget.dart';
-import 'widgets/theme_data_widget.dart';
+import 'widgets/new_color_scheme_widget.dart';
 
 class DebugView extends StatelessWidget {
   @override
@@ -46,7 +46,7 @@ class DebugView extends StatelessWidget {
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-            child: ThemeDataWidget(),
+            child: NewColorSchemeWidget(),
           ), // Padding
           Padding(
             padding: EdgeInsets.fromLTRB(24, 8, 8, 8),

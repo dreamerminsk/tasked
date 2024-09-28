@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:tasked/main.dart';
 import '../../routes/app_pages.dart';
 
-class ThemeDataWidget extends StatelessWidget {
-  const ThemeDataWidget({
+class NewColorSchemeWidget extends StatelessWidget {
+  const NewColorSchemeWidget({
     super.key,
   });
 
@@ -14,22 +14,28 @@ class ThemeDataWidget extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.THEME);
+          Get.toNamed(Routes.COLORSCHEME2);
         },
         child: Container(
           width: Get.width,
           height: 96,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'themeData',
+                'colorScheme 2.0',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
+              ), // Text
+              Text(
+                '${MyApp.shadeColor.name}, ${MyApp.variant.toString().split(".").last}',
+                style:
+                    textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text
             ],
           ), // Column
