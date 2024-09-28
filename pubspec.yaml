@@ -23,7 +23,7 @@ dependencies:
   flutter_json_viewer: ^1.0.1
   font_awesome_flutter: ^10.5.0
   get: ^4.6.6
-  google_fonts: ^6.1.0
+  google_fonts: ^6.2.1
   html: ^0.15.4
   intl: ^0.18.0
   loading_indicator: ^3.1.1
