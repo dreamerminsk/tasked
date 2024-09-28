@@ -69,7 +69,7 @@ class AudioFilesController extends GetxController {
       }
     }
     _updateMessage(
-        'audioFiles : ${audioFiles.length}\r\naudioSize : ${StringUtils.formatBytes(audioBytes, 1)}');
+        'audioFiles : ${audioFiles.length}\r\naudioSize : ${StringUtils.formatBytes(audioBytes.value, 1)}');
   }
 
   Future<List<Directory>> _getDirectoriesToSearch() async {
