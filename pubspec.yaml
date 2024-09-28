@@ -17,7 +17,7 @@ dependencies:
   cuid2: ^3.1.0
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
-  duration: ^3.0.13
+  duration: ^4.0.3
   file_picker: ^6.1.1
   fl_chart: ^0.68.0
   flutter_json_viewer: ^1.0.1
