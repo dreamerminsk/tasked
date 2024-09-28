@@ -75,13 +75,6 @@ class ThemeDataPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8),
             child: SampleTheme(
-              title: 'buttonBarTheme',
-              theme: theme.buttonBarTheme,
-            ), // SampleTheme
-          ), // Padding
-          Padding(
-            padding: EdgeInsets.all(8),
-            child: SampleTheme(
               title: 'buttonTheme',
               theme: theme.buttonTheme,
             ), // SampleTheme
