@@ -30,6 +30,8 @@ import '../audio/audio_files/audio_files_binding.dart';
 import '../audio/audio_files/audio_files_view.dart';
 import '../audio/mp3_file/mp3_file_binding.dart';
 import '../audio/mp3_file/mp3_file_view.dart';
+import '../audio/flac_file/flac_file_binding.dart';
+import '../audio/flac_file/flac_file_view.dart';
 
 import '../code/code_files/code_files_binding.dart';
 import '../code/code_files/code_files_view.dart';
@@ -96,6 +98,11 @@ class AppPages {
       name: _Paths.MP3_FILE,
       page: () => Mp3FileView(),
       binding: Mp3FileBinding(),
+    ),
+    GetPage(
+      name: _Paths.FLAC_FILE,
+      page: () => FlacFileView(),
+      binding: FlacFileBinding(),
     ),
     GetPage(
       name: _Paths.CODE_FILES,
