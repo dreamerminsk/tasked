@@ -24,7 +24,7 @@ class DexFileView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: Obx(() => Text(
-              'DexFileView: ${c.dexfile.value?.path.split("/").last ?? "~^~"}')),
+              '${c.dexFile.value?.path.split("/").last ?? "~^~"}')),
           actions: <Widget>[
             DebugIconButton(
               route: Routes.DEBUG,
