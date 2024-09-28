@@ -54,6 +54,13 @@ class DexFileView extends StatelessWidget {
                 isThreeLine: true,
              ), // ListTile
           ), // Card
+Card(
+             child: ListTile(
+                title: Text('PROTO_IDS'),
+                subtitle: Text('pos: 0, size: 0'),
+                isThreeLine: true,
+             ), // ListTile
+          ), // Card
         ], // children
       ), // Column
     );
