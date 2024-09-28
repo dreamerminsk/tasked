@@ -6,8 +6,6 @@ import 'package:nanoid2/nanoid2.dart';
 
 import '../../debug/debug_controller.dart';
 
-import 'models/id3_tags.dart';
-
 class DexFileController extends GetxController {
   final id = nanoid();
 
