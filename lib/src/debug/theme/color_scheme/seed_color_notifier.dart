@@ -1,0 +1,3 @@
+class SeedColorNotifier extends ChangeNotifier{
+
+}
