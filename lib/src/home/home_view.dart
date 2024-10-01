@@ -54,7 +54,7 @@ class HomeView extends StatelessWidget {
       },
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(20),
         ),
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: Padding(
