@@ -8,8 +8,8 @@ import '../../../core/color_utils.dart';
 
 class SeedColorNotifier extends ChangeNotifier{
 
-_colorIdx = 0;
-_shadeIdx = 0;
+int _colorIdx = 0;
+int _shadeIdx = 0;
 
 
       NamedMaterialColor get seedColor => NamedColors.primaries[_colorIdx];
