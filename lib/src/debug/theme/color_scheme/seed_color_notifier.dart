@@ -8,19 +8,17 @@ class SeedColorNotifier extends ChangeNotifier {
   int _shadeIdx = 0;
 
   NamedMaterialColor get seedColor => NamedColors.primaries[_colorIdx];
-  NamedColor get shadeColor =>
-      NamedColors.primaries[_colorIdx].shades[_shadeIdx];
+  NamedColor get shadeColor => seedColor.shades[_shadeIdx];
 
   void nextColor() {
     _colorIdx = (_colorIdx + 1) % NamedColors.primaries.length;
-    _shadeIdx = _shadeIdx % seedColor.shades.length;
+    _shadeIdx = 0; // Reset to first shade when color changes
     notifyListeners();
   }
 
   void prevColor() {
-    const colors = NamedColors.primaries.length;
-    _colorIdx = (_colorIdx + colors - 1) % colors;
-    _shadeIdx = _shadeIdx % seedColor.shades.length;
+    _colorIdx = (_colorIdx - 1 + NamedColors.primaries.length) % NamedColors.primaries.length;
+    _shadeIdx = 0; // Reset to first shade when color changes
     notifyListeners();
   }
 
@@ -30,8 +28,7 @@ class SeedColorNotifier extends ChangeNotifier {
   }
 
   void prevShade() {
-    const shades = seedColor.shades.length;
-    _colorIdx = (_colorIdx + shades - 1) % shades;
+    _shadeIdx = (_shadeIdx - 1 + seedColor.shades.length) % seedColor.shades.length;
     notifyListeners();
   }
 }
