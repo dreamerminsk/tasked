@@ -7,6 +7,8 @@ class SeedColorNotifier extends ChangeNotifier {
   int _colorIdx = 0;
   int _shadeIdx = 0;
 
+  final colorCount = NamedColors.primaries.length;
+
   NamedMaterialColor get color => NamedColors.primaries[_colorIdx];
   NamedColor get shade => color.shades[_shadeIdx];
 
@@ -27,7 +29,7 @@ class SeedColorNotifier extends ChangeNotifier {
   }
 
   int nextColorIdx() {
-return (_colorIdx + 1) % NamedColors.primaries.length;
+return (_colorIdx + 1) % colorCount;
 }
 
   void decColorIdx() {
@@ -37,7 +39,7 @@ return (_colorIdx + 1) % NamedColors.primaries.length;
   }
 
 int prevColorIdx() {
-return (_colorIdx - 1 + NamedColors.primaries.length) % NamedColors.primaries.length;
+return (_colorIdx - 1 + colorCount) % colorCount;
 }
 
   void incShadeIdx() {
