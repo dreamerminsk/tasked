@@ -7,37 +7,37 @@ class SeedColorNotifier extends ChangeNotifier {
   int _colorIdx = 0;
   int _shadeIdx = 0;
 
-  NamedMaterialColor get seedColor => NamedColors.primaries[_colorIdx];
-  NamedColor get shadeColor => seedColor.shades[_shadeIdx];
+  NamedMaterialColor get color => NamedColors.primaries[_colorIdx];
+  NamedColor get shade => color.shades[_shadeIdx];
 
-  NamedMaterialColor get nextSeedColor =>
+  NamedMaterialColor get nextColor =>
       NamedColors.primaries[(_colorIdx + 1) % NamedColors.primaries.length];
-  NamedColor get nextShadeColor =>
-      seedColor.shades[(_shadeIdx + 1) % seedColor.shades.length];
+  NamedColor get nextShade =>
+      color.shades[(_shadeIdx + 1) % color.shades.length];
 
-  NamedMaterialColor get prevSeedColor =>
+  NamedMaterialColor get prevColor =>
       NamedColors.primaries[(_colorIdx - 1 + NamedColors.primaries.length) % NamedColors.primaries.length];
-  NamedColor get prevShadeColor =>
-      seedColor.shades[(_shadeIdx - 1 + seedColor.shades.length) % seedColor.shades.length];
+  NamedColor get prevShade =>
+      color.shades[(_shadeIdx - 1 + color.shades.length) % color.shades.length];
 
-  void nextColor() {
+  void incColorIdx() {
     _colorIdx = (_colorIdx + 1) % NamedColors.primaries.length;
     _shadeIdx = 0; // Reset shade index when color changes
     notifyListeners();
   }
 
-  void prevColor() {
+  void decColorIdx() {
     _colorIdx = (_colorIdx - 1 + NamedColors.primaries.length) % NamedColors.primaries.length;
     _shadeIdx = 0; // Reset shade index when color changes
     notifyListeners();
   }
 
-  void nextShade() {
+  void incShadeIdx() {
     _shadeIdx = (_shadeIdx + 1) % seedColor.shades.length;
     notifyListeners();
   }
 
-  void prevShade() {
+  void decShadeIdx() {
     _shadeIdx = (_shadeIdx - 1 + seedColor.shades.length) % seedColor.shades.length;
     notifyListeners();
   }
