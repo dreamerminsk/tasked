@@ -14,6 +14,8 @@ class DexHeader {
   final int stringIdsOff;
   final int typeIdsSize;
   final int typeIdsOff;
+  final int protoIdsSize;
+  final int protoIdsOff;
   final String version;  
 
   DexHeader({
@@ -30,6 +32,8 @@ class DexHeader {
     required this.stringIdsOff,
     required this.typeIdsSize,
     required this.typeIdsOff,
+    required this.protoIdsSize,
+    required this.protoIdsOff,
     required this.version,    
   });
 
