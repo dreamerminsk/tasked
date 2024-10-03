@@ -12,6 +12,8 @@ class DexHeader {
   final int mapOff;
   final int stringIdsSize;
   final int stringIdsOff;
+  final int typeIdsSize;
+  final int typeIdsOff;
   final String version;  
 
   DexHeader({
@@ -26,6 +28,8 @@ class DexHeader {
     required this.mapOff,
     required this.stringIdsSize,
     required this.stringIdsOff,
+    required this.typeIdsSize,
+    required this.typeIdsOff,
     required this.version,    
   });
 
