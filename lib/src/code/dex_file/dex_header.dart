@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 class DexHeader {
   final String magic;
+  final int checksum;
   final String version;
   final int fileSize;
   final int headerSize;
@@ -9,6 +10,7 @@ class DexHeader {
 
   DexHeader({
     required this.magic,
+    required this checksum,
     required this.version,
     required this.fileSize,
     required this.headerSize,
