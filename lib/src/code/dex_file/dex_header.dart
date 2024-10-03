@@ -20,6 +20,10 @@ class DexHeader {
   final int fieldIdsOff;
   final int methodIdsSize;
   final int methodIdsOff;
+  final int classDefsSize;
+  final int classDefsOff;
+  final int dataSize;
+  final int dataOff;
   final String version;  
 
   DexHeader({
@@ -42,6 +46,10 @@ class DexHeader {
     required this.fieldIdsOff,
     required this.methodIdsSize,
     required this.methodIdsOff,
+    required this.classDefsSize,
+    required this.classDefsOff,
+    required this.dataSize,
+    required this.dataOff,
     required this.version,    
   });
 
