@@ -5,8 +5,8 @@ class DexHeader {
   final int checksum;
   final String signature;
   final int fileSize;
-  final String version;  
   final int headerSize;
+  final String version; 
   final int endianTag;
 
   DexHeader({
@@ -14,8 +14,8 @@ class DexHeader {
     required this.checksum,
     required this.signature,
     required this.fileSize,
-    required this.version,    
     required this.headerSize,
+    required this.version,    
     required this.endianTag,
   });
 
