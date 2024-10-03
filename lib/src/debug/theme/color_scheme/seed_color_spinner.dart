@@ -1,5 +1,8 @@
 class SeedColorSpinner extends StatelessWidget {
 
+  SeedColorSpinner({super.key}) {}
+
+  @override
   Widget build(BuildContext context) {
     //final textTheme = Theme.of(context).textTheme;
     //final colorScheme = colorSchemeN.value;
