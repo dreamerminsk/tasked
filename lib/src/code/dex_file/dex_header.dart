@@ -9,6 +9,7 @@ class DexHeader {
   final int endianTag;
   final int linkSize;
   final int linkOff;
+  final int mapOff;
   final String version;  
 
   DexHeader({
@@ -20,6 +21,7 @@ class DexHeader {
     required this.endianTag,
     required this.linkSize,
     required this.linkOff,
+    required this.mapOff,
     required this.version,    
   });
 
