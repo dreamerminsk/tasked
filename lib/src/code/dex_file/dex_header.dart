@@ -7,6 +7,8 @@ class DexHeader {
   final int fileSize;
   final int headerSize;
   final int endianTag;
+  final int linkSize;
+  final int linkOff;
   final String version;  
 
   DexHeader({
@@ -16,6 +18,8 @@ class DexHeader {
     required this.fileSize,
     required this.headerSize,
     required this.endianTag,
+    required this.linkSize,
+    required this.linkOff,
     required this.version,    
   });
 
