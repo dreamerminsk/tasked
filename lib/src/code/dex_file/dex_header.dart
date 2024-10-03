@@ -6,8 +6,8 @@ class DexHeader {
   final String signature;
   final int fileSize;
   final int headerSize;
-  final String version; 
   final int endianTag;
+  final String version;  
 
   DexHeader({
     required this.magic,
@@ -15,8 +15,8 @@ class DexHeader {
     required this.signature,
     required this.fileSize,
     required this.headerSize,
-    required this.version,    
     required this.endianTag,
+    required this.version,    
   });
 
   factory DexHeader.fromBytes(Uint8List bytes) {
