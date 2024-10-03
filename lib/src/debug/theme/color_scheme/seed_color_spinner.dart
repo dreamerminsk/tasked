@@ -30,7 +30,10 @@ class SeedColorSpinner extends StatelessWidget {
             color: Colors.orange,
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Text('orange'),
+          child: AnimatedDefaultTextStyle(
+            child: Text('orange'),
+            duration: Duration(milliseconds: 500,),
+          ),
         ),
         IconButton(
           icon: Icon(Icons.color_lens),
