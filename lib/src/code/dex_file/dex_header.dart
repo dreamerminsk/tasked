@@ -10,6 +10,8 @@ class DexHeader {
   final int linkSize;
   final int linkOff;
   final int mapOff;
+  final int stringIdsSize;
+  final int stringIdsOff;
   final String version;  
 
   DexHeader({
@@ -22,6 +24,8 @@ class DexHeader {
     required this.linkSize,
     required this.linkOff,
     required this.mapOff,
+    required this.stringIdsSize,
+    required this.stringIdsOff,
     required this.version,    
   });
 
