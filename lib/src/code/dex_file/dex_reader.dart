@@ -1,1 +1,7 @@
-class DexReader {}
+class DexReader {
+
+T read<T>() {
+
+}
+
+}
