@@ -48,14 +48,14 @@ class SampleColorBlue extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: colorScheme.primary,
+          color: Colors.blue,
         ),
         child: Text(
           'B',
           style: Theme.of(context)
               .textTheme
               .displayLarge!
-              .copyWith(color: colorScheme.onPrimary),
+              .copyWith(color: ColorUtils.contrastThemeColor(Colors.blue)),
         ),
       ),
     );
