@@ -33,7 +33,7 @@ class SampleColorBlue extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildRedTextBox(context, colorScheme),
+            _buildBlueTextBox(context, colorScheme),
             _buildAlphaTextBox(context, containerColor),
           ],
         ),
@@ -41,7 +41,7 @@ class SampleColorBlue extends StatelessWidget {
     );
   }
 
-  Widget _buildRedTextBox(BuildContext context, ColorScheme colorScheme) {
+  Widget _buildBlueTextBox(BuildContext context, ColorScheme colorScheme) {
     return AspectRatio(
       aspectRatio: 1.0,
       child: Container(
