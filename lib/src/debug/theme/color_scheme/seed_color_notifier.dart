@@ -29,8 +29,11 @@ class SeedColorNotifier extends ChangeNotifier {
       color.shades[prevShadeIdx()];
 
   void incColorIdx() {
-    _colorIdx = nextColorIdx();
-    _shadeIdx = 0; // Reset shade index when color changes
+    _prevColorIdx = _colorIdx;
+    _colorIdx = _nextColorIdx;
+    _nextColorIdx = nextColorIdx();
+
+    _shadeIdx = 0; 
     notifyListeners();
   }
 
