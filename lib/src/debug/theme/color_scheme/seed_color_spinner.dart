@@ -28,7 +28,9 @@ class SeedColorSpinner extends StatelessWidget {
               onPressed: () {value.decShadeIdx();},
             ),
         ), // Consumer
-        AnimatedContainer(
+        Consumer<SeedColorNotifier>(
+          builder: (context, value, child) =>
+            AnimatedContainer(
           duration: const Duration(
             milliseconds: 500,
           ),
@@ -45,6 +47,7 @@ class SeedColorSpinner extends StatelessWidget {
             duration: Duration(milliseconds: 500,),
           ),
         ),
+        ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) =>
             IconButton(
