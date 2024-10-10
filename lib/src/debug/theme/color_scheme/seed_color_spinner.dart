@@ -10,6 +10,14 @@ class SeedColorSpinner extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+        Consumer<SeedColorNotifier>(
+          builder: (context, value, child) =>
+            IconButton(
+          icon: Icon(Icons.color_lens),
+          color: Colors.yellow,
+          onPressed: () {},
+        ),
+        ), // Consumer 
         IconButton(
           icon: Icon(Icons.color_lens),
           color: Colors.yellow,
