@@ -1,4 +1,4 @@
-import '/../../../core/color_utils.dart';
+import '../../../core/color_utils.dart';
 
 class SeedColorSpinner extends StatelessWidget {
 
