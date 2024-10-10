@@ -19,14 +19,14 @@ class SeedColorNotifier extends ChangeNotifier {
   NamedColor get shade => color.shades[_shadeIdx];
 
   NamedMaterialColor get nextColor =>
-      NamedColors.primaries[nextColorIdx()];
+      NamedColors.primaries[_nextColorIdx];
   NamedColor get nextShade =>
-      color.shades[nextShadeIdx()];
+      color.shades[_nextShadeIdx];
 
   NamedMaterialColor get prevColor =>
-      NamedColors.primaries[prevColorIdx()];
+      NamedColors.primaries[_prevColorIdx];
   NamedColor get prevShade =>
-      color.shades[prevShadeIdx()];
+      color.shades[_prevShadeIdx];
 
   void incColorIdx() {
     _prevColorIdx = _colorIdx;
