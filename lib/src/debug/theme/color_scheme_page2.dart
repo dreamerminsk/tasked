@@ -53,7 +53,10 @@ class ColorSchemePage2 extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildChooser(context),
+          ChangeNotifierProvider(
+  create: (_) => new SeedColorNotifier(),
+  child: SeedColorSpinner(),
+),
         ],
       ),
     );
