@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import '../../core/widgets/icon_buttons.dart';
 //import '../../core/color_utils.dart';
 import '../../routes/app_pages.dart';
+import 'color_scheme/seed_color_notifier.dart';
+import 'color_scheme/seed_color_spinner.dart';
 
 class ColorSchemePage2 extends StatelessWidget {
   ColorSchemePage2({super.key}) {}
