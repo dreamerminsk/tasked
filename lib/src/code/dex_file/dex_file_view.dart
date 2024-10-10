@@ -30,86 +30,60 @@ class DexFileView extends StatelessWidget {
               route: Routes.DEBUG,
             ), // DebugIconButton
           ]),
-      body: Column(
+            body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Card(
-            child: ListTile(
-              title: Text('HEADER'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('STRING_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('TYPE_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('PROTO_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('FIELD_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('METHOD_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('CLASS_DEFS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('CALL_SITE_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('METHOD_HANDLES'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('DATA'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('LINK_DATA'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
+          Container(
+            width: Get.width,
+            height: Get.width / 1.618 / 3,
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: colorScheme.primaryFixed,
+              border: Border(
+                top: BorderSide(
+                  color: colorScheme.primary,
+                  width: 1.0,
+                ), // BorderSide
+                bottom: BorderSide(
+                  color: colorScheme.primary,
+                  width: 1.0,
+                ), // BorderSide
+              ), // Border
+            ), // BoxDecoration
+            child: Obx(() => Text(c.message.value ?? '',
+                style: textTheme.bodyLarge!.copyWith(
+                  color: colorScheme.onPrimaryFixed,
+                ))),
+          ), // Container
+          Obx(
+            () {
+              if (c.codeFiles.isEmpty) {
+                return Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Center(child: Text('No code files found.')),
+                  ),
+                );
+              } else {
+                return Expanded(
+                  child: MediaQuery.removePadding(
+                    context: context,
+                    removeTop: true,
+                    child: ListView.builder(
+                      itemCount: c.codeFiles.length,
+                      itemBuilder: (context, index) {
+                        final file = c.codeFiles[index];
+                        return CodeCardItem(
+                          codeFile: file,
+                        ); // CodeCardItem
+                      },
+                    ),
+                  ),
+                );
+              }
+            },
+          ), // Obx
         ], // children
       ), // Column
     );
