@@ -42,8 +42,12 @@ return (_colorIdx + 1) % colorCount;
 }
 
   void decColorIdx() {
-    _colorIdx = prevColorIdx() ;
-    _shadeIdx = 0; // Reset shade index when color changes
+    _nextColorIdx = _colorIdx;
+     _colorIdx =   _prevColorIdx;
+    _prevColorIdx = prevColorIdx() ;
+
+
+    _shadeIdx = 0;
     notifyListeners();
   }
 
