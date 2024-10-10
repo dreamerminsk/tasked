@@ -33,32 +33,9 @@ class DexFileView extends StatelessWidget {
             body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Container(
-            width: Get.width,
-            height: Get.width / 1.618 / 3,
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: colorScheme.primaryFixed,
-              border: Border(
-                top: BorderSide(
-                  color: colorScheme.primary,
-                  width: 1.0,
-                ), // BorderSide
-                bottom: BorderSide(
-                  color: colorScheme.primary,
-                  width: 1.0,
-                ), // BorderSide
-              ), // Border
-            ), // BoxDecoration
-            child: Obx(() => Text(c.message.value ?? '',
-                style: textTheme.bodyLarge!.copyWith(
-                  color: colorScheme.onPrimaryFixed,
-                ))),
-          ), // Container
           Obx(
             () {
-              if (c.codeFiles.isEmpty) {
+              if (c.childNodes.isEmpty) {
                 return Expanded(
                   child: Align(
                     alignment: Alignment.center,
@@ -71,12 +48,12 @@ class DexFileView extends StatelessWidget {
                     context: context,
                     removeTop: true,
                     child: ListView.builder(
-                      itemCount: c.codeFiles.length,
+                      itemCount: c.childNodes.length,
                       itemBuilder: (context, index) {
-                        final file = c.codeFiles[index];
-                        return CodeCardItem(
-                          codeFile: file,
-                        ); // CodeCardItem
+                        final childNode = c.childNodes[index];
+                        return NodeCardItem(
+                          node: childNode,
+                        ); // NodeCardItem
                       },
                     ),
                   ),
