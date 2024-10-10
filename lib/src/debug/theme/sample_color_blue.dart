@@ -33,7 +33,7 @@ class SampleColorBlue extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildRedTextBox(context, colorScheme),
+            _buildBlueTextBox(context, colorScheme),
             _buildAlphaTextBox(context, containerColor),
           ],
         ),
@@ -41,21 +41,21 @@ class SampleColorBlue extends StatelessWidget {
     );
   }
 
-  Widget _buildRedTextBox(BuildContext context, ColorScheme colorScheme) {
+  Widget _buildBlueTextBox(BuildContext context, ColorScheme colorScheme) {
     return AspectRatio(
       aspectRatio: 1.0,
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: colorScheme.primary,
+          color: Colors.blue,
         ),
         child: Text(
           'B',
           style: Theme.of(context)
               .textTheme
               .displayLarge!
-              .copyWith(color: colorScheme.onPrimary),
+              .copyWith(color: ColorUtils.contrastThemeColor(Colors.blue)),
         ),
       ),
     );

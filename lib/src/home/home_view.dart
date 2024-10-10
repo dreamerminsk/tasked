@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomeController c = Get.find();
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -19,6 +20,7 @@ class HomeView extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.app_shortcut),
+            color: colorScheme.primary,
             onPressed: () {
               Get.toNamed(Routes.TASKLIST);
             },
@@ -116,6 +118,6 @@ class HomeView extends StatelessWidget {
             ),
           )
         : Icon(Icons.broken_image,
-            color: Theme.of(context).colorScheme.errorContainer, size: 96.0);
+            color: Theme.of(context).colorScheme.primaryContainer, size: 96.0);
   }
 }

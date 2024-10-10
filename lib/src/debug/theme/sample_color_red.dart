@@ -48,14 +48,14 @@ class SampleColorRed extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: colorScheme.primary,
+          color: Colors.red,
         ),
         child: Text(
           'R',
           style: Theme.of(context)
               .textTheme
               .displayLarge!
-              .copyWith(color: colorScheme.onPrimary),
+              .copyWith(color: ColorUtils.contrastThemeColor(Colors.red)),
         ),
       ),
     );
