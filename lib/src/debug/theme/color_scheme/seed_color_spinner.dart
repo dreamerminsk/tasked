@@ -14,15 +14,10 @@ class SeedColorSpinner extends StatelessWidget {
           builder: (context, value, child) =>
             IconButton(
           icon: Icon(Icons.color_lens),
-          color: Colors.yellow,
+          color: value.prevColor.colorSwatch,
           onPressed: () {value.decColorIdx();},
         ),
-        ), // Consumer 
-        IconButton(
-          icon: Icon(Icons.color_lens),
-          color: Colors.yellow,
-          onPressed: () {},
-        ),
+        ), // Consumer
         IconButton(
           icon: Icon(Icons.color_lens),
           color: Colors.orange.shade300,
