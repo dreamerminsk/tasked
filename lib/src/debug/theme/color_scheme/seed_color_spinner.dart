@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'seed_color_notifier.dart';
+
 import '../../../core/color_utils.dart';
 
 class SeedColorSpinner extends StatelessWidget {
