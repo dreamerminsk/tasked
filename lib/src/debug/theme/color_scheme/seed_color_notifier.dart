@@ -56,7 +56,10 @@ return (_colorIdx - 1 + colorCount) % colorCount;
 }
 
   void incShadeIdx() {
-    _shadeIdx = nextShadeIdx();
+    _prevShadeIdx = _shadeIdx;
+    _shadeIdx = _nextShadeIdx;
+    _nextShadeIdx = nextShadeIdx();
+
     notifyListeners();
   }
 
