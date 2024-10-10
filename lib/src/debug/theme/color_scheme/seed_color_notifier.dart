@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/colors.dart';
-import '../../../core/color_utils.dart';
 
 class SeedColorNotifier extends ChangeNotifier {
   int _colorIdx = 1;
@@ -58,7 +57,7 @@ class SeedColorNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void nextShadeIdx() {
+  int nextShadeIdx() {
     return (_shadeIdx + 1) % color.shades.length;
   }
 
@@ -70,7 +69,7 @@ class SeedColorNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void prevShadeIdx() {
+  int prevShadeIdx() {
     return (_shadeIdx - 1 + color.shades.length) % color.shades.length;
   }
 }
