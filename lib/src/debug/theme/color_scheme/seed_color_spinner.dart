@@ -13,11 +13,12 @@ class SeedColorSpinner extends StatelessWidget {
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) =>
             IconButton(
-          icon: Icon(Icons.color_lens),
-          color: value.prevColor.colorSwatch,
-          onPressed: () {value.decColorIdx();},
-        ),
+              icon: Icon(Icons.color_lens),
+              color: value.prevColor.colorSwatch,
+              onPressed: () {value.decColorIdx();},
+            ),
         ), // Consumer
+        
         IconButton(
           icon: Icon(Icons.color_lens),
           color: Colors.orange.shade300,
@@ -43,11 +44,14 @@ class SeedColorSpinner extends StatelessWidget {
           color: Colors.orange.shade700,
           onPressed: () {},
         ),
-        IconButton(
-          icon: Icon(Icons.color_lens),
-          color: Colors.brown,
-          onPressed: () {},
-        ),
+        Consumer<SeedColorNotifier>(
+          builder: (context, value, child) =>
+            IconButton(
+              icon: Icon(Icons.color_lens),
+              color: value.nextColor.colorSwatch,
+              onPressed: () {value.incColorIdx();},
+            ),
+        ), // Consumer
       ],
     );
   }
