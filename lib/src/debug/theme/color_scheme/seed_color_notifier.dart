@@ -33,7 +33,7 @@ class SeedColorNotifier extends ChangeNotifier {
     _colorIdx = _nextColorIdx;
     _nextColorIdx = nextColorIdx();
 
-    _shadeIdx = 0; 
+    _shadeIdx = _shadeIdx % color.shades.length; 
     notifyListeners();
   }
 
@@ -46,7 +46,7 @@ return (_colorIdx + 1) % colorCount;
     _colorIdx =   _prevColorIdx;
     _prevColorIdx = prevColorIdx();
 
-    _shadeIdx = 0;
+    _shadeIdx = _shadeIdx % color.shades.length;
     notifyListeners();
   }
 
