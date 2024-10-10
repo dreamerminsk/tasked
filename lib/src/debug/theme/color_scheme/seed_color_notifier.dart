@@ -7,6 +7,12 @@ class SeedColorNotifier extends ChangeNotifier {
   int _colorIdx = 0;
   int _shadeIdx = 0;
 
+  int _prevColorIdx = 0;
+  int _prevShadeIdx = 0;
+
+  int _nextColorIdx = 0;
+  int _nextShadeIdx = 0;
+
   final colorCount = NamedColors.primaries.length;
 
   NamedMaterialColor get color => NamedColors.primaries[_colorIdx];
