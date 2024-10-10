@@ -4,7 +4,7 @@ class SeedColorSpinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     //final colorScheme = colorSchemeN.value;
 
     return Row(
@@ -37,7 +37,9 @@ class SeedColorSpinner extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: AnimatedDefaultTextStyle(
-            child: Text('${value.shade.name}'),
+            child: Text('${value.shade.name}',
+                              style: textTheme.bodyLarge!.copyWith(
+     color: value.shade.color,),),
             duration: Duration(milliseconds: 500,),
           ),
         ),
