@@ -4,13 +4,13 @@ import '../../../core/colors.dart';
 import '../../../core/color_utils.dart';
 
 class SeedColorNotifier extends ChangeNotifier {
-  int _colorIdx = 0;
+  int _colorIdx = 5;
   int _shadeIdx = 0;
 
-  int _prevColorIdx = 0;
+  int _prevColorIdx = 4;
   int _prevShadeIdx = 0;
 
-  int _nextColorIdx = 0;
+  int _nextColorIdx = 6;
   int _nextShadeIdx = 0;
 
   final colorCount = NamedColors.primaries.length;
