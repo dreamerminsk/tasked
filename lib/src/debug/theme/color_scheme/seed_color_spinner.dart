@@ -28,12 +28,12 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         AnimatedContainer(
           duration: const Duration(
-            seconds: 1,
+            milliseconds: 500,
           ),
           padding: EdgeInsets.all(8.0),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: Colors.orange,
+            color: value.shade.color,
             borderRadius: BorderRadius.circular(20),
           ),
           child: AnimatedDefaultTextStyle(
