@@ -18,12 +18,14 @@ class SeedColorSpinner extends StatelessWidget {
               onPressed: () {value.decColorIdx();},
             ),
         ), // Consumer
-        
-        IconButton(
-          icon: Icon(Icons.color_lens),
-          color: Colors.orange.shade300,
-          onPressed: () {},
-        ),
+        Consumer<SeedColorNotifier>(
+          builder: (context, value, child) =>
+            IconButton(
+              icon: Icon(Icons.color_lens),
+              color: value.prevShade.color,
+              onPressed: () {value.decShadeIdx();},
+            ),
+        ), // Consumer
         AnimatedContainer(
           duration: const Duration(
             seconds: 1,
