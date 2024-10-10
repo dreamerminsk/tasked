@@ -15,7 +15,7 @@ class SeedColorSpinner extends StatelessWidget {
             IconButton(
           icon: Icon(Icons.color_lens),
           color: Colors.yellow,
-          onPressed: () {},
+          onPressed: () {value.decColorIdx();},
         ),
         ), // Consumer 
         IconButton(
