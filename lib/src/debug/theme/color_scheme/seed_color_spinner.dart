@@ -1,7 +1,6 @@
 import '../../../core/color_utils.dart';
 
 class SeedColorSpinner extends StatelessWidget {
-
   SeedColorSpinner({super.key}) {}
 
   @override
@@ -13,59 +12,66 @@ class SeedColorSpinner extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Consumer<SeedColorNotifier>(
-          builder: (context, value, child) =>
-            IconButton(
-              icon: Icon(Icons.color_lens),
-              color: value.prevColor.colorSwatch,
-              onPressed: () {value.decColorIdx();},
-            ),
-        ), // Consumer
-        Consumer<SeedColorNotifier>(
-          builder: (context, value, child) =>
-            IconButton(
-              icon: Icon(Icons.color_lens),
-              color: value.prevShade.color,
-              onPressed: () {value.decShadeIdx();},
-            ),
-        ), // Consumer
-        Consumer<SeedColorNotifier>(
-          builder: (context, value, child) =>
-            AnimatedContainer(
-          duration: const Duration(
-            milliseconds: 500,
+          builder: (context, value, child) => IconButton(
+            icon: Icon(Icons.color_lens),
+            color: value.prevColor.colorSwatch,
+            onPressed: () {
+              value.decColorIdx();
+            },
           ),
-          padding: EdgeInsets.all(8.0),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: value.shade.color,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: AnimatedDefaultTextStyle(
-            child: Text('${value.shade.name}',
-                              style: textTheme.bodyLarge!.copyWith(
-     color: ColorUtils.contrastThemeColor(value.shade.color),),),
-            duration: Duration(milliseconds: 500,),
-          ),
-        ),
         ), // Consumer
         Consumer<SeedColorNotifier>(
-          builder: (context, value, child) =>
-            IconButton(
-              icon: Icon(Icons.color_lens),
-              color: value.nextShade.color,
-              onPressed: () {value.incShadeIdx();},
-            ),
+          builder: (context, value, child) => IconButton(
+            icon: Icon(Icons.color_lens),
+            color: value.prevShade.color,
+            onPressed: () {
+              value.decShadeIdx();
+            },
+          ),
         ), // Consumer
         Consumer<SeedColorNotifier>(
-          builder: (context, value, child) =>
-            IconButton(
-              icon: Icon(Icons.color_lens),
-              color: value.nextColor.colorSwatch,
-              onPressed: () {value.incColorIdx();},
+          builder: (context, value, child) => AnimatedContainer(
+            duration: const Duration(
+              milliseconds: 500,
             ),
+            padding: EdgeInsets.all(8.0),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: value.shade.color,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: AnimatedDefaultTextStyle(
+              child: Text(
+                '${value.shade.name}',
+                style: textTheme.bodyLarge!.copyWith(
+                  color: ColorUtils.contrastThemeColor(value.shade.color),
+                ),
+              ),
+              duration: Duration(
+                milliseconds: 500,
+              ),
+            ),
+          ),
+        ), // Consumer
+        Consumer<SeedColorNotifier>(
+          builder: (context, value, child) => IconButton(
+            icon: Icon(Icons.color_lens),
+            color: value.nextShade.color,
+            onPressed: () {
+              value.incShadeIdx();
+            },
+          ),
+        ), // Consumer
+        Consumer<SeedColorNotifier>(
+          builder: (context, value, child) => IconButton(
+            icon: Icon(Icons.color_lens),
+            color: value.nextColor.colorSwatch,
+            onPressed: () {
+              value.incColorIdx();
+            },
+          ),
         ), // Consumer
       ],
     );
   }
-
 }

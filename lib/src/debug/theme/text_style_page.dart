@@ -201,11 +201,15 @@ class TextStylePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 AnimatedDefaultTextStyle(
-                  duration: Duration(milliseconds: 500,),
+                  duration: Duration(
+                    milliseconds: 500,
+                  ),
                   style: textStyleNotifier.value.copyWith(
                     color: colorScheme.onSurface,
                   ),
-                  child: Text('Carolina\r\nChureyno',),
+                  child: Text(
+                    'Carolina\r\nChureyno',
+                  ),
                 ),
               ],
             ), // Column
