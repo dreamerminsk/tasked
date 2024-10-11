@@ -117,6 +117,16 @@ getExternalStorageDirectories(StorageDirectory.alarms).then((ds) {
           snackPosition: SnackPosition.BOTTOM);
     });
 
+getExternalStorageDirectories(StorageDirectory.notifications).then((ds) {
+      if (ds != null) {
+        roots.value.addAll(ds.map<String>((item) => item.path));
+        roots.refresh();
+      }
+    }).catchError((e) {
+      Get.snackbar('getExternalStorageDirectories(StorageDirectory.notifications)', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
     getDownloadsDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
