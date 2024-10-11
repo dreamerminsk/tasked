@@ -87,6 +87,16 @@ class RootListView extends StatelessWidget {
           snackPosition: SnackPosition.BOTTOM);
     });
 
+getExternalStorageDirectories(StorageDirectory.podcasts).then((ds) {
+      if (ds != null) {
+        roots.value.addAll(ds.map<String>((item) => item.path));
+        roots.refresh();
+      }
+    }).catchError((e) {
+      Get.snackbar('getExternalStorageDirectories(StorageDirectory.podcasts)', '$e',
+          snackPosition: SnackPosition.BOTTOM);
+    });
+
     getDownloadsDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
