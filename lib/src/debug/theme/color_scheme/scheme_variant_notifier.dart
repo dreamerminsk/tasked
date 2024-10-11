@@ -32,40 +32,15 @@ class SchemeVariantNotifier extends ChangeNotifier {
     return (_variantIdx + 1) % variantCount;
   }
 
-  void decColorIdx() {
-    _nextColorIdx = _colorIdx;
-    _colorIdx = _prevColorIdx;
-    _prevColorIdx = prevColorIdx();
-
-    _shadeIdx = _shadeIdx % color.shades.length;
-    notifyListeners();
-  }
-
-  int prevColorIdx() {
-    return (_colorIdx - 1 + colorCount) % colorCount;
-  }
-
-  void incShadeIdx() {
-    _prevShadeIdx = _shadeIdx;
-    _shadeIdx = _nextShadeIdx;
-    _nextShadeIdx = nextShadeIdx();
+  void decVariantIdx() {
+    _nextVariantIdx = _variantIdx;
+    _variantIdx = _prevVariantIdx;
+    _prevVariantIdx = prevVariantIdx();
 
     notifyListeners();
   }
 
-  int nextShadeIdx() {
-    return (_shadeIdx + 1) % color.shades.length;
-  }
-
-  void decShadeIdx() {
-    _nextShadeIdx = _shadeIdx;
-    _shadeIdx = _prevShadeIdx;
-    _prevShadeIdx = prevShadeIdx();
-
-    notifyListeners();
-  }
-
-  int prevShadeIdx() {
-    return (_shadeIdx - 1 + color.shades.length) % color.shades.length;
+  int prevVariantIdx() {
+    return (_vvariantIdx - 1 + variantCount) % variantCount;
   }
 }
