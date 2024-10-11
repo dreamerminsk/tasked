@@ -211,7 +211,7 @@ class RootListView extends StatelessWidget {
             ); // RootCard
           },
           separatorBuilder: (BuildContext context, int index) =>
-              const Divider(),
+              const Divider(thickness:3,indent:16,endIndent:16,color:colorScheme.primary,),
         ), // ListView.separated
         roots,
       ), // ObxValue
