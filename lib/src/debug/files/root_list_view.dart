@@ -83,81 +83,89 @@ class RootListView extends StatelessWidget {
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.music)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.music)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.podcasts).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.podcasts).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.podcasts)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.podcasts)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.ringtones).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.ringtones).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.ringtones)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.ringtones)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.alarms).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.alarms).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.alarms)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.alarms)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.notifications).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.notifications).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.notifications)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.notifications)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.pictures).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.pictures).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.pictures)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.pictures)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.movies).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.movies).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.movies)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.movies)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.downloads).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.downloads).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.downloads)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.downloads)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.dcim).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.dcim).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
@@ -167,13 +175,14 @@ getExternalStorageDirectories(StorageDirectory.dcim).then((ds) {
           snackPosition: SnackPosition.BOTTOM);
     });
 
-getExternalStorageDirectories(StorageDirectory.documents).then((ds) {
+    getExternalStorageDirectories(StorageDirectory.documents).then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
     }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.documents)', '$e',
+      Get.snackbar(
+          'getExternalStorageDirectories(StorageDirectory.documents)', '$e',
           snackPosition: SnackPosition.BOTTOM);
     });
 
