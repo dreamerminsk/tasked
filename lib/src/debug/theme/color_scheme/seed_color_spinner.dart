@@ -51,7 +51,7 @@ class SeedColorSpinner extends StatelessWidget {
               child: Text(
                 '${value.shade.name}'
               ),
-              style: textTheme.bodyLarge!.copyWith(
+              style: textTheme.titleLarge!.copyWith(
                   color: ColorUtils.contrastThemeColor(value.shade.color),
                 ),
               duration: Duration(
