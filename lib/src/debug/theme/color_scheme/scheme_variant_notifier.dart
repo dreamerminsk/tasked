@@ -9,7 +9,7 @@ class SchemeVariantNotifier extends ChangeNotifier {
 
   int _nextVariantIdx = 2;
 
-  final colorCount = NamedColors.primaries.length;
+  final variantCount = DynamicSchemeVariant.values.length;
 
   NamedMaterialColor get color => NamedColors.primaries[_colorIdx];
   NamedColor get shade => color.shades[_shadeIdx];
@@ -20,17 +20,16 @@ class SchemeVariantNotifier extends ChangeNotifier {
   NamedMaterialColor get prevColor => NamedColors.primaries[_prevColorIdx];
   NamedColor get prevShade => color.shades[_prevShadeIdx];
 
-  void incColorIdx() {
-    _prevColorIdx = _colorIdx;
-    _colorIdx = _nextColorIdx;
-    _nextColorIdx = nextColorIdx();
+  void incVariantIdx() {
+    _prevVariantIdx = _variantIdx;
+    _variantIdx = _nextVariantIdx;
+    _nextVariantIdx = nextVariantIdx();
 
-    _shadeIdx = _shadeIdx % color.shades.length;
     notifyListeners();
   }
 
-  int nextColorIdx() {
-    return (_colorIdx + 1) % colorCount;
+  int nextVariantIdx() {
+    return (_variantIdx + 1) % variantCount;
   }
 
   void decColorIdx() {
