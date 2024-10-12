@@ -77,114 +77,23 @@ class RootListView extends StatelessWidget {
           snackPosition: SnackPosition.BOTTOM);
     });
 
-    getExternalStorageDirectories(StorageDirectory.music).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.music)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    final storageTypes = [StorageDirectory.music, StorageDirectory.dcim, StorageDirectory.pictures,
+StorageDirectory.podcasts,
+StorageDirectory.ringtones,
+StorageDirectory.alarms,
+StorageDirectory.notifications,
+StorageDirectory.movies, StorageDirectory.downloads, StorageDirectory.documents];
 
-    getExternalStorageDirectories(StorageDirectory.podcasts).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.podcasts)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.ringtones).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.ringtones)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.alarms).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.alarms)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.notifications).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.notifications)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.pictures).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.pictures)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.movies).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.movies)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.downloads).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.downloads)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.dcim).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories(StorageDirectory.dcim)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
-
-    getExternalStorageDirectories(StorageDirectory.documents).then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar(
-          'getExternalStorageDirectories(StorageDirectory.documents)', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+for (var storageType in storageTypes) {
+  getExternalStorageDirectories(type: storageType).then((ds) {
+    if (ds != null) {
+      roots.value.addAll(ds.map<String>((item) => item.path));
+      roots.refresh();
+    }
+  }).catchError((e) {
+    Get.snackbar('getExternalStorageDirectories($type)', '$e', snackPosition: SnackPosition.BOTTOM);
+  });
+}
 
     getDownloadsDirectory().then((d) {
       if (d != null) {
