@@ -20,6 +20,7 @@ class DirListView extends StatelessWidget {
     if (entries.isEmpty) {
       final directory = Directory(path);
       directory.stat().then((value) => stat.value = value);
+      entries.add(directory.parent.path);
       directory.list().map((item) => item.path).toList().then((items) {
         entries.addAll(items);
       });
@@ -31,7 +32,7 @@ class DirListView extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return index == 0
                   ? Padding(
-                      padding: const EdgeInsets.fromLTRB(4, 0, 4, 16),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
                       child: DirTitle(
                         title: path,
                         onTap: () => showModalBottomSheet<void>(
@@ -62,7 +63,7 @@ class DirListView extends StatelessWidget {
   Widget _buildSheet(BuildContext context) {
     return SizedBox(
       width: Get.width,
-      height: Get.height * 0.5,
+      height: Get.height * 0.45,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -32,7 +32,7 @@ class DirCard extends StatelessWidget {
         Get.to(DirListView(path: title), preventDuplicates: false);
       },
       child: Material(
-        elevation: 1,
+        elevation: 4,
         borderRadius: index.isEven
             ? BorderRadius.only(
                 topRight: Radius.circular(20),
@@ -45,6 +45,7 @@ class DirCard extends StatelessWidget {
         child: Container(
           width: Get.width,
           height: 100,
+          padding: EdgeInsets.fromLTRB(4, 4, 4, 4),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -59,7 +60,7 @@ class DirCard extends StatelessWidget {
                   spacing: 8.0,
                   children: <Widget>[
                     Text(
-                      '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
+                      '${data.value == null ? "01.01.2001" : _format(data.value!.modified)}',
                     ),
                     Text(
                       '${data.value?.size ?? 0}',

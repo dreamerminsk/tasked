@@ -9,6 +9,15 @@ import 'root_card.dart';
 class RootListView extends StatelessWidget {
   final roots = Rx<SplayTreeSet<String>>(SplayTreeSet<String>());
 
+  Future<Null> handleStorageError(String operation, dynamic error) async {
+  Get.snackbar(
+    operation,
+    '$error',
+    snackPosition: SnackPosition.BOTTOM,
+  );
+  return null;
+}
+
   @override
   Widget build(context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -16,45 +25,30 @@ class RootListView extends StatelessWidget {
     getTemporaryDirectory().then((d) {
       roots.value.add(d.path);
       roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getTemporaryDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getTemporaryDirectory', e));
 
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
       roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getApplicationSupportDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getApplicationSupportDirectory', e));
 
     getLibraryDirectory().then((d) {
       roots.value.add(d.path);
       roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getLibraryDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getLibraryDirectory', e));
 
     getApplicationDocumentsDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
       roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getApplicationDocumentsDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getApplicationDocumentsDirectory', e));
 
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
       roots.refresh();
-    }).catchError((e) {
-      Get.snackbar('getApplicationCacheDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+     }).catchError((e) => handleStorageError('getApplicationCacheDirectory', e));
 
     getExternalStorageDirectory().then((d) {
       if (d != null) {
@@ -62,40 +56,37 @@ class RootListView extends StatelessWidget {
         roots.value.add(d.parent.path);
         roots.refresh();
       }
-    }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getExternalStorageDirectory', e));
 
     getExternalCacheDirectories().then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
-    }).catchError((e) {
-      Get.snackbar('getExternalCacheDirectories', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getExternalCacheDirectories', e));
 
-    getExternalStorageDirectories().then((ds) {
-      if (ds != null) {
-        roots.value.addAll(ds.map<String>((item) => item.path));
-        roots.refresh();
-      }
-    }).catchError((e) {
-      Get.snackbar('getExternalStorageDirectories', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    final storageTypes = [StorageDirectory.music, StorageDirectory.dcim, StorageDirectory.pictures,
+StorageDirectory.podcasts,
+StorageDirectory.ringtones,
+StorageDirectory.alarms,
+StorageDirectory.notifications,
+StorageDirectory.movies, StorageDirectory.downloads, StorageDirectory.documents];
+
+for (var storageType in storageTypes) {
+  getExternalStorageDirectories(type: storageType).then((ds) {
+    if (ds != null) {
+      roots.value.addAll(ds.map<String>((item) => item.path));
+      roots.refresh();
+    }
+  }).catchError((e) => handleStorageError('getExternalStorageDirectories($storageType)', e));
+}
 
     getDownloadsDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
         roots.refresh();
       }
-    }).catchError((e) {
-      Get.snackbar('getDownloadsDirectory', '$e',
-          snackPosition: SnackPosition.BOTTOM);
-    });
+    }).catchError((e) => handleStorageError('getDownloadsDirectory', e));
 
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
@@ -111,8 +102,7 @@ class RootListView extends StatelessWidget {
               foreground: colorScheme.onPrimary,
             ); // RootCard
           },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider(),
+          separatorBuilder: (BuildContext context, int index) => Divider(thickness:3,indent:16,endIndent:16,color:colorScheme.primary,),
         ), // ListView.separated
         roots,
       ), // ObxValue
