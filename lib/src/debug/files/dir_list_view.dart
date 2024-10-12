@@ -32,7 +32,7 @@ class DirListView extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return index == 0
                   ? Padding(
-                      padding: const EdgeInsets.fromLTRB(4, 0, 4, 16),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
                       child: DirTitle(
                         title: path,
                         onTap: () => showModalBottomSheet<void>(
