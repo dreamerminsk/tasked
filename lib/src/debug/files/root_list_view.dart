@@ -91,7 +91,7 @@ for (var storageType in storageTypes) {
       roots.refresh();
     }
   }).catchError((e) {
-    Get.snackbar('getExternalStorageDirectories($type)', '$e', snackPosition: SnackPosition.BOTTOM);
+    Get.snackbar('getExternalStorageDirectories($storageType)', '$e', snackPosition: SnackPosition.BOTTOM);
   });
 }
 
