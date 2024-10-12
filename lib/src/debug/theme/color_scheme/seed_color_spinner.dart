@@ -18,6 +18,7 @@ class SeedColorSpinner extends StatelessWidget {
       children: <Widget>[
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
+            iconSize: 28,
             icon: Icon(Icons.color_lens),
             color: value.prevColor.colorSwatch,
             onPressed: () {
@@ -27,6 +28,7 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
+            iconSize: 32,
             icon: Icon(Icons.color_lens),
             color: value.prevShade.color,
             onPressed: () {
@@ -49,7 +51,7 @@ class SeedColorSpinner extends StatelessWidget {
               child: Text(
                 '${value.shade.name}'
               ),
-              style: textTheme.bodyLarge!.copyWith(
+              style: textTheme.titleLarge!.copyWith(
                   color: ColorUtils.contrastThemeColor(value.shade.color),
                 ),
               duration: Duration(
@@ -60,6 +62,7 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
+            iconSize: 32,
             icon: Icon(Icons.color_lens),
             color: value.nextShade.color,
             onPressed: () {
@@ -69,6 +72,7 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
+            iconSize: 28,
             icon: Icon(Icons.color_lens),
             color: value.nextColor.colorSwatch,
             onPressed: () {
