@@ -15,6 +15,7 @@ class RootListView extends StatelessWidget {
     '$error',
     snackPosition: SnackPosition.BOTTOM,
   );
+  return null;
 }
 
   @override
