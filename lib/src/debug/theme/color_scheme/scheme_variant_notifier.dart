@@ -9,11 +9,13 @@ class SchemeVariantNotifier extends ChangeNotifier {
 
   final variantCount = DynamicSchemeVariant.values.length;
 
-  DynamicSchemeVariant get prevVariant => DynamicSchemeVariant.values[_prevVariantIdx];
+  DynamicSchemeVariant get prevVariant =>
+      DynamicSchemeVariant.values[_prevVariantIdx];
 
-DynamicSchemeVariant get variant => DynamicSchemeVariant.values[_variantIdx];
+  DynamicSchemeVariant get variant => DynamicSchemeVariant.values[_variantIdx];
 
-DynamicSchemeVariant get nextVariant => DynamicSchemeVariant.values[_nextVariantIdx];
+  DynamicSchemeVariant get nextVariant =>
+      DynamicSchemeVariant.values[_nextVariantIdx];
 
   void incVariantIdx() {
     _prevVariantIdx = _variantIdx;
