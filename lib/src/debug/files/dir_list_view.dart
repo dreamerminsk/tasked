@@ -20,6 +20,7 @@ class DirListView extends StatelessWidget {
     if (entries.isEmpty) {
       final directory = Directory(path);
       directory.stat().then((value) => stat.value = value);
+      entries.add(directory.parent.path);
       directory.list().map((item) => item.path).toList().then((items) {
         entries.addAll(items);
       });
