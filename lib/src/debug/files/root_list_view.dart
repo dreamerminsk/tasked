@@ -119,8 +119,7 @@ for (var storageType in storageTypes) {
               foreground: colorScheme.onPrimary,
             ); // RootCard
           },
-          separatorBuilder: (BuildContext context, int index) =>
-              const Divider(thickness:3,indent:16,endIndent:16,color:colorScheme.primary,),
+          separatorBuilder: (BuildContext context, int index) => Divider(thickness:3,indent:16,endIndent:16,color:colorScheme.primary,),
         ), // ListView.separated
         roots,
       ), // ObxValue
