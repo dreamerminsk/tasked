@@ -24,30 +24,30 @@ class RootListView extends StatelessWidget {
     getTemporaryDirectory().then((d) {
       roots.value.add(d.path);
       roots.refresh();
-    }).catchError((e) => handleStorageError('getTemporaryDirectory', e);
+    }).catchError((e) => handleStorageError('getTemporaryDirectory', e));
 
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
       roots.refresh();
-    }).catchError((e) => handleStorageError('getApplicationSupportDirectory', e);
+    }).catchError((e) => handleStorageError('getApplicationSupportDirectory', e));
 
     getLibraryDirectory().then((d) {
       roots.value.add(d.path);
       roots.refresh();
-    }).catchError((e) => handleStorageError('getLibraryDirectory', e);
+    }).catchError((e) => handleStorageError('getLibraryDirectory', e));
 
     getApplicationDocumentsDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
       roots.refresh();
-    }).catchError((e) => handleStorageError('getApplicationDocumentsDirectory', e);
+    }).catchError((e) => handleStorageError('getApplicationDocumentsDirectory', e));
 
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
       roots.value.add(d.parent.path);
       roots.refresh();
-     }).catchError((e) => handleStorageError('getApplicationCacheDirectory', e);
+     }).catchError((e) => handleStorageError('getApplicationCacheDirectory', e));
 
     getExternalStorageDirectory().then((d) {
       if (d != null) {
@@ -55,14 +55,14 @@ class RootListView extends StatelessWidget {
         roots.value.add(d.parent.path);
         roots.refresh();
       }
-    }).catchError((e) => handleStorageError('getExternalStorageDirectory', e);
+    }).catchError((e) => handleStorageError('getExternalStorageDirectory', e));
 
     getExternalCacheDirectories().then((ds) {
       if (ds != null) {
         roots.value.addAll(ds.map<String>((item) => item.path));
         roots.refresh();
       }
-    }).catchError((e) => handleStorageError('getExternalCacheDirectories', e);
+    }).catchError((e) => handleStorageError('getExternalCacheDirectories', e));
 
     final storageTypes = [StorageDirectory.music, StorageDirectory.dcim, StorageDirectory.pictures,
 StorageDirectory.podcasts,
@@ -77,7 +77,7 @@ for (var storageType in storageTypes) {
       roots.value.addAll(ds.map<String>((item) => item.path));
       roots.refresh();
     }
-  }).catchError((e) => handleStorageError('getExternalStorageDirectories($storageType)', e);
+  }).catchError((e) => handleStorageError('getExternalStorageDirectories($storageType)', e));
 }
 
     getDownloadsDirectory().then((d) {
@@ -85,7 +85,7 @@ for (var storageType in storageTypes) {
         roots.value.add(d.path);
         roots.refresh();
       }
-    }).catchError((e) => handleStorageError('getDownloadsDirectory', e);
+    }).catchError((e) => handleStorageError('getDownloadsDirectory', e));
 
     return Scaffold(
       appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
