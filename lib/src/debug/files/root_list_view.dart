@@ -9,7 +9,7 @@ import 'root_card.dart';
 class RootListView extends StatelessWidget {
   final roots = Rx<SplayTreeSet<String>>(SplayTreeSet<String>());
 
-  Future<void> handleStorageError(String operation, dynamic error) async {
+  Future<Null> handleStorageError(String operation, dynamic error) async {
   Get.snackbar(
     operation,
     '$error',
