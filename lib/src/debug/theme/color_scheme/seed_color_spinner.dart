@@ -18,7 +18,7 @@ class SeedColorSpinner extends StatelessWidget {
       children: <Widget>[
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
-            iconSize: 32,
+            iconSize: 28,
             icon: Icon(Icons.color_lens),
             color: value.prevColor.colorSwatch,
             onPressed: () {
@@ -28,7 +28,7 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
-            iconSize: 28,
+            iconSize: 32,
             icon: Icon(Icons.color_lens),
             color: value.prevShade.color,
             onPressed: () {
@@ -62,7 +62,7 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
-            iconSize: 28,
+            iconSize: 32,
             icon: Icon(Icons.color_lens),
             color: value.nextShade.color,
             onPressed: () {
@@ -72,7 +72,7 @@ class SeedColorSpinner extends StatelessWidget {
         ), // Consumer
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
-            iconSize: 32,
+            iconSize: 28,
             icon: Icon(Icons.color_lens),
             color: value.nextColor.colorSwatch,
             onPressed: () {
