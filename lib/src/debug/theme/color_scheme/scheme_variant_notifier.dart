@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/colors.dart';
-
 class SchemeVariantNotifier extends ChangeNotifier {
   int _prevVariantIdx = 0;
 
@@ -38,6 +36,6 @@ DynamicSchemeVariant get nextVariant => DynamicSchemeVariant.values[_nextVariant
   }
 
   int prevVariantIdx() {
-    return (_vvariantIdx - 1 + variantCount) % variantCount;
+    return (_variantIdx - 1 + variantCount) % variantCount;
   }
 }
