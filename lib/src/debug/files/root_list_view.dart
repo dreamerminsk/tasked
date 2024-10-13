@@ -98,7 +98,7 @@ class RootListView extends StatelessWidget {
     }).catchError((e) => handleStorageError('getDownloadsDirectory', e));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
+      appBar: AppBar(title: const Text('roots'), actions: <Widget>[]),
 
       body: ObxValue(
         (data) => ListView.separated(
