@@ -24,7 +24,7 @@ class DirTitle extends StatelessWidget {
         //Get.to(DirPage(path: title), preventDuplicates: false);
       },
       child: Material(
-        elevation: 1,
+        elevation: 4,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
