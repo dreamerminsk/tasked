@@ -14,7 +14,7 @@ class RootListCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
