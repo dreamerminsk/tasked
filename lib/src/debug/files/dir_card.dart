@@ -9,7 +9,6 @@ class DirCard extends StatelessWidget {
   final String title;
   final Color? background;
   final Color? foreground;
-  final Rxn<FileSystemEntityType> entityType = Rxn<FileSystemEntityType>();
   final Rxn<FileStat> stat = Rxn<FileStat>();
 
   DirCard({
@@ -22,7 +21,6 @@ class DirCard extends StatelessWidget {
   }
 
   void _fetchFileStat() {
-    FileSystemEntity.type(title).then((value)=>entityType.value=value);
     FileStat.stat(title).then((value) => stat.value = value);
   }
 
