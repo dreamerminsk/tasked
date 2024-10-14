@@ -108,7 +108,7 @@ class RootListView extends StatelessWidget {
             ); // RootCard
           },
           separatorBuilder: (BuildContext context, int index) => Divider(
-            thickness: 3,
+            thickness: 2,
             indent: 16,
             endIndent: 16,
             color: colorScheme.primary,
