@@ -29,7 +29,6 @@ class RootListView extends StatelessWidget {
 
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
-      roots.value.add(d.parent.path);
       roots.refresh();
     }).catchError(
         (e) => handleStorageError('getApplicationSupportDirectory', e));
@@ -41,21 +40,18 @@ class RootListView extends StatelessWidget {
 
     getApplicationDocumentsDirectory().then((d) {
       roots.value.add(d.path);
-      roots.value.add(d.parent.path);
       roots.refresh();
     }).catchError(
         (e) => handleStorageError('getApplicationDocumentsDirectory', e));
 
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
-      roots.value.add(d.parent.path);
       roots.refresh();
     }).catchError((e) => handleStorageError('getApplicationCacheDirectory', e));
 
     getExternalStorageDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
-        roots.value.add(d.parent.path);
         roots.refresh();
       }
     }).catchError((e) => handleStorageError('getExternalStorageDirectory', e));
