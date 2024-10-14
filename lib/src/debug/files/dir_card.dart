@@ -23,7 +23,7 @@ class DirCard extends StatelessWidget {
 
   void _fetchFileStat() {
     FileSystemEntity.type(title).then((value)=>entityType.value=value);
-    Directory(title).stat().then((value) => stat.value = value);
+    FileStat.stat(title).then((value) => stat.value = value);
   }
 
   @override
