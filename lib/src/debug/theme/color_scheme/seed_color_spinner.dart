@@ -36,28 +36,18 @@ class SeedColorSpinner extends StatelessWidget {
             },
           ),
         ), // Consumer
+        
         Consumer<SeedColorNotifier>(
-          builder: (context, value, child) => AnimatedContainer(
-            duration: const Duration(
-              milliseconds: 500,
-            ),
-            padding: EdgeInsets.all(8.0),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: value.shade.color,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: AnimatedDefaultTextStyle(
-              child: Text('${value.shade.name}'),
-              style: textTheme.titleLarge!.copyWith(
-                color: ColorUtils.contrastThemeColor(value.shade.color),
-              ),
-              duration: Duration(
-                milliseconds: 500,
-              ),
-            ),
+          builder: (context, value, child) => IconButton(
+            iconSize: 36,
+            icon: Icon(Icons.color_lens),
+            color: value.shade.color,
+            onPressed: () {
+              
+            },
           ),
         ), // Consumer
+
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
             iconSize: 32,
