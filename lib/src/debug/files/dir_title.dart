@@ -19,9 +19,9 @@ class DirTitle extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     final borderRadius = BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
-            );
+      bottomLeft: Radius.circular(20),
+      bottomRight: Radius.circular(20),
+    );
 
     return InkWell(
       onTap: () {

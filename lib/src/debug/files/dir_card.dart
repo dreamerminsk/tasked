@@ -55,7 +55,9 @@ class DirCard extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: index.isEven ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            crossAxisAlignment: index.isEven
+                ? CrossAxisAlignment.end
+                : CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 title.split('/').last,
@@ -72,10 +74,15 @@ class DirCard extends StatelessWidget {
                           ? "01.01.2001"
                           : _format(data.value!.modified),
                       style: textTheme.bodyMedium!.copyWith(
-                  color: foreground ?? colorScheme.onPrimary,),
+                        color: foreground ?? colorScheme.onPrimary,
+                      ),
                     ),
-                    Text('${data.value?.size ?? 0}',style: textTheme.bodyMedium!.copyWith(
-                  color: foreground ?? colorScheme.onPrimary,),),
+                    Text(
+                      '${data.value?.size ?? 0}',
+                      style: textTheme.bodyMedium!.copyWith(
+                        color: foreground ?? colorScheme.onPrimary,
+                      ),
+                    ),
                   ],
                 ),
                 stat,

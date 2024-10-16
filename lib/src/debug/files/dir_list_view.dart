@@ -44,26 +44,30 @@ class DirListView extends StatelessWidget {
               context: context,
               removeTop: true,
               child: Obx(
-        () => ListView.builder(
-          itemCount: entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: EdgeInsets.fromLTRB(
-                index.isEven ? 0 : 24,
-                8,
-                index.isEven ? 24 : 0,
-                8,
-              ), // EdgeInsets
-              child: DirCard(
-                index: index,
-                title: entries[index],
-                background: index = 0 ? colorScheme.primaryFixedDim : colorScheme.primaryFixed,
-                foreground: index == 0 ? colorScheme.onPrimaryFixedVariant : colorScheme.onPrimaryFixed,
-              ), // DirCard
-            ); // Padding
-          }, // itemBuilder
-        ), // ListView
-      ), // Obx
+                () => ListView.builder(
+                  itemCount: entries.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        index.isEven ? 0 : 24,
+                        8,
+                        index.isEven ? 24 : 0,
+                        8,
+                      ), // EdgeInsets
+                      child: DirCard(
+                        index: index,
+                        title: entries[index],
+                        background: index = 0
+                            ? colorScheme.primaryFixedDim
+                            : colorScheme.primaryFixed,
+                        foreground: index == 0
+                            ? colorScheme.onPrimaryFixedVariant
+                            : colorScheme.onPrimaryFixed,
+                      ), // DirCard
+                    ); // Padding
+                  }, // itemBuilder
+                ), // ListView
+              ), // Obx
             ), // MediaQuery
           ), // Expanded
         ], // children
