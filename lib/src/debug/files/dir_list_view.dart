@@ -29,17 +29,17 @@ class DirListView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-           Padding(
-             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: DirTitle(
-                        title: path,
-                        onTap: () => showModalBottomSheet<void>(
-                          context: context,
-                          builder: _buildSheet,
-                        ),
-                      ),
-                    ),
-           Expanded(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: DirTitle(
+              title: path,
+              onTap: () => showModalBottomSheet<void>(
+                context: context,
+                builder: _buildSheet,
+              ),
+            ),
+          ),
+          Expanded(
             child: MediaQuery.removePadding(
               context: context,
               removeTop: true,
@@ -48,26 +48,27 @@ class DirListView extends StatelessWidget {
           ), // Expanded
         ], // children
       ), // Column
-      body: Obx(() => ListView.builder(
-            itemCount: entries.length + 1,
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        index.isEven ? 0 : 24,
-                        8,
-                        index.isEven ? 24 : 0,
-                        8,
-                      ), // EdgeInsets
-                      child: DirCard(
-                        index: index,
-                        title: entries[index - 1],
-                        background: colorScheme.primaryContainer,
-                        foreground: colorScheme.onPrimaryContainer,
-                      ), // DirCard
-                    ); // Padding
-            }, // itemBuilder
-          ), // ListView
-), // Obx
+      body: Obx(
+        () => ListView.builder(
+          itemCount: entries.length + 1,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.fromLTRB(
+                index.isEven ? 0 : 24,
+                8,
+                index.isEven ? 24 : 0,
+                8,
+              ), // EdgeInsets
+              child: DirCard(
+                index: index,
+                title: entries[index - 1],
+                background: colorScheme.primaryContainer,
+                foreground: colorScheme.onPrimaryContainer,
+              ), // DirCard
+            ); // Padding
+          }, // itemBuilder
+        ), // ListView
+      ), // Obx
     );
   }
 
