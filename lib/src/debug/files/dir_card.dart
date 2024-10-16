@@ -55,6 +55,7 @@ class DirCard extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: index.isEven ? CrossAxisAlignment.end : CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 title.split('/').last,
