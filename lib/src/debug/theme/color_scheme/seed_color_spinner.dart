@@ -3,14 +3,14 @@ import 'package:provider/provider.dart';
 
 import 'seed_color_notifier.dart';
 
-import '../../../core/color_utils.dart';
+//import '../../../core/color_utils.dart';
 
 class SeedColorSpinner extends StatelessWidget {
   SeedColorSpinner({super.key}) {}
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    //final textTheme = Theme.of(context).textTheme;
     //final colorScheme = colorSchemeN.value;
 
     return Row(
