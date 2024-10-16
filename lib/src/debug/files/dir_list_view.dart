@@ -43,12 +43,7 @@ class DirListView extends StatelessWidget {
             child: MediaQuery.removePadding(
               context: context,
               removeTop: true,
-              child: ListView(), // ListView
-            ), // MediaQuery
-          ), // Expanded
-        ], // children
-      ), // Column
-      body: Obx(
+              child: Obx(
         () => ListView.builder(
           itemCount: entries.length + 1,
           itemBuilder: (BuildContext context, int index) {
@@ -69,6 +64,10 @@ class DirListView extends StatelessWidget {
           }, // itemBuilder
         ), // ListView
       ), // Obx
+            ), // MediaQuery
+          ), // Expanded
+        ], // children
+      ), // Column
     );
   }
 
