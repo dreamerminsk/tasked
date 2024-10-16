@@ -27,6 +27,17 @@ class DirListView extends StatelessWidget {
     }
 
     return Scaffold(
+      body: Column(
+        children: <Widget>[
+           Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: ListView(), // ListView
+            ), // MediaQuery
+          ), // Expanded
+        ], // children
+      ), // Column
       body: Obx(() => ListView.builder(
             itemCount: entries.length + 1,
             itemBuilder: (BuildContext context, int index) {
