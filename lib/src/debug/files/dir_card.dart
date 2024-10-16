@@ -61,7 +61,7 @@ class DirCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.bodyLarge!.copyWith(
+                style: textTheme.titleLarge!.copyWith(
                   color: foreground ?? colorScheme.onPrimary,
                 ),
               ),
