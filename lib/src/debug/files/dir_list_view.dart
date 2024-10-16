@@ -38,7 +38,7 @@ class DirListView extends StatelessWidget {
                           builder: _buildSheet,
                         ),
                       ),
-                    )
+                    ),
            Expanded(
             child: MediaQuery.removePadding(
               context: context,
