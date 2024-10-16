@@ -18,6 +18,11 @@ class DirTitle extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
+    final borderRadius = BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            );
+
     return InkWell(
       onTap: () {
         //Get.back();
@@ -25,10 +30,7 @@ class DirTitle extends StatelessWidget {
       },
       child: Material(
         elevation: 4,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-        ), // BorderRadius
+        borderRadius: borderRadius,
         child: Container(
           width: Get.width,
           height: 120,
@@ -74,10 +76,7 @@ class DirTitle extends StatelessWidget {
             ],
           ), // Column
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
-            ), // BorderRadius
+            borderRadius: borderRadius,
             color: colorScheme.primary,
           ), // BoxDecoration
         ), // Container
