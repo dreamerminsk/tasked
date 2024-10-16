@@ -31,7 +31,7 @@ class DirTitle extends StatelessWidget {
         ), // BorderRadius
         child: Container(
           width: Get.width,
-          height: 100,
+          height: 120,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
