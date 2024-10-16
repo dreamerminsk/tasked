@@ -45,7 +45,7 @@ class DirListView extends StatelessWidget {
               removeTop: true,
               child: Obx(
         () => ListView.builder(
-          itemCount: entries.length + 1,
+          itemCount: entries.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: EdgeInsets.fromLTRB(
@@ -56,7 +56,7 @@ class DirListView extends StatelessWidget {
               ), // EdgeInsets
               child: DirCard(
                 index: index,
-                title: entries[index - 1],
+                title: entries[index],
                 background: colorScheme.primaryContainer,
                 foreground: colorScheme.onPrimaryContainer,
               ), // DirCard
