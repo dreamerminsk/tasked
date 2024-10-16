@@ -57,25 +57,26 @@ class DirListView extends StatelessWidget {
                         8,
                         index.isEven ? 24 : 0,
                         8,
-                      ),
+                      ), // EdgeInsets
                       child: DirCard(
                         index: index,
                         title: entries[index - 1],
                         background: colorScheme.primaryContainer,
                         foreground: colorScheme.onPrimaryContainer,
-                      ),
-                    );
-            },
-          )),
+                      ), // DirCard
+                    ); // Padding
+            }, // itemBuilder
+          ), // ListView
+), // Obx
     );
   }
 
   Widget _buildSheet(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: Get.width,
-      height: Get.height * 0.45,
+      //height: Get.height * 0.45,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           DataTable(
             headingRowHeight: 0,
