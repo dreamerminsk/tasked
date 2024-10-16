@@ -57,8 +57,8 @@ class DirListView extends StatelessWidget {
               child: DirCard(
                 index: index,
                 title: entries[index],
-                background: colorScheme.primaryContainer,
-                foreground: colorScheme.onPrimaryContainer,
+                background: index = 0 ? colorScheme.primaryFixedDim : colorScheme.primaryFixed,
+                foreground: index == 0 ? colorScheme.onPrimaryFixedVariant : colorScheme.onPrimaryFixed,
               ), // DirCard
             ); // Padding
           }, // itemBuilder
