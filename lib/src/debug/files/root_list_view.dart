@@ -29,7 +29,6 @@ class RootListView extends StatelessWidget {
 
     getApplicationSupportDirectory().then((d) {
       roots.value.add(d.path);
-      roots.value.add(d.parent.path);
       roots.refresh();
     }).catchError(
         (e) => handleStorageError('getApplicationSupportDirectory', e));
@@ -41,21 +40,18 @@ class RootListView extends StatelessWidget {
 
     getApplicationDocumentsDirectory().then((d) {
       roots.value.add(d.path);
-      roots.value.add(d.parent.path);
       roots.refresh();
     }).catchError(
         (e) => handleStorageError('getApplicationDocumentsDirectory', e));
 
     getApplicationCacheDirectory().then((d) {
       roots.value.add(d.path);
-      roots.value.add(d.parent.path);
       roots.refresh();
     }).catchError((e) => handleStorageError('getApplicationCacheDirectory', e));
 
     getExternalStorageDirectory().then((d) {
       if (d != null) {
         roots.value.add(d.path);
-        roots.value.add(d.parent.path);
         roots.refresh();
       }
     }).catchError((e) => handleStorageError('getExternalStorageDirectory', e));
@@ -67,20 +63,7 @@ class RootListView extends StatelessWidget {
       }
     }).catchError((e) => handleStorageError('getExternalCacheDirectories', e));
 
-    final storageTypes = [
-      StorageDirectory.music,
-      StorageDirectory.dcim,
-      StorageDirectory.pictures,
-      StorageDirectory.podcasts,
-      StorageDirectory.ringtones,
-      StorageDirectory.alarms,
-      StorageDirectory.notifications,
-      StorageDirectory.movies,
-      StorageDirectory.downloads,
-      StorageDirectory.documents
-    ];
-
-    for (var storageType in storageTypes) {
+    for (var storageType in StorageDirectory.values) {
       getExternalStorageDirectories(type: storageType).then((ds) {
         if (ds != null) {
           roots.value.addAll(ds.map<String>((item) => item.path));
@@ -98,7 +81,7 @@ class RootListView extends StatelessWidget {
     }).catchError((e) => handleStorageError('getDownloadsDirectory', e));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('ROOTS'), actions: <Widget>[]),
+      appBar: AppBar(title: const Text('roots'), actions: <Widget>[]),
 
       body: ObxValue(
         (data) => ListView.separated(
@@ -112,7 +95,7 @@ class RootListView extends StatelessWidget {
             ); // RootCard
           },
           separatorBuilder: (BuildContext context, int index) => Divider(
-            thickness: 3,
+            thickness: 2,
             indent: 16,
             endIndent: 16,
             color: colorScheme.primary,
