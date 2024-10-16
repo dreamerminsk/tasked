@@ -29,6 +29,16 @@ class DirListView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
+           Padding(
+             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: DirTitle(
+                        title: path,
+                        onTap: () => showModalBottomSheet<void>(
+                          context: context,
+                          builder: _buildSheet,
+                        ),
+                      ),
+                    )
            Expanded(
             child: MediaQuery.removePadding(
               context: context,
@@ -41,18 +51,7 @@ class DirListView extends StatelessWidget {
       body: Obx(() => ListView.builder(
             itemCount: entries.length + 1,
             itemBuilder: (BuildContext context, int index) {
-              return index == 0
-                  ? Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-                      child: DirTitle(
-                        title: path,
-                        onTap: () => showModalBottomSheet<void>(
-                          context: context,
-                          builder: _buildSheet,
-                        ),
-                      ),
-                    )
-                  : Padding(
+              return Padding(
                       padding: EdgeInsets.fromLTRB(
                         index.isEven ? 0 : 24,
                         8,
