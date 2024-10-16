@@ -63,20 +63,7 @@ class RootListView extends StatelessWidget {
       }
     }).catchError((e) => handleStorageError('getExternalCacheDirectories', e));
 
-    final storageTypes = [
-      StorageDirectory.music,
-      StorageDirectory.dcim,
-      StorageDirectory.pictures,
-      StorageDirectory.podcasts,
-      StorageDirectory.ringtones,
-      StorageDirectory.alarms,
-      StorageDirectory.notifications,
-      StorageDirectory.movies,
-      StorageDirectory.downloads,
-      StorageDirectory.documents
-    ];
-
-    for (var storageType in storageTypes) {
+    for (var storageType in StorageDirectory.values) {
       getExternalStorageDirectories(type: storageType).then((ds) {
         if (ds != null) {
           roots.value.addAll(ds.map<String>((item) => item.path));
