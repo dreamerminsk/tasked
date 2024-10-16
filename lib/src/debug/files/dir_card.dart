@@ -59,7 +59,7 @@ class DirCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.titleLarge!.copyWith(
+                style: textTheme.bodyLarge!.copyWith(
                   color: foreground ?? colorScheme.onPrimary,
                 ),
               ),
@@ -71,8 +71,11 @@ class DirCard extends StatelessWidget {
                       data.value == null
                           ? "01.01.2001"
                           : _format(data.value!.modified),
+                      style: textTheme.bodyMedium!.copyWith(
+                  color: foreground ?? colorScheme.onPrimary,
                     ),
-                    Text('${data.value?.size ?? 0}'),
+                    Text('${data.value?.size ?? 0}',style: textTheme.bodyMedium!.copyWith(
+                  color: foreground ?? colorScheme.onPrimary,),
                   ],
                 ),
                 stat,
