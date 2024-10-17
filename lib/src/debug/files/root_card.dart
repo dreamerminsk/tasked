@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'dir_list_view.dart';
 
 class RootCard extends StatelessWidget {
+  static const version = '24.10.17';
+  static const title = 'root';
+
   final String title;
   final Color? background;
   final Color? foreground;
