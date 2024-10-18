@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart' hide ColorProperty;
+import 'package:flutter/material.dart';
 
-import 'color_utils.dart';
 import 'properties.dart';
 
 class NamedTextTheme {
