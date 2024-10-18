@@ -13,12 +13,51 @@ class NamedTextTheme {
     return NamedTextTheme(textTheme: textTheme);
   }
 
-     NamedTextStyle get primary => NamedTextStyle('primary', textTheme.primary);
+     NamedTextStyle get displayLarge => NamedTextStyle('displayLarge', textTheme.displayLarge);
+
+NamedTextStyle get displayMedium => NamedTextStyle('displayMedium', textTheme.displayMedium);
+
+NamedTextStyle get displaySmall => NamedTextStyle('displaySmall', textTheme.displaySmall);
+
+NamedTextStyle get headlineLarge => NamedTextStyle('headlineLarge', textTheme.headlineLarge);
+
+NamedTextStyle get headlineMedium => NamedTextStyle('headlineMedium', textTheme.headlineMedium);
+
+NamedTextStyle get headlineSmall => NamedTextStyle('headlineSmall', textTheme.headlineSmall);
+
+NamedTextStyle get titleLarge => NamedTextStyle('titleLarge', textTheme.titleLarge);
+
+NamedTextStyle get titleMedium => NamedTextStyle('titleMedium', textTheme.titleMedium);
+
+NamedTextStyle get titleSmall => NamedTextStyle('titleSmall', textTheme.titleSmall);
+
+NamedTextStyle get bodyLarge => NamedTextStyle('bodyLarge', textTheme.bodyLarge);
+
+NamedTextStyle get bodyMedium => NamedTextStyle('bodyMedium', textTheme.bodyMedium);
+
+NamedTextStyle get bodySmall => NamedTextStyle('bodySmall', textTheme.bodySmall);
+
+NamedTextStyle get labelLarge => NamedTextStyle('labelLarge', textTheme.labelLarge);
+
+NamedTextStyle get labelMedium => NamedTextStyle('labelMedium', textTheme.labelMedium);
+
+NamedTextStyle get labelSmall => NamedTextStyle('labelSmall', textTheme.labelSmall);
 
   List<ColorProperty> get values => <ColorProperty>[
-      ];
-
-  List<(ColorProperty, ColorProperty)> get pairs =>
-      <(ColorProperty, ColorProperty)>[
+displayLarge,
+displayMedium,
+displaySmall,
+headlineLarge,
+headlineMedium,
+headlineSmall,
+titleLarge,
+titleMedium,
+titleSmall,
+bodyLarge,
+bodyMedium,
+bodySmall,
+labelLarge,
+labelMedium,
+labelSmall,
       ];
 }
