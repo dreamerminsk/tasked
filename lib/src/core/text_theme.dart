@@ -42,7 +42,7 @@ NamedTextStyle get labelMedium => NamedTextStyle('labelMedium', textTheme.labelM
 
 NamedTextStyle get labelSmall => NamedTextStyle('labelSmall', textTheme.labelSmall);
 
-  List<ColorProperty> get values => <ColorProperty>[
+  List<ColorProperty> get values => <NamedTextStyle>[
 displayLarge,
 displayMedium,
 displaySmall,
