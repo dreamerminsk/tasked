@@ -91,7 +91,7 @@ class ScannerWidget extends StatelessWidget {
           if (details.primaryVelocity! < 0) {
             colorIdx.value =
                 (colorIdx.value + colors.length - 1) % colors.length;
-            Future.delayed(Duration(milliseconds: 1000), () {
+            Future.delayed(Duration(milliseconds: 500), () {
               onColorIdx.value =
                   (onColorIdx.value + colors.length - 1) % colors.length;
             });
