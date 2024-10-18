@@ -10,3 +10,7 @@ class NamedProperty<T> {
 class ColorProperty extends NamedProperty<Color> {
   ColorProperty(super.name, super.value);
 }
+
+NamedTextStyle extends NamedProrerty<TextStyle> {
+     NamedTextStyle(super.name,  super.value);
+}
