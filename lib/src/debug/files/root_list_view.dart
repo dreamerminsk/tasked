@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'root_card.dart';
+import 'root_list_card.dart';
 
 class RootListView extends StatelessWidget {
   final roots = Rx<SplayTreeSet<String>>(SplayTreeSet<String>());
@@ -81,7 +82,7 @@ class RootListView extends StatelessWidget {
     }).catchError((e) => handleStorageError('getDownloadsDirectory', e));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('roots'), actions: <Widget>[]),
+      appBar: AppBar(title: const Text('${RootListCard.title} ${RootListCard.version}'), actions: <Widget>[]),
 
       body: ObxValue(
         (data) => ListView.separated(

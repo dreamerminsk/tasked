@@ -48,7 +48,7 @@ class DirCard extends StatelessWidget {
         child: Container(
           width: Get.width,
           height: 100,
-          padding: const EdgeInsets.all(4),
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
           decoration: BoxDecoration(
             borderRadius: borderRadius,
             color: background ?? colorScheme.primary,
@@ -61,7 +61,7 @@ class DirCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 title.split('/').last,
-                style: textTheme.bodyLarge!.copyWith(
+                style: textTheme.titleLarge!.copyWith(
                   color: foreground ?? colorScheme.onPrimary,
                 ),
               ),
