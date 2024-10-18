@@ -13,6 +13,8 @@ class NamedTextTheme {
     return NamedTextTheme(textTheme: textTheme);
   }
 
+     NamedTextStyle get primary => NamedTextStyle('primary', textTheme.primary);
+
   List<ColorProperty> get values => <ColorProperty>[
       ];
 
