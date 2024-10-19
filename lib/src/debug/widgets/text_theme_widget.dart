@@ -5,6 +5,9 @@ import '../../core/text_theme.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
+    static const version = '24.10.19';
+  static const title = 'textTheme';
+
   late final List<NamedTextStyle> _styles;
 
   final ValueNotifier<int> primaryTextStyle;
@@ -49,7 +52,7 @@ class TextThemeWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'textTheme',
+                  '$title $version',
                   style: _styles[value].value.copyWith(
                         fontWeight: FontWeight.w300,
                         color: colorScheme.onPrimary,
