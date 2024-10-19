@@ -41,8 +41,8 @@ List<NamedTextStyle> _styles;
             children: <Widget>[
               Text(
                 'textTheme',
-                style: _styles[value].copyWith(
-                    fontWeight: FontWeight.w300, color: colorScheme.onPrimary),
+                style: _styles[value].value.copyWith(
+                    fontWeight: FontWeight.w300, color: colorScheme.onPrimary,),
               ), // Text
                             Text(
                 '${_styles[value].name}',
