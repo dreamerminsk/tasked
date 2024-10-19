@@ -21,7 +21,7 @@ class TextThemeWidget extends StatelessWidget {
     return Material(
       elevation: 1,
       borderRadius: BorderRadius.all(Radius.circular(20)),
-      child: InkWell(
+            child: GestureDetector(
         onTap: () {
           Get.toNamed(Routes.TEXTTHEME);
         },
