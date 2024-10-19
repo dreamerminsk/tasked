@@ -13,7 +13,7 @@ List<NamedTextStyle> _styles;
   TextThemeWidget({
     super.key,
   }) {
-     primaryTextStyle = ValueNotifier<int>(0);
+     primaryTextStyle = ValueNotifier<int>(4);
   }
 
   @override
