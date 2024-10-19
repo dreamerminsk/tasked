@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/text_theme.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
