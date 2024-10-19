@@ -20,6 +20,7 @@ List<NamedTextStyle> _styles;
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    _styles = NamedTextTheme.of(context).values;
 
     return Material(
       elevation: 1,
