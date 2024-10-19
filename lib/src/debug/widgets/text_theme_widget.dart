@@ -6,6 +6,8 @@ import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
 
+List<NamedTextStyle> _styles;
+
  late  final ValueNotifier<int> primaryTextStyle;
 
   TextThemeWidget({
