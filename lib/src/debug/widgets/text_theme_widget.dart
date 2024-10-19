@@ -32,23 +32,27 @@ List<NamedTextStyle> _styles;
         child: Container(
           width: Get.width,
           height: 100,
-          child: Column(
+          child: ValueListenableBuilder(
+            valueListenable: primaryTextStyle,
+            builder: (context, value, child) => 
+              Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'textTheme',
-                style: textTheme.headlineMedium!.copyWith(
+                style: _styles[value].copyWith(
                     fontWeight: FontWeight.w300, color: colorScheme.onPrimary),
               ), // Text
                             Text(
-                'textTheme',
+                '${_styles[value].name}',
                 style: textTheme.bodyLarge!.copyWith(
                     color: colorScheme.onPrimary,
 ),
               ), // Text
             ],
           ), // Column
+          ), // ValueListenableBuilder
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
