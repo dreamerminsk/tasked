@@ -4,9 +4,14 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
-  const TextThemeWidget({
+
+ late  final ValueNotifier<int> primaryTextStyle;
+
+  TextThemeWidget({
     super.key,
-  });
+  }) {
+     primaryTextStyle = ValueNotifier<int>(0);
+  }
 
   @override
   Widget build(BuildContext context) {
