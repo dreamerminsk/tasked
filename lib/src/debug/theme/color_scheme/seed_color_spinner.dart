@@ -36,15 +36,13 @@ class SeedColorSpinner extends StatelessWidget {
             },
           ),
         ), // Consumer
-        
+
         Consumer<SeedColorNotifier>(
           builder: (context, value, child) => IconButton(
             iconSize: 36,
             icon: Icon(Icons.color_lens),
             color: value.shade.color,
-            onPressed: () {
-              
-            },
+            onPressed: () {},
           ),
         ), // Consumer
 

@@ -12,5 +12,5 @@ class ColorProperty extends NamedProperty<Color> {
 }
 
 class NamedTextStyle extends NamedProrerty<TextStyle> {
-     NamedTextStyle(super.name,  super.value);
+  NamedTextStyle(super.name, super.value);
 }

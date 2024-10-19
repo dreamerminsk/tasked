@@ -5,15 +5,14 @@ import '../../core/text_theme.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
+  List<NamedTextStyle> _styles;
 
-List<NamedTextStyle> _styles;
-
- late  final ValueNotifier<int> primaryTextStyle;
+  late final ValueNotifier<int> primaryTextStyle;
 
   TextThemeWidget({
     super.key,
   }) {
-     primaryTextStyle = ValueNotifier<int>(4);
+    primaryTextStyle = ValueNotifier<int>(4);
   }
 
   @override
@@ -34,24 +33,25 @@ List<NamedTextStyle> _styles;
           height: 100,
           child: ValueListenableBuilder(
             valueListenable: primaryTextStyle,
-            builder: (context, value, child) => 
-              Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'textTheme',
-                style: _styles[value].value.copyWith(
-                    fontWeight: FontWeight.w300, color: colorScheme.onPrimary,),
-              ), // Text
-                            Text(
-                '${_styles[value].name}',
-                style: textTheme.bodyLarge!.copyWith(
+            builder: (context, value, child) => Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'textTheme',
+                  style: _styles[value].value.copyWith(
+                        fontWeight: FontWeight.w300,
+                        color: colorScheme.onPrimary,
+                      ),
+                ), // Text
+                Text(
+                  '${_styles[value].name}',
+                  style: textTheme.bodyLarge!.copyWith(
                     color: colorScheme.onPrimary,
-),
-              ), // Text
-            ],
-          ), // Column
+                  ),
+                ), // Text
+              ],
+            ), // Column
           ), // ValueListenableBuilder
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(

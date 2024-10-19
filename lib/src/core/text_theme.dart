@@ -12,51 +12,66 @@ class NamedTextTheme {
     return NamedTextTheme(textTheme: textTheme);
   }
 
-     NamedTextStyle get displayLarge => NamedTextStyle('displayLarge', textTheme.displayLarge);
+  NamedTextStyle get displayLarge =>
+      NamedTextStyle('displayLarge', textTheme.displayLarge);
 
-NamedTextStyle get displayMedium => NamedTextStyle('displayMedium', textTheme.displayMedium);
+  NamedTextStyle get displayMedium =>
+      NamedTextStyle('displayMedium', textTheme.displayMedium);
 
-NamedTextStyle get displaySmall => NamedTextStyle('displaySmall', textTheme.displaySmall);
+  NamedTextStyle get displaySmall =>
+      NamedTextStyle('displaySmall', textTheme.displaySmall);
 
-NamedTextStyle get headlineLarge => NamedTextStyle('headlineLarge', textTheme.headlineLarge);
+  NamedTextStyle get headlineLarge =>
+      NamedTextStyle('headlineLarge', textTheme.headlineLarge);
 
-NamedTextStyle get headlineMedium => NamedTextStyle('headlineMedium', textTheme.headlineMedium);
+  NamedTextStyle get headlineMedium =>
+      NamedTextStyle('headlineMedium', textTheme.headlineMedium);
 
-NamedTextStyle get headlineSmall => NamedTextStyle('headlineSmall', textTheme.headlineSmall);
+  NamedTextStyle get headlineSmall =>
+      NamedTextStyle('headlineSmall', textTheme.headlineSmall);
 
-NamedTextStyle get titleLarge => NamedTextStyle('titleLarge', textTheme.titleLarge);
+  NamedTextStyle get titleLarge =>
+      NamedTextStyle('titleLarge', textTheme.titleLarge);
 
-NamedTextStyle get titleMedium => NamedTextStyle('titleMedium', textTheme.titleMedium);
+  NamedTextStyle get titleMedium =>
+      NamedTextStyle('titleMedium', textTheme.titleMedium);
 
-NamedTextStyle get titleSmall => NamedTextStyle('titleSmall', textTheme.titleSmall);
+  NamedTextStyle get titleSmall =>
+      NamedTextStyle('titleSmall', textTheme.titleSmall);
 
-NamedTextStyle get bodyLarge => NamedTextStyle('bodyLarge', textTheme.bodyLarge);
+  NamedTextStyle get bodyLarge =>
+      NamedTextStyle('bodyLarge', textTheme.bodyLarge);
 
-NamedTextStyle get bodyMedium => NamedTextStyle('bodyMedium', textTheme.bodyMedium);
+  NamedTextStyle get bodyMedium =>
+      NamedTextStyle('bodyMedium', textTheme.bodyMedium);
 
-NamedTextStyle get bodySmall => NamedTextStyle('bodySmall', textTheme.bodySmall);
+  NamedTextStyle get bodySmall =>
+      NamedTextStyle('bodySmall', textTheme.bodySmall);
 
-NamedTextStyle get labelLarge => NamedTextStyle('labelLarge', textTheme.labelLarge);
+  NamedTextStyle get labelLarge =>
+      NamedTextStyle('labelLarge', textTheme.labelLarge);
 
-NamedTextStyle get labelMedium => NamedTextStyle('labelMedium', textTheme.labelMedium);
+  NamedTextStyle get labelMedium =>
+      NamedTextStyle('labelMedium', textTheme.labelMedium);
 
-NamedTextStyle get labelSmall => NamedTextStyle('labelSmall', textTheme.labelSmall);
+  NamedTextStyle get labelSmall =>
+      NamedTextStyle('labelSmall', textTheme.labelSmall);
 
   List<ColorProperty> get values => <NamedTextStyle>[
-displayLarge,
-displayMedium,
-displaySmall,
-headlineLarge,
-headlineMedium,
-headlineSmall,
-titleLarge,
-titleMedium,
-titleSmall,
-bodyLarge,
-bodyMedium,
-bodySmall,
-labelLarge,
-labelMedium,
-labelSmall,
+        displayLarge,
+        displayMedium,
+        displaySmall,
+        headlineLarge,
+        headlineMedium,
+        headlineSmall,
+        titleLarge,
+        titleMedium,
+        titleSmall,
+        bodyLarge,
+        bodyMedium,
+        bodySmall,
+        labelLarge,
+        labelMedium,
+        labelSmall,
       ];
 }
