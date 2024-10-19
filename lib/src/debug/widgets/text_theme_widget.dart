@@ -37,6 +37,12 @@ class TextThemeWidget extends StatelessWidget {
                 style: textTheme.headlineMedium!.copyWith(
                     fontWeight: FontWeight.w300, color: colorScheme.onPrimary),
               ), // Text
+                            Text(
+                'textTheme',
+                style: textTheme.bodyLarge!.copyWith(
+                    color: colorScheme.onPrimary,
+),
+              ), // Text
             ],
           ), // Column
           padding: const EdgeInsets.all(16),
