@@ -12,6 +12,8 @@ class TextThemeWidget extends StatelessWidget {
 
   final ValueNotifier<int> primaryTextStyle;
 
+  final ValueChanged<TextStyle>? onChanged;
+
   TextThemeWidget({super.key})
       : primaryTextStyle = ValueNotifier<int>(4);
 
