@@ -5,12 +5,12 @@ import '../../core/text_theme.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
-    static const version = '24.10.19';
+    static const version = '24.10.21';
   static const title = 'textTheme';
 
   late final List<NamedTextStyle> _styles;
 
-  final ValueNotifier<int> primaryTextStyle;
+  final ValueNotifier<int> titleTextStyle;
 
   final ValueChanged<TextStyle>? onChanged;
 
@@ -33,10 +33,10 @@ class TextThemeWidget extends StatelessWidget {
         onHorizontalDragEnd: (details) {
           if (details.primaryVelocity == null) return;
           if (details.primaryVelocity! < 0) {
-            primaryTextStyle.value =
-                (primaryTextStyle.value + _styles.length - 1) % _styles.length;
+            titleTextStyle.value =
+                (titleTextStyle.value + _styles.length - 1) % _styles.length;
           } else {
-            primaryTextStyle.value = (primaryTextStyle.value + 1) % _styles.length;
+            titleTextStyle.value = (titleTextStyle.value + 1) % _styles.length;
           }
         },
         child: Container(
