@@ -5,7 +5,7 @@ import '../../core/text_theme.dart';
 import '../../routes/app_pages.dart';
 
 class TextThemeWidget extends StatelessWidget {
-    static const version = '24.10.21';
+    static const version = '24.10.27';
   static const title = 'textTheme';
 
   late final List<NamedTextStyle> _styles;
@@ -14,7 +14,7 @@ class TextThemeWidget extends StatelessWidget {
 
   final ValueChanged<TextStyle>? onChanged;
 
-  TextThemeWidget({super.key})
+  TextThemeWidget({super.key, this.onChanged,})
       : primaryTextStyle = ValueNotifier<int>(4);
 
   @override
