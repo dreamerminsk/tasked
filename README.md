@@ -2,8 +2,8 @@
 
 A new Flutter application.
 
-[![update](https://github.com/dreamerminsk/wiki-langs/actions/workflows/update-tables.yml/badge.svg)](https://github.com/dreamerminsk/wiki-langs/actions/workflows/update-tables.yml)
-[![build](https://github.com/dreamerminsk/wiki-langs/actions/workflows/build.yml/badge.svg)](https://github.com/dreamerminsk/wiki-langs/actions/workflows/build.yml)
+[![update](https://github.com/dreamerminsk/tasked/actions/workflows/flutter.yml/badge.svg)](https://github.com/dreamerminsk/tasked/actions/workflows/flutter.yml)
+[![build](https://github.com/dreamerminsk/tasked/actions/workflows/releases.yml/badge.svg)](https://github.com/dreamerminsk/tasked/actions/workflows/releases.yml)
 
 ![commits](https://img.shields.io/github/commit-activity/y/dreamerminsk/tasked)
 ![commits](https://img.shields.io/github/commit-activity/m/dreamerminsk/tasked)
