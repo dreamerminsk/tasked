@@ -12,6 +12,9 @@ A new Flutter application.
 ![](https://img.shields.io/github/languages/code-size/dreamerminsk/tasked)
 ![](https://img.shields.io/github/repo-size/dreamerminsk/tasked)
 
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/dreamerminsk/tasked/total)
+
+
 ## Stats
 
 ###
