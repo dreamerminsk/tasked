@@ -1,9 +1,7 @@
 class StringIdItem {
+  final int stringDataOff;
 
-final int stringDataOff;
-
-const StringIdItem({
-required this.stringDataOff,
-});
-
+  const StringIdItem({
+    required this.stringDataOff,
+  });
 }
