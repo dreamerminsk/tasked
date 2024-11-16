@@ -1,12 +1,12 @@
 class DexReader {
-
-T read<T>() {
-    switch(T) {
-       case DexHeader: return null;
-       default: return null;
-   }
-}
-
+  T read<T>() {
+    switch (T) {
+      case DexHeader:
+        return null;
+      default:
+        return null;
+    }
+  }
 
   DexHeader fromBytes(Uint8List bytes) {
     if (bytes.length < 112) {
@@ -31,5 +31,4 @@ T read<T>() {
   static int _readUint32(Uint8List bytes, int offset) {
     return bytes.buffer.asByteData().getUint32(offset, Endian.little);
   }
-
 }

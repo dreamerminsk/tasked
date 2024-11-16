@@ -30,7 +30,7 @@ class DexFileView extends StatelessWidget {
               route: Routes.DEBUG,
             ), // DebugIconButton
           ]),
-            body: Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Obx(

@@ -24,7 +24,7 @@ class DexHeader {
   final int classDefsOff;
   final int dataSize;
   final int dataOff;
-  final String version;  
+  final String version;
 
   DexHeader({
     required this.magic,
@@ -50,7 +50,7 @@ class DexHeader {
     required this.classDefsOff,
     required this.dataSize,
     required this.dataOff,
-    required this.version,    
+    required this.version,
   });
 
   factory DexHeader.fromBytes(Uint8List bytes) {
