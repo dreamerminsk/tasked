@@ -1,15 +1,13 @@
 class MethodIdItem {
+  final int classIdx;
 
-final int classIdx;
+  final int protoIdx;
 
-final int protoIdx;
+  final int nameIdx;
 
-final int nameIdx;
-
-const MethodIdItem({
-this.classIdx,
-this.protoIdx,
-this.nameIdx,
-});
-
+  const MethodIdItem({
+    this.classIdx,
+    this.protoIdx,
+    this.nameIdx,
+  });
 }

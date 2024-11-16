@@ -1,9 +1,7 @@
 class TypeIdItem {
+  final int descriptirIdx;
 
-final int descriptirIdx;
-
-const TypeIdItem({
-this.descriptorIdx,
-});
-
+  const TypeIdItem({
+    this.descriptorIdx,
+  });
 }
