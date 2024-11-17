@@ -32,12 +32,12 @@ class JsonViewer extends StatelessWidget {
                 Text(
                   'pos: 0',
                   style: textTheme.bodyLarge!
-                      .copyWith(color: colorScheme.onPrimary),
+                      .copyWith(color: colorScheme.onPrimary,),
                 ), // Text
                 Obx(() => Text(
                       'length: ${c.content.value.length}',
                       style: textTheme.bodyLarge!
-                          .copyWith(color: colorScheme.onPrimary),
+                          .copyWith(color: colorScheme.onPrimary,),
                     )), // Text
               ],
             ), // Column
@@ -49,7 +49,7 @@ class JsonViewer extends StatelessWidget {
                 child: Text(
                   'JsonDocument',
                   style: textTheme.titleLarge!
-                      .copyWith(color: colorScheme.onPrimary),
+                      .copyWith(color: colorScheme.onPrimary,),
                 ), // Text
               ), // RotatedBox,
               padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
@@ -57,7 +57,7 @@ class JsonViewer extends StatelessWidget {
                 border: Border(
                   left: BorderSide(
                     color: colorScheme.onPrimary,
-                    width: 1,
+                    width: 2,
                   ), // BorderSide
                 ), // Border
               ), // BoxDecoration
