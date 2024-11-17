@@ -52,6 +52,7 @@ class JsonViewer extends StatelessWidget {
                       .copyWith(color: colorScheme.onPrimary),
                 ), // Text
               ), // RotatedBox,
+              padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
               decoration: BoxDecoration(
                 border: Border(
                   left: BorderSide(
@@ -63,7 +64,7 @@ class JsonViewer extends StatelessWidget {
             ), // Container
           ],
         ), // Row
-        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 8.0, 8.0),
+        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
