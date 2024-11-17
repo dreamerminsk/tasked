@@ -13,6 +13,7 @@ class JsonController extends GetxController {
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
   final jsonRef = ''.obs;
+  final error = Rxn<Object>(null);
   final objects = 0.obs;
   final arrays = 0.obs;
   final levels = 1.obs;
@@ -44,7 +45,7 @@ class JsonController extends GetxController {
     final fs = await fetchString(jsonRef.value);
     switch (fs) {
       case ErrorResult e:
-        content.value = '$e';
+        error.value = e.error;
       case ValueResult v:
         {
           content.value = v.value;
@@ -104,8 +105,6 @@ class JsonController extends GetxController {
       debug.newRes({'time': DateTime.now(), 'total': ttl});
       return Result.value(response.data.toString());
     } catch (e, s) {
-      Get.snackbar('JsonController.fetchString', '$e',
-          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
