@@ -39,7 +39,7 @@ class DexFileView extends StatelessWidget {
                 return Expanded(
                   child: Align(
                     alignment: Alignment.center,
-                    child: Center(child: Text('No code files found.')),
+                    child: Center(child: Text('No segments found.')),
                   ),
                 );
               } else {
