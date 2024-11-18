@@ -41,13 +41,47 @@ class JsonViewer extends StatelessWidget {
                     )), // Text
               ],
             ), // Column
-            Container(
+            RightTitle(
+              title: 'JsonDocument',
+            ), // RightTitle
+          ],
+        ), // Row
+        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ), // BorderRadius
+          color: colorScheme.primary,
+        ), // BoxDecoration
+      ), //Container
+    );
+  }
+}
+
+
+
+
+class RightTitle extends StatelessWidget {
+
+  final String title;
+
+  const RightTitle({
+    super.key,
+    this.title,
+  });
+
+@override
+  Widget build(context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
               height: 200,
               alignment: Alignment.center,
               child: RotatedBox(
                 quarterTurns: 3,
                 child: Text(
-                  'JsonDocument',
+                  this.title,
                   style: textTheme.titleLarge!
                       .copyWith(color: colorScheme.onPrimary,),
                 ), // Text
@@ -61,17 +95,7 @@ class JsonViewer extends StatelessWidget {
                   ), // BorderSide
                 ), // Border
               ), // BoxDecoration
-            ), // Container
-          ],
-        ), // Row
-        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.primary,
-        ), // BoxDecoration
-      ), //Container
-    );
-  }
+            ); // Container
+
+
 }
