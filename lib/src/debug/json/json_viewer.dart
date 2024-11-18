@@ -96,6 +96,7 @@ class RightTitle extends StatelessWidget {
                 ), // Border
               ), // BoxDecoration
             ); // Container
+}
 
 
 }
