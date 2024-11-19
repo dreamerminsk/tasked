@@ -69,10 +69,14 @@ class JsonController extends GetxController {
         openNodes.addLast(ObjectNode(level: level, offset: pos, length: 1));
         level = level +1;
       } else if (char == '}') {
+        var node = openNodes.removeLast();
+        nodes[node.offset] = node.copyWith(length: pos-node.offset+1);
       } else if (char == '[') {
         openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
         level = level +1;
       } else if (char == ']') {
+        var node = openNodes.removeLast();
+        nodes[node.offset] = node.copyWith(length: pos-node.offset+1);
       }
       pos = pos + 1;
     }
