@@ -62,44 +62,44 @@ class JsonController extends GetxController {
   }
 
   void scan() async {
-  final text = content.value;
-  var level = 0;
-  var pos = 0;
+    final text = content.value;
+    var level = 0;
+    var pos = 0;
 
-  const openBrace = '{';
-  const closeBrace = '}';
-  const openBracket = '[';
-  const closeBracket = ']';
+    const openBrace = '{';
+    const closeBrace = '}';
+    const openBracket = '[';
+    const closeBracket = ']';
 
-  for (var char in text.characters) {
-    if (char == openBrace) {
-      openNodes.addLast(ObjectNode(level: level, offset: pos, length: 1));
-      level++;
-    } else if (char == closeBrace) {
-      if (openNodes.isEmpty || openNodes.last is! ObjectNode) {
-        throw FormatException('Unmatched closing brace at position $pos');
+    for (var char in text.characters) {
+      if (char == openBrace) {
+        openNodes.addLast(ObjectNode(level: level, offset: pos, length: 1));
+        level++;
+      } else if (char == closeBrace) {
+        if (openNodes.isEmpty || openNodes.last is! ObjectNode) {
+          throw FormatException('Unmatched closing brace at position $pos');
+        }
+        var node = openNodes.removeLast();
+        nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
+        level--;
+      } else if (char == openBracket) {
+        openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
+        level++;
+      } else if (char == closeBracket) {
+        if (openNodes.isEmpty || openNodes.last is! ArrayNode) {
+          throw FormatException('Unmatched closing bracket at position $pos');
+        }
+        var node = openNodes.removeLast();
+        nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
+        level--;
       }
-      var node = openNodes.removeLast();
-      nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
-      level--;
-    } else if (char == openBracket) {
-      openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
-      level++;
-    } else if (char == closeBracket) {
-      if (openNodes.isEmpty || openNodes.last is! ArrayNode) {
-        throw FormatException('Unmatched closing bracket at position $pos');
-      }
-      var node = openNodes.removeLast();
-      nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
-      level--;
+      pos++;
     }
-    pos++;
-  }
 
-  if (openNodes.isNotEmpty) {
-    throw FormatException('Unmatched opening nodes remaining.');
+    if (openNodes.isNotEmpty) {
+      throw FormatException('Unmatched opening nodes remaining.');
+    }
   }
-}
 
   void process(String value) async {
     var level = 1;
@@ -154,7 +154,6 @@ class JsonController extends GetxController {
     }
   }
 }
-
 
 class JsonNode {
   final int level;
