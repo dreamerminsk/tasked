@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:collection';
 
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
@@ -21,6 +22,9 @@ class JsonController extends GetxController {
   final larrays = [].obs;
   final content = ''.obs;
   final level = -1.obs;
+
+  final openNodes = Queue<JsonNode>();
+  final nodes = SplayTreeMap<int, JsonNode>();
 
   @override
   void onInit() {
