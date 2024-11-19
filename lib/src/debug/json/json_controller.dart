@@ -63,13 +63,18 @@ class JsonController extends GetxController {
 
   void scan() async {
     final text = content.value;
-    var level = 0;
+    var level = 0; var pos = 0;
     for (var char in text.characters) {
       if (char == '{') {
+        openNodes.addLast(ObjectNode(level: level, offset: pos, length: 1));
+        level = level +1;
       } else if (char == '}') {
       } else if (char == '[') {
+        openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
+        level = level +1;
       } else if (char == ']') {
       }
+      pos = pos + 1;
     }
   }
 
