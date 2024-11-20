@@ -97,3 +97,68 @@ class RightTitle extends StatelessWidget {
     ); // Container
   }
 }
+
+
+
+
+
+
+class ErrorWidget extends StatelessWidget {
+  final Object error;
+
+  const ErrorWidget({
+    Key? key,
+    required this.error,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Error'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Card(
+            color: Colors.redAccent,
+            elevation: 4.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.error,
+                    color: Colors.white,
+                    size: 48.0,
+                  ),
+                  const SizedBox(height: 16.0),
+                  Text(
+                    errorMessage,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Go back to the previous screen
+                    },
+                    child: const Text('Go Back'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
