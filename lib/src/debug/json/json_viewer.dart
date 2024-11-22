@@ -16,7 +16,7 @@ class JsonViewer extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Obx(() => Text(c.jsonRef.value.split('/').last)),
+        title: Obx(() => Text(c.source.value.split('/').last)),
       ),
       body: Container(
         margin: EdgeInsets.all(8.0),
