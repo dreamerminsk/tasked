@@ -117,6 +117,17 @@ class JsonController extends GetxController {
   }
 }
 
+abstract class Tokens {
+
+Tokens._();
+
+static const const openBrace = '{';
+   static const closeBrace = '}';
+  static  const openBracket = '[';
+   static const closeBracket = ']';
+
+}
+
 class JsonNode {
   final int level;
   final int offset;
