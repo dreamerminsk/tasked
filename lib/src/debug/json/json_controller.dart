@@ -15,13 +15,7 @@ class JsonController extends GetxController {
   final DebugController debug = Get.find(tag: 'debugger');
   final source = ''.obs;
   final error = Rxn<Object>(null);
-  final objects = 0.obs;
-  final arrays = 0.obs;
-  final levels = 1.obs;
-  final lobjects = [].obs;
-  final larrays = [].obs;
   final content = ''.obs;
-  final level = -1.obs;
 
   final openNodes = Queue<JsonNode>();
   final nodes = SplayTreeMap<int, JsonNode>();
@@ -102,40 +96,7 @@ class JsonController extends GetxController {
     }
   }
 
-  void process(String value) async {
-    var level = 1;
-    for (var char in value.characters) {
-      if (char == '{') {
-        if (level > lobjects.length) {
-          lobjects.add(1);
-          larrays.add(0);
-        } else {
-          lobjects[level - 1]++;
-        }
-        objects.value++;
-        level++;
-        if (levels < level) {
-          levels.value = level;
-        }
-      } else if (char == '}') {
-        level--;
-      } else if (char == '[') {
-        if (level > larrays.length) {
-          larrays.add(1);
-          lobjects.add(0);
-        } else {
-          larrays[level - 1]++;
-        }
-        arrays.value++;
-        level++;
-        if (levels < level) {
-          levels.value = level;
-        }
-      } else if (char == ']') {
-        level--;
-      }
-    }
-  }
+  
 
   Future<Result<String>> fetchString(String link) async {
     try {
