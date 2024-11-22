@@ -113,32 +113,37 @@ class ErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Error'),
-      ),
-      body: Center(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Card(
+        color: Colors.redAccent,
+        elevation: 4.0,
+        shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ), // RoundedRectangleBorder
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Card(
-            color: Colors.redAccent,
-            elevation: 4.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
                     Icons.error,
                     color: Colors.white,
                     size: 48.0,
                   ),
-                  const SizedBox(height: 16.0),
-                  Text(
-                    errorMessage,
+              const SizedBox(height: 16.0),
+              Text(
+                    error.runtimeType.toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+              const SizedBox(height: 16.0),
+              Text(
+                    error.toString(),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -146,19 +151,11 @@ class ErrorWidget extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // Go back to the previous screen
-                    },
-                    child: const Text('Go Back'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+            ],
+          ), // Column
+        ), // Padding
+      ), // Card
+    ); // Padding
   }
+
 }
