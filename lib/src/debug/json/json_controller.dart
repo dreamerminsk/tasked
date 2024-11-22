@@ -13,7 +13,7 @@ class JsonController extends GetxController {
   final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
-  final jsonRef = ''.obs;
+  final source = ''.obs;
   final error = Rxn<Object>(null);
   final objects = 0.obs;
   final arrays = 0.obs;
@@ -30,7 +30,7 @@ class JsonController extends GetxController {
   void onInit() {
     super.onInit();
     debug.logInit(this.runtimeType.toString(), id, started);
-    jsonRef.value = Get.arguments;
+    source.value = Get.arguments;
     load();
   }
 
@@ -46,7 +46,7 @@ class JsonController extends GetxController {
   }
 
   void load() async {
-    final fs = await fetchString(jsonRef.value);
+    final fs = await fetchString(source.value);
     switch (fs) {
       case ErrorResult e:
         error.value = e.error;
@@ -57,7 +57,7 @@ class JsonController extends GetxController {
           process(v.value);
         }
       default:
-        content.value = 'very strange';
+        content.value = '{}';
     }
   }
 
