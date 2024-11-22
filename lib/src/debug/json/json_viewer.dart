@@ -98,11 +98,6 @@ class RightTitle extends StatelessWidget {
   }
 }
 
-
-
-
-
-
 class ErrorWidget extends StatelessWidget {
   final Object error;
 
@@ -119,43 +114,42 @@ class ErrorWidget extends StatelessWidget {
         color: Colors.redAccent,
         elevation: 4.0,
         shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ), // RoundedRectangleBorder
+          borderRadius: BorderRadius.circular(8.0),
+        ), // RoundedRectangleBorder
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               const Icon(
-                    Icons.error,
-                    color: Colors.white,
-                    size: 48.0,
-                  ),
+                Icons.error,
+                color: Colors.white,
+                size: 48.0,
+              ),
               const SizedBox(height: 16.0),
               Text(
-                    error.runtimeType.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                error.runtimeType.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
               const SizedBox(height: 16.0),
               Text(
-                    error.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                error.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ],
           ), // Column
         ), // Padding
       ), // Card
     ); // Padding
   }
-
 }
