@@ -65,26 +65,21 @@ class JsonController extends GetxController {
     var level = 0;
     var pos = 0;
 
-    const openBrace = '{';
-    const closeBrace = '}';
-    const openBracket = '[';
-    const closeBracket = ']';
-
     for (var char in text.characters) {
-      if (char == openBrace) {
+      if (char == Tokens.openBrace) {
         openNodes.addLast(ObjectNode(level: level, offset: pos, length: 1));
         level++;
-      } else if (char == closeBrace) {
+      } else if (char == Tokens.closeBrace) {
         if (openNodes.isEmpty || openNodes.last is! ObjectNode) {
           throw FormatException('Unmatched closing brace at position $pos');
         }
         var node = openNodes.removeLast();
         nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
         level--;
-      } else if (char == openBracket) {
+      } else if (char == Tokens.openBracket) {
         openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
         level++;
-      } else if (char == closeBracket) {
+      } else if (char == Tokens.closeBracket) {
         if (openNodes.isEmpty || openNodes.last is! ArrayNode) {
           throw FormatException('Unmatched closing bracket at position $pos');
         }
