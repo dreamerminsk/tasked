@@ -48,7 +48,11 @@ class JsonController extends GetxController {
         {
           content.value = v.value;
           error.value = null;
-          process(v.value);
+          try {
+    scan();
+    } catch (e, s) {
+      error.value = e;
+    }
         }
       default:
         content.value = '{}';
