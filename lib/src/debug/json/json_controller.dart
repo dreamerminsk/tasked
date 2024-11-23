@@ -122,14 +122,41 @@ class JsonController extends GetxController {
 }
 
 abstract class Tokens {
+  // Private constructor to prevent instantiation
+  Tokens._();
 
-Tokens._();
+  /// The character for opening a JSON object.
+  static const String openBrace = '{';
 
-static const const openBrace = '{';
-   static const closeBrace = '}';
-  static  const openBracket = '[';
-   static const closeBracket = ']';
+  /// The character for closing a JSON object.
+  static const String closeBrace = '}';
 
+  /// The character for opening a JSON array.
+  static const String openBracket = '[';
+
+  /// The character for closing a JSON array.
+  static const String closeBracket = ']';
+
+  /// The character for a comma in JSON.
+  static const String comma = ',';
+
+  /// The character for a colon in JSON.
+  static const String colon = ':';
+
+  /// The character for a double quotation mark in JSON.
+  static const String doubleQuote = '"';
+
+  /// A whitespace character (space).
+  static const String space = ' ';
+
+  /// A tab character.
+  static const String tab = '\t';
+
+  /// A newline character.
+  static const String newline = '\n';
+
+  /// A carriage return character.
+  static const String carriageReturn = '\r';
 }
 
 class JsonNode {
