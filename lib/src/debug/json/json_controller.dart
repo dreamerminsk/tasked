@@ -17,8 +17,7 @@ class JsonController extends GetxController {
   final error = Rxn<Object>(null);
   final content = ''.obs;
 
-  final openNodes = Queue<JsonNode>();
-  final nodes = SplayTreeMap<int, JsonNode>();
+  final RxMap<int, JsonNode> nodes = RxMap<int, JsonNode>();
 
   @override
   void onInit() {
@@ -64,6 +63,8 @@ class JsonController extends GetxController {
 
   void scan() async {
     final text = content.value;
+    final openNodes = Queue<JsonNode>();
+    final offsets = SplayTreeMap<int, JsonNode>();
     var level = 0;
     var pos = 0;
 
@@ -76,7 +77,7 @@ class JsonController extends GetxController {
           throw FormatException('Unmatched closing brace at position $pos');
         }
         var node = openNodes.removeLast();
-        nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
+        offsets[node.offset] = node.copyWith(length: pos - node.offset + 1);
         level--;
       } else if (char == Tokens.openBracket) {
         openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
@@ -86,7 +87,7 @@ class JsonController extends GetxController {
           throw FormatException('Unmatched closing bracket at position $pos');
         }
         var node = openNodes.removeLast();
-        nodes[node.offset] = node.copyWith(length: pos - node.offset + 1);
+        offsets[node.offset] = node.copyWith(length: pos - node.offset + 1);
         level--;
       }
       pos++;
@@ -95,6 +96,8 @@ class JsonController extends GetxController {
     if (openNodes.isNotEmpty) {
       throw FormatException('Unmatched opening nodes remaining.');
     }
+
+    nodes.addEntries(offsets.entries);
   }
 
   
