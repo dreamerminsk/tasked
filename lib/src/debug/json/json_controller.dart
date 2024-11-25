@@ -55,8 +55,10 @@ class JsonController extends GetxController {
     }
         }
       default:
+      {
         content.value = '{}';
         error.value = null;
+      }
     }
   }
 
