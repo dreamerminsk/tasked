@@ -34,7 +34,7 @@ class JsonViewer extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(8, 8, 8, 8), // EdgeInsets
                       child: Card(
                         
-                      ), // DirCard
+                      ), // Card
                     ); // Padding
                   }, // itemBuilder
                 ), // ListView
@@ -43,47 +43,6 @@ class JsonViewer extends StatelessWidget {
           ), // Expanded
          ],
       ), // Column
-
-
-
-      body: Container(
-        margin: EdgeInsets.all(8.0),
-        width: Get.width,
-        height: 200,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Text(
-                  'pos: 0',
-                  style: textTheme.bodyLarge!.copyWith(
-                    color: colorScheme.onPrimary,
-                  ),
-                ), // Text
-                Obx(() => Text(
-                      'length: ${c.content.value.length}',
-                      style: textTheme.bodyLarge!.copyWith(
-                        color: colorScheme.onPrimary,
-                      ),
-                    )), // Text
-              ],
-            ), // Column
-            RightTitle(
-              title: 'JsonDocument',
-            ), // RightTitle
-          ],
-        ), // Row
-        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 8.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ), // BorderRadius
-          color: colorScheme.primary,
-        ), // BoxDecoration
-      ), //Container
     );
   }
 }
