@@ -35,13 +35,14 @@ class JsonViewer extends StatelessWidget {
                 () => ListView.builder(
                   itemCount: c.nodes.length,
                   itemBuilder: (BuildContext context, int index) {
+                    final node = c.nodes.values.elementAt(index);
                     return Padding(
                       padding: EdgeInsets.fromLTRB(8, 8, 8, 8), // EdgeInsets
                       child: Card(
                         child: ListTile(
                           leading: Icon(Icons.data_object),
-                          title: Text(''),
-                          subtitle: Text(''),
+                          title: Text('${node.runtimeType}'),
+                          subtitle: Text('level: ${node.level}, offset: ${node.offset}, length: ${node.length}'),
                         ), // ListTile
                       ), // Card
                     ); // Padding
