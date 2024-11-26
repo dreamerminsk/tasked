@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ErrorWidget;
 
 class ErrorWidget extends StatelessWidget {
   final Object error;
