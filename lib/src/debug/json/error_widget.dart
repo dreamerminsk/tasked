@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class ErrorWidget extends StatelessWidget {
   final Object error;
 
