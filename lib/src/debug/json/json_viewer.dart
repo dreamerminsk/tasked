@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ErrorWidget;
 import 'package:get/get.dart';
 
 import 'error_widget.dart';
@@ -12,8 +12,8 @@ class JsonViewer extends StatelessWidget {
   @override
   Widget build(context) {
     final JsonController c = Get.find();
-    final textTheme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    //final textTheme = Theme.of(context).textTheme;
+    //final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
