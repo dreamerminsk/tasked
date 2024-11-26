@@ -21,9 +21,8 @@ class JsonViewer extends StatelessWidget {
       body: Column(
          mainAxisAlignment: MainAxisAlignment.start,
          children: <Widget>[
-           if (c.error.value != null) {
-             ErrorWidget(),
-           },
+           if (c.error.value != null) ErrorWidget(error: c.error.value,),
+           
          ],
       ), // Column
 
