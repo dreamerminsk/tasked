@@ -22,12 +22,12 @@ class JsonViewer extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          if (c.error.value != null)
-            ...[ErrorWidget(
+          if (c.error.value != null) ...[
+            ErrorWidget(
               error: c.error.value,
             ),
-                          const SizedBox(height: 16.0),
-            ],
+            const SizedBox(height: 16.0),
+          ],
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
@@ -43,7 +43,8 @@ class JsonViewer extends StatelessWidget {
                         child: ListTile(
                           leading: Icon(Icons.data_object),
                           title: Text('${node.runtimeType}'),
-                          subtitle: Text('level: ${node.level}, offset: ${node.offset}, length: ${node.length}'),
+                          subtitle: Text(
+                              'level: ${node.level}, offset: ${node.offset}, length: ${node.length}'),
                         ), // ListTile
                       ), // Card
                     ); // Padding
