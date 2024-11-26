@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class RightTitle extends StatelessWidget {
   final String title;
 
