@@ -55,7 +55,7 @@ class DebugController extends GetxService {
 
   void _startTimer() {
     _timer =
-        RestartableTimer(Duration(seconds: 16), () => _updateTick.value += 1);
+        RestartableTimer(Duration(seconds: 4), () => _updateTick.value += 1);
   }
 
   void stop() {
