@@ -28,24 +28,12 @@ class JsonViewer extends StatelessWidget {
               removeTop: true,
               child: Obx(
                 () => ListView.builder(
-                  itemCount: entries.length,
+                  itemCount: c.nodes.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        index.isEven ? 0 : 24,
-                        8,
-                        index.isEven ? 24 : 0,
-                        8,
-                      ), // EdgeInsets
-                      child: DirCard(
-                        index: index,
-                        title: entries[index],
-                        background: index == 0
-                            ? colorScheme.primaryFixedDim
-                            : colorScheme.primaryFixed,
-                        foreground: index == 0
-                            ? colorScheme.onPrimaryFixedVariant
-                            : colorScheme.onPrimaryFixed,
+                      padding: EdgeInsets.fromLTRB(8, 8, 8, 8), // EdgeInsets
+                      child: Card(
+                        
                       ), // DirCard
                     ); // Padding
                   }, // itemBuilder
