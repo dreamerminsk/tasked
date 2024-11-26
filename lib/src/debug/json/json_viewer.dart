@@ -24,7 +24,7 @@ class JsonViewer extends StatelessWidget {
         children: <Widget>[
           if (c.error.value != null) ...[
             ErrorWidget(
-              error: c.error.value,
+              error: c.error.value!,
             ),
             const SizedBox(height: 16.0),
           ],
