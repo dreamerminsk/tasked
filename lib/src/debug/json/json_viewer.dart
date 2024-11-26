@@ -18,6 +18,17 @@ class JsonViewer extends StatelessWidget {
       appBar: AppBar(
         title: Obx(() => Text(c.source.value.split('/').last)),
       ),
+      body: Column(
+         mainAxisAlignment: MainAxisAlignment.start,
+         children: <Widget>[
+           if (c.error.value != null) {
+             ErrorWidget(),
+           },
+         ],
+      ), // Column
+
+
+
       body: Container(
         margin: EdgeInsets.all(8.0),
         width: Get.width,
