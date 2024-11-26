@@ -49,7 +49,7 @@ class JsonController extends GetxController {
           error.value = null;
           try {
             scan();
-          } catch (e, s) {
+          } catch (e) {
             error.value = e;
           }
         }
