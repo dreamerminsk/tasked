@@ -22,9 +22,11 @@ class JsonViewer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           if (c.error.value != null)
-            ErrorWidget(
+            ...[ErrorWidget(
               error: c.error.value,
             ),
+                          const SizedBox(height: 16.0),
+            ],
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
