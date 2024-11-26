@@ -5,7 +5,7 @@ class RightTitle extends StatelessWidget {
 
   const RightTitle({
     super.key,
-    this.title,
+    this.title = 'RightTitle',
   });
 
   @override
