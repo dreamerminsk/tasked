@@ -1,0 +1,5 @@
+class FlacFileBlock {
+
+  const FlacFileBlock();
+
+}
