@@ -19,10 +19,13 @@ class JsonViewer extends StatelessWidget {
         title: Obx(() => Text(c.source.value.split('/').last)),
       ),
       body: Column(
-         mainAxisAlignment: MainAxisAlignment.start,
-         children: <Widget>[
-           if (c.error.value != null) ErrorWidget(error: c.error.value,),
-                     Expanded(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          if (c.error.value != null)
+            ErrorWidget(
+              error: c.error.value,
+            ),
+          Expanded(
             child: MediaQuery.removePadding(
               context: context,
               removeTop: true,
@@ -32,16 +35,14 @@ class JsonViewer extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: EdgeInsets.fromLTRB(8, 8, 8, 8), // EdgeInsets
-                      child: Card(
-                        
-                      ), // Card
+                      child: Card(), // Card
                     ); // Padding
                   }, // itemBuilder
                 ), // ListView
               ), // Obx
             ), // MediaQuery
           ), // Expanded
-         ],
+        ],
       ), // Column
     );
   }

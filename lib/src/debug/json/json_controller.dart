@@ -48,16 +48,16 @@ class JsonController extends GetxController {
           content.value = v.value;
           error.value = null;
           try {
-    scan();
-    } catch (e, s) {
-      error.value = e;
-    }
+            scan();
+          } catch (e, s) {
+            error.value = e;
+          }
         }
       default:
-      {
-        content.value = '{}';
-        error.value = null;
-      }
+        {
+          content.value = '{}';
+          error.value = null;
+        }
     }
   }
 
@@ -99,8 +99,6 @@ class JsonController extends GetxController {
 
     nodes.addEntries(offsets.entries);
   }
-
-  
 
   Future<Result<String>> fetchString(String link) async {
     try {
