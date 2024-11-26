@@ -39,7 +39,7 @@ class JsonViewer extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(8, 8, 8, 8), // EdgeInsets
                       child: Card(
                         child: ListTile(
-                          leading: Icon(Icons.album),
+                          leading: Icon(Icons.data_object),
                           title: Text(''),
                           subtitle: Text(''),
                         ), // ListTile
