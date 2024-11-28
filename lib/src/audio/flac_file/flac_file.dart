@@ -6,4 +6,10 @@ class FlacFile {
 
     FlacFile(required this.file);
 
+  void close() {
+    if (_stream != null) {
+      _stream?.close();
+    }
+  }
+
 }
