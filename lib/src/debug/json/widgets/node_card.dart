@@ -16,7 +16,8 @@ class NodeCard extends StatelessWidget {
     const double paddingTop = 4.0;
 
     return Padding(
-      padding: EdgeInsets.fromLTRB(node.level + paddingLeft, paddingTop, paddingRight, paddingBottom),
+      padding: EdgeInsets.fromLTRB(
+          node.level + paddingLeft, paddingTop, paddingRight, paddingBottom),
       child: Card(
         child: ListTile(
           leading: _getNodeIcon(node),
