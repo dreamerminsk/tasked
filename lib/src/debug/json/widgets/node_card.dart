@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class NodeCard extends StatelessWidget {
   final JsonNode node;
+  final String short;
 
   const NodeCard({
     Key? key,
     required this.node,
+    required this.short,
   }) : super(key: key);
 
   @override
