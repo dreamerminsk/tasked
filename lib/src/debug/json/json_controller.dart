@@ -39,16 +39,17 @@ class JsonController extends GetxController {
     super.onClose();
   }
 
-  Future<String> getShort(JsonNode node) async {
-    final length = node.length < 128 ? node.length : 128;
-    final range = content.value.characters.getRange(node.offset, node.offset+length);
-    var text = range.string;
-    text = text.replaceAll(' ', '');
-    text = text.replaceAll('\t', '');
-    text = text.replaceAll('\n', '');
-    text = text.replaceAll('\r', '');
-    return text.substring(0, 32);
-  }
+  Future<String> getShort(JsonNode node, {int maxLength = 32}) async {
+  final effectiveLength = node.length < 128 ? node.length : 128;
+  final endOffset = (node.offset + effectiveLength).clamp(0, content.value.length);
+
+  final range = content.value.characters.getRange(node.offset, endOffset);
+  var text = range.string;
+
+  text = text.replaceAll(RegExp(r'\s+'), '');
+
+  return text.substring(0, maxLength.clamp(0, text.length));
+}
 
   void load() async {
     final fs = await fetchString(source.value);
