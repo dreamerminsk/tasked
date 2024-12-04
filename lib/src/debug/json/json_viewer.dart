@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' hide ErrorWidget;
 import 'package:get/get.dart';
 
-import 'error_widget.dart';
+import 'widgets/error_widget.dart';
 import 'json_controller.dart';
 import 'widgets/node_card.dart';
 
