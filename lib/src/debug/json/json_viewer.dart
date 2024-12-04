@@ -22,12 +22,15 @@ class JsonViewer extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          if (c.error.value != null) ...[
-            ErrorWidget(
+          Obx( ()=>
+               if (c.error.value != null) {
+                 ErrorWidget(
               error: c.error.value!,
-            ),
-            const SizedBox(height: 16.0),
-          ],
+            );
+               } else {
+                  SizedBox.shrink();
+               }
+          ), // Obx
           Expanded(
             child: MediaQuery.removePadding(
               context: context,
