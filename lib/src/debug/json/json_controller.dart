@@ -39,6 +39,11 @@ class JsonController extends GetxController {
     super.onClose();
   }
 
+  String getShort(JsonNode node) {
+    final length = node.length < 128 ? node.length : 128;
+    final range = content.value.characters.getRange(node.offset, node offset+length);
+  }
+
   void load() async {
     final fs = await fetchString(source.value);
     switch (fs) {
