@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'error_widget.dart';
 import 'json_controller.dart';
+import 'widgets/node_card.dart';
 
 class JsonViewer extends StatelessWidget {
   const JsonViewer({
@@ -40,17 +41,9 @@ class JsonViewer extends StatelessWidget {
                   itemCount: c.nodes.length,
                   itemBuilder: (BuildContext context, int index) {
                     final node = c.nodes.values.elementAt(index);
-                    return Padding(
-                      padding: EdgeInsets.fromLTRB(node.level + 8, 4, 8, 4), // EdgeInsets
-                      child: Card(
-                        child: ListTile(
-                          leading: Icon(Icons.data_object),
-                          title: Text('${node.runtimeType}'),
-                          subtitle: Text(
-                              'level: ${node.level}, offset: ${node.offset}, length: ${node.length}'),
-                        ), // ListTile
-                      ), // Card
-                    ); // Padding
+                    return NodeCard(
+                      node: node,
+                    ); // NodeCard
                   }, // itemBuilder
                 ), // ListView
               ), // Obx
