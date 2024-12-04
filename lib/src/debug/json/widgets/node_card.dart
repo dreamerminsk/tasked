@@ -25,8 +25,9 @@ class NodeCard extends StatelessWidget {
           leading: _getNodeIcon(node),
           title: Text('${node.runtimeType}'),
           subtitle: Text(
-            'Level: ${node.level}, Offset: ${node.offset}, Length: ${node.length}',
+            'Level: ${node.level}, Offset: ${node.offset}, Length: ${node.length}\r\n${this.short}',
           ),
+          isThreeLine: true,
         ),
       ),
     );
