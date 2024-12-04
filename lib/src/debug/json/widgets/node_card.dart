@@ -31,11 +31,11 @@ class NodeCard extends StatelessWidget {
 
   Icon _getNodeIcon(JsonNode node) {
     if (node is ObjectNode) {
-      return Icon(Icons.folder_open, color: Colors.blue);
+      return Icon(Icons.data_object);
     } else if (node is ArrayNode) {
-      return Icon(Icons.list, color: Colors.green);
+      return Icon(Icons.data_array);
     } else {
-      return Icon(Icons.help, color: Colors.grey);
+      return Icon(Icons.help);
     }
   }
 }
