@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'json_controller.dart';
+import '../json_controller.dart';
 
-class JsonArrayCard extends StatelessWidget {
+class JsonObjectCard extends StatelessWidget {
   final JsonController c = Get.find();
 
   @override
@@ -40,7 +40,7 @@ class JsonArrayCard extends StatelessWidget {
             child: RotatedBox(
               quarterTurns: 3,
               child: Text(
-                'JsonArray',
+                'JsonObject',
                 style: textTheme.titleLarge!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
