@@ -37,8 +37,10 @@ class JsonViewer extends StatelessWidget {
                   itemCount: c.nodes.length,
                   itemBuilder: (BuildContext context, int index) {
                     final node = c.nodes.values.elementAt(index);
+                    final short = await c.getShort(node);
                     return NodeCard(
                       node: node,
+                      short: short,
                     ); // NodeCard
                   }, // itemBuilder
                 ), // ListView
