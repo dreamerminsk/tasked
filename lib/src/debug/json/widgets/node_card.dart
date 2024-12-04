@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../nodes.dart';
+
 class NodeCard extends StatelessWidget {
   final JsonNode node;
   final String short;
