@@ -55,4 +55,5 @@ class JsonViewer extends StatelessWidget {
     ),
   );
 }
+}
 
