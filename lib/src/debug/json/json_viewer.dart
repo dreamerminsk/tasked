@@ -38,7 +38,7 @@ class JsonViewer extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     final node = c.nodes.values.elementAt(index);
                     return Padding(
-                      padding: EdgeInsets.fromLTRB(8, 8, 8, 8), // EdgeInsets
+                      padding: EdgeInsets.fromLTRB(node.level + 8, 4, 8, 4), // EdgeInsets
                       child: Card(
                         child: ListTile(
                           leading: Icon(Icons.data_object),
