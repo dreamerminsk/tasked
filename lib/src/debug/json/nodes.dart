@@ -91,3 +91,32 @@ class ObjectNode extends JsonNode {
   @override
   int get hashCode => super.hashCode;
 }
+
+class StringNode extends JsonNode {
+  const StringNode({
+    required int level,
+    required int offset,
+    required int length,
+  }) : super(level: level, offset: offset, length: length);
+
+  StringNode copyWith({
+    int? level,
+    int? offset,
+    int? length,
+  }) {
+    return StringNode(
+      level: level ?? this.level,
+      offset: offset ?? this.offset,
+      length: length ?? this.length,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is StringNode && super == other;
+  }
+
+  @override
+  int get hashCode => super.hashCode;
+}
