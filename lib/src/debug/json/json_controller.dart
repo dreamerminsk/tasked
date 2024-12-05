@@ -62,7 +62,7 @@ class JsonController extends GetxController {
           content.value = v.value;
           error.value = null;
           try {
-            scan();
+            await scan();
           } catch (e) {
             error.value = e;
           }
