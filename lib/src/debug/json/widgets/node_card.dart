@@ -29,7 +29,7 @@ class NodeCard extends StatelessWidget {
           subtitle: Text(
             'Level: ${node.level}, Offset: ${node.offset}, Length: ${node.length}\r\n${this.short}',
           ),
-          isThreeLine: true,
+          isThreeLine: false,
         ),
       ),
     );
@@ -37,11 +37,11 @@ class NodeCard extends StatelessWidget {
 
   Icon _getNodeIcon(JsonNode node) {
     if (node is ObjectNode) {
-      return Icon(Icons.data_object);
+      return Icon(Icons.data_object, size: 48.0);
     } else if (node is ArrayNode) {
-      return Icon(Icons.data_array);
+      return Icon(Icons.data_array, size: 48.0);
     } else {
-      return Icon(Icons.help);
+      return Icon(Icons.help, size: 48.0);
     }
   }
 }
