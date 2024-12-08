@@ -119,6 +119,16 @@ class JsonController extends GetxController {
     current = source.value[pos];
     if (current == '{') {
       
+    } else if (current == '[') {
+      
+    } else if (current == '"') {
+      
+    } else if (current = '-') {
+      
+    } else if (current = '0') {
+      
+    } else if (current = '1') {
+      
     }
   }
 
