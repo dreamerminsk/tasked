@@ -114,6 +114,35 @@ class JsonController extends GetxController {
     nodes.addEntries(offsets.entries);
   }
 
+
+  void readValue() {
+    
+  }
+
+  void readObject() {
+    
+  }
+
+  void readArray() {
+    
+  }
+
+  void readString() {
+    
+  }
+
+  void readNumber() {
+    
+  }
+
+  void readBoolean() {
+    
+  }
+
+  void readNull() {
+    
+  }
+
   Future<Result<String>> fetchString(String link) async {
     try {
       debug.newReq();
