@@ -116,7 +116,10 @@ class JsonController extends GetxController {
 
 
   void readValue() {
-    
+    current = source.value[pos];
+    if (current == '{') {
+      
+    }
   }
 
   void readObject() {
