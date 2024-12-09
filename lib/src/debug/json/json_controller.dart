@@ -118,39 +118,39 @@ class JsonController extends GetxController {
   void readValue() {
     final token = readToken();
     if (token == '{') {
-      
+      readObject();
     } else if (token == '[') {
-      
+      readArray();
     } else if (token == '"') {
-      
+      readString();
     } else if (token = '-') {
-      
+      readNumber();
     } else if (token = '0') {
-      
+      readNumber();
     } else if (token = '1') {
-      
+      readNumber();
     } else if (token = '2') {
-      
+      readNumber();
     } else if (token = '3') {
-      
+      readNumber();
     } else if (token = '4') {
-      
+      readNumber();
     } else if (token = '5') {
-      
+      readNumber();
     } else if (token = '6') {
-      
+      readNumber();
     } else if (token = '7') {
-      
+      readNumber();
     } else if (token = '8') {
-      
+      readNumber();
     } else if (token = '9') {
-      
+      readNumber();
     } else if (token = 't') {
-      
+      readBoolean();
     } else if (token = 'f') {
-      
+      readBoolean();
     } else if (token = 'n') {
-      
+      readNull();
     } else {
       
     } 
