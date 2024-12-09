@@ -129,7 +129,39 @@ class JsonController extends GetxController {
       
     } else if (current = '1') {
       
-    }
+    } else if (current = '2') {
+      
+    } else if (current = '3') {
+      
+    } else if (current = '4') {
+      
+    } else if (current = '5') {
+      
+    } else if (current = '6') {
+      
+    } else if (current = '7') {
+      
+    } else if (current = '8') {
+      
+    } else if (current = '9') {
+      
+    } else if (current = 't') {
+      
+    } else if (current = 'f') {
+      
+    } else if (current = 'n') {
+      
+    } else if (current = ' ') {
+      
+    } else if (current = '\t') {
+      
+    } else if (current = '\r') {
+      
+    } else if (current = '\n') {
+      
+    } else {
+      
+    } 
   }
 
   void readObject() {
