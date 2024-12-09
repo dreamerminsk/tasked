@@ -151,14 +151,6 @@ class JsonController extends GetxController {
       
     } else if (token = 'n') {
       
-    } else if (token = ' ') {
-      
-    } else if (token = '\t') {
-      
-    } else if (token = '\r') {
-      
-    } else if (token = '\n') {
-      
     } else {
       
     } 
