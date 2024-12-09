@@ -188,6 +188,10 @@ class JsonController extends GetxController {
     
   }
 
+  String readToken() {
+    
+  }
+
   Future<Result<String>> fetchString(String link) async {
     try {
       debug.newReq();
