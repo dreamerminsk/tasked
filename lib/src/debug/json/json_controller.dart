@@ -116,48 +116,48 @@ class JsonController extends GetxController {
 
 
   void readValue() {
-    current = source.value[pos];
-    if (current == '{') {
+    final token = readToken();
+    if (token == '{') {
       
-    } else if (current == '[') {
+    } else if (token == '[') {
       
-    } else if (current == '"') {
+    } else if (token == '"') {
       
-    } else if (current = '-') {
+    } else if (token = '-') {
       
-    } else if (current = '0') {
+    } else if (token = '0') {
       
-    } else if (current = '1') {
+    } else if (token = '1') {
       
-    } else if (current = '2') {
+    } else if (token = '2') {
       
-    } else if (current = '3') {
+    } else if (token = '3') {
       
-    } else if (current = '4') {
+    } else if (token = '4') {
       
-    } else if (current = '5') {
+    } else if (token = '5') {
       
-    } else if (current = '6') {
+    } else if (token = '6') {
       
-    } else if (current = '7') {
+    } else if (token = '7') {
       
-    } else if (current = '8') {
+    } else if (token = '8') {
       
-    } else if (current = '9') {
+    } else if (token = '9') {
       
-    } else if (current = 't') {
+    } else if (token = 't') {
       
-    } else if (current = 'f') {
+    } else if (token = 'f') {
       
-    } else if (current = 'n') {
+    } else if (token = 'n') {
       
-    } else if (current = ' ') {
+    } else if (token = ' ') {
       
-    } else if (current = '\t') {
+    } else if (token = '\t') {
       
-    } else if (current = '\r') {
+    } else if (token = '\r') {
       
-    } else if (current = '\n') {
+    } else if (token = '\n') {
       
     } else {
       
