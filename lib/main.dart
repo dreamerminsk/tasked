@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'src/debug/debug_binding.dart';
 import 'src/routes/app_pages.dart';
 import 'src/core/colors.dart';
+import 'src/core/theme_notifier.dart';
 
 void main() => runApp(MyApp());
 
