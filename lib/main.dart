@@ -10,6 +10,44 @@ import 'src/core/theme_notifier.dart';
 
 void main() => runApp(MyApp());
 
+
+
+class TaskedApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeNotifier()),
+      ],
+      child: TaskedAppWithTheme(),
+    );
+  }
+}
+
+class TaskedAppWithTheme extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+    return GetMaterialApp(
+      title: 'tasked',
+      theme: ThemeData(
+        useMaterial3: true,
+        //primarySwatch: Colors.indigo,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: shadeColor.color,
+          dynamicSchemeVariant: variant,
+        ),
+      ),
+      initialBinding: DebugBinding(),
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+    );
+  }
+
+
+
+
+
 class MyApp extends StatelessWidget {
   static NamedMaterialColor seedColor = NamedColors.indigo;
   static NamedColor shadeColor = NamedColors.indigo.shade500;
