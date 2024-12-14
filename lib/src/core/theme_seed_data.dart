@@ -9,6 +9,27 @@ class ThemeSeedData with Diagnosticable {
   DynamicSchemeVariant schemeVariant = DynamicSchemeVariant.fidelity;
   num contrastLevel = 0;
 
+  void randomise() {
+        seedColor =
+        NamedColors.primaries[Random().nextInt(NamedColors.primaries.length)];
+    var shades = [
+      seedColor.shade50,
+      seedColor.shade100,
+      seedColor.shade200,
+      seedColor.shade300,
+      seedColor.shade400,
+      seedColor.shade500,
+      seedColor.shade600,
+      seedColor.shade700,
+      seedColor.shade800,
+      seedColor.shade900,
+    ];
+    shades.shuffle();
+    shadeColor = shades[0];
+    variant = DynamicSchemeVariant
+        .values[Random().nextInt(DynamicSchemeVariant.values.length)];
+  }
+
   ThemeSeedData copyWith({
     TextStyle? titleTextStyle,
     TextStyle? subtitleTextStyle,
