@@ -12,19 +12,6 @@ class ThemeSeedData with Diagnosticable {
   void randomise() {
         seedColor =
         NamedColors.primaries[Random().nextInt(NamedColors.primaries.length)];
-    var shades = [
-      seedColor.shade50,
-      seedColor.shade100,
-      seedColor.shade200,
-      seedColor.shade300,
-      seedColor.shade400,
-      seedColor.shade500,
-      seedColor.shade600,
-      seedColor.shade700,
-      seedColor.shade800,
-      seedColor.shade900,
-    ];
-    shades.shuffle();
     shadeColor = seedColor.shades[Random().nextInt(seedColor.shades.length)];
     variant = DynamicSchemeVariant
         .values[Random().nextInt(DynamicSchemeVariant.values.length)];
