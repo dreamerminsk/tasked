@@ -4,9 +4,10 @@ class ThemeSeedData with Diagnosticable {
     this.subtitleTextStyle,
   });
 
-  final TextStyle? titleTextStyle;
-
-  final TextStyle? subtitleTextStyle;
+    NamedMaterialColor color = NamedColors.indigo;
+  NamedColor shade = NamedColors.indigo.shade500;
+  DynamicSchemeVariant schemeVariant = DynamicSchemeVariant.fidelity;
+  num contrastLevel = 0;
 
   ThemeSeedData copyWith({
     TextStyle? titleTextStyle,
