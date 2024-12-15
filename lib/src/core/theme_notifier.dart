@@ -16,7 +16,7 @@ class ThemeNotifier extends ChangeNotifier {
   ThemeData get theme => ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: _seedData.seedColor,
+          seedColor: _seedData.seedColor.color,
           dynamicSchemeVariant: _seedData.dynamicSchemeVariant,
           contrastLevel: _seedData.contrastLevel,
         ),
