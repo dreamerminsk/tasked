@@ -5,6 +5,12 @@ class ThemeNotifier extends ChangeNotifier {
 
   ThemeNotifier(this._seedData);
 
+  factory ThemeNotifier.random() {
+    return ThemeNotifier(
+      ColorSchemeSeed.random()
+    );
+  }
+
   ColorSchemeSeed get seed => _seedData;
 
   ThemeData get theme => ThemeData(
