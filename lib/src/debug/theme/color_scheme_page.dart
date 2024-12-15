@@ -19,10 +19,9 @@ class ColorSchemePage extends StatelessWidget {
   final _shadeIdx = ValueNotifier<int>(0);
   final _variantIdx = ValueNotifier<int>(0);
   final colorSchemeN = ValueNotifier<ColorScheme>(ColorScheme.fromSeed(
-    seedColor: NamedColors.indigo.shade500,
+    seedColor: NamedColors.indigo.shade500.color,
     dynamicSchemeVariant: DynamicSchemeVariant.tonalSpot,
   ));
-  var _isNotInit = true;
 
   ColorSchemePage({super.key}) {
     _seedIdx.addListener(() {
@@ -59,12 +58,11 @@ class ColorSchemePage extends StatelessWidget {
     _variantIdx.value = DynamicSchemeVariant.values.indexOf(seed.dynamicSchemeVariant);
     if (_shadeIdx.value == -1) {
       final shades = seed materialColor.shades.map((shade) => shade.name).toList();
-      _shadeIdx.value = shades.indexOf(MyApp.shadeColor.name);
+      _shadeIdx.value = shades.indexOf(seed.seedColor.name);
       if (_shadeIdx.value == -1) {
         _shadeIdx.value = 6;
       }
     }
-   isNotInit = false;
   }
 
   @override
@@ -73,7 +71,7 @@ class ColorSchemePage extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final themeProvider = Provider.of<ThemeNotifier>(context, listen: false);
     
-    if (_isNotInit) {
+    if (seedColor.value == NamedColors.indigo) {
       _init(themeProvider.seed);
     }
 
