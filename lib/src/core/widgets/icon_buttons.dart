@@ -104,34 +104,35 @@ class RandomThemeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final themeProvider = Provider.of<ThemeNotifier>(context);
 
     return switch (_variant) {
       IconButtonVariant.filled => IconButton.filled(
           icon: const Icon(Icons.query_stats),
           color: color ?? colorScheme.primary,
           onPressed: () {
-            Get.toNamed(route);
+            themeProvider.randomise();
           }, // onPressed
         ), // IconButton
       IconButtonVariant.filledTonal => IconButton.filledTonal(
           icon: const Icon(Icons.query_stats),
           color: color ?? colorScheme.primary,
           onPressed: () {
-            Get.toNamed(route);
+            themeProvider.randomise();
           }, // onPressed
         ), // IconButton
       IconButtonVariant.outlined => IconButton.outlined(
           icon: const Icon(Icons.query_stats),
           color: color ?? colorScheme.primary,
           onPressed: () {
-            Get.toNamed(route);
+            themeProvider.randomise();
           }, // onPressed
         ), // IconButton
       IconButtonVariant.standard => IconButton(
           icon: const Icon(Icons.query_stats),
           color: color ?? colorScheme.primary,
           onPressed: () {
-            Get.toNamed(route);
+            themeProvider.randomise();
           }, // onPressed
         ), // IconButton
     };
