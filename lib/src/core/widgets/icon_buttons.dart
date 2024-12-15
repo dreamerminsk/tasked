@@ -78,29 +78,24 @@ class RandomThemeButton extends StatelessWidget {
   const RandomThemeButton({
     super.key,
     this.color,
-    required this.route,
   }) : _variant = IconButtonVariant.standard;
 
   const RandomThemeButton.filled({
     super.key,
     this.color,
-    required this.route,
   }) : _variant = IconButtonVariant.filled;
 
   const RandomThemeButton.filledTonal({
     super.key,
     this.color,
-    required this.route,
   }) : _variant = IconButtonVariant.filledTonal;
 
   const RandomThemeButton.outlined({
     super.key,
     this.color,
-    required this.route,
   }) : _variant = IconButtonVariant.outlined;
 
   final Color? color;
-  final String route;
   final IconButtonVariant _variant;
 
   @override
@@ -110,28 +105,28 @@ class RandomThemeButton extends StatelessWidget {
 
     return switch (_variant) {
       IconButtonVariant.filled => IconButton.filled(
-          icon: const Icon(Icons.query_stats),
+          icon: const Icon(Icons.casino_outlined),
           color: color ?? colorScheme.primary,
           onPressed: () {
             themeProvider.randomise();
           }, // onPressed
         ), // IconButton
       IconButtonVariant.filledTonal => IconButton.filledTonal(
-          icon: const Icon(Icons.query_stats),
+          icon: const Icon(Icons.casino_outlined),
           color: color ?? colorScheme.primary,
           onPressed: () {
             themeProvider.randomise();
           }, // onPressed
         ), // IconButton
       IconButtonVariant.outlined => IconButton.outlined(
-          icon: const Icon(Icons.query_stats),
+          icon: const Icon(Icons.casino_outlined),
           color: color ?? colorScheme.primary,
           onPressed: () {
             themeProvider.randomise();
           }, // onPressed
         ), // IconButton
       IconButtonVariant.standard => IconButton(
-          icon: const Icon(Icons.query_stats),
+          icon: const Icon(Icons.casino_outlined),
           color: color ?? colorScheme.primary,
           onPressed: () {
             themeProvider.randomise();
