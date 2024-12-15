@@ -1,38 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tasked/main.dart';
+import 'package:provider/provider.dart';
 
 import 'sample_color.dart';
 import '../../core/colors.dart';
 import '../../core/widgets/icon_buttons.dart';
 import '../../core/color_utils.dart';
+import '../../core/theme_notifier.dart';
+import '../../core/color_scheme_seed.dart';
 import '../../routes/app_pages.dart';
 
 class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
-  final seedColor = ValueNotifier<NamedMaterialColor>(MyApp.seedColor);
-  final shadeColor = ValueNotifier<NamedColor>(MyApp.shadeColor);
-  final variant = ValueNotifier<DynamicSchemeVariant>(MyApp.variant);
+  final seedColor = ValueNotifier<NamedMaterialColor>(NamedColors.indigo);
+  final shadeColor = ValueNotifier<NamedColor>(NamedColors.indigo.shade500);
+  final variant = ValueNotifier<DynamicSchemeVariant>(DynamicSchemeVariant.tonalSpot);
   final _seedIdx = ValueNotifier<int>(0);
   final _shadeIdx = ValueNotifier<int>(0);
   final _variantIdx = ValueNotifier<int>(0);
   final colorSchemeN = ValueNotifier<ColorScheme>(ColorScheme.fromSeed(
-    seedColor: MyApp.shadeColor.color,
-    dynamicSchemeVariant: MyApp.variant,
+    seedColor: NamedColors.indigo.shade500.color,
+    dynamicSchemeVariant: DynamicSchemeVariant.tonalSpot,
   ));
 
   ColorSchemePage({super.key}) {
-    _seedIdx.value = NamedColors.primaries.indexOf(MyApp.seedColor);
-    _shadeIdx.value = MyApp.seedColor.shades.indexOf(MyApp.shadeColor);
-    _variantIdx.value = DynamicSchemeVariant.values.indexOf(MyApp.variant);
-    if (_shadeIdx.value == -1) {
-      final shades = MyApp.seedColor.shades.map((shade) => shade.name).toList();
-      _shadeIdx.value = shades.indexOf(MyApp.shadeColor.name);
-      if (_shadeIdx.value == -1) {
-        _shadeIdx.value = 6;
-      }
-    }
-
     _seedIdx.addListener(() {
       seedColor.value = NamedColors.primaries[_seedIdx.value];
       shadeColor.value = seedColor.value.shades[_shadeIdx.value];
@@ -61,10 +52,28 @@ class ColorSchemePage extends StatelessWidget {
     });
   }
 
+  void _init(ColorSchemeSeed seed) {
+     _seedIdx.value = NamedColors.primaries.indexOf(seed.materialColor);
+    _shadeIdx.value = seed.materialColor.shades.indexOf(seed.seedColor);
+    _variantIdx.value = DynamicSchemeVariant.values.indexOf(seed.dynamicSchemeVariant);
+    if (_shadeIdx.value == -1) {
+      final shades = seed.materialColor.shades.map((shade) => shade.name).toList();
+      _shadeIdx.value = shades.indexOf(seed.seedColor.name);
+      if (_shadeIdx.value == -1) {
+        _shadeIdx.value = 6;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final themeProvider = Provider.of<ThemeNotifier>(context, listen: false);
+    
+    if (seedColor.value == NamedColors.indigo) {
+      _init(themeProvider.seed);
+    }
 
     return Scaffold(
       appBar: AppBar(

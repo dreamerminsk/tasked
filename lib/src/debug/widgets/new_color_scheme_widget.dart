@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tasked/main.dart';
+import 'package:provider/provider.dart';
+
 import '../../routes/app_pages.dart';
+import '../../core/theme_notifier.dart';
 
 class NewColorSchemeWidget extends StatelessWidget {
   const NewColorSchemeWidget({
@@ -12,6 +14,7 @@ class NewColorSchemeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+        final themeProvider = Provider.of<ThemeNotifier>(context, listen: false);
 
     return Material(
       elevation: 4,
@@ -33,7 +36,7 @@ class NewColorSchemeWidget extends StatelessWidget {
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
               Text(
-                '${MyApp.shadeColor.name}, ${MyApp.variant.toString().split(".").last}',
+                '${themeProvider.seed.toString()}',
                 style:
                     textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text
