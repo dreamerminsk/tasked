@@ -7,4 +7,8 @@ class ThemeNotifiee extends ChangeNotifier {
     _themeData = theme;
     notifyListeners();
   }
+
+   void randomise() {
+      
+   }
 }
