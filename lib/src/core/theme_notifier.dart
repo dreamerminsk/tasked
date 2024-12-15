@@ -6,9 +6,7 @@ class ThemeNotifier extends ChangeNotifier {
   ThemeNotifier(this._seedData);
 
   factory ThemeNotifier.random() {
-    return ThemeNotifier(
-      ColorSchemeSeed.random()
-    );
+    return ThemeNotifier(ColorSchemeSeed.random());
   }
 
   ColorSchemeSeed get seed => _seedData;
@@ -23,7 +21,7 @@ class ThemeNotifier extends ChangeNotifier {
       );
 
   void randomise() {
-      _seedData = ColorSchemeSeed.random();
-      notifyListeners();
+    _seedData = ColorSchemeSeed.random();
+    notifyListeners();
   }
 }

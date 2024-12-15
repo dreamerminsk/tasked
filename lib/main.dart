@@ -9,8 +9,6 @@ import 'src/core/theme_notifier.dart';
 
 void main() => runApp(TaskedApp());
 
-
-
 class TaskedApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
