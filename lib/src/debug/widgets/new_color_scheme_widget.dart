@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+
 import '../../routes/app_pages.dart';
 import '../../core/theme_notifier.dart';
 
