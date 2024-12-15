@@ -1,7 +1,8 @@
 class ColorSchemeSeed {
   const  ColorSchemeSeed ({
-    this.titleTextStyle,
-    this.subtitleTextStyle,
+    this.seedColor,
+    this.dynamicSchemeVariant,
+    this.contrastLevel,
   });
 
     NamedMaterialColor color = NamedColors.indigo;
