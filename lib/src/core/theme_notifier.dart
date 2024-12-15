@@ -23,11 +23,7 @@ class ThemeNotifier extends ChangeNotifier {
       );
 
   void randomise() {
-    try {
       _seedData = ColorSchemeSeed.random();
       notifyListeners();
-    } catch (e) {
-      print('Error randomizing theme: $e');
-    }
   }
 }
