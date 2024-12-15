@@ -35,3 +35,4 @@ class TaskedAppWithTheme extends StatelessWidget {
       getPages: AppPages.routes,
     );
   }
+}
