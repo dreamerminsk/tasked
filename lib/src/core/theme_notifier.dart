@@ -1,22 +1,18 @@
 class ThemeNotifier extends ChangeNotifier {
-  ThemeData _themeData;
-  ThemeChanger(this._themeData);
+  ColorSchemeSeed _seedData;
+  ThemeNotifier(this._seedData);
 
-  get getTheme => _themeData;
-  void setTheme(ThemeData theme) {
-    _themeData = theme;
-    notifyListeners();
-  }
-
-   void randomise() {
-       _themeData = ThemeData(
+  get theme => ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: shadeColor.color,
-          dynamicSchemeVariant: variant,
-          contrastLevel: 0.0,
+          seedColor: _seedData.seedColor,
+          dynamicSchemeVariant: _seedData.dynamicSchemeVariant,
+          contrastLevel: _seedData.contrastLevel,
         ),
       );
+
+   void randomise() {
+       _seedData = ColorSchemeSeed.random();
       notifyListeners();
    }
 }
