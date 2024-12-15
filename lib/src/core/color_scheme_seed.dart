@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+
 import 'colors.dart';
 
 class ColorSchemeSeed {
