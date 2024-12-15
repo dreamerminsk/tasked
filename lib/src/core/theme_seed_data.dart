@@ -15,7 +15,7 @@ class ColorSchemeSeed {
     return ColorSchemeSeed(
       seedColor: seedColor,
       dynamicSchemeVariant: dynamicSchemeVariant,
-      contrastLevel: 0.0,
+      contrastLevel: Random().nextDouble() * 2.0 - 1.0,
     );
   }
 
