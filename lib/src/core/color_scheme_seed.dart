@@ -1,3 +1,7 @@
+import 'dart:math';
+
+import 'colors.dart';
+
 class ColorSchemeSeed {
   const ColorSchemeSeed({
     required this.seedColor,
