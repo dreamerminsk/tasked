@@ -1,4 +1,4 @@
-class ThemeNotifiee extends ChangeNotifier {
+class ThemeNotifier extends ChangeNotifier {
   ThemeData _themeData;
   ThemeChanger(this._themeData);
 
@@ -9,6 +9,14 @@ class ThemeNotifiee extends ChangeNotifier {
   }
 
    void randomise() {
-      
+       _themeData = ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: shadeColor.color,
+          dynamicSchemeVariant: variant,
+          contrastLevel: 0.0,
+        ),
+      );
+      notifyListeners();
    }
 }
