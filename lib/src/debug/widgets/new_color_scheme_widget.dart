@@ -33,7 +33,7 @@ class NewColorSchemeWidget extends StatelessWidget {
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
               Text(
-                               '${themeProvider.seed.toString()}',
+                '${themeProvider.seed.toString()}',
                 style:
                     textTheme.bodyLarge!.copyWith(color: colorScheme.onPrimary),
               ), // Text

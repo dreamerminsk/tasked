@@ -13,7 +13,7 @@ class ColorSchemeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-        final themeProvider = Provider.of<ThemeNotifier>(context);
+    final themeProvider = Provider.of<ThemeNotifier>(context);
 
     return Material(
       elevation: 4,

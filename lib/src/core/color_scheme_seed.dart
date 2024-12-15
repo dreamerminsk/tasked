@@ -40,7 +40,8 @@ class ColorSchemeSeed {
   }
 
   @override
-  String toString() => '${seedColor.name}, ${dynamicSchemeVariant.toString().split(".").last}, ${contrastLevel.toStringAsFixed(1)}';
+  String toString() =>
+      '${seedColor.name}, ${dynamicSchemeVariant.toString().split(".").last}, ${contrastLevel.toStringAsFixed(1)}';
 
   @override
   int get hashCode => Object.hashAll(

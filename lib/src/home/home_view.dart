@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: Obx(() => Text("Bookmarks [t:${c.timers}, r:${c.requests}]")),
         actions: [
-                    const RandomThemeButton(),
+          const RandomThemeButton(),
           IconButton(
             icon: const Icon(Icons.app_shortcut),
             color: colorScheme.primary,
