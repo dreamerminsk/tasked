@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
+
 class ThemeNotifier extends ChangeNotifier {
   ColorSchemeSeed _seedData;
+
   ThemeNotifier(this._seedData);
 
-  get theme => ThemeData(
+  ThemeData get theme => ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: _seedData.seedColor,
@@ -11,8 +14,12 @@ class ThemeNotifier extends ChangeNotifier {
         ),
       );
 
-   void randomise() {
-       _seedData = ColorSchemeSeed.random();
+  void randomise() {
+    try {
+      _seedData = ColorSchemeSeed.random();
       notifyListeners();
-   }
+    } catch (e) {
+      print('Error randomizing theme: $e');
+    }
+  }
 }
