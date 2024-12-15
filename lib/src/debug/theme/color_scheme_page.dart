@@ -54,7 +54,7 @@ class ColorSchemePage extends StatelessWidget {
 
   void _init(ColorSchemeSeed seed) {
      _seedIdx.value = NamedColors.primaries.indexOf(seed.materialColor);
-    _shadeIdx.value = MyApp.seedColor.shades.indexOf(seed.seedColor);
+    _shadeIdx.value = seed.materialColor.shades.indexOf(seed.seedColor);
     _variantIdx.value = DynamicSchemeVariant.values.indexOf(seed.dynamicSchemeVariant);
     if (_shadeIdx.value == -1) {
       final shades = seed materialColor.shades.map((shade) => shade.name).toList();
