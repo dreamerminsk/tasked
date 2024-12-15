@@ -57,7 +57,7 @@ class ColorSchemePage extends StatelessWidget {
     _shadeIdx.value = seed.materialColor.shades.indexOf(seed.seedColor);
     _variantIdx.value = DynamicSchemeVariant.values.indexOf(seed.dynamicSchemeVariant);
     if (_shadeIdx.value == -1) {
-      final shades = seed materialColor.shades.map((shade) => shade.name).toList();
+      final shades = seed.materialColor.shades.map((shade) => shade.name).toList();
       _shadeIdx.value = shades.indexOf(seed.seedColor.name);
       if (_shadeIdx.value == -1) {
         _shadeIdx.value = 6;
