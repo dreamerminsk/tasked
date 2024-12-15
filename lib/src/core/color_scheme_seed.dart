@@ -23,9 +23,9 @@ class ColorSchemeSeed {
     );
   }
 
-  NamedColor seedColor = NamedColors.indigo.shade500;
-  DynamicSchemeVariant dynamicSchemeVariant = DynamicSchemeVariant.fidelity;
-  double contrastLevel = 0.0;
+  final NamedColor seedColor;
+  final DynamicSchemeVariant dynamicSchemeVariant;
+  final double contrastLevel;
 
   ColorSchemeSeed copyWith({
     NamedColor? seedColor,
