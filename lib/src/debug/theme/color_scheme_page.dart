@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tasked/main.dart';
+import 'package:provider/provider.dart';
 
 import 'sample_color.dart';
 import '../../core/colors.dart';
