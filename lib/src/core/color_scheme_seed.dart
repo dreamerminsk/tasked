@@ -40,6 +40,9 @@ class ColorSchemeSeed {
   }
 
   @override
+  String toString() => '';
+
+  @override
   int get hashCode => Object.hashAll(
         <Object?>[
           seedColor,
