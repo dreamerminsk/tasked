@@ -1,38 +1,46 @@
 class ColorSchemeSeed {
   const  ColorSchemeSeed ({
-    this.seedColor,
-    this.dynamicSchemeVariant,
-    this.contrastLevel,
+    required this.seedColor,
+    required this.dynamicSchemeVariant,
+    required this.contrastLevel,
   });
 
-    NamedMaterialColor color = NamedColors.indigo;
-  NamedColor shade = NamedColors.indigo.shade500;
-  DynamicSchemeVariant schemeVariant = DynamicSchemeVariant.fidelity;
-  num contrastLevel = 0;
-
-  void randomise() {
-        seedColor =
+ factory  ColorSchemeSeed.random() {
+     final materialColor =
         NamedColors.primaries[Random().nextInt(NamedColors.primaries.length)];
-    shadeColor = seedColor.shades[Random().nextInt(seedColor.shades.length)];
-    variant = DynamicSchemeVariant
+   final seedColor = materialColor.shades[Random().nextInt(materialColor.shades.length)];
+    final dynamicSchemeVariant = DynamicSchemeVariant
         .values[Random().nextInt(DynamicSchemeVariant.values.length)];
+    return ColorSchemeSeed(
+       seedColor: seedColor,
+       dynamicSchemeVariant : dynamicSchemeVariant,
+       contrastLevel: 0.0,
+    );
   }
 
+ 
+  NamedColor seedColor = NamedColors.indigo.shade500;
+  DynamicSchemeVariant dynamicSchemeVariant = DynamicSchemeVariant.fidelity;
+  double contrastLevel = 0.0;
+
   ColorSchemeSeed copyWith({
-    TextStyle? titleTextStyle,
-    TextStyle? subtitleTextStyle,
+    NamedColor? seedColor,
+    DynamicSchemeVariant? dynamicSchemeVariant,
+    double? contrastLevel,
   }) {
-    return DebugViewThemeData(
-      titleTextStyle: titleTextStyle ?? this.titleTextStyle,
-      subtitleTextStyle: subtitleTextStyle ?? this.subtitleTextStyle,
+    return ColorSchemeSeed(
+      seedColor: seedColor ?? this.seedColor,
+      dynamicSchemeVariant: dynamicSchemeVariant ?? this.dynamicSchemeVariant,
+       contrastLevel: contrastLevel ?? this.contrastLevel,
     );
   }
 
   @override
   int get hashCode => Object.hashAll(
         <Object?>[
-          titleTextStyle,
-          subtitleTextStyle,
+          seedColor,
+          dynamicSchemeVariant,
+          contrastLevel,
         ],
       );
 
@@ -44,9 +52,10 @@ class ColorSchemeSeed {
     if (other.runtimeType != runtimeType) {
       return false;
     }
-    return other is ThemeSeedData
-      && other.titleTextStyle == titleTextStyle
-      && other.subtitleTextStyle == subtitleTextStyle;
+    return other is ColorSchemeSeed
+      && other.seedColor == seedColor
+      && other.dynamicSchemeVariant == dynamicSchemeVariant
+     && other.contrastLevel == contrastLevel;
   }
 
 }
