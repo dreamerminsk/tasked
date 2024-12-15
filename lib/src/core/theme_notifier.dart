@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'color_scheme_seed.dart';
+
 class ThemeNotifier extends ChangeNotifier {
   ColorSchemeSeed _seedData;
 
