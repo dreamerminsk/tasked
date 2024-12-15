@@ -5,6 +5,8 @@ class ThemeNotifier extends ChangeNotifier {
 
   ThemeNotifier(this._seedData);
 
+  ColorSchemeSeed get seed => _seedData;
+
   ThemeData get theme => ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
