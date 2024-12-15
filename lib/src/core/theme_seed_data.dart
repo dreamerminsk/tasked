@@ -1,5 +1,5 @@
-class ThemeSeedData with Diagnosticable {
-  const  ThemeSeedData ({
+class ColorSchemeSeed {
+  const  ColorSchemeSeed ({
     this.titleTextStyle,
     this.subtitleTextStyle,
   });
@@ -17,23 +17,13 @@ class ThemeSeedData with Diagnosticable {
         .values[Random().nextInt(DynamicSchemeVariant.values.length)];
   }
 
-  ThemeSeedData copyWith({
+  ColorSchemeSeed copyWith({
     TextStyle? titleTextStyle,
     TextStyle? subtitleTextStyle,
   }) {
     return DebugViewThemeData(
       titleTextStyle: titleTextStyle ?? this.titleTextStyle,
       subtitleTextStyle: subtitleTextStyle ?? this.subtitleTextStyle,
-    );
-  }
-
-  static ThemeSeedData? lerp(ThemeSeedData? a, ThemeSeedData? b, double t) {
-    if (identical(a, b)) {
-      return a;
-    }
-    return ThemeSeedData(
-      titleTextStyle: TextStyle.lerp(a?.titleTextStyle, b?.titleTextStyle, t),
-      subtitleTextStyle: TextStyle.lerp(a?.subtitleTextStyle, b?.subtitleTextStyle, t),
     );
   }
 
@@ -58,10 +48,4 @@ class ThemeSeedData with Diagnosticable {
       && other.subtitleTextStyle == subtitleTextStyle;
   }
 
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<TextStyle>('titleTextStyle', titleTextStyle, defaultValue: null));
-    properties.add(DiagnosticsProperty<TextStyle>('subtitleTextStyle', subtitleTextStyle, defaultValue: null));
-  }
 }
