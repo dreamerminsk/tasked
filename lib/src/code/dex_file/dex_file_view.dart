@@ -33,83 +33,34 @@ class DexFileView extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Card(
-            child: ListTile(
-              title: Text('HEADER'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('STRING_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('TYPE_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('PROTO_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('FIELD_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('METHOD_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('CLASS_DEFS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('CALL_SITE_IDS'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('METHOD_HANDLES'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('DATA'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
-          Card(
-            child: ListTile(
-              title: Text('LINK_DATA'),
-              subtitle: Text('pos: 0, size: 0'),
-              isThreeLine: true,
-            ), // ListTile
-          ), // Card
+          Obx(
+            () {
+              if (c.childNodes.isEmpty) {
+                return Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Center(child: Text('No segments found.')),
+                  ),
+                );
+              } else {
+                return Expanded(
+                  child: MediaQuery.removePadding(
+                    context: context,
+                    removeTop: true,
+                    child: ListView.builder(
+                      itemCount: c.childNodes.length,
+                      itemBuilder: (context, index) {
+                        final childNode = c.childNodes[index];
+                        return NodeCardItem(
+                          node: childNode,
+                        ); // NodeCardItem
+                      },
+                    ),
+                  ),
+                );
+              }
+            },
+          ), // Obx
         ], // children
       ), // Column
     );
