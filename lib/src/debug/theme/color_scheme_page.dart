@@ -14,7 +14,8 @@ class ColorSchemePage extends StatelessWidget {
   final isShowInfo = ValueNotifier<bool>(false);
   final seedColor = ValueNotifier<NamedMaterialColor>(NamedColors.indigo);
   final shadeColor = ValueNotifier<NamedColor>(NamedColors.indigo.shade500);
-  final variant = ValueNotifier<DynamicSchemeVariant>(DynamicSchemeVariant.tonalSpot);
+  final variant =
+      ValueNotifier<DynamicSchemeVariant>(DynamicSchemeVariant.tonalSpot);
   final _seedIdx = ValueNotifier<int>(0);
   final _shadeIdx = ValueNotifier<int>(0);
   final _variantIdx = ValueNotifier<int>(0);
@@ -53,11 +54,13 @@ class ColorSchemePage extends StatelessWidget {
   }
 
   void _init(ColorSchemeSeed seed) {
-     _seedIdx.value = NamedColors.primaries.indexOf(seed.materialColor);
+    _seedIdx.value = NamedColors.primaries.indexOf(seed.materialColor);
     _shadeIdx.value = seed.materialColor.shades.indexOf(seed.seedColor);
-    _variantIdx.value = DynamicSchemeVariant.values.indexOf(seed.dynamicSchemeVariant);
+    _variantIdx.value =
+        DynamicSchemeVariant.values.indexOf(seed.dynamicSchemeVariant);
     if (_shadeIdx.value == -1) {
-      final shades = seed.materialColor.shades.map((shade) => shade.name).toList();
+      final shades =
+          seed.materialColor.shades.map((shade) => shade.name).toList();
       _shadeIdx.value = shades.indexOf(seed.seedColor.name);
       if (_shadeIdx.value == -1) {
         _shadeIdx.value = 6;
@@ -70,7 +73,7 @@ class ColorSchemePage extends StatelessWidget {
     //final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     final themeProvider = Provider.of<ThemeNotifier>(context, listen: false);
-    
+
     if (seedColor.value == NamedColors.indigo) {
       _init(themeProvider.seed);
     }
