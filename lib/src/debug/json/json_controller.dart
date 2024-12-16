@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:collection';
 
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
@@ -7,25 +8,23 @@ import 'package:characters/characters.dart';
 import 'package:nanoid2/nanoid2.dart';
 
 import '../debug_controller.dart';
+import 'nodes.dart';
 
 class JsonController extends GetxController {
   final id = nanoid();
   final started = DateTime.now();
   final DebugController debug = Get.find(tag: 'debugger');
-  final jsonRef = ''.obs;
-  final objects = 0.obs;
-  final arrays = 0.obs;
-  final levels = 1.obs;
-  final lobjects = [].obs;
-  final larrays = [].obs;
+  final source = ''.obs;
+  final error = Rxn<Object>(null);
   final content = ''.obs;
-  final level = -1.obs;
+
+  final RxMap<int, JsonNode> nodes = RxMap<int, JsonNode>();
 
   @override
   void onInit() {
     super.onInit();
     debug.logInit(this.runtimeType.toString(), id, started);
-    jsonRef.value = Get.arguments;
+    source.value = Get.arguments;
     load();
   }
 
@@ -40,54 +39,79 @@ class JsonController extends GetxController {
     super.onClose();
   }
 
+  Future<String> getShort(JsonNode node, {int maxLength = 32}) async {
+    final effectiveLength = node.length < 128 ? node.length : 128;
+    final endOffset =
+        (node.offset + effectiveLength).clamp(0, content.value.length);
+
+    final range = content.value.characters.getRange(node.offset, endOffset);
+    var text = range.string;
+
+    text = text.replaceAll(RegExp(r'\s+'), '');
+
+    return text.substring(0, maxLength.clamp(0, text.length));
+  }
+
   void load() async {
-    final fs = await fetchString(jsonRef.value);
+    final fs = await fetchString(source.value);
     switch (fs) {
       case ErrorResult e:
-        content.value = '$e';
+        error.value = e.error;
       case ValueResult v:
         {
           content.value = v.value;
-          process(v.value);
+          error.value = null;
+          try {
+            scan();
+          } catch (e) {
+            error.value = e;
+          }
         }
       default:
-        content.value = 'very strange';
+        {
+          content.value = '{}';
+          error.value = null;
+        }
     }
   }
 
-  void process(String value) async {
-    var level = 1;
-    for (var char in value.characters) {
-      if (char == '{') {
-        if (level > lobjects.length) {
-          lobjects.add(1);
-          larrays.add(0);
-        } else {
-          lobjects[level - 1]++;
-        }
-        objects.value++;
+  void scan() async {
+    final text = content.value;
+    final openNodes = Queue<JsonNode>();
+    final offsets = SplayTreeMap<int, JsonNode>();
+    var level = 0;
+    var pos = 0;
+
+    for (var char in text.characters) {
+      if (char == Tokens.openBrace) {
+        openNodes.addLast(ObjectNode(level: level, offset: pos, length: 1));
         level++;
-        if (levels < level) {
-          levels.value = level;
+      } else if (char == Tokens.closeBrace) {
+        if (openNodes.isEmpty || openNodes.last is! ObjectNode) {
+          throw FormatException('Unmatched closing brace at position $pos');
         }
-      } else if (char == '}') {
+        var node = openNodes.removeLast();
+        offsets[node.offset] = node.copyWith(length: pos - node.offset + 1);
         level--;
-      } else if (char == '[') {
-        if (level > larrays.length) {
-          larrays.add(1);
-          lobjects.add(0);
-        } else {
-          larrays[level - 1]++;
-        }
-        arrays.value++;
+      } else if (char == Tokens.openBracket) {
+        openNodes.addLast(ArrayNode(level: level, offset: pos, length: 1));
         level++;
-        if (levels < level) {
-          levels.value = level;
+      } else if (char == Tokens.closeBracket) {
+        if (openNodes.isEmpty || openNodes.last is! ArrayNode) {
+          throw FormatException('Unmatched closing bracket at position $pos');
         }
-      } else if (char == ']') {
+        var node = openNodes.removeLast();
+        offsets[node.offset] = node.copyWith(length: pos - node.offset + 1);
         level--;
       }
+      pos++;
     }
+
+    if (openNodes.isNotEmpty) {
+      throw FormatException('Unmatched opening nodes remaining.');
+    }
+
+    nodes.addEntries(offsets.entries);
   }
 
   Future<Result<String>> fetchString(String link) async {
@@ -104,9 +128,45 @@ class JsonController extends GetxController {
       debug.newRes({'time': DateTime.now(), 'total': ttl});
       return Result.value(response.data.toString());
     } catch (e, s) {
-      Get.snackbar('JsonController.fetchString', '$e',
-          snackPosition: SnackPosition.BOTTOM);
       return Result.error(e, s);
     }
   }
+}
+
+abstract class Tokens {
+  // Private constructor to prevent instantiation
+  Tokens._();
+
+  /// The character for opening a JSON object.
+  static const String openBrace = '{';
+
+  /// The character for closing a JSON object.
+  static const String closeBrace = '}';
+
+  /// The character for opening a JSON array.
+  static const String openBracket = '[';
+
+  /// The character for closing a JSON array.
+  static const String closeBracket = ']';
+
+  /// The character for a comma in JSON.
+  static const String comma = ',';
+
+  /// The character for a colon in JSON.
+  static const String colon = ':';
+
+  /// The character for a double quotation mark in JSON.
+  static const String doubleQuote = '"';
+
+  /// A whitespace character (space).
+  static const String space = ' ';
+
+  /// A tab character.
+  static const String tab = '\t';
+
+  /// A newline character.
+  static const String newline = '\n';
+
+  /// A carriage return character.
+  static const String carriageReturn = '\r';
 }

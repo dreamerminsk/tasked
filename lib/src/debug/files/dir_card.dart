@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import 'dir_list_view.dart';
 
 class DirCard extends StatelessWidget {
@@ -18,72 +16,81 @@ class DirCard extends StatelessWidget {
     required this.title,
     this.background,
     this.foreground,
-  });
+  }) {
+    _fetchFileStat();
+  }
+
+  void _fetchFileStat() {
+    FileStat.stat(title).then((value) => stat.value = value);
+  }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    final d = Directory(title);
-    d.stat().then((value) => stat.value = value);
+    final borderRadius = index.isEven
+        ? BorderRadius.only(
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          )
+        : BorderRadius.only(
+            topLeft: Radius.circular(20),
+            bottomLeft: Radius.circular(20),
+          );
 
     return InkWell(
       onTap: () {
-        Get.to(DirListView(path: title), preventDuplicates: false);
+        Get.to(() => DirListView(path: title), preventDuplicates: false);
       },
       child: Material(
-        elevation: 1,
-        borderRadius: index.isEven
-            ? BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ) // BorderRadius
-            : BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ), // BorderRadius
+        elevation: 4,
+        borderRadius: borderRadius,
         child: Container(
           width: Get.width,
           height: 100,
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+          decoration: BoxDecoration(
+            borderRadius: borderRadius,
+            color: background ?? colorScheme.primary,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: index.isEven
+                ? CrossAxisAlignment.end
+                : CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 title.split('/').last,
                 style: textTheme.titleLarge!.copyWith(
                   color: foreground ?? colorScheme.onPrimary,
                 ),
-              ), // Text
-              ObxValue(
+              ),
+              ObxValue<Rxn<FileStat>>(
                 (data) => Wrap(
                   spacing: 8.0,
                   children: <Widget>[
                     Text(
-                      '${data.value == null ? "~~.~~.~~~~" : _format(data.value!.modified)}',
+                      data.value == null
+                          ? "01.01.2001"
+                          : _format(data.value!.modified),
+                      style: textTheme.bodyMedium!.copyWith(
+                        color: foreground ?? colorScheme.onPrimary,
+                      ),
                     ),
                     Text(
                       '${data.value?.size ?? 0}',
+                      style: textTheme.bodyMedium!.copyWith(
+                        color: foreground ?? colorScheme.onPrimary,
+                      ),
                     ),
                   ],
                 ),
                 stat,
-              ), // ObxValue
+              ),
             ],
-          ), // Column
-          decoration: BoxDecoration(
-            borderRadius: index.isEven
-                ? BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                  ) // BorderRadius
-                : BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    bottomLeft: Radius.circular(20),
-                  ), // BorderRadius
-            color: background ?? colorScheme.primary,
-          ), // BoxDecoration
-        ), // Container
-      ), // Material
+          ),
+        ),
+      ),
     );
   }
 

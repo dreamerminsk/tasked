@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'json_controller.dart';
+import '../json_controller.dart';
 
 class JsonDocCard extends StatelessWidget {
   const JsonDocCard({super.key});

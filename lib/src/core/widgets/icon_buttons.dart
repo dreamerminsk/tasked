@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+
+import '../theme_notifier.dart';
 
 enum IconButtonVariant { standard, filled, filledTonal, outlined }
 
@@ -63,6 +66,68 @@ class DebugIconButton extends StatelessWidget {
           color: color ?? colorScheme.primary,
           onPressed: () {
             Get.toNamed(route);
+          }, // onPressed
+        ), // IconButton
+    };
+  }
+}
+
+class RandomThemeButton extends StatelessWidget {
+  const RandomThemeButton({
+    super.key,
+    this.color,
+  }) : _variant = IconButtonVariant.standard;
+
+  const RandomThemeButton.filled({
+    super.key,
+    this.color,
+  }) : _variant = IconButtonVariant.filled;
+
+  const RandomThemeButton.filledTonal({
+    super.key,
+    this.color,
+  }) : _variant = IconButtonVariant.filledTonal;
+
+  const RandomThemeButton.outlined({
+    super.key,
+    this.color,
+  }) : _variant = IconButtonVariant.outlined;
+
+  final Color? color;
+  final IconButtonVariant _variant;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final themeProvider = Provider.of<ThemeNotifier>(context);
+
+    return switch (_variant) {
+      IconButtonVariant.filled => IconButton.filled(
+          icon: const Icon(Icons.casino_outlined),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            themeProvider.randomise();
+          }, // onPressed
+        ), // IconButton
+      IconButtonVariant.filledTonal => IconButton.filledTonal(
+          icon: const Icon(Icons.casino_outlined),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            themeProvider.randomise();
+          }, // onPressed
+        ), // IconButton
+      IconButtonVariant.outlined => IconButton.outlined(
+          icon: const Icon(Icons.casino_outlined),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            themeProvider.randomise();
+          }, // onPressed
+        ), // IconButton
+      IconButtonVariant.standard => IconButton(
+          icon: const Icon(Icons.casino_outlined),
+          color: color ?? colorScheme.primary,
+          onPressed: () {
+            themeProvider.randomise();
           }, // onPressed
         ), // IconButton
     };

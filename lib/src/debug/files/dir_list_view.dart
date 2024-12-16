@@ -20,51 +20,67 @@ class DirListView extends StatelessWidget {
     if (entries.isEmpty) {
       final directory = Directory(path);
       directory.stat().then((value) => stat.value = value);
+      entries.add(directory.parent.path);
       directory.list().map((item) => item.path).toList().then((items) {
         entries.addAll(items);
       });
     }
 
     return Scaffold(
-      body: Obx(() => ListView.builder(
-            itemCount: entries.length + 1,
-            itemBuilder: (BuildContext context, int index) {
-              return index == 0
-                  ? Padding(
-                      padding: const EdgeInsets.fromLTRB(4, 0, 4, 16),
-                      child: DirTitle(
-                        title: path,
-                        onTap: () => showModalBottomSheet<void>(
-                          context: context,
-                          builder: _buildSheet,
-                        ),
-                      ),
-                    )
-                  : Padding(
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: DirTitle(
+              title: path,
+              onTap: () => showModalBottomSheet<void>(
+                context: context,
+                builder: _buildSheet,
+              ),
+            ),
+          ),
+          Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: Obx(
+                () => ListView.builder(
+                  itemCount: entries.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
                       padding: EdgeInsets.fromLTRB(
                         index.isEven ? 0 : 24,
                         8,
                         index.isEven ? 24 : 0,
                         8,
-                      ),
+                      ), // EdgeInsets
                       child: DirCard(
                         index: index,
-                        title: entries[index - 1],
-                        background: colorScheme.primaryContainer,
-                        foreground: colorScheme.onPrimaryContainer,
-                      ),
-                    );
-            },
-          )),
+                        title: entries[index],
+                        background: index == 0
+                            ? colorScheme.primaryFixedDim
+                            : colorScheme.primaryFixed,
+                        foreground: index == 0
+                            ? colorScheme.onPrimaryFixedVariant
+                            : colorScheme.onPrimaryFixed,
+                      ), // DirCard
+                    ); // Padding
+                  }, // itemBuilder
+                ), // ListView
+              ), // Obx
+            ), // MediaQuery
+          ), // Expanded
+        ], // children
+      ), // Column
     );
   }
 
   Widget _buildSheet(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: Get.width,
-      height: Get.height * 0.5,
+      //height: Get.height * 0.45,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           DataTable(
             headingRowHeight: 0,

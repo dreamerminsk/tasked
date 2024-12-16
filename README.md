@@ -2,6 +2,23 @@
 
 A new Flutter application.
 
+[![update](https://github.com/dreamerminsk/tasked/actions/workflows/flutter.yml/badge.svg)](https://github.com/dreamerminsk/tasked/actions/workflows/flutter.yml)
+[![build](https://github.com/dreamerminsk/tasked/actions/workflows/releases.yml/badge.svg)](https://github.com/dreamerminsk/tasked/actions/workflows/releases.yml)
+
+![commits](https://img.shields.io/github/commit-activity/y/dreamerminsk/tasked)
+![commits](https://img.shields.io/github/commit-activity/m/dreamerminsk/tasked)
+![commits](https://img.shields.io/github/commit-activity/w/dreamerminsk/tasked)
+
+![](https://img.shields.io/github/languages/code-size/dreamerminsk/tasked)
+![](https://img.shields.io/github/repo-size/dreamerminsk/tasked)
+
+![GitHub Release](https://img.shields.io/github/v/release/dreamerminsk/tasked)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/dreamerminsk/tasked/total)
+
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/dreamerminsk/tasked/latest)
+
+
+
 ## Stats
 
 ###

@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 class RootListCard extends StatelessWidget {
+  static const version = '24.10.17';
+  static const title = 'roots';
+
   const RootListCard({
     super.key,
   });
@@ -14,7 +17,7 @@ class RootListCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      elevation: 2,
+      elevation: 4,
       borderRadius: BorderRadius.all(Radius.circular(20)),
       child: InkWell(
         onTap: () {
@@ -27,7 +30,7 @@ class RootListCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'ROOTS',
+                '$title $version',
                 style: textTheme.headlineSmall!
                     .copyWith(color: colorScheme.onPrimary),
               ), // Text
