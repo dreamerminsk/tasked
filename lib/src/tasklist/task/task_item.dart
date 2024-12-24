@@ -5,12 +5,14 @@ class TaskItem {
   final String title;
   final String path;
   final GestureTapCallback? onTap;
+  final GestureDragEndCallback? onHorizontalDragEnd;
 
   const TaskItem({
     this.id = 0,
     this.title = 'task 0',
     this.path = Routes.TASK,
     this.onTap,
+    this.onHorizontalDragEnd,
   });
 
   TaskItem copyWith({
@@ -18,12 +20,14 @@ class TaskItem {
     String? title,
     String? path,
     GestureTapCallback? onTap,
+    GestureDragEndCallback? onHorizontalDragEnd,
   }) {
     return TaskItem(
       id: id ?? this.id,
       title: title ?? this.title,
       path: path ?? this.path,
       onTap: onTap ?? this.onTap,
+      onHorizontalDragEnd: onHorizontalDragEnd ?? this.onHorizontalDragEnd,
     );
   }
 
