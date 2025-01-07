@@ -1,2 +1,11 @@
 name: wikied
-version: 0.0.0
+description: simple mediawiki client
+
+version: 0.0.7
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
