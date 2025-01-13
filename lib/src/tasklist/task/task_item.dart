@@ -42,3 +42,42 @@ class TaskItem {
   @override
   int get hashCode => toTuple().hashCode;
 }
+
+class TaskItem2 {
+  final int id;
+  final String title;
+  final GestureTapCallback? onTap;
+  final GestureDragEndCallback? onHorizontalDragEnd;
+
+  const TaskItem2({
+    this.id = 0,
+    this.title = 'task 0',
+    this.onTap,
+    this.onHorizontalDragEnd,
+  });
+
+  TaskItem2 copyWith({
+    int? id,
+    String? title,
+    GestureTapCallback? onTap,
+    GestureDragEndCallback? onHorizontalDragEnd,
+  }) {
+    return TaskItem2(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      onTap: onTap ?? this.onTap,
+      onHorizontalDragEnd: onHorizontalDragEnd ?? this.onHorizontalDragEnd,
+    );
+  }
+
+  (int, String) toTuple() => (id, title);
+
+  @override
+  bool operator ==(covariant TaskItem2 other) {
+    if (identical(this, other)) return true;
+    return other.toTuple() == toTuple();
+  }
+
+  @override
+  int get hashCode => toTuple().hashCode;
+}
