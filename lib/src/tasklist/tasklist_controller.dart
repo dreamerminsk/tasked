@@ -15,9 +15,9 @@ class TasklistController extends GetxController {
     TaskItem(id: 1, title: 'snooker :: events', path: Routes.SNOOKEREVENTS),
     TaskItem(id: 2, title: 'snooker :: players', path: Routes.SNOOKERPLAYERS),
     TaskItem(id: 3, title: '${DateTime.now().year} films', path: Routes.YEARINFILMS),
-    TaskItem(id: 4, title: 'html :: viewer', path: Routes.HTML_SOURCELIST),
-    TaskItem(id: 5, title: 'audio :: viewer', path: Routes.AUDIO_FILES),
-    TaskItem(id: 6, title: 'code :: viewer', path: Routes.CODE_FILES),
+    TaskItem(id: 4, title: 'text :: files', path: Routes.HTML_SOURCELIST),
+    TaskItem(id: 5, title: 'media :: files', path: Routes.AUDIO_FILES),
+    TaskItem(id: 6, title: 'binary :: files', path: Routes.CODE_FILES),
   ].obs;
 
   @override
