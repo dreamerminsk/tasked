@@ -70,7 +70,7 @@ class TaskItem2 {
     );
   }
 
-  (int, String) toTuple() => (id, title);
+  (int, String, GestureTapCallback?, GestureDragEndCallback?) toTuple() => (id, title, onTap, onHorizontalDragEnd);
 
   @override
   bool operator ==(covariant TaskItem2 other) {
