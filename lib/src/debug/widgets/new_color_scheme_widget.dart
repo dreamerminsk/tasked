@@ -14,7 +14,7 @@ class NewColorSchemeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-        final themeProvider = Provider.of<ThemeNotifier>(context, listen: false);
+    final themeProvider = Provider.of<ThemeNotifier>(context, listen: false);
 
     return Material(
       elevation: 4,
