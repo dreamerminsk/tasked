@@ -13,7 +13,7 @@ class TasklistView extends StatelessWidget {
     final TasklistController c = Get.find();
 
     return Scaffold(
-      appBar: AppBar(title: Text("tasklist"), actions: <Widget>[
+      appBar: AppBar(title: Text("tasklist"), actions: <Widget>[          const RandomThemeButton(),
         IconButton(
           icon: Icon(Icons.home),
           color: Theme.of(context).colorScheme.primary,
