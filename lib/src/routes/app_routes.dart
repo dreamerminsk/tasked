@@ -9,6 +9,7 @@ abstract class Routes {
   static const TASK = _Paths.TASK;
   static const SNOOKEREVENTS = _Paths.SNOOKEREVENTS;
   static const SNOOKERPLAYERS = _Paths.SNOOKERPLAYERS;
+  static const SNOOKERRANKING = _Paths.SNOOKERRANKING;
   static const SNOOKERSEASONS = _Paths.SNOOKERSEASONS;
 
   static const AUDIO_FILES = _Paths.AUDIO_FILES;
@@ -39,6 +40,7 @@ abstract class _Paths {
   static const TASK = '/task';
   static const SNOOKEREVENTS = '/task/events';
   static const SNOOKERPLAYERS = '/task/players';
+  static const SNOOKERRANKING = '/task/ranking';
   static const SNOOKERSEASONS = '/task/seasons';
 
   static const AUDIO_FILES = '/task/audio/files';
