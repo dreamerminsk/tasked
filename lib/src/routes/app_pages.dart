@@ -19,10 +19,13 @@ import '../home/home_view.dart';
 import '../tasklist/tasklist_binding.dart';
 import '../tasklist/tasklist_view.dart';
 import '../tasklist/task/task_view.dart';
+
 import '../snooker/event/event_binding.dart';
 import '../snooker/event/event_view.dart';
 import '../snooker/player/player_binding.dart';
 import '../snooker/player/player_view.dart';
+import '../snooker/ranking/ranking_binding.dart';
+import '../snooker/ranking/ranking_view.dart';
 import '../snooker/season/season_binding.dart';
 import '../snooker/season/season_view.dart';
 
@@ -73,6 +76,11 @@ class AppPages {
       name: _Paths.SNOOKERSEASONS,
       page: () => SeasonView(),
       binding: SeasonBinding(),
+    ),
+    GetPage(
+      name: _Paths.SNOOKERRANKING,
+      page: () => RankingView(),
+      binding: RankingBinding(),
     ),
     GetPage(
       name: _Paths.SNOOKEREVENTS,
